@@ -13,11 +13,11 @@ keywords: "NuGet パッケージ マネージャー コンソールで、NuGet P
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 7bf8cdb938195f4747932b38ef0d5bb6c34b9137
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 6a3232af925f75713168421e68f2773060c5ebaa
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="add-bindingredirect-package-manager-console-in-visual-studio"></a>(Visual Studio でパッケージ マネージャー コンソール) の追加-BindingRedirect
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/14/2017
 
 プロジェクトの出力パス内のすべてのアセンブリを調べ、必要に応じて、アプリケーションまたは web 構成ファイルにバインド リダイレクトを追加します。 このコマンドは、パッケージをインストールするときに自動的に実行されます。
 
-バインディング リダイレクト、および使用する理由の詳細については、「[アセンブリ バージョンのリダイレクト](https://docs.microsoft.com/dotnet/framework/configure-apps/redirect-assembly-versions).NET のドキュメントにします。
+バインディング リダイレクト、および使用する理由の詳細については、「[アセンブリ バージョンのリダイレクト](/dotnet/framework/configure-apps/redirect-assembly-versions).NET のドキュメントにします。
 
 ## <a name="syntax"></a>構文
 
@@ -45,7 +45,7 @@ Add-BindingRedirect [-ProjectName] <string> [<CommonParameters>]
 
 `Add-BindingRedirect`次のサポート[一般的な PowerShell パラメーター](http://go.microsoft.com/fwlink/?LinkID=113216): デバッグ、エラー アクション、ErrorVariable、OutBuffer、OutVariable、PipelineVariable、Verbose、WarningAction、WarningVariable、します。
 
-## <a name="examples"></a>例
+## <a name="examples"></a>使用例
 
 ```ps
 Add-BindingRedirect MyProject

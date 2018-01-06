@@ -13,15 +13,15 @@ keywords: "NuGet パッケージ マネージャー コンソールで、NuGet P
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b6af6098da9c00e47b81ac9ec37bd5210a99a9fe
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: fb55cc71e0d4b8eee28b232e64d2cc42364fc153
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="find-package-package-manager-console-in-visual-studio"></a>Find-package (Visual Studio でパッケージ マネージャー コンソール)
 
-*Version 3.0 以降。このトピック内のコマンドをについて説明、 [NuGet Package Manager Console](Package-Manager-Console.md) Windows 上の Visual Studio でします。一般的な PowerShell Find-package コマンドは、次を参照してください。、 [PowerShell PackageManagement 参照](https://docs.microsoft.com/powershell/module/packagemanagement/?view=powershell-6)です。*
+*Version 3.0 以降。このトピック内のコマンドをについて説明、 [NuGet Package Manager Console](Package-Manager-Console.md) Windows 上の Visual Studio でします。一般的な PowerShell Find-package コマンドは、次を参照してください。、 [PowerShell PackageManagement 参照](/powershell/module/packagemanagement/?view=powershell-6)です。*
 
 パッケージ ソースから指定された ID またはキーワードに一致するリモート パッケージのセットを取得します。
 
@@ -51,7 +51,7 @@ Find-Package [-Id] <keywords> -Source <string> [-AllVersions] [-First [<int>]]
 
 `Find-Package`次のサポート[一般的な PowerShell パラメーター](http://go.microsoft.com/fwlink/?LinkID=113216): デバッグ、エラー アクション、ErrorVariable、OutBuffer、OutVariable、PipelineVariable、Verbose、WarningAction、WarningVariable、します。
 
-## <a name="examples"></a>例
+## <a name="examples"></a>使用例
 
 ```ps
 # Find packages containing keywords

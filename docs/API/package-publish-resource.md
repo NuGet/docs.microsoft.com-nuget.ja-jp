@@ -17,16 +17,15 @@ keywords: "NuGet API プッシュ パッケージ、パッケージを削除す�
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 1fa3c0e1698a11208d9ef29fdf26a4980cb60cf5
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 87970a701c63bce2b74c619069ec1d231ea77ab5
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="push-and-delete"></a>プッシュ モードと削除
 
-プッシュし削除 (またはサーバーの実装によって、非公開) することは NuGet V3 API を使用してパッケージ化します。
-両方の操作は無効の基づいて、`PackagePublish`リソースで見つかった、[サービス インデックス](service-index.md)です。
+プッシュ、削除 (またはサーバーの実装によって、非公開キーを押す)、可能であれば、NuGet V3 API を使用してパッケージを relist とします。 これらの操作は無効の基づいて、`PackagePublish`リソースで見つかった、[サービス インデックス](service-index.md)です。
 
 ## <a name="versioning"></a>バージョン管理
 
@@ -44,9 +43,12 @@ PackagePublish/2.0.0 | 最初のリリース
 
 ## <a name="http-methods"></a>HTTP メソッド
 
-`PUT`と`DELETE`HTTP メソッドは、このリソースでサポートされています。 各エンドポイントでは、どのメソッドがサポートされている、次を参照してください。
+`PUT`、`POST`と`DELETE`HTTP メソッドは、このリソースでサポートされています。 各エンドポイントでは、どのメソッドがサポートされている、次を参照してください。
 
 ## <a name="push-a-package"></a>パッケージをプッシュします。
+
+> [!Note]
+> nuget.org が[追加要件](NuGet-Protocols.md)プッシュ エンドポイントと対話するためです。
 
 nuget.org には、次の API を使用してプッシュの新しいパッケージがサポートされています。 指定された ID とバージョンのパッケージが既に存在する場合、nuget.org は、プッシュを拒否します。 他のパッケージ ソースでは、既存のパッケージの交換をサポートできます。
 
@@ -56,7 +58,7 @@ PUT https://www.nuget.org/api/v2/package
 
 ### <a name="request-parameters"></a>要求パラメーター
 
-名前           | イン     | 型   | 必須 | メモ
+name           | イン     | 型   | 必須 | メモ
 -------------- | ------ | ------ | -------- | -----
 X-NuGet-ApiKey | Header | string | 可      | たとえば、`X-NuGet-ApiKey: {USER_API_KEY}`
 
@@ -90,7 +92,7 @@ DELETE https://www.nuget.org/api/v2/package/{ID}/{VERSION}
 
 ### <a name="request-parameters"></a>要求パラメーター
 
-名前           | イン     | 型   | 必須 | メモ
+name           | イン     | 型   | 必須 | メモ
 -------------- | ------ | ------ | -------- | -----
 ID             | URL    | string | 可      | 削除するパッケージの ID
 VERSION        | URL    | string | 可      | 削除するパッケージのバージョン
@@ -101,4 +103,29 @@ X-NuGet-ApiKey | Header | string | 可      | たとえば、`X-NuGet-ApiKey: {U
 状態コード | 説明
 ----------- | -------
 204         | パッケージが削除されました
+404         | 指定されたパッケージに含まれない`ID`と`VERSION`が存在します。
+
+## <a name="relist-a-package"></a>パッケージを relist します。
+
+パッケージが一覧にない場合は、そのパッケージを"relist"のエンドポイントを使用して検索結果にもう一度表示することができます。 このエンドポイントと同じ形には、[削除 (非公開) エンドポイント](#delete-a-package)が使用して、 `POST` HTTP メソッドの代わりに、`DELETE`メソッドです。
+
+パッケージが既に表示されている場合でも、要求は成功します。
+
+```
+POST https://www.nuget.org/api/v2/package/{ID}/{VERSION}
+```
+
+### <a name="request-parameters"></a>要求パラメーター
+
+name           | イン     | 型   | 必須 | メモ
+-------------- | ------ | ------ | -------- | -----
+ID             | URL    | string | 可      | Relist するパッケージの ID
+VERSION        | URL    | string | 可      | Relist するパッケージのバージョン
+X-NuGet-ApiKey | Header | string | 可      | たとえば、`X-NuGet-ApiKey: {USER_API_KEY}`
+
+### <a name="response"></a>応答
+
+状態コード | 説明
+----------- | -------
+204         | パッケージが一覧表示されます。
 404         | 指定されたパッケージに含まれない`ID`と`VERSION`が存在します。

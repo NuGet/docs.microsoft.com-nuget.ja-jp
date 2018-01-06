@@ -13,11 +13,11 @@ keywords: "NuGet 2.8 リリース ノートについては、バグの修正、�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0bb35e9d6ef6f3dde7919cd502b32ba5a550c689
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 182e7d1e2224c431631cddd14fdbea8dd9e14278
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-28-release-notes"></a>NuGet 2.8 のリリース ノート
 
@@ -96,7 +96,7 @@ NuGet 2.8 の変更が、_既定_動作の依存関係を解決するために�
 
 ## <a name="development-dependencies"></a>開発の依存関係
 
-さまざまな種類の機能は、NuGet パッケージの開発プロセスを最適化するために使用されるツールを含むとして配信することができます。 新しいパッケージの開発に役立つ可能性があるときに、これらのコンポーネントは見なされません以降である場合に、新しいパッケージの依存関係が公開。 自身を識別するパッケージの NuGet 2.8 を有効、 `.nuspec` developmentDependency としてファイル。 このメタデータに追加することも、インストールされている場合、`packages.config`プロジェクト、パッケージのインストール先のファイルです。 時を`packages.config`ファイルは後の中に、NuGet の依存関係の分析`nuget.exe pack`開発の依存関係としてマークされているこれらの依存関係が除外されます。
+さまざまな種類の機能は、NuGet パッケージの開発プロセスを最適化するために使用されるツールを含むとして配信することができます。 これらのコンポーネントは、新しいパッケージの開発に役立つ可能性があるときに区別しない新しいパッケージの依存関係後で発行されているとします。 自身を識別するパッケージの NuGet 2.8 を有効、 `.nuspec` developmentDependency としてファイル。 このメタデータに追加することも、インストールされている場合、`packages.config`プロジェクト、パッケージのインストール先のファイルです。 時を`packages.config`ファイルは後の中に、NuGet の依存関係の分析`nuget.exe pack`開発の依存関係としてマークされているこれらの依存関係が除外されます。
 
 ## <a name="individual-packagesconfig-files-for-different-platforms"></a>さまざまなプラットフォーム用の個別の packages.config ファイル
 

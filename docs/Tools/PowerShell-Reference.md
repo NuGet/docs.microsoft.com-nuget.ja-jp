@@ -13,11 +13,11 @@ keywords: "NuGet パッケージ マネージャー コンソールで、NuGet P
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c0da5c88447784fdd49d824bbd03b11f73c22ebc
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 64450a8bcca7f6028d4ce389d51ac35e9209cfae
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="powershell-reference"></a>PowerShell リファレンス
 
@@ -27,23 +27,23 @@ ms.lasthandoff: 12/14/2017
 > すべての PowerShell コマンドは、パッケージの消費量にのみ関連します。 PowerShell コマンドは、作成、およびパッケージには、他のパッケージのコンシューマーことができます。 その範囲内に以外のパッケージを公開には関連ありません。
 
 > [!Important]
-> ここに示すコマンドは、Visual Studio で、パッケージ マネージャー コンソールに固有とは異なる、[パッケージ管理モジュールのコマンド](https://msdn.microsoft.com/powershell/reference/6/packagemanagement/packagemanagement)一般的な PowerShell 環境で使用可能なことです。 具体的には、各環境には、他のでは使用できないコマンドと同じ名前のコマンドは特定の引数も異なる場合があります。 Visual Studio でパッケージの管理コンソールを使用すると、コマンドと引数のこのトピックに記載されていますが適用されます。
+> ここに示すコマンドは、Visual Studio で、パッケージ マネージャー コンソールに固有とは異なる、[パッケージ管理モジュールのコマンド](/powershell/module/packagemanagement/?view=powershell-6)一般的な PowerShell 環境で使用可能なことです。 具体的には、各環境には、他のでは使用できないコマンドと同じ名前のコマンドは特定の引数も異なる場合があります。 Visual Studio でパッケージの管理コンソールを使用すると、コマンドと引数のこのトピックに記載されていますが適用されます。
 
 | 一般的なコマンド | 説明 | NuGet のバージョン |
 | --- | --- | --- |
-| [インストール パッケージ](ps-ref-install-package.md) | プロジェクトにパッケージとその依存関係をインストールします。 | すべて |
-| [更新プログラム パッケージ](ps-ref-update-package.md) | パッケージとその依存関係またはプロジェクト内のすべてのパッケージを更新します。 | すべて |
-| [Find-package](ps-ref-find-package.md) | パッケージ ID またはキーワードを使用して、パッケージ ソースを検索します。 | 3.0+ |
-| [Get-package](ps-ref-get-package.md) | ローカル リポジトリにインストールされているパッケージの一覧を取得またはパッケージ ソースから使用可能なパッケージを一覧表示します。 | すべて |
+| [Install-Package](ps-ref-install-package.md) | プロジェクトにパッケージとその依存関係をインストールします。 | すべて |
+| [Update-Package](ps-ref-update-package.md) | パッケージとその依存関係またはプロジェクト内のすべてのパッケージを更新します。 | すべて |
+| [Find-Package](ps-ref-find-package.md) | パッケージ ID またはキーワードを使用して、パッケージ ソースを検索します。 | 3.0+ |
+| [Get-Package](ps-ref-get-package.md) | ローカル リポジトリにインストールされているパッケージの一覧を取得またはパッケージ ソースから使用可能なパッケージを一覧表示します。 | すべて |
 
 | セカンダリ コマンド | 説明 | NuGet のバージョン |
 | --- | --- | --- |
-| [追加 BindingRedirect](ps-ref-add-bindingredirect.md) | プロジェクトの出力パス内のすべてのアセンブリを調べ、バインド リダイレクトを追加、`app.config`または`web.config`必要な場合です。 | すべて |
-| [Get プロジェクト](ps-ref-get-project.md) | 既定値または指定したプロジェクトについての情報を表示します。 | 3.0+ |
-| [開く PackagePage](ps-ref-open-packagepage.md) | プロジェクト、ライセンス、または指定したパッケージの不正使用を URL のレポートで既定のブラウザーを起動します。 | 3.0 以降で廃止されました |
+| [Add-BindingRedirect](ps-ref-add-bindingredirect.md) | プロジェクトの出力パス内のすべてのアセンブリを調べ、バインド リダイレクトを追加、`app.config`または`web.config`必要な場合です。 | すべて |
+| [Get-Project](ps-ref-get-project.md) | 既定値または指定したプロジェクトについての情報を表示します。 | 3.0+ |
+| [Open-PackagePage](ps-ref-open-packagepage.md) | プロジェクト、ライセンス、または指定したパッケージの不正使用を URL のレポートで既定のブラウザーを起動します。 | 3.0 以降で廃止されました |
 | [レジスタ TabExpansion](ps-ref-register-tabexpansion.md) | 一般的に使用されるパラメーター値では、カスタマイズされた展開を作成することができます、コマンドのパラメーターにタブ拡張を登録します。 | すべて |
-| [Sync パッケージ](ps-ref-sync-package.md) | バージョンがインストール パッケージから取得では、プロジェクトを指定し、ソリューション内のプロジェクトの残りの部分のバージョンを同期します。 | 3.0+ |
-| [アンインストール パッケージ](ps-ref-uninstall-package.md) | 必要に応じてその依存関係を削除する、プロジェクトからパッケージを削除します。 | すべて |
+| [Sync-Package](ps-ref-sync-package.md) | バージョンがインストール パッケージから取得では、プロジェクトを指定し、ソリューション内のプロジェクトの残りの部分のバージョンを同期します。 | 3.0+ |
+| [Uninstall-Package](ps-ref-uninstall-package.md) | 必要に応じてその依存関係を削除する、プロジェクトからパッケージを削除します。 | すべて |
 
 コンソール内でこれらのコマンドのいずれかを完全かつ詳細なヘルプ、だけ対象のコマンド名を持つ、次を実行します。
 

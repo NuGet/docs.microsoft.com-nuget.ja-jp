@@ -13,11 +13,11 @@ keywords: "NuGet 2.8.3 リリース ノートについては、バグの修正�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 8c0b38ea4975300af701b66266a9883eb54412c1
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: d6fbebaf02cede52a701abd31e843a077f8acbb7
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-283-release-notes"></a>NuGet 2.8.3 リリース ノート
 
@@ -25,4 +25,4 @@ ms.lasthandoff: 12/14/2017
 
 NuGet 2.8.3 は、2014 年 10 月 17 日にリリースされました。 マイナー アップデートはいくつかで VSIX、2.8.1 に修正プログラムを対象とします。
 
-このリリースでは、NuGet パッケージ マネージャー ダイアログ ボックスのサポートが追加されました[ASP.NET vNext](http://www.asp.net/vnext)、 [DevExtreme](http://js.devexpress.com/)と[BizTalk (.btproj)](http://msdn.microsoft.com/library/aa577497.aspx)プロジェクトの種類。 パッケージの復元を有効にして、パッケージ マネージャーのオプションの保存のシナリオに関連する信頼性バグの修正も含まれています。
+このリリースでは、NuGet パッケージ マネージャー ダイアログ ボックスのサポートが追加されました[ASP.NET vNext](http://www.asp.net/vnext)、 [DevExtreme](http://js.devexpress.com/)と[BizTalk (.btproj)](/biztalk/core/developing-biztalk-server-applications)プロジェクトの種類。 パッケージの復元を有効にして、パッケージ マネージャーのオプションの保存のシナリオに関連する信頼性バグの修正も含まれています。

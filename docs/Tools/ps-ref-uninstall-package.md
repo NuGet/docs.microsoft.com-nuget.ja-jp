@@ -13,15 +13,15 @@ keywords: "NuGet パッケージ マネージャー コンソールで、NuGet P
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 679e89e9cfb16dbe484f133b0b6431313b9d87ac
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 0899198a354a56615a48a1f7f428674a205f386b
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="uninstall-package-package-manager-console-in-visual-studio"></a>Uninstall-package (Visual Studio でパッケージ マネージャー コンソール)
 
-*このトピック内のコマンドをについて説明、 [NuGet Package Manager Console](Package-Manager-Console.md) Windows 上の Visual Studio でします。汎用の PowerShell アンインストール パッケージ コマンドでは、次を参照してください。、 [PowerShell PackageManagement 参照](https://docs.microsoft.com/powershell/module/packagemanagement/?view=powershell-6)です。*
+*このトピック内のコマンドをについて説明、 [NuGet Package Manager Console](Package-Manager-Console.md) Windows 上の Visual Studio でします。汎用の PowerShell アンインストール パッケージ コマンドでは、次を参照してください。、 [PowerShell PackageManagement 参照](/powershell/module/packagemanagement/?view=powershell-6)です。*
 
 必要に応じてその依存関係を削除する、プロジェクトからパッケージを削除します。 コマンドが失敗しない限り、その他のパッケージは、このパッケージに依存している場合、– Force オプションを指定します。
 
@@ -51,7 +51,7 @@ Uninstall-Package [-Id] <string> [-RemoveDependencies] [-ProjectName <string>] [
 
 `Uninstall-Package`次のサポート[一般的な PowerShell パラメーター](http://go.microsoft.com/fwlink/?LinkID=113216): デバッグ、エラー アクション、ErrorVariable、OutBuffer、OutVariable、PipelineVariable、Verbose、WarningAction、WarningVariable、します。
 
-## <a name="examples"></a>例
+## <a name="examples"></a>使用例
 
 ```ps
 # Uninstalls the Elmah package from the default project

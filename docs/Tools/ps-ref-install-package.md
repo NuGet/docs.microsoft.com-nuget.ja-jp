@@ -13,15 +13,15 @@ keywords: "NuGet パッケージ マネージャー コンソールで、NuGet P
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: d51cce6223cd2d89c555ca9d6e936eaadf3757bb
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 4d7645297d2cd48f39a8e2ec168040710f6fc7a3
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="install-package-package-manager-console-in-visual-studio"></a>インストール パッケージ (Visual Studio でパッケージ マネージャー コンソール)
 
-*このトピック内のコマンドをについて説明、 [NuGet Package Manager Console](Package-Manager-Console.md) Windows 上の Visual Studio でします。汎用の PowerShell のインストール パッケージ コマンドでは、次を参照してください。、 [PowerShell PackageManagement 参照](https://docs.microsoft.com/powershell/module/packagemanagement/?view=powershell-6)です。*
+*このトピック内のコマンドをについて説明、 [NuGet Package Manager Console](Package-Manager-Console.md) Windows 上の Visual Studio でします。汎用の PowerShell のインストール パッケージ コマンドでは、次を参照してください。、 [PowerShell PackageManagement 参照](/powershell/module/packagemanagement/?view=powershell-6)です。*
 
 プロジェクトにパッケージとその依存関係をインストールします。
 
@@ -61,7 +61,7 @@ NuGet 2.7 およびそれ以前では、新しいバージョンが既にイン�
 
 `Install-Package`次のサポート[一般的な PowerShell パラメーター](http://go.microsoft.com/fwlink/?LinkID=113216): デバッグ、エラー アクション、ErrorVariable、OutBuffer、OutVariable、PipelineVariable、Verbose、WarningAction、WarningVariable、します。
 
-## <a name="examples"></a>例
+## <a name="examples"></a>使用例
 
 ```ps
 # Installs the latest version of Elmah from the current source into the default project

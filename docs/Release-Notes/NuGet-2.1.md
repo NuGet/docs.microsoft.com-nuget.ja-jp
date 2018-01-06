@@ -13,11 +13,11 @@ keywords: "NuGet 2.1 リリース ノートについては、バグの修正、�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c45cfb9f6a46a1efd9fe4531602191973da66290
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: dafe575eedbfed215c0b1c86795bea281de97252
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-21-release-notes"></a>NuGet 2.1 リリース ノート
 
@@ -80,7 +80,7 @@ NuGet 2.1 を使用して、[パッケージ] フォルダーの場所をより�
 この例では、共有で`Nuget.Config`ファイルの深さに関係なく C:\myteam の下に作成されるすべてのプロジェクトの共有のパッケージ フォルダーを指定します。 場合は、ソリューションのルートの下の既存のパッケージ フォルダーにある場合は、NuGet は、新しい場所にパッケージを配置する前に、それを削除する必要は注意してください。
 
 ## <a name="support-for-portable-libraries"></a>ポータブル ライブラリのサポート
-[ポータブル ライブラリ](http://msdn.microsoft.com/library/gg597391.aspx)Silverlight は、Windows Phone およびでも Xbox に.net Framework のバージョンからのさまざまな Microsoft プラットフォームでの変更なしで使用できるようにアセンブリをビルドすることができます .NET 4 で初めて導入された機能です360 (ただし、現時点では、NuGet は、Xbox ポータブル ライブラリのターゲットをサポートしていません)。  拡張することによって、[規則をパッケージ化](../create-packages/supporting-multiple-target-frameworks.md)framework のバージョンとプロファイルは、NuGet 2.1 では、ポータブル ライブラリを複合フレームワークとプロファイルのターゲットを持つパッケージを作成することによって`lib`フォルダーです。
+[ポータブル ライブラリ](/dotnet/standard/cross-platform/cross-platform-development-with-the-portable-class-library)Silverlight は、Windows Phone およびでも Xbox に.net Framework のバージョンからのさまざまな Microsoft プラットフォームでの変更なしで使用できるようにアセンブリをビルドすることができます .NET 4 で初めて導入された機能です360 (ただし、現時点では、NuGet は、Xbox ポータブル ライブラリのターゲットをサポートしていません)。  拡張することによって、[規則をパッケージ化](../create-packages/supporting-multiple-target-frameworks.md)framework のバージョンとプロファイルは、NuGet 2.1 では、ポータブル ライブラリを複合フレームワークとプロファイルのターゲットを持つパッケージを作成することによって`lib`フォルダーです。
 
 たとえば、次のポータブル クラス ライブラリの使用可能なターゲット プラットフォームを検討してください。
 

@@ -13,18 +13,18 @@ keywords: "dotnet の NuGet コマンド、dotnet パック、dotnet 復元、do
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 7ff4779f46db102f1384650d82118b34fedd4413
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: d020e62b8bd04c8f4a75756fb30ebcf13ffdb1b3
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="dotnet-commands"></a>dotNet コマンド
 
 Windows、Mac OS X、Linux で実行され、DotNet コマンド ライン インターフェイスは、次に示すように不可欠な nuget.exe コマンドの数を提供します。 Dotnet の必要なコマンドを提供、場所、nuget.exe をダウンロードする必要はありません。
 
-- [**dotnet パック**](https://docs.microsoft.com/dotnet/core/tools/dotnet-pack?tabs=netcore2x): NETCore SDK 用のコードをプロジェクト パック NuGet パッケージにします。 その他のすべてのプロジェクトの種類を使用する必要があります。[`nuget pack`](cli-ref-pack.md)
-- [**dotnet 復元**](https://docs.microsoft.com/dotnet/core/tools/dotnet-restore?tabs=netcore2x): 依存関係およびプロジェクトのツールを復元します。 NuGet 4.0 の時点でと同じコードが実行されて`nuget restore`です。
-- [**dotnet nuget ローカル**](https://docs.microsoft.com/dotnet/core/tools/dotnet-nuget-locals): http などのローカルの NuGet リソースは、要求を一覧表示をオフまたはキャッシュ、一時的なキャッシュ、またはコンピューター全体のグローバル packages フォルダーです。
-- [**dotnet nuget プッシュ**](https://docs.microsoft.com/dotnet/core/tools/dotnet-nuget-push): サーバーにパッケージをプッシュし、公開、nuget.org、Visual Studio Team Services、または任意のサードパーティ NuGet サーバーに適用します。
-- [**dotnet nuget 削除**](https://docs.microsoft.com/dotnet/core/tools/dotnet-nuget-delete): unlists nuget.org、Visual Studio Team Services、または任意のサードパーティ製 NuGet サーバーに適用できる、サーバーからパッケージを削除するか。
+- [**dotnet パック**](/dotnet/core/tools/dotnet-pack?tabs=netcore2x): NuGet パッケージに、コードをパックします。 NuGet 4.0 の時点でと同じコードが実行されて`nuget pack`です。
+- [**dotnet 復元**](/dotnet/core/tools/dotnet-restore?tabs=netcore2x): 依存関係およびプロジェクトのツールを復元します。 NuGet 4.0 の時点でと同じコードが実行されて`nuget restore`です。
+- [**dotnet nuget ローカル**](/dotnet/core/tools/dotnet-nuget-locals): http などのローカルの NuGet リソースは、要求を一覧表示をオフまたはキャッシュ、一時的なキャッシュ、またはコンピューター全体のグローバル packages フォルダーです。
+- [**dotnet nuget プッシュ**](/dotnet/core/tools/dotnet-nuget-push): サーバーにパッケージをプッシュし、公開、nuget.org、Visual Studio Team Services、または任意のサードパーティ NuGet サーバーに適用します。
+- [**dotnet nuget 削除**](/dotnet/core/tools/dotnet-nuget-delete): unlists nuget.org、Visual Studio Team Services、または任意のサードパーティ製 NuGet サーバーに適用できる、サーバーからパッケージを削除するか。

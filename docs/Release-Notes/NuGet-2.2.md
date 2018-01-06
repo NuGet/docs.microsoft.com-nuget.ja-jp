@@ -13,11 +13,11 @@ keywords: "NuGet 2.2 リリース ノートについては、バグの修正、�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 690e76a0686a5e7bb699410edef4a6e62ccd2a32
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 1f6080e01777431c4dfb2278db167bd3bc9a67ea
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-22-release-notes"></a>NuGet 2.2 リリース ノート
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/14/2017
 NuGet 2.2 は、2012 年 12 月 12 日にリリースされました。
 
 ## <a name="visual-studio-quick-launch"></a>Visual Studio のクイック起動
-Visual Studio 2012 で追加された新機能の 1 つが、[クイック起動ダイアログ](http://msdn.microsoft.com/library/hh417697.aspx)です。 NuGet 2.2 は、クイック起動 で入力した検索語句をパッケージ マネージャー ダイアログを初期化できるようにこのダイアログ ボックスを拡張します。 たとえば、'jquery' を今サイド リンク バーに入力するオプションが含まれます 'jquery' と一致する NuGet パッケージを検索する結果にします。
+Visual Studio 2012 で追加された新機能の 1 つが、[クイック起動ダイアログ](/visualstudio/ide/reference/quick-launch-environment-options-dialog-box)です。 NuGet 2.2 は、クイック起動 で入力した検索語句をパッケージ マネージャー ダイアログを初期化できるようにこのダイアログ ボックスを拡張します。 たとえば、'jquery' を今サイド リンク バーに入力するオプションが含まれます 'jquery' と一致する NuGet パッケージを検索する結果にします。
 
 ![Visual Studio のクイック起動で NuGet](./media/quick-launch.png)
 

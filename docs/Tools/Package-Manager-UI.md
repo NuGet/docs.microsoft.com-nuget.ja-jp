@@ -17,17 +17,17 @@ keywords: "NuGet UI では、NuGet パッケージ マネージャー UI では�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 88e987054f3c59a327f71b15330a99eb350449e5
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 0f08e5a36499c4481c4e0cd70738d67d65cd980a
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-package-manager-ui"></a>NuGet パッケージ マネージャーの UI
 
-Windows 上の Visual Studio で NuGet パッケージ マネージャー UI を使用すると、インストール、アンインストール、およびプロジェクトおよびソリューションの NuGet パッケージの更新を簡単にできます。 Mac のエクスペリエンスを Visual Studio で、次を参照してください。[などの NuGet パッケージ、プロジェクトの](https://docs.microsoft.com/visualstudio/mac/nuget-walkthrough)します。 パッケージ マネージャーの UI は、Visual Studio のコードに含まれていません。
+Windows 上の Visual Studio で NuGet パッケージ マネージャー UI を使用すると、インストール、アンインストール、およびプロジェクトおよびソリューションの NuGet パッケージの更新を簡単にできます。 Mac のエクスペリエンスを Visual Studio で、次を参照してください。[などの NuGet パッケージ、プロジェクトの](/visualstudio/mac/nuget-walkthrough)します。 パッケージ マネージャーの UI は、Visual Studio のコードに含まれていません。
 
-このトピックの内容
+このトピックの内容:
 
 - [検索とインストール パッケージ ([参照] タブ)](#finding-and-installing-a-package)
 - [パッケージ (インストール済み タブ) をアンインストールします。](#uninstalling-a-package)

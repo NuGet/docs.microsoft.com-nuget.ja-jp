@@ -13,11 +13,11 @@ keywords: "nuget パックの参照、パック コマンド"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 353d5d839d85c04bc315c3a0e9cfe274a361bd15
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 22643ee4c7d5f858da728ba9d9d2886d600d20f0
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="pack-command-nuget-cli"></a>パック コマンド (NuGet CLI)
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/14/2017
 > [!Important]
 > Mono で、プロジェクト ファイルからパッケージを作成することはサポートされていません。 内の非ローカル パスを調整する必要があります、 `.nuspec` nuget.exe しない Windows のパス名自体を変換するために、Unix 形式のパスにファイルします。
 
-## <a name="usage"></a>使用方法
+## <a name="usage"></a>使用法
 
 ```
 nuget pack <nuspecPath | projectPath> [options]
@@ -53,7 +53,7 @@ nuget pack <nuspecPath | projectPath> [options]
 | NoDefaultExcludes | により、NuGet の既定の除外ファイルおよびファイルとフォルダーには、ピリオドなどの開始をパッケージ化`.svn`と`.gitignore`です。 |
 | NoPackageAnalysis | パッケージのビルド後に、パックでパッケージの分析を実行しないことを指定します。 |
 | OutputDirectory | 作成されたパッケージが格納されているフォルダーを指定します。 フォルダーが指定されていない場合は、現在のフォルダーが使用されます。 |
-| プロパティ | プロジェクト ファイル内の値をオーバーライドするプロパティの一覧を指定します参照してください[MSBuild プロジェクトの共通プロパティ](https://docs.microsoft.com/visualstudio/msbuild/common-msbuild-project-properties)プロパティ名にします。 プロパティ引数をここでは、トークンのリスト = 値のペアをセミコロンで区切られた場所のたびに`$token$`で、`.nuspec`ファイルは指定した値に置き換えられます。 値は、引用符で囲まれた文字列にすることができます。 "Configuration"プロパティの既定値がある"Debug"に注意してください。 リリース構成を変更するには、使用`-Properties Configuration=Release`です。 |
+| プロパティ | プロジェクト ファイル内の値をオーバーライドするプロパティの一覧を指定します参照してください[MSBuild プロジェクトの共通プロパティ](/visualstudio/msbuild/common-msbuild-project-properties)プロパティ名にします。 プロパティ引数をここでは、トークンのリスト = 値のペアをセミコロンで区切られた場所のたびに`$token$`で、`.nuspec`ファイルは指定した値に置き換えられます。 値は、引用符で囲まれた文字列にすることができます。 "Configuration"プロパティの既定値がある"Debug"に注意してください。 リリース構成を変更するには、使用`-Properties Configuration=Release`です。 |
 | サフィックス | *(3.4.4+)*内部的に生成されたバージョン番号、ビルドまたはその他のプレリリース版の識別子を追加するために使用される通常にサフィックスを追加します。 たとえばを使用して`-suffix nightly`バージョン番号 like でパッケージを作成`1.2.3-nightly`です。 サフィックスは、警告、エラー、およびさまざまなバージョンの NuGet と NuGet パッケージ マネージャーの潜在的な非互換性を回避するのには文字で始める必要があります。 |
 | シンボル | パッケージには、ソースとシンボルが含まれているを指定します。 使用すると、`.nuspec`ファイル、通常の NuGet パッケージ ファイルが作成され、対応するシンボル パッケージです。 |
 | ツール | プロジェクトの出力ファイルを配置する必要がありますを指定します、`tool`フォルダーです。 |
@@ -81,7 +81,7 @@ nuget pack <nuspecPath | projectPath> [options]
 
 このプロジェクトのパッケージを作成して`nuget pack`依存関係を持つ`jQuery`と`microsoft-web-helpers`ではなく`netfx-Guard`です。
 
-## <a name="examples"></a>例
+## <a name="examples"></a>使用例
 
 ```
 nuget pack

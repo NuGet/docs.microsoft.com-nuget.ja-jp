@@ -13,11 +13,11 @@ keywords: "NuGet 1.1 のリリース ノートについては、バグの修正�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 00b6a8c6095e12ea2f4ca3fb5129d6c999071e3a
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 593848b3e5e063816fbbec8b4d11e6fc789d05cd
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-10-and-11-release-notes"></a>NuGet 1.0 および 1.1 のリリース ノートします。
 

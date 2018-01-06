@@ -13,11 +13,11 @@ keywords: "NuGet 2.6 リリース ノートについては、バグの修正、�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f93e34326aa9ab3d6bd5d1756126e6bfa24fd82e
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: b34c0049a5ba42f6bcd5b36fa5b0ba261e27ecd5
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-26-release-notes"></a>NuGet 2.6 リリース ノート
 
@@ -35,8 +35,8 @@ NuGet 2.6 は、Visual Studio 2013 のサポートを提供する最初のリリ
 
 NuGet 2.6 以降では、次に示す 2 つの拡張機能が公開します。
 
-1. [NuGet Package Manager](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c/file/37502/30/NuGet.Tools.vsix) (Visual Studio 2010 および 2012 に適用されます)
-2. [Visual Studio 2013 用の NuGet パッケージ マネージャー](http://visualstudiogallery.msdn.microsoft.com/4ec1526c-4a8c-4a84-b702-b21a8f5293ca)
+1. [NuGet Package Manager](https://marketplace.visualstudio.com/items?itemName=NuGetTeam.NuGetPackageManager) (Visual Studio 2010 および 2012 に適用されます)
+1. [Visual Studio 2013 用の NuGet パッケージ マネージャー](https://marketplace.visualstudio.com/items?itemName=NuGetTeam.NuGetPackageManagerforVisualStudio2013)
 
 この分割と、 [nuget.org](https://nuget.org) "NuGet のインストール"ボタンのホーム ページの処理を実行する、 [NuGet をインストールする](../guides/install-nuget.md) ページで、さまざまな NuGet クライアントのインストールに関する詳細についてを見つけることができます。
 
@@ -44,7 +44,8 @@ NuGet 2.6 以降では、次に示す 2 つの拡張機能が公開します。
 
 ### <a name="xdt-webconfig-transformation-support"></a>XDT Web.config 変換のサポート
 
-Visual Studio で使用されている XDT 変換エンジンを使用してより強力な XML 変換をサポートするために NuGet クライアントの高から要求された機能の 1 つでした[構成変換](http://msdn.microsoft.com/library/dd465318(v=vs.100).aspx)です。
+Visual Studio のビルド構成の変換で使用されている XDT 変換エンジンを使用してより強力な XML 変換をサポートするために、NuGet クライアントの高から要求された機能の 1 つがされました。
+
 2013 年 4 月、XDT 用の NuGet のサポートに関する 2 つの大規模なお知らせを行いました。 1 つでした XDT ライブラリ自体はされていた自体[NuGet パッケージとしてリリース](https://nuget.org/packages/Microsoft.Web.Xdt)と[CodePlex でのオープン ソース](http://xdt.codeplex.com/)です。 この手順は、NuGet クライアントを含む、他のオープン ソース ソフトウェアで自由に使用する XDT エンジンを有効になります。 次のお知らせは、NuGet クライアントでの変換に XDT エンジンの使用をサポートするために、プランをでした。 NuGet 2.6 には、この統合が含まれています。
 
 #### <a name="how-it-works"></a>しくみ
@@ -103,7 +104,7 @@ NuGet 2.6 以降では、パッケージをインストールするたびに、�
 * 依存関係のインストール
 * 更新
 * 依存関係の更新
-* 再インストールします。
+* 再インストール
 * 依存関係の再インストール
 
 異なる操作名に加えて、依存パッケージ id をインストールするためにも記録されます。  NuGet ギャラリーへの今後の更新では、パッケージ作成者は、開発者がそのパッケージをインストールする方法を十分に理解できるように、レポート内でそのデータを公開します。

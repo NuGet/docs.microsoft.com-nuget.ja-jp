@@ -13,11 +13,11 @@ keywords: "NuGet 1.8 リリース ノートについては、バグの修正、�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 875cb752fed102c24da255a336d3f16729ca082c
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 350f0d9590c1e0ef1a843fd783203b158059efa7
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-18-release-notes"></a>NuGet 1.8 のリリース ノート
 
@@ -72,7 +72,7 @@ NuGet 1.8 は、ユーザーのプライバシーを保護するパッケージ�
 
 2 番目のメソッドでは、環境変数"EnableNuGetPackageRestore"を値"true"に設定します。  このメソッドは CI またはビルド サーバーなどの無人のコンピューターものです。
 
-ここで、前述のように、おがのみの基礎この機能を NuGet 1.8 でします。  実際には、あるすべての機能を有効にロジックを追加したときに現在適用されませんこのバージョンでこれを意味します。 有効になります、ただし、次のリリースようにすることを認識できるだけ早く、環境を適切に構成することができ、したがっては影響を受けませんが開始したかったため、NuGet の制約を適用する同意します。
+ここで、前述のように、おがのみの基礎この機能を NuGet 1.8 でします。  実際には、すべての機能を有効にロジックを追加したときが現在強制されているこのバージョンでこれを意味します。 有効になります、ただし、次のリリースようにすることを認識できるだけ早く、環境を適切に構成することができ、したがっては影響を受けませんが開始したかったため、NuGet の制約を適用する同意します。
 
 詳細についてを参照してください、[チームのブログの投稿](http://blog.nuget.org/20120518/package-restore-and-consent.html)この機能にします。
 

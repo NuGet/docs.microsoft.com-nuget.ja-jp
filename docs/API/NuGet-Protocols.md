@@ -12,11 +12,11 @@ description: "NuGet のクライアントと対話する継続的に進化 nuget
 ms.reviewer:
 - kraigb
 - karann-msft
-ms.openlocfilehash: 097b7a86d056b692c52d6de76bc2fb99d1b58c6f
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 0bc71795d120256b9eb14ca64141f0b69f01e620
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nugetorg-protocols"></a>nuget.org プロトコル
 
@@ -43,7 +43,7 @@ NuGet のエコシステムで広範に実装されている NuGet API につい
 X-NuGet-Protocol-Version: 4.1.0
 ```
 
-なお、既存の`X-NuGet-Client-Version`ヘッダー同じ目的が使用されなくなりましたがあり、使用できなくする必要があります。
+なお、`X-NuGet-Client-Version`ヘッダーによく似たセマンティクスは公式 NuGet クライアントでのみ使用される予約済みです。 サード パーティのクライアントを使用する必要があります、`X-NuGet-Protocol-Version`ヘッダーと値。
 
 **プッシュ**プロトコル自体がのドキュメントに記載されている、 [ `PackagePublish`リソース](package-publish-resource.md)です。
 
@@ -59,7 +59,7 @@ POST api/v2/package/create-verification-key/{ID}/{VERSION}
 
 #### <a name="request-parameters"></a>要求パラメーター
 
-名前           | イン     | 型   | 必須 | メモ
+name           | イン     | 型   | 必須 | メモ
 -------------- | ------ | ------ | -------- | -----
 ID             | URL    | string | 可      | 確認してくださいスコープ キーを要求する対象のパッケージ identidier
 VERSION        | URL    | string | Ｘ       | パッケージのバージョン
@@ -84,7 +84,7 @@ GET api/v2/verifykey/{ID}/{VERSION}
 
 #### <a name="request-parameters"></a>要求パラメーター
 
-名前           | イン     | 型   | 必須 | メモ
+name           | イン     | 型   | 必須 | メモ
 -------------  | ------ | ------ | -------- | -----
 ID             | URL    | string | 可      | 確認してくださいスコープ キーを要求する対象のパッケージ識別子
 VERSION        | URL    | string | Ｘ       | パッケージのバージョン

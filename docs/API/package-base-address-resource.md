@@ -17,11 +17,11 @@ keywords: "NuGet は、コンテナー、NuGet パッケージのベース ア�
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 756001ff7376a8dd8d66bd2136408e90e6a85d19
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: a581f9854410bc1a84d65310b38928a1d889ece2
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="package-content"></a>パッケージの内容
 
@@ -58,11 +58,11 @@ GET {@id}/{LOWER_ID}/index.json
 
 ### <a name="request-parameters"></a>要求パラメーター
 
-名前     | イン     | 型    | 必須 | メモ
+name     | イン     | 型    | 必須 | メモ
 -------- | ------ | ------- | -------- | -----
 LOWER_ID | URL    | string  | 可      | パッケージ ID、小文字
 
-`LOWER_ID`値は小文字によって実装される規則を使用して、目的のパッケージ ID。NET の[ `System.String.ToLowerInvariant()` ](https://msdn.microsoft.com/en-us/library/system.string.tolowerinvariant.aspx)メソッドです。
+`LOWER_ID`値は小文字によって実装される規則を使用して、目的のパッケージ ID。NET の[ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant)メソッドです。
 
 ### <a name="response"></a>応答
 
@@ -70,7 +70,7 @@ LOWER_ID | URL    | string  | 可      | パッケージ ID、小文字
 
 パッケージ ソースに 1 つまたは複数のバージョンがある場合は、200 ステータス コードが返されます。 応答本文は、次のプロパティを使用して、JSON オブジェクトを示します。
 
-名前     | 種類             | 必須 | メモ
+name     | 種類             | 必須 | メモ
 -------- | ---------------- | -------- | -----
 バージョン | 文字列の配列 | 可      | パッケージに使用できる Id
 
@@ -98,12 +98,12 @@ GET {@id}/{LOWER_ID}/{LOWER_VERSION}/{LOWER_ID}.{LOWER_VERSION}.nupkg
 
 ### <a name="request-parameters"></a>要求パラメーター
 
-名前          | イン     | 型   | 必須 | メモ
+name          | イン     | 型   | 必須 | メモ
 ------------- | ------ | ------ | -------- | -----
 LOWER_ID      | URL    | string | 可      | パッケージ ID、小文字
 LOWER_VERSION | URL    | string | 可      | パッケージのバージョンが正規化され、小文字
 
-両方`LOWER_ID`と`LOWER_VERSION`によって実装される規則を使用している小文字です。NET の[ `System.String.ToLowerInvariant()` ](https://msdn.microsoft.com/en-us/library/system.string.tolowerinvariant.aspx)メソッドです。
+両方`LOWER_ID`と`LOWER_VERSION`によって実装される規則を使用している小文字です。NET の[ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant)メソッドです。
 
 `LOWER_VERSION`目的のパッケージのバージョンを使用して正規化 NuGet のバージョン[正規化規則](../reference/package-versioning.md#normalized-version-numbers)です。 つまり、SemVer 2.0.0 の仕様によって許可されているメタデータをビルドするをここでは除外する必要があります。
 
@@ -133,12 +133,12 @@ GET {@id}/{LOWER_ID}/{LOWER_VERSION}/{LOWER_ID}.nuspec
 
 ### <a name="request-parameters"></a>要求パラメーター
 
-名前          | イン     | 型    | 必須 | メモ
+name          | イン     | 型    | 必須 | メモ
 ------------- | ------ | ------- | -------- | -----
 LOWER_ID      | URL    | string  | 可      | パッケージ ID、小文字
 LOWER_VERSION | URL    | 整数 | 可      | パッケージのバージョンが正規化され、小文字
 
-両方`LOWER_ID`と`LOWER_VERSION`によって実装される規則を使用している小文字です。NET の[ `System.String.ToLowerInvariant()` ](https://msdn.microsoft.com/en-us/library/system.string.tolowerinvariant.aspx)メソッドです。
+両方`LOWER_ID`と`LOWER_VERSION`によって実装される規則を使用している小文字です。NET の[ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant)メソッドです。
 
 `LOWER_VERSION`目的のパッケージのバージョンを使用して正規化 NuGet のバージョン[正規化規則](../reference/package-versioning.md#normalized-version-numbers)です。 つまり、SemVer 2.0.0 の仕様によって許可されているメタデータをビルドするをここでは除外する必要があります。
 

@@ -17,17 +17,17 @@ keywords: "NuGet V3 API、NuGet V2 API、NuGet JSON、NuGet の登録 API を Nu
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: a9515d90ad66d8840f575bba542f0cf887c41718
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 05ed17f12f413d29d97a253d7d55f154d4910834
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-api"></a>NuGet API
 
 NuGet API とは、パッケージをダウンロード、メタデータのフェッチ、新しいパッケージを発行および公式 NuGet クライアントで使用できるその他のほとんどの操作を実行するために使用する HTTP エンドポイントのセットです。
 
-この API は NuGet の操作を実行する Visual Studio、nuget.exe、および .NET CLI で NuGet クライアントによって使用[ `dotnet restore` ](https://docs.microsoft.com/dotnet/articles/core/preview3/tools/dotnet-restore)、Visual Studio の UI での検索と[ `nuget.exe push`](../tools/cli-ref-push.md)です。
+この API は NuGet の操作を実行する Visual Studio、nuget.exe、および .NET CLI で NuGet クライアントによって使用[ `dotnet restore` ](/dotnet/articles/core/preview3/tools/dotnet-restore)、Visual Studio の UI での検索と[ `nuget.exe push`](../tools/cli-ref-push.md)です。
 
 場合によっては、nuget.org を他のパッケージ ソースが適用されていない追加の要件がある注意してください。 これらの相違点はによって示され、 [nuget.org プロトコル](nuget-protocols.md)です。
 
@@ -79,7 +79,7 @@ API によって返されるすべてのタイムスタンプ (utc) は、それ
 
 ## <a name="http-methods"></a>HTTP メソッド
 
-動詞   | 用途
+動詞   | 使用
 ------ | -----------
 GET    | 通常のデータの取得、読み取り専用操作を実行します。
 HEAD、   | 対応する応答ヘッダーをフェッチ`GET`要求します。
@@ -110,7 +110,7 @@ Del | 削除またはリソースを unlists します。
 
 ## <a name="http-request-headers"></a>HTTP 要求ヘッダー
 
-名前                     | 説明
+name                     | 説明
 ------------------------ | -----------
 X-NuGet-ApiKey           | プッシュと削除に必要なを参照してください[`PackagePublish`リソース](package-publish-resource.md)
 X NuGet クライアント バージョン   | **非推奨**と置き換えられます`X-NuGet-Protocol-Version`

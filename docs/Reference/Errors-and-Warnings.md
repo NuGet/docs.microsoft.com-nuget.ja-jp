@@ -14,17 +14,17 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 3423e30eae07ff0c70a010576b8e701be027b847
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 53fccbb86f2920d870b5383070d043e25045a626
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="errors-and-warnings"></a>エラーと警告
 
 4.3.0、NuGet では、このトピックで説明の番号付けはエラーと警告し、関連する問題に対処するための詳細情報を提供します。 
 
-エラーと警告の次のとおり、のみで使用[PackageReference ベース](../Consume-Packages/Package-References-in-Project-Files.md)プロジェクトおよび NuGet 4.3.0 です。 NuGet では警告を抑制するか、それらのエラーへの昇格に MSBuild プロパティも使用します。 詳細については、次を参照してください。[する方法: コンパイラの警告を抑制する状況](https://docs.microsoft.com/visualstudio/ide/how-to-suppress-compiler-warnings)、Visual Studio のマニュアルでします。
+エラーと警告の次のとおり、のみで使用[PackageReference ベース](../Consume-Packages/Package-References-in-Project-Files.md)プロジェクトおよび NuGet 4.3.0 です。 NuGet では警告を抑制するか、それらのエラーへの昇格に MSBuild プロパティも使用します。 詳細については、次を参照してください。[する方法: コンパイラの警告を抑制する状況](/visualstudio/ide/how-to-suppress-compiler-warnings)、Visual Studio のマニュアルでします。
 
 **エラー**
 
@@ -295,7 +295,7 @@ ms.lasthandoff: 12/14/2017
 | --- | --- |
 | **問題点** | フィードを読み取る際にエラーが発生したときに`IgnoreFailedSources`が設定されて true の場合、致命的でない警告に変換することをします。 これにより、すべてのメッセージが含まれがジェネリックです。 |
 | **一般的な原因** | ソースが正しくありません。 |
-| **メッセージの例** | 適用なし |
+| **メッセージの例** | N/A |
 
 ## <a name="nuget-internal-errors-and-warnings"></a>NuGet の内部エラーと警告
 

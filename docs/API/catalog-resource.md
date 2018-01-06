@@ -17,11 +17,11 @@ keywords: "NuGet V3 API カタログ、nuget.org トランザクション ログ
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 50e329680c5527d2a69d9c2b1421dc3aa609b478
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 4c98b7cbd92575f6905e98a5bca5602a4d8ac0dd
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="catalog"></a>Catalog
 
@@ -79,7 +79,7 @@ GET {@id}
 
 カタログのインデックスは、次のプロパティを持つオブジェクトを格納する JSON ドキュメントを示します。
 
-名前            | 種類             | 必須 | メモ
+name            | 種類             | 必須 | メモ
 --------------- | ---------------- | -------- | -----
 commitId        | string           | 可      | 最新のコミットに関連付けられている一意の ID
 commitTimeStamp | string           | 可      | 最新のコミットのタイムスタンプ
@@ -96,7 +96,7 @@ count           | 整数          | 可      | インデックスのページの
 
 カタログのインデックスのカタログ ページ オブジェクトが見つかりませんでした`items`プロパティがある、次のプロパティ。
 
-名前            | 種類    | 必須 | メモ
+name            | 種類    | 必須 | メモ
 --------------- | ------- | -------- | -----
 @id             | string  | 可      | フェッチのカタログ ページの URL
 commitId        | string  | 可      | このページで、最新のコミットに関連付けられている一意の ID
@@ -123,7 +123,7 @@ GET https://api.nuget.org/v3/catalog0/index.json
 
 カタログのページのドキュメントは、次のプロパティを使用して、JSON オブジェクトを示します。
 
-名前            | 種類             | 必須 | メモ
+name            | 種類             | 必須 | メモ
 --------------- | ---------------- | -------- | -----
 commitId        | string           | 可      | このページで、最新のコミットに関連付けられている一意の ID
 commitTimeStamp | string           | 可      | このページで、最新のコミットのタイムスタンプ
@@ -143,7 +143,7 @@ count           | 整数          | 可      | ページ内の項目数
 
 カタログ] ページの [カタログ アイテムのオブジェクトが見つかった`items`プロパティがある、次のプロパティ。
 
-名前            | 種類    | 必須 | メモ
+name            | 種類    | 必須 | メモ
 --------------- | ------- | -------- | -----
 @id             | string  | 可      | カタログ アイテムをフェッチする URL
 @type           | string  | 可      | カタログ項目の種類
@@ -175,7 +175,7 @@ GET https://api.nuget.org/v3/catalog0/page2926.json
 
 カタログ リーフ ドキュメントでは、次のプロパティを使用して、JSON オブジェクトを示します。
 
-名前                    | 種類                       | 必須 | メモ
+name                    | 種類                       | 必須 | メモ
 ----------------------- | -------------------------- | -------- | -----
 @type                   | 文字列または文字列の配列 | 可      | カタログ アイテムの種類
 カタログ: commitId        | string                     | 可      | このカタログ アイテムに関連付けられたコミット ID
@@ -206,7 +206,7 @@ version                 | string                     | 可      | カタログ �
 
 パッケージの詳細のカタログ アイテムに加え、次のプロパティがある[カタログのすべてのリーフに含まれている](#catalog-leaf)です。
 
-名前                    | 種類                       | 必須 | メモ
+name                    | 種類                       | 必須 | メモ
 ----------------------- | -------------------------- | -------- | -----
 作成者                 | string                     | Ｘ       |
 created                 | string                     | 可      | パッケージが最初に作成されたときのタイムスタンプ

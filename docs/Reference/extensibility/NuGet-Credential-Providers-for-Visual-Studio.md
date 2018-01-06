@@ -13,11 +13,11 @@ keywords: "NuGet の資格情報プロバイダー、フィードでの認証、
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2b2fac23102865a08509acc1cc3d09f0cd375f26
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 8d7360205387d4813f95560018e2ac68f71f5603
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>NuGet の資格情報プロバイダーと Visual Studio でのフィードの認証
 
@@ -88,5 +88,5 @@ Visual Studio のカスタム NuGet 資格情報プロバイダーを実装す�
 | bool isRetry | True の場合、資格情報がこの Uri は、以前要求したが、指定された資格情報は、承認されたアクセスを許可しませんでした。 |
 | 非対話型の bool | True の場合、資格情報プロバイダーはすべてのユーザー メッセージを抑制して、既定値の代わりに使用する必要があります。 |
 | CancellationToken cancellationToken | このキャンセル トークンを確認して、操作要求元の資格情報が取り消されましたかどうかを特定する必要があります。 |
-  
-**戻り値**: 資格情報オブジェクトを実装する、 [ `System.Net.ICredentials`インターフェイス](https://msdn.microsoft.com/library/system.net.icredentials.aspx)です。
+
+**戻り値**: 資格情報オブジェクトを実装する、 [ `System.Net.ICredentials`インターフェイス](/dotnet/api/system.net.icredentials?view=netstandard-2.0)です。
