@@ -13,16 +13,16 @@ keywords: "NuGet 2.8.3 リリース ノートについては、バグの修正�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 8c0b38ea4975300af701b66266a9883eb54412c1
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: d6fbebaf02cede52a701abd31e843a077f8acbb7
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="nuget-283-release-notes"></a><span data-ttu-id="31c8b-104">NuGet 2.8.3 リリース ノート</span><span class="sxs-lookup"><span data-stu-id="31c8b-104">NuGet 2.8.3 Release Notes</span></span>
+# <a name="nuget-283-release-notes"></a><span data-ttu-id="6afed-104">NuGet 2.8.3 リリース ノート</span><span class="sxs-lookup"><span data-stu-id="6afed-104">NuGet 2.8.3 Release Notes</span></span>
 
-<span data-ttu-id="31c8b-105">[NuGet 2.8.2 リリース ノート](../release-notes/nuget-2.8.2.md) | [NuGet 2.8.5 リリース ノート](../release-notes/nuget-2.8.5.md)</span><span class="sxs-lookup"><span data-stu-id="31c8b-105">[NuGet 2.8.2 Release Notes](../release-notes/nuget-2.8.2.md) | [NuGet 2.8.5 Release Notes](../release-notes/nuget-2.8.5.md)</span></span>
+<span data-ttu-id="6afed-105">[NuGet 2.8.2 リリース ノート](../release-notes/nuget-2.8.2.md) | [NuGet 2.8.5 リリース ノート](../release-notes/nuget-2.8.5.md)</span><span class="sxs-lookup"><span data-stu-id="6afed-105">[NuGet 2.8.2 Release Notes](../release-notes/nuget-2.8.2.md) | [NuGet 2.8.5 Release Notes](../release-notes/nuget-2.8.5.md)</span></span>
 
-<span data-ttu-id="31c8b-106">NuGet 2.8.3 は、2014 年 10 月 17 日にリリースされました。</span><span class="sxs-lookup"><span data-stu-id="31c8b-106">NuGet 2.8.3 was released October 17, 2014.</span></span> <span data-ttu-id="31c8b-107">マイナー アップデートはいくつかで VSIX、2.8.1 に修正プログラムを対象とします。</span><span class="sxs-lookup"><span data-stu-id="31c8b-107">It is a minor update to our 2.8.1 VSIX with some targeted fixes.</span></span>
+<span data-ttu-id="6afed-106">NuGet 2.8.3 は、2014 年 10 月 17 日にリリースされました。</span><span class="sxs-lookup"><span data-stu-id="6afed-106">NuGet 2.8.3 was released October 17, 2014.</span></span> <span data-ttu-id="6afed-107">マイナー アップデートはいくつかで VSIX、2.8.1 に修正プログラムを対象とします。</span><span class="sxs-lookup"><span data-stu-id="6afed-107">It is a minor update to our 2.8.1 VSIX with some targeted fixes.</span></span>
 
-<span data-ttu-id="31c8b-108">このリリースでは、NuGet パッケージ マネージャー ダイアログ ボックスのサポートが追加されました[ASP.NET vNext](http://www.asp.net/vnext)、 [DevExtreme](http://js.devexpress.com/)と[BizTalk (.btproj)](http://msdn.microsoft.com/library/aa577497.aspx)プロジェクトの種類。</span><span class="sxs-lookup"><span data-stu-id="31c8b-108">In this release, the support for NuGet Package Manager dialog was added for [ASP.NET vNext](http://www.asp.net/vnext), [DevExtreme](http://js.devexpress.com/) and [BizTalk (.btproj)](http://msdn.microsoft.com/library/aa577497.aspx) project types.</span></span> <span data-ttu-id="31c8b-109">パッケージの復元を有効にして、パッケージ マネージャーのオプションの保存のシナリオに関連する信頼性バグの修正も含まれています。</span><span class="sxs-lookup"><span data-stu-id="31c8b-109">It also includes reliability bug fixes related to the scenarios of enabling package restore and saving package manager options.</span></span>
+<span data-ttu-id="6afed-108">このリリースでは、NuGet パッケージ マネージャー ダイアログ ボックスのサポートが追加されました[ASP.NET vNext](http://www.asp.net/vnext)、 [DevExtreme](http://js.devexpress.com/)と[BizTalk (.btproj)](/biztalk/core/developing-biztalk-server-applications)プロジェクトの種類。</span><span class="sxs-lookup"><span data-stu-id="6afed-108">In this release, the support for NuGet Package Manager dialog was added for [ASP.NET vNext](http://www.asp.net/vnext), [DevExtreme](http://js.devexpress.com/) and [BizTalk (.btproj)](/biztalk/core/developing-biztalk-server-applications) project types.</span></span> <span data-ttu-id="6afed-109">パッケージの復元を有効にして、パッケージ マネージャーのオプションの保存のシナリオに関連する信頼性バグの修正も含まれています。</span><span class="sxs-lookup"><span data-stu-id="6afed-109">It also includes reliability bug fixes related to the scenarios of enabling package restore and saving package manager options.</span></span>
