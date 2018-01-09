@@ -14,17 +14,17 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 91efd4b4cd2ec0bee4425ab66e0152e580e7975c
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: d002f55a75b3daaa2fed7a94e88582dd4f04e05f
+ms.sourcegitcommit: 1ebfff1263992c54de75366a1b1c26dbae6c0318
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="nuspec-reference"></a>.nuspec リファレンス
 
 `.nuspec` ファイルは、パッケージのメタデータが含まれている XML マニフェストです。 このマニフェストは、パッケージを作成するためと、コンシューマーに情報を提供するための、両方に使われます。 パッケージにはマニフェストが常に含まれています。
 
-このトピックの内容
+このトピックの内容:
 
 - [一般的な形式とスキーマ](#general-form-and-schema)
 - [置換トークン](#replacement-tokens) (Visual Studio プロジェクトで使われるとき)
@@ -68,7 +68,7 @@ ms.lasthandoff: 12/14/2017
 
 | 属性 | 必須 | 説明 |
 | --- | --- | --- | 
-| **minClientVersion** | いいえ | *(2.5 以降)* nuget.exe および Visual Studio パッケージ マネージャーによって強制される、このパッケージをインストールできる NuGet クライアントの最低バージョンを指定します。 これは、NuGet クライアントの特定のバージョンで追加された `.nuspec` ファイルの特定の機能にパッケージが依存しているときに、常に使われます。 たとえば、`developmentDependency` 属性を使っているパッケージでは、`minClientVersion` に "2.8" を指定する必要があります。 同様に、`contentFiles` 要素 (次のセクションを参照) を使っているパッケージでは、`minClientVersion` を "3.3" に設定する必要があります。 また、バージョン 2.5 より前の NuGet クライアントはこのフラグを認識しないので、`minClientVersion` の値が何であっても、"*常に*" パッケージをインストールしないことにも注意してください。 |
+| **minClientVersion** | × | *(2.5 以降)* nuget.exe および Visual Studio パッケージ マネージャーによって強制される、このパッケージをインストールできる NuGet クライアントの最低バージョンを指定します。 これは、NuGet クライアントの特定のバージョンで追加された `.nuspec` ファイルの特定の機能にパッケージが依存しているときに、常に使われます。 たとえば、`developmentDependency` 属性を使っているパッケージでは、`minClientVersion` に "2.8" を指定する必要があります。 同様に、`contentFiles` 要素 (次のセクションを参照) を使っているパッケージでは、`minClientVersion` を "3.3" に設定する必要があります。 また、バージョン 2.5 より前の NuGet クライアントはこのフラグを認識しないので、`minClientVersion` の値が何であっても、"*常に*" パッケージをインストールしないことにも注意してください。 |
 
 ### <a name="required-metadata-elements"></a>メタデータの必須要素
 
@@ -78,14 +78,14 @@ ms.lasthandoff: 12/14/2017
 
 | 要素 | 説明 |
 | --- | --- |
-| **id** | パッケージの識別子。大文字と小文字が区別されます。nuget.org 全体で、またはパッケージが存在するギャラリー全体で、一意である必要があります。 ID は、スペースまたは URL で無効な文字を含んでいてはならず、一般に .NET 名前空間の規則に従います。 ガイダンスについては、[一意のパッケージ識別子の選択](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number)に関するページをご覧ください。 |
+| **ID** | パッケージの識別子。大文字と小文字が区別されます。nuget.org 全体で、またはパッケージが存在するギャラリー全体で、一意である必要があります。 ID は、スペースまたは URL で無効な文字を含んでいてはならず、一般に .NET 名前空間の規則に従います。 ガイダンスについては、[一意のパッケージ識別子の選択](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number)に関するページをご覧ください。 |
 | **version** | パッケージのバージョン。*major.minor.patch* のパターンに従います。 「[Package versioning](../reference/package-versioning.md#pre-release-versions)」(パッケージのバージョン管理) で説明されているように、バージョン番号にはプレリリースのサフィックスを含めることができます。 |
 | **description** | UI 画面用のパッケージの長い説明。 |
 | **authors** | パッケージ作成者の一覧。コンマで区切られています。nuget.org のプロファイル名と一致します。これらは nuget.org の NuGet ギャラリーに表示され、同じ作成者によるパッケージの相互参照に使用されます。 |
 
 ### <a name="optional-metadata-elements"></a>メタデータの省略可能な要素
 
-これらの要素は、`<metadata>` 要素内で指定する必要があります。
+これらの要素は、`<metadata>` 要素内に表示されることがあります。
 
 #### <a name="single-elements"></a>単一要素
 
@@ -142,7 +142,7 @@ nuget pack MyProject.csproj
 
 例外である `$configuration$` を除き、コマンド ラインの同じトークンに割り当てられている値より、プロジェクトの値の方が優先的に使われます。
 
-| トークン | 値のソース | 値
+| トークン | 値のソース | [値]
 | --- | --- | ---
 | **$id$** | プロジェクト ファイル | プロジェクト ファイルの AssemblyName |
 | **$version$** | AssemblyInfo | ある場合は AssemblyInformationalVersion、ない場合は AssemblyVersion |
@@ -343,7 +343,7 @@ NuGet 2.x 以前および `packages.config` を使っているプロジェクト
 | **target** | ソース ファイルが格納されるパッケージ内のフォルダーへの相対パス。`lib`、`content`、`build`、または `tools` で始まっている必要があります。 [規則に基づく作業ディレクトリからの .nuspec の作成](../Create-Packages/Creating-a-Package.md#from-a-convention-based-working-directory)に関するページをご覧ください。 |
 | **exclude** | `src` の場所から除外するファイルまたはファイル パターンをセミコロンで区切ったリスト。 ワイルドカード文字 `*` を使うことができ、2 個のワイルドカード `**` は再帰的なフォルダー検索を意味します。 |
 
-### <a name="examples"></a>例
+### <a name="examples"></a>使用例
 
 **1 つのアセンブリ**
 
