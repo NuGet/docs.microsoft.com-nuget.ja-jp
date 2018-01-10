@@ -17,11 +17,11 @@ keywords: "NuGet UI では、NuGet パッケージ マネージャー UI では�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0f08e5a36499c4481c4e0cd70738d67d65cd980a
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: fb2166b727dd01de0f7096535fdbc71c5ab0e2a3
+ms.sourcegitcommit: cde52deee5691d3e8bcb96f46f9645c7ba579af8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="nuget-package-manager-ui"></a>NuGet パッケージ マネージャーの UI
 
@@ -39,7 +39,7 @@ Windows 上の Visual Studio で NuGet パッケージ マネージャー UI を
 > [!Note]
 > Visual Studio 2015 内の NuGet パッケージ マネージャー、欠落している場合は確認**ツール > 拡張機能と更新しています.**を検索し、 *NuGet Package Manager*拡張機能です。 Visual Studio での拡張機能インストーラーを使用することがない場合は、ダウンロードから直接、拡張機能[https://dist.nuget.org/index.html](https://dist.nuget.org/index.html)です。
 >
-> Visual Studio 2017 のいずれかと NuGet と NuGet パッケージ マネージャーが自動的にインストールします。NET に関連するワークロードです。 選択して individuall をインストール、**個々 のコンポーネント > コード ツール > の NuGet package manager** Visual Studio 2017 インストーラー オプション。
+> Visual Studio 2017 のいずれかと NuGet と NuGet パッケージ マネージャーが自動的にインストールします。NET に関連するワークロードです。 個別に選択してインストール、**個々 のコンポーネント > コード ツール > の NuGet package manager** Visual Studio 2017 インストーラー オプション。
 
 ## <a name="finding-and-installing-a-package"></a>検索して、パッケージをインストールします。
 
