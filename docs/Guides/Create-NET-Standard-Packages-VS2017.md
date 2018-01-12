@@ -13,17 +13,17 @@ keywords: "パッケージを作成する, .NET Standard パッケージ, .NET C
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 82e413119b12503336becd6019e4fa3e4ac0b1f3
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 5b48ad2f062fd3a9b99985dbda6f89e6039dac4d
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-net-standard-20-packages-with-visual-studio-2017"></a>Visual Studio 2017 での .NET Standard 2.0 パッケージの作成
 
 *Visual Studio 2017 Update 3 で提供される NuGet 4.x 以降および MSBuild 15.3 以降に適用されます。Visual Studio 2017 の以前のバージョンについては、これらの手順は \<TargetFramework\> プロパティを変更した .NET Standard 1.4 から 1.6 に当てはまります。NuGet 3.x 以降を使用して作業を行う場合は、「[Visual Studio 2015 での .NET Standard パッケージの作成](../guides/create-net-standard-packages-vs2015.md)」も参照してください。*
 
-[.NET Standard ライブラリ](https://docs.microsoft.com/dotnet/articles/standard/library)は、すべての .NET ランタイムで使用できるようにすることを目的とした .NET API の正式な仕様です。したがって、.NET エコシステムでより高い統一性が確立されます。 .NET Standard Library は、ワークロードに関係なく、すべての .NET プラットフォーム用に統一された BCL (基本クラス ライブラリ) API のセットを定義して実装します。 これにより、開発者はすべての .NET ランタイム間で使用可能な PCL を生成でき、共有コードでプラットフォーム固有の条件付きコンパイル ディレクティブを除去するまでとはいかないまでも減らすことはできます。
+[.NET Standard ライブラリ](/dotnet/articles/standard/library)は、すべての .NET ランタイムで使用できるようにすることを目的とした .NET API の正式な仕様です。したがって、.NET エコシステムでより高い統一性が確立されます。 .NET Standard Library は、ワークロードに関係なく、すべての .NET プラットフォーム用に統一された BCL (基本クラス ライブラリ) API のセットを定義して実装します。 これにより、開発者はすべての .NET ランタイム間で使用可能な PCL を生成でき、共有コードでプラットフォーム固有の条件付きコンパイル ディレクティブを除去するまでとはいかないまでも減らすことはできます。
 
 このガイドでは、Visual Studio 2017 Update 3 と NuGet 4.0 を使用した .NET Standard Library 2.0 をターゲットとする nuget パッケージの作成について説明します。
 
@@ -113,5 +113,5 @@ NuGet 4.0 は、前のセクションで追加したように、プロジェク�
 
 - 「[Package References in Project Files](../consume-packages/package-references-in-project-files.md)」 (プロジェクト ファイル内のパッケージ参照) では、プロジェクト ファイルに直接パッケージを記述する場合の詳細がすべて説明されています。
 - 「[NuGet pack and restore as MSBuild targets](../schema/msbuild-targets.md)」 (NuGet パックと MSBuild のターゲットとしての復元) では、パッケージを作成するために `msbuild /t:pack` を使用するすべてのオプションが説明されています。
-- [.NET Standard ライブラリのドキュメント](https://docs.microsoft.com/dotnet/articles/standard/library)
-- [.NET Framework から .NET Core への移植](https://docs.microsoft.com/dotnet/articles/core/porting/index)
+- [.NET Standard ライブラリのドキュメント](/dotnet/articles/standard/library)
+- [.NET Framework から .NET Core への移植](/dotnet/articles/core/porting/index)

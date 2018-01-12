@@ -13,11 +13,11 @@ keywords: "nuget config 参照、config コマンド"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 12a8b51dd11b9bc3a496e02e869cdeb95e67b9e3
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: f49751d9747687177e3b6c1890ee9d2919be8d0e
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="config-command-nuget-cli"></a>config コマンド (NuGet CLI)
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/14/2017
 
 取得または NuGet の構成値を設定します。 追加の使用率は、次を参照してください。 [NuGet の動作を構成する](../consume-packages/configuring-nuget-behavior.md)です。 使用可能なキー名の詳細についてを参照してください、 [NuGet config ファイル参照](../Schema/nuget-config-file.md)です。
 
-## <a name="usage"></a>使用方法
+## <a name="usage"></a>使用法
 
 ```
 nuget config -Set <name>=[<value>] [<name>=<value> ...] [options]
@@ -33,6 +33,8 @@ nuget config -AsPath <name> [options]
 ```
 
 ここで`<name>`と`<value>`構成で設定するキー/値ペアを指定します。 必要に応じて多くのペアを指定できます。 値を削除するには、名前を指定し、`=`記号が、値はありません。
+
+使用可能なキー名では、次を参照してください。、 [NuGet config ファイル参照](../Schema/nuget-config-file.md)です。
 
 NuGet 3.4 以降で`<value>`使える[環境変数](cli-ref-environment-variables.md)です。
 
@@ -49,7 +51,7 @@ NuGet 3.4 以降で`<value>`使える[環境変数](cli-ref-environment-variable
 
 参照してください[環境変数](cli-ref-environment-variables.md)
 
-### <a name="examples"></a>例
+### <a name="examples"></a>使用例
 
 ```
 nuget config -Set repositoryPath=c:\packages -configfile c:\my.config

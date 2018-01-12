@@ -13,11 +13,11 @@ keywords: "NuGet UWP コントロール、Visual Studio XAML デザイナー、B
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f51dbabd406199752e4f9d612b498f59ffb54021
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 8756ce472c11a05370914841245295361b3f179b
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="creating-uwp-controls-as-nuget-packages"></a>NuGet パッケージとして UWP コントロールを作成する
 
@@ -55,7 +55,7 @@ XAML コントロールが Visual Studio の XAML デザイナーのツールボ
 </FileList>
 ```
 
-ここで、
+それぞれの文字について以下に説明します。
 
 - *your_package_file*: `ManagedPackage.winmd` などのコントロール ファイルの名前 ("ManagedPackage" はこの例で任意の名前を使用するだけで、それ以外の意味を持ちません)。
 - *vs_category*: Visual Studio デザイナーのツールボックスにコントロールを表示するグループのラベル。 `VSCategory` は、コントロールをツールボックスに表示するために必要です。
@@ -105,7 +105,7 @@ UWP パッケージに含まれる TargetPlatformVersion (TPV) と TargetPlatfor
 \ref\uap10.0\*
 ```
 
-適切な TPMinV チェックを適用するには、[MSBuild ターゲット ファイル](https://docs.microsoft.com/visualstudio/msbuild/msbuild-targets)を作成し、ビルド フォルダーの下にパッケージ化します ("your_assembly_name" を特定のアセンブリの名前に置き換えます):
+適切な TPMinV チェックを適用するには、[MSBuild ターゲット ファイル](/visualstudio/msbuild/msbuild-targets)を作成し、ビルド フォルダーの下にパッケージ化します ("your_assembly_name" を特定のアセンブリの名前に置き換えます):
 
 ```
 \build
@@ -133,7 +133,7 @@ UWP パッケージに含まれる TargetPlatformVersion (TPV) と TargetPlatfor
 
 ## <a name="add-design-time-support"></a>デザイン時サポートの追加
 
-プロパティ インスペクターのどこにコントロールのプロパティが表示されるかを構成するには、カスタム装飾などを追加し、ターゲット プラットフォームに合わせて `design.dll` ファイルを `lib\<platform>\Design` フォルダー内に配置します。 また、**[[テンプレートの編集] > [コピーして編集]](https://docs.microsoft.com/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)** 機能を確実に動作させるには、マージする `Generic.xaml` とリソース ディクショナリを `<AssemblyName>\Themes` フォルダーに含める必要があります  (このファイルはコントロールの実行時の動作には影響しません)。
+プロパティ インスペクターのどこにコントロールのプロパティが表示されるかを構成するには、カスタム装飾などを追加し、ターゲット プラットフォームに合わせて `design.dll` ファイルを `lib\<platform>\Design` フォルダー内に配置します。 また、**[[テンプレートの編集] > [コピーして編集]](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)** 機能を確実に動作させるには、マージする `Generic.xaml` とリソース ディクショナリを `<AssemblyName>\Themes` フォルダーに含める必要があります  (このファイルはコントロールの実行時の動作には影響しません)。
 
 
 ```
@@ -172,7 +172,7 @@ UWP パッケージに含まれる TargetPlatformVersion (TPV) と TargetPlatfor
 \tools
 ```
 
-[MSBuild ターゲット ファイル](https://docs.microsoft.com/visualstudio/msbuild/msbuild-targets)を作成して、資産が使用するプロジェクトの出力フォルダーにコピーされるようにすることもできます。
+[MSBuild ターゲット ファイル](/visualstudio/msbuild/msbuild-targets)を作成して、資産が使用するプロジェクトの出力フォルダーにコピーされるようにすることもできます。
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

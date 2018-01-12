@@ -13,11 +13,11 @@ keywords: "nuget のソースの参照、コマンドをソース"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 52c46dba168e7395d50cb8d8f9775839389e614c
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 2eca8557840c467a60f5f708efe242cd83609164
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="sources-command-nuget-cli"></a>ソースのコマンド (NuGet CLI)
 
@@ -25,14 +25,15 @@ ms.lasthandoff: 12/14/2017
 
 あるソースの一覧を管理する`%AppData%\NuGet\NuGet.Config`または指定した構成ファイル。
 
-## <a name="usage"></a>使用方法
+Nuget.org のソース URL は`https://api.nuget.org/v3/index.json`します。
+
+## <a name="usage"></a>使用法
 
 ```
 nuget sources <operation> -Name <name> -Source <source>
 ```
 
 ここで`<operation>`の 1 つ*を一覧表示、追加、削除、有効化、無効化、*または*更新*、 `<name>` 、ソースの名前を指定および`<source>`ソースの URL は、します。
-
 
 ## <a name="options"></a>オプション
 
@@ -53,7 +54,7 @@ nuget sources <operation> -Name <name> -Source <source>
 
 参照してください[環境変数](cli-ref-environment-variables.md)
 
-## <a name="examples"></a>例
+## <a name="examples"></a>使用例
 
 ```
 nuget sources Add -Name "MyServer" -Source \\myserver\packages

@@ -13,11 +13,11 @@ keywords: "nuget.exe CLI、NuGet クライアント ツール、NuGet パッケ�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b1abb30458c9ebfb0ffb28be254efd9709a9627f
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 2f67c298d269149bba9f36ad9e026d5443c39b6a
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="installing-nuget-client-tools"></a>NuGet クライアント ツールのインストール
 
@@ -29,7 +29,7 @@ NuGet パッケージの構築、公開、使用に使用できる次の 2 つ�
 1. [**NuGet CLI**](#nuget-cli) は、すべての NuGet 機能を提供する Windows 用のコマンド ライン ユーティリティです。Mono を使用、または .NET Core CLI (`dotnet`) を通じて、Mac OSX および Linux でも実行できます。
 1. [**Visual Studio での NuGet パッケージ マネージャー**](#nuget-package-manager-in-visual-studio) (Windows のみ) は、パッケージを管理するための GUI ツールで、PowerShell コンソールが含まれており、これを通じて Visual Studio 内で直接、特定の NuGet コマンドを使用できます。 パッケージ マネージャーの UI とコンソールはどちらも Visual Studio (Windows) 2012 以降に含まれており、それより前のバージョンには手動でインストールできます。
 
-    Visual Studio for Mac には、NuGet の機能が直接、組み込まれています。 チュートリアルについては、「[プロジェクトに NuGet パッケージを含める](https://docs.microsoft.com/visualstudio/mac/nuget-walkthrough)」をご覧ください。
+    Visual Studio for Mac には、NuGet の機能が直接、組み込まれています。 チュートリアルについては、「[プロジェクトに NuGet パッケージを含める](/visualstudio/mac/nuget-walkthrough)」をご覧ください。
 
     現時点では Visual Studio Code には組み込みの NuGet のサポートはありません。 NuGet CLI または [dotnet CLI](../Tools/dotnet-Commands.md) を使用してください。
 
@@ -53,7 +53,7 @@ NuGet CLI とパッケージ マネージャーは、どちらも次の操作を
 
 > [!Note]
 > もう 1 つの優れたツールは、[NuGet パッケージ エクスプローラー](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer)です。NuGet パッケージを視覚的に調査、作成、および編集する、オープン ソースのスタンドアロン ツールです。 このツールを使用すると、たとえば、パッケージ構造に実験的な変更を加えるたびに、パッケージをリビルドする必要がないため、非常に便利です。
-> .NET Core アプリケーションの開発に使用されるクロス プラットフォーム [.NET Core CLI](https://docs.microsoft.com/dotnet/articles/core/tools/index#installation) ツールチェーンは、delete、locals、push、pack、および restore など、複数の NuGet コマンドをサポートしています。 
+> .NET Core アプリケーションの開発に使用されるクロス プラットフォーム [.NET Core CLI](/dotnet/articles/core/tools/index#installation) ツールチェーンは、delete、locals、push、pack、および restore など、複数の NuGet コマンドをサポートしています。 
 
 ## <a name="nuget-cli"></a>NuGet CLI
 

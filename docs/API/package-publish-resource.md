@@ -17,11 +17,11 @@ keywords: "NuGet API プッシュ パッケージ、パッケージを削除す�
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 87970a701c63bce2b74c619069ec1d231ea77ab5
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 5fbcd82b09ebd56ae21103640e7c39b482059525
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="push-and-delete"></a>プッシュ モードと削除
 
@@ -127,5 +127,5 @@ X-NuGet-ApiKey | Header | string | 可      | たとえば、`X-NuGet-ApiKey: {U
 
 状態コード | 説明
 ----------- | -------
-204         | パッケージが一覧表示されます。
+200         | パッケージが一覧表示されます。
 404         | 指定されたパッケージに含まれない`ID`と`VERSION`が存在します。
