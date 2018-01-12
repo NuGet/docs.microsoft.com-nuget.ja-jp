@@ -13,11 +13,11 @@ keywords: "Visual Studio の NuGet, カスタム プロジェクト タイプ, V
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 39212361e7cb2c214c3e83cef604d40cd057fd7e
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 9c8cad46f18578bec41bd9280985e42972a9b3c1
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-support-for-the-visual-studio-project-system"></a>Visual Studio プロジェクト システムの NuGet サポート
 
@@ -121,9 +121,8 @@ case __VSHPROPID8.VSHPROPID_ProjectCapabilitiesChecker:
     return VSConstants.S_OK;
 ```
 
-
 ## <a name="dte-support"></a>DTE サポート
 
-NuGet は、最上位 Visual Studio 自動化インターフェイスである [DTE](https://msdn.microsoft.com/library/mt452175.aspx) を呼び出すことで、プロジェクト システムに参照、コンテンツ アイテム、MSBuild インポートを追加させます。 DTE は一連の COM インターフェイスであり、既に実装している場合があります。
+NuGet は、最上位 Visual Studio 自動化インターフェイスである [DTE](/dotnet/api/envdte.dte?view=visualstudiosdk-2017) を呼び出すことで、プロジェクト システムに参照、コンテンツ アイテム、MSBuild インポートを追加させます。 DTE は一連の COM インターフェイスであり、既に実装している場合があります。
 
 プロジェクト タイプが CPS に基づく場合、DTE は自動的に実装されます。

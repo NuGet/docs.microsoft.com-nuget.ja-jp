@@ -14,17 +14,17 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b1a29fe6e9a3dec6847dbed07761e28fb8eb9b19
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 2bdb8a2c946618b0c297c70bf7fcf6a9038b2a02
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="creating-symbol-packages"></a>シンボル パッケージを作成する
 
 nuget.org やその他のソースのためにパッケージをビルドするだけでなく、NuGet では、関連するシンボル パッケージを作成し、それを [SymbolSource リポジトリ](http://www.symbolsource.org/Public)に公開することもできます。
 
-公開後、パッケージ コンシューマーは Visual Studio で自分のシンボル ソースに `http://srv.symbolsource.org/pdb/Public` を追加できます。それにより、Visual Studio デバッガーでパッケージ コードに入ることができます。 このプロセスの詳細については、「[Visual Studio デバッガーでのシンボル (.pdb) ファイルとソース ファイルの指定](https://docs.microsoft.com/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger)」を参照してください。
+公開後、パッケージ コンシューマーは Visual Studio で自分のシンボル ソースに `http://srv.symbolsource.org/pdb/Public` を追加できます。それにより、Visual Studio デバッガーでパッケージ コードに入ることができます。 このプロセスの詳細については、「[Visual Studio デバッガーでのシンボル (.pdb) ファイルとソース ファイルの指定](/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger)」を参照してください。
 
 
 ## <a name="creating-a-symbol-package"></a>シンボル パッケージを作成する
@@ -134,6 +134,6 @@ nuget pack MyProject.csproj -Symbols
 
 その場合、NuGet はプライマリ パッケージを nuget.org に公開した後、`MyPackage.symbols.nupkg` があればそれを https://nuget.smbsrc.net/ (symbolsource.org のプッシュ URL) に公開します。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
  - <a href="https://www.symbolsource.org/Public/Wiki/Using" target="_blank">SymbolSource の使用</a> (symbolsource.org)

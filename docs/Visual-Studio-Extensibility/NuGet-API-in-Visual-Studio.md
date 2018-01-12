@@ -13,15 +13,15 @@ keywords: "NuGet API、Visual Studio の NuGet、NuGet のプログラミング 
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 1d5c4cba1474f4215c6cc83497e347b2145f21ef
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: e1279f5c0c36bfdf99a6bae240c779fd0c39f04c
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-api-in-visual-studio"></a>Visual Studio の NuGet API
 
-Visual Studio のパッケージ マネージャー UI とコンソールに加え、NuGet は [Managed Extensibility Framework (MEF)](http://msdn.microsoft.com/library/dd460648.aspx) を通じていくつかの便利なサービスもエクスポートします。 このインターフェイスでは、Visual Studio 内の他のコンポーネントが NuGet とやり取りできるるため、パッケージのインストールやアンインストール、インストールされているパッケージに関する情報の取得に使用することができます。
+Visual Studio のパッケージ マネージャー UI とコンソールに加え、NuGet は [Managed Extensibility Framework (MEF)](/dotnet/framework/mef/index) を通じていくつかの便利なサービスもエクスポートします。 このインターフェイスでは、Visual Studio 内の他のコンポーネントが NuGet とやり取りできるるため、パッケージのインストールやアンインストール、インストールされているパッケージに関する情報の取得に使用することができます。
 
 NuGet 3.3 以降では、NuGet は次のサービスをエクスポートします。これらはすべて `NuGet.VisualStudio.dll` アセンブリ内の `NuGet.VisualStudio` 名前空間にあります。
 
@@ -47,7 +47,7 @@ NuGet 3.3 以降では、NuGet は次のサービスをエクスポートしま�
 > [!Warning]
 > コードでパブリック インターフェイス以外の型を使用しないでください。また、`NuGet.Core.dll` を含む他の NuGet アセンブリを参照しないでください。
 
-1. サービスを使用するには、[MEF インポート属性](https://msdn.microsoft.com/library/dd460648.aspx#Imports%20and%20Exports%20with%20Attributes)または [IComponentModel サービス](http://msdn.microsoft.com/library/microsoft.visualstudio.componentmodelhost.icomponentmodel.aspx)を通じてそのサービスをインポートします。
+1. サービスを使用するには、[MEF インポート属性](/dotnet/framework/mef/index#imports-and-exports-with-attributes)または [IComponentModel サービス](/dotnet/api/microsoft.visualstudio.componentmodelhost.icomponentmodel?redirectedfrom=MSDN&view=visualstudiosdk-2017)を通じてそのサービスをインポートします。
 
     ```cs
     //Using the Import attribute

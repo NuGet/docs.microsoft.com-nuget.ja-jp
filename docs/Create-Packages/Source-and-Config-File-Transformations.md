@@ -14,11 +14,11 @@ ms.reviewer:
 - karann-msft
 - unniravindranathan
 - anangaur
-ms.openlocfilehash: 7d380b7f2ff52ec39a2ac9a2b939ee51db6054f3
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 89a55716ccbc9043cfce4c7f38ec8ab9a0e2f768
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="transforming-source-code-and-configuration-files"></a>ソース コードと構成ファイルの変換
 
@@ -27,20 +27,19 @@ ms.lasthandoff: 12/14/2017
 > [!Note]
 > [プロジェクト ファイル内のパッケージ リファレンス](../Consume-Packages/Package-References-in-Project-Files.md)を使用するプロジェクトでは、プロジェクトにパッケージがインストールされるときのソースおよび構成ファイルの変換は適用されません 
 
-**ソース コード変換**は、パッケージがインストールされるときに一方向トークンの置き換えをパッケージの `content`フォルダー内のファイルに適用します。この場合、トークンは、Visual Studio [プロジェクト プロパティ](https://msdn.microsoft.com/library/vslangproj.projectproperties_properties.aspx)を参照します。 これにより、プロジェクトの名前空間にファイルを挿入したり、ASP.NET プロジェクトで通常は `global.asax` に置かれるコードをカスタマイズしたりすることができます。
+**ソース コード変換**は、パッケージがインストールされるときに一方向トークンの置き換えをパッケージの `content`フォルダー内のファイルに適用します。この場合、トークンは、Visual Studio [プロジェクト プロパティ](/dotnet/api/vslangproj.projectproperties?redirectedfrom=MSDN&view=visualstudiosdk-2017#properties_)を参照します。 これにより、プロジェクトの名前空間にファイルを挿入したり、ASP.NET プロジェクトで通常は `global.asax` に置かれるコードをカスタマイズしたりすることができます。
 
 **構成ファイルの変換**を使用して、`web.config` や `app.config` などのターゲット プロジェクトに既に存在するファイルを変更することができます。 たとえば、場合によっては、パッケージで構成ファイルの `modules` セクションに項目を追加する必要があります。 この変換は、構成ファイルに追加するセクションを記述するパッケージ内の特別なファイルを含めることで行われます。 パッケージがアンインストールされるときには、同じ変更が、逆に行われ、これを双方向の変換にします。
-
 
 ## <a name="specifying-source-code-transformations"></a>変換のソース コードを指定する
 
 1. パッケージからプロジェクトに挿入するファイルは、パッケージ内の `content` フォルダーに配置する必要があります。 たとえば、`ContosoData.cs` という名前のファイルをターゲット プロジェクトの `Models` フォルダーにインストールする場合は、パッケージの `content\Models` フォルダー内にファイルが置かれている必要があります。
 
-2. インストール時にトークンの置換を適用するように NuGet に指示するには、`.pp` をソース コード ファイル名に追加します。 インストール後、ファイルには `.pp` 拡張子は付きません。
+1. インストール時にトークンの置換を適用するように NuGet に指示するには、`.pp` をソース コード ファイル名に追加します。 インストール後、ファイルには `.pp` 拡張子は付きません。
 
     たとえば、`ContosoData.cs` で変換を行うには、パッケージ内のファイルに `ContosoData.cs.pp` という名前を付けます。 インストール後には、`ContosoData.cs` として表示されます。
 
-3. ソース コード ファイル内では、`$token$` 形式の大文字と小文字が区別されないトークンを使用し、NuGet でプロジェクトのプロパティと置き換える必要がある値を示します。
+1. ソース コード ファイル内では、`$token$` 形式の大文字と小文字が区別されないトークンを使用し、NuGet でプロジェクトのプロパティと置き換える必要がある値を示します。
 
     ```cs
     namespace $rootnamespace$.Models
@@ -58,8 +57,7 @@ ms.lasthandoff: 12/14/2017
 
     インストール時に、NuGet が、ターゲット プロジェクトのルート名前空間が `Fabrikam` であると仮定して、`$rootnamespace$` を `Fabrikam` に置き換えます。
 
-`$rootnamespace$` トークンは、最もよく使用されるプロジェクト プロパティです。他のすべてのトークンは、MSDN の「[ProjectProperties プロパティ](https://msdn.microsoft.com/library/vslangproj.projectproperties_properties.aspx)」ドキュメントに記載されています。 当然ながら、一部のプロパティはプロジェクトの種類に固有である可能性があります。
-
+`$rootnamespace$` トークンは、最もよく使用されるプロジェクト プロパティです。他のすべてのトークンは、MSDN の「[ProjectProperties プロパティ](/dotnet/api/vslangproj.projectproperties?redirectedfrom=MSDN&view=visualstudiosdk-2017#properties_)」ドキュメントに記載されています。 当然ながら、一部のプロパティはプロジェクトの種類に固有である可能性があります。
 
 ## <a name="specifying-config-file-transformations"></a>構成ファイルの変換を指定する
 
@@ -91,7 +89,6 @@ XDT を使用することの利点は、2 つの静的なファイルを単純�
 
 パッケージのインストール中に `MyNuModule` 要素を `modules` セクションに追加するには、次のような `web.config.transform` ファイルをパッケージの `content` フォルダー内に作成します。
 
-    
 ```xml
 <configuration>
     <system.webServer>
@@ -125,10 +122,9 @@ NuGet が `modules` セクションを置き換えずに、新しい要素と特
 
 パッケージのインストールおよびアンインストールの影響を確認するには、新しい ASP.NET プロジェクトを Visual Studio で作成し (テンプレートは、[新しいプロジェクト] ダイアログ ボックスの **[Visual C#] > [Web]** にあります)、空の ASP.NET アプリケーションを選択します。 `web.config` を開いて初期状態を確認します。 プロジェクトを右クリックし、**[NuGet パッケージの管理]** を選択し、nuget.org で ELMAH を見つけて、最新バージョンをインストールします。 `web.config` のすべての変更に注意してください。 次に、パッケージをアンインストールすると、`web.config` が前の状態に戻ります。
 
-
 ### <a name="xdt-transforms"></a>XDT 変換
 
-NuGet 2.6 以降を使用し、[XDT 構文](https://msdn.microsoft.com/library/dd465326.aspx)を使用して構成ファイルを変更することができます。 `$` 区切り文字 (大文字と小文字が区別されません) 内にプロパティ名を含めることによって、NuGet でトークンを[プロジェクトのプロパティ](https://msdn.microsoft.com/library/vslangproj.projectproperties_properties.aspx)に置き換えることもできます。
+NuGet 2.6 以降を使用し、[XDT 構文](https://msdn.microsoft.com/library/dd465326.aspx)を使用して構成ファイルを変更することができます。 `$` 区切り文字 (大文字と小文字が区別されません) 内にプロパティ名を含めることによって、NuGet でトークンを[プロジェクトのプロパティ](/dotnet/api/vslangproj.projectproperties?redirectedfrom=MSDN&view=visualstudiosdk-2017#properties_)に置き換えることもできます。
 
 たとえば、次の `app.config.install.xdt` ファイルは、プロジェクトの `FullPath`、`FileName`、`ActiveConfigurationSettings` 値を含む `app.config` に `appSettings` 要素を挿入します。
 

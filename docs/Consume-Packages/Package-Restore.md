@@ -13,17 +13,17 @@ keywords: "NuGet パッケージの復元, NuGet パッケージのインスト�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c2567f45b6bb36cdd94c4ce6f1418cb1c7ceac5e
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 4e819a2bb34bbe70f0f11d5adeed82b976a8cb65
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="package-restore"></a>パッケージの復元
 
 開発環境をいっそうクリーンにしてリポジトリのサイズを減らすため、NuGet の**パッケージの復元**では、プロジェクトがビルドされる前に、参照されているすべてのパッケージがインストールされます。 この広く使われている機能により、これらのパッケージをソース管理に格納しなくても、すべての依存関係をプロジェクトで利用できます (パッケージのバイナリを除外するようにリポジトリを構成する方法については、「[パッケージとソース管理](../consume-packages/packages-and-source-control.md)」をご覧ください)。
 
-このトピックの内容
+このトピックの内容:
 - [パッケージの復元の簡単なガイド](#quick-guide-to-package-restore)
 - [パッケージの復元の概要](#package-restore-overview)
 - [パッケージの復元の有効化と無効化](#enabling-and-disabling-package-restore)
@@ -64,7 +64,7 @@ ms.lasthandoff: 12/14/2017
 | コマンド | 該当シナリオ |
 | --- | --- | 
 | `nuget restore` | すべてのバージョンの NuGet およびすべての参照の種類。 後の「[コマンド ラインでの復元](#command-line-restore)」をご覧ください。 | 
-| `dotnet restore` | .NET Core プロジェクトの場合の `nuget restore` と同じです。 「[dotnet restore](https://docs.microsoft.com/dotnet/articles/core/tools/dotnet-restore)」をご覧ください。 |
+| `dotnet restore` | .NET Core プロジェクトの場合の `nuget restore` と同じです。 「[dotnet restore](/dotnet/articles/core/tools/dotnet-restore)」をご覧ください。 |
 | `msbuild /t:restore` | [プロジェクト ファイルでのパッケージ参照](../Consume-Packages/Package-References-in-Project-Files.md)のみを使う Nuget 4.x 以降および MSBuild 15.1 以降。 `nuget restore` と `dotnet restore` はどちらも、このコマンドを該当するプロジェクトに使います。 「NuGet pack and restore as MSBuild targets」(MSBuild ターゲットとしての NuGet のパックと復元) の「[restore target](../schema/msbuild-targets.md#restore-target)」(ターゲットの復元) をご覧ください。|
 
 visual Studio 自体もさまざまなタイミングでパッケージを復元します。
