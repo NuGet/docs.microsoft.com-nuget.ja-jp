@@ -13,11 +13,11 @@ keywords: "NuGet 依存関係, NuGet および UWP, UWP および project.json, 
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 40507e541997cea368052c373a4124d9c4a00a51
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: ae49c017365e1a63622fde318d5c94b64ed1ea2e
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="projectjson-and-uwp"></a>project.json および UWP
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 12/14/2017
 
 NuGet パッケージには `.targets` および `.props` ファイルを含めることができます。これらのファイルは、パッケージのインストール先となる MSBuild プロジェクトにインポートされます。 NuGet 2.x では、これは `<Import>` ステートメントを `.csproj` ファイルに挿入することで行われていました。NuGet 3.0 では、特定の "プロジェクトへのインストール" アクションはありません。 代わりに、パッケージの復元プロセスで `[projectname].nuget.props` および `[projectname].NuGet.targets` という 2 つのファイルが記述されます。
 
-MSBuild はこれら 2 つのファイルを検索することを認識しており、プロジェクトのビルド プロセスの開始および終了が近づいたときにこれらのファイルを自動的にインポートします。 これは NuGet 2.x とよく似たビヘイビアーを提供しますが、*この場合、ターゲット/プロパティ ファイルの順序が保証されない*という 1 つの大きな違いがあります。 ただし、MSBuild では、`<Target>` 定義の `BeforeTargets` および `AfterTargets` 属性を使用してターゲットの順序を指定する方法が提供されます (「[Target 要素 (MSBuild)](https://docs.microsoft.com/visualstudio/msbuild/target-element-msbuild)」を参照)。
+MSBuild はこれら 2 つのファイルを検索することを認識しており、プロジェクトのビルド プロセスの開始および終了が近づいたときにこれらのファイルを自動的にインポートします。 これは NuGet 2.x とよく似たビヘイビアーを提供しますが、*この場合、ターゲット/プロパティ ファイルの順序が保証されない*という 1 つの大きな違いがあります。 ただし、MSBuild では、`<Target>` 定義の `BeforeTargets` および `AfterTargets` 属性を使用してターゲットの順序を指定する方法が提供されます (「[Target 要素 (MSBuild)](/visualstudio/msbuild/target-element-msbuild)」を参照)。
 
 
 ## <a name="lib-and-ref"></a>lib および ref
@@ -93,7 +93,7 @@ lib 構造の例を以下に示します。
 
 ほとんどのパッケージの作成者には `ref` フォルダーは必要ありません。 これは、コンパイルや IntelliSense のために一貫性のあるセキュリティ、外部からのアクセスを提供する必要があるものの、TxM ごとに実装が異なるパッケージの場合に便利です。 この最大のユース ケースは、NuGet における .NET Core の配布の一環として生成される `System.*` パッケージです。 これらのパッケージには、一貫性のある ref アセンブリ セットで統合されているさまざまな実装があります。
 
-機械的に、`ref` フォルダーに含まれるアセンブリはコンパイラに渡される参照アセンブリとなります。 csc.exe を使用している場合、これらは [C# /reference オプション](https://docs.microsoft.com/dotnet/articles/csharp/language-reference/compiler-options/reference-compiler-option) スイッチに渡されるアセンブリとなります。
+機械的に、`ref` フォルダーに含まれるアセンブリはコンパイラに渡される参照アセンブリとなります。 csc.exe を使用している場合、これらは [C# /reference オプション](/dotnet/articles/csharp/language-reference/compiler-options/reference-compiler-option) スイッチに渡されるアセンブリとなります。
 
 `ref` フォルダーの構造は `lib` と同じです。たとえば、次のようになります。
 
@@ -121,7 +121,7 @@ lib 構造の例を以下に示します。
 
 ## <a name="runtimes"></a>runtimes
 
-runtimes フォルダーには、通常はオペレーティング システムおよび CPU アーキテクチャで定義される、特定の "ランタイム" で実行するために必要なアセンブリとネイティブ ライブラリが含まれます。 これらのランタイムは、`win`、`win-x86`、`win7-x86`、`win8-64` などの[ランタイム識別子 (RID)](https://docs.microsoft.com/dotnet/core/rid-catalog) を使用して識別されます。
+runtimes フォルダーには、通常はオペレーティング システムおよび CPU アーキテクチャで定義される、特定の "ランタイム" で実行するために必要なアセンブリとネイティブ ライブラリが含まれます。 これらのランタイムは、`win`、`win-x86`、`win7-x86`、`win8-64` などの[ランタイム識別子 (RID)](/dotnet/core/rid-catalog) を使用して識別されます。
 
 ## <a name="native-light-up"></a>ネイティブの特徴
 

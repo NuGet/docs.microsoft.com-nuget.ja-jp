@@ -14,11 +14,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 4d1d2e6850f22306d715b1c2071ee45b0eb050dc
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 36e1f0cd6e4284a6bd272ce3c85749e9ed72cbcd
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="target-frameworks"></a>ターゲット フレームワーク
 
@@ -40,7 +40,7 @@ NuGet は、多様な場所にあるターゲット フレームワーク参照�
 
 NuGet クライアントは以下の表のフレームワークをサポートしています。 同等のものがかっこ [] 内に示されています。 `dotnet` などの一部のツールは、一部のファイルで正規の TFM のバリエーションを使用することがあります。 たとえば、`dotnet pack` は `.nuspec` ファイルで `netcoreapp2.0` ではなく `.NETCoreApp2.0` を使用します。 さまざまな NuGet クライアント ツールがこれらのバリエーションを適切に処理しますが、ファイルを直接編集するときは常に正規の TFM を使用することをお勧めします。
 
-| 名前           | 省略形 | TFM/TxM |
+| name           | 省略形 | TFM/TxM |
 | -------------  | ------------ | --------- |
 |.NET Framework  | net          | net11     |
 |                |              | net20     |
@@ -53,7 +53,7 @@ NuGet クライアントは以下の表のフレームワークをサポート�
 |                |              | net46      |
 |                |              | net461     |
 |                |              | net462     |
-|Windows ストア   | netcore      | netcore [netcore45] |
+|Microsoft Store (Windows Store) | netcore      | netcore [netcore45] |
 |                |              | netcore45 [win、win8] |
 |                |              | netcore451 [win81] |
 |                |              | netcore50 |
@@ -122,7 +122,7 @@ Tizen | tizen | tizen3 |
 
 ## <a name="net-platform-standard"></a>.NET Platform Standard
 
-[.NET Platform Standard](https://github.com/dotnet/corefx/blob/master/Documentation/architecture/net-platform-standard.md) は、バイナリ互換フレームワーク間の参照を簡易化し、1 つのターゲット フレームワークで複数のフレームワークの組み合わせを参照できます (背景については、「[.NET のガイド](https://docs.microsoft.com/dotnet/articles/standard/index)」を参照してください。)。
+[.NET Platform Standard](https://github.com/dotnet/corefx/blob/master/Documentation/architecture/net-platform-standard.md) は、バイナリ互換フレームワーク間の参照を簡易化し、1 つのターゲット フレームワークで複数のフレームワークの組み合わせを参照できます (背景については、「[.NET のガイド](/dotnet/articles/standard/index)」を参照してください。)。
 
 [NuGet の Get Nearest Framework Tool](https://aka.ms/s2m3th) では、プロジェクトのフレームワークに基づいて、パッケージ内で使用できる複数のフレームワーク アセットから、1 つのフレームワークを選択するために使用する NuGet をシミュレートしています。
 
@@ -282,7 +282,7 @@ NuGet 3.3 以前には `dotnet` シリーズのモニカーを使用し、v3.4 �
 
 さらに、Xamarin をターゲットとする NuGet パッケージでは、Xamarin で定義された他のフレームワークも使用することができます。 [Xamarin 用の NuGet パッケージの作成](https://developer.xamarin.com/guides/cross-platform/advanced/nuget/)に関するページを参照してください。
 
-| 名前 | 説明 | .NET Standard |
+| name | 説明 | .NET Standard |
 | --- | --- | ---
 | monoandroid | Android OS の Mono サポート | netstandard1.4 |
 | monotouch | iOS の Mono サポート | netstandard1.4 |

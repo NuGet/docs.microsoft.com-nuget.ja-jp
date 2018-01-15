@@ -13,11 +13,11 @@ keywords: "NuGet ガバナンス, NuGet のヴェノベレント ディクテー
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: db2ed774b35d5698a88f9afba43fd30692001f6a
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 0437b7d41f965da6a7ad44a7d0675916ed655fe1
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-governance"></a>NuGet のガバナンス
 
@@ -47,7 +47,7 @@ NuGet プロジェクトのリーダーは、ヴェノベレント ディクテ�
 
 コミッターは、NuGet の全体的な方向に関しては権限がありません。 ただし、プロジェクト リーダーからは話を聞いてもらえます。 コミュニティで求められていることや包括的な目標をリーダーに認識させ、プロジェクトに対する適切な寄稿の開発を支援したり、それを引き出すことがコミッターの仕事です。 しばしば、コミッターはコミッターの特定の担当専門領域を監督することを非公式に任されており、ソース コードの特定の領域を直接変更する権限が付与されています。 つまり、コミッターには意思決定を行う明確な権限はありませんが、彼らが取る行動は、リーダーによる決定としばしば同じです。
 
-### <a name="contributors"></a>貢献者
+### <a name="contributors"></a>共同作成者
 
 共同作成者とは、NuGet に更新プログラムを提出するコミュニティ メンバーです。 これらの更新プログラムは、1 回限りのものと、経時的に発生するものとがあります。 最初は小規模な更新プログラムを提出し、共同作成者、コミッターおよびプロジェクト リーダーが共同作成者の更新プログラムの品質に問題がないと判断した場合に、それを徐々に大きくしていくことが共同作成者には期待されています。 共同作成者は、関連する製品のリリース ノートで確認できます。
 
@@ -64,7 +64,7 @@ NuGet プロジェクトのリーダーは、ヴェノベレント ディクテ�
 - [NuGet クライアントと NuGet ギャラリーの寄稿手順](https://github.com/NuGet/Home/wiki/Contributing-to-NuGet)
 - [NuGet Docs の寄稿手順](https://github.com/NuGet/NuGetDocs/wiki/Contributing-to-NuGet-Documentation)
 
-### <a name="users"></a>Users
+### <a name="users"></a>ユーザー
 
 ユーザーとは、パッケージの使用者または作成者として NuGet にニーズがあるコミュニティ メンバーです。 ユーザーは、コミュニティの最重要メンバーです。彼らがいないと、プロジェクトには目的がありません。 ユーザーは誰でもなることができ、特定の要件はありません。
 

@@ -3,21 +3,20 @@ title: "Visual Studio テンプレートの NuGet パッケージ | Microsoft Do
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 2/8/2017
+ms.date: 1/3/2018
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 0b2cf228-f028-475d-8792-c012dffdb26f
 description: "NuGet パッケージを Visual Studio プロジェクトと項目テンプレートの一部として含める方法について説明します。"
 keywords: "Visual Studio の NuGet、Visual Studio プロジェクト テンプレート、Visual Studio 項目テンプレート、プロジェクト テンプレートのパッケージ、項目テンプレートのパッケージ"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 5b2ad7616578b5f54d917c4555e861c847814da9
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 45a2ca2c08660be650f9cf38301f628923e1f8be
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="packages-in-visual-studio-templates"></a>Visual Studio テンプレートのパッケージ
 
@@ -25,7 +24,7 @@ Visual Studio プロジェクト テンプレートと項目テンプレート�
 
 これをサポートするため、テンプレートの作成者は、NuGet に個々のライブラリではなく、必要なパッケージをインストールするように指示できます。 こうすることで、開発者が後から好きなときにこれらのパッケージを簡単に更新できます。
 
-テンプレートそのものを作成する詳細については、「[プロジェクトと項目テンプレートの作成](https://msdn.microsoft.com/library/s365byhx.aspx)」または「[カスタムのプロジェクトおよび項目テンプレートを作成します](https://msdn.microsoft.com/library/ff527340.aspx)」を参照してください。
+テンプレートそのものを作成する詳細については、「[方法 : プロジェクト テンプレートを作成する](/visualstudio/ide/how-to-create-project-templates)」または「[Creating Custom Project and Item Templates](/visualstudio/extensibility/creating-custom-project-and-item-templates)」(カスタムのプロジェクトおよび項目テンプレートを作成する) を参照してください。
 
 このセクションの残りの部分では、NuGet パッケージを正しく含めるテンプレートを作成するときに実行する具体的な手順について説明します。
 
@@ -34,16 +33,15 @@ Visual Studio プロジェクト テンプレートと項目テンプレート�
 
 例については、[NuGetInVsTemplates のサンプル](https://bitbucket.org/marcind/nugetinvstemplates)を参照してください。
 
-
 ## <a name="adding-packages-to-a-template"></a>パッケージをテンプレートに追加する
 
-テンプレートがインスタンス化されるときに、インストールするパッケージのリストとともにこれらのパッケージがある場所に関する情報を読み込むため、[テンプレート ウィザード](https://msdn.microsoft.com/library/ms185301.aspx)が呼び出されます。 パッケージは、VSIX に埋め込んだり、テンプレートに埋め込むことができます。または、レジストリ キーを使用してファイル パスを参照する場合は、ローカル ハード ドライブ上に配置することもできます。 これらの場所の詳細については、このセクションで後述します。
+テンプレートがインスタンス化されるときに、インストールするパッケージのリストとともにこれらのパッケージがある場所に関する情報を読み込むため、[テンプレート ウィザード](/visualstudio/extensibility/how-to-use-wizards-with-project-templates)が呼び出されます。 パッケージは、VSIX に埋め込んだり、テンプレートに埋め込むことができます。または、レジストリ キーを使用してファイル パスを参照する場合は、ローカル ハード ドライブ上に配置することもできます。 これらの場所の詳細については、このセクションで後述します。
 
-[テンプレート ウィザード](http://msdn.microsoft.com/library/ms185301.aspx)を使用して、プレインストールされたパッケージが機能します。 テンプレートがインスタンス化されるときに、特殊なウィザードが呼び出されます。 このウィザードはインストールする必要があるパッケージのリストを読み込み、その情報を適切な NuGet API に渡します。
+[テンプレート ウィザード](/visualstudio/extensibility/how-to-use-wizards-with-project-templates)を使用して、プレインストールされたパッケージが機能します。 テンプレートがインスタンス化されるときに、特殊なウィザードが呼び出されます。 このウィザードはインストールする必要があるパッケージのリストを読み込み、その情報を適切な NuGet API に渡します。
 
 テンプレートにパッケージを含める手順:
 
-1. `vstemplate` ファイルに、[`WizardExtension`](http://msdn.microsoft.com/library/ms171411.aspx) 要素を追加して、NuGet テンプレート ウィザードへの参照を追加します。
+1. `vstemplate` ファイルに、[`WizardExtension`](/visualstudio/extensibility/wizardextension-element-visual-studio-templates) 要素を追加して、NuGet テンプレート ウィザードへの参照を追加します。
 
     ```xml
     <WizardExtension>
@@ -66,12 +64,11 @@ Visual Studio プロジェクト テンプレートと項目テンプレート�
 
     *(NuGet 2.2.1 以降)* 複数のパッケージ ソースをサポートするため、ウィザードは複数の `<package>` 要素をサポートします。 `id` と `version` の両方の属性が必要です。つまり、新しいバージョンが利用可能な場合でも、パッケージの特定のバージョンがインストールされます。 これによりパッケージの更新によりテンプレートが破損されるのを防ぎ、テンプレートを使用する開発者にパッケージの更新の選択を任せます。
 
-
 1. 次のセクションで説明するように、NuGet がパッケージを検索するリポジトリを指定します。
 
 ### <a name="vsix-package-repository"></a>VSIX パッケージ リポジトリ
 
-Visual Studio プロジェクト/項目テンプレートの推奨される配置方法は、[VSIX 拡張機能](http://msdn.microsoft.com/library/ff363239.aspx)です。これを使用すると、複数のプロジェクト/項目テンプレートをまとめてパッケージ化し、開発者が VS 拡張機能マネージャーまたは Visual Studio ギャラリーを使用して、テンプレートを簡単に検出することができるからです。 拡張機能への更新プログラムも、[Visual Studio 拡張機能マネージャーの自動更新メカニズム](http://msdn.microsoft.com/library/dd997169.aspx)を使用して簡単に展開できます。
+Visual Studio プロジェクト/項目テンプレートの推奨される配置方法は、[VSIX 拡張機能](/visualstudio/extensibility/shipping-visual-studio-extensions)です。これを使用すると、複数のプロジェクト/項目テンプレートをまとめてパッケージ化し、開発者が VS 拡張機能マネージャーまたは Visual Studio ギャラリーを使用して、テンプレートを簡単に検出することができるからです。 拡張機能への更新プログラムも、[Visual Studio 拡張機能マネージャーの自動更新メカニズム](/visualstudio/extensibility/how-to-update-a-visual-studio-extension)を使用して簡単に展開できます。
 
 VSIX 自体は、テンプレートで必要となるパッケージのソースとして使用できます。
 
@@ -83,25 +80,17 @@ VSIX 自体は、テンプレートで必要となるパッケージのソース
     </packages>
     ```
 
-    `repository` 属性がリポジトリの種類を `extension` として指定するのに対し、`repositoryId` は VSIX 自体の一意の識別子です (これが、拡張機能の `vsixmanifest` ファイル内の [`ID` 属性](http://msdn.microsoft.com/library/dd393688.aspx)の値です)。
+    `repository` 属性がリポジトリの種類を `extension` として指定するのに対し、`repositoryId` は VSIX 自体の一意の識別子です (これが、拡張機能の `vsixmanifest` ファイル内の `ID` 属性の値です。「[VSIX 拡張機能スキーマ 2.0 リファレンス](/visualstudio/extensibility/vsix-extension-schema-2-0-reference)」を参照してください)。
 
 1. `nupkg` ファイルを VSIX 内の `Packages` というフォルダー内に配置します。
-1. 必要なパッケージ ファイルを `source.extension.vsixmanifest` ファイル内に[カスタム拡張機能のコンテンツ](http://msdn.microsoft.com/library/dd393737.aspx)として追加します。 2.0 スキーマを使用している場合は、次のようになります。
+
+1. 必要なパッケージ ファイルを `<Asset>` として `vsixmanifest` ファイルに追加します (「[VSIX 拡張機能スキーマ 2.0 リファレンス](/visualstudio/extensibility/vsix-extension-schema-2-0-reference)」を参照してください)。
 
     ```xml
     <Asset Type="Moq.4.0.10827.nupkg" d:Source="File" Path="Packages\Moq.4.0.10827.nupkg" d:VsixSubPath="Packages" />
     ```
 
-    1.0 スキーマを使用している場合は、次のようになります。
-
-    ```xml
-    <CustomExtension Type="Moq.4.0.10827.nupkg">
-        packages/Moq.4.0.10827.nupkg
-    </CustomExtension>
-    ```
-
 1. パッケージは、プロジェクト テンプレートと同じ VSIX に配布することも、別の VSIX に配置する (自分のシナリオにとってその方が合理的な場合) こともできます。 ただし、制御できない VSIX を参照しないでください。その拡張機能への変更によりテンプレートが破損する可能性があります。
-
 
 ### <a name="template-package-repository"></a>テンプレート パッケージ リポジトリ
 
@@ -120,7 +109,6 @@ VSIX 自体は、テンプレートで必要となるパッケージのソース
 1. プロジェクト/項目テンプレートの ZIP ファイルのルート フォルダーにパッケージを配置します。
 
 複数のテンプレートを含む VSIX でこの方法を使用すると、テンプレートで 1 つ以上のパッケージが共通するときに、不要な肥大化につながることに注意してください。 このような場合、前のセクションで説明したように、[VSIX をリポジトリとして](#vsix-package-repository)使用します。
-
 
 ### <a name="registry-specified-folder-path"></a>レジストリで指定されたフォルダーのパス
 
@@ -159,6 +147,6 @@ MSI を使用してインストールされる SDK は、開発者のマシン�
     <!-- ... -->
     ```
 
-1. `.vstemplate` ファイルで [`<PromptForSaveOnCreation>`](http://msdn.microsoft.com/library/twfxayz5.aspx) を設定して、作成時にプロジェクト/項目テンプレートが保存されるようにする必要があります。
+1. `.vstemplate` ファイルに [`<PromptForSaveOnCreation>true</PromptForSaveOnCreation>`](/visualstudio/extensibility/promptforsaveoncreation-element-visual-studio-templates) を含めることにより、作成時にプロジェクト/項目テンプレートが保存されるようにする必要があります。
 
 1. テンプレートには、`packages.config` ファイルまたは `project.json` ファイルは含まれません。また、NuGet パッケージがインストールされるときに追加される参照やコンテンツも含まれません。

@@ -14,11 +14,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: d002f55a75b3daaa2fed7a94e88582dd4f04e05f
-ms.sourcegitcommit: 1ebfff1263992c54de75366a1b1c26dbae6c0318
+ms.openlocfilehash: cd5b7c79ad0af07b167e062d4a2f5142ef2d718a
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="nuspec-reference"></a>.nuspec リファレンス
 
@@ -172,8 +172,8 @@ nuget pack MyProject.csproj
 `<metadata>` 内の `<dependencies>` 要素は、最上位のパッケージが依存している他のパッケージを示す `<dependency>` 要素をいくつでも含むことができます。 各 `<dependency>` の属性は次にとおりです。
 
 | 属性 | 説明 |
-| --- | --- | 
-| `id` | (必須) 依存関係のパッケージ ID。 |
+| --- | --- |
+| `id` | (必須) "EntityFramework" や "NUnit" などの依存関係のパッケージ ID。これはパッケージ ページに表示されるパッケージ nuget.org の名前となります。 |
 | `version` | (必須) 依存関係として許容されるバージョンの範囲。 厳密な構文については、「[Package versioning](../reference/package-versioning.md#version-ranges-and-wildcards)」(パッケージのバージョン管理) をご覧ください。 |
 | include | 最終的なパッケージに含める依存関係を示す包含/除外タグ (下記参照) のコンマ区切りリスト。 既定値は `none` です。 |
 | exclude | 最終的なパッケージから除外する依存関係を示す包含/除外タグ (下記参照) のコンマ区切りリスト。 既定値は `all` です。 `exclude` で指定されているタグの方が、`include` で指定されているタグより優先されます。 たとえば、`include="runtime, compile" exclude="compile"` は `include="runtime"` と同じです。 |
@@ -254,7 +254,7 @@ nuget pack MyProject.csproj
 </references>
 ```
 
-明示的な参照は、通常、設計時のみのアセンブリに使われます。 たとえば、[コード コントラクト](https://docs.microsoft.com/dotnet/framework/debug-trace-profile/code-contracts)を使うときは、Visual Studio がコントラクト アセンブリを検出できるように、コントラクト アセンブリはそれが拡張するランタイム アセンブリの隣に存在する必要がありますが、プロジェクトでコントラクト アセンブリを参照したり、プロジェクトの `bin` フォルダーにコントラクト アセンブリをコピーしたりする必要はありません。
+明示的な参照は、通常、設計時のみのアセンブリに使われます。 たとえば、[コード コントラクト](/dotnet/framework/debug-trace-profile/code-contracts)を使うときは、Visual Studio がコントラクト アセンブリを検出できるように、コントラクト アセンブリはそれが拡張するランタイム アセンブリの隣に存在する必要がありますが、プロジェクトでコントラクト アセンブリを参照したり、プロジェクトの `bin` フォルダーにコントラクト アセンブリをコピーしたりする必要はありません。
 
 同様に、明示的な参照は XUnit などの単体テスト フレームワークに使うことができ、その場合、ツール アセンブリはランタイム アセンブリの隣に存在する必要がありますが、プロジェクト参照として含まれる必要はありません。
 

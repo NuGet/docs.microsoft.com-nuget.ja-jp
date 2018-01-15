@@ -13,11 +13,11 @@ keywords: "NuGet パッケージの作成、NuGet パッケージの公開、NuG
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 36a7c2b1d056dddf07a59737de1c3e94294689ac
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: ab5235537d869047075b93f9d8255ae9e61dfedd
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="create-and-publish-a-package"></a>パッケージの作成と公開
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 12/14/2017
     nuget spec
     ```
 
-1. テキスト エディターでファイルを開きます。 マニフェストは次のコードのようになります。*$`<token>`$* の形式のトークンは、パッケージ化プロセス中にプロジェクトの Properties/AssemblyInfo.cs ファイルからの値に置き換えられます。 トークンの詳細については、「[Creating the .nuspec file](../create-packages/creating-a-package.md#creating-the-nuspec-file)」 (.nuspec ファイルの作成) を参照してください。
+1. テキスト エディターでファイルを開きます。 マニフェストは次のコードのようになります。`<token>` の形式のトークン (`$id$` など) は、パッケージ化プロセス中にプロジェクトの Properties/AssemblyInfo.cs ファイルからの値に置き換えられます。 トークンの詳細については、「[Creating the .nuspec file](../create-packages/creating-a-package.md#creating-the-nuspec-file)」 (.nuspec ファイルの作成) を参照してください。
 
     ```xml
     <?xml version="1.0"?>
@@ -115,7 +115,6 @@ nuget pack AppLogger.csproj
 > [!Warning]
 > nuget.org に公開するパッケージは、他の開発者に公開されます。 パッケージを非公開でホストするには、[パッケージのホスティング](../hosting-packages/overview.md)に関するページを参照してください。
 
-
 1. [nuget.org](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) に無料のアカウントを作成するか、既にある場合はログインします。 新しいアカウントを作成すると、確認メールが送信されます。 パッケージをアップロードするには、その前にアカウントを確認する必要があります。
 
 1. ログイン後、(右上で) ユーザー名を選択し、**[API キー]** を選択します。
@@ -134,7 +133,7 @@ nuget pack AppLogger.csproj
     ```
     nuget push AppLogger.1.0.0.0.nupkg 47be3377-c434-4c29-8576-af7f6993a54b -Source https://api.nuget.org/v3/index.json
     ```
-    
+
 1. nuget.exe によって公開プロセスの結果が表示されます。
 
     ```

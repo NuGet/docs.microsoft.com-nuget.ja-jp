@@ -13,11 +13,11 @@ keywords: "NuGet と project.json、project.json の影響、パッケージの�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 93a4e9f9cb57c8acbe516a957e01b801bac0e116
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 69a6bbbe1c96b06dbba7ac787b836b8b62c438ec
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="impact-of-projectjson-when-creating-packages"></a>パッケージを作成するときの project.json の影響
 

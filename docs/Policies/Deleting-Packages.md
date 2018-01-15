@@ -13,11 +13,11 @@ keywords: "NuGet パッケージの削除、NuGet パッケージを一覧から
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 331979bdc3703ddbeff18e2bd0e6b0a17551e68b
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 9e388171f83fae7deb4f20033184dfa91bfab3da
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="deleting-packages"></a>パッケージの削除
 
@@ -41,7 +41,7 @@ nuget.org では、Web サイト上のパッケージ管理ページで実行で
 - 著作権を侵害したり、ライセンスに違反したりしている
 - 違法なコンテンツを含む
 - 生産性のないコンテンツを含むパッケージなど、パッケージの識別子を占拠するために使用されている。 パッケージにコードが含まれるか、所有者が実際に出荷する製品を所有しているユーザーに識別子を譲る必要があります。
-- ギャラリーで明示的に実行するように設計されていない操作を行うようにしている
+- ギャラリーで明示的に実行するように設計されていない操作を行うようにしている。
 
 これらの項目のいずれかに違反しているパッケージを見つけた場合は、パッケージの詳細ページで **[不正使用を報告]** リンクをクリックして、レポートを送信します。
 

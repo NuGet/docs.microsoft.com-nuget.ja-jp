@@ -13,17 +13,17 @@ keywords: "パッケージを作成する, .NET Standard パッケージ, .NET S
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: a912c27e1873d60426f2147995f69e2dcc433ca9
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: e02888bf552997afe25e967f13e021e78e40d48d
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-net-standard-packages-with-visual-studio-2015"></a>Visual Studio 2015 での .NET Standard NuGet パッケージの作成
 
 *NuGet 3.x に適用されます。NuGet 4.x+ を使用して作業を行う場合は、[Visual Studio 2017 での .NET Standard パッケージの作成](../guides/create-net-standard-packages-vs2017.md)に関するページを参照してください。*
 
-[.NET Standard ライブラリ](https://docs.microsoft.com/dotnet/articles/standard/library)は、すべての .NET ランタイムで使用できるようにすることを目的とした .NET API の正式な仕様です。したがって、.NET エコシステムでより高い統一性が確立されます。 .NET Standard Library は、ワークロードに関係なく、すべての .NET プラットフォーム用に統一された BCL (基本クラス ライブラリ) API のセットを定義して実装します。 これにより、開発者はすべての .NET ランタイム間で使用可能な PCL を生成でき、共有コードでプラットフォーム固有の条件付きコンパイル ディレクティブを除去するまでとはいかないまでも減らすことはできます。
+[.NET Standard ライブラリ](/dotnet/articles/standard/library)は、すべての .NET ランタイムで使用できるようにすることを目的とした .NET API の正式な仕様です。したがって、.NET エコシステムでより高い統一性が確立されます。 .NET Standard Library は、ワークロードに関係なく、すべての .NET プラットフォーム用に統一された BCL (基本クラス ライブラリ) API のセットを定義して実装します。 これにより、開発者はすべての .NET ランタイム間で使用可能な PCL を生成でき、共有コードでプラットフォーム固有の条件付きコンパイル ディレクティブを除去するまでとはいかないまでも減らすことはできます。
 
 このガイドでは、.NET Standard Library 1.4 をターゲットとする nuget パッケージの作成方法を示します。 これは、.NET Framework 4.6.1、ユニバーサル Windows プラットフォーム 10、.NET Core、および Mono/Xamarin に適用できます。 詳細については、このトピックの後半の「[.NET Standard マッピング テーブル](#net-standard-mapping-table)」を参照してください。
 
@@ -136,7 +136,7 @@ nuget pack AppLogger.nuspec
 
 `pack` には Mac OS X の場合は Mono 4.4.2 が必要であり、Linux 1 システムでは動作しないことに注意してください。 Mac の場合、`.nuspec` ファイルの Windows パス名を Unix 形式のパスに変換する必要もあります。
 
-## <a name="additional-options"></a>[追加オプション]
+## <a name="additional-options"></a>追加オプション
 
 次のセクションでは、NuGet パッケージを作成する場合の追加オプションについて説明します。
 
@@ -310,8 +310,8 @@ nuget pack AppLogger.nuspec
 
 |プラットフォーム名 |Alias|
 |--------------|-----|
-|.NET Standard | netstandard| 1.0| 1.1| 1.2| 1.3| 1.4| 1.5| 1.6|
-|.NET Core | netcoreapp| &#x2192;| &#x2192;| &#x2192;| &#x2192;| &#x2192;| &#x2192;| 1.0|
+|.NET Standard | netstandard| 1| 1.1| 1.2| 1.3| 1.4| 1.5| 1.6|
+|.NET Core | netcoreapp| &#x2192;| &#x2192;| &#x2192;| &#x2192;| &#x2192;| &#x2192;| 1|
 |.NET Framework| net| 4.5| 4.5.1| 4.6| 4.6.1| 4.6.2| 4.6.3|
 |Mono/Xamarin プラットフォーム| &#x2192;| &#x2192;| &#x2192;| &#x2192;| &#x2192;| &#x2192;|
 |ユニバーサル Windows プラットフォーム| uap| &#x2192;| &#x2192;| &#x2192;| &#x2192;|10.0|
@@ -329,5 +329,5 @@ nuget pack AppLogger.nuspec
 - [複数の .NET Framework バージョンのサポート](../create-packages/supporting-multiple-target-frameworks.md)
 - [パッケージに MSBuild プロパティとターゲットを含める](../create-packages/creating-a-package.md#including-msbuild-props-and-targets-in-a-package)
 - [ローカライズされたパッケージを作成する](../create-packages/creating-localized-packages.md)
-- [.NET Standard ライブラリのドキュメント](https://docs.microsoft.com/dotnet/articles/standard/library)
-- [.NET Framework から .NET Core への移植](https://docs.microsoft.com/dotnet/articles/core/porting/index)
+- [.NET Standard ライブラリのドキュメント](/dotnet/articles/standard/library)
+- [.NET Framework から .NET Core への移植](/dotnet/articles/core/porting/index)

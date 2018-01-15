@@ -13,11 +13,11 @@ keywords: "NuGet パッケージ依存性, パッケージ参照, プロジェ�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c8fc9e558557af444d9a35ace36d043a5f6382a7
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 275957c94e4a4bb45f359cd48816acf4f286ebad
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="package-references-packagereference-in-project-files"></a>プロジェクト ファイルのパッケージ参照 (PackageReference)
 
@@ -96,7 +96,7 @@ MSBuild とプロジェクト ファイルのパッケージ参照の統合に�
 
 これらのタグに使用できる値は次のようになります。単独で表示する `all` と `none` を除き、複数の値はセミコロンで区切られます。
 
-| 値 | 説明 |
+| [値] | 説明 |
 | --- | ---
 | compile | `lib` フォルダーの内容 |
 | ランタイム | `runtime` フォルダーの内容 |

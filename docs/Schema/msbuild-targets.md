@@ -11,11 +11,11 @@ ms.assetid: 86f7e724-2509-4d7d-aa8d-4a3fb913ded6
 description: "NuGet の pack と restore は、NuGet 4.0 以降で MSBuild ターゲットとして直接使用できます。"
 keywords: "NuGet と MSBuild, NuGet の pack ターゲット, NuGet の restore ターゲット"
 ms.reviewer: karann-msft
-ms.openlocfilehash: def01380e5bc3bf878e72dd437f52cd033641ca5
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: d4778a21a96de6d76d7a20ff9a305960dd6c2bf1
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>MSBuild ターゲットとしての NuGet の pack と restore
 
@@ -25,7 +25,7 @@ NuGet 4.0 以降では、`.csproj` ファイルの情報を直接使用できま
 
 MSBuild 15.1 以降では、NuGet は以下のように `pack` および `restore` ターゲットを使用する MSBuild の最上級のメンバーです。 これらのターゲットを使用すると、他の MSBuild タスクやターゲットの場合と同様に NuGet を使用できます  (NuGet 3.x 以前の場合は、代わりに NuGet CLI の [pack](../tools/cli-ref-pack.md) および [restore](../tools/cli-ref-restore.md) コマンドを使用します)。
 
-このトピックの内容
+このトピックの内容:
 
 - [ターゲットのビルド順序](#target-build-order)
 - [pack ターゲット](#pack-target)
@@ -75,7 +75,7 @@ pack ターゲット (つまり `msbuild /t:pack`) を使用すると、MSBuild 
 | RepositoryUrl | RepositoryUrl | (なし) | |
 | RepositoryType | RepositoryType | (なし) | |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
-| 概要 | サポートなし | | |
+| まとめ | サポートなし | | |
 
 
 ### <a name="pack-target-inputs"></a>pack ターゲットの入力

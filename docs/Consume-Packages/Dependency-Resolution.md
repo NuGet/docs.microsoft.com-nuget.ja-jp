@@ -13,11 +13,11 @@ keywords: "NuGet パッケージの依存関係, NuGet のバージョン管理,
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 44c69c07990fed72b439698d22021ebcbb2eed89
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 93a3d077a6dd1946485fc8c48f97c8009280890c
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>NuGet でのパッケージ依存関係の解決方法
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/14/2017
 
 複数のパッケージに同じ依存関係がある場合、グラフに同じパッケージ ID が異なるバージョン制約で複数回出現する可能性があります。 ただし、プロジェクトで使うことができる指定されたパッケージのバージョンは 1 つだけなので、NuGet は使うバージョンを選ぶ必要があります。 実際のプロセスは、使われているパッケージ参照の形式によって異なります。
 
-このトピックの内容
+このトピックの内容:
 - [PackageReference と project.json での依存関係の解決](#dependency-resolution-with-packagereference-and-projectjson)
 - [packages.config での依存関係の解決](#dependency-resolution-with-packagesconfig)
 - [参照の除外](#excluding-references)。あるプロジェクトで指定されている依存関係と、別のプロジェクトによって生成されるアセンブリの間に競合があるときに必要になります。
@@ -151,6 +151,12 @@ PackageReference または `project.json` の形式を使ってプロジェク�
             }
         }
     }
+    ```
+
+- [プロジェクト ファイル内のパッケージ参照](../consume-packages/package-references-in-project-files.md)で (NuGet 4.0 以降のみ)、次のように依存関係に `ExcludeAssets="All"` を追加します。
+
+    ```xml
+    <PackageReference Include="packageC" Version="1.0.0" ExcludeAssets="All" />
     ```
 
 ## <a name="dependency-updates-during-package-install"></a>パッケージをインストールする間の依存関係の更新 

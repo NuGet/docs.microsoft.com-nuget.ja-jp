@@ -13,15 +13,15 @@ keywords: "NuGet に関する Q&A, 質問と回答, 一般的な問題, NuGet �
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 105fa6e1cad3d163b673376c74ce9c835a0b5059
-ms.sourcegitcommit: 122bf7ce308365ea45da018b0768f0536de76a1f
+ms.openlocfilehash: d19a24a2d1955e996e18d44fee346865d36493f8
+ms.sourcegitcommit: e5b7cf6675be9891341c196afe822cea6f71d60c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet に関してよく寄せられる質問
 
-このトピックの内容
+このトピックの内容:
 
 - [はじめに](#getting-started)
 - [Visual Studio の NuGet](#nuget-in-visual-studio)
@@ -57,9 +57,9 @@ UI とコマンド ライン ツールの両方に関するすべての情報は
 **別の Visual Studio 製品では NuGet はどのようにサポートされますか?**
 
 - Windows の Visual Studio では、[パッケージ マネージャー UI](../tools/Package-Manager-UI.md) と[パッケージ マネージャー コンソール](../tools/Package-Manager-Console.md)がサポートされます。
-- 「[プロジェクトに NuGet パッケージを含める](https://docs.microsoft.com/visualstudio/mac/nuget-walkthrough)」で説明されているように、Visual Studio for Mac には NuGet 機能が組み込まれています。
+- 「[プロジェクトに NuGet パッケージを含める](/visualstudio/mac/nuget-walkthrough)」で説明されているように、Visual Studio for Mac には NuGet 機能が組み込まれています。
 - Visual Studio Code (すべてのプラットフォーム) には、直接 NuGet は統合されていません。 [NuGet CLI](../tools/nuget-exe-CLI-Reference.md) または [dotnet CLI](../tools/dotnet-commands.md) を使用してください。
-- Visual Studio Team Services では、[NuGet パッケージを復元するためのビルド ステップ](https://docs.microsoft.com/vsts/build-release/tasks/package/nuget)が提供されます。 [Team Services でプライベート NuGet パッケージ フィードをホストする](https://www.visualstudio.com/docs/package/nuget/publish)こともできます。
+- Visual Studio Team Services では、[NuGet パッケージを復元するためのビルド ステップ](/vsts/build-release/tasks/package/nuget)が提供されます。 [Team Services でプライベート NuGet パッケージ フィードをホストする](https://www.visualstudio.com/docs/package/nuget/publish)こともできます。
 
 **インストールされている NuGet ツールの正確なバージョンはどのように確認すればよいですか?**
 
@@ -101,7 +101,7 @@ NuGet では、Windows、Web、クラウド、SharePoint、Wix などのさま�
 
 **パッケージ マネージャー コンソールでは DTE オブジェクトにどのようにアクセスするのですか?**
 
-Visual Studio オートメーション オブジェクト モデルのトップ レベル オブジェクトは、DTE (開発ツール環境) オブジェクトと呼ばれます。 コンソールでは、`$DTE` という名前の変数を通じてこれが提供されます。 詳細については、Visual Studio 機能拡張ドキュメントの「[オートメーション モデルの概要](https://docs.microsoft.com/visualstudio/extensibility/internals/automation-model-overview)」を参照してください。
+Visual Studio オートメーション オブジェクト モデルのトップ レベル オブジェクトは、DTE (開発ツール環境) オブジェクトと呼ばれます。 コンソールでは、`$DTE` という名前の変数を通じてこれが提供されます。 詳細については、Visual Studio 機能拡張ドキュメントの「[オートメーション モデルの概要](/visualstudio/extensibility/internals/automation-model-overview)」を参照してください。
 
 **$DTE 変数を DTE2 型にキャストしようとしましたが、""EnvDTE.DTEClass" 型の "EnvDTE.DTEClass" 値を "EnvDTE80.DTE2" 型に変換できません" という内容のエラーが表示されました。何が問題なのでしょうか?**
 
@@ -177,9 +177,9 @@ Visual Studio オートメーション オブジェクト モデルのトップ 
 
 ## <a name="managing-packages-on-nugetorg"></a>nuget.org でのパッケージの管理
 
-**パッケージ メタデータをアップロードしてから編集することはできますか? nuspec を編集し、新しいパッケージをアップロードしてパッケージ メタデータを変更するように勧められるのはなぜですか?**
+**パッケージ メタデータをアップロードしてから編集することはできますか? nuspec を編集し、新しいパッケージをアップロードしてパッケージ メタデータを変更するように求められるのはなぜですか?**
 
-NuGet はパッケージ署名を実装します。 パッケージ署名の設計原理は、署名付きパッケージ コンテンツ (nuspec を含む) は不変でなければならないということです。 パッケージ メタデータを編集すると、nuspec が変更され、既存の署名が無効になります。 パッケージが作成された後にパッケージ メタデータの編集が必要とならないように、既存のワークフローを変更することをお勧めします。
+NuGet では、すべてのパッケージに署名する必要があります。 パッケージ署名の設計原理は、署名付きパッケージ コンテンツ (nuspec を含む) は不変でなければならないということです。 パッケージ メタデータを編集すると、nuspec が変更され、既存の署名が無効になります。 パッケージが作成された後にパッケージ メタデータの編集が必要とならないように、既存のワークフローを変更することをお勧めします。
 
 パッケージに対してリストされる依存関係は、パッケージ自体から自動的に生成されるものであり、編集できないことに注意してください。
 

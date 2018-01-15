@@ -13,15 +13,15 @@ keywords: "NuGet パッケージ マネージャー, 消費量, パッケージ�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 29dcedf33a54e249fe0b6acf588e4aafde28304f
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 2bc6a9e154df287fee6a7e00cc1349dfa2100643
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="an-introduction-to-nuget"></a>NuGet の概要
 
-最新の開発プラットフォームに欠かせないツールは、開発者がコードの役に立つライブラリを作成、共有、および使用するために利用できるメカニズムです。 このようなライブラリは、コンパイル済みのコード (DLL) と共に、ライブラリを使うプロジェクトで必要な他のコンテンツを含むことができるため、一般に "パッケージ" と呼ばれます。
+最新の開発プラットフォームに欠かせないツールは、開発者が役に立つコードを作成、共有、および使用するために利用できるメカニズムです。 多くの場合、このようなコードは "パッケージ" にバンドルされています。このパッケージにはコンパイルされたコード (DLL) に加えて、このパッケージが使用されるプロジェクトで必要なその他のコンテンツが含まれています。
 
 .NET のコード共有メカニズムである **NuGet** では、.NET 用のパッケージを作成、ホスト、使用する方法が定義されており、それらの各ロール用のツールが提供されています。 
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 12/14/2017
 | --- | --- | --- | --- |
 | [nuget.exe CLI](Tools/nuget-exe-CLI-Reference.md) | すべて | 作成、利用 | NuGet のすべての機能を提供します。パッケージ作成者のみに適用されるコマンド、利用者のみに適用されるもの、両方に適用されるものがあります。 たとえば、`nuget pack` コマンドはパッケージ作成者がさまざまなアセンブリと関連ファイルからパッケージを作成するために使い、`nuget install` はパッケージ利用者がプロジェクトにパッケージを組み込むために使い、`nuget config` は全ユーザーが NuGet 構成の変数を設定するために使います。  |
 | [パッケージ マネージャー UI](Tools/Package-Manager-UI.md) | Windows の Visual Studio | 利用 | .NET プロジェクトでパッケージをインストールして管理するための使いやすい UI を提供します。 | 
-| [NuGet 管理 UI](https://docs.microsoft.com/visualstudio/mac/nuget-walkthrough) | Visual Studio for Mac | 利用 | .NET プロジェクトでパッケージをインストールして管理するための使いやすい UI を提供します。 |
+| [NuGet 管理 UI](/visualstudio/mac/nuget-walkthrough) | Visual Studio for Mac | 利用 | .NET プロジェクトでパッケージをインストールして管理するための使いやすい UI を提供します。 |
 | [パッケージ マネージャー コンソール](Tools/Package-Manager-Console.md) | Windows の Visual Studio | 利用 | .NET プロジェクトでパッケージをインストールして管理するための [PowerShell コマンド](Tools/Powershell-Reference.md)を提供します。 | 
 | [dotnet CLI](Tools/dotnet-Commands.md) | すべて | 作成、利用 | .NET Core ツール チェーン内で直接、特定の NuGet CLI 機能を提供します。 |
 | [MSBuild](Schema/msbuild-targets.md) | Windows | 作成、利用 | パッケージを作成し、MSBuild ツールチェーンを介してプロジェクトで使われたパッケージを直接復元できます。 |

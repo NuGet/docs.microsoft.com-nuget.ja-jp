@@ -13,11 +13,11 @@ keywords: "NuGet パッケージの復元、NuGet および TFS、NuGet およ�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 4be1bb83549958897a15d690439cac073c9683d1
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 82decfa1a39cb99c405840a8f13b0bc993111c09
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="setting-up-package-restore-with-team-foundation-build"></a>Team Foundation ビルドでのパッケージの復元の設定
 
@@ -29,9 +29,9 @@ ms.lasthandoff: 12/14/2017
 >
 > ビルド プロセス テンプレートを含む Visual Studio Team Services またはオンプレミスの Team Foundation Server 2013 を使用している場合は、パッケージの自動復元がビルド プロセスの一環として発生します。
 
-このセクションでは、[git](http://en.wikipedia.org/wiki/Git_(software)) と [TF バージョン管理](http://msdn.microsoft.com/library/ms181237(v=vs.120).aspx)の両方の [Team Foundation ビルド](http://msdn.microsoft.com/library/ms181710(v=VS.90).aspx) の一部としてパッケージを復元する詳細な手順のチュートリアルについて説明します。
+このセクションでは、Git と Team Services バージョン管理の両方における [Team Services ビルド](/vsts/build-release/index)の一環としてパッケージを復元する詳細な手順のチュートリアルについて説明します。
 
-このチュートリアルは、[Team Foundation Service](http://tfs.visualstudio.com/) の使用のシナリオに固有ですが、概念は他のバージョン管理およびビルドシステムにも適用されます。
+このチュートリアルは、Visual Studio Team Service の使用のシナリオに固有ですが、概念は他のバージョン管理およびビルドシステムにも適用されます。
 
 ## <a name="the-general-approach"></a>一般的な方法
 
@@ -119,7 +119,7 @@ nuget restore path\to\solution.sln
 
 これはすべての `packages` フォルダーを除外しますが、すべての含まれる `.targets` ファイルを再び含めます。 ところで、Visual Studio 開発者のニーズに合わせて特別にカスタマイズされた `.gitignore` ファイルのテンプレートを[ここ](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore)で見つけることができます。
 
-TF バージョン管理は、[.tfignore](http://msdn.microsoft.com/library/ms245454.aspx) ファイルを使用してよく似たメカニズムをサポートします。 構文はほぼ同じです。
+TF バージョン管理は、[.tfignore](/vsts/tfvc/add-files-server#customize-which-files-are-ignored-by-version-control) ファイルを使用してよく似たメカニズムをサポートします。 構文はほぼ同じです。
 
     *.user
     *.suo
@@ -135,7 +135,7 @@ TF バージョン管理は、[.tfignore](http://msdn.microsoft.com/library/ms24
 
 - `Build` と `Rebuild` のターゲットはどちらも `RestorePackages` に依存します。 これにより、`Build` と `Rebuild` の両方を実行できることを確認し、パッケージが復元されていることに依存できます。
 - `Clean`、`Build`、および `Rebuild` は、すべてソリューション ファイルの対応する MSBuild ターゲットを呼び出します。
-- `RestorePackages` ターゲットは、各ソリューション ファイルの `nuget.exe` を呼び出します。 これは、[MSBuild のバッチ機能](http://msdn.microsoft.com/library/ms171473.aspx)を使用して実行されます。
+- `RestorePackages` ターゲットは、各ソリューション ファイルの `nuget.exe` を呼び出します。 これは、[MSBuild のバッチ機能](/visualstudio/msbuild/msbuild-batching)を使用して実行されます。
 
 この結果は次のようになります。
 
