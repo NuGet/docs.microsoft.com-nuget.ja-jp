@@ -13,11 +13,11 @@ keywords: "nuget パックの参照、パック コマンド"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 22643ee4c7d5f858da728ba9d9d2886d600d20f0
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 0dbecb8f01acf781ab8d2e77e8df7fa405f74cf1
+ms.sourcegitcommit: d576d84fb4b6a178eb2ac11f55deb08ac771ba1c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="pack-command-nuget-cli"></a>パック コマンド (NuGet CLI)
 
@@ -42,7 +42,7 @@ nuget pack <nuspecPath | projectPath> [options]
 | --- | --- |
 | BasePath | 定義されているファイルのベース パスを設定、`.nuspec`ファイル。 |
 | ビルド | パッケージを構築する前に、プロジェクトをビルドすることを指定します。 |
-| 除外 | パッケージを作成するときに除外する 1 つまたは複数のワイルドカード パターンを指定します。 |
+| 除外 | パッケージを作成するときに除外する 1 つまたは複数のワイルドカード パターンを指定します。 複数のパターンを指定するに繰り返します - 除外するフラグ。 次の例を参照してください。 |
 | ExcludeEmptyDirectories | パッケージを作成するときに、空のディレクトリを含めることを防ぎます。 |
 | ForceEnglishOutput | *(3.5 +)*インバリアント、英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
 | ヘルプ | ヘルプ コマンドに関する情報を表示します。 |
@@ -100,4 +100,6 @@ nuget pack foo.csproj -Build -Symbols -Properties owners=janedoe,xiaop;version="
 nuget pack foo.nuspec -Version 2.1.0
 
 nuget pack foo.nuspec -Version 1.0.0 -MinClientVersion 2.5
+
+nuget pack Package.nuspec -exclude "*.exe" -exclude "*.bat"
 ```
