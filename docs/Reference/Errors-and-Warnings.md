@@ -14,11 +14,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 53fccbb86f2920d870b5383070d043e25045a626
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 29eb72cbb6c095cd3aeb524fd8b28416ec5dc798
+ms.sourcegitcommit: 6ccb963e065680ab2e7df1d8dd5492897fd56b04
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="errors-and-warnings"></a>エラーと警告
 
@@ -30,20 +30,20 @@ ms.lasthandoff: 01/05/2018
 
 | グループ化 | エラー番号 |
 | --- | --- |
-| [無効な入力エラー](#invalid-input-errors) | [NU1001](#nu1001)、 [NU1002](#nu1002)、 [NU1003](#nu1003) |
-| [パッケージとプロジェクトの不足エラー](#missing-package-and-project-errors) | [NU1100](#nu1100)、 [NU1101](#nu1101)、 [NU1102](#nu1102)、 [NU1103](#nu1103)、 [NU1104](#nu1104)、 [NU1105](#nu1105)、 [NU1106](#nu1106)、 [NU1107](#nu1107) (NU1607 以前) [NU1108](#nu1107) (NU1606 以前) |
+| [無効な入力エラー](#invalid-input-errors) | [NU1001](#nu1001), [NU1002](#nu1002), [NU1003](#nu1003) |
+| [パッケージとプロジェクトの不足エラー](#missing-package-and-project-errors) | [NU1100](#nu1100)、 [NU1101](#nu1101)、 [NU1102](#nu1102)、 [NU1103](#nu1103)、 [NU1104](#nu1104)、 [NU1105](#nu1105)、 [NU1106](#nu1106)、 [NU1107](#nu1107) (NU1607 以前) [NU1108](#nu1108) (NU1606 以前) |
 | [互換性に関するエラー](#compatibility-errors) | [NU1201](#nu1201)、 [NU1202](#nu1202)、 [NU1203](#nu1203)、 [NU1401](#nu1401) |
 
 **警告**
 
 | グループ化 | 警告番号 |
 | --- | --- |
-| [無効な入力の警告](#invalid-input-warnings) | [NU1501](#nu1501)、 [NU1502](#nu1502)、 [NU1503](#nu1503) |
+| [無効な入力の警告](#invalid-input-warnings) | [NU1501](#nu1501), [NU1502](#nu1502), [NU1503](#nu1503) |
 | [予期しないパッケージのバージョンの警告](#unexpected-package-version-warnings) | [NU1601](#nu1601)、 [NU1602](#nu1602)、 [NU1603](#nu1603)、 [NU1604](#nu1604)、 [NU1605](#nu1605) |
 | [競合回避モジュールの競合の警告](#resolver-conflict-warnings) | [NU1608](#nu1608) |
 | [パッケージのフォールバック警告](#package-fallback-warnings) | [NU1701](#nu1701) |
 | [フィードの警告](#feed-warnings) | [NU1801](#nu1801) |
-| [NuGet の内部エラーと警告](#nuget-internal-errors-and-warnings) | [NU1000](#nu1000)、 [NU1500](#nu1500) |
+| [NuGet の内部エラーと警告](#nuget-internal-errors-and-warnings) | [NU1000](#nu1000), [NU1500](#nu1500) |
 
 ## <a name="invalid-input-errors"></a>無効な入力エラー
 
@@ -75,7 +75,7 @@ ms.lasthandoff: 01/05/2018
 
 ## <a name="missing-package-and-project-errors"></a>パッケージとプロジェクトの不足エラー
 
-[NU1100](#nu1100) | [NU1101](#nu1101) | [NU1102](#nu1102) | [NU1103](#nu1103) | [NU1104](#nu1104)  |  [NU1105](#nu1105) | [NU1106](#nu1106)
+[NU1100](#nu1100) | [NU1101](#nu1101) | [NU1102](#nu1102) | [NU1103](#nu1103) | [NU1104](#nu1104) | [NU1105](#nu1105) | [NU1106](#nu1106)
 
 ### <a name="nu1100"></a>NU1100
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 01/05/2018
 | **一般的な原因** | パッケージには、正確なバージョンの大まかな範囲ではなくパッケージへの依存関係が含まれます。 |
 | **メッセージの例** | *{Id} の矛盾する要求を満たすことができません: {競合パス} フレームワーク: {ターゲット グラフ}* |
 
-< a name ="NU1107 ></a>
+<a name="nu1107"></a> 
 
 ### <a name="nu1107-previously-nu1607"></a>NU1107 (NU1607 以前)
 
@@ -141,9 +141,9 @@ ms.lasthandoff: 01/05/2018
 | --- | --- |
 | **問題点** | パッケージ間で依存関係の制約を解決できません。 |
 | **一般的な原因** | 正確なバージョンに依存関係の制約を含むパッケージでは、他のパッケージを必要な場合は、バージョンを増やすには許可されません。 |
-| **メッセージの例** | *バージョンの競合の NuGet.Versioning が検出されました。この問題を解決するのには、プロジェクトから直接パッケージを参照します。<br/>NuGet.Packaging 3.5.0 NuGet.Versioning (= 3.5.0)]-> [<br/> NuGet.Configuration 4.0.0 NuGet.Versioning (= 4.0.0)]-> [* |
+| **メッセージの例** | *バージョンの競合の NuGet.Versioning が検出されました。この問題を解決するのには、プロジェクトから直接パッケージを参照します。<br/>NuGet.Packaging 3.5.0 -> NuGet.Versioning (= 3.5.0)<br/>  NuGet.Configuration 4.0.0 -> NuGet.Versioning (= 4.0.0)* |
 
-< a name ="NU1108 ></a>
+<a name="nu1108"></a>
 
 ### <a name="nu1108-previously-nu1606"></a>NU1108 (NU1606 以前)
 
@@ -259,11 +259,9 @@ ms.lasthandoff: 01/05/2018
 | --- | --- |
 | **問題点** | 依存関係パッケージには、パッケージの復元が最終的により高いバージョンでバージョン制約が指定されています。 |
 | **一般的な原因** | パッケージを解決するときに最も近いが優先されます。 グラフ内の最も近いパッケージには、離れた場所にあるパッケージがオーバーライドされている可能性があります。 |
-| **メッセージの例** | *パッケージのダウン グレードが検出されました: 3.5.0 に 4.0.0 から NuGet.Versioning です。異なるバージョンを選択するプロジェクトから直接パッケージを参照します。<br/>NuGet.Packaging 3.5.0 NuGet.Versioning 3.5.0]-> [<br/> NuGet.Commands 4.0.0 NuGet.Configuration]-> [4.0.0 NuGet.Versioning 4.0.0]-> [* |
+| **メッセージの例** | *パッケージのダウン グレードが検出されました: 3.5.0 に 4.0.0 から NuGet.Versioning です。異なるバージョンを選択するプロジェクトから直接パッケージを参照します。<br/>NuGet.Packaging 3.5.0 -> NuGet.Versioning 3.5.0<br/>  NuGet.Commands 4.0.0 -> NuGet.Configuration 4.0.0 -> NuGet.Versioning 4.0.0* |
 
 ## <a name="resolver-conflict-warnings"></a>競合回避モジュールの競合の警告
-
-[NU1608](#nu1608)
 
 ### <a name="nu1608"></a>NU1608
 
@@ -275,19 +273,15 @@ ms.lasthandoff: 01/05/2018
 
 ## <a name="package-fallback-warnings"></a>パッケージのフォールバック警告
 
-[NU1701](#nu1701)
-
 ### <a name="nu1701"></a>NU1701
 
 | | |
 | --- | --- |
-| **問題点** | *PackageTargetFallback/AssetTargetFallback*パッケージから資産を選択するために使用されました。 これは、ユーザーに、資産が 100% の互換性がある可能性がありますされないことを通知する警告です。 |
+| **問題点** | *PackageTargetFallback/AssetTargetFallback* was used to select assets from a package. これは、ユーザーに、資産が 100% の互換性がある可能性がありますされないことを通知する警告です。 |
 | **一般的な原因** | パッケージには、プロジェクトのフレームワークをサポートしていません。 |
 | **メッセージの例** | *使用して 'portable net45 + win8' 代わりにプロジェクトのターゲット フレームワーク 'netstandard1.5' パッケージ 'NuGet.Versioning' が復元されました。このパッケージは、プロジェクトを完全に互換性がない可能性があります。* |
 
 ## <a name="feed-warnings"></a>フィードの警告
-
-[NU1801](#nu1801)
 
 ### <a name="nu1801"></a>NU1801
 
