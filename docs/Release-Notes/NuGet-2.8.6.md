@@ -13,23 +13,23 @@ keywords: "NuGet 2.8.6 リリース ノートについては、バグの修正�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f33c1edd3ef703a8cd97b7bdd97c37e12426aafa
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 4dfd0a76967280cc6a16b37fe2b2a3362231fce5
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
-# <a name="nuget-286-release-notes"></a><span data-ttu-id="8d9e8-104">NuGet 2.8.6 リリース ノート</span><span class="sxs-lookup"><span data-stu-id="8d9e8-104">NuGet 2.8.6 Release Notes</span></span>
+# <a name="nuget-286-release-notes"></a><span data-ttu-id="4742c-104">NuGet 2.8.6 リリース ノート</span><span class="sxs-lookup"><span data-stu-id="4742c-104">NuGet 2.8.6 Release Notes</span></span>
 
-<span data-ttu-id="8d9e8-105">[NuGet 2.8.5 リリース ノート](../release-notes/nuget-2.8.5.md) | [NuGet 2.8.7 リリース ノート](../release-notes/nuget-2.8.7.md)</span><span class="sxs-lookup"><span data-stu-id="8d9e8-105">[NuGet 2.8.5 Release Notes](../release-notes/nuget-2.8.5.md) | [NuGet 2.8.7 Release Notes](../release-notes/nuget-2.8.7.md)</span></span>
+<span data-ttu-id="4742c-105">[NuGet 2.8.5 リリース ノート](../release-notes/nuget-2.8.5.md) | [NuGet 2.8.7 リリース ノート](../release-notes/nuget-2.8.7.md)</span><span class="sxs-lookup"><span data-stu-id="4742c-105">[NuGet 2.8.5 Release Notes](../release-notes/nuget-2.8.5.md) | [NuGet 2.8.7 Release Notes](../release-notes/nuget-2.8.7.md)</span></span>
 
-<span data-ttu-id="8d9e8-106">NuGet 2.8.6 がリリースされた修正と Windows 10 UWP 開発モデルのサポートされる可能性があるパッケージをサポートするために強化、2.8.5 のマイナー アップデートとして、2015 年 7 月 20日の VSIX を対象とします。</span><span class="sxs-lookup"><span data-stu-id="8d9e8-106">NuGet 2.8.6 was released July 20, 2015 as a minor update to our 2.8.5 VSIX with some targeted fixes and improvements to support packages that may be delivered with support for the Windows 10 UWP development model.</span></span>
+<span data-ttu-id="4742c-106">NuGet 2.8.6 がリリースされた修正と Windows 10 UWP 開発モデルのサポートされる可能性があるパッケージをサポートするために強化、2.8.5 のマイナー アップデートとして、2015 年 7 月 20日の VSIX を対象とします。</span><span class="sxs-lookup"><span data-stu-id="4742c-106">NuGet 2.8.6 was released July 20, 2015 as a minor update to our 2.8.5 VSIX with some targeted fixes and improvements to support packages that may be delivered with support for the Windows 10 UWP development model.</span></span>
 
-<span data-ttu-id="8d9e8-107">このバージョンの NuGet パッケージ マネージャー拡張機能は、Visual Studio 2013 のサポートのみを提供します。</span><span class="sxs-lookup"><span data-stu-id="8d9e8-107">This version of the NuGet package manager extension provides support for Visual Studio 2013 only.</span></span>
+<span data-ttu-id="4742c-107">このバージョンの NuGet パッケージ マネージャー拡張機能は、Visual Studio 2013 のサポートのみを提供します。</span><span class="sxs-lookup"><span data-stu-id="4742c-107">This version of the NuGet package manager extension provides support for Visual Studio 2013 only.</span></span>
 
-<span data-ttu-id="8d9e8-108">このリリースでは、NuGet Package Manager ダイアログには、サポートの追加が必要があります。</span><span class="sxs-lookup"><span data-stu-id="8d9e8-108">In this release, the NuGet Package Manager dialog had support added for:</span></span>
+<span data-ttu-id="4742c-108">このリリースでは、NuGet Package Manager ダイアログには、サポートの追加が必要があります。</span><span class="sxs-lookup"><span data-stu-id="4742c-108">In this release, the NuGet Package Manager dialog had support added for:</span></span>
 
-* <span data-ttu-id="8d9e8-109">Windows 10 のアプリケーションの開発をサポートするために UAP ターゲット フレームワーク モニカーが導入されました。</span><span class="sxs-lookup"><span data-stu-id="8d9e8-109">Introduced the UAP Target Framework Moniker to support Windows 10 Application Development.</span></span>
-* <span data-ttu-id="8d9e8-110">NuGet プロトコル バージョン 3 のエンドポイント</span><span class="sxs-lookup"><span data-stu-id="8d9e8-110">NuGet protocol version 3 endpoints</span></span>
-* <span data-ttu-id="8d9e8-111">サポート[Nuget.Config](../consume-packages/configuring-nuget-behavior.md)リポジトリ ソースに対する protocolVersion 属性。</span><span class="sxs-lookup"><span data-stu-id="8d9e8-111">Support for [Nuget.Config](../consume-packages/configuring-nuget-behavior.md) protocolVersion attribute on repository sources.</span></span> <span data-ttu-id="8d9e8-112">既定値は「2」</span><span class="sxs-lookup"><span data-stu-id="8d9e8-112">Default value is "2"</span></span>
-* <span data-ttu-id="8d9e8-113">ローカル キャッシュ内では、必要なパッケージのバージョンが使用できない場合に、リモート リポジトリに戻る</span><span class="sxs-lookup"><span data-stu-id="8d9e8-113">Falling back to remote repository if a required package version is not available in the local cache</span></span>
+* <span data-ttu-id="4742c-109">Windows 10 のアプリケーションの開発をサポートするために UAP ターゲット フレームワーク モニカーが導入されました。</span><span class="sxs-lookup"><span data-stu-id="4742c-109">Introduced the UAP Target Framework Moniker to support Windows 10 Application Development.</span></span>
+* <span data-ttu-id="4742c-110">NuGet プロトコル バージョン 3 のエンドポイント</span><span class="sxs-lookup"><span data-stu-id="4742c-110">NuGet protocol version 3 endpoints</span></span>
+* <span data-ttu-id="4742c-111">サポート[Nuget.Config](../consume-packages/configuring-nuget-behavior.md)リポジトリ ソースに対する protocolVersion 属性。</span><span class="sxs-lookup"><span data-stu-id="4742c-111">Support for [Nuget.Config](../consume-packages/configuring-nuget-behavior.md) protocolVersion attribute on repository sources.</span></span> <span data-ttu-id="4742c-112">既定値は「2」</span><span class="sxs-lookup"><span data-stu-id="4742c-112">Default value is "2"</span></span>
+* <span data-ttu-id="4742c-113">ローカル キャッシュ内では、必要なパッケージのバージョンが使用できない場合に、リモート リポジトリに戻る</span><span class="sxs-lookup"><span data-stu-id="4742c-113">Falling back to remote repository if a required package version is not available in the local cache</span></span>
