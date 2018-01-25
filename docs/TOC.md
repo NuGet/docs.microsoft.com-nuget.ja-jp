@@ -1,9 +1,9 @@
-# [NuGet とは何ですか?](What-is-NuGet.md)
+# [NuGet とは何ですか?](what-is-nuget.md)
+# [NuGet クライアント ツールのインストール](install-nuget-client-tools.md)
 # クイック スタート
 ## [パッケージの作成と公開](Quickstart/Create-and-Publish-a-Package.md)
 ## [パッケージの使用](Quickstart/Use-a-Package.md)
 # ガイド
-## [NuGet クライアント ツールのインストール](Guides/Install-NuGet.md)
 ## [.NET 標準パッケージの作成 (Visual Studio 2017)](Guides/Create-NET-Standard-Packages-VS2017.md)
 ## [.NET 標準パッケージの作成 (Visual Studio 2015)](Guides/Create-NET-Standard-Packages-VS2015.md)
 ## [UWP パッケージの作成](Guides/Create-UWP-Packages.md)
@@ -18,9 +18,7 @@
 ## [プレリリース パッケージ](Create-Packages/Prerelease-Packages.md)
 ## [ネイティブ パッケージ](Create-Packages/Native-Packages.md)
 ## [シンボル パッケージ](Create-Packages/Symbol-Packages.md)
-## [パッケージの発行](Create-Packages/Publish-a-package.md)
-## [project.json および UWP](Create-Packages/project-json-and-UWP.md)
-## [project.json の影響](Create-Packages/project-json-Impact.md)
+## [パッケージの公開](Create-Packages/Publish-a-package.md)
 # パッケージの使用
 ## [概要とワークフロー](Consume-Packages/Overview-and-Workflow.md)
 ## [パッケージの検索と選択](Consume-Packages/Finding-and-Choosing-Packages.md)
@@ -71,7 +69,6 @@
 # 参照
 ## [.nuspec](Schema/nuspec.md)
 ## [packages.config](Schema/packages-config.md)
-## [project.json](Schema/project-json.md)
 ## [パッケージのバージョン管理](reference/package-versioning.md)
 ## [Nuget.Config ファイル](Schema/nuget-config-file.md)
 ## [MSBuild ターゲット](Schema/msbuild-targets.md)
@@ -83,6 +80,10 @@
 ## 機能拡張
 ### [Visual Studio 向け NuGet 資格情報プロバイダー](Reference/extensibility/Nuget-Credential-Providers-for-Visual-Studio.md)
 ### [nuget.exe 資格情報プロバイダー](Reference/extensibility/nuget-exe-Credential-Providers.md)
+## アーカイブ済みコンテンツ
+### [project.json 参照の形式](archive/project-json.md)
+### [project.json および UWP](archive/project-json-and-UWP.md)
+### [project.json impact](archive/project-json-impact.md)
 # API
 ## [概要](API/overview.md)
 ## [方法: API を使用したすべてのパッケージのクエリ](Guides/api/query-for-all-published-packages.md)
