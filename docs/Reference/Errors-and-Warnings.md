@@ -14,8 +14,38 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 29eb72cbb6c095cd3aeb524fd8b28416ec5dc798
-ms.sourcegitcommit: 6ccb963e065680ab2e7df1d8dd5492897fd56b04
+f1_keywords:
+- NU1000
+- NU1001
+- NU1002
+- NU1003
+- NU1100
+- NU1101
+- NU1102
+- NU1103
+- NU1104
+- NU1105
+- NU1106
+- NU1107
+- NU1108
+- NU1201
+- NU1202
+- NU1203
+- NU1401
+- NU1500
+- NU1501
+- NU1502
+- NU1503
+- NU1601
+- NU1602
+- NU1603
+- NU1604
+- NU1605
+- NU1608
+- NU1701
+- NU1801
+ms.openlocfilehash: 9e22b63636980ce64017c950148d9005bf9c2fb1
+ms.sourcegitcommit: ed01eaeef9bf488c36556b97247ca440384c0242
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/23/2018
@@ -289,7 +319,7 @@ ms.lasthandoff: 01/23/2018
 | --- | --- |
 | **問題点** | フィードを読み取る際にエラーが発生したときに`IgnoreFailedSources`が設定されて true の場合、致命的でない警告に変換することをします。 これにより、すべてのメッセージが含まれがジェネリックです。 |
 | **一般的な原因** | ソースが正しくありません。 |
-| **メッセージの例** | N/A |
+| **メッセージの例** | 該当なし |
 
 ## <a name="nuget-internal-errors-and-warnings"></a>NuGet の内部エラーと警告
 
