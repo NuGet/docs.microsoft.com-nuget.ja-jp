@@ -7,18 +7,17 @@ ms.date: 10/30/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: ba1d9742-9f1c-42ff-8c30-8e953e23c501
 description: "NuGet のクライアントと対話する継続的に進化 nuget.org プロトコル。"
 ms.reviewer:
 - kraigb
 - karann-msft
-ms.openlocfilehash: 0bc71795d120256b9eb14ca64141f0b69f01e620
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 488a86a36a6bc83c91f0182bf437ddb83e707e31
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
-# <a name="nugetorg-protocols"></a>nuget.org プロトコル
+# <a name="nugetorg-protocols"></a>nuget.org protocols
 
 Nuget.org をやり取りするには、クライアントは特定のプロトコルに従う必要があります。 これらのプロトコルが進化を保持するため、クライアントは、特定 nuget.org Api を呼び出すときに使用するプロトコルのバージョンを識別する必要があります。 これにより、古いクライアントの重要ではない方法で変更を nuget.org できます。
 
@@ -39,9 +38,7 @@ NuGet のエコシステムで広範に実装されている NuGet API につい
 
 クライアントは、API の呼び出しを行うときは、次のヘッダーを渡す必要**プッシュ**nuget.org をパッケージ。
 
-```
-X-NuGet-Protocol-Version: 4.1.0
-```
+    X-NuGet-Protocol-Version: 4.1.0
 
 なお、`X-NuGet-Client-Version`ヘッダーによく似たセマンティクスは公式 NuGet クライアントでのみ使用される予約済みです。 サード パーティのクライアントを使用する必要があります、`X-NuGet-Protocol-Version`ヘッダーと値。
 
@@ -53,9 +50,7 @@ X-NuGet-Protocol-Version: 4.1.0
 
 この API は、' | 4 ' によって所有されているパッケージを検証する nuget.org 作成者のスコープを確認してくださいキーの取得に使用されます。
 
-```
-POST api/v2/package/create-verification-key/{ID}/{VERSION}
-```
+    POST api/v2/package/create-verification-key/{ID}/{VERSION}
 
 #### <a name="request-parameters"></a>要求パラメーター
 
@@ -67,7 +62,7 @@ X-NuGet-ApiKey | Header | string | 可      | たとえば、`X-NuGet-ApiKey: {U
 
 #### <a name="response"></a>応答
 
-```
+```json
 {
     "Key": "{Verify scope key from nuget.org}",
     "Expires": "{Date}"
@@ -78,9 +73,7 @@ X-NuGet-ApiKey | Header | string | 可      | たとえば、`X-NuGet-ApiKey: {U
 
 この API を使用すると、nuget.org の作成者によって所有されているパッケージのスコープを確認してくださいキーを検証します。
 
-```
-GET api/v2/verifykey/{ID}/{VERSION}
-```
+    GET api/v2/verifykey/{ID}/{VERSION}
 
 #### <a name="request-parameters"></a>要求パラメーター
 

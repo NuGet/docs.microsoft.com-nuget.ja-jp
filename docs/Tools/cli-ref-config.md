@@ -3,21 +3,20 @@ title: "NuGet CLI config コマンド |Microsoft ドキュメント"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/24/2017
+ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: a50295ff-8be9-47d9-a260-822e899334cb
 description: "Nuget.exe config コマンドのリファレンス"
 keywords: "nuget config 参照、config コマンド"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f49751d9747687177e3b6c1890ee9d2919be8d0e
-ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
+ms.openlocfilehash: 31abc5c1ade0aff9a2f23ec89ec7082acedb3653
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="config-command-nuget-cli"></a>config コマンド (NuGet CLI)
 
@@ -27,7 +26,7 @@ ms.lasthandoff: 01/10/2018
 
 ## <a name="usage"></a>使用法
 
-```
+```cli
 nuget config -Set <name>=[<value>] [<name>=<value> ...] [options]
 nuget config -AsPath <name> [options]
 ```
@@ -43,17 +42,17 @@ NuGet 3.4 以降で`<value>`使える[環境変数](cli-ref-environment-variable
 | オプション | 説明 |
 | --- | --- |
 | AsPath | 構成は、パスとして値を返しますするときに無視`-Set`を使用します。 |
-| ConfigFile | *(2.5 +)* NuGet 構成ファイルを変更します。 指定しない場合、 *%AppData%\NuGet\NuGet.Config*を使用します。 |
+| ConfigFile | NuGet 構成ファイルを変更します。 指定しない場合、 *%AppData%\NuGet\NuGet.Config*を使用します。 |
 | ForceEnglishOutput | *(3.5 +)*インバリアント、英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
 | ヘルプ | ヘルプ コマンドに関する情報を表示します。 |
-| 非対話型 | ユーザー入力または確認を要求するプロンプトを抑制します。 |
-| 詳細度 | 出力に表示される詳細情報の量を指定します:*通常*、 *quiet*、 *(2.5 以降) の詳細*です。 |
+| NonInteractive | ユーザー入力または確認を要求するプロンプトを抑制します。 |
+| 詳細度 | 出力に表示される詳細情報の量を指定します:*通常*、 *quiet*、*詳細*です。 |
 
 参照してください[環境変数](cli-ref-environment-variables.md)
 
 ### <a name="examples"></a>使用例
 
-```
+```cli
 nuget config -Set repositoryPath=c:\packages -configfile c:\my.config
 
 nuget config -Set repositoryPath=

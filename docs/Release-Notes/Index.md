@@ -3,21 +3,20 @@ title: "NuGet のリリース ノート | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 8/14/2017
+ms.date: 08/14/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 96dc77d4-93f9-4628-bef9-551721fe3754
 description: "NuGet のすべてのバージョンに対するリリース ノートと既知の問題のインデックスです。"
 keywords: "NuGet のリリース ノート、NuGet の既知の問題"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0b5f44fd44baf0b4edeea59ba9a9676eef526ca7
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 3e50ff1506c35745e0e12bab90db7d15c22ec880
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="release-notes"></a>リリース ノート
 

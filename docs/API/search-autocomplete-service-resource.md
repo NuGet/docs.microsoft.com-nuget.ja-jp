@@ -11,17 +11,16 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: ead5cf7a-e51e-4cbb-8798-58226f4c853f
 description: "検索のオートコンプリート機能のサービスは、パッケージ Id の対話型の検出とバージョンをサポートします。"
 keywords: "NuGet のオートコンプリート機能の API では、NuGet パッケージ ID、パッケージ ID の部分文字列を検索します。"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 313ceb630947b46c34b98e14044ecf121b725087
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 7c984ca61799293d7832851b80cf3fefc4734288
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="autocomplete"></a>オートコンプリート
 
@@ -51,13 +50,11 @@ HTTP メソッドを登録リソースのサポートで見つかったすべて
 
 一覧にないバージョンのみを使用してパッケージは、結果には表示されません。
 
-```
-GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
-```
+    GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
 
 ### <a name="request-parameters"></a>要求パラメーター
 
-名前        | イン     | 型    | 必須 | メモ
+name        | イン     | 型    | 必須 | メモ
 ----------- | ------ | ------- | -------- | -----
 q           | URL    | string  | Ｘ       | パッケージ Id と比較する文字列
 スキップ        | URL    | 整数 | Ｘ       | 改ページをスキップします。 結果の数
@@ -83,16 +80,14 @@ semVerLevel | URL    | string  | Ｘ       | SemVer 1.0.0 バージョン文字�
 
 ルートの JSON オブジェクトには、次のプロパティがあります。
 
-名前      | 種類             | 必須 | メモ
+name      | 種類             | 必須 | メモ
 --------- | ---------------- | -------- | -----
 totalHits | 整数          | 可      | 無視すると、一致の合計数`skip`と`take`
 [データ]      | 文字列の配列 | 可      | パッケージ Id と一致した要求
 
 ### <a name="sample-request"></a>要求のサンプル
 
-```
 GET https://api-v2v3search-0.nuget.org/autocomplete?q=storage&prerelease=true
-```
 
 ### <a name="sample-response"></a>応答のサンプル
 
@@ -104,13 +99,11 @@ GET https://api-v2v3search-0.nuget.org/autocomplete?q=storage&prerelease=true
 
 一覧にあるパッケージのバージョンは、結果には表示されません。
 
-```
-GET {@id}?id={ID}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
-```
+    GET {@id}?id={ID}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
 
 ### <a name="request-parameters"></a>要求パラメーター
 
-名前        | イン     | 型    | 必須 | メモ
+name        | イン     | 型    | 必須 | メモ
 ----------- | ------ | ------- | -------- | -----
 ID          | URL    | string  | 可      | バージョンを取得するパッケージ ID
 プレリリース版  | URL    | boolean | Ｘ       | `true`または`false`に含めるかどうかを決定する[プレリリース パッケージ](../create-packages/prerelease-packages.md)
@@ -126,7 +119,7 @@ semVerLevel | URL    | string  | Ｘ       | SemVer 2.0.0 バージョン文字�
 
 ルートの JSON オブジェクトには、次のプロパティがあります。
 
-名前      | 種類             | 必須 | メモ
+name      | 種類             | 必須 | メモ
 --------- | ---------------- | -------- | -----
 [データ]      | 文字列の配列 | 可      | 要求に一致するパッケージのバージョン
 
@@ -134,9 +127,7 @@ semVerLevel | URL    | string  | Ｘ       | SemVer 2.0.0 バージョン文字�
 
 ### <a name="sample-request"></a>要求のサンプル
 
-```
-GET https://api-v2v3search-0.nuget.org/autocomplete?id=nuget.protocol&prerelease=true
-```
+    GET https://api-v2v3search-0.nuget.org/autocomplete?id=nuget.protocol&prerelease=true
 
 ### <a name="sample-response"></a>応答のサンプル
 

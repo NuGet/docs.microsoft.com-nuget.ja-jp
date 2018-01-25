@@ -11,17 +11,16 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 8c81f1ac-18c7-44d1-b2e3-584fe85dee6f
 description: "NuGet API とは、パッケージをダウンロード、メタデータのフェッチなど、新しいパッケージの発行に使用できる HTTP エンドポイントのセットです。"
 keywords: "NuGet V3 API、NuGet V2 API、NuGet JSON、NuGet の登録 API を NuGet API フラット コンテナー、NuGet nupkg API、NuGet メタデータ API、NuGet 検索 API、NuGet プッシュ API、NuGe 公開 API、NuGet は、API を削除、NuGet 非公開 API、NuGet プロトコル"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 05ed17f12f413d29d97a253d7d55f154d4910834
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: c28b0912be6dbccab06078100cb71821c3658e08
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-api"></a>NuGet API
 
@@ -113,8 +112,8 @@ Del | 削除またはリソースを unlists します。
 name                     | 説明
 ------------------------ | -----------
 X-NuGet-ApiKey           | プッシュと削除に必要なを参照してください[`PackagePublish`リソース](package-publish-resource.md)
-X NuGet クライアント バージョン   | **非推奨**と置き換えられます`X-NuGet-Protocol-Version`
-X NuGet プロトコル バージョン | 場合によっては nuget.org にのみ必要なを参照してください[nuget.org プロトコル](NuGet-Protocols.md)
+X-NuGet-Client-Version   | **非推奨**と置き換えられます`X-NuGet-Protocol-Version`
+X-NuGet-Protocol-Version | 場合によっては nuget.org にのみ必要なを参照してください[nuget.org プロトコル](NuGet-Protocols.md)
 
 ## <a name="authentication"></a>認証
 

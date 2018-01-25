@@ -11,17 +11,16 @@ ms.date: 10/30/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: cfd338b5-6253-48c0-88ba-17c6b98fc935
 description: "カタログは、すべてのパッケージの作成および nuget.org に削除されたインデックスです。"
 keywords: "NuGet V3 API カタログ、nuget.org トランザクション ログ、NuGet.org を複製、NuGet.org、NuGet.org の追加専用のレコードを複製"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 4c98b7cbd92575f6905e98a5bca5602a4d8ac0dd
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: d1a24be68a60085a40361c374ffb34dc221f09c4
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="catalog"></a>Catalog
 
@@ -73,9 +72,7 @@ HTTP メソッドのみをカタログ リソースのサポートで見つか�
 
 次の要求は、カタログのインデックスをフェッチします。
 
-```
-GET {@id}
-```
+    GET {@id}
 
 カタログのインデックスは、次のプロパティを持つオブジェクトを格納する JSON ドキュメントを示します。
 
@@ -84,7 +81,7 @@ name            | 種類             | 必須 | メモ
 commitId        | string           | 可      | 最新のコミットに関連付けられている一意の ID
 commitTimeStamp | string           | 可      | 最新のコミットのタイムスタンプ
 count           | 整数          | 可      | インデックスのページの数
-項目           | オブジェクトの配列 | 可      | 各オブジェクト、ページを表す、オブジェクトの配列
+items           | オブジェクトの配列 | 可      | 各オブジェクト、ページを表す、オブジェクトの配列
 
 内の各要素、`items`配列は、各ページに関するいくつかの最小限の情報を持つオブジェクト。 これらのページ オブジェクトでは、カタログ リーフ (アイテム) は含まれません。 この配列内の要素の順序が定義されていません。 ページの順序でメモリを使用してクライアントを指定できます、`commitTimeStamp`プロパティです。
 
@@ -107,9 +104,7 @@ count           | 整数 | 可      | カタログ ページ内の項目数
 
 ### <a name="sample-request"></a>要求のサンプル
 
-```
-GET https://api.nuget.org/v3/catalog0/index.json
-```
+    GET https://api.nuget.org/v3/catalog0/index.json
 
 ### <a name="sample-response"></a>応答のサンプル
 
@@ -128,7 +123,7 @@ name            | 種類             | 必須 | メモ
 commitId        | string           | 可      | このページで、最新のコミットに関連付けられている一意の ID
 commitTimeStamp | string           | 可      | このページで、最新のコミットのタイムスタンプ
 count           | 整数          | 可      | ページ内の項目数
-項目           | オブジェクトの配列 | 可      | このページでカタログ アイテム
+items           | オブジェクトの配列 | 可      | このページでカタログ アイテム
 親          | string           | 可      | カタログのインデックスへの URL
 
 内の各要素、`items`配列は、カタログ アイテムについての詳細を最小限に抑えるを持つオブジェクト。 これらの項目オブジェクトでは、すべてのカタログ アイテムのデータは含まれません。 ページの内の項目の順序`items`配列が定義されていません。 項目の順序でメモリを使用してクライアントを指定できます、`commitTimeStamp`プロパティです。
@@ -161,9 +156,7 @@ nuget:version   | string  | 可      | このリーフに関連するパッケ�
 
 ### <a name="sample-request"></a>要求のサンプル
 
-```
-GET https://api.nuget.org/v3/catalog0/page2926.json
-```
+    GET https://api.nuget.org/v3/catalog0/page2926.json
 
 ### <a name="sample-response"></a>応答のサンプル
 
@@ -178,8 +171,8 @@ GET https://api.nuget.org/v3/catalog0/page2926.json
 name                    | 種類                       | 必須 | メモ
 ----------------------- | -------------------------- | -------- | -----
 @type                   | 文字列または文字列の配列 | 可      | カタログ アイテムの種類
-カタログ: commitId        | string                     | 可      | このカタログ アイテムに関連付けられたコミット ID
-カタログ: commitTimeStamp | string                     | 可      | このカタログ アイテムのコミット タイムスタンプ
+catalog:commitId        | string                     | 可      | このカタログ アイテムに関連付けられたコミット ID
+catalog:commitTimeStamp | string                     | 可      | このカタログ アイテムのコミット タイムスタンプ
 ID                      | string                     | 可      | カタログ アイテムのパッケージ ID
 発行               | string                     | 可      | パッケージのカタログ アイテムのパブリッシュされた日付
 version                 | string                     | 可      | カタログ アイテムのパッケージのバージョン
@@ -217,7 +210,7 @@ isPrerelease            | boolean                    | 可      | パッケー�
 language                | string                     | Ｘ       |
 licenseUrl              | string                     | Ｘ       |
 一覧                  | boolean                    | Ｘ       | パッケージを表示するかどうか
-Minclientversion は        | string                     | Ｘ       |
+minClientVersion        | string                     | Ｘ       |
 packageHash             | string                     | 可      | エンコードを使用して、パッケージのハッシュ[標準の base 64](https://tools.ietf.org/html/rfc4648#section-4)
 packageHashAlgorithm    | string                     | 可      |
 packageSize             | 整数                    | 可      | これは、.nupkg (バイト単位) パッケージのサイズ
@@ -242,9 +235,7 @@ verbatimVersion         | string                     | Ｘ       | .Nuspec 内�
 
 #### <a name="sample-request"></a>要求のサンプル
 
-```
 GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
-```
 
 #### <a name="sample-response"></a>応答のサンプル
 
@@ -265,9 +256,7 @@ GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.stor
 
 #### <a name="sample-request"></a>要求のサンプル
 
-```
 GET https://api.nuget.org/v3/catalog0/data/2017.11.02.00.40.00/netstandard1.4_lib.1.0.0-test.json
-```
 
 #### <a name="sample-response"></a>応答のサンプル
 

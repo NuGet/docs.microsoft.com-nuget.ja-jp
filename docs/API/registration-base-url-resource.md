@@ -11,17 +11,16 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 96b07019-c2e1-4f40-9290-f65ad71af3b1
 description: "パッケージの登録ベース URL は、パッケージに関するメタデータをフェッチできます。"
 keywords: "NuGet API パッケージ メタデータ、NuGet API の登録を NuGet API 一覧にないパッケージ"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 1aabe6ae5c661e12b2639700813946e7a9a58b24
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: c098d70d58011bad7f9829f0c95c87c1339dd362
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="package-metadata"></a>パッケージのメタデータ
 
@@ -82,9 +81,7 @@ HTTP メソッドを登録リソースのサポートで見つかったすべて
 
 Nuget.org の用途は、次のように、ヒューリスティック: 128 以上のバージョンのパッケージがある場合は、サイズ 64 のページをリーフを分割します。 128 未満のバージョンがある場合は、登録のインデックスにすべてのインラインままにします。
 
-```
-GET {@id}/{LOWER_ID}/index.json
-```
+    GET {@id}/{LOWER_ID}/index.json
 
 ### <a name="request-parameters"></a>要求パラメーター
 
@@ -101,7 +98,7 @@ LOWER_ID | URL    | string  | 可      | パッケージ ID は、小文字
 name  | 種類             | 必須 | メモ
 ----- | ---------------- | -------- | -----
 count | 整数          | 可      | インデックス内の登録ページの数
-項目 | オブジェクトの配列 | 可      | 登録ページの配列
+items | オブジェクトの配列 | 可      | 登録ページの配列
 
 インデックス オブジェクトの内の各項目`items`配列登録ページを表す JSON オブジェクトです。
 
@@ -113,7 +110,7 @@ name   | 種類             | 必須 | メモ
 ------ | ---------------- | -------- | -----
 @id    | string           | 可      | [登録] ページの URL
 count  | 整数          | 可      | 登録の数のままにします ページ
-項目  | オブジェクトの配列 | Ｘ       | 登録のままと関連付けるメタデータの配列
+items  | オブジェクトの配列 | Ｘ       | 登録のままと関連付けるメタデータの配列
 低い  | string           | 可      | (包括) のページで、最小 SemVer 2.0.0 バージョン
 親 | string           | Ｘ       | 登録インデックスへの URL
 上限  | string           | 可      | (包括) のページの最上位の SemVer 2.0.0 バージョン
@@ -155,7 +152,7 @@ iconUrl                  | string                     | Ｘ       |
 ID                       | string                     | 可      | パッケージの ID
 licenseUrl               | string                     | Ｘ       | 
 一覧                   | boolean                    | Ｘ       | 存在しない場合に表示されていると見なされる必要があります。
-Minclientversion は         | string                     | Ｘ       | 
+minClientVersion         | string                     | Ｘ       | 
 projectUrl               | string                     | Ｘ       | 
 発行                | string                     | Ｘ       | パッケージが発行された時間の ISO 8601 形式のタイムスタンプを含む文字列
 requireLicenseAcceptance | boolean                    | Ｘ       | 
@@ -193,11 +190,9 @@ range        | object | Ｘ       | 許可される[バージョン範囲](../re
 
 ### <a name="sample-request"></a>要求のサンプル
 
-```
-GET https://api.nuget.org/v3/registration3/nuget.server.core/index.json
-```
+    GET https://api.nuget.org/v3/registration3/nuget.server.core/index.json
 
-### <a name="sample-response"></a>応答のサンプル 
+### <a name="sample-response"></a>応答のサンプル
 
 [!code-JSON [package-registration-index.json](./_data/package-registration-index.json)]
 
@@ -213,7 +208,7 @@ name   | 種類             | 必須 | メモ
 ------ | ---------------- | -------- | -----
 @id    | string           | 可      | [登録] ページの URL
 count  | 整数          | 可      | 登録の数のままにします ページ
-項目  | オブジェクトの配列 | 可      | 登録のままと関連付けるメタデータの配列
+items  | オブジェクトの配列 | 可      | 登録のままと関連付けるメタデータの配列
 低い  | string           | 可      | (包括) のページで、最小 SemVer 2.0.0 バージョン
 親 | string           | 可      | 登録インデックスへの URL
 上限  | string           | 可      | (包括) のページの最上位の SemVer 2.0.0 バージョン
@@ -222,9 +217,7 @@ count  | 整数          | 可      | 登録の数のままにします ペー�
 
 ## <a name="sample-request"></a>要求のサンプル
 
-```
-GET https://api.nuget.org/v3/registration3/ravendb.client/page/1.0.531/1.0.729-unstable.json
-```
+    GET https://api.nuget.org/v3/registration3/ravendb.client/page/1.0.531/1.0.729-unstable.json
 
 ## <a name="sample-response"></a>応答のサンプル
 
@@ -252,9 +245,7 @@ packageContent | string  | Ｘ       | パッケージのコンテンツ (これ
 
 ### <a name="sample-request"></a>要求のサンプル
 
-```
-GET https://api.nuget.org/v3/registration3/nuget.versioning/4.3.0.json
-```
+    GET https://api.nuget.org/v3/registration3/nuget.versioning/4.3.0.json
 
 ### <a name="sample-response"></a>応答のサンプル
 

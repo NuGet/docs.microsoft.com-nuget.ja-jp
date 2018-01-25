@@ -3,21 +3,20 @@ title: "NuGet PowerShell リファレンス |Microsoft ドキュメント"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/2/2017
+ms.date: 10/02/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: cd08b869-44c6-480e-90f7-494a6d08e6d0
 description: "Visual Studio で NuGet パッケージ マネージャー コンソールで利用できる PowerShell コマンドの完全な参照です。"
 keywords: "NuGet パッケージ マネージャー コンソールで、NuGet Powershell コマンドでは、NuGet Powershell リファレンス"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 64450a8bcca7f6028d4ce389d51ac35e9209cfae
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 0cbd9b13b34bd93fea6c6684c03bca9cff5d9e5e
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="powershell-reference"></a>PowerShell リファレンス
 
@@ -41,7 +40,7 @@ ms.lasthandoff: 01/05/2018
 | [Add-BindingRedirect](ps-ref-add-bindingredirect.md) | プロジェクトの出力パス内のすべてのアセンブリを調べ、バインド リダイレクトを追加、`app.config`または`web.config`必要な場合です。 | すべて |
 | [Get-Project](ps-ref-get-project.md) | 既定値または指定したプロジェクトについての情報を表示します。 | 3.0+ |
 | [Open-PackagePage](ps-ref-open-packagepage.md) | プロジェクト、ライセンス、または指定したパッケージの不正使用を URL のレポートで既定のブラウザーを起動します。 | 3.0 以降で廃止されました |
-| [レジスタ TabExpansion](ps-ref-register-tabexpansion.md) | 一般的に使用されるパラメーター値では、カスタマイズされた展開を作成することができます、コマンドのパラメーターにタブ拡張を登録します。 | すべて |
+| [Register-TabExpansion](ps-ref-register-tabexpansion.md) | 一般的に使用されるパラメーター値では、カスタマイズされた展開を作成することができます、コマンドのパラメーターにタブ拡張を登録します。 | すべて |
 | [Sync-Package](ps-ref-sync-package.md) | バージョンがインストール パッケージから取得では、プロジェクトを指定し、ソリューション内のプロジェクトの残りの部分のバージョンを同期します。 | 3.0+ |
 | [Uninstall-Package](ps-ref-uninstall-package.md) | 必要に応じてその依存関係を削除する、プロジェクトからパッケージを削除します。 | すべて |
 

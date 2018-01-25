@@ -11,17 +11,16 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 11ca2092-67dc-41a9-a7af-afe610d8febb
 description: "Search サービスでは、キーワードでパッケージを照会して、パッケージの特定のフィールドにフィルターの結果にクライアントを許可します。"
 keywords: "NuGet 検索 API では、NuGet パッケージ、NuGet パッケージを照会する、API であり、NuGet パッケージを参照する API の検出します。"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 8b37c1bfb66290de49641a8b6197cb83cd35318a
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 612ce0f46b654335a29bb36a64b27525994162ed
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="search"></a>検索
 
@@ -51,13 +50,11 @@ HTTP メソッドを登録リソースのサポートで見つかったすべて
 
 一覧にないパッケージは、検索結果に表示する必要があることはありません。
 
-```
-GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
-```
+    GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
 
 ### <a name="request-parameters"></a>要求パラメーター
 
-名前        | イン     | 型    | 必須 | メモ
+name        | イン     | 型    | 必須 | メモ
 ----------- | ------ | ------- | -------- | -----
 q           | URL    | string  | Ｘ       | パッケージをフィルターするために使用する検索用語
 スキップ        | URL    | 整数 | Ｘ       | 改ページをスキップします。 結果の数
@@ -83,7 +80,7 @@ semVerLevel | URL    | string  | Ｘ       | SemVer 1.0.0 バージョン文字�
 
 ルートの JSON オブジェクトには、次のプロパティがあります。
 
-名前      | 種類             | 必須 | メモ
+name      | 種類             | 必須 | メモ
 --------- | ---------------- | -------- | -----
 totalHits | 整数          | 可      | 無視すると、一致の合計数`skip`と`take`
 [データ]      | オブジェクトの配列 | 可      | 要求に一致する検索結果
@@ -93,7 +90,7 @@ totalHits | 整数          | 可      | 無視すると、一致の合計数`sk
 内の各項目、`data`配列が同じパッケージ ID を共有するパッケージのバージョンのグループの構成された JSON オブジェクト
 オブジェクトには、次のプロパティがあります。
 
-名前           | 種類                       | 必須 | メモ
+name           | 種類                       | 必須 | メモ
 -------------- | -------------------------- | -------- | -----
 ID             | string                     | 可      | 一致するパッケージの ID
 version        | string                     | 可      | (ビルドのメタデータを含む可能性があります)、パッケージの完全な SemVer 2.0.0 バージョン文字列
@@ -115,7 +112,7 @@ Nuget.org、検証済みのパッケージは予約済み ID のプレフィッ�
 
 検索結果のオブジェクトに含まれるメタデータは、最新バージョンのパッケージから取得されます。 内の各項目、`versions`配列は、次のプロパティを使用して、JSON オブジェクト。
 
-名前      | 種類    | 必須 | メモ
+name      | 種類    | 必須 | メモ
 --------- | ------- | -------- | -----
 @id       | string  | 可      | 関連付けられたへの絶対 URL[登録リーフ](registration-base-url-resource.md#registration-leaf)
 version   | string  | 可      | (ビルドのメタデータを含む可能性があります)、パッケージの完全な SemVer 2.0.0 バージョン文字列
@@ -123,9 +120,7 @@ version   | string  | 可      | (ビルドのメタデータを含む可能性�
 
 ### <a name="sample-request"></a>要求のサンプル
 
-```
-GET https://api-v2v3search-0.nuget.org/query?q=NuGet.Versioning&prerelease=false
-```
+    GET https://api-v2v3search-0.nuget.org/query?q=NuGet.Versioning&prerelease=false
 
 ### <a name="sample-response"></a>応答のサンプル
 

@@ -3,28 +3,27 @@ title: "NuGet パッケージ マネージャー コンソール ガイド |Micr
 author: kraigb
 hms.author: kraigb
 manager: ghogen
-ms.date: 10/24/2017
+ms.date: 01/23/2018
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 2b92b119-6861-406c-82af-9d739af230e4
 f1_keywords: vs.nuget.packagemanager.console
 description: "Visual Studio で NuGet パッケージ マネージャー コンソールを使用してパッケージを操作するための手順です。"
 keywords: "NuGet パッケージ マネージャー コンソールで、NuGet powershell、NuGet パッケージを管理します。"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b8f1df23d1a43412868c14e508ee5221d48dcc7c
-ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
+ms.openlocfilehash: b89c51812cee0f64c6f5c39cd9d86bc4a0be068e
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="package-manager-console"></a>パッケージ マネージャー コンソール
 
 NuGet パッケージ マネージャー コンソールは、Windows 2012 以降のバージョンの Visual Studio に組み込まれています。 (にない Mac または Visual Studio のコード用の Visual Studio に含まれています。)
 
-コンソールでは、使用できます。 [NuGet PowerShell コマンド](../tools/powershell-reference.md)見つけるには、インストール、アンインストール、および NuGet パッケージを更新します。 コンソールを使用する場合は必要、パッケージ マネージャーの UI が操作を実行する方法を提供できません。
+コンソールでは、使用できます。 [NuGet PowerShell コマンド](../tools/powershell-reference.md)見つけるには、インストール、アンインストール、および NuGet パッケージを更新します。 コンソールを使用する場合は必要、パッケージ マネージャーの UI が操作を実行する方法を提供できません。 使用する`nuget.exe`コマンド コンソールを参照してください[コンソールで nuget.exe CLI を使用して](#using-the-nugetexe-cli-in-the-console)です。
 
 たとえば、検索し、パッケージをインストールするは 3 つの簡単な手順で行います。
 
@@ -43,17 +42,6 @@ NuGet パッケージ マネージャー コンソールは、Windows 2012 以�
     # Install the Elmah package to the project named MyProject.
     Install-Package Elmah -ProjectName MyProject
     ```
-
-このトピックの内容:
-
-- [コンソールを開く](#opening-the-console-and-console-controls)
-- [パッケージをインストールします。](#installing-a-package)
-- [パッケージをアンインストールします。](#uninstalling-a-package)
-- [パッケージを検索します。](#finding-a-package)
-- [パッケージの更新](#updating-a-package)
-- [コンソールの可用性](#availability-of-the-console)
-- [パッケージ マネージャー コンソールの拡張](#extending-the-package-manager-console)
-- [NuGet PowerShell プロファイルを設定します。](#setting-up-a-nuget-powershell-profile)
 
 > [!Important]
 > コンソールで使用できるすべての操作を実行することも、 [NuGet CLI](../tools/nuget-exe-cli-reference.md)です。 ただし、コンソールのコマンドは、Visual Studio と保存されているプロジェクト/ソリューションのコンテキスト内で動作し、多くの場合、それと等価の CLI コマンドよりも多くの作業します。 たとえば、コンソールを使用してパッケージをインストールする参照を追加プロジェクトに、CLI コマンドは実行されません。 このため、通常 Visual Studio で作業する開発者は、CLI にコンソールを使用してを選びます。
@@ -96,8 +84,8 @@ Install-Package Elmah -ProjectName UtilitiesLib
 - 暗黙的なアグリーメントをコンソール ウィンドウで該当するライセンス条項を表示します。 条項に同意しない場合は、パッケージをすぐにアンインストールしてください。
 - 使用されている参照形式で、プロジェクトへの参照を追加します。 参照は、ソリューション エクスプ ローラーと、該当する参照のフォーマット ファイルで、後で表示されます。 ただし、PackageReference、使用する必要があるプロジェクト ファイル内の変更を直接表示するプロジェクトを保存します。
 - パッケージによってキャッシュされます。
-    - PackageReference: パッケージにキャッシュされた`%USERPROFILE%\.nuget\packages`つまりファイルのロックと`project.assets.json`が更新されます。
-    - `packages.config`: 作成、`packages`フォルダー内にサブフォルダーへのパッケージ ファイル、ソリューションのルートとコピーにします。 `package.config`ファイルを更新します。
+  - PackageReference: パッケージにキャッシュされた`%USERPROFILE%\.nuget\packages`つまりファイルのロックと`project.assets.json`が更新されます。
+  - `packages.config`: 作成、`packages`フォルダー内にサブフォルダーへのパッケージ ファイル、ソリューションのルートとコピーにします。 `package.config`ファイルを更新します。
 - 更新プログラム`app.config`や`web.config`パッケージで使用する場合[ソースと config ファイルの変換](../create-packages/source-and-config-file-transformations.md)です。
 - プロジェクトに既に存在していない場合は、すべての依存関係をインストールします。 プロセスでは、パッケージのバージョンを更新この可能性があります」の説明に従って[依存関係の解決](../consume-packages/dependency-resolution.md)です。
 - Visual Studio のウィンドウで、使用可能な場合、パッケージの readme ファイルを表示します。
@@ -186,9 +174,7 @@ NuGet パッケージ マネージャー Visual Studio 2015 以前のバージ�
 
 PowerShell のプロファイルでは、PowerShell を使用する場合、一般的に使用されるコマンドを使用できるようにすることができます。 NuGet は、通常、次の場所で見つかった NuGet 固有のプロファイルをサポートします。
 
-```
-%UserProfile%\Documents\WindowsPowerShell\NuGet_profile.ps1
-```
+    %UserProfile%\Documents\WindowsPowerShell\NuGet_profile.ps1
 
 プロファイルを検索するには、次のように入力します。`$profile`コンソール。
 
@@ -198,3 +184,12 @@ C:\Users\<user>\Documents\WindowsPowerShell\NuGet_profile.ps1
 ```
 
 詳細についてを参照してください[Windows PowerShell プロファイル](https://technet.microsoft.com/library/bb613488.aspx)です。
+
+## <a name="using-the-nugetexe-cli-in-the-console"></a>コンソールで nuget.exe CLI を使用します。
+
+させる、 [ `nuget.exe` CLI](nuget-exe-CLI-Reference.md)パッケージ マネージャー コンソールで、使用可能なインストール、 [NuGet.CommandLine](http://www.nuget.org/packages/NuGet.CommandLine/)コンソールからのパッケージ。
+
+```ps
+# Other versions are available, see http://www.nuget.org/packages/NuGet.CommandLine/
+Install-Package NuGet.CommandLine -Version 4.4.1
+```

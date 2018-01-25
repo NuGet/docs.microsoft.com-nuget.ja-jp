@@ -7,17 +7,16 @@ ms.date: 12/07/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 09c10ea3-ba26-4bfa-999e-de5350e6e920
 description: "Visual Studio で NuGet パッケージ マネージャー コンソールで GetProject PowerShell コマンドのリファレンスです。"
 keywords: "NuGet パッケージ マネージャー コンソールで、NuGet Powershell コマンドでは、NuGet Powershell リファレンス、Get プロジェクト"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 40c986164c3f6bd6a02877e15827541aae77d8ad
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: cb98498d6cc6245c9e22b00eada097b816160aea
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="get-project-package-manager-console-in-visual-studio"></a>Get プロジェクト (Visual Studio でパッケージ マネージャー コンソール)
 
@@ -35,7 +34,7 @@ Get-Project [[-Name] <string>] [-All] [<CommonParameters>]
 
 | パラメーター | 説明 |
 | --- | --- |
-| 名前 | 既定のパッケージ マネージャー コンソールで選択された既定のプロジェクトを表示するには、プロジェクトに指定します。 -Name スイッチは、それ自体の省略可能です。 |
+| name | 既定のパッケージ マネージャー コンソールで選択された既定のプロジェクトを表示するには、プロジェクトに指定します。 -Name スイッチは、それ自体の省略可能です。 |
 | すべて | このソリューションでのすべてのプロジェクトの情報を表示プロジェクトの順序は確定的ではありません。 |
 
 これらのパラメーターのいずれもには、パイプラインの入力またはワイルドカード文字がそのまま使用します。
@@ -44,7 +43,7 @@ Get-Project [[-Name] <string>] [-All] [<CommonParameters>]
 
 `Get-Project`次のサポート[一般的な PowerShell パラメーター](http://go.microsoft.com/fwlink/?LinkID=113216): デバッグ、エラー アクション、ErrorVariable、OutBuffer、OutVariable、PipelineVariable、Verbose、WarningAction、WarningVariable、します。
 
-## <a name="examples"></a>例
+## <a name="examples"></a>使用例
 
 ```ps
 # Displays information for the default project

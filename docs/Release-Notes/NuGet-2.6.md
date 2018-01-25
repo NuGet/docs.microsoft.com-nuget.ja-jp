@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: d99bbf29-2b9a-4dc5-a823-5eb4f9e30f7f
 description: "既知の問題、バグの修正、追加された機能、および Dcr を含む NuGet 2.6 リリース ノートです。"
 keywords: "NuGet 2.6 リリース ノートについては、バグの修正、既知の問題、機能、Dcr を追加します。"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b34c0049a5ba42f6bcd5b36fa5b0ba261e27ecd5
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: c2df9721e6941c110948af1a2d4ec4b7aeb476dd
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-26-release-notes"></a>NuGet 2.6 リリース ノート
 
@@ -38,7 +37,7 @@ NuGet 2.6 以降では、次に示す 2 つの拡張機能が公開します。
 1. [NuGet Package Manager](https://marketplace.visualstudio.com/items?itemName=NuGetTeam.NuGetPackageManager) (Visual Studio 2010 および 2012 に適用されます)
 1. [Visual Studio 2013 用の NuGet パッケージ マネージャー](https://marketplace.visualstudio.com/items?itemName=NuGetTeam.NuGetPackageManagerforVisualStudio2013)
 
-この分割と、 [nuget.org](https://nuget.org) "NuGet のインストール"ボタンのホーム ページの処理を実行する、 [NuGet をインストールする](../guides/install-nuget.md) ページで、さまざまな NuGet クライアントのインストールに関する詳細についてを見つけることができます。
+この分割と、 [nuget.org](https://nuget.org)ホーム ページの"NuGet のインストール"ボタンに移動、 [NuGet をインストールする](../install-nuget-client-tools.md) ページで、さまざまな NuGet クライアントのインストールに関する詳細についてを見つけることができます。
 
 <a name="xdt"></a>
 
@@ -71,8 +70,8 @@ NuGet 2.6 では、パス %programdata%/nuget/config 下のフォルダー階層
 
 1. %ProgramData%\NuGet\Config\*.config
 2. %ProgramData%\NuGet\Config\{IDE}\*.config
-3. %ProgramData%\NuGet\Config\{IDE}\{バージョン}\*.config
-4. %ProgramData%\NuGet\Config\{IDE}\{バージョン}\{SKU}\*.config
+3. %ProgramData%\NuGet\Config\{IDE}\{Version}\*.config
+4. %ProgramData%\NuGet\Config\{IDE}\{Version}\{SKU}\*.config
 
 この一覧で、{IDE} プレース ホルダーは、"VisualStudio"の場合は、Visual Studio できるように、NuGet が実行されている IDE に固有です。 {バージョン} と {SKU} プレース ホルダーが (たとえば、IDE によって提供されます。「11.0」と"WDExpress"、"VWDExpress"、"Pro"それぞれ)。 フォルダーでは、多くの異なる *.config ファイルを含めることができますし、します。
 したがって、ACME コンポーネント会社の一部として、製品インストーラー、カスタム パッケージ ソースの追加、次のファイル パスを作成して Visual Studio 2012 の Professional、および Ultimate バージョンでのみ表示されます。

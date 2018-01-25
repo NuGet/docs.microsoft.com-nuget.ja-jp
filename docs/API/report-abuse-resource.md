@@ -11,17 +11,16 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 148d743a-09e5-4539-8454-675be11902db
 description: "レポートの不正使用を URL テンプレートは、その UI に、不正使用のリンクを表示するクライアントを使用できます。"
 keywords: "NuGet API 不正使用を報告、NuGet API ファイル準拠している、NuGet.org レポート URL テンプレート"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 7b3413297f5a7fcf0e2c7757036b1f240ed0058a
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: c12be294c71547fbce421c72aa091e0eee15aacd
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="report-abuse-url-template"></a>レポートの不正使用を URL テンプレート
 
@@ -54,7 +53,7 @@ Web ページをサポートする必要があります、クライアントは�
 
 ### <a name="url-placeholders"></a>URL のプレース ホルダー
 
-名前        | 種類    | 必須 | メモ
+name        | 種類    | 必須 | メモ
 ----------- | ------- | -------- | -----
 `{id}`      | string  | Ｘ       | 不正使用を報告するパッケージ ID
 `{version}` | string  | Ｘ       | パッケージのバージョンの不正使用を報告する
@@ -63,12 +62,8 @@ Web ページをサポートする必要があります、クライアントは�
 
 たとえば、nuget.org のレポートの不正使用のテンプレートは、これのようになります。
 
-```
-https://www.nuget.org/packages/{id}/{version}/ReportAbuse
-```
+    https://www.nuget.org/packages/{id}/{version}/ReportAbuse
 
 クライアント実装では、レポートの不正使用をフォームに NuGet.Versioning 4.3.0 のリンクを表示する場合は、次の URL を生成は、ユーザーに提供します。
 
-```
-https://www.nuget.org/packages/NuGet.Versioning/4.3.0/ReportAbuse
-```
+    https://www.nuget.org/packages/NuGet.Versioning/4.3.0/ReportAbuse

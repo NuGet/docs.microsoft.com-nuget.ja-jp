@@ -3,21 +3,20 @@ title: "NuGet CLI パック コマンド |Microsoft ドキュメント"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 12/08/2017
+ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 55e9e4d2-8039-4e9b-bdd9-c8b3eb0e894b
 description: "Nuget.exe パック コマンドのリファレンス"
 keywords: "nuget パックの参照、パック コマンド"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0dbecb8f01acf781ab8d2e77e8df7fa405f74cf1
-ms.sourcegitcommit: d576d84fb4b6a178eb2ac11f55deb08ac771ba1c
+ms.openlocfilehash: 732a712f88c6267caae361673a05af0781877cf4
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="pack-command-nuget-cli"></a>パック コマンド (NuGet CLI)
 
@@ -30,7 +29,7 @@ ms.lasthandoff: 01/16/2018
 
 ## <a name="usage"></a>使用法
 
-```
+```cli
 nuget pack <nuspecPath | projectPath> [options]
 ```
 
@@ -57,7 +56,7 @@ nuget pack <nuspecPath | projectPath> [options]
 | サフィックス | *(3.4.4+)*内部的に生成されたバージョン番号、ビルドまたはその他のプレリリース版の識別子を追加するために使用される通常にサフィックスを追加します。 たとえばを使用して`-suffix nightly`バージョン番号 like でパッケージを作成`1.2.3-nightly`です。 サフィックスは、警告、エラー、およびさまざまなバージョンの NuGet と NuGet パッケージ マネージャーの潜在的な非互換性を回避するのには文字で始める必要があります。 |
 | シンボル | パッケージには、ソースとシンボルが含まれているを指定します。 使用すると、`.nuspec`ファイル、通常の NuGet パッケージ ファイルが作成され、対応するシンボル パッケージです。 |
 | ツール | プロジェクトの出力ファイルを配置する必要がありますを指定します、`tool`フォルダーです。 |
-| 詳細度 | 出力に表示される詳細情報の量を指定します:*通常*、 *quiet*、 *(2.5 以降) の詳細*です。 |
+| 詳細度 | 出力に表示される詳細情報の量を指定します:*通常*、 *quiet*、*詳細*です。 |
 | Version | バージョン番号よりも優先、`.nuspec`ファイル。 |
 
 参照してください[環境変数](cli-ref-environment-variables.md)
@@ -83,7 +82,7 @@ nuget pack <nuspecPath | projectPath> [options]
 
 ## <a name="examples"></a>使用例
 
-```
+```cli
 nuget pack
 
 nuget pack foo.nuspec

@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: b514da09-da1f-416b-9bfc-692f08fb6957
 description: "NuGet 3.4.2 などのリリース ノートには、問題、バグの修正、追加された機能、および Dcr が知られています。"
 keywords: "NuGet 3.4.2 リリース ノートについては、バグの修正、既知の問題、機能、Dcr を追加します。"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6761c59b6dc85b9a8503041928c2707549006d9c
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 892a965e67762af2ae42c2d6ee75d2838104d1c2
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-342-release-notes"></a>NuGet 3.4.2 リリース ノート
 
@@ -36,7 +35,7 @@ Nuget.exe 3.4.2 のリリース候補版をダウンロードする[ここ](http
 * この変更だけでなくおが問題を修正できるほか、VS UI 内の数、更新プログラムをフェッチするときに 2 回に、ネットワークにヒットされたお。 これが部分的に 3.4/3.4.1 の経験豊富ないくつかのタイムアウトの問題顧客を担当します。
 * No_proxy 設定のサポートが追加されました
 
-##<a name="fixes"></a>修正プログラム
+## <a name="fixes"></a>修正プログラム
 
 * Nuget.org のソースがある NuGet 設定または config で不足している 3.4.1 に更新した後、問題を修正しました。
 * 問題を修正、FindPackagesById 3.4.1 で大文字と小文字の変更が Artifactory を中断します。

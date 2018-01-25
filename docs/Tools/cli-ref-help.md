@@ -3,21 +3,20 @@ title: "NuGet CLI help コマンド |Microsoft ドキュメント"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/24/2017
+ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 780d7f52-d6c6-45cd-8a62-218ff8c0b270
 description: "Nuget.exe help コマンドのリファレンス"
 keywords: "nuget ヘルプ リファレンス、コマンドのヘルプします。"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 55dc263fedd7ed5a3e48b76dbc9a3ccc220655cf
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 97f72e1be0df6e97f8b06696b2b3861800e4ea08
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="help-or--command-nuget-cli"></a>役立ちますか? コマンド (NuGet CLI)
 
@@ -25,9 +24,9 @@ ms.lasthandoff: 12/14/2017
 
 ヘルプ情報と、特定のコマンドに関するヘルプ情報する一般的な表示にします。
 
-## <a name="usage"></a>使用方法
+## <a name="usage"></a>使用法
 
-```
+```cli
 nuget help [command] [options]
 nuget ? [command] [options]
 ```
@@ -42,18 +41,18 @@ nuget ? [command] [options]
 | オプション | 説明 |
 | --- | --- |
 | すべて | すべての利用可能なコマンドは詳細なヘルプを表示します。特定のコマンドを指定した場合は無視されます。 |
-| ConfigFile | *(2.5 +)* NuGet 構成ファイルを適用します。 指定しない場合、 *%AppData%\NuGet\NuGet.Config*を使用します。 |
+| ConfigFile | NuGet 構成ファイルを適用します。 指定しない場合、 *%AppData%\NuGet\NuGet.Config*を使用します。 |
 | ForceEnglishOutput | *(3.5 +)*インバリアント、英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
 | ヘルプ | ヘルプ コマンド自体の情報のヘルプを表示します。 |
 | Markdown | マークダウン形式で使用する場合の詳細なヘルプを印刷`-All`です。 それ以外の場合は無視されます。 |
-| 非対話型 | ユーザー入力または確認を要求するプロンプトを抑制します。 |
-| 詳細度 | 出力に表示される詳細情報の量を指定します:*通常*、 *quiet*、 *(2.5 以降) の詳細*です。 |
+| NonInteractive | ユーザー入力または確認を要求するプロンプトを抑制します。 |
+| 詳細度 | 出力に表示される詳細情報の量を指定します:*通常*、 *quiet*、*詳細*です。 |
 
 参照してください[環境変数](cli-ref-environment-variables.md)
 
-## <a name="examples"></a>例
+## <a name="examples"></a>使用例
 
-```
+```cli
 nuget help
 nuget help push
 nuget ?

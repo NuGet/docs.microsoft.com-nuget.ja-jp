@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: ba2edaad-4795-47a0-a572-d0e1716bd540
 description: "既知の問題、バグの修正、追加された機能、および Dcr を含む NuGet 2.7 リリース ノートです。"
 keywords: "NuGet 2.7 リリース ノートについては、バグの修正、既知の問題、機能、Dcr を追加します。"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 502cb5e68f905e9ad8f4003bb0690d3e676f6bb7
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: b0e12f7e2cffa6e721dd13c117b7b3727cfcb5d7
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-27-release-notes"></a>NuGet 2.7 リリース ノート
 
@@ -104,7 +103,7 @@ NuGet 2.7 nuget.exe の新機能が導入されています。`nuget.exe restore
 この新しい Restore コマンドでは、ソリューション ファイルまたはフォルダーを引数としてそのまま使用して 1 つのコマンドを使用して、ソリューションのすべてのパッケージを簡単に復元することができます。 さらに、その引数では、現在のフォルダー内に 1 つのソリューションのみがある場合に暗黙的です。 つまり、すべての次のように 1 つのソリューション ファイル (MySolution.sln) を含むフォルダーから。
 
 1. nuget.exe restore MySolution.sln
-1. nuget.exe 復元します。
+1. nuget.exe restore .
 1. nuget.exe restore
 
 Restore コマンドはソリューション ファイルを開くし、ソリューション内のすべてのプロジェクトを検索します。 そこが検出されます、`packages.config`プロジェクトと検出されたすべてのパッケージ復元は、の各ファイルです。 あるソリューション レベルのパッケージも復元、`.nuget\packages.config`ファイル。 詳細については、新しい復元コマンドは含まれて、[コマンド ライン リファレンス](../tools/cli-ref-restore.md)です。

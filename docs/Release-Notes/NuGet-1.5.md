@@ -7,19 +7,18 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 3ec1ff28-18fc-4d53-bd43-208619a7270a
 description: "既知の問題、バグの修正、追加された機能、および Dcr を含む NuGet 1.5 のリリース ノートします。"
 keywords: "NuGet 1.5 のリリース ノートについては、バグの修正、既知の問題、機能、Dcr を追加します。"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 29792f4c7399155bcf5fb3361d7f10ddd1b18ca1
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 261cfbbd262bad28f142b0c3dff8a541641d9fda
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
- # <a name="nuget-15-release-notes"></a>NuGet 1.5 のリリース ノート
+# <a name="nuget-15-release-notes"></a>NuGet 1.5 のリリース ノート
 
 [NuGet 1.4 のリリース ノート](../release-notes/nuget-1.4.md) | [NuGet 1.6 リリース ノート](../release-notes/nuget-1.6.md)
 
@@ -35,6 +34,7 @@ ASP.NET MVC 3 プロジェクト テンプレートには、一連プロジェ�
 この機能の詳細については、このテキストを読み取る[、機能の開発者がブログの投稿](http://blogs.msdn.com/b/marcinon/archive/2011/07/08/project-templates-and-preinstalled-nuget-packages.aspx)です。
 
 ### <a name="explicit-assembly-references"></a>明示的にアセンブリ参照
+
 追加された新しい`<references />`内で対象のアセンブリを明示的に指定するための要素、パッケージを参照してください。
 
 たとえば、次のコードを追加するとします。

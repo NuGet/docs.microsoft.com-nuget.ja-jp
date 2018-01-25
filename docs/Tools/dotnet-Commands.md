@@ -7,19 +7,18 @@ ms.date: 12/08/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 0c81dbc4-2c14-4ec8-b87a-b802a899c3ea
 description: "Dotnet コマンド ライン インターフェイスを使用して NuGet に関連するコマンドの短いリファレンスです。"
 keywords: "dotnet の NuGet コマンド、dotnet パック、dotnet 復元、dotnet nuget ローカル変数、dotnet nuget プッシュ、dotnet nuget の削除"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: d020e62b8bd04c8f4a75756fb30ebcf13ffdb1b3
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: d06e4590ab87b68e7846a13b2eba0f59eb9529d6
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
-# <a name="dotnet-commands"></a>dotNet コマンド
+# <a name="dotnet-commands"></a>dotNet commands
 
 Windows、Mac OS X、Linux で実行され、DotNet コマンド ライン インターフェイスは、次に示すように不可欠な nuget.exe コマンドの数を提供します。 Dotnet の必要なコマンドを提供、場所、nuget.exe をダウンロードする必要はありません。
 

@@ -7,17 +7,16 @@ ms.date: 12/12/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 3cf592de-39f2-4e7f-a597-62635fdcedfa
 description: "nuget.exe 資格情報プロバイダーを使用して、フィードを使用認証は、特定の規則に従うコマンドライン実行可能ファイルとして実装されます。"
-keywords: "nuget.exe 資格情報プロバイダー、資格情報プロバイダー API をフィードでの認証、ギャラリーでの認証"
+keywords: nuget.exe credential providers, credential provider API, authenticate with feed, authenticate with gallery
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 82ab4d6e9be0736e008f5bd27d46e1db166d7bb4
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 88ce0106ad4e628ba8120f94b7951c7746ab67f3
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>Nuget.exe 資格情報プロバイダーを使用したフィードの認証
 
@@ -59,7 +58,7 @@ nuget.exe 資格情報プロバイダーは、3 つの方法で使用できま�
 | パラメーターまたはスイッチ |説明|
 |----------------|-----------|
 | Uri {value} | パッケージ ソース URI が必要な資格情報。|
-| 非対話型 | 存在する場合、プロバイダーは対話型のプロンプトを発行しません。 |
+| NonInteractive | 存在する場合、プロバイダーは対話型のプロンプトを発行しません。 |
 | IsRetry | 存在する場合、この試行が以前に失敗した試行の再試行ことを示します。 プロバイダーは、このフラグを使用して通常、任意の既存のキャッシュをバイパスし、可能であれば新しい資格情報の入力を求めることを確認してください。|
 | 詳細度 {value} | 存在する場合、次の値のいずれかの:"normal"、「サイレント」または「詳細」です。 値が指定されていない場合は、"normal"に既定値です。 プロバイダーとして使用してくださいこれの省略可能なログ レベルを示す値を標準エラー ストリームに出力します。 |
 

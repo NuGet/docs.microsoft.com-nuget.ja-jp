@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: df7becc6-993d-4d06-8495-a0c26748bdfa
 description: "既知の問題、バグの修正、追加された機能、および Dcr を含む NuGet 1.7 リリース ノートです。"
 keywords: "NuGet 1.7 リリース ノートについては、バグの修正、既知の問題、機能、Dcr を追加します。"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 420b40576cb3862f0e4406966f9ccca9fd1f39a1
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 7b16bea8c6bcc77f814dd32a43b895b5e656c95d
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-17-release-notes"></a>NuGet 1.7 リリース ノート
 
@@ -28,7 +27,7 @@ NuGet 1.7 は、2012 年 4 月 4 日にリリースされました。
 ## <a name="known-installation-issue"></a>インストールの既知の問題
 VS 2010 SP1 を実行している場合、インストールされている古いバージョンがある場合は、NuGet をアップグレードしようとしています。 インストール エラーに発生する可能性があります。
 
-回避策では、NuGet をシンプルにアンインストールし、VS 拡張機能ギャラリーからインストールします。  参照してください[http://support.microsoft.com/kb/2581019](http://support.microsoft.com/kb/2581019)詳細についてはします。
+回避策では、NuGet をシンプルにアンインストールし、VS 拡張機能ギャラリーからインストールします。  詳細については、[http://support.microsoft.com/kb/2581019](http://support.microsoft.com/kb/2581019) を参照してください。
 
 注意: Visual Studio には、(削除 ボタンは無効になっている) 拡張機能をアンインストールすることを許可しません、可能性の高い場合"管理者として実行 を使用して Visual Studio を再起動するには
 

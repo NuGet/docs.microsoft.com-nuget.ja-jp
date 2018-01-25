@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: c193f1e3-d114-427f-9425-9930cc8e4db3
 description: "既知の問題、バグの修正、追加された機能、および Dcr を含む NuGet 2.5 のリリース ノートします。"
 keywords: "NuGet 2.5 リリース ノートについては、バグの修正、既知の問題、機能、Dcr を追加します。"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 8d3bebbbe550645fcffad078538134427103cf98
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: c2c6cf85b9ebccf200be9ef4a2bf96802cffcaea
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-25-release-notes"></a>NuGet 2.5 のリリース ノート
 
@@ -59,25 +58,25 @@ NuGet 2.5 に大幅な貢献の次の外部共同作成者いただき、あり�
 1. [Tony 壁](https://www.codeplex.com/site/users/view/CodeChief)([@CodeChief](https://twitter.com/codechief))
     - [#3200](https://nuget.codeplex.com/workitem/3200) - MSTest 最新 NuGet 2.4 と 2.5 ビルド分割
 
-# <a name="notable-features-in-the-release"></a>リリースで注目に値する機能
+## <a name="notable-features-in-the-release"></a>リリースで注目に値する機能
 
-## <a name="allow-users-to-overwrite-content-files-that-already-exist"></a>ユーザーが既に存在するコンテンツのファイルの上書きを許可します。
+### <a name="allow-users-to-overwrite-content-files-that-already-exist"></a>ユーザーが既に存在するコンテンツのファイルの上書きを許可します。
 
 NuGet パッケージに含まれるときにディスクに既に存在するコンテンツのファイルを上書きする権限をすべての時間の多かった機能の 1 つされました。 NuGet 2.5 以降では、これらの競合は、識別し、以前これらのファイルのスキップされた常に対し、ファイルを上書きする求められます。
 
 ![コンテンツ ファイルを上書き](./media/NuGet-2.5/overwrite-file.png)
 
-'nuget.exe update' および 'Install-package' これで、新しいオプションがあります両方 '-FileConflictAction' コマンド ライン シナリオのいくつかの既定値に設定します。
+'nuget.exe update' and 'Install-Package' now both have a new option '-FileConflictAction' to set some default for command-line scenarios.
 
 対象のプロジェクトにパッケージからファイルが既に存在する場合は、既定のアクションを設定します。 常にファイルを上書きする「上書き」に設定します。 'Ignore' に設定すると、ファイルをスキップします。 指定しない場合、競合している各ファイルが求められます。
 
-## <a name="automatic-import-of-msbuild-targets-and-props-files"></a>MSBuild のターゲットと props ファイルの自動インポート
+### <a name="automatic-import-of-msbuild-targets-and-props-files"></a>MSBuild のターゲットと props ファイルの自動インポート
 
 NuGet パッケージの最上位レベルには、従来の新しいフォルダーが用意されています。  ピアとして`\lib`、 `\content`、および`\tools`、するできるようになりました、`\build`パッケージ内のフォルダーです。  このフォルダーの下には、固定名は、2 つのファイルを配置することができます`{packageid}.targets`または`{packageid}.props`です。 これら 2 つのファイルがあるか直接`build`またはフレームワーク固有のフォルダーに、他のフォルダーと同じようにします。 最も一致するフレームワーク フォルダーを選択するためのルールは、ものと同じではまったくです。
 
 NuGet \build ファイルとパッケージのインストール時に、MSBuild が追加`<Import>`要素を指すプロジェクト ファイルで、`.targets`と`.props`ファイル。 `.props`一方、上部にあるファイルが追加、`.targets`ファイルが下部に追加します。
 
-## <a name="specify-different-references-per-platform-using-references-element"></a>プラットフォームごとの別の参照を指定`<References/>`要素
+### <a name="specify-different-references-per-platform-using-references-element"></a>プラットフォームごとの別の参照を指定`<References/>`要素
 
 2.5 では前に、の`.nuspec`ファイル、ユーザーがすべてのフレームワーク用に追加する、参照ファイルを指定できますのみです。 これで、この新しい機能により 2.5 では、ユーザーを作成できます、`<reference/>`例については、サポートされているプラットフォームごとの要素。
 
@@ -105,7 +104,7 @@ NuGet \build ファイルとパッケージのインストール時に、MSBuild
 
 メモ: する必要があります現在を使用する nuget.exe パック。 この機能を使用するにはNuGet パッケージ エクスプ ローラーはまだサポートしていません。
 
-## <a name="update-all-button-to-allow-updating-all-packages-at-once"></a>すべてのパッケージを一度に更新を許可するすべてのボタンを更新します。
+### <a name="update-all-button-to-allow-updating-all-packages-at-once"></a>すべてのパッケージを一度に更新を許可するすべてのボタンを更新します。
 
 多くは次のトピック、「更新プログラム パッケージ」PowerShell コマンドレットを更新するすべてのパッケージです。も、UI を使用する簡単な方法があるようになりました。
 
@@ -118,7 +117,7 @@ NuGet \build ファイルとパッケージのインストール時に、MSBuild
 
 ![ダイアログ ボックスで [すべて] ボタンを更新します。](./media/NuGet-2.5/update-all.png)
 
-## <a name="improved-project-reference-support-for-nugetexe-pack"></a>Nuget.exe パックの強化されたプロジェクト参照のサポート
+### <a name="improved-project-reference-support-for-nugetexe-pack"></a>Nuget.exe パックの強化されたプロジェクト参照のサポート
 
 Nuget.exe パック コマンド、プロセスが次の規則にプロジェクトを参照しているようになりました。
 
@@ -132,7 +131,7 @@ Nuget.exe パック コマンド、プロセスが次の規則にプロジェク
 
 詳細については、ここ: [http://nuget.codeplex.com/workitem/936](http://nuget.codeplex.com/workitem/936)
 
-## <a name="add-a-minimum-nuget-version-property-to-packages"></a>パッケージに '最低限の NuGet バージョン' プロパティを追加します。
+### <a name="add-a-minimum-nuget-version-property-to-packages"></a>パッケージに '最低限の NuGet バージョン' プロパティを追加します。
 
 という新しいメタデータの属性 'minClientVersion' は、パッケージを使用するために必要な最小の NuGet クライアント バージョンを示すようになりましたことができます。
 
@@ -146,7 +145,7 @@ Nuget.exe パック コマンド、プロセスが次の規則にプロジェク
 
 これは、パッケージをインストールし、失敗する可能性が認識されていないスキーマ バージョンが識別されたことを示すに開始する位置を示す既存のエクスペリエンスに向上します。
 
-## <a name="dependencies-are-no-longer-unnecessarily-updated-during-package-installation"></a>依存関係がパッケージのインストール中に更新されなく不必要に
+### <a name="dependencies-are-no-longer-unnecessarily-updated-during-package-installation"></a>依存関係がパッケージのインストール中に更新されなく不必要に
 
 NuGet 2.5 では、前に、プロジェクトに既にインストールされているパッケージに依存していたパッケージのインストール時に、依存関係が更新されます、新しいインストールの一部として、既存のバージョンには、依存関係が満たされる場合でもです。
 
@@ -167,13 +166,13 @@ NuGet 2.5 から始めて、依存関係のバージョンを既に満たして�
 
 この変更の詳細については、読み取り、詳細な[作業項目](http://nuget.codeplex.com/workitem/1681)、関連するだけでなく[ディスカッション スレッド](http://nuget.codeplex.com/discussions/436712)です。
 
-## <a name="nugetexe-outputs-http-requests-with-detailed-verbosity"></a>nuget.exe 詳細な詳細レベルでの http 要求を出力します。
+### <a name="nugetexe-outputs-http-requests-with-detailed-verbosity"></a>nuget.exe 詳細な詳細レベルでの http 要求を出力します。
 
 Nuget.exe のトラブルシューティングを行うか、単興味があるどの HTTP 要求が行われる操作中に、'-詳細な詳細度 ' スイッチが行われるすべての HTTP 要求を出力するようになりました。
 
 ![Nuget.exe から HTTP 出力](./media/NuGet-2.5/verbosity.png)
 
-## <a name="nugetexe-push-now-supports-unc-and-folder-sources"></a>nuget.exe プッシュに今すぐ UNC とフォルダーのソースがサポートしています
+### <a name="nugetexe-push-now-supports-unc-and-folder-sources"></a>nuget.exe プッシュに今すぐ UNC とフォルダーのソースがサポートしています
 
 NuGet 2.5 では、前に、UNC パスまたはローカル フォルダーに基づくパッケージ ソース 'nuget.exe プッシュ' を実行する試行する場合は、プッシュは失敗します。 階層構造の構成を最近追加された機能を使用して、UNC/フォルダーのソース、または HTTP ベース NuGet ギャラリーのいずれかを対象とする必要がある nuget.exe の一般的なになる必要があります。
 
@@ -185,7 +184,7 @@ NuGet 2.5 から始めて nuget.exe UNC/フォルダーのソースを識別す�
 nuget push -source \\mycompany\repo\ mypackage.1.0.0.nupkg
 ```
 
-## <a name="nugetexe-supports-explicitly-specified-config-files"></a>nuget.exe が明示的に指定された構成ファイルをサポートしています
+### <a name="nugetexe-supports-explicitly-specified-config-files"></a>nuget.exe が明示的に指定された構成ファイルをサポートしています
 
 ('仕様' と 'pack' を除くすべて) の構成を今すぐアクセスする nuget.exe のコマンドは、新しいサポート '-ConfigFile' オプションは、%appdata%\nuget\nuget.config で既定の構成ファイルの代わりに使用する固有の構成ファイルを強制します。
 
@@ -195,7 +194,7 @@ nuget push -source \\mycompany\repo\ mypackage.1.0.0.nupkg
 nuget sources add -name test -source http://test -ConfigFile C:\test\.nuget\Nuget.Config
 ```
 
-## <a name="support-for-native-projects"></a>ネイティブ プロジェクトのサポート
+### <a name="support-for-native-projects"></a>ネイティブ プロジェクトのサポート
 
 NuGet 2.5 で NuGet ツールは Visual Studio でのネイティブ プロジェクトで使用できるようになりました。 予定最もネイティブ パッケージは、上記の MSBuild のインポート機能を利用して作成ツールを使用して、 [CoApp プロジェクト](http://coapp.org)です。 詳細については、「[詳細についてはツール、](http://coapp.org/news/2013-03-27-The-Long-Awaited-post.html) coapp.org web サイトです。
 

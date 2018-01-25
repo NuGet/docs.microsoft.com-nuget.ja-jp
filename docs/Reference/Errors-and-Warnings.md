@@ -7,7 +7,6 @@ ms.date: 12/13/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: b76b8a00-7155-4163-b533-894086d2ef78
 description: "警告とパッケージの復元時に NuGet から発行されたエラーの完全なリファレンス"
 keywords: "NuGet のエラー、NuGet の警告、診断"
 ms.reviewer:
@@ -44,11 +43,11 @@ f1_keywords:
 - NU1608
 - NU1701
 - NU1801
-ms.openlocfilehash: 9e22b63636980ce64017c950148d9005bf9c2fb1
-ms.sourcegitcommit: ed01eaeef9bf488c36556b97247ca440384c0242
+ms.openlocfilehash: c7d77af04744888ce8af92d617a2ffc7daef4eb0
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="errors-and-warnings"></a>エラーと警告
 
@@ -319,7 +318,7 @@ ms.lasthandoff: 01/23/2018
 | --- | --- |
 | **問題点** | フィードを読み取る際にエラーが発生したときに`IgnoreFailedSources`が設定されて true の場合、致命的でない警告に変換することをします。 これにより、すべてのメッセージが含まれがジェネリックです。 |
 | **一般的な原因** | ソースが正しくありません。 |
-| **メッセージの例** | 該当なし |
+| **メッセージの例** | N/A |
 
 ## <a name="nuget-internal-errors-and-warnings"></a>NuGet の内部エラーと警告
 

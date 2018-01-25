@@ -7,18 +7,17 @@ ms.date: 12/08/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 6ee3c826-dd3a-4fa9-863f-1fd80bc4230f
 description: "バージョン番号と NuGet パッケージ、依存しているとの依存関係がどのようにインストールするのには、他のパッケージの範囲を指定する方法の詳細。"
 keywords: "バージョン管理、NuGet パッケージの依存関係、NuGet の依存関係のバージョン、NuGet のバージョン番号、NuGet パッケージのバージョン、バージョン範囲、バージョン指定、正規化されたバージョン番号"
 ms.reviewer:
 - anandr
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: cb5624a2fd99e8afd8a8226fd786343f485041c4
-ms.sourcegitcommit: c27e565de485cbe836e6c2a66e44a50b35b487ff
+ms.openlocfilehash: 70472d7d97d073009237a047e0fdf528b221dfd0
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="package-versioning"></a>パッケージのバージョン管理
 
@@ -42,12 +41,11 @@ ms.lasthandoff: 01/09/2018
 - *-サフィックス*(省略可能): リリース前のバージョンを示す文字列でハイフンの後ろに (以下、[セマンティック バージョニングまたは SemVer 1.0 規約](http://semver.org/spec/v1.0.0.html))。
 
 **例:**
-```
-1.0.1
-6.11.1231
-4.3.1-rc
-2.2.44-beta1
-```
+
+    1.0.1
+    6.11.1231
+    4.3.1-rc
+    2.2.44-beta1
 
 > [!Important]
 > nuget.org は、厳密なバージョン番号が欠落しているパッケージのアップロードを拒否します。 バージョンを指定する必要があります、`.nuspec`またはプロジェクト ファイルにパッケージを作成するために使用します。
@@ -67,16 +65,14 @@ ms.lasthandoff: 01/09/2018
 
 パッケージ参照および複数のパッケージ バージョンのみが異なるサフィックスを解決するには、NuGet は最初に、サフィックスが付いていないバージョンを選択し、プレリリース版では、アルファベットの逆順に優先順位を適用します。 たとえば、次のバージョンが示されている正確な順序で選択されます。
 
-```
-1.0.1
-1.0.1-zzz
-1.0.1-rc
-1.0.1-open
-1.0.1-beta
-1.0.1-alpha2
-1.0.1-alpha
-1.0.1-aaa
-```
+    1.0.1
+    1.0.1-zzz
+    1.0.1-rc
+    1.0.1-open
+    1.0.1-beta
+    1.0.1-alpha2
+    1.0.1-alpha
+    1.0.1-aaa
 
 ## <a name="semantic-versioning-200"></a>セマンティック バージョニング 2.0.0
 
@@ -119,11 +115,11 @@ Nuget.org に SemVer v2.0.0 に固有のパッケージをアップロードす�
 | (,1.0] | x ≤ 1.0 | 包括的に、最大のバージョン |
 | (,1.0) | x < 1.0 | 排他の最大バージョン |
 | [1.0,2.0] | 1.0 ≤ x ≤ 2.0 | 正確な範囲を包括的 |
-| (1.0,2.0) | 1.0 < < 2.0 x | 正確な範囲、排他 |
+| (1.0,2.0) | 1.0 < x < 2.0 | 正確な範囲、排他 |
 | [1.0,2.0) | 1.0 ≤ x < 2.0 | 包括的な最小値と排他最大バージョンが混在 |
 | (1.0)    | 無効な | 無効な |
 
-PackageReference を使用する場合または`project.json`参照形式、NuGet パッケージのワイルドカードの表記法を使用してサポートも\*メジャー、マイナー、Patch、および数のプレリリース版サフィックス部分。 ワイルドカードはサポートされていません、`packages.config`形式です。
+PackageReference 形式を使用して、NuGet の使用もサポート ワイルドカードの表記法\*メジャー、マイナー、Patch、および数のプレリリース版サフィックス部分。 ワイルドカードはサポートされていません、`packages.config`形式です。
 
 > [!Note]
 > バージョン範囲を解決するときに、プレリリース バージョンは含まれません。 プレリリース版*は*、ワイルドカードを使用するときに含まれます (\*)。 バージョン範囲*[1.0,2.0]*、たとえば、含まない 2.0 のベータ版ではワイルドカードの表記法_2.0-*_はします。 参照してください[発行 912](https://github.com/NuGet/Home/issues/912)プレリリース ワイルドカードの詳細についてはします。
@@ -228,18 +224,14 @@ PackageReference を使用する場合または`project.json`参照形式、NuGe
 
 - 先頭の 0 は、バージョン番号から削除されます。
 
-    ```
-    1.00 is treated as 1.0
-    1.01.1 is treated as 1.1.1
-    1.00.0.1 is treated as 1.0.0.1
-    ```
+        1.00 is treated as 1.0
+        1.01.1 is treated as 1.1.1
+        1.00.0.1 is treated as 1.0.0.1
 
 - バージョン番号の 4 番目の部分のゼロは省略されます。
 
-    ```
-    1.0.0.0 is treated as 1.0.0
-    1.0.01.0 is treated as 1.0.1
-    ```
+        1.0.0.0 is treated as 1.0.0
+        1.0.01.0 is treated as 1.0.1
 
 この正規化には、パッケージ自体; のバージョン番号は変わりません。のみ方法 NuGet と一致するバージョンの依存関係を解決するときに影響します。
 

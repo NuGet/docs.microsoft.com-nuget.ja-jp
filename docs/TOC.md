@@ -9,7 +9,6 @@
 ## [UWP パッケージの作成](Guides/Create-UWP-Packages.md)
 ## [UWP コントロールを NuGet パッケージとして作成する](Guides/Create-UWP-Controls.md)
 ## [クロスプラットフォーム パッケージの作成](Guides/Create-Cross-Platform-Packages.md)
-## [API を使用したすべてのパッケージのクエリ](Guides/api/query-for-all-published-packages.md)
 # パッケージの作成
 ## [概要とワークフロー](Create-Packages/Overview-and-Workflow.md)
 ## [パッケージを作成する](Create-Packages/Creating-a-Package.md)
@@ -86,6 +85,7 @@
 ### [nuget.exe 資格情報プロバイダー](Reference/extensibility/nuget-exe-Credential-Providers.md)
 # API
 ## [概要](API/overview.md)
+## [方法: API を使用したすべてのパッケージのクエリ](Guides/api/query-for-all-published-packages.md)
 ## [サービス インデックス](API/service-index.md)
 ## [プッシュと削除](API/package-publish-resource.md)
 ## [検索](API/search-query-service-resource.md)

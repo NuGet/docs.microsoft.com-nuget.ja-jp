@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 6762b6f8-82b7-4bab-a1f0-cd25e5dc1fb4
 description: "既知の問題、バグの修正、追加された機能、および Dcr を含む NuGet 3.0 プレビューのリリース ノートします。"
 keywords: "NuGet 3.0 プレビュー リリース ノートについては、バグの修正、既知の問題、機能、Dcr を追加します。"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ae137af6f9722c454458fdcb4f20760c08d6e8bb
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: e07bcad2bf713deee0add72663c84b9979f8c5c4
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-30-preview-release-notes"></a>NuGet 3.0 プレビューのリリース ノート
 
@@ -25,7 +24,7 @@ ms.lasthandoff: 01/05/2018
 
 NuGet 3.0 プレビューは、Visual Studio 2015 Preview のリリースの一環として 2014 年 11 月 12 日にリリースされました。 NuGet 3.0 プレビューをリリースしました。 (ただし、プレビュー) はご利用の米国の大規模なリリース、ご案内の変更に関するフィードバックの取得を開始します。
 
-## <a name="visual-studio-2012"></a>Visual Studio 2012 +
+## <a name="visual-studio-2012"></a>Visual Studio 2012+
 
 Visual Studio 2015 Preview では、この NuGet 3.0 プレビューが含まれます。 Visual Studio 2012 および Visual Studio 2013 プレビューのドロップを非常に早く取得に努めています。 目的とした共有していた[for Visual Studio 2010 の更新プログラムを中止](http://blog.nuget.org/20141002/visual-studio-2010.html)、難しい判断するためでした。
 

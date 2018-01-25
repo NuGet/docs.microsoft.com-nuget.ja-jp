@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 4110a36a-cffe-4038-8da4-e841bce6e94b
 description: "既知の問題、バグの修正、追加された機能、および Dcr を含む NuGet 3.3 のリリース ノートです。"
 keywords: "NuGet 3.3 リリース ノートについては、バグの修正、既知の問題、機能、Dcr を追加します。"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f35f7621db324957b0af8329cf9faa11493835e2
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: c83f87231497e14c36f1b8100b7bec720bb63b1c
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-33-release-notes"></a>NuGet 3.3 のリリース ノート
 
@@ -46,7 +45,7 @@ NuGet 3.3 は、多数のユーザー インターフェイスを更新し、コ
 
 このバージョンでは導入された、`add`と`init`」の説明に従ってフォルダー ベースのリポジトリを初期化するためのコマンド、 [nuget.exe 参照](../tools/nuget-exe-cli-reference.md)です。 構築され、このフォルダーに保持するリポジトリの構造は[かなり高いパフォーマンス メリットをもたらします](http://blog.nuget.org/20150922/Accelerate-Package-Source.html)ブログで説明したようです。
 
-## <a name="contentfiles"></a>コンテンツ ファイル
+## <a name="contentfiles"></a>ContentFiles
 
 コンテンツがサポートされるようになりました`project.json`マネージ プロジェクトは、新しい`contentFiles`フォルダーと`.nuspec``contentFiles`要素表記します。  このコンテンツは、プロジェクト システムとのやり取りのパッケージの作成者によって直接指定できます。  コンテンツ ファイルを構成する方法の詳細について、`.nuspec`ドキュメントは含まれて、 [.nuspec 参照](../schema/nuspec.md)です。
 

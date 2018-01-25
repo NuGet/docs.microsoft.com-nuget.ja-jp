@@ -11,26 +11,22 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 2f6d6cf2-53fb-417a-b1d8-e0ac591c1699
 description: "サービス インデックスは、NuGet HTTP API のエントリ ポイントであり、サーバーの機能を列挙します。"
 keywords: "NuGet API エントリ ポイント、NuGetA PI エンドポイントの検出"
 ms.reviewer:
 - karann
 - unnir
-ms.openlocfilehash: 0c43a09d8564964bd0140b9ac5deb9d3063e4dc5
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 9d0bb421c163520df4a1f0e9f3f71aab823aace3
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="service-index"></a>サービスのインデックス
 
 サービス インデックスは、NuGet パッケージのソースのエントリ ポイントであり、パッケージ ソースの機能を検出するクライアントの実装は、ある JSON ドキュメントです。 サービス インデックスは、次の 2 つの必須プロパティを持つ JSON オブジェクト: `version` (サービスのインデックスのスキーマ バージョン) と`resources`(エンドポイントまたはパッケージ ソースの機能)。
 
-nuget.org のサービスのインデックスの場所は。
-```
-https://api.nuget.org/v3/index.json
-```
+nuget.org のサービスのインデックスにある`https://api.nuget.org/v3/index.json`です。
 
 ## <a name="versioning"></a>バージョン管理
 
@@ -53,7 +49,7 @@ https://api.nuget.org/v3/index.json
 
 リソース内のオブジェクトとは、`resources`配列。 これは、パッケージ ソースのバージョン管理機能を表します。 リソースには、次のプロパティがあります。
 
-名前          | 種類   | 必須 | メモ
+name          | 種類   | 必須 | メモ
 ------------- | ------ | -------- | -----
 @id           | string | 可      | リソースへの URL
 @type         | string | 可      | リソースの種類を表す文字列定数
@@ -63,9 +59,7 @@ https://api.nuget.org/v3/index.json
 
 `@type`リソースと対話するときに使用する特定のプロトコルを識別するために使用します。 リソースの種類は不透明な文字列が、一般に、形式があります。
 
-```
-{RESOURCE_NAME}/{RESOURCE_VERSION}
-```
+    {RESOURCE_NAME}/{RESOURCE_VERSION}
 
 クライアントはハード コードとして予想される、`@type`を理解し、パッケージ ソースのサービスのインデックスで検索する値。 正確な`@type`に記載されている個々 のリソースの参照ドキュメントで現在使用している値が列挙された、 [API の概要](overview.md#resources-and-schema)です。
 
@@ -75,9 +69,7 @@ https://api.nuget.org/v3/index.json
 
 ### <a name="sample-request"></a>要求のサンプル
 
-```
 GET https://api.nuget.org/v3/index.json
-```
 
 ### <a name="sample-response"></a>応答のサンプル
 

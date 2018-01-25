@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 239d3d95-5a72-4fac-8389-b6deac27884d
 description: "NuGet 3.4 RC の既知の問題、バグの修正、追加された機能は、Dcr などのリリース ノートします。"
 keywords: "NuGet 3.4 RC のリリース ノートについては、バグの修正、既知の問題、機能、Dcr を追加します。"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 86c37d516eede2ac5e6e5e842f687a8f3b17c0a4
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 749068683d6e2a3fd9dd29c69d9ff50137acdd46
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-34-rc-release-notes"></a>NuGet 3.4 RC のリリース ノート
 
@@ -25,9 +24,9 @@ ms.lasthandoff: 12/14/2017
 
 NuGet 3.4 RC では、Visual Studio 2015 Update 2 RC と共に、2016 年 3 月 3日がリリースされ、心にいくつかの基本思想でビルドされました。
 
-*  クロスプラット フォーム サポート
-*  パフォーマンスの向上
-*  マイナーの UI 機能強化
+* クロスプラット フォーム サポート
+* パフォーマンスの向上
+* マイナーの UI 機能強化
 
 次の機能は、複数の 3.4 最終リリースの計画とこの RC で利用します。
 

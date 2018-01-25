@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 6f972803-9e17-43f5-b77b-973c3accf695
 description: "既知の問題、バグの修正、追加された機能、および Dcr を含む NuGet 2.1 リリース ノートです。"
 keywords: "NuGet 2.1 リリース ノートについては、バグの修正、既知の問題、機能、Dcr を追加します。"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: dafe575eedbfed215c0b1c86795bea281de97252
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 05cdb898cc674ac7eadb238d41896638d8e3488c
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-21-release-notes"></a>NuGet 2.1 リリース ノート
 
@@ -101,16 +100,16 @@ Windows 8 ストア アプリケーションの場合は、識別子は次のよ
 
 |NuGet 2.0 およびそれ以前|NuGet 2.1|
 |----------------|-----------|
-|winRT45、します。NETCore45|Windows、windows 8、win、win8|
+|winRT45, .NETCore45|Windows、windows 8、win、win8|
 
 <br/>
 Windows Phone プロジェクトの場合は、識別子は次のようになります。
 
 |電話の OS|NuGet 2.0 およびそれ以前|NuGet 2.1
 |----------------|-----------|-----------|
-|Windows Phone 7|silverlight3 wp|wp、wp7、WindowsPhone、WindowsPhone7|
-|Windows Phone 7.5 (Mango)|silverilght4 wp71|wp71、WindowsPhone71|
-|Windows Phone 8|(サポートされていません)|wp8、WindowsPhone8|
+|Windows Phone 7|silverlight3-wp|wp、wp7、WindowsPhone、WindowsPhone7|
+|Windows Phone 7.5 (Mango)|silverilght4-wp71|wp71, WindowsPhone71|
+|Windows Phone 8|(サポートされていません)|wp8, WindowsPhone8|
 <br/>
 上記の変更は、すべての framework の古い名前は引き続き NuGet 2.1 によって完全にサポートします。  さらに、新しい名前を付けるなるのでより安定したそれぞれのプラットフォームの将来のバージョン間でします。 新しい名前は*いない*する NuGet の 2.1 以前のバージョンでサポートされている、ただし、適切に計画、スイッチを作成する際のです。
 

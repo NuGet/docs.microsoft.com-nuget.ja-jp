@@ -7,17 +7,16 @@ ms.date: 12/07/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: b4aa92a9-ce47-4d23-ae51-d5683e08a9d5
 description: "Visual Studio で NuGet パッケージ マネージャー コンソールで更新プログラム パッケージの PowerShell コマンドのリファレンスです。"
 keywords: "NuGet パッケージ マネージャー コンソールで、NuGet Powershell コマンドでは、NuGet Powershell リファレンス、更新プログラム パッケージ"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 71f5cd7061e0f765d8808db8a3798657a941ba14
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 768fdb4d7c785b4f3ed9e70958390676ea965794
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="update-package-package-manager-console-in-visual-studio"></a>更新プログラム パッケージ (Visual Studio でパッケージ マネージャー コンソール)
 
@@ -52,7 +51,7 @@ NuGet 2.7 およびそれ以前では、新しいバージョンが既にイン�
 | セーフ | 現在インストールされているパッケージと同じメジャーおよびマイナー バージョンの唯一のバージョンにアップグレードするように制約します。 |
 | ソース | 検索するパッケージ ソースの URL またはフォルダーのパス。 ローカル フォルダー パスには、絶対パス、または現在のフォルダーの相対パスを指定できます。 省略した場合、`Uninstall-Package`現在選択されているパッケージ ソースを検索します。 |
 | IncludePrerelease | プレリリースのパッケージ更新プログラムにはが含まれます。 |
-| 再インストールします。 | Resintalls パッケージが、現在インストールされているバージョンを使用します。 参照してください[再インストールして、パッケージを更新する](../consume-packages/reinstalling-and-updating-packages.md)です。 |
+| 再インストール | Resintalls パッケージが、現在インストールされているバージョンを使用します。 参照してください[再インストールして、パッケージを更新する](../consume-packages/reinstalling-and-updating-packages.md)です。 |
 | FileConflictAction | 上書きするか、プロジェクトによって参照されている既存のファイルを無視するように求められたらを実行するアクション。 指定できる値は*上書き、Ignore、None、OverwriteAll*、および*ignoreall です*(3.0 以降)。 |
 | DependencyVersion | 次のいずれかを使用する依存関係パッケージ バージョン:<br/><ul><li>*最小*(既定値): 最小バージョン</li><li>*HighestPatch*: 最小メジャー、マイナー最小、最高の修正プログラムのバージョン</li><li>*HighestMinor*: 主要な最小のバージョン、最高のマイナー、最上位の修正プログラム</li><li>*最も高い*(パラメーターなしで更新プログラム パッケージの既定): 最上位バージョン</li></ul>使用して、既定値を設定することができます、 [ `dependencyVersion` ](../Schema/nuget-config-file.md#config-section)での設定、`Nuget.Config`ファイル。 |
 | ToHighestPatch | 現在インストールされているパッケージとマイナー バージョンが同じでバージョンのみへのアップグレードを制約します。 |
@@ -65,7 +64,7 @@ NuGet 2.7 およびそれ以前では、新しいバージョンが既にイン�
 
 `Update-Package`次のサポート[一般的な PowerShell パラメーター](http://go.microsoft.com/fwlink/?LinkID=113216): デバッグ、エラー アクション、ErrorVariable、OutBuffer、OutVariable、PipelineVariable、Verbose、WarningAction、WarningVariable、します。
 
-### <a name="examples"></a>例
+### <a name="examples"></a>使用例
 
 ```ps
 # Updates all packages in every project of the solution

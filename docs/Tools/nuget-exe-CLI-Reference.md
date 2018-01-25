@@ -3,21 +3,20 @@ title: "NuGet の参照をコマンド ライン インターフェイス (CLI) 
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/24/2017
+ms.date: 01/23/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: d777c424-0cf3-4bc0-8abd-7ca16c22192b
 description: "Nuget.exe CLI のコマンド ライン リファレンス インデックス"
 keywords: "nuget.exe 参照インデックス、nuget.exe コマンド ライン インターフェイス、nuget.exe CLI、nuget コマンド"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 5dba358b1dda46f551721461e0460219f8210f9a
-ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
+ms.openlocfilehash: 8b1ee17702f5a54a77dc2cd663e13729a9b4a39f
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-cli-reference"></a>NuGet CLI 参照
 
@@ -31,11 +30,16 @@ NuGet コマンド ライン インターフェイス (CLI)、 `nuget.exe`NuGet 
 
 [!INCLUDE[install-cli](../includes/install-cli.md)]
 
+> [!Tip]
+> NuGet CLI を使用可能にパッケージ マネージャー コンソール内で Visual Studio で、次を参照してください。[コンソールで nuget.exe CLI を使用して](package-manager-console.md#using-the-nugetexe-cli-in-the-console)です。
+
 ## <a name="availability"></a>可用性
 
+参照してください[機能の可用性](../install-nuget-client-tools.md#feature-availability)詳細については正確です。
+
 - すべてのコマンドは、Windows で使用可能です。
-- すべてのコマンドを使用[Mono で実行されている nuget.exe](../guides/install-nuget.md#mac-osx-and-linux)示されている場合を除き`pack`、 `restore`、および`update`です。
-- `pack`、 `restore`、 `delete`、 `locals`、および`push`コマンドは、Mac および Linux での使用も、 [dotnet CLI](dotnet-Commands.md)です。
+- Nuget.exe に対して指定された場所を除く、Mono で実行されているすべてのコマンドを使用`pack`、 `restore`、および`update`です。
+- `pack`、 `restore`、 `delete`、 `locals`、および`push`コマンドは、CLI dotnet Mac および Linux で使用します。
 
 ## <a name="commands-and-applicability"></a>コマンドと適用性
 
@@ -51,7 +55,6 @@ NuGet コマンド ライン インターフェイス (CLI)、 `nuget.exe`NuGet 
 | [restore](cli-ref-restore.md) | 利用 | 2.7+ | 使用中のパッケージ参照の形式によって参照されるすべてのパッケージを復元します。 モノラルでを実行するときに、PackageReference 形式を使用してパッケージを復元はサポートされていません。 |
 | [setapikey](cli-ref-setapikey.md) | 発行、消費量 | すべて | パッケージ ソースのアクセス キーが必要な場合は、特定のパッケージ ソースの API キーを保存します。 |
 | [spec](cli-ref-spec.md) | 作成 | すべて | 生成、`.nuspec`ファイル、Visual Studio プロジェクトからファイルを生成する場合は、トークンを使用します。 |
-
 
 | セカンダリ コマンド | 適用可能なロール | NuGet のバージョン | 説明 |
 | --- | --- | --- | --- |
