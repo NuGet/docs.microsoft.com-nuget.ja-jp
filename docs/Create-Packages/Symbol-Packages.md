@@ -22,9 +22,9 @@ ms.lasthandoff: 01/05/2018
 ---
 # <a name="creating-symbol-packages"></a>シンボル パッケージを作成する
 
-nuget.org やその他のソースのためにパッケージをビルドするだけでなく、NuGet では、関連するシンボル パッケージを作成し、それを [SymbolSource リポジトリ](http://www.symbolsource.org/Public)に公開することもできます。
+nuget.org やその他のソースのためにパッケージをビルドするだけでなく、NuGet では、関連するシンボル パッケージを作成し、それを SymbolSource リポジトリに公開することもできます。
 
-公開後、パッケージ コンシューマーは Visual Studio で自分のシンボル ソースに `http://srv.symbolsource.org/pdb/Public` を追加できます。それにより、Visual Studio デバッガーでパッケージ コードに入ることができます。 このプロセスの詳細については、「[Visual Studio デバッガーでのシンボル (.pdb) ファイルとソース ファイルの指定](/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger)」を参照してください。
+公開後、パッケージ コンシューマーは Visual Studio で自分のシンボル ソースに `https://nuget.smbsrc.net` を追加できます。それにより、Visual Studio デバッガーでパッケージ コードに入ることができます。 このプロセスの詳細については、「[Visual Studio デバッガーでのシンボル (.pdb) ファイルとソース ファイルの指定](/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger)」を参照してください。
 
 
 ## <a name="creating-a-symbol-package"></a>シンボル パッケージを作成する
