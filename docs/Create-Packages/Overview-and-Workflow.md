@@ -7,17 +7,16 @@ ms.date: 07/26/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: feb7918c-4709-48a4-a106-8d65c41014dc
 description: "NuGet パッケージの作成と発行プロセスの概要と、プロセスの他の特定の部分へのリンク。"
 keywords: "NuGet パッケージの作成, NuGet 作成の概要, NuGet 作成のワークフロー, パッケージ作成ワークフロー, パッケージ作成の概要。"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 25822d22c53c07e4c1a2f4ab310c4a5da09b7661
-ms.sourcegitcommit: 122bf7ce308365ea45da018b0768f0536de76a1f
+ms.openlocfilehash: 46d7737d57a91ee7b0434f4695c393423730c7bc
+ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="package-creation-workflow"></a>パッケージ作成ワークフロー
 
@@ -30,22 +29,22 @@ ms.lasthandoff: 12/14/2017
 
 いずれにせよ、パッケージの作成は、パッケージ化するアセンブリと他のファイルを決定することから始まります。 次に、マニフェスト ファイル (`.nuspec` ファイルと呼ばれる) を作成し、パッケージの ID、バージョン番号、著作権情報、MSBuild のプロパティとターゲットなどと共にパッケージの内容を記述します。
 
-適切なフォルダーに必要なファイルをすべて準備し、適切な `.nuspec` ファイルを作成したら、次は、`nuget pack` コマンド (または [MSBuild パック ターゲット](../Schema/msbuild-targets.md)) を使用して、`.nupkg` ファイルにすべてまとめます。 これで、ホストが他の開発者に使用できるようにするどのパッケージでも配置できます。
+適切なフォルダーに必要なファイルをすべて準備し、適切な `.nuspec` ファイルを作成したら、次は、`nuget pack` コマンド (または [MSBuild パック ターゲット](../reference/msbuild-targets.md)) を使用して、`.nupkg` ファイルにすべてまとめます。 これで、ホストが他の開発者に使用できるようにするどのパッケージでも配置できます。
 
 > [!Tip]
 > `.nupkg` 拡張子を持つ NuGet パッケージは単なる ZIP ファイルです。 パッケージの内容を簡単に確認するには、拡張子を `.zip` に変更し、その内容を通常どおり展開します。 念のため、ホストへのアップロードを試行する前に拡張子を `.nupkg` に戻してください。
 
-作成プロセスを学習して理解するために、まず、「[Creating a package](../create-packages/creating-a-package.md)」 (パッケージの作成) を参照してください。ここでは、すべてのパッケージに共通の中核となるプロセスについて説明されています。 
+作成プロセスを学習して理解するために、まず、「[Creating a package](../create-packages/creating-a-package.md)」 (パッケージの作成) を参照してください。ここでは、すべてのパッケージに共通の中核となるプロセスについて説明されています。
 
 そこから、パッケージの他の多くのオプションを検討することができます。
 
--  「[Supporting Multiple Target Frameworks](../create-packages/supporting-multiple-target-frameworks.md)」 (複数のターゲット フレームワークのサポート) では、さまざまな .NET Framework の複数のバリアントを含むパッケージを作成する方法が説明されています。
--  「[Creating Localized Packages](../create-packages/creating-localized-packages.md)」 (ローカライズされたパッケージの作成) では、複数の言語リソースを含むパッケージを構築する方法と、個別のローカライズされたサテライト パッケージを使用する方法が説明されています。
--  「[Pre-release Packages](../create-packages/prerelease-packages.md)」 (プレリリース パッケージ) では、アルファ、ベータ、rc パッケージをそれらに関心のあるユーザー向けにリリースする方法が示されています。
--  「[Source and Config File Transformations](../create-packages/source-and-config-file-transformations.md)」 (ソースと構成ファイルの変換) では、プロジェクトに追加されたファイルでの一方向のトークン置換を実行する方法と、パッケージのアンインストール時に取り消すこともできる設定を使用して `web.config` と `app.config` を変更する方法が説明されています。
--  「[Symbol Packages](../create-packages/symbol-packages.md)」 (シンボル パッケージ) では、コンシューマーがデバッグ時にコードにステップ インできるように、ライブラリでシンボルを提供するためのガイダンスが提供されています。
--  「[Package versioning](../reference/package-versioning.md)」 (パッケージのバージョン管理) では、依存関係 (自分のパッケージから利用する他のパッケージ) がある場合に使用できる正確なバージョンを特定する方法が説明されています。
--  「[Native Packages](../create-packages/native-packages.md)」 (ネイティブ パッケージ) では、C++ コンシューマー用のパッケージの作成プロセスが説明されています。
+- 「[Supporting Multiple Target Frameworks](../create-packages/supporting-multiple-target-frameworks.md)」 (複数のターゲット フレームワークのサポート) では、さまざまな .NET Framework の複数のバリアントを含むパッケージを作成する方法が説明されています。
+- 「[Creating Localized Packages](../create-packages/creating-localized-packages.md)」 (ローカライズされたパッケージの作成) では、複数の言語リソースを含むパッケージを構築する方法と、個別のローカライズされたサテライト パッケージを使用する方法が説明されています。
+- 「[Pre-release Packages](../create-packages/prerelease-packages.md)」 (プレリリース パッケージ) では、アルファ、ベータ、rc パッケージをそれらに関心のあるユーザー向けにリリースする方法が示されています。
+- 「[Source and Config File Transformations](../create-packages/source-and-config-file-transformations.md)」 (ソースと構成ファイルの変換) では、プロジェクトに追加されたファイルでの一方向のトークン置換を実行する方法と、パッケージのアンインストール時に取り消すこともできる設定を使用して `web.config` と `app.config` を変更する方法が説明されています。
+- 「[Symbol Packages](../create-packages/symbol-packages.md)」 (シンボル パッケージ) では、コンシューマーがデバッグ時にコードにステップ インできるように、ライブラリでシンボルを提供するためのガイダンスが提供されています。
+- 「[Package versioning](../reference/package-versioning.md)」 (パッケージのバージョン管理) では、依存関係 (自分のパッケージから利用する他のパッケージ) がある場合に使用できる正確なバージョンを特定する方法が説明されています。
+- 「[Native Packages](../create-packages/native-packages.md)」 (ネイティブ パッケージ) では、C++ コンシューマー用のパッケージの作成プロセスが説明されています。
 
 nuget.org にパッケージを発行する準備ができたら、「[Publish a package](../create-packages/publish-a-package.md)」 (パッケージの発行) の簡単なプロセスに従います。
 

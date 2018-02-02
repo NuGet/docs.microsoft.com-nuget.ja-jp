@@ -3,21 +3,20 @@ title: "NuGet のエコシステムの概要 | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 1/9/2017
+ms.date: 01/18/2018
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 8971dcf5-1d05-46e1-adf2-ce0f55521a49
 description: "NuGet エコシステムの包括的なリソースには、NuGet ソース、Microsoft 以外の NuGet プロジェクト、ユーティリティ、およびトレーニング資料が含まれます。"
 keywords: "NuGet エコシステム、Microsoft 以外の NuGet プロジェクト、NuGet オープン ソース、NuGet ユーティリティ、NuGet トレーニング資料"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: de64cf96595825b7c1bf2e235e370f5a95c64096
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 7c1e457c034f239fbea4e75f24851ea38182a294
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="an-overview-of-the-nuget-ecosystem"></a>NuGet のエコシステムの概要
 
@@ -41,38 +40,37 @@ Microsoft は、NuGet の開発に広範囲に貢献しました。 Microsoft �
 
 その他の多くの個人や企業が、NuGet エコシステムに大きな貢献を行っています。 ここに表示される各プロジェクトは、NuGet のコア コンポーネントとは別のライセンスがある可能性があります。そのため、使用前にライセンス条項に同意できることを確認してください。
 
-* [AppVeyor CI](https://www.appveyor.com/)
-* [Artifactory](https://www.jfrog.com/artifactory/)
-* [BoxStarter](http://boxstarter.org/)
-* [Chocolatey](https://chocolatey.org/)
-* [CoApp](http://coapp.org/)
-* [JetBrains ReSharper](https://resharper-plugins.jetbrains.com/)
-* [JetBrains TeamCity](https://www.jetbrains.com/teamcity/)
-* [Klondike](https://github.com/themotleyfool/Klondike)
-* [MinimalNugetServer](https://github.com/TanukiSharp/MinimalNugetServer)
-* [MyGet (または NuGet-as-a-service)](http://www.myget.org/)
-* [NuGet パッケージ エクスプローラー](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer)
-* [NuGet サーバー](http://nugetserver.net/)
-* [OctopusDeploy](https://octopus.com/)
-* [Paket](https://fsprojects.github.io/Paket/)
-* [ProGet (Inedo)](http://inedo.com/proget)
-* [scriptcs](http://scriptcs.net/)
-* [SharpDevelop](http://community.sharpdevelop.net/blogs/mattward/archive/2011/01/23/NuGetSupportInSharpDevelop.aspx)
-* [Sonatype Nexus](http://www.sonatype.com/nexus-repository-sonatype)
-* [SymbolSource](http://www.symbolsource.org/Public)
-* [Xamarin と MonoDevelop](https://github.com/mrward/monodevelop-nuget-addin)
-
+- [AppVeyor CI](https://www.appveyor.com/)
+- [Artifactory](https://www.jfrog.com/artifactory/)
+- [BoxStarter](http://boxstarter.org/)
+- [Chocolatey](https://chocolatey.org/)
+- [CoApp](http://coapp.org/)
+- [JetBrains ReSharper](https://resharper-plugins.jetbrains.com/)
+- [JetBrains TeamCity](https://www.jetbrains.com/teamcity/)
+- [Klondike](https://github.com/themotleyfool/Klondike)
+- [MinimalNugetServer](https://github.com/TanukiSharp/MinimalNugetServer)
+- [MyGet (または NuGet-as-a-service)](http://www.myget.org/)
+- [NuGet パッケージ エクスプローラー](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer)
+- [NuGet サーバー](http://nugetserver.net/)
+- [OctopusDeploy](https://octopus.com/)
+- [Paket](https://fsprojects.github.io/Paket/)
+- [ProGet (Inedo)](http://inedo.com/proget)
+- [scriptcs](http://scriptcs.net/)
+- [SharpDevelop](http://community.sharpdevelop.net/blogs/mattward/archive/2011/01/23/NuGetSupportInSharpDevelop.aspx)
+- [Sonatype Nexus](http://www.sonatype.com/nexus-repository-sonatype)
+- [SymbolSource](http://www.symbolsource.org/Public)
+- [Xamarin と MonoDevelop](https://github.com/mrward/monodevelop-nuget-addin)
 
 ## <a name="other-nuget-based-utilities"></a>その他の NuGet ベース ユーティリティ
 
 以下は、NuGet 上に構築されたツールとユーティリティです。
 
-* [Glimpse の拡張機能](http://getglimpse.com/Packages) (プラグインはパッケージ)
-* [NuGetMustHaves.com](http://nugetmusthaves.com/)
-* [Orchard](http://www.orchardproject.net/) (CMS モジュールは、Orchard Gallery でホストされる v1 NuGet フィードから取得されます)
-* [NuGet サーバーの Java 実装](http://jonnyzzz.com/blog/2012/03/07/nuget-server-in-pure-java/)
-* [NuGetLatest](https://twitter.com/NuGetLatest) (新しいパッケージの公開をツイートする Twitter bot)
-* [DefinitelyTyped](http://definitelytyped.org/) (NuGet に公開される[自動](https://github.com/DefinitelyTyped/NugetAutomation/) TypeScript Type [定義](http://www.nuget.org/packages?q=DefinitelyTyped))
+- [Glimpse の拡張機能](http://getglimpse.com/Packages) (プラグインはパッケージ)
+- [NuGetMustHaves.com](http://nugetmusthaves.com/)
+- [Orchard](http://www.orchardproject.net/) (CMS モジュールは、Orchard Gallery でホストされる v1 NuGet フィードから取得されます)
+- [NuGet サーバーの Java 実装](http://jonnyzzz.com/blog/2012/03/07/nuget-server-in-pure-java/)
+- [NuGetLatest](https://twitter.com/NuGetLatest) (新しいパッケージの公開をツイートする Twitter bot)
+- [DefinitelyTyped](http://definitelytyped.org/) (NuGet に公開される[自動](https://github.com/DefinitelyTyped/NugetAutomation/) TypeScript Type [定義](http://www.nuget.org/packages?q=DefinitelyTyped))
 
 ## <a name="training-materials-and-references"></a>トレーニング資料と参照
 
@@ -83,8 +81,8 @@ Microsoft は、NuGet の開発に広範囲に貢献しました。 Microsoft �
 - [NuGet ブログ](http://blog.nuget.org/)
 - [Twitter の NuGet チーム@nuget](http://twitter.com/nuget)
 - ブック:
-    * [Apress Pro NuGet](http://bit.ly/ProNuGet)
-    * [NuGet 2 Essentials](http://www.amazon.com/NuGet-2-Essentials-Damir-Arh-ebook/dp/B00GTQD5M4)
+  - [Apress Pro NuGet](http://bit.ly/ProNuGet)
+  - [NuGet 2 Essentials](http://www.amazon.com/NuGet-2-Essentials-Damir-Arh-ebook/dp/B00GTQD5M4)
 
 ## <a name="documentation-for-individual-packages"></a>個々のパッケージのドキュメント
 

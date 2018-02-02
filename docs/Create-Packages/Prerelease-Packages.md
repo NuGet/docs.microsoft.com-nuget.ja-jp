@@ -3,21 +3,20 @@ title: "NuGet パッケージのプレリリース版 | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 8/14/2017
+ms.date: 08/14/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: df6a366a-22c1-47bb-8017-18231311ce88
 description: "プレリリース パッケージのビルド ガイド"
 keywords: "バージョン管理, NuGet パッケージ バージョン管理, NuGet プレリリース バージョン, NuGet プレリリース パッケージ, パッケージ バージョンのプレビュー, RC パッケージ バージョン, ベータ パッケージ バージョン, NuGet セマンティック バージョン管理"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 07cb9b9bdeeea6f283e95a11a06d7f2043c9b17c
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: f07b4a0428685b036640a7153190fd8454885608
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="building-pre-release-packages"></a>プレリリース パッケージのビルド
 
@@ -47,7 +46,6 @@ ms.lasthandoff: 12/14/2017
 
 安定版バージョンをリリースする用意ができたら、サフィックスを削除します。このパッケージはあらゆるプレリリース版に優先します。 繰り返しになりますが、「[Package versioning](../reference/package-versioning.md#pre-release-versions)」(パッケージのバージョン管理) を参照してください。
 
-
 ## <a name="installing-and-updating-pre-release-packages"></a>プレリリース パッケージのインストールと更新
 
 既定で、NuGet ではパッケージの使用時にプレリリース版を含めませんが、この動作は次のように変更できます。
@@ -58,10 +56,9 @@ ms.lasthandoff: 12/14/2017
 
     このボックスをオンまたはオフにするとパッケージ マネージャー UI とインストールできるバージョンの一覧が更新されます。
 
-- **パッケージ マネージャー コンソール**: `Find-Package`、`Get-Package`、`Install-Package`、`Sync-Package`、`Update-Package` コマンドで `-IncludePrerelease` スイッチを使用します。 「[PowerShell リファレンス](../tools/powershell-reference.md)」を参照してください。
+- **パッケージ マネージャー コンソール**: `Find-Package`、`Get-Package`、`Install-Package`、`Sync-Package`、`Update-Package` コマンドで `-IncludePrerelease` スイッチを使用します。 「[PowerShell Reference](../tools/powershell-reference.md)」 (PowerShell リファレンス) を参照してください。
 
 - **NuGet CLI**: `install`、`update`、`delete`、`mirror` コマンドで `-prerelease` スイッチを使用します。 「[NuGet CLI reference](../tools/nuget-exe-cli-reference.md)」(NuGet CLI リファレンス) を参照してください。
-
 
 ## <a name="semantic-versioning"></a>セマンティック バージョン管理
 
@@ -86,16 +83,14 @@ ms.lasthandoff: 12/14/2017
 
 ただし、どのようなサフィックスを使用する場合でも、NuGet はアルファベットの逆順で優先順序を与えます。
 
-```
-1.0.1
-1.0.1-zzz
-1.0.1-rc
-1.0.1-open
-1.0.1-beta12
-1.0.1-beta05
-1.0.1-beta
-1.0.1-alpha2
-1.0.1-alpha
-```
+    1.0.1
+    1.0.1-zzz
+    1.0.1-rc
+    1.0.1-open
+    1.0.1-beta12
+    1.0.1-beta05
+    1.0.1-beta
+    1.0.1-alpha2
+    1.0.1-alpha
 
 このように、サフィックスのないバージョンは常にプレリリース版に優先します。 数値のサフィックスとプレリリース タグを使用するとき、番号が 2 桁 (以上) になる場合、beta01 や beta05 のように、先行ゼロを使用してください。それにより、番号が大きくなっても正しく並べ替えられます。

@@ -1,6 +1,6 @@
 ---
 layout: HubPage
-hide_bc: True
+hide_bc: 
 title: "NuGet のドキュメント | Microsoft Docs"
 description: "NuGet は、.NET などの Microsoft 開発プラットフォーム用のパッケージ マネージャーです。 NuGet クライアント ツールでは、パッケージを作成して使用する機能が提供されます。"
 keywords:
@@ -20,12 +20,13 @@ ms.date: 08/15/2017
 ms.topic: hub-page
 ms.prod: nuget
 ms.technology: 
-ms.reviewer: karann-msft
-ms.openlocfilehash: f17245f6dd4e47c0993de6861e4a7a2cc77284bb
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.reviewer:
+- karann-msft
+ms.openlocfilehash: 58cd4b41c555b38334b10b3bb5aa2e22a430a5d4
+ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 <div id="main" class="v2">
 <div class="container">
@@ -181,7 +182,7 @@ ms.lasthandoff: 01/25/2018
                             </a>
                         </li>
                         <li>
-                            <a href="schema/nuspec.md">
+                            <a href="reference/nuspec.md">
                             <div class="cardSize">
                                 <div class="cardPadding">
                                     <div class="card">
