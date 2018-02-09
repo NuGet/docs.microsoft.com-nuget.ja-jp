@@ -3,48 +3,45 @@ title: "Visual Studio プロジェクト システムの NuGet サポート | Mi
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 1/9/2017
+ms.date: 01/09/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 9d7fa7f6-82ed-4df6-9734-f43a3d8e3b98
 description: "サードパーティ プロジェクト タイプのために NuGet を Visual Studio プロジェクト システムに統合する"
 keywords: "Visual Studio の NuGet, カスタム プロジェクト タイプ, Visual Studio プロジェクト"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9c8cad46f18578bec41bd9280985e42972a9b3c1
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: e2f7c4a32f80b96360f08d04efb8af639af2ddd3
+ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/02/2018
 ---
-# <a name="nuget-support-for-the-visual-studio-project-system"></a><span data-ttu-id="858cf-104">Visual Studio プロジェクト システムの NuGet サポート</span><span class="sxs-lookup"><span data-stu-id="858cf-104">NuGet support for the Visual Studio project system</span></span>
+# <a name="nuget-support-for-the-visual-studio-project-system"></a><span data-ttu-id="d7793-104">Visual Studio プロジェクト システムの NuGet サポート</span><span class="sxs-lookup"><span data-stu-id="d7793-104">NuGet support for the Visual Studio project system</span></span>
 
-<span data-ttu-id="858cf-105">Visual Studio でサードパーティ プロジェクト タイプをサポートするために、NuGet 3.x+ は[共通プロジェクト システム (CPS)](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/intro.md) を、NuGet 3.2+ は非 CPS プロジェクト システムをサポートしています。</span><span class="sxs-lookup"><span data-stu-id="858cf-105">To support third-party project types in Visual Studio, NuGet 3.x+ supports the [Common Project System (CPS)](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/intro.md), and NuGet 3.2+ supports non-CPS project systems as well.</span></span>
+<span data-ttu-id="d7793-105">Visual Studio でサードパーティ プロジェクト タイプをサポートするために、NuGet 3.x+ は[共通プロジェクト システム (CPS)](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/intro.md) を、NuGet 3.2+ は非 CPS プロジェクト システムをサポートしています。</span><span class="sxs-lookup"><span data-stu-id="d7793-105">To support third-party project types in Visual Studio, NuGet 3.x+ supports the [Common Project System (CPS)](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/intro.md), and NuGet 3.2+ supports non-CPS project systems as well.</span></span>
 
-<span data-ttu-id="858cf-106">NuGet と統合するためには、プロジェクト システムはこのトピックで説明するすべてのプロジェクト機能に関して独自のサポートを公開する必要があります。</span><span class="sxs-lookup"><span data-stu-id="858cf-106">To integrate with NuGet, a project system must advertise its own support for all the project capabilities described in this topic.</span></span>
+<span data-ttu-id="d7793-106">NuGet と統合するためには、プロジェクト システムはこのトピックで説明するすべてのプロジェクト機能に関して独自のサポートを公開する必要があります。</span><span class="sxs-lookup"><span data-stu-id="d7793-106">To integrate with NuGet, a project system must advertise its own support for all the project capabilities described in this topic.</span></span>
 
+> [!Note]
+> <span data-ttu-id="d7793-107">パッケージを自分のプロジェクトにインストールする目的で、そのプロジェクトに実際にはない機能を宣言しないでください。</span><span class="sxs-lookup"><span data-stu-id="d7793-107">Don't declare capabilities that your project does not actually have for the sake of enabling packages to install in your project.</span></span> <span data-ttu-id="d7793-108">Visual Studio のさまざまな機能とその他の拡張機能は、NuGet クライアント以外のプロジェクト機能に依存します。</span><span class="sxs-lookup"><span data-stu-id="d7793-108">Many features of Visual Studio and other extensions depend on project capabilities besides the NuGet client.</span></span> <span data-ttu-id="d7793-109">自分のプロジェクトの機能を誤って公開すると、これらのコンポーネントに誤作動を引き起こし、ユーザー エクスペリエンスの質が落ちる可能性があります。</span><span class="sxs-lookup"><span data-stu-id="d7793-109">Falsely advertising capabilities of your project can lead these components to malfunction and your users' experience to degrade.</span></span>
 
-> [!NOTE]
-> <span data-ttu-id="858cf-107">パッケージを自分のプロジェクトにインストールする目的で、そのプロジェクトには実際にない機能を宣言しないでください。</span><span class="sxs-lookup"><span data-stu-id="858cf-107">Do not declare capabilities that your project does not actually have for the sake of enabling packages to install in your project.</span></span> <span data-ttu-id="858cf-108">Visual Studio のさまざまな機能とその他の拡張機能は、NuGet クライアント以外のプロジェクト機能に依存します。</span><span class="sxs-lookup"><span data-stu-id="858cf-108">Many features of Visual Studio and other extensions depend on project capabilities besides the NuGet client.</span></span> <span data-ttu-id="858cf-109">自分のプロジェクトの機能を誤って公開すると、これらのコンポーネントに誤作動を引き起こし、ユーザー エクスペリエンスの質が落ちる可能性があります。</span><span class="sxs-lookup"><span data-stu-id="858cf-109">Falsely advertising capabilities of your project can lead these components to malfunction and your users' experience to degrade.</span></span>
+## <a name="advertise-project-capabilities"></a><span data-ttu-id="d7793-110">プロジェクトの機能を公開する</span><span class="sxs-lookup"><span data-stu-id="d7793-110">Advertise project capabilities</span></span>
 
-## <a name="advertise-project-capabilities"></a><span data-ttu-id="858cf-110">プロジェクトの機能を公開する</span><span class="sxs-lookup"><span data-stu-id="858cf-110">Advertise project capabilities</span></span>
+<span data-ttu-id="d7793-111">NuGet クライアントは、[プロジェクトの機能](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/about_project_capabilities.md)に基づいて、プロジェクト タイプと互換性のあるパッケージを判断します。これを次の表にまとめています。</span><span class="sxs-lookup"><span data-stu-id="d7793-111">The NuGet client determines which packages are compatible with your project type based on the [project's capabilities](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/about_project_capabilities.md), as described in the following table.</span></span>
 
-<span data-ttu-id="858cf-111">NuGet クライアントは、[プロジェクトの機能](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/about_project_capabilities.md)に基づいて、プロジェクト タイプと互換性のあるパッケージを判断します。これを次の表にまとめています。</span><span class="sxs-lookup"><span data-stu-id="858cf-111">The NuGet client determines which packages are compatible with your project type based on the [project's capabilities](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/about_project_capabilities.md), as described in the following table.</span></span>
+| <span data-ttu-id="d7793-112">機能</span><span class="sxs-lookup"><span data-stu-id="d7793-112">Capability</span></span> | <span data-ttu-id="d7793-113">説明</span><span class="sxs-lookup"><span data-stu-id="d7793-113">Description</span></span> |
+| --- | --- |
+| <span data-ttu-id="d7793-114">AssemblyReferences</span><span class="sxs-lookup"><span data-stu-id="d7793-114">AssemblyReferences</span></span> | <span data-ttu-id="d7793-115">(WinRTReferences とは対照的に) プロジェクトがアセンブリ参照をサポートしていることを示します。</span><span class="sxs-lookup"><span data-stu-id="d7793-115">Indicates that the project supports assembly references (distinct from WinRTReferences).</span></span> |
+| <span data-ttu-id="d7793-116">DeclaredSourceItems</span><span class="sxs-lookup"><span data-stu-id="d7793-116">DeclaredSourceItems</span></span> | <span data-ttu-id="d7793-117">プロジェクトが (DNX ではなく) 典型的な MSBuild プロジェクトであることを示します。このプロジェクトでは、プロジェクト自体でソース アイテムが宣言されます。</span><span class="sxs-lookup"><span data-stu-id="d7793-117">Indicates that the project is a typical MSBuild project (not DNX) in that it declares source items in the project itself.</span></span> |
+| <span data-ttu-id="d7793-118">UserSourceItems</span><span class="sxs-lookup"><span data-stu-id="d7793-118">UserSourceItems</span></span>|<span data-ttu-id="d7793-119">任意のファイルをプロジェクトに追加することがユーザーに許可されることを示します。</span><span class="sxs-lookup"><span data-stu-id="d7793-119">Indicates that the user is allowed to add arbitrary files to their project.</span></span> |
 
+<span data-ttu-id="d7793-120">CPS ベースのプロジェクト システムの場合、このセクションの残りで説明するプロジェクト機能の実装詳細は既に行われています。</span><span class="sxs-lookup"><span data-stu-id="d7793-120">For CPS-based project systems, the implementation details for project capabilities described in the rest of this section have been done for you.</span></span> <span data-ttu-id="d7793-121">「[declaring project capabilities in CPS projects](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/about_project_capabilities.md#how-to-declare-project-capabilities-in-your-project)」 (CPS プロジェクトのプロジェクト機能の宣言) を参照してください。</span><span class="sxs-lookup"><span data-stu-id="d7793-121">See [declaring project capabilities in CPS projects](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/about_project_capabilities.md#how-to-declare-project-capabilities-in-your-project).</span></span>
 
-|<span data-ttu-id="858cf-112">機能</span><span class="sxs-lookup"><span data-stu-id="858cf-112">Capability</span></span>|<span data-ttu-id="858cf-113">説明</span><span class="sxs-lookup"><span data-stu-id="858cf-113">Description</span></span>|
-|----------------|-----------|
-|<span data-ttu-id="858cf-114">AssemblyReferences</span><span class="sxs-lookup"><span data-stu-id="858cf-114">AssemblyReferences</span></span>|<span data-ttu-id="858cf-115">(WinRTReferences とは対照的に) プロジェクトがアセンブリ参照をサポートしていることを示します。</span><span class="sxs-lookup"><span data-stu-id="858cf-115">Indicates that the project supports assembly references (distinct from WinRTReferences)</span></span>|
-|<span data-ttu-id="858cf-116">DeclaredSourceItems</span><span class="sxs-lookup"><span data-stu-id="858cf-116">DeclaredSourceItems</span></span>|<span data-ttu-id="858cf-117">プロジェクトが (DNX ではなく) 典型的な MSBuild プロジェクトであることを示します。このプロジェクトでは、(コンパイルに含まれるすべてのファイルを使用する `project.json` ファイルではなく) プロジェクト自体でソース アイテムが宣言されます。</span><span class="sxs-lookup"><span data-stu-id="858cf-117">Indicates that the project is a typical MSBuild project (not DNX) in that it declares source items in the project itself (rather than a `project.json` file that assumes all files in the folder are part of a compilation).</span></span>|
-|<span data-ttu-id="858cf-118">UserSourceItems</span><span class="sxs-lookup"><span data-stu-id="858cf-118">UserSourceItems</span></span>|<span data-ttu-id="858cf-119">任意のファイルをプロジェクトに追加することがユーザーに許可されることを示します。</span><span class="sxs-lookup"><span data-stu-id="858cf-119">Indicates that the user is allowed to add arbitrary files to their project.</span></span>|
+## <a name="implementing-vsprojectcapabilitiespresencechecker"></a><span data-ttu-id="d7793-122">VsProjectCapabilitiesPresenceChecker を実装する</span><span class="sxs-lookup"><span data-stu-id="d7793-122">Implementing VsProjectCapabilitiesPresenceChecker</span></span>
 
-<span data-ttu-id="858cf-120">CPS ベースのプロジェクト システムの場合、このセクションの残りで説明するプロジェクト機能の実装詳細は既に行われています。</span><span class="sxs-lookup"><span data-stu-id="858cf-120">For CPS-based project systems, the implementation details for project capabilities described in the rest of this section have been done for you.</span></span> <span data-ttu-id="858cf-121">「[declaring project capabilities in CPS projects](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/about_project_capabilities.md#how-to-declare-project-capabilities-in-your-project)」 (CPS プロジェクトのプロジェクト機能の宣言) を参照してください。</span><span class="sxs-lookup"><span data-stu-id="858cf-121">See [declaring project capabilities in CPS projects](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/about_project_capabilities.md#how-to-declare-project-capabilities-in-your-project).</span></span>
-
-## <a name="implementing-vsprojectcapabilitiespresencechecker"></a><span data-ttu-id="858cf-122">VsProjectCapabilitiesPresenceChecker を実装する</span><span class="sxs-lookup"><span data-stu-id="858cf-122">Implementing VsProjectCapabilitiesPresenceChecker</span></span>
-
-<span data-ttu-id="858cf-123">`VsProjectCapabilitiesPresenceChecker` クラスは、次のように定義される `IVsBooleanSymbolPresenceChecker` インターフェイスを実装する必要があります。</span><span class="sxs-lookup"><span data-stu-id="858cf-123">The `VsProjectCapabilitiesPresenceChecker` class must implement the `IVsBooleanSymbolPresenceChecker` interface, which is defined as follows:</span></span>
+<span data-ttu-id="d7793-123">`VsProjectCapabilitiesPresenceChecker` クラスは、次のように定義される `IVsBooleanSymbolPresenceChecker` インターフェイスを実装する必要があります。</span><span class="sxs-lookup"><span data-stu-id="d7793-123">The `VsProjectCapabilitiesPresenceChecker` class must implement the `IVsBooleanSymbolPresenceChecker` interface, which is defined as follows:</span></span>
 
 ```cs
 public interface IVsBooleanSymbolPresenceChecker
@@ -76,9 +73,8 @@ public interface IVsBooleanSymbolPresenceChecker
 }
 ```
 
+<span data-ttu-id="d7793-124">このインターフェイスのサンプル実装は次のようになります。</span><span class="sxs-lookup"><span data-stu-id="d7793-124">A sample implementation of this interface would then be:</span></span>
 
-<span data-ttu-id="858cf-124">このインターフェイスのサンプル実装は次のようになります。</span><span class="sxs-lookup"><span data-stu-id="858cf-124">A sample implementation of this interface would then be:</span></span>
-    
 ```cs
 class VsProjectCapabilitiesPresenceChecker : IVsBooleanSymbolPresenceChecker
 {
@@ -107,13 +103,13 @@ class VsProjectCapabilitiesPresenceChecker : IVsBooleanSymbolPresenceChecker
 }
 ```
 
-<span data-ttu-id="858cf-125">必ず、自分のプロジェクト システムで実際にサポートされるものに基づいて設定された `ActualProjectCapabilities` から機能を追加/削除してください。</span><span class="sxs-lookup"><span data-stu-id="858cf-125">Remember to add/remove capabilities from the `ActualProjectCapabilities` set based on what your project system actually supports.</span></span> <span data-ttu-id="858cf-126">詳細については、[プロジェクト機能ドキュメント](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/project_capabilities.md)を参照してください。</span><span class="sxs-lookup"><span data-stu-id="858cf-126">See the [project capabilities documentation](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/project_capabilities.md) for full descriptions.</span></span>
+<span data-ttu-id="d7793-125">必ず、自分のプロジェクト システムで実際にサポートされるものに基づいて設定された `ActualProjectCapabilities` から機能を追加/削除してください。</span><span class="sxs-lookup"><span data-stu-id="d7793-125">Remember to add/remove capabilities from the `ActualProjectCapabilities` set based on what your project system actually supports.</span></span> <span data-ttu-id="d7793-126">詳細については、[プロジェクト機能ドキュメント](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/project_capabilities.md)を参照してください。</span><span class="sxs-lookup"><span data-stu-id="d7793-126">See the [project capabilities documentation](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/project_capabilities.md) for full descriptions.</span></span>
 
-## <a name="responding-to-queries"></a><span data-ttu-id="858cf-127">クエリに応答する</span><span class="sxs-lookup"><span data-stu-id="858cf-127">Responding to queries</span></span>
+## <a name="responding-to-queries"></a><span data-ttu-id="d7793-127">クエリに応答する</span><span class="sxs-lookup"><span data-stu-id="d7793-127">Responding to queries</span></span>
 
-<span data-ttu-id="858cf-128">プロジェクトは、`IVsHierarchy::GetProperty` を介して `VSHPROPID_ProjectCapabilitiesChecker` プロパティをサポートすることでこの機能を宣言します。</span><span class="sxs-lookup"><span data-stu-id="858cf-128">A project declares this capability by supporting the  `VSHPROPID_ProjectCapabilitiesChecker` property through the `IVsHierarchy::GetProperty`.</span></span> <span data-ttu-id="858cf-129">これは `Microsoft.VisualStudio.Shell.Interop.14.0.DesignTime.dll` アセンブリで定義される `Microsoft.VisualStudio.Shell.Interop.IVsBooleanSymbolPresenceChecker` のインスタンスを返すはずです。</span><span class="sxs-lookup"><span data-stu-id="858cf-129">It should return an instance of `Microsoft.VisualStudio.Shell.Interop.IVsBooleanSymbolPresenceChecker`, which is defined in the `Microsoft.VisualStudio.Shell.Interop.14.0.DesignTime.dll` assembly.</span></span> <span data-ttu-id="858cf-130">[その NuGet パッケージ](https://www.nuget.org/packages/Microsoft.VisualStudio.Shell.Interop.14.0.DesignTime)をインストールすることでこのアセンブリを参照します。</span><span class="sxs-lookup"><span data-stu-id="858cf-130">Reference this assembly by installing the [its NuGet package](https://www.nuget.org/packages/Microsoft.VisualStudio.Shell.Interop.14.0.DesignTime).</span></span>
+<span data-ttu-id="d7793-128">プロジェクトは、`IVsHierarchy::GetProperty` を介して `VSHPROPID_ProjectCapabilitiesChecker` プロパティをサポートすることでこの機能を宣言します。</span><span class="sxs-lookup"><span data-stu-id="d7793-128">A project declares this capability by supporting the  `VSHPROPID_ProjectCapabilitiesChecker` property through the `IVsHierarchy::GetProperty`.</span></span> <span data-ttu-id="d7793-129">これは `Microsoft.VisualStudio.Shell.Interop.14.0.DesignTime.dll` アセンブリで定義される `Microsoft.VisualStudio.Shell.Interop.IVsBooleanSymbolPresenceChecker` のインスタンスを返すはずです。</span><span class="sxs-lookup"><span data-stu-id="d7793-129">It should return an instance of `Microsoft.VisualStudio.Shell.Interop.IVsBooleanSymbolPresenceChecker`, which is defined in the `Microsoft.VisualStudio.Shell.Interop.14.0.DesignTime.dll` assembly.</span></span> <span data-ttu-id="d7793-130">[その NuGet パッケージ](https://www.nuget.org/packages/Microsoft.VisualStudio.Shell.Interop.14.0.DesignTime)をインストールすることでこのアセンブリを参照します。</span><span class="sxs-lookup"><span data-stu-id="d7793-130">Reference this assembly by installing the [its NuGet package](https://www.nuget.org/packages/Microsoft.VisualStudio.Shell.Interop.14.0.DesignTime).</span></span>
 
-<span data-ttu-id="858cf-131">たとえば、次の `case` ステートメントを `IVsHierarchy::GetProperty` メソッドの `switch` ステートメントに追加します。</span><span class="sxs-lookup"><span data-stu-id="858cf-131">For example, you might add the following `case` statement to your `IVsHierarchy::GetProperty` method's `switch` statement:</span></span>
+<span data-ttu-id="d7793-131">たとえば、次の `case` ステートメントを `IVsHierarchy::GetProperty` メソッドの `switch` ステートメントに追加します。</span><span class="sxs-lookup"><span data-stu-id="d7793-131">For example, you might add the following `case` statement to your `IVsHierarchy::GetProperty` method's `switch` statement:</span></span>
 
 ```cs
 case __VSHPROPID8.VSHPROPID_ProjectCapabilitiesChecker:
@@ -121,8 +117,8 @@ case __VSHPROPID8.VSHPROPID_ProjectCapabilitiesChecker:
     return VSConstants.S_OK;
 ```
 
-## <a name="dte-support"></a><span data-ttu-id="858cf-132">DTE サポート</span><span class="sxs-lookup"><span data-stu-id="858cf-132">DTE Support</span></span>
+## <a name="dte-support"></a><span data-ttu-id="d7793-132">DTE サポート</span><span class="sxs-lookup"><span data-stu-id="d7793-132">DTE Support</span></span>
 
-<span data-ttu-id="858cf-133">NuGet は、最上位 Visual Studio 自動化インターフェイスである [DTE](/dotnet/api/envdte.dte?view=visualstudiosdk-2017) を呼び出すことで、プロジェクト システムに参照、コンテンツ アイテム、MSBuild インポートを追加させます。</span><span class="sxs-lookup"><span data-stu-id="858cf-133">NuGet drives the project system to add references, content items, and MSBuild imports by calling into [DTE](/dotnet/api/envdte.dte?view=visualstudiosdk-2017), which is the top-level Visual Studio automation interface.</span></span> <span data-ttu-id="858cf-134">DTE は一連の COM インターフェイスであり、既に実装している場合があります。</span><span class="sxs-lookup"><span data-stu-id="858cf-134">DTE is a set of COM interfaces that you may already implement.</span></span>
+<span data-ttu-id="d7793-133">NuGet は、最上位 Visual Studio 自動化インターフェイスである [DTE](/dotnet/api/envdte.dte?view=visualstudiosdk-2017) を呼び出すことで、プロジェクト システムに参照、コンテンツ アイテム、MSBuild インポートを追加させます。</span><span class="sxs-lookup"><span data-stu-id="d7793-133">NuGet drives the project system to add references, content items, and MSBuild imports by calling into [DTE](/dotnet/api/envdte.dte?view=visualstudiosdk-2017), which is the top-level Visual Studio automation interface.</span></span> <span data-ttu-id="d7793-134">DTE は一連の COM インターフェイスであり、既に実装している場合があります。</span><span class="sxs-lookup"><span data-stu-id="d7793-134">DTE is a set of COM interfaces that you may already implement.</span></span>
 
-<span data-ttu-id="858cf-135">プロジェクト タイプが CPS に基づく場合、DTE は自動的に実装されます。</span><span class="sxs-lookup"><span data-stu-id="858cf-135">If your project type is based on CPS, DTE is implemented for you.</span></span>
+<span data-ttu-id="d7793-135">プロジェクト タイプが CPS に基づく場合、DTE は自動的に実装されます。</span><span class="sxs-lookup"><span data-stu-id="d7793-135">If your project type is based on CPS, DTE is implemented for you.</span></span>
