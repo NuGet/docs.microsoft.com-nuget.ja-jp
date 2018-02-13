@@ -12,11 +12,11 @@ keywords: "NuGet.Config ファイル、NuGet 構成参照、NuGet 構成オプ�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9a183b67ae18f4fa5c042f1806f8abcc9b799b77
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: df602cb561a19f0eac085695de80db1fbaa1a313
+ms.sourcegitcommit: 33436d122873249dbb20616556cd8c6783f38909
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/12/2018
 ---
 # <a name="nugetconfig-reference"></a>NuGet.Config 参照
 
@@ -48,7 +48,7 @@ NuGet の動作は、「[Configuring NuGet Behavior](../consume-packages/configu
 
 [`nuget config` コマンド](../tools/cli-ref-config.md)を使用して設定できる、さまざまな構成設定が含まれます。
 
-注: `dependencyVersion` と `repositoryPath` については、`packages.config` を使用するプロジェクトのみに適用されます。 `globalPackagesFolder`PackageReference 形式を使用してプロジェクトにのみ適用されます。
+注: `dependencyVersion` と `repositoryPath` については、`packages.config` を使用するプロジェクトのみに適用されます。 `globalPackagesFolder` PackageReference 形式を使用してプロジェクトにのみ適用されます。
 
 | キー | [値] |
 | --- | --- |
@@ -131,7 +131,7 @@ NuGet の動作は、「[Configuring NuGet Behavior](../consume-packages/configu
 
 ### <a name="packagesources"></a>packageSources
 
-すべての既知のパッケージ ソースの一覧を表示します。
+すべての既知のパッケージ ソースの一覧を表示します。 復元操作中に、PackageReference 形式を使用して、プロジェクトを使用して、順序は無視されます。 NuGet は、インストールのソースの順序を尊重いたします操作や更新操作を使用して、プロジェクトで`packages.config`です。
 
 | キー | [値] |
 | --- | --- |
