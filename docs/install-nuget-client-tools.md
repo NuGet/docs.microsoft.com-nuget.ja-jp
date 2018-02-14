@@ -12,11 +12,11 @@ keywords: "dotnet.exe CLI、nuget.exe CLI、NuGet クライアント ツール�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 07ca66b44a981f7fcc108e1b4d97c0cf5e206a6f
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: ec8de83c9e05981016215e487888ab68a616d977
+ms.sourcegitcommit: dbcb872ec10430e1d761f34b851650e31c87a96d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="installing-nuget-client-tools"></a>NuGet クライアント ツールのインストール
 
@@ -59,7 +59,7 @@ NuGet CLI (`nuget.exe`) は、すべての NuGet 機能を提供する Windows �
 > 既存の nuget.exe を最新バージョンに更新するには、`nuget update -self` を使用します。
 
 > [!Note]
-> 最新の推奨される NuGet CLI はいつでも、`https://dist.nuget.org/win-x86-commandline/latest/nuget.exe` で入手できます。 古い継続的インテグレーション システムとの互換性を維持するために、以前の URL (`https://nuget.org/nuget.exe`) では常に 2.8.6 CLI ツールが提供されています。
+> 最新の推奨される NuGet CLI はいつでも、`https://dist.nuget.org/win-x86-commandline/latest/nuget.exe` で入手できます。 古い継続的インテグレーション システムとの互換性を維持するために、以前の URL (`https://nuget.org/nuget.exe`) では現在 2.8.6 CLI ツールが提供されています。 [これは非推奨です](https://github.com/NuGet/NuGetGallery/issues/5381)。
 
 ## <a name="visual-studio"></a>Visual Studio
 

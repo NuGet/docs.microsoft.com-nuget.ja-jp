@@ -16,17 +16,17 @@ keywords:
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 08/15/2017
+ms.date: 02/12/2018
 ms.topic: hub-page
 ms.prod: nuget
 ms.technology: 
 ms.reviewer:
 - karann-msft
-ms.openlocfilehash: 58cd4b41c555b38334b10b3bb5aa2e22a430a5d4
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 901327a37f378e16210d4e0272fa3d5638af9bff
+ms.sourcegitcommit: 33436d122873249dbb20616556cd8c6783f38909
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/12/2018
 ---
 <div id="main" class="v2">
 <div class="container">
@@ -58,7 +58,7 @@ ms.lasthandoff: 02/01/2018
                             </a>
                         </li>
                         <li>
-                            <a href="quickstart/use-a-package.md">
+                            <a href="quickstart/install-and-use-a-package-using-the-dotnet-cli.md">
                             <div class="cardSize">
                                 <div class="cardPadding">
                                     <div class="card">
@@ -68,8 +68,8 @@ ms.lasthandoff: 02/01/2018
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                            <h3>クイックスタート</h3>
-                                            <p>簡単なパッケージの作成とパッケージの使用に注目したチュートリアルを使って、NuGet を体験してみましょう。</p>
+                                            <h3>クイックスタート: パッケージの使用</h3>
+                                            <p>プロジェクト内で NuGet パッケージをインストールし、使用する方法を説明します (.NET CLI と Visual Studio の両方でチュートリアルが用意されています)。</p>
                                         </div>
                                     </div>
                                 </div>
@@ -77,18 +77,18 @@ ms.lasthandoff: 02/01/2018
                             </a>
                         </li>
                         <li>
-                            <a href="install-nuget-client-tools.md">
+                            <a href="quickstart/create-and-publish-a-package-using-the-dotnet-cli.md">
                             <div class="cardSize">
                                 <div class="cardPadding">
                                     <div class="card">
                                         <div class="cardImageOuter">
                                             <div class="cardImage  bgdAccent1">
-                                                <img src="media/hub/nuget-get-started-guides.svg" alt="Guides: experience NuGet's tools and capabilities with installation and package creation walkthroughs." />
+                                                <img src="media/hub/nuget-get-started-guides.svg" alt="Guides: experience NuGet's tools and capabilities for creating a package." />
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                            <h3>ガイド</h3>
-                                            <p>インストールとパッケージの作成に関するチュートリアルを使って、NuGet のツールと機能を体験してみましょう。</p>
+                                            <h3>クイックスタート: パッケージの作成</h3>
+                                            <p>パッケージ作成用の NuGet ツールと機能を体験します (.NET CLI と Visual Studio の両方でチュートリアルが用意されています)。</p>
                                         </div>
                                     </div>
                                 </div>
