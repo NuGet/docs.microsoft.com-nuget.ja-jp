@@ -3,7 +3,7 @@ title: "NuGet パッケージをインストールする方法 | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 01/30/2018
+ms.date: 02/12/2018
 ms.topic: get-started-article
 ms.prod: nuget
 ms.technology: 
@@ -12,11 +12,11 @@ keywords: "NuGet をインストールする、NuGet パッケージの使用、
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9e48bbe813168e773bc46b7fe25af29785ff75df
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 3bae03e148a366388c10d08e83c89dac6ff56d06
+ms.sourcegitcommit: 33436d122873249dbb20616556cd8c6783f38909
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/12/2018
 ---
 # <a name="different-ways-to-install-a-nuget-package"></a>NuGet パッケージをインストールするためのさまざまな方法
 
@@ -35,7 +35,10 @@ NuGet パッケージをダウンロードしてインストールするには�
 
 1. パッケージを取得します。
     - 要求されたパッケージが既にキャッシュ内にあるかどうかを確認します (「[NuGet のキャッシュを管理する](managing-the-nuget-cache.md)」を参照してください)。
-    - パッケージがキャッシュ内にない場合、構成ファイルの一覧にあるソース (一覧の最初のソースから順に) からパッケージのダウンロードを試みます。 この動作により、nuget.org でパッケージを探す前に、プライベートのパッケージ フィードを使用できます (「[NuGet の動作を構成する](configuring-nuget-behavior.md)」を参照してください)。
+    - パッケージがキャッシュ内にない場合、[構成ファイル](Configuring-NuGet-Behavior.md)の一覧にあるソースからパッケージのダウンロードを試みます。
+      - `packages.config` 参照形式を使用したプロジェクトについて、NuGet は、構成内のソースの順序を使用します。
+      - PackageReference 形式を使用しているプロジェクトについて、NuGet は、最初に、ローカル フォルダーにあるソースを確認し、次にネットワーク共有上のソースを確認し、HTTP (インターネット) ソースを確認します。
+      - 一般的に、特定の識別子およびバージョン番号を持つ任意のパッケージは、パッケージが見つかったソースにかかわらずまったく同じであるため、NuGet がソースを確認する順序に特定の意味はありません。
     - パッケージがいずれかのソースから正常に取得されたら、NuGet により、キャッシュに追加されます。 それ以外の場合、インストールは失敗します。
 
 1. パッケージをプロジェクトに展開します。
