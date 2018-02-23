@@ -13,11 +13,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: dbeec1d3332571d8e9616dfe9675b5fcf3c85589
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 7e3621f01312e3b4fdbef116e5044869416b851c
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="target-frameworks"></a>ターゲット フレームワーク
 
@@ -129,7 +129,7 @@ NuGet 3.3 以前には `dotnet` シリーズのモニカーを使用し、v3.4 �
 ## <a name="portable-class-libraries"></a>ポータブル クラス ライブラリ
 
 > [!Warning]
-> **PCL はお勧めできません**。 PCL はサポートされていますが、パッケージ作成者は代わりに netstandard をサポートすることをお勧めします。 .NET Platform Standard は PCL が進化したものです。また、*portable-a+b+c* モニカーのような静的なものに関連付けられていない単一のモニカーを使用する、プラットフォームをまたぐバイナリ移植性を表します。
+> **PCL はお勧めできません**。 PCL はサポートされていますが、パッケージ作成者は代わりに netstandard をサポートすることをお勧めします。 .NET Platform Standard Pcl を発展させたものし、のようなスタティック ライブラリに関連付けられていない 1 つのモニカーを使用してプラットフォーム間でバイナリの移植性を表す*ポータブル-、+ + c*モニカーです。
 
 複数の子ターゲット フレームワークを参照するターゲット フレームワークを定義するには、参照されるフレームワークの一覧に接頭辞として `portable` キーワードを使用します。 このようなフレームワークでは意図しない副作用を招く可能性があるため、直接コンパイルされない余計なフレームワークは人為的に含めないようにしてださい。
 

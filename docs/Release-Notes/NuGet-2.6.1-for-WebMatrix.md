@@ -13,23 +13,23 @@ keywords: "WebMatrix のリリース ノート、バグの修正プログラム�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6150fc34dd05c2e7ce132d2d6744b823daeb1a07
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: 633b71011dd1bc897ad95fd706337cef3aeef34c
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="nuget-261-for-webmatrix-release-notes"></a>WebMatrix のリリース ノートについては、NuGet 2.6.1
 
 [NuGet 2.6 リリース ノート](../release-notes/nuget-2.6.md) | [NuGet 2.7 リリース ノート](../release-notes/nuget-2.7.md)
 
-NuGet チームは、2014 年 3 月 26 日に WebMatrix の最新の NuGet Package Manager 拡張機能をリリースします。  この更新プログラムをインストールすることができます、 [WebMatrix 拡張機能ギャラリー](http://extensions.webmatrix.com/packages/NuGetPackageManager/)次の手順を使用します。
+NuGet チームは、2014 年 3 月 26 日に WebMatrix の最新の NuGet Package Manager 拡張機能をリリースします。  この更新プログラムをインストールすることができます、 [WebMatrix 拡張機能ギャラリー](https://blogs.iis.net/webmatrix/retiring-the-webmatrix-extensions-gallery)次の手順を使用します。
 
 1. WebMatrix 3 を開く
-2. [ホーム] リボンの拡張機能のアイコンをクリックします。
-3. 更新プログラム タブを選択します。
-4. 2.6.1 に NuGet Package Manager を更新する をクリックします。
-6. 終了し、WebMatrix 3 の再起動
+1. [ホーム] リボンの拡張機能のアイコンをクリックします。
+1. 更新プログラム タブを選択します。
+1. 2.6.1 に NuGet Package Manager を更新する をクリックします。
+1. 終了し、WebMatrix 3 の再起動
 
 ## <a name="notable-changes"></a>主な変更点
 

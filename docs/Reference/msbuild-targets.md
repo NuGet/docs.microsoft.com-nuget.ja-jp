@@ -11,17 +11,17 @@ description: "NuGet の pack と restore は、NuGet 4.0 以降で MSBuild タ�
 keywords: "NuGet と MSBuild, NuGet の pack ターゲット, NuGet の restore ターゲット"
 ms.reviewer:
 - karann-msft
-ms.openlocfilehash: 6c488f49e12b014e7bd197d57041745387a4d7b4
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 4d448af3d31e0907cba223c0ccec55604e94f055
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>MSBuild ターゲットとしての NuGet の pack と restore
 
 *NuGet 4.0 以降*
 
-PackageReference 形式では、NuGet 4.0 以降が個別を使用するのではなく、プロジェクト ファイル内で直接のすべてのマニフェストのメタデータを格納できます`.nuspec`ファイル。
+NuGet 4.0 以降では、PackageReference 形式を使用することにより、すべてのマニフェスト メタデータを、個別の `.nuspec` ファイルを使用せずにプロジェクト ファイルに直接保存できます。
 
 MSBuild 15.1 以降では、NuGet は以下のように `pack` および `restore` ターゲットを使用する MSBuild の最上級のメンバーです。 これらのターゲットを使用すると、他の MSBuild タスクやターゲットの場合と同様に NuGet を使用できます  (NuGet 3.x 以前の場合は、代わりに NuGet CLI の [pack](../tools/cli-ref-pack.md) および [restore](../tools/cli-ref-restore.md) コマンドを使用します)。
 
@@ -42,7 +42,7 @@ MSBuild 15.1 以降では、NuGet は以下のように `pack` および `restor
 
 ## <a name="pack-target"></a>pack ターゲット
 
-つまり、パック ターゲットを使用するときに`msbuild /t:pack`MSBuild がプロジェクト ファイルからの入力を描画します。 次の表は、最初の内のプロジェクト ファイルに追加できる MSBuild プロパティを示します`<PropertyGroup>`ノード。 Visual Studio 2017 以降では、プロジェクトを右クリックし、コンテキスト メニューで **[{project_name} の編集]** を選択して、この編集を簡単に行うことができます。 便宜上、この表は、[`.nuspec` ファイル](../reference/nuspec.md)の同等のプロパティごとに整理されています。
+pack ターゲット (つまり `msbuild /t:pack`) を使用すると、MSBuild はプロジェクト ファイルからの入力を描画します。 以下の表では、最初の `<PropertyGroup>` ノード内のプロジェクト ファイルに追加できる MSBuild のプロパティについて説明します。 Visual Studio 2017 以降では、プロジェクトを右クリックし、コンテキスト メニューで **[{project_name} の編集]** を選択して、この編集を簡単に行うことができます。 便宜上、この表は、[`.nuspec` ファイル](../reference/nuspec.md)の同等のプロパティごとに整理されています。
 
 `.nuspec` の `Owners` および `Summary` プロパティは、MSBuild ではサポートされていない点に注意してください。
 
@@ -50,8 +50,8 @@ MSBuild 15.1 以降では、NuGet は以下のように `pack` および `restor
 |--------|--------|--------|--------|
 | ID | PackageId | AssemblyName | MSBuild の $(AssemblyName) |
 | Version | PackageVersion | Version | これは semver と互換性があります (たとえば、"1.0.0"、"1.0.0-beta"、または "1.0.0-beta-00345") |
-| VersionPrefix | PackageVersionPrefix | (なし) | PackageVersionPrefix、PackageVersion の設定が上書きされます。 |
-| VersionSuffix | PackageVersionSuffix | (なし) | MSBuild の $(VersionSuffix) PackageVersionSuffix、PackageVersion の設定が上書きされます。 |
+| VersionPrefix | PackageVersionPrefix | (なし) | PackageVersion を設定すると、PackageVersionPrefix は上書きされます |
+| VersionSuffix | PackageVersionSuffix | (なし) | MSBuild の $(VersionSuffix) PackageVersion を設定すると、PackageVersionSuffix は上書きされます |
 | Authors | Authors | 現在のユーザーのユーザー名 | |
 | 所有者 | N/A | NuSpec にはありません | |
 | Title | Title | PackageId| |
@@ -63,8 +63,10 @@ MSBuild 15.1 以降では、NuGet は以下のように `pack` および `restor
 | IconUrl | PackageIconUrl | (なし) | |
 | Tags | PackageTags | (なし) | 複数のタグはセミコロン (;) で区切られます。 |
 | ReleaseNotes | PackageReleaseNotes | (なし) | |
-| RepositoryUrl | RepositoryUrl | (なし) | |
-| RepositoryType | RepositoryType | (なし) | |
+| リポジトリの Url/ | RepositoryUrl | (なし) | リポジトリの URL が複製またはソース コードを取得するために使用します。 例: *https://github.com/NuGet/NuGet.Client.git* |
+| リポジトリの種類/ | RepositoryType | (なし) | リポジトリの種類。 例: *git*、 *tfs*です。 |
+| リポジトリの分岐/ | RepositoryBranch | (なし) | 省略可能なリポジトリのブランチの情報です。 *RepositoryUrl*を含めるには、このプロパティにも指定する必要があります。 例:*マスター* (NuGet 4.7.0+) |
+| リポジトリ/コミット | RepositoryCommit | (なし) | 省略可能なリポジトリのコミットまたはパッケージをどのソースを示すために変更セットは、に対してビルドされました。 *RepositoryUrl*を含めるには、このプロパティにも指定する必要があります。 例: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0+) |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
 | まとめ | サポートなし | | |
 
@@ -90,6 +92,8 @@ MSBuild 15.1 以降では、NuGet は以下のように `pack` および `restor
 - IsTool
 - RepositoryUrl
 - RepositoryType
+- RepositoryBranch
+- RepositoryCommit
 - NoPackageAnalysis
 - MinClientVersion
 - IncludeBuildOutput
@@ -170,7 +174,7 @@ MSBuild 15.1 以降では、NuGet は以下のように `pack` および `restor
 上記の任意の項目に設定できる他の pack 固有のメタデータとして、NuSpec の ```contentFiles``` エントリに ```CopyToOutput``` 値と ```Flatten``` 値を設定する ```<PackageCopyToOutput>``` と ```<PackageFlatten>``` があります。
 
 > [!Note]
-> コンテンツ項目とは別に、`<Pack>`と`<PackagePath>`メタデータを内のファイルのコンパイル、埋め込まれたリソース、ApplicationDefinition、ページ、リソース、スプラッシュ スクリーン、DesignData、DesignDataWithDesignTimeCreateableTypes ビルド アクションを設定することもできます。、、、CodeAnalysisDictionary、AndroidAsset、AndroidResource BundleResource または None です。
+> コンテンツ項目とは別に、`<Pack>` と `<PackagePath>` のメタデータは、ビルド アクション (Compile、EmbeddedResource、ApplicationDefinition、Page、Resource、SplashScreen、DesignData、DesignDataWithDesignTimeCreatableTypes、CodeAnalysisDictionary、AndroidAsset、AndroidResource、BundleResource、または None) でファイルに設定することもできます。
 >
 > glob パターンの使用時にファイル名をパッケージ パスに付加する pack の場合、パッケージ パスの末尾にフォルダー セパレーター文字を付ける必要があります。そうしないと、パッケージ パスはファイル名を含む完全パスとして扱われます。
 

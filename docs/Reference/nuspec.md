@@ -13,11 +13,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 56cb9d5b40bbfbd722e611e0e86945eddbe9d19a
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: c52d0a7c0da507cb9688c8a7b2c4eaf54a8ca5c2
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="nuspec-reference"></a>.nuspec リファレンス
 
@@ -94,7 +94,7 @@ ms.lasthandoff: 02/01/2018
 | **owners** | コンマで区切って指定したパッケージ作成者の一覧。nuget.org でのプロファイル名です。多くの場合は `authors` と同じ一覧であり、nuget.org にパッケージをアップロードするときは無視されます。「[nuget.org でパッケージ所有者を管理する](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg)」をご覧ください。 |
 | **projectUrl** | パッケージのホーム ページの URL。多くの場合、UI 画面と nuget.org に表示されます。 |
 | **licenseUrl** | パッケージのライセンスの URL。通常、UI 画面および nuget.org に表示されます。 |
-| **iconUrl** | UI 表示でパッケージのアイコンとして使われる、背景が透明な 64 x 64 の画像の URL。 この要素の値は、"*画像を直接示す URL*" であり、画像を含む Web ページの URL ではないことに注意してください。 たとえば、GitHub にある画像を使うには、`https://github.com/<username>/<repository>/raw/<branch>/<logo.png>` のような生ファイルの URL を指定します。 |
+| **iconUrl** | UI 表示でパッケージのアイコンとして使われる、背景が透明な 64 x 64 の画像の URL。 この要素の値は、"*画像を直接示す URL*" であり、画像を含む Web ページの URL ではないことに注意してください。 たとえば、GitHub からイメージを使用する URL と同様に、raw ファイルを使用して*https://github.com/\<username\>/\<リポジトリ\>/raw/\<ブランチ\>/ \<logo.png\>*です。 |
 | **requireLicenseAcceptance** | パッケージをインストールする前にクライアントがユーザーに対してパッケージのライセンスへの同意を求めるプロンプトを表示する必要があるかどうかを示すブール値。 |
 | **developmentDependency** | *(2.8 以降)* 開発専用の依存関係としてパッケージをマークするかどうかを指定するブール値。指定すると、そのパッケージは他のパッケージに依存関係として含まれなくなります。 |
 | **summary** | UI 画面用のパッケージの短い説明。 省略すると、`description` を切り詰めたバージョンが使われます。 |
@@ -108,7 +108,7 @@ ms.lasthandoff: 02/01/2018
 
 | 要素 | 説明 |
 | --- | --- |
-**packageTypes** | *(3.5 +)* 0 個以上のコレクション`<packageType>`従来の依存関係パッケージ以外の場合、パッケージの種類を指定する要素。 各 packageType は、*name* 属性と *version* 属性を持っています。 「[Setting a package type](../create-packages/creating-a-package.md#setting-a-package-type)」(パッケージの種類の設定) をご覧ください。 |
+**packageTypes** | *(3.5 以降)* 従来の依存関係パッケージ以外の場合に、パッケージの種類を指定する 0 個以上の `<packageType>` 要素のコレクション。 各 packageType は、*name* 属性と *version* 属性を持っています。 「[Setting a package type](../create-packages/creating-a-package.md#setting-a-package-type)」(パッケージの種類の設定) をご覧ください。 |
 | **dependencies** | パッケージの依存関係を指定する 0 個以上の `<dependency>` 要素のコレクション。 各 dependency は、*id*、*version*、*include* (3.x 以降)、*exclude* (3.x 以降) の各属性を持っています。 後の「[依存関係](#dependencies)」をご覧ください。 |
 | **frameworkAssemblies** | *(1.2 以降)* このパッケージで必要な .NET Framework アセンブリ参照を示す 0 個以上の `<frameworkAssembly>` 要素のコレクション。パッケージを使うプロジェクトに参照が確実に追加されるようにします。 各 frameworkAssembly は、*assemblyName* 属性と *targetFramework* 属性を持っています。 [フレームワーク アセンブリ参照 GAC の指定](#specifying-framework-assembly-references-gac)に関する後の説明をご覧ください。 |
 | **references** | *(1.5 以降)* パッケージの `lib` フォルダー内のアセンブリのうちプロジェクト参照として追加するものを指定する、0 個以上の `<reference>` 要素のコレクション。 各参照は、*file* 属性を持っています。 `<references>` は `<group>` 要素を含むこともでき、その *targetFramework* 属性に `<reference>` 要素を含めることができます。 省略すると、`lib` のすべての参照が含まれます。 [明示的なアセンブリ参照の指定](#specifying-explicit-assembly-references)に関する後の説明をご覧ください。 |
@@ -328,7 +328,7 @@ nuget pack MyProject.csproj
 </files>
 ```
 
-NuGet 2.x 以前および `packages.config` を使っているプロジェクトでは、`<files>` 要素はパッケージのインストール時に変更できないコンテンツ ファイルを含めるためにも使われます。 NuGet 3.3 + プロジェクトとプロジェクト PackageReference で、`<contentFiles>`要素は、代わりに使用します。 詳しくは、後の「[コンテンツ ファイルを含める](#including-content-files)」をご覧ください。
+NuGet 2.x 以前および `packages.config` を使っているプロジェクトでは、`<files>` 要素はパッケージのインストール時に変更できないコンテンツ ファイルを含めるためにも使われます。 NuGet 3.3 以降で、PackageReference を使用しているプロジェクトでは、代わりに `<contentFiles>` 要素が使用されます。 詳しくは、後の「[コンテンツ ファイルを含める](#including-content-files)」をご覧ください。
 
 ### <a name="file-element-attributes"></a>File 要素の属性
 
@@ -413,7 +413,7 @@ NuGet 2.x 以前および `packages.config` を使っているプロジェクト
 - プロジェクトのビルド出力と共に含まれる必要があるスクリプト
 - プロジェクトに含まれる必要はあるが、プロジェクト固有の変更は必要ない、パッケージの構成ファイル
 
-コンテンツ ファイルをパッケージに含めるには、`<files>` 要素を使い、`target` 属性で `content` フォルダーを指定します。 ただし、このようなファイルが無視される代わりに使用される PackageReference を使用して、プロジェクトでパッケージがインストールされている場合、`<contentFiles>`要素。
+コンテンツ ファイルをパッケージに含めるには、`<files>` 要素を使い、`target` 属性で `content` フォルダーを指定します。 ただし、PackageReference を使用しているプロジェクトにパッケージをインストールする場合、このようなファイルは無視され、代わりに `<contentFiles>` 要素が使用されます。
 
 使用する側のプロジェクトとの最大限の互換性のため、パッケージでは両方の要素でコンテンツ ファイルを指定するのが理想的です。
 
@@ -530,7 +530,7 @@ NuGet 2.x 以前および `packages.config` を使っているプロジェクト
 
 ### <a name="using-the-contentfiles-element-for-content-files"></a>コンテンツ ファイルに対する contentFiles 要素の使用
 
-*PackageReference で NuGet 4.0 以降*
+*NuGet 4.0 以降で、PackageReference を使用している場合*
 
 既定では、パッケージはコンテンツを `contentFiles` フォルダーに配置し (下記参照)、`nuget pack` は既定の属性を使ってそのフォルダーにすべてのファイルを格納します。 この場合は、`contentFiles` ノードを `.nuspec` に含める必要はまったくありません。
 
@@ -544,7 +544,7 @@ NuGet 2.x 以前および `packages.config` を使っているプロジェクト
 | **exclude** | `src` の場所から除外するファイルまたはファイル パターンをセミコロンで区切ったリスト。 ワイルドカード文字 `*` を使うことができ、2 個のワイルドカード `**` は再帰的なフォルダー検索を意味します。 |
 | **buildAction** | MSBuild のコンテンツ項目に割り当てるビルド アクション。`Content`、`None`、`Embedded Resource`、`Compile` などです。既定値は、`Compile` です。 |
 | **copyToOutput** | ビルド出力フォルダーにコンテンツ項目をコピーするかどうかを示すブール値。 既定値は false です。 |
-| **flatten** | コンテンツ項目をビルド出力の単一フォルダーにコピーするか (true)、それともパッケージのフォルダー構造を保持するか (false) を示すブール値。 このフラグは、copyToOutput フラグが設定されている場合にのみ機能を true にします。 既定値は false です。 |
+| **flatten** | コンテンツ項目をビルド出力の単一フォルダーにコピーするか (true)、それともパッケージのフォルダー構造を保持するか (false) を示すブール値。 このフラグは、copyToOutput が true に設定されている場合のみ機能します。 既定値は false です。 |
 
 パッケージをインストールするとき、NuGet は `<contentFiles>` の子要素を上から下に順番に適用します。 複数のエントリが同じファイルに一致する場合は、すべてのエントリが適用されます。 同じ属性に対して競合がある場合は、最上位のエントリが下位のエントリを上書きします。
 
