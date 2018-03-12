@@ -26,6 +26,7 @@
 ## [プレリリース パッケージ](create-packages/prerelease-packages.md)
 ## [ネイティブ パッケージ](create-packages/native-packages.md)
 ## [シンボル パッケージ](create-packages/symbol-packages.md)
+## [署名パッケージ](create-packages/sign-a-package.md)
 ## [パッケージの公開](create-packages/publish-a-package.md)
 ## ガイド
 ### [UWP パッケージの作成](guides/create-uwp-packages.md)
@@ -51,9 +52,11 @@
 ### [push](tools/cli-ref-push.md)
 ### [restore](tools/cli-ref-restore.md)
 ### [setapikey](tools/cli-ref-setapikey.md)
+### [sign](tools/cli-ref-sign.md)
 ### [sources](tools/cli-ref-sources.md)
 ### [spec](tools/cli-ref-spec.md)
 ### [update](tools/cli-ref-update.md)
+### [verify](tools/cli-ref-verify.md)
 ### [環境変数](tools/cli-ref-environment-variables.md)
 ## [パッケージ マネージャー UI](tools/package-manager-ui.md)
 ## [パッケージ マネージャー コンソール](tools/package-manager-console.md)
@@ -79,6 +82,7 @@
 ## [エラーと警告](reference/errors-and-warnings.md)
 ## [ID プレフィックスの予約](reference/id-prefix-reservation.md)
 ## [NuGet クライアント SDK](reference/nuget-client-sdk.md)
+## [署名されたパッケージ参照](reference/signed-packages-reference.md)
 ## 機能拡張
 ### [Visual Studio 向け NuGet 資格情報プロバイダー](reference/extensibility/nuget-credential-providers-for-visual-studio.md)
 ### [nuget.exe 資格情報プロバイダー](reference/extensibility/nuget-exe-credential-providers.md)
@@ -108,9 +112,9 @@
 ## [エコシステム](policies/ecosystem.md)
 ## [争議の解決](policies/dispute-resolution.md)
 ## [パッケージの削除](policies/deleting-packages.md)
-# [GitHub リポジトリ](https://github.com/NuGet)
 # リリース ノート
 ## [既知の問題](release-notes/known-issues.md)
+## [NuGet 4.6 RTM](release-notes/NuGet-4.6-RTM.md)
 ## [NuGet 4.5 RTM](release-notes/NuGet-4.5-RTM.md)
 ## [NuGet 4.4 RTM](release-notes/NuGet-4.4-RTM.md)
 ## [NuGet 4.3 RTM](release-notes/NuGet-4.3-RTM.md)
