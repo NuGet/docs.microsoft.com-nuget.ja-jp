@@ -11,11 +11,11 @@ description: "NuGet の pack と restore は、NuGet 4.0 以降で MSBuild タ�
 keywords: "NuGet と MSBuild, NuGet の pack ターゲット, NuGet の restore ターゲット"
 ms.reviewer:
 - karann-msft
-ms.openlocfilehash: 4d448af3d31e0907cba223c0ccec55604e94f055
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: 798b3550718294072d86b6e4827ec5017178d2cc
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>MSBuild ターゲットとしての NuGet の pack と restore
 
@@ -55,7 +55,7 @@ pack ターゲット (つまり `msbuild /t:pack`) を使用すると、MSBuild 
 | Authors | Authors | 現在のユーザーのユーザー名 | |
 | 所有者 | N/A | NuSpec にはありません | |
 | Title | Title | PackageId| |
-| 説明 | 説明 | "パッケージの説明" | |
+| 説明 | PackageDescription | "パッケージの説明" | |
 | Copyright | Copyright | (なし) | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | False | |
 | LicenseUrl | PackageLicenseUrl | (なし) | |
@@ -222,6 +222,9 @@ msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:Nu
 1. restore を実行します
 1. パッケージをダウンロードします
 1. アセット ファイル、ターゲット、およびプロパティを出力します
+
+> [!Note]
+> `restore` MSBuild ターゲットが使用して、プロジェクトに対してのみ機能`PackageReference`アイテムし、を使用して参照されるパッケージは復元されません、`packages.config`ファイル。
 
 ### <a name="restore-properties"></a>restore のプロパティ
 

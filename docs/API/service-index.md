@@ -16,11 +16,11 @@ keywords: "NuGet API エントリ ポイント、NuGetA PI エンドポイント
 ms.reviewer:
 - karann
 - unnir
-ms.openlocfilehash: 9d0bb421c163520df4a1f0e9f3f71aab823aace3
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 8de0bc15edc358d091d84da54b8b67c085f29645
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="service-index"></a>サービスのインデックス
 
@@ -30,12 +30,11 @@ nuget.org のサービスのインデックスにある`https://api.nuget.org/v3
 
 ## <a name="versioning"></a>バージョン管理
 
-`version`値は、サービスのインデックスのスキーマ バージョンを示す SemVer 2.0.0 解析可能なバージョン文字列。
-この API でのメジャー バージョン番号をバージョン文字列であることが必須で`3`です。 サービス インデックス スキーマに重要ではない変更が加えられると、バージョン文字列のマイナー バージョンが増加します。
+`version`値は、サービスのインデックスのスキーマ バージョンを示す SemVer 2.0.0 解析可能なバージョン文字列。 この API でのメジャー バージョン番号をバージョン文字列であることが必須で`3`です。 サービス インデックス スキーマに重要ではない変更が加えられると、バージョン文字列のマイナー バージョンが増加します。
 
 サービス インデックス内の各リソースはサービス インデックス スキーマのバージョンから独立してバージョン管理されたです。
 
-現在のスキーマのバージョンが`3.0.0-beta.1`です。
+現在のスキーマのバージョンが`3.0.0`です。 `3.0.0`バージョンは機能的には、古い`3.0.0-beta.1`バージョンが安定で定義されているスキーマをより明確と通信する際に優先する必要があります。
 
 ## <a name="http-methods"></a>HTTP メソッド
 

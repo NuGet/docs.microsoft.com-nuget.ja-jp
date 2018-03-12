@@ -13,15 +13,15 @@ ms.reviewer:
 - ananguar
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: bee215fcc88b03dbdde6c15d1583898bdf205952
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: f74ea3c772a129f4b9cd286a77cf3e88eba2d33b
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="package-id-prefix-reservation"></a>パッケージ ID のプレフィックスの予約
 
-パッケージの所有者は、予約し、ID のプレフィックスを予約して自身の id を保護することができます。 パッケージ使用者が追加情報をパッケージの使用時に消費しているか、パッケージは、識別プロパティの不正な提供されます。 
+パッケージの所有者では、予約でき、ID のプレフィックスを予約して自身の id を保護することができます。 パッケージ使用者が追加情報をパッケージの使用時に消費しているか、パッケージは、識別プロパティの不正な提供されます。 
 
 [nuget.org](https://www.nuget.org/)し、パッケージには予約済み ID が一致する限り、予約済みのパッケージ ID のプレフィックスの所有者から送信されたパッケージの名前付けパターンのプレフィックスの Visual Studio 2017 15.4 またはそれ以降のバージョンが視覚インジケータを表示します。 下方向へ ID プレフィックス予約任せます、ID のプレフィックスの所有者を適用する方法について説明します。
 

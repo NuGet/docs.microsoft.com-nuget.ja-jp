@@ -12,11 +12,11 @@ keywords: "NuGet.Config ファイル、NuGet 構成参照、NuGet 構成オプ�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: df602cb561a19f0eac085695de80db1fbaa1a313
-ms.sourcegitcommit: 33436d122873249dbb20616556cd8c6783f38909
+ms.openlocfilehash: c76ebcb06adc5e5b862647de6b6f4e19bde87b91
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="nugetconfig-reference"></a>NuGet.Config 参照
 
@@ -87,7 +87,7 @@ NuGet の動作は、「[Configuring NuGet Behavior](../consume-packages/configu
 
 ## <a name="packagerestore-section"></a>packageRestore セクション
 
-*2.7 以降では無視されます*
+*現在のすべてのバージョン (2.7 以降) では無視されます。*
 
 ビルド時のパッケージの復元を制御します。
 

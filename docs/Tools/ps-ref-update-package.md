@@ -12,11 +12,11 @@ keywords: "NuGet パッケージ マネージャー コンソールで、NuGet P
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 7ebb5a420e469c70a9dd790231a92fedbc4713b6
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: 293d9a7fdcce633eb5a97e5f76398deb5c13bdb4
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="update-package-package-manager-console-in-visual-studio"></a>更新プログラム パッケージ (Visual Studio でパッケージ マネージャー コンソール)
 
@@ -37,8 +37,6 @@ NuGet 2.8 + で`Update-Package`プロジェクトで既存のパッケージを�
 ```ps
 Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
 ```
-
-NuGet 2.7 およびそれ以前では、新しいバージョンが既にインストールされていることを示すエラーを説明します。
 
 ## <a name="parameters"></a>パラメーター
 
