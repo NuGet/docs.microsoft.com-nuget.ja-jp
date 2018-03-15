@@ -12,18 +12,17 @@ keywords: "nuget のソースの参照、コマンドをソース"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 1e8204f5e1bf712f65d8efb14ca2a4bd802e3f90
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: 139a9494e1ea898c90ce79d5990530fbe08642bd
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="sources-command-nuget-cli"></a>ソースのコマンド (NuGet CLI)
 
 **適用されます:**パッケージ消費、パブリッシング&bullet;**サポートされているバージョン:**すべて
 
-ユーザー スコープの構成ファイルまたは指定された構成ファイル内にあるソースの一覧を管理します。 ユーザー スコープの構成ファイルにある`%APPDATA%\NuGet\NuGet.Config`Windows 中および`~/.nuget/NuGet.Config`Mac と linux の場合。
-
+ユーザー スコープの構成ファイルまたは指定された構成ファイル内にあるソースの一覧を管理します。 ユーザー スコープの構成ファイルにある`%APPDATA%\NuGet\NuGet.Config`(Windows) と`~/.nuget/NuGet/NuGet.Config`(Mac または Linux)。
 
 ここで、nuget.org のソース URL は `https://api.nuget.org/v3/index.json` となります。
 
@@ -39,7 +38,7 @@ nuget sources <operation> -Name <name> -Source <source>
 
 | オプション | 説明 |
 | --- | --- |
-| ConfigFile | NuGet 構成ファイルを適用します。 指定しない場合、 *%AppData%\NuGet\NuGet.Config*を使用します。 |
+| ConfigFile | NuGet 構成ファイルを適用します。 指定しない場合、 `%AppData%\NuGet\NuGet.Config` (Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac または Linux) を使用します。|
 | ForceEnglishOutput | *(3.5 +)*インバリアント、英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
 | 形式 | 適用されます、`list`アクションを指定できます`Detailed`(既定) または`Short`です。 |
 | ヘルプ | ヘルプ コマンドに関する情報を表示します。 |

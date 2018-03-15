@@ -3,7 +3,7 @@ title: "MSBuild ターゲットとしての NuGet の pack と restore | Microso
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 04/03/2017
+ms.date: 03/13/2018
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
@@ -11,11 +11,11 @@ description: "NuGet の pack と restore は、NuGet 4.0 以降で MSBuild タ�
 keywords: "NuGet と MSBuild, NuGet の pack ターゲット, NuGet の restore ターゲット"
 ms.reviewer:
 - karann-msft
-ms.openlocfilehash: 798b3550718294072d86b6e4827ec5017178d2cc
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.openlocfilehash: bb0ade1b0f5f81d7c8822d3c2b2f9dd45745fb8d
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>MSBuild ターゲットとしての NuGet の pack と restore
 
@@ -42,7 +42,9 @@ MSBuild 15.1 以降では、NuGet は以下のように `pack` および `restor
 
 ## <a name="pack-target"></a>pack ターゲット
 
-pack ターゲット (つまり `msbuild /t:pack`) を使用すると、MSBuild はプロジェクト ファイルからの入力を描画します。 以下の表では、最初の `<PropertyGroup>` ノード内のプロジェクト ファイルに追加できる MSBuild のプロパティについて説明します。 Visual Studio 2017 以降では、プロジェクトを右クリックし、コンテキスト メニューで **[{project_name} の編集]** を選択して、この編集を簡単に行うことができます。 便宜上、この表は、[`.nuspec` ファイル](../reference/nuspec.md)の同等のプロパティごとに整理されています。
+PackageReference 形式を使用してを使用して、プロジェクトの標準的な .NET `msbuild /t:pack` NuGet パッケージの作成に使用するプロジェクト ファイルからの入力を描画します。
+
+以下の表では、最初の `<PropertyGroup>` ノード内のプロジェクト ファイルに追加できる MSBuild のプロパティについて説明します。 Visual Studio 2017 以降では、プロジェクトを右クリックし、コンテキスト メニューで **[{project_name} の編集]** を選択して、この編集を簡単に行うことができます。 便宜上、この表は、[`.nuspec` ファイル](../reference/nuspec.md)の同等のプロパティごとに整理されています。
 
 `.nuspec` の `Owners` および `Summary` プロパティは、MSBuild ではサポートされていない点に注意してください。
 
@@ -194,7 +196,7 @@ pack ターゲット (つまり `msbuild /t:pack`) を使用すると、MSBuild 
 
 ### <a name="packing-using-a-nuspec"></a>.nuspec を使用したパック
 
-パック タスクを実行するために `NuGet.Build.Tasks.Pack.targets` をインポートするプロジェクト ファイルがある場合、`.nuspec` ファイルを使用してプロジェクトをパックできます。 次の 3 つの MSBuild プロパティが `.nuspec` を使用したパックと関係があります。
+使用することができます、 `.nuspec` SDK プロジェクト ファイルをインポートする場合は、プロジェクトをパッケージ ファイル`NuGet.Build.Tasks.Pack.targets`パックのタスクを実行できるようにします。 Nuspec ファイルをパックする前に、プロジェクトを復元する必要があります。 プロジェクト ファイルのターゲット フレームワークは使用されませんし、梱包、nuspec ときは使用されません。 次の 3 つの MSBuild プロパティが `.nuspec` を使用したパックと関係があります。
 
 1. `NuspecFile`: パックに使用する `.nuspec` ファイルの相対パスまたは絶対パス。
 1. `NuspecProperties`: キー=値ペアのセミコロン区切りの一覧。 MSBuild コマンドラインの解析方法に従い、複数のプロパティは `/p:NuspecProperties=\"key1=value1;key2=value2\"` のように指定する必要があります。  
@@ -212,6 +214,23 @@ MSBuild を使用してプロジェクトをパックする場合は、次のよ
 msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:NuspecProperties=<> /p:NuspecBasePath=<Base path> 
 ```
 
+既定では、プロジェクトのビルドにパッキングする nuspec dotnet.exe または msbuild を使用して潜在顧客もことに注意してください。 渡すことによってこれを回避する```--no-build```プロパティ設定の相当する dotnet.exe を```<NoBuild>true</NoBuild> ```設定と共に、プロジェクト ファイルで```<IncludeBuildOutput>false</IncludeBuildOutput> ```プロジェクト ファイル
+
+Nuspec ファイルをパック csproj ファイルの例を示します。
+
+```
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <NoBuild>true</NoBuild>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <NuspecFile>PATH_TO_NUSPEC_FILE</NuspecFile>
+    <NuspecProperties>add nuspec properties here</NuspecProperties>
+    <NuspecBasePath>optional to provide</NuspecBasePath>
+  </PropertyGroup>
+</Project>
+```
+
 ## <a name="restore-target"></a>restore ターゲット
 
 `MSBuild /t:restore` (`nuget restore` と `dotnet restore` が .NET Core プロジェクトで使用) は、次のようにプロジェクト ファイルで参照されるパッケージを復元します。
@@ -223,8 +242,7 @@ msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:Nu
 1. パッケージをダウンロードします
 1. アセット ファイル、ターゲット、およびプロパティを出力します
 
-> [!Note]
-> `restore` MSBuild ターゲットが使用して、プロジェクトに対してのみ機能`PackageReference`アイテムし、を使用して参照されるパッケージは復元されません、`packages.config`ファイル。
+`restore`対象 works**のみ**PackageReference 形式を使用してプロジェクトのです。 **いない**を使用してプロジェクトの作業、`packages.config`を書式設定。 を使用して[nuget 復元](../tools/cli-ref-restore.md)代わりにします。
 
 ### <a name="restore-properties"></a>restore のプロパティ
 

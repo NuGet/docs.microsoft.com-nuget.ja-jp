@@ -12,11 +12,11 @@ keywords: "nuget ミラー参照、ミラー コマンドです。"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 80b8f9a3b74030ffd3f1c7b784204d98be67d684
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: 0c1969cc04b2e2cead5e9dadf9739fdabdf65f6c
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="mirror-command-nuget-cli"></a>[ミラー] (NuGet CLI)
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 02/14/2018
 パッケージとターゲットのリポジトリに指定されたソース リポジトリからその依存関係を反映します。
 
 > [!NOTE]
-> このコマンドは、NuGet のバージョン 3.2 の前に有効にするには[https://nuget.codeplex.com/releases](https://nuget.codeplex.com/releases)を最新の安定版リリースを選択し、ダウンロード`NuGet.ServerExtensions.dll`と`Nuget-Signed.exe`、ローカル ディスクと名前の変更に`Nuget-Signed.exe`に`nuget.exe`.
+> このコマンドは、NuGet のバージョン 3.2 の前に有効にするには[ https://nuget.codeplex.com/releases](https://nuget.codeplex.com/releases)を最新の安定版リリースを選択し、ダウンロード`NuGet.ServerExtensions.dll`と`Nuget-Signed.exe`、ローカル ディスクと名前の変更に`Nuget-Signed.exe`に`nuget.exe`。
 
 ## <a name="usage"></a>使用法
 
@@ -43,12 +43,12 @@ nuget mirror <packageID | configFilePath> <listUrlTarget> <publishUrlTarget> [op
 
 | オプション | 説明 |
 | --- | --- |
-| ApiKey | ターゲットのリポジトリの API キー。 存在しない場合、いずれかで指定されている*%AppData%\NuGet\NuGet.Config*を使用します。 |
+| ApiKey | ターゲットのリポジトリの API キー。 かどうか、存在していない構成ファイルで指定した期間が使用 (`%AppData%\NuGet\NuGet.Config` (Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac または Linux))。 |
 | ヘルプ | ヘルプ コマンドに関する情報を表示します。 |
 | NoCache | NuGet がローカル コンピューターのキャッシュからパッケージを使用するを防ぎます。 |
 | noop | 新機能が不要になる行いません; 操作をログに記録します。プッシュ操作に成功した場合を想定しています。 |
 | PreRelease | ミラーリングの操作では、プレリリースのパッケージが含まれています。 |
-| ソース | ミラー化するパッケージ ソースの一覧です。 ものがで定義されているソースが指定されていない場合*%AppData%\NuGet\NuGet.Config*が使用すると、指定がない場合は、nuget.org を既定とします。 |
+| ソース | ミラー化するパッケージ ソースの一覧です。 ものがで定義されているソースが指定されていない場合 nuget.org に既定の指定がない場合、構成ファイルを使用、(ApiKey 上記を参照してください)。 |
 | Timeout | (秒単位) をサーバーにプッシュするためのタイムアウト値を指定します。 既定では 300 秒 (5 分) です。 |
 | Version | インストールするパッケージのバージョン。 指定しない場合、最新バージョンがミラー化されます。 |
 

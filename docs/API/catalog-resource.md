@@ -12,15 +12,15 @@ ms.topic: reference
 ms.prod: nuget
 ms.technology: 
 description: "カタログは、すべてのパッケージの作成および nuget.org に削除されたインデックスです。"
-keywords: "NuGet V3 API カタログ、nuget.org トランザクション ログ、NuGet.org を複製、NuGet.org、NuGet.org の追加専用のレコードを複製"
+keywords: "NuGet V3 API カタログ、nuget.org トランザクション ログ、nuget.org、クローン nuget.org nuget.org のレコードを追加専用のレプリケートします。"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: d1a24be68a60085a40361c374ffb34dc221f09c4
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: be30b21d488c323c439a59fff290a95adaefd902
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="catalog"></a>Catalog
 
@@ -50,7 +50,7 @@ HTTP メソッドのみをカタログ リソースのサポートで見つか�
 
 ## <a name="catalog-index"></a>カタログのインデックス
 
-カタログのインデックスは、順序付けに cronologically カタログ アイテムのリストを持つ既知の場所でドキュメントです。 これは、カタログ リソースのエントリ ポイントです。
+カタログのインデックスは、時系列順に並べ、カタログ アイテムのリストを持つ既知の場所でドキュメントです。 これは、カタログ リソースのエントリ ポイントです。
 
 インデックスは、カタログのページで構成されます。 カタログの各ページには、カタログ アイテムが含まれています。 各カタログ項目は、時間の時点で 1 つのパッケージに関連するイベントを表します。 カタログ項目は、作成した一覧にない、再度リストされます、または削除されたパッケージ ソースからパッケージを表すことができます。 時間においてこの順でカタログ アイテムを処理することで、クライアントは、V3 パッケージ ソースに存在するすべてのパッケージの最新の状態のビューを構築できます。
 
@@ -128,7 +128,7 @@ items           | オブジェクトの配列 | 可      | このページでカ
 
 内の各要素、`items`配列は、カタログ アイテムについての詳細を最小限に抑えるを持つオブジェクト。 これらの項目オブジェクトでは、すべてのカタログ アイテムのデータは含まれません。 ページの内の項目の順序`items`配列が定義されていません。 項目の順序でメモリを使用してクライアントを指定できます、`commitTimeStamp`プロパティです。
 
-ページでカタログ アイテムの数は、サーバーの実装によって定義されます。 Nuget.org の多くて 550 アイテムが各ページが、実際の数は、時間の時点で、次のコミット バッチのサイズには、いくつかのページ dependong の小さい可能性があります。
+ページでカタログ アイテムの数は、サーバーの実装によって定義されます。 Nuget.org の多くて 550 項目は、各ページが、実際の数は、時間の時点で、次のコミット バッチのサイズによっては一部のページの小さい可能性があります。
 
 新しい項目が導入されていると、`count`でインクリメントと新しいカタログ アイテムのオブジェクトの表示は、`items`配列。
 
@@ -164,7 +164,7 @@ nuget:version   | string  | 可      | このリーフに関連するパッケ�
 
 ## <a name="catalog-leaf"></a>リーフをカタログします。
 
-カタログのリーフには、時間内の特定のパッケージ ID といくつかの時点のバージョンに関するメタデータが含まれています。 フェッチを使用してドキュメントでは、`@id`カタログ ページで値が見つかりました。 カタログ リーフへの URL は predictedable するものではありませんし、カタログ ページのみを使用して検出する必要があります。
+カタログのリーフには、時間内の特定のパッケージ ID といくつかの時点のバージョンに関するメタデータが含まれています。 フェッチを使用してドキュメントでは、`@id`カタログ ページで値が見つかりました。 カタログ リーフへの URL は、予測できるものではありませんし、カタログ ページのみを使用して検出する必要があります。
 
 カタログ リーフ ドキュメントでは、次のプロパティを使用して、JSON オブジェクトを示します。
 
@@ -226,7 +226,7 @@ verbatimVersion         | string                     | Ｘ       | .Nuspec 内�
 
 `created`タイムスタンプは、パッケージはパッケージ ソースで一般的にこれは、カタログ アイテムのコミット タイムスタンプより前に、の短時間で最初に受信したときにします。
 
-`packageHashAlgorithm`サーバー実装 represeting で生成するために使用するハッシュ アルゴリズムに定義された文字列は、`packageHash`です。 常に使用される nuget.org、`packageHashAlgorithm`値`SHA512`です。
+`packageHashAlgorithm`が生成するために使用するハッシュ アルゴリズムを表すサーバー実装によって定義されている文字列、`packageHash`です。 常に使用される nuget.org、`packageHashAlgorithm`値`SHA512`です。
 
 `published`タイムスタンプは、パッケージが最後に示されている時点です。
 
@@ -235,7 +235,7 @@ verbatimVersion         | string                     | Ｘ       | .Nuspec 内�
 
 #### <a name="sample-request"></a>要求のサンプル
 
-GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
+取得 https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
 
 #### <a name="sample-response"></a>応答のサンプル
 
@@ -256,7 +256,7 @@ GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.stor
 
 #### <a name="sample-request"></a>要求のサンプル
 
-GET https://api.nuget.org/v3/catalog0/data/2017.11.02.00.40.00/netstandard1.4_lib.1.0.0-test.json
+取得 https://api.nuget.org/v3/catalog0/data/2017.11.02.00.40.00/netstandard1.4_lib.1.0.0-test.json
 
 #### <a name="sample-response"></a>応答のサンプル
 
@@ -307,7 +307,7 @@ GET https://api.nuget.org/v3/catalog0/data/2017.11.02.00.40.00/netstandard1.4_li
 
 ### <a name="dependent-cursors"></a>依存するカーソル
 
-別のクライアントの出力に 1 つのクライアントの出力依存している inherant の依存関係を持つ 2 つのカタログ クライアントがあるとします。 
+別のクライアントの出力に 1 つのクライアントの出力依存している固有の依存関係を持つ 2 つのカタログ クライアントがあるとします。 
 
 #### <a name="example"></a>例
 
@@ -317,7 +317,7 @@ GET https://api.nuget.org/v3/catalog0/data/2017.11.02.00.40.00/netstandard1.4_li
 
 #### <a name="algorithm"></a>アルゴリズム
 
-この制限を実装するのには、単純なは、ある上記のアルゴリズムを変更します。
+この制限を実装するのに単に上記のアルゴリズムを変更します。
 
 1. ローカル ストアから、カーソルが記録された値を取得します。
 1. ダウンロードして、カタログのインデックスを逆シリアル化します。

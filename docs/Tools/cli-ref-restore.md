@@ -12,11 +12,11 @@ keywords: "nuget の参照を復元、restore コマンドのパッケージ"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0ad5156a065e20dfced99da6b2e2860dbd748ad5
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: 2416ad652244e0ea60651147ad74a1513cdb75ff
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="restore-command-nuget-cli"></a>restore コマンド (NuGet CLI)
 
@@ -38,7 +38,7 @@ nuget restore <projectPath> [options]
 
 | オプション | 説明 |
 | --- | --- |
-| ConfigFile | NuGet 構成ファイルを適用します。 指定しない場合、 *%AppData%\NuGet\NuGet.Config*を使用します。 |
+| ConfigFile | NuGet 構成ファイルを適用します。 指定しない場合、 `%AppData%\NuGet\NuGet.Config` (Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac または Linux) を使用します。|
 | DirectDownload | *(4.0 以降)*バイナリなどのメタデータ キャッシュの値を設定せず直接パッケージをダウンロードします。 |
 | DisableParallelProcessing | 同時に複数のパッケージの復元を無効にします。 |
 | FallbackSource | *(3.2 +)*プライマリで、パッケージが見つからない場合に、フォールバックとして使用するパッケージ ソースの一覧または既定のソース。 |

@@ -12,11 +12,11 @@ keywords: "nuget の参照の検証、コマンドを確認してください。
 ms.reviewer:
 - karann
 - rmpablos
-ms.openlocfilehash: 2747491eb35d8685a44e86fcc1b572013982c754
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.openlocfilehash: 096c79670267d9b602dd6ad30640e832441c31c5
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="verify-command-nuget-cli"></a>コマンド (NuGet CLI) を確認してください。
 
@@ -38,7 +38,7 @@ nuget verify <package(s)> [options]
 | --- | --- |
 | すべて | パッケージで可能なすべての検証を実行することを指定します。 |
 | CertificateFingerprint | 証明書 (s) で署名されたパッケージを署名する必要がありますの 1 つまたは複数の sha-256 証明書指紋を指定します。 Sha-256 証明書フィンガー プリントは、証明書の SHA 256 ハッシュです。 複数の入力は、セミコロンで区切られたにする必要があります。 |
-| ConfigFile | NuGet 構成ファイルを適用します。 指定しない場合、 *%AppData%\NuGet\NuGet.Config*を使用します。 |
+| ConfigFile | NuGet 構成ファイルを適用します。 指定しない場合、 `%AppData%\NuGet\NuGet.Config` (Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac または Linux) を使用します。|
 | ForceEnglishOutput | インバリアント、英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
 | ヘルプ | ヘルプ コマンドに関する情報を表示します。 |
 | NonInteractive | ユーザー入力または確認を要求するプロンプトを抑制します。 |

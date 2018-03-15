@@ -12,11 +12,11 @@ keywords: "NuGet.Config ファイル、NuGet 構成参照、NuGet 構成オプ�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c76ebcb06adc5e5b862647de6b6f4e19bde87b91
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.openlocfilehash: 6a5be1ebcca0accafcdaf32f0b1b7ca66ec53425
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="nugetconfig-reference"></a>NuGet.Config 参照
 
@@ -86,8 +86,6 @@ NuGet の動作は、「[Configuring NuGet Behavior](../consume-packages/configu
 ```
 
 ## <a name="packagerestore-section"></a>packageRestore セクション
-
-*現在のすべてのバージョン (2.7 以降) では無視されます。*
 
 ビルド時のパッケージの復元を制御します。
 
@@ -159,7 +157,7 @@ NuGet の動作は、「[Configuring NuGet Behavior](../consume-packages/configu
 
 **例:**
 
-構成ファイル内の `<packageSourceCredentials>` 要素には、適用可能なソース名ごとに子ノードが含まれます (名前内のスペースは `_x0020+` と置換されます)。 つまり、"Contoso" および "Test Source" という名前のソースの場合は、暗号化されたパスワードを使用するとき、構成ファイルには次の内容が含まれます。
+構成ファイル内の `<packageSourceCredentials>` 要素には、適用可能なソース名ごとに子ノードが含まれます (名前内のスペースは `_x0020_` と置換されます)。 つまり、"Contoso" および "Test Source" という名前のソースの場合は、暗号化されたパスワードを使用するとき、構成ファイルには次の内容が含まれます。
 
 ```xml
 <packageSourceCredentials>

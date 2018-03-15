@@ -12,11 +12,11 @@ keywords: "nuget 参照の更新、更新プログラム パッケージ コマ�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6a788244d23354b980e8fa86fa170740c18f17b2
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: 6acf3a74e5c26bc4e2cef9b0db4a72442d311449
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="update-command-nuget-cli"></a>更新コマンド (NuGet CLI)
 
@@ -42,7 +42,7 @@ nuget update <configPath> [options]
 
 | オプション | 説明 |
 | --- | --- |
-| ConfigFile | NuGet 構成ファイルを適用します。 指定しない場合、 *%AppData%\NuGet\NuGet.Config*を使用します。 |
+| ConfigFile | NuGet 構成ファイルを適用します。 指定しない場合、 `%AppData%\NuGet\NuGet.Config` (Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac または Linux) を使用します。|
 | FileConflictAction | 上書きするか、プロジェクトによって参照されている既存のファイルを無視するように求められたらを実行するアクションを指定します。 値は*で上書きし、無視する場合に、none*です。 |
 | ForceEnglishOutput | *(3.5 +)*インバリアント、英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
 | ヘルプ | ヘルプ コマンドに関する情報を表示します。 |

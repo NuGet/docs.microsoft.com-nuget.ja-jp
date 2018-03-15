@@ -12,11 +12,11 @@ keywords: "nuget config 参照、config コマンド"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 34d156a29207122bac3c21c3307cbe7373b5f031
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: 7cf7c06000904a617752567ed7612c0c48042db9
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="config-command-nuget-cli"></a>config コマンド (NuGet CLI)
 
@@ -42,7 +42,7 @@ NuGet 3.4 以降で`<value>`使える[環境変数](cli-ref-environment-variable
 | オプション | 説明 |
 | --- | --- |
 | AsPath | 構成は、パスとして値を返しますするときに無視`-Set`を使用します。 |
-| ConfigFile | NuGet 構成ファイルを変更します。 指定しない場合、 *%AppData%\NuGet\NuGet.Config*を使用します。 |
+| ConfigFile | NuGet 構成ファイルを変更します。 指定しない場合、 `%AppData%\NuGet\NuGet.Config` (Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac または Linux) を使用します。|
 | ForceEnglishOutput | *(3.5 +)*インバリアント、英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
 | ヘルプ | ヘルプ コマンドに関する情報を表示します。 |
 | NonInteractive | ユーザー入力または確認を要求するプロンプトを抑制します。 |

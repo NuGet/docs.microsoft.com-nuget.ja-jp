@@ -13,11 +13,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c52d0a7c0da507cb9688c8a7b2c4eaf54a8ca5c2
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: 90693b09fce966e3bc28ca24360a3fb4e1f73386
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="nuspec-reference"></a>.nuspec リファレンス
 
@@ -94,7 +94,7 @@ ms.lasthandoff: 02/20/2018
 | **owners** | コンマで区切って指定したパッケージ作成者の一覧。nuget.org でのプロファイル名です。多くの場合は `authors` と同じ一覧であり、nuget.org にパッケージをアップロードするときは無視されます。「[nuget.org でパッケージ所有者を管理する](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg)」をご覧ください。 |
 | **projectUrl** | パッケージのホーム ページの URL。多くの場合、UI 画面と nuget.org に表示されます。 |
 | **licenseUrl** | パッケージのライセンスの URL。通常、UI 画面および nuget.org に表示されます。 |
-| **iconUrl** | UI 表示でパッケージのアイコンとして使われる、背景が透明な 64 x 64 の画像の URL。 この要素の値は、"*画像を直接示す URL*" であり、画像を含む Web ページの URL ではないことに注意してください。 たとえば、GitHub からイメージを使用する URL と同様に、raw ファイルを使用して*https://github.com/\<username\>/\<リポジトリ\>/raw/\<ブランチ\>/ \<logo.png\>*です。 |
+| **iconUrl** | UI 表示でパッケージのアイコンとして使われる、背景が透明な 64 x 64 の画像の URL。 この要素の値は、"*画像を直接示す URL*" であり、画像を含む Web ページの URL ではないことに注意してください。 たとえば、GitHub からイメージを使用する URL と同様に、raw ファイルを使用して *https://github.com/ \<username\>/\<リポジトリ\>/raw/\<ブランチ\>/ \<logo.png\>*です。 |
 | **requireLicenseAcceptance** | パッケージをインストールする前にクライアントがユーザーに対してパッケージのライセンスへの同意を求めるプロンプトを表示する必要があるかどうかを示すブール値。 |
 | **developmentDependency** | *(2.8 以降)* 開発専用の依存関係としてパッケージをマークするかどうかを指定するブール値。指定すると、そのパッケージは他のパッケージに依存関係として含まれなくなります。 |
 | **summary** | UI 画面用のパッケージの短い説明。 省略すると、`description` を切り詰めたバージョンが使われます。 |
@@ -143,9 +143,10 @@ nuget pack MyProject.csproj
 
 | トークン | 値のソース | [値]
 | --- | --- | ---
-| **$id$** | プロジェクト ファイル | プロジェクト ファイルの AssemblyName |
+| **$id$** | プロジェクト ファイル | プロジェクト ファイルから AssemblyName (タイトル) |
 | **$version$** | AssemblyInfo | ある場合は AssemblyInformationalVersion、ない場合は AssemblyVersion |
 | **$author$** | AssemblyInfo | AssemblyCompany |
+| **$title$** | AssemblyInfo | AssemblyTitle |
 | **$description$** | AssemblyInfo | AssemblyDescription |
 | **$copyright$** | AssemblyInfo | AssemblyCopyright |
 | **$configuration$** | アセンブリ DLL | アセンブリのビルドに使われる構成。既定値は Debug。 Release 構成を使ってパッケージを作成するには、常にコマンド ラインで `-properties Configuration=Release` を使うことに注意してください。 |
@@ -543,7 +544,7 @@ NuGet 2.x 以前および `packages.config` を使っているプロジェクト
 | **include** | (必須) 含める 1 つまたは複数のファイルの場所。`exclude` 属性によって指定される除外の対象になります。 絶対パスを指定しない限り、パスは `.nuspec` ファイルが基準になります。 ワイルドカード文字 `*` を使うことができ、2 個のワイルドカード `**` は再帰的なフォルダー検索を意味します。 |
 | **exclude** | `src` の場所から除外するファイルまたはファイル パターンをセミコロンで区切ったリスト。 ワイルドカード文字 `*` を使うことができ、2 個のワイルドカード `**` は再帰的なフォルダー検索を意味します。 |
 | **buildAction** | MSBuild のコンテンツ項目に割り当てるビルド アクション。`Content`、`None`、`Embedded Resource`、`Compile` などです。既定値は、`Compile` です。 |
-| **copyToOutput** | ビルド出力フォルダーにコンテンツ項目をコピーするかどうかを示すブール値。 既定値は false です。 |
+| **copyToOutput** | 出力フォルダーのコンテンツ項目、ビルドをコピーする (または発行) するかどうかを示すブール値。 既定値は false です。 |
 | **flatten** | コンテンツ項目をビルド出力の単一フォルダーにコピーするか (true)、それともパッケージのフォルダー構造を保持するか (false) を示すブール値。 このフラグは、copyToOutput が true に設定されている場合のみ機能します。 既定値は false です。 |
 
 パッケージをインストールするとき、NuGet は `<contentFiles>` の子要素を上から下に順番に適用します。 複数のエントリが同じファイルに一致する場合は、すべてのエントリが適用されます。 同じ属性に対して競合がある場合は、最上位のエントリが下位のエントリを上書きします。

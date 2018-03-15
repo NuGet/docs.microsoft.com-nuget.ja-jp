@@ -13,11 +13,11 @@ ms.reviewer:
 - ananguar
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 4763b0dde0153f9e8ea840d5e788b5a3d96b9bd8
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.openlocfilehash: 9bf9885aaf42bedb681a5d916202fa8b26749a0c
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="signed-packages"></a>署名付きパッケージ
 
@@ -51,7 +51,7 @@ NuGet パッケージは、改ざんされたコンテンツに対する保護�
 - [Comodo](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php)
 - [Certum](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml) 
 
-Windows によって信頼された証明機関の一覧から取得できます[http://aka.ms/trustcertpartners](http://aka.ms/trustcertpartners)です。
+Windows によって信頼された証明機関の一覧から取得できます[ http://aka.ms/trustcertpartners](http://aka.ms/trustcertpartners)です。
 
 ## <a name="create-a-test-certificate"></a>テスト証明書を作成します。
 

@@ -12,11 +12,11 @@ keywords: "nuget 記号の参照、サインオン コマンド"
 ms.reviewer:
 - karann
 - rmpablos
-ms.openlocfilehash: 109b0f6aca0ebaae2ea56fbb45226bc1b14f2ea1
-ms.sourcegitcommit: df7158169e84900d135416cd5e52f937df0beb52
+ms.openlocfilehash: f600a0830472703f40ef62f1b1538c53671703a9
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="sign-command-nuget-cli"></a>サインオン コマンド (NuGet CLI)
 
@@ -44,7 +44,7 @@ nuget sign <package(s)> [options]
 | CertificateStoreLocation | 証明書を検索する X.509 証明書ストアの使用の名前を指定します。 既定値は、現在のユーザーによって使用される X.509 証明書ストアである"CurrentUser"です。 CertificateSubjectName - または - CertificateFingerprint オプションを使用して証明書を指定する場合、このオプションを使用する必要があります。 |
 | CertificateStoreName | 使用して証明書を検索する X.509 証明書ストアの名前を指定します。 既定値は"My"、個人証明書の X.509 証明書ストア。 CertificateSubjectName - または - CertificateFingerprint オプションを使用して証明書を指定する場合、このオプションを使用する必要があります。 |
 | CertificateSubjectName | ローカルの証明書ストア、証明書を検索するために使用する証明書のサブジェクト名を指定します。  検索では、サブジェクト名の他のサブジェクト値に関係なく、その文字列を含むすべての証明書を見つけることが指定された値を使用して、大文字と小文字の文字列比較。  -証明および - CertificateStoreLocation オプションでは、証明書ストアを指定できます。 |
-| ConfigFile | NuGet 構成ファイルを適用します。 指定しない場合、 *%AppData%\NuGet\NuGet.Config*を使用します。 |
+| ConfigFile | NuGet 構成ファイルを適用します。 指定しない場合、 `%AppData%\NuGet\NuGet.Config` (Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac または Linux) を使用します。|
 | ForceEnglishOutput | インバリアント、英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
 | HashAlgorithm | パッケージの署名に使用するハッシュ アルゴリズム。 既定値は SHA256 です。 |
 | ヘルプ | ヘルプ コマンドに関する情報を表示します。 |

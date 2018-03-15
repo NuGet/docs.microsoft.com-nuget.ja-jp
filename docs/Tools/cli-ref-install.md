@@ -12,11 +12,11 @@ keywords: "nuget の参照をパッケージのコマンドをインストール
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9e824b08486704371eebefb964f86315d82fc222
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: 8d5f53c833fb42c9fe37d0629eab33e8f0bc70d7
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="install-command-nuget-cli"></a>コマンド (NuGet CLI) をインストールします。
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/14/2018
 > [!Tip]
 > プロジェクトのコンテキスト外で直接パッケージをダウンロードするには、ページにアクセスして、パッケージの[nuget.org](https://www.nuget.org)を選択し、**ダウンロード**リンクします。
 
-ソースが指定されていない場合、グローバル構成ファイルに一覧表示`%APPDATA%\NuGet\NuGet.Config`、使用されます。 参照してください[構成 NuGet 動作](../consume-packages/configuring-nuget-behavior.md)の詳細。
+ソースが指定されていない場合、グローバル構成ファイルに一覧表示`%APPDATA%\NuGet\NuGet.Config`(Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac または Linux) を使用します。 参照してください[構成 NuGet 動作](../consume-packages/configuring-nuget-behavior.md)の詳細。
 
 特定のパッケージが指定されていない場合`install`プロジェクトの表示されているすべてのパッケージをインストール`packages.config`ようなファイル[ `restore`](cli-ref-restore.md)です。
 
@@ -47,7 +47,7 @@ nuget install <packageID | configFilePath> [options]
 
 | オプション | 説明 |
 | --- | --- |
-| ConfigFile | NuGet 構成ファイルを適用します。 指定しない場合、 *%AppData%\NuGet\NuGet.Config*を使用します。 |
+| ConfigFile | NuGet 構成ファイルを適用します。 指定しない場合、 `%AppData%\NuGet\NuGet.Config` (Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac または Linux) を使用します。|
 | DependencyVersion | *(4.4 +)*既定の依存関係の解決の動作をオーバーライドする特定のバージョンを指定します。 |
 | DisableParallelProcessing | 複数のパッケージを並列でインストールを無効にします。 |
 | ExcludeVersion | パッケージ名のみとバージョン番号ではないという名前のフォルダーにパッケージをインストールします。 |
