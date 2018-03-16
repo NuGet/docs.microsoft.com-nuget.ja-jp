@@ -1,6 +1,6 @@
 nuget.org のプロファイルから、**[パッケージの管理]** を選択して、公開したパッケージを確認します。 確認メールも送信されます。 パッケージがインデックス作成され、他のユーザーが検索して検索結果に表示されるようになるまでには、時間がかかる場合があることに注意してください。 この間、パッケージのページに次のメッセージが表示されます。
 
-    ![This package has not been indexed yet. It will appear in search results and will be available for install/restore after indexing is complete.](../media/QS_Create-03-NotIndexed.png)
+![このパッケージはまだインデックスされていません。 インデックス作成が完了すると、検索結果に表示され、インストール/復元に使用できるようになります。](../media/QS_Create-03-NotIndexed.png)
 
 以上です。 最初の NuGet パッケージが nuget.org に公開され、他の開発者はそれを自身のプロジェクトで使用することができます。
 

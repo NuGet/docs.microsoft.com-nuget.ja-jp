@@ -12,11 +12,11 @@ keywords: "NuGet をインストールする, NuGet パッケージの使用, Nu
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 11b417644a46008f91fdcd5e0ba0a1fcf0bdc0e0
-ms.sourcegitcommit: eabd401616a98dda2ae6293612acb3b81b584967
+ms.openlocfilehash: accc6d7bb5abff43ffaa083fa55c13cd5b10ce10
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="install-and-use-a-package-using-the-dotnet-cli"></a>dotnet CLI を使用してパッケージをインストールし使用する
 
@@ -27,7 +27,7 @@ NuGet パッケージには、他の開発者がお客様のプロジェクト�
 > [!Tip]
 > **nuget.org を開始する**: nuget.org を参照するのは、.NET 開発者が自身のアプリケーションで再利用可能なコンポーネントを検索するための一般的な方法です。 この記事で説明するように、nuget.org を直接検索することも、Visual Studio 内でパッケージを見つけてインストールすることもできます。
 
-## <a name="pre-requisites"></a>前提条件
+## <a name="prerequisites"></a>必須コンポーネント
 
 - [.NET Core SDK](https://www.microsoft.com/net/download/)。これは、`dotnet`コマンド ライン ツールを提供します。
 
