@@ -3,8 +3,9 @@
 # クイックスタート
 ## [パッケージをインストールして使用する (dotnet CLI)](quickstart/install-and-use-a-package-using-the-dotnet-cli.md)
 ## [パッケージをインストールして使用する (Visual Studio)](quickstart/install-and-use-a-package-in-visual-studio.md)
-## [パッケージの作成と公開 (dotnet CLI)](quickstart/create-and-publish-a-package-using-the-dotnet-cli.md)
-## [パッケージの作成と公開 (Visual Studio)](quickstart/create-and-publish-a-package-using-visual-studio.md)
+## [NET Standard パッケージの作成と公開 (dotnet CLI)](quickstart/create-and-publish-a-package-using-the-dotnet-cli.md)
+## [NET Standard パッケージの作成と公開 (Visual Studio)](quickstart/create-and-publish-a-package-using-visual-studio.md)
+## [NET Framework パッケージの作成と公開 (Visual Studio)](quickstart/create-and-publish-a-package-using-visual-studio-net-framework.md)
 # パッケージの使用
 ## [概要とワークフロー](consume-packages/overview-and-workflow.md)
 ## [パッケージの検索と選択](consume-packages/finding-and-choosing-packages.md)
