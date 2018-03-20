@@ -17,7 +17,6 @@
 ## [NuGet のキャッシュを管理する](consume-packages/managing-the-nuget-cache.md)
 ## [NuGet の動作を構成する](consume-packages/configuring-nuget-behavior.md)
 ## [依存関係の解決](consume-packages/dependency-resolution.md)
-## [プロジェクト ファイルのパッケージ参照](consume-packages/package-references-in-project-files.md)
 # パッケージの作成
 ## [概要とワークフロー](create-packages/overview-and-workflow.md)
 ## [パッケージの作成](create-packages/creating-a-package.md)
@@ -74,6 +73,7 @@
 ## [dotnet コマンド](tools/dotnet-Commands.md)
 # 参照
 ## [.nuspec](reference/nuspec.md)
+## [プロジェクト ファイルのパッケージ参照](consume-packages/package-references-in-project-files.md)
 ## [packages.config](reference/packages-config.md)
 ## [パッケージのバージョン管理](reference/package-versioning.md)
 ## [Nuget.Config ファイル](reference/nuget-config-file.md)
