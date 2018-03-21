@@ -13,11 +13,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 610b20831b17ca5c1bae07546fde6eff3e2e43cc
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: 6cb582c036392ae2792f2fa4d307370e91c4f961
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="publishing-packages"></a>パッケージを公開する
 
@@ -72,9 +72,9 @@ nuget.org の場合、最初に[無料アカウントを作成する](https://ww
 
 ### <a name="package-validation-and-indexing"></a>パッケージの検証とインデックスの作成
 
-NuGet.org にプッシュされたパッケージはいくつかの検証を受けます。 パッケージがすべての検証に合格すると、インデックスが作成され、検索結果に表示されるようになりますが、それには時間がかかることがあります。 インデックスの作成が完了すると、パッケージが正常に公開されたことを示す確認の電子メールが届きます。 パッケージが検証で不合格になった場合、パッケージの詳細ページが更新され、関連するエラーが表示されます。それに関する電子メールも届きます。
+nuget.org にプッシュされたパッケージはいくつかの検証を受けます。 パッケージがすべての検証に合格すると、インデックスが作成され、検索結果に表示されるようになりますが、それには時間がかかることがあります。 インデックスの作成が完了すると、パッケージが正常に公開されたことを示す確認の電子メールが届きます。 パッケージが検証で不合格になった場合、パッケージの詳細ページが更新され、関連するエラーが表示されます。それに関する電子メールも届きます。
 
-パッケージの検証とインデックスの作成は、通常、15 以内で完了します。 パッケージ公開に予想以上の時間がかかる場合、[status.nuget.org](https://status.nuget.org/) にアクセスし、NuGet.org に中断が発生していないか確認してください。 すべてのシステムが動作しているとき、1 時間以内にパッケージが正常に公開されない場合、NuGet.org にログインし、パッケージ ページの [Contact Support] リンクからお問い合わせください。
+パッケージの検証とインデックスの作成は、通常、15 以内で完了します。 パッケージ公開に予想以上の時間がかかる場合、[status.nuget.org](https://status.nuget.org/) にアクセスし、nuget.org に中断が発生していないか確認してください。 すべてのシステムが動作しているとき、1 時間以内にパッケージが正常に公開されない場合、nuget.org にログインし、パッケージ ページの [Contact Support] リンクからお問い合わせください。
 
 ### <a name="visual-studio-team-services-cicd"></a>Visual Studio Team Services (CI/CD)
 

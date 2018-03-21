@@ -1,5 +1,5 @@
 ---
-title: "dotnet CLI を使用して NuGet パッケージを作成し公開するための入門ガイド | Microsoft Docs"
+title: "dotnet CLI を使用した NuGet パッケージの作成と公開 | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
@@ -12,17 +12,17 @@ keywords: "NuGet パッケージの作成、NuGet パッケージの公開、NuG
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c9f46cafafcdc238e43979d6f05521e19bf3d7f6
-ms.sourcegitcommit: eabd401616a98dda2ae6293612acb3b81b584967
+ms.openlocfilehash: 086de5378fe4ae928e6bd00cd3a87afd7c366a01
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-and-publish-a-package"></a>パッケージの作成と公開
 
 これは、`dotnet`コマンド ライン インターフェイス (CLI) を使用して、.NET クラス ライブラリから NuGet パッケージを作成し、nuget.org に公開する簡単なプロセスです。
 
-## <a name="pre-requisites"></a>前提条件
+## <a name="prerequisites"></a>必須コンポーネント
 
 1. `dotnet` CLI を含む [.NET Core SDK](https://www.microsoft.com/net/download/) をインストールします。
 
@@ -95,7 +95,6 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 
 [!INCLUDE[publish-errors](includes/publish-errors.md)]
 
-
 ### <a name="manage-the-published-package"></a>公開済みパッケージを管理する
 
 [!INCLUDE[publish-manage](includes/publish-manage.md)]
@@ -107,3 +106,4 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 - [複数のターゲット フレームワークのサポート](../create-packages/supporting-multiple-target-frameworks.md)
 - [パッケージのバージョン管理](../reference/package-versioning.md)
 - [ローカライズされたパッケージを作成する](../create-packages/creating-localized-packages.md)
+- [パッケージの署名](../create-packages/Sign-a-package.md)

@@ -12,11 +12,11 @@ keywords: "パッケージを作成する, UWP のパッケージ, Windows ラ�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6d35b484ff708d7174c19791ab1ad7904bea0d2f
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: af650b6cd67855a67d0f49cdbd9f510bf90a60f6
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-uwp-packages"></a>UWP パッケージを作成する
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 02/14/2018
 
 このチュートリアルでは、マネージ プロジェクトとネイティブ プロジェクトの両方で使用できるネイティブ UWP コンポーネント (XAML コントロールを含む) で NuGet パッケージを作成します。
 
-## <a name="pre-requisites"></a>前提条件
+## <a name="prerequisites"></a>必須コンポーネント
 
 1. Visual Studio 2017 または Visual Studio 2015。 [visualstudio.com](https://www.visualstudio.com/) から無料の 2017 Community Edition をインストールします。Professional Edition と Enterprise Edition を使用することもできます。
 
@@ -156,7 +156,7 @@ Windows ランタイム コンポーネントには、一般公開されるす�
 
 ### <a name="adding-targets"></a>.targets の追加
 
-次は、NuGet パッケージを使用する可能性のある C++ および JavaScript プロジェクトで、必要なアセンブリと winmd ファイルを識別するための .targets ファイルが必要になります  (C# および Visual Basic プロジェクトでは、これは自動的に行われます)。下のテキストを `ImageEnhancer.targets` にコピーして、このファイルを作成し、`.nuspec` ファイルと同じフォルダーに保存します。
+次は、NuGet パッケージを使用する可能性のある C++ および JavaScript プロジェクトで、必要なアセンブリと winmd ファイルを識別するための .targets ファイルが必要になります  (C# および Visual Basic プロジェクトでは、これは自動的に行われます)。下のテキストを `ImageEnhancer.targets` にコピーして、このファイルを作成し、`.nuspec` ファイルと同じフォルダーに保存します。 _注_: この `.targets` ファイルはパッケージ ID (`.nupspec` ファイルの `<Id>` 要素など) と同じ名前にする必要があります。
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

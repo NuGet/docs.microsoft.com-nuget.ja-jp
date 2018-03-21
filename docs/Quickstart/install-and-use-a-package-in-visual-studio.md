@@ -12,11 +12,11 @@ keywords: "NuGet をインストールする, NuGet パッケージの使用, Nu
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c0030877803ac7403f26e27ac3c5a0303d69c489
-ms.sourcegitcommit: eabd401616a98dda2ae6293612acb3b81b584967
+ms.openlocfilehash: ff905fec6d6af4fa40fd4331cb970121b6eb0879
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="install-and-use-a-package-in-visual-studio"></a>Visual Studio でパッケージをインストールして使用する
 
@@ -27,7 +27,7 @@ NuGet パッケージには、他の開発者がお客様のプロジェクト�
 > [!Tip]
 > **nuget.org を開始する**: nuget.org を参照するのは、.NET 開発者が自身のアプリケーションで再利用可能なコンポーネントを検索するための一般的な方法です。 この記事で説明するように、nuget.org を直接検索することも、Visual Studio 内でパッケージを見つけてインストールすることもできます。
 
-## <a name="pre-requisites"></a>前提条件
+## <a name="prerequisites"></a>必須コンポーネント
 
 - ユニバーサル Windows プラットフォーム開発ワークロードを含む Visual Studio 2017、または
 - ユニバーサル Windows アプリ用ツールを含む Visual Studio 2015 Update 3。
@@ -40,7 +40,7 @@ NuGet パッケージは、ある種類の .NET プロジェクトにインス�
 
 ## <a name="add-the-newtonsoftjson-nuget-package"></a>Newtonsoft.Json NuGet パッケージを追加する
 
-パッケージをインストールするには、パッケージ マネージャー UI またはパッケージ マネージャー コンソールのいずれかを使用できます。
+パッケージをインストールするには、パッケージ マネージャー UI またはパッケージ マネージャー コンソールのいずれかを使用できます。 パッケージをインストールすると、NuGet で依存関係がプロジェクト ファイルまたは `packages.config` ファイルに記録されます。 詳細については、「[パッケージ利用のワークフロー](../consume-packages/Overview-and-Workflow.md)」を参照してください。
 
 ### <a name="package-manager-ui"></a>パッケージ マネージャー UI
 

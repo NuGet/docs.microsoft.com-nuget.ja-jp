@@ -12,11 +12,11 @@ keywords: "NuGet の既知の問題, NuGet の問題"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2b9190c058215d9e63894de45c0c55c8ddae0e0f
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: ac00e3f11c54290a31319e7f2946fd965a0a9288
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="known-issues-with-nuget"></a>NuGet に関する既知の問題
 
@@ -45,7 +45,7 @@ NuGet 3.4 および 3.4.1 で NuGet アドインを使用している場合、�
 
 ![ソースがない NuGet の構成](./media/knownIssue-34-NoSources.PNG)
 
-`%AppData%\NuGet\` フォルダーの `NuGet.Config` ファイルが誤って空になっています。 この問題を解決するには: Visual Studio 2015 を終了し、`%AppData%\NuGet\` フォルダーの `NuGet.Config` ファイルを削除し、Visual Studio を再起動します。  新しい `NuGet.Config` ファイルが生成され、続行できるようになります。
+`%AppData%\NuGet\` (Windows) フォルダーまたは `~/.nuget/` (Mac/Linux) フォルダーの `NuGet.Config` ファイルが誤って空になります。 この問題を解決するには、Visual Studio を終了し (Windows で該当する場合)、`NuGet.Config` ファイルを削除し、操作をやり直します。 NuGet から新しい `NuGet.Config` が生成され、続行できるようになります。
 
 ## <a name="error-installing-packages-with-nuget-27"></a>NuGet 2.7 を使用してパッケージをインストールするときのエラー
 
@@ -96,7 +96,7 @@ VS 2010 SP1 を実行していて、NuGet の以前のバージョンをイン�
 ログを表示すると、`SignatureMismatchException` のメンションが表示されることがあります。
 
 これを防ぐには、[Visual Studio 2010 SP1 修正プログラム](http://bit.ly/vsixcertfix)をインストールします。
-または、(管理者として Visual Studio を実行しているときに) NuGet をアンインストールし、VS 拡張ギャラリーから NuGet をインストールするだけ、という回避策もあります。  詳細については、[http://support.microsoft.com/kb/2581019](http://support.microsoft.com/kb/2581019) を参照してください。
+または、(管理者として Visual Studio を実行しているときに) NuGet をアンインストールし、VS 拡張ギャラリーから NuGet をインストールするだけ、という回避策もあります。  詳細については、「[http://support.microsoft.com/kb/2581019](http://support.microsoft.com/kb/2581019)」を参照してください。
 
 ## <a name="package-manager-console-throws-an-exception-when-the-reflector-visual-studio-add-in-is-also-installed"></a>Reflector Visual Studio アドインもインストールされている場合、パッケージ マネージャー コンソールから例外がスローされます。
 
@@ -165,7 +165,7 @@ Visual Studio 拡張機能マネージャーを使用して NuGet をアンイ�
 
 ## <a name="the-package-manager-console-crashes-when-i-open-it-in-windows-xp-whats-wrong"></a>Windows XP でパッケージ マネージャー コンソールを開こうとするとクラッシュする 理由
 
-NuGet には PowerShell 2.0 ランタイムが必要です。 Windows XP の既定では PowerShell 2.0 がインストールされていません。 PowerShell 2.0 ランタイムは、[http://support.microsoft.com/kb/968929](http://support.microsoft.com/kb/968929) からダウンロードできます。 インストール後に Visual Studio を再起動すると、パッケージ マネージャー コンソールを開くことができるようになります。
+NuGet には PowerShell 2.0 ランタイムが必要です。 Windows XP の既定では PowerShell 2.0 がインストールされていません。 Powershell 2.0 ランタイムは [http://support.microsoft.com/kb/968929](http://support.microsoft.com/kb/968929) からダウンロードできます。 インストール後に Visual Studio を再起動すると、パッケージ マネージャー コンソールを開くことができるようになります。
 
 ## <a name="visual-studio-2010-sp1-beta-crashes-on-exit-if-the-package-manager-console-is-open"></a>パッケージ マネージャー コンソールが開いていると、Visual Studio 2010 SP1 ベータ版の終了時にクラッシュします。
 
@@ -231,4 +231,4 @@ Windows Phone Tools は Visual Studio 拡張機能マネージャーをサポー
 
 ## <a name="reporting-issues"></a>レポートの問題
 
-NuGet の問題を報告するには、[https://github.com/nuget/home/issues](https://github.com/nuget/home/issues) にアクセスします。
+NuGet の問題を報告するには、[https://github.com/nuget/home/issues](https://github.com/nuget/home/issues) にアクセスしてください。

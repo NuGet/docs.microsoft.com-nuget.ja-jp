@@ -12,11 +12,11 @@ keywords: "バージョン管理, NuGet パッケージ バージョン管理, N
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f07b4a0428685b036640a7153190fd8454885608
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 03f744a96841a8c49d9f1dde89620b85de968d6f
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="building-pre-release-packages"></a>プレリリース パッケージのビルド
 
@@ -79,7 +79,7 @@ ms.lasthandoff: 02/02/2018
 - `-rc`: リリース候補。一般的に、重大なバグが現れない限り、最終版 (安定版) となる可能性があるリリース。
 
 > [!Note]
-> NuGet は、`1.0.1-build.23` のようにドット付きで表記される、[SemVer 互換 (v2.0.0)](http://semver.org/spec/v2.0.0.html) プレリリース番号に対応していません。 `1.0.1-build23` のようなフォームを利用できますが、常にプレリリース版と見なされます。
+> NuGet 4.3.0 以降は、`1.0.1-build.23` のように、ドット表記のプレリリース番号をサポートする[セマンティック バージョニング v2.0.0](http://semver.org/spec/v2.0.0.html) をサポートしています。 ドット表記は、バージョン 4.3.0 より前の NuGet ではサポートされていません。 以前のバージョンの NuGet では、`1.0.1-build23` のような形式を使用できましたが、これは常にプレリリース版と見なされていました。
 
 ただし、どのようなサフィックスを使用する場合でも、NuGet はアルファベットの逆順で優先順序を与えます。
 

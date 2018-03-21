@@ -12,11 +12,11 @@ keywords: "NuGet 依存関係, NuGet および UWP, UWP および project.json, 
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f1ec086d6404c441ca5ad53028af2265a2344905
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 3ef3703b2be92f84d37866bce9934ebcfed3a9f7
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="projectjson-and-uwp"></a>project.json および UWP
 
@@ -121,7 +121,7 @@ lib 構造の例を以下に示します。
 
 runtimes フォルダーには、通常はオペレーティング システムおよび CPU アーキテクチャで定義される、特定の "ランタイム" で実行するために必要なアセンブリとネイティブ ライブラリが含まれます。 これらのランタイムは、`win`、`win-x86`、`win7-x86`、`win8-64` などの[ランタイム識別子 (RID)](/dotnet/core/rid-catalog) を使用して識別されます。
 
-## <a name="native-light-up"></a>ネイティブの特徴
+## <a name="native-helpers-to-use-platform-specific-apis"></a>プラットフォーム固有の API を使用するネイティブ ヘルパー
 
 次の例では、いくつかのプラットフォームの単なるマネージされた実装を持つものの、Windows 8 固有のネイティブ API を呼び出すことができる Windows 8 のネイティブ ヘルパーを使用するパッケージを示します。
 

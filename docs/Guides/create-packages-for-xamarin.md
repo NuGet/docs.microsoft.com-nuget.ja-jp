@@ -1,5 +1,5 @@
 ---
-title: "クロスプラットフォーム NuGet パッケージの作成 (iOS、Android、および Windows 用) | Microsoft Docs"
+title: "Xamarin 用 NuGet パッケージの作成 (iOS、Android、および Windows 用) | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
@@ -12,26 +12,26 @@ keywords: "パッケージを作成する, Xamarin のパッケージ, クロス
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2f0131e4f447e2e0ab5a1d17e476a425eaa01b61
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 3e1460de060980365a5eaa2ef91c052cc359bb70
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="create-cross-platform-packages"></a>クロスプラットフォーム パッケージの作成
+# <a name="create-packages-for-xamarin"></a>Xamarin 用パッケージの作成
 
 クロスプラットフォーム パッケージには、実行時のオペレーティング システムに応じて、iOS、Android、および Windows でネイティブ API を使用するコードが含まれます。 これを行うのは簡単ですが、開発者が共通の API のセキュリティ、外部からのアクセスを通じて PCL または .NET Standard ライブラリからパッケージを使用できるようにすることをお勧めします。
 
 このチュートリアルでは、iOS、Android、および Windows 上のモバイル プロジェクトで使用できるクロスプラットフォームの NuGet パッケージを作成します。
 
-1. [前提条件](#pre-requisites)
+1. [前提条件](#prerequisites)
 1. [プロジェクトの構造体および抽象化コードを作成する](#create-the-project-structure-and-abstraction-code)
 1. [プラットフォーム固有のコードを記述する](#write-your-platform-specific-code)
 1. [.nuspec ファイルを作成して更新する](#create-and-update-the-nuspec-file)
 1. [コンポーネントをパッケージ化する](#package-the-component)
 1. [関連トピック](#related-topics)
 
-## <a name="pre-requisites"></a>前提条件
+## <a name="prerequisites"></a>必須コンポーネント
 
 1. Visual Studio 2015、ユニバーサル Windows プラットフォーム (UWP) および Xamarin。 [visualstudio.com](https://www.visualstudio.com/) から無料の Community Edition をインストールします。もちろん、Professional Edition と Enterprise Edition も使用できます。 UWP および Xamarin ツールを含めるには、カスタム インストールを選択して、適切なオプションを確認します。
 1. NuGet CLI。 [nuget.org/downloads](https://nuget.org/downloads) から最新バージョンの nuget.exe をダウンロードして、任意の場所に保存します。 次に、その場所を PATH 環境変数に追加します (まだ存在していない場合)。
@@ -112,9 +112,9 @@ namespace Plugin.LoggingLibrary.Abstractions
 
 1. コマンド プロンプトを開き、`.sln` ファイルの 1 レベル下の `LoggingLibrary` フォルダーに移動して NuGet `spec` コマンドを実行し、初期 `Package.nuspec` ファイルを作成します。
 
-```cli
-nuget spec
-```
+    ```cli
+    nuget spec
+    ```
 
 1. このファイルの名前を `LoggingLibrary.nuspec` に変更して、エディターで開きます。
 1. 以下の内容と一致するようにファイルを更新して、YOUR_NAME を適切な値に置き換えます。 具体的には、`<id>` 値を nuget.org で固有のものにする必要があります (「[パッケージの作成](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number)」で説明されている名前付け規則に関する記述を参照)。 また、作成者と説明のタグを更新する必要があることに注意してください。そうしないと、パッキングの手順でエラーが発生します。
