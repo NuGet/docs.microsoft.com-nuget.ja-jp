@@ -1,28 +1,28 @@
 ---
-title: "Visual Studio を使用して NuGet パッケージを作成し公開するための入門ガイド | Microsoft Docs"
+title: "Visual Studio を使用した .NET Standard NuGet パッケージの作成と公開の入門ガイド | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 02/02/2018
+ms.date: 03/18/2018
 ms.topic: get-started-article
 ms.prod: nuget
 ms.technology: 
-description: "Visual Studio 2017 を使用した、NuGet パッケージの作成と公開に関するチュートリアル。"
+description: "Visual Studio 2017 を使用した .NET Standard NuGet パッケージの作成と公開に関するチュートリアルです。"
 keywords: "NuGet パッケージの作成、NuGet パッケージの公開、NuGet チュートリアル、Visual Studio による NuGet パッケージの作成、msbuild pack"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: a4d60fdc0f27f9c4080266e212ac1cfe470ba925
-ms.sourcegitcommit: eabd401616a98dda2ae6293612acb3b81b584967
+ms.openlocfilehash: 733fee616601e1d15d8fb5814b5bfb7905ff4a33
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="create-and-publish-a-package-using-visual-studio"></a>Visual Studio を使用した、パッケージの作成と公開
+# <a name="create-and-publish-a-package-using-visual-studio-net-standard"></a>Visual Studio を使用したパッケージの作成と公開 (.NET Standard)
 
-Visual Studio で.NET クラス ライブラリから NuGet パッケージを作成し、CLI ツールを使用してパッケージを nuget.org に公開する簡単なプロセスです。
+Visual Studio で .NET Standard クラス ライブラリから NuGet パッケージを作成し、CLI ツールを使用してパッケージを nuget.org に公開する簡単なプロセスです。
 
-## <a name="pre-requisites"></a>前提条件
+## <a name="prerequisites"></a>必須コンポーネント
 
 1. [visualstudio.com](https://www.visualstudio.com/) から Visual Studio 2017 の任意のエディションと、.NET 関連の任意のワークロードをインストールします。 Visual Studio 2017 では、.NET ワークロードをインストールする際、NuGet 機能は自動的に含まれません。
 
@@ -34,7 +34,7 @@ Visual Studio で.NET クラス ライブラリから NuGet パッケージを�
 
 ## <a name="create-a-class-library-project"></a>クラス ライブラリ プロジェクトを作成する
 
-パッケージ化するコードに既存の .NET クラス ライブラリ プロジェクトを使用することも、次の手順に従って単純なプロジェクトを作成することもできます。
+パッケージ化するコードに既存の .NET Standard クラス ライブラリ プロジェクトを使用することも、次の手順に従って単純なプロジェクトを作成することもできます。
 
 1. Visual Studio で、**[ファイル]、[新規]、[プロジェクト]** の順に選択し、**[Visual C#]、[.NET Standard]** ノードの順に展開して "クラス ライブラリ (.NET Standard)" テンプレートを選択し、プロジェクトに AppLogger という名前を付け、**[OK]** をクリックします。
 
@@ -60,7 +60,7 @@ namespace AppLogger
 
 ## <a name="configure-package-properties"></a>パッケージのプロパティを構成する
 
-1. **[プロジェクト]、[プロパティ]** メニュー コマンドの順に選択し、**[パッケージ]** タブを選択します。
+1. **[プロジェクト]、[プロパティ]** メニュー コマンドの順に選択し、**[パッケージ]** タブを選択します(**[パッケージ]** タブは .NET Standard クラス ライブラリ プロジェクトの場合にのみに表示されます。.NET Framework をターゲットにする場合は代わりに「[Create and publish a .NET Framework package](create-and-publish-a-package-using-visual-studio-net-framework.md)」(.NET Framework パッケージの作成と公開) を参照してください)。
 
     ![Visual Studio プロジェクト内の NuGet パッケージのプロパティ](media/qs_create-vs-01-package-properties.png)
 
@@ -95,7 +95,7 @@ namespace AppLogger
 
 ### <a name="alternate-option-pack-with-msbuild"></a>別のオプション: MSBuild の pack
 
-**Pack** メニュー コマンドを使用する代わりとして、NuGet 4.x+ と MSBuild 15.1+ ではプロジェクトに必要なパッケージ データが含まれている場合に `pack` ターゲットをサポートしています。
+NuGet 4.x 以降と MSBuild 15.1 以降では、**Pack** メニュー コマンドを使用する代わりに、プロジェクトに必要なパッケージ データが含まれている場合に `pack` ターゲットをサポートしています。 コマンド プロンプトを開き、プロジェクト フォルダーに移動し、次のコマンドを実行します (MSBuild に必要なすべてのパスが構成されるため、通常は [スタート] メニューの [Developer Command Prompt for Visual Studio]\(Visual Studio 用開発者コマンド プロンプト\) を使用します)。
 
 ```cli
 msbuild /t:pack /p:Configuration=Release
@@ -119,7 +119,7 @@ msbuild /t:pack /p:Configuration=Release
 
 この手順は、`dotnet.exe`の使用に代わる方法です。
 
-1. `.nupkg`ファイルを含むフォルダーに変更します。
+1. `.nupkg` ファイルを含むフォルダーに変更します。
 
 1. 次のコマンドでパッケージ名を指定し、キーを API キーに置き換えて、コマンドを実行します。
 

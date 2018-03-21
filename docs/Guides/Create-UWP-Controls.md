@@ -3,7 +3,7 @@ title: "NuGet を使って UWP をパッケージ化する方法 | Microsoft Doc
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 03/21/2017
+ms.date: 03/14/2018
 ms.topic: get-started-article
 ms.prod: nuget
 ms.technology: 
@@ -12,17 +12,17 @@ keywords: "NuGet UWP コントロール、Visual Studio XAML デザイナー、B
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 3af17121f73b878decd5f0c933696fc1b0c786d7
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 1af5118eb71836d8b8bcfa8ff713d9fef3c86374
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="creating-uwp-controls-as-nuget-packages"></a>NuGet パッケージとして UWP コントロールを作成する
 
 Visual Studio 2017 では、NuGet パッケージで配信する UWP コントロールの追加機能を活用することができます。 このガイドでは、[ExtensionSDKasNuGetPackage サンプル](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage)を使用してこれらの機能を紹介します。 
 
-## <a name="pre-requisites"></a>前提条件
+## <a name="prerequisites"></a>必須コンポーネント
 
 1. Visual Studio 2017
 1. [UWP パッケージの作成](create-uwp-packages.md)方法
@@ -100,13 +100,7 @@ UWP パッケージに含まれる TargetPlatformVersion (TPV) と TargetPlatfor
     \lib\uap10.0\*
     \ref\uap10.0\*
 
-適切な TPMinV チェックを適用するには、[MSBuild ターゲット ファイル](/visualstudio/msbuild/msbuild-targets)を作成し、ビルド フォルダーの下にパッケージ化します ("your_assembly_name" を特定のアセンブリの名前に置き換えます):
-
-    \build
-      \uap10.0
-        your_assembly_name.targets
-    \lib
-    \tools
+適切な TPMinV チェックを適用するには、[MSBuild ターゲット ファイル](/visualstudio/msbuild/msbuild-targets)を作成し、`build\uap10.0" folder as `<your_assembly_name>.targets 以下でパッケージ化します (<your_assembly_name>' は特定のアセンブリの名前に置き換えます)。
 
 ターゲット ファイルがどのように表示されるかの例を次に示します。
 
@@ -114,7 +108,7 @@ UWP パッケージに含まれる TargetPlatformVersion (TPV) と TargetPlatfor
 <?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
-  <Target Name="TPMinVCheck" BeforeTargets="Build;ReBuild" Condition="'$(TargetPlatformMinVersion)' != ''">
+  <Target Name="TPMinVCheck" BeforeTargets="ResolveAssemblyReferences" Condition="'$(TargetPlatformMinVersion)' != ''">
     <PropertyGroup>
       <RequiredTPMinV>10.0.14393</RequiredTPMinV>
       <ActualTPMinV>$(TargetPlatformMinVersion)</ActualTPMinV>
@@ -126,17 +120,15 @@ UWP パッケージに含まれる TargetPlatformVersion (TPV) と TargetPlatfor
 
 ## <a name="add-design-time-support"></a>デザイン時サポートの追加
 
-プロパティ インスペクターのどこにコントロールのプロパティが表示されるかを構成するには、カスタム装飾などを追加し、ターゲット プラットフォームに合わせて `design.dll` ファイルを `lib\<platform>\Design` フォルダー内に配置します。 また、**[[テンプレートの編集] > [コピーして編集]](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)** 機能を確実に動作させるには、マージする `Generic.xaml` とリソース ディクショナリを `<AssemblyName>\Themes` フォルダーに含める必要があります  (このファイルはコントロールの実行時の動作には影響しません)。
+プロパティ インスペクターのどこにコントロールのプロパティが表示されるかを構成するには、カスタム装飾などを追加し、ターゲット プラットフォームに合わせて `design.dll` ファイルを `lib\uap10.0\Design` フォルダー内に配置します。 また、**[[テンプレートの編集] > [コピーして編集]](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)** 機能を確実に動作させるには、マージする `Generic.xaml` とリソース ディクショナリを `<your_assembly_name>\Themes` フォルダーに含める必要があります (ここでも実際のアセンブリ名を使用します)。 (このファイルはコントロールの実行時の動作には影響しません)。その結果、フォルダー構造は次のようになります。
 
-    \build
     \lib
-      \uap10.0.14393.0
+      \uap10.0
         \Design
           \MyControl.design.dll
         \your_assembly_name
           \Themes
             Generic.xaml
-    \tools
 
 > [!Note]
 > 既定では、コントロールのプロパティは、プロパティ インスペクターの [その他] カテゴリの下に表示されます。
@@ -149,15 +141,7 @@ UWP パッケージに含まれる TargetPlatformVersion (TPV) と TargetPlatfor
 
 ## <a name="package-content-such-as-images"></a>画像などのパッケージの内容
 
-コントロールまたは使用中の UWP プロジェクトで使用できる画像などのコンテンツをパッケージ化します。 次のようにこれらのファイルを `lib\uap10.0.14393.0` フォルダーに追加します ("your_assembly_name" は、特定のコントロールに一致させます)。
-
-    \build
-    \lib
-      \uap10.0.14393.0
-        \Design
-          \your_assembly_name
-    \contosoSampleImage.jpg
-    \tools
+コントロールまたは使用中の UWP プロジェクトで使用できる画像などのコンテンツをパッケージ化するには、対象のファイルを `lib\uap10.0` フォルダー内に配置します。
 
 [MSBuild ターゲット ファイル](/visualstudio/msbuild/msbuild-targets)を作成して、資産が使用するプロジェクトの出力フォルダーにコピーされるようにすることもできます。
 
@@ -165,7 +149,7 @@ UWP パッケージに含まれる TargetPlatformVersion (TPV) と TargetPlatfor
 <?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <ItemGroup Condition="'$(TargetPlatformIdentifier)' == 'UAP'">
-        <Content Include="$(MSBuildThisFileDirectory)..\..\lib\uap10.0.14393.0\contosoSampleImage.jpg">
+        <Content Include="$(MSBuildThisFileDirectory)..\..\lib\uap10.0\contosoSampleImage.jpg">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
     </ItemGroup>
