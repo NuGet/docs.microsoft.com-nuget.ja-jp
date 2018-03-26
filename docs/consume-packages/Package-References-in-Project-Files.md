@@ -1,22 +1,22 @@
 ---
-title: "NuGet PackageReference 形式 (プロジェクト ファイルのパッケージ参照) | Microsoft Docs"
+title: NuGet PackageReference 形式 (プロジェクト ファイルのパッケージ参照) | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 07/17/2017
+ms.date: 03/16/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "NuGet 4.0 以降と VS2017 および .NET Core 2.0 でサポートされているプロジェクト ファイルの NuGet PackageReference に関する詳細"
-keywords: "NuGet パッケージの依存関係、パッケージ参照、プロジェクト ファイル、PackageReference、packages.config、VS2017、Visual Studio 2017、NuGet 4、.NET Core 2.0"
+ms.technology: ''
+description: NuGet 4.0 以降と VS2017 および .NET Core 2.0 でサポートされているプロジェクト ファイルの NuGet PackageReference に関する詳細
+keywords: NuGet パッケージの依存関係、パッケージ参照、プロジェクト ファイル、PackageReference、packages.config、VS2017、Visual Studio 2017、NuGet 4、.NET Core 2.0
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 679871a280c158c863e0daf790af1b7cef509943
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: e1880c9b294e19ef1b71c7b17b02df8ff1cf1b73
+ms.sourcegitcommit: 718e6cb88e45fa07c85d653f216bf92eaaf81625
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/20/2018
 ---
 # <a name="package-references-packagereference-in-project-files"></a>プロジェクト ファイルのパッケージ参照 (PackageReference)
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 02/20/2018
 
 PackageReference の場合、MSBuild 条件を使用し、ターゲット フレームワーク、構成、プラットフォーム、その他のグループ化ごとにパッケージ参照を選択することもできます。 依存関係とコンテンツ フローを細かく制御することもできます。 (詳細については、「[NuGet pack and restore as MSBuild targets](../reference/msbuild-targets.md)」(MSBuild ターゲットとしての NuGet のパックと復元) を参照してください)。
 
-既定では、PackageReference は、Windows 10 Build 15063 (Creators Update) 以降を対象とする .NET Core プロジェクト、.NET Standard プロジェクト、および UWP プロジェクトに使用されます。 完全な .NET Framework プロジェクトは PackageReference をサポートしていますが、現在の既定は `packages.config` です。 PackageReference を使用するには、依存関係を `packages.config` からプロジェクト ファイルに移行し、packages.config を削除します。
+既定では、PackageReference は、Windows 10 Build 15063 (Creators Update) 以降を対象とする .NET Core プロジェクト、.NET Standard プロジェクト、および UWP プロジェクトに使用されます。ただし、C++ UWP プロジェクトは例外です。 完全な .NET Framework プロジェクトは PackageReference をサポートしていますが、現在の既定は `packages.config` です。 PackageReference を使用するには、依存関係を `packages.config` からプロジェクト ファイルに移行し、packages.config を削除します。
 
 ## <a name="adding-a-packagereference"></a>PackageReference を追加する
 
@@ -94,7 +94,7 @@ PackageReference の場合、MSBuild 条件を使用し、ターゲット フレ
 | [値] | 説明 |
 | --- | ---
 | compile | `lib` フォルダーの内容 |
-| ランタイム | `runtime` フォルダーの内容 |
+| ランタイム | `runtimes` フォルダーの内容 |
 | contentFiles | `contentfiles` フォルダーの内容 |
 | ビルド | `build` フォルダーの props と targets |
 | analyzers | .NET アナライザー |
