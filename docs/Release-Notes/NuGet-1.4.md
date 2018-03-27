@@ -12,11 +12,11 @@ keywords: "NuGet 1.4 のリリース ノートについては、バグの修正�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: a69f4f5c7172817d711fa5e995cf6db3875c4810
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: bc0800361551b996d958e03b9cfa3d745b78e43d
+ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="nuget-14-release-notes"></a>NuGet 1.4 のリリース ノート
 
@@ -115,11 +115,11 @@ _**注**: 場合にのみ、チェックが行われます、**オンライン**
 * **単純なシンボル パッケージを作成するためのワークフロー**:`-Symbols`フラグのみ、ソースを含めることによってシンボル パッケージを作成する標準規約に基づくフォルダー構造に適用できますと`.pdb`フォルダー内のファイルです。
 * **複数のソースを指定する**:`NuGet install`コマンドでは、区切り記号としてセミコロンを使用を指定することによって複数のソースを指定することがサポートする`-Source`複数回です。
 * **プロキシ認証がサポート**: NuGet 1.4 は、NuGet を使用して認証を必要とするプロキシの背後にあるときにユーザーの資格情報の入力を求めてのサポートを追加します。
-* **nuget.exe 互換性に影響する変更の更新**:`-Self`フラグが、それ自体を更新する nuget.exe のために必要なです。 `nuget.exe Update`パスでは、`packages.config`ファイルし、パッケージの更新を試みます。 されませんが、この更新プログラムが制限されるに注意してください: * * 更新、追加、プロジェクト ファイルのコンテンツを削除します。
+* **nuget.exe 互換性に影響する変更の更新**:`-Self`フラグが、それ自体を更新する nuget.exe のために必要なです。 `nuget.exe Update` パスでは、`packages.config`ファイルし、パッケージの更新を試みます。 されませんが、この更新プログラムが制限されるに注意してください: * * 更新、追加、プロジェクト ファイルのコンテンツを削除します。
 * *、パッケージ内の Powershell スクリプトを実行します。
 
 ### <a name="nuget-server-support-for-pushing-packages-using-nugetexe"></a>Nuget.exe を使用したプッシュのパッケージの NuGet サーバーのサポート
-NuGet にホストを簡単な方法が含まれています、[かつ軽量の web ベースの NuGet リポジトリ](../hosting-packages/NuGet-Server.md)を介して、 `NuGet.Server` NuGet パッケージです。 NuGet 1.4 では、軽量なサーバーは、プッシュおよび nuget.exe を使用してパッケージの削除をサポートします。
+NuGet にホストを簡単な方法が含まれています、[かつ軽量の web ベースの NuGet リポジトリ](../hosting-packages/nuget-server.md)を介して、 `NuGet.Server` NuGet パッケージです。 NuGet 1.4 では、軽量なサーバーは、プッシュおよび nuget.exe を使用してパッケージの削除をサポートします。
 最新バージョン`NuGet.Server`新しい`appSetting`、名前付き`apiKey`します。 キーを省略するか、空白のまま、フィードへのパッケージのプッシュが無効になります。 ApiKey を値 (理想的には強力なパスワード) に設定すると、nuget.exe を使用したプッシュのパッケージが有効になります。
 
 ```xml

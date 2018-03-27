@@ -7,21 +7,20 @@ ms.author:
 - joelverhagen
 - kraigb
 manager: skofman
-ms.date: 11/2/2017
+ms.date: 11/02/2017
 ms.topic: get-started-article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 5d017cd4-3d75-4341-ba90-3c57be093b7d
 description: "NuGet API を使用して、nuget.org に発行されたすべてのパッケージに対してクエリを実行し、時間が経過しても最新の状態を把握することができます。"
 keywords: "NuGet API ですべてのパッケージを列挙する, NuGet API でパッケージをレプリケートする, nuget.org に発行された最新のパッケージ"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 5559a7cd104861b1a10aa8d1513696e609c51c15
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: ce25680f3b591e9c6b0234b6ac30b82205d10ad3
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="query-for-all-packages-published-to-nugetorg"></a>nuget.org に発行されたすべてのパッケージに対するクエリの実行
 
@@ -64,31 +63,25 @@ DateTime cursor = DateTime.UtcNow.AddHours(-1);
 
 NuGet API のすべてのリソース (エンドポイント) の場所は、[サービス インデックス](../../api/service-index.md)を使用して検出する必要があります。 このガイドでは nuget.org に焦点を当てているため、nuget.org のサービス インデックスを使用します。
 
-```
-GET https://api.nuget.org/v3/index.json
-```
+    GET https://api.nuget.org/v3/index.json
 
-サービス ドキュメントは、nuget.org のすべてのリソースを含む JSON ドキュメントです。`@type` プロパティの値が `Catalog/3.0.0` のリソースを見つけてください。 関連付けられている `@id`プロパティの値は、カタログ インデックス自体の URL です。
+サービス ドキュメントは、nuget.org のすべてのリソースを含む JSON ドキュメントです。`@type` プロパティの値が `Catalog/3.0.0` のリソースを見つけてください。 関連付けられている `@id`プロパティの値は、カタログ インデックス自体の URL です。 
 
 ## <a name="find-new-catalog-leaves"></a>新しいカタログ リーフを見つける
 
 前の手順で見つけた `@id` プロパティの値を使用して、カタログ インデックスをダウンロードします。
 
-```
-GET https://api.nuget.org/v3/catalog0/index.json
-```
+    GET https://api.nuget.org/v3/catalog0/index.json
 
 [カタログ インデックス](../../api/catalog-resource.md#catalog-index)を逆シリアル化します。 すべての[カタログ ページ オブジェクト](../../api/catalog-resource.md#catalog-page-object-in-the-index)を、現在のカーソル値以下の `commitTimeStamp` でフィルタリングします。
 
 残りのカタログ ページごとに、`@id` プロパティを使用して完全なドキュメントをダウンロードします。
 
-```
-GET https://api.nuget.org/v3/catalog0/page2926.json
-```
+    GET https://api.nuget.org/v3/catalog0/page2926.json
 
 [カタログ ページ](../../api/catalog-resource.md#catalog-page)を逆シリアル化します。 すべての[カタログ リーフ オブジェクト](../../api/catalog-resource.md#catalog-item-object-in-a-page)を、現在のカーソル値以下の `commitTimeStamp` でフィルタリングします。
 
-フィルタリングされなかったカタログ ページをすべてダウンロードした後、カーソルのタイムスタンプから今までに発行、リスト解除、リスト、または削除されたパッケージを表す一連のカタログ リーフ オブジェクトが示されます。
+フィルタリングされなかったカタログ ページをすべてダウンロードした後、カーソルのタイムスタンプから今までに公開、リスト解除、リスト、または削除されたパッケージを表す一連のカタログ リーフ オブジェクトが示されます。
 
 ## <a name="process-catalog-leaves"></a>カタログ リーフを処理する
 
@@ -96,9 +89,7 @@ GET https://api.nuget.org/v3/catalog0/page2926.json
 
 パッケージに関するメタデータ (説明、依存関係、.nupkg のサイズなど) に関心がある場合は、`@id` プロパティを使用して[カタログ リーフ ドキュメント](../../api/catalog-resource.md#catalog-leaf)をフェッチできます。
 
-```
-GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
-```
+    GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
 
 このドキュメントには、[パッケージ メタデータ リソース](../../api/registration-base-url-resource.md)などに含まれるすべてのメタデータが示されます。
 
@@ -122,14 +113,13 @@ GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.stor
 
 C# のサンプルは、[NuGet/Sample リポジトリ](https://github.com/NuGet/Samples/tree/master/CatalogReaderExample)で入手可能です。
 
-```
+```cli
 git clone https://github.com/NuGet/Samples.git
 ```
 
 ### <a name="catalog-sdk"></a>カタログ SDK
 
-カタログを使用する場合、プレリリース版の .NET カタログ SDK パッケージである [NuGet.Protocol.Catalog](https://dotnet.myget.org/feed/nuget-build/package/nuget/NuGet.Protocol.Catalog) を使用するのが最も簡単な方法です。
-このパッケージは、`nuget-build` MyGet フィード (NuGet パッケージ ソース URL `https://dotnet.myget.org/F/nuget-build/api/v3/index.json` を使用する場合) で入手可能です。
+カタログを使用する場合、プレリリース版の .NET カタログ SDK パッケージである [NuGet.Protocol.Catalog](https://dotnet.myget.org/feed/nuget-build/package/nuget/NuGet.Protocol.Catalog) を使用するのが最も簡単な方法です。 このパッケージは、`nuget-build` MyGet フィード (NuGet パッケージ ソース URL `https://dotnet.myget.org/F/nuget-build/api/v3/index.json` を使用する場合) で入手可能です。
 
 このパッケージを、`netstandard1.3` 以上 (.NET Framework 4.6 など) と互換性のあるプロジェクトにインストールすることができます。
 
@@ -137,7 +127,7 @@ git clone https://github.com/NuGet/Samples.git
 
 #### <a name="sample-output"></a>出力例
 
-```
+```output
 2017-11-10T22:16:44.8689025+00:00: Found package details leaf for xSkrape.APIWrapper.REST 1.0.2.
 2017-11-10T22:16:54.6972769+00:00: Found package details leaf for xSkrape.APIWrapper.REST 1.0.1.
 2017-11-10T22:19:20.6385542+00:00: Found package details leaf for Platform.EnUnity 1.0.8.
@@ -171,14 +161,13 @@ warn: NuGet.Protocol.Catalog.CatalogProcessor[0]
 
 ### <a name="minimal-sample"></a>最小サンプル
 
-カタログとの対話を詳細に示す、いくつかの依存関係を含む例については、[CatalogReaderExample サンプル プロジェクト](https://github.com/NuGet/Samples/tree/master/CatalogReaderExample/CatalogReaderExample)を参照してください。
-プロジェクトは `netcoreapp2.0` をターゲットとし、[NuGet.Protocol 4.4.0](https://www.nuget.org/packages/NuGet.Protocol/4.4.0) (サービス インデックスを解決する場合) および [Newtonsoft.Json 9.0.1](https://www.nuget.org/packages/Newtonsoft.Json/9.0.1) (JSON シリアル化解除の場合) に依存します。
+カタログとの対話を詳細に示す、いくつかの依存関係を含む例については、[CatalogReaderExample サンプル プロジェクト](https://github.com/NuGet/Samples/tree/master/CatalogReaderExample/CatalogReaderExample)を参照してください。 プロジェクトは `netcoreapp2.0` をターゲットとし、[NuGet.Protocol 4.4.0](https://www.nuget.org/packages/NuGet.Protocol/4.4.0) (サービス インデックスを解決する場合) および [Newtonsoft.Json 9.0.1](https://www.nuget.org/packages/Newtonsoft.Json/9.0.1) (JSON シリアル化解除の場合) に依存します。
 
 コードの主なロジックは [Program.cs ファイル](https://github.com/NuGet/Samples/blob/master/CatalogReaderExample/CatalogReaderExample/Program.cs)に表示されます。
 
 #### <a name="sample-output"></a>出力例
 
-```
+```output
 No cursor found. Defaulting to 11/2/2017 9:41:28 PM.
 Fetched catalog index https://api.nuget.org/v3/catalog0/index.json.
 Fetched catalog page https://api.nuget.org/v3/catalog0/page2935.json.

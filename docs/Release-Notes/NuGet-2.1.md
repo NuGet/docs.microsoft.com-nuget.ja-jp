@@ -12,11 +12,11 @@ keywords: "NuGet 2.1 リリース ノートについては、バグの修正、�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 05cdb898cc674ac7eadb238d41896638d8e3488c
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: 405f5a0bddd5472cc760da77412c5fa066da1558
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="nuget-21-release-notes"></a>NuGet 2.1 リリース ノート
 
@@ -54,7 +54,7 @@ NuGet 2.1 では、再帰的に探して、フォルダー構造のウォーク�
 
 ![親の nuget 構成からのパッケージ ソース](./media/releasenotes-21-cfg-hierarchy.png)
 
-`NuGet.Config`次の順序でのファイルが検索されます。
+`NuGet.Config` 次の順序でのファイルが検索されます。
 
 1. `.nuget\Nuget.Config`
 2. 再帰がルート プロジェクト フォルダーからウォークします。
@@ -76,7 +76,7 @@ NuGet 2.1 を使用して、[パッケージ] フォルダーの場所をより�
 </configuration>
 ```
 
-この例では、共有で`Nuget.Config`ファイルの深さに関係なく C:\myteam の下に作成されるすべてのプロジェクトの共有のパッケージ フォルダーを指定します。 場合は、ソリューションのルートの下の既存のパッケージ フォルダーにある場合は、NuGet は、新しい場所にパッケージを配置する前に、それを削除する必要は注意してください。
+この例では、共有で`Nuget.Config`ファイルの深さに関係なく C:\myteam の下に作成されるすべてのプロジェクトの共有のパッケージ フォルダーを指定します。 場合は、ソリューションのルートの下の既存のパッケージ フォルダーにある場合は、NuGet は、新しい場所にパッケージを配置前に削除する必要がありますに注意してください。
 
 ## <a name="support-for-portable-libraries"></a>ポータブル ライブラリのサポート
 [ポータブル ライブラリ](/dotnet/standard/cross-platform/cross-platform-development-with-the-portable-class-library)Silverlight は、Windows Phone およびでも Xbox に.net Framework のバージョンからのさまざまな Microsoft プラットフォームでの変更なしで使用できるようにアセンブリをビルドすることができます .NET 4 で初めて導入された機能です360 (ただし、現時点では、NuGet は、Xbox ポータブル ライブラリのターゲットをサポートしていません)。  拡張することによって、[規則をパッケージ化](../create-packages/supporting-multiple-target-frameworks.md)framework のバージョンとプロファイルは、NuGet 2.1 では、ポータブル ライブラリを複合フレームワークとプロファイルのターゲットを持つパッケージを作成することによって`lib`フォルダーです。
@@ -89,7 +89,7 @@ NuGet 2.1 を使用して、[パッケージ] フォルダーの場所をより�
 
 ![ポータブル ライブラリ パッケージのレイアウト](./media/releasenotes-21-plib-layout.png)
 
-ご覧のように、ポータブル ライブラリ フォルダーの名前規則、パターンに従う 'ポータブル {フレームワーク 1} + framework {n}' フレームワーク識別子は、既存に従う、[フレームワークの名前とバージョン規則](../schema/target-frameworks.md)です。 Windows Phone を使用するフレームワーク識別子の名前とバージョンの規則に 1 つの例外はあります。  このモニカーは、フレームワーク名 'wp' (wp7、wp71 または wp8) を使用してください。 ' Silverlight-wp7' を使用してなどのエラーが発生します。
+ご覧のように、ポータブル ライブラリ フォルダーの名前規則、パターンに従う 'ポータブル {フレームワーク 1} + framework {n}' フレームワーク識別子は、既存に従う、[フレームワークの名前とバージョン規則](../reference/target-frameworks.md)です。 Windows Phone を使用するフレームワーク識別子の名前とバージョンの規則に 1 つの例外はあります。  このモニカーは、フレームワーク名 'wp' (wp7、wp71 または wp8) を使用してください。 ' Silverlight-wp7' を使用してなどのエラーが発生します。
 
 このフォルダー構造から作成されたパッケージをインストールするときに NuGet がフォルダー名で指定されている複数の対象にそのフレームワークとプロファイルのルールを適用できますようになりました。  NuGet の照合ルールの背後にある、「特定」のターゲットが優先される「汎用性」の原則です。  つまり、こと、特定のプラットフォームを対象とするモニカーは常によりも優先されるポータブルのどちらもプロジェクトに互換性がある場合。  さらに、複数のターゲットをポータブル プロジェクトと互換性のある場合は、NuGet をここでサポートされているプラットフォームの設定は、パッケージを参照しているプロジェクトに「最も近い」のいずれかを選びます。
 

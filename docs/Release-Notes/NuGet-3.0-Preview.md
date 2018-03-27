@@ -12,11 +12,11 @@ keywords: "NuGet 3.0 プレビュー リリース ノートについては、バ
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: e07bcad2bf713deee0add72663c84b9979f8c5c4
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: cf7cd17065e1c83beb935fe2969e6ecd8b52aa29
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="nuget-30-preview-release-notes"></a>NuGet 3.0 プレビューのリリース ノート
 
@@ -30,7 +30,7 @@ Visual Studio 2015 Preview では、この NuGet 3.0 プレビューが含まれ
 
 ## <a name="brand-new-ui"></a>新しい UI
 
-最初に気付くこと NuGet 3.0 プレビューについては、まったく新しい UI です。 モーダル ダイアログ ボックスではなくなりましたVisual Studio ドキュメント ウィンドウの完全では今すぐです。 これにより、一度に複数のプロジェクト (または、ソリューション) の UI を開き、別のモニターにウィンドウを切り離し、ドッキングするには like などができます。
+まず NuGet 3.0 プレビューに関することを確認するには、まったく新しい UI です。 モーダル ダイアログ ボックスではなくなりましたVisual Studio ドキュメント ウィンドウの完全では今すぐです。 これにより、一度に複数のプロジェクト (または、ソリューション) の UI を開き、別のモニターにウィンドウを切り離し、ドッキングするには like などができます。
 
 ![新しい NuGet UI](./media/NuGet-3.0-Preview/new-ui.png)
 
@@ -116,13 +116,13 @@ PowerShell コンソールを使用したので注目に値するインストー
 
 に加えて、新しいパッケージ管理 UI の新機能のすべてもきております NuGet のクライアント/サーバー プロトコルの実装の詳細。 実行した作業は、パッケージをインストールするパッケージの復元など、重要なシナリオの高可用性を軸に設計されている NuGet の"API v3"を作成します。 新しい API は REST に基づいており、Hypermedia と選択[JSON %LD](http://json-ld.org)として、リソース形式。
 
-NuGet 3.0 プレビュー ビット単位で、パッケージ ソースのドロップダウン リストで"preview.nuget.org"と呼ばれる新しいパッケージ ソースが表示されます。 そのパッケージのソースを選択すると、nuget.org への接続にではなく、新しい API が使用されます。しましたソースのプレビュー UI で使用可能なテスト、修正、および新しい API を改善してまいります中。 NuGet 3.0 RC では、この新しい API v3 ベースのパッケージ ソースは v2 ベース"nuget.org"のパッケージ ソースに置き換えます。
+NuGet 3.0 プレビュー bits がパッケージ ソースのドロップダウン リストに"preview.nuget.org"と呼ばれる新しいパッケージ ソースが表示されます。 そのパッケージのソースを選択すると、nuget.org への接続にではなく、新しい API が使用されます。しましたソースのプレビュー UI で使用可能なテスト、修正、および新しい API を改善してまいります中。 NuGet 3.0 RC では、この新しい API v3 ベースのパッケージ ソースは v2 ベース"nuget.org"のパッケージ ソースに置き換えます。
 
 API v3 に導入されていること、投資効果に関係なく、既存 API v2 プロトコルであり、nuget.org も以外の既存のパッケージ ソースを使用することを意味の操作も、すべてこれらの新機能を行っています。
 
 ## <a name="new-features-coming"></a>導入された新機能
 
-現在 3.0 RTM までも取り組んでおり根本的な新しい NuGet 機能に、を超えて UI に表示されます。 次に、注目すべき投資分野の短い一覧を示します。
+現在 3.0 RTM までも取り組んでおり根本的な新しい NuGet 機能に、UI に表示される内容を超える。 次に、注目すべき投資分野の短い一覧を示します。
 
 1. Visual Studio との提携しているおおよび MSBuild のチームを取得するために[NuGet プラットフォームに深く](http://blog.nuget.org/20141014/in-the-platform.html)です。
 1. パッケージのインストール時の規則を破棄し、代わりに新しい導入することによってパッケージ化時にこれらの規則を適用する取り組んでいます「権限がある」[パッケージ マニフェスト](http://blog.nuget.org/20141023/package-manifests.html)です。

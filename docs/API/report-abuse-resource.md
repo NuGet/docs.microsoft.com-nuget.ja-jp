@@ -12,15 +12,15 @@ ms.topic: reference
 ms.prod: nuget
 ms.technology: 
 description: "レポートの不正使用を URL テンプレートは、その UI に、不正使用のリンクを表示するクライアントを使用できます。"
-keywords: "NuGet API 不正使用を報告、NuGet API ファイル準拠している、NuGet.org レポート URL テンプレート"
+keywords: "NuGet API 不正使用を報告、NuGet API ファイル準拠している、nuget.org レポート URL テンプレート"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: c12be294c71547fbce421c72aa091e0eee15aacd
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: efbe5704e6e6028f9382fea3fe5ec453f573a2e9
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="report-abuse-url-template"></a>レポートの不正使用を URL テンプレート
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 01/25/2018
 @type の値                       | メモ
 --------------------------------- | -----
 ReportAbuseUriTemplate/3.0.0-beta | 最初のリリース
-ReportAbuseUriTemplate/3.0.0-rc   | エイリアス`ReportAbuseUriTemplate/3.0.0-beta`
+ReportAbuseUriTemplate/3.0.0-rc   | エイリアス `ReportAbuseUriTemplate/3.0.0-beta`
 
 ## <a name="url-template"></a>URL テンプレート
 
@@ -58,7 +58,7 @@ name        | 種類    | 必須 | メモ
 `{id}`      | string  | Ｘ       | 不正使用を報告するパッケージ ID
 `{version}` | string  | Ｘ       | パッケージのバージョンの不正使用を報告する
 
-`{id}`と`{version}`サーバー実装により解釈される値がケース insenstive をする必要があります、バージョンを正規化するかどうかに左右されないとします。
+`{id}`と`{version}`サーバー実装により解釈される値は、大文字小文字を区別し、バージョンを正規化するかどうかに左右されないをする必要があります。
 
 たとえば、nuget.org のレポートの不正使用のテンプレートは、これのようになります。
 

@@ -12,11 +12,11 @@ keywords: "NuGet 3.0 Beta リリース ノートについては、バグの修�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 618d140c443d51f4d7eb87bac2381ad961ed85d1
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: 3a595d002e385ff0330c2eebd0e8439f5dbefbd9
+ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="nuget-30-beta-release-notes"></a>NuGet 3.0 Beta リリース ノート
 
@@ -34,7 +34,7 @@ NuGet 3.0 Beta は、Visual Studio 2015 CTP の 6 リリースの 2015 年 2 月
 
 NuGet のクライアント/サーバー プロトコルの実装の詳細お操作しました。 実行した作業は、パッケージをインストールするパッケージの復元など、重要なシナリオの高可用性を軸に設計されている NuGet の"API v3"を作成します。 新しい API は REST に基づいており、Hypermedia と選択[JSON %LD](http://json-ld.org)として、リソース形式。
 
-NuGet 3.0 Beta のビット単位で、パッケージ ソースのドロップダウン リストで"api.nuget.org"と呼ばれる新しいパッケージ ソースが表示されます。   そのパッケージのソースを選択すると、nuget.org への接続にではなく、新しい API が使用されます。NuGet 3.0 RC では、この新しい API v3 ベースのパッケージ ソースは v2 ベース"nuget.org"のパッケージ ソースに置き換えます。  すべての他のパブリックのパッケージ ソースを無効にすることを勧めし、としてのみ公開パッケージ リポジトリのみ api.nuget.org のままにします。
+NuGet 3.0 Beta bits がパッケージ ソースのドロップダウン リストに"api.nuget.org"と呼ばれる新しいパッケージ ソースが表示されます。   そのパッケージのソースを選択すると、nuget.org への接続にではなく、新しい API が使用されます。NuGet 3.0 RC では、この新しい API v3 ベースのパッケージ ソースは v2 ベース"nuget.org"のパッケージ ソースに置き換えます。  すべての他のパブリックのパッケージ ソースを無効にすることを勧めし、としてのみ公開パッケージ リポジトリのみ api.nuget.org のままにします。
 
 V3 API の構築に多くの時間を配置したして、パブリック リポジトリへのアクセスにシークする古いクライアントの標準 v2 API を維持するために続行されます。
 

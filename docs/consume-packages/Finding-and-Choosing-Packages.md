@@ -13,25 +13,19 @@ keywords: "NuGet パッケージの利用, NuGet パッケージの検出, 最�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 23ef9832af0bd864b6dcd31ab8666ac21c7b2f67
-ms.sourcegitcommit: 122bf7ce308365ea45da018b0768f0536de76a1f
+ms.openlocfilehash: 0c52fa237a663fcf227e8336534d344e432523b4
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>プロジェクトの NuGet パッケージの検索と評価
 
 任意の .NET プロジェクトを開始する場合や、ご利用のアプリまたはサービスの機能上のニーズを特定する場合は常に、そのニーズを満たす既存の NuGet パッケージを使用することで時間と手間を大幅に省くことができます。 これらのパッケージは、[nuget.org](http://www.nuget.org/packages/) のパブリック コレクション、または組織あるいは別のサードパーティによって提供されるプライベート ソースから取得できます。
 
-このページの内容:
-
-- [パッケージの検索](#finding-packages)
-- [パッケージの評価](#evaluating-packages)
-- [検索構文](#search-syntax)
-
 ## <a name="finding-packages"></a>パッケージの検索
 
-nuget.org にアクセスしたときや Visual Studio でパッケージ マネージャー UI を開いたときに、総ダウンロード数で並べ替えられたパッケージのリストが表示されます。 その際に、数百万の .NET プロジェクト間で最も広く使用されているパッケージが即時に示されます。 最初の数ページにリストされる少なくともいくつかのパッケージがプロジェクトで役立つことは十分あり得ます。
+nuget.org にアクセスしたとき、または Visual Studio でパッケージ マネージャー UI を開いたときに、総ダウンロード数で並べ替えられたパッケージのリストが表示されます。 その際に、数百万の .NET プロジェクト間で最も広く使用されているパッケージが即時に示されます。 最初の数ページにリストされる少なくともいくつかのパッケージがプロジェクトで役立つことは十分あり得ます。
 
 ![最もよく利用されているパッケージを示す uget.org/パッケージの既定ビュー](media/Finding-01-Popularity.png)
 
@@ -55,7 +49,7 @@ NuGet でパッケージがプロジェクトにインストールされるの�
 
 1. NuGet パッケージ マネージャー コンソールで [`Install-Package`](../tools/ps-ref-install-package.md) コマンドを使用して、プロジェクトにパッケージをインストールしてみます。 パッケージに互換性がない場合は、このコマンドでパッケージのサポートされているフレームワークが表示されます。
 
-1. **[情報]** の下にある **[手動でダウンロード]** リンクを使用して、nuget.org のページからパッケージをダウンロードします。 拡張子を `.nupkg` から `.zip` に変更し、ファイルを開き、その `lib` フォルダーの内容を調べます。 そこにサポートされている各フレームワークのサブフォルダーが表示されます。各サブフォルダーにはターゲット フレームワーク モニカー (TFM。「[ターゲット フレームワーク](../schema/Target-Frameworks.md)」を参照) を使用して名前が付けられます。 `lib` の下にサブフォルダーがなく、DLL が 1 つだけの場合は、プロジェクトにパッケージをインストールしてみて、その互換性を検出する必要があります。
+1. **[情報]** の下にある **[手動でダウンロード]** リンクを使用して、nuget.org のページからパッケージをダウンロードします。 拡張子を `.nupkg` から `.zip` に変更し、ファイルを開き、その `lib` フォルダーの内容を調べます。 そこに、サポートされている各フレームワークのサブフォルダーが表示されます。各サブフォルダーには、ターゲット フレームワーク モニカー (TFM。「[ターゲット フレームワーク](../reference/target-frameworks.md)」を参照) を使用して名前が付けられます。 `lib` の下にサブフォルダーがなく、DLL が 1 つだけの場合は、プロジェクトにパッケージをインストールしてみて、その互換性を検出する必要があります。
 
 ## <a name="pre-release-packages"></a>プレリリース パッケージ
 
@@ -79,11 +73,9 @@ Visual Studio の場合、また NuGet CLI を使用する場合、既定では 
 
 ### <a name="native-c-packages"></a>ネイティブ C++ パッケージ
 
-NuGet (2.5+) では、Visual Studio の C++ プロジェクトで使用できるネイティブ C++ パッケージがサポートされます。 これにより、プロジェクトの **[NuGet パッケージの管理]** コンテキスト メニュー コマンドが有効になり、`native` ターゲット フレームワークが導入され、MSBuild 統合が提供されます。
+NuGet では、Visual Studio の C++ プロジェクトで使用できるネイティブ C++ パッケージがサポートされます。 これにより、プロジェクトの **[NuGet パッケージの管理]** コンテキスト メニュー コマンドが有効になり、`native` ターゲット フレームワークが導入され、MSBuild 統合が提供されます。
 
 [nuget.org](https://www.nuget.org/packages) でネイティブ パッケージを見つけるには、`tag:native` を使用して検索します。 通常、このようなパッケージでは `.targets` ファイルと `.props` ファイルが提供されます。これらのファイルは、パッケージがプロジェクトに追加されると、NuGet で自動的にインポートされます。
-
-ネイティブ パッケージの作成については、「[Native packages](../create-packages/native-packages.md)」 (ネイティブ パッケージ) を参照してください。
 
 ## <a name="evaluating-packages"></a>パッケージの評価
 

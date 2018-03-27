@@ -12,17 +12,17 @@ keywords: "nuget パックの参照、パック コマンド"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 732a712f88c6267caae361673a05af0781877cf4
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: 9ee5dc87ea33b4419bcd9a09751c41b53ae2f70e
+ms.sourcegitcommit: a40a6ce6897b2d9411397b2e29b1be234eb6e50c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="pack-command-nuget-cli"></a>パック コマンド (NuGet CLI)
 
 **適用されます:**パッケージの作成&bullet;**サポートされているバージョン:** 2.7 +
 
-に基づいて、指定された NuGet パッケージを作成`.nuspec`またはプロジェクト ファイルです。 `dotnet pack`コマンド (を参照してください[dotnet コマンド](dotnet-Commands.md)) および`msbuild /t:pack`(を参照してください[MSBuild ターゲット](../schema/msbuild-targets.md)) の代替として使用することがあります。
+に基づいて、指定された NuGet パッケージを作成`.nuspec`またはプロジェクト ファイルです。 `dotnet pack`コマンド (を参照してください[dotnet コマンド](dotnet-Commands.md)) および`msbuild /t:pack`(を参照してください[MSBuild ターゲット](../reference/msbuild-targets.md)) の代替として使用することがあります。
 
 > [!Important]
 > Mono で、プロジェクト ファイルからパッケージを作成することはサポートされていません。 内の非ローカル パスを調整する必要があります、 `.nuspec` nuget.exe しない Windows のパス名自体を変換するために、Unix 形式のパスにファイルします。

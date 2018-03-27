@@ -3,29 +3,27 @@ title: "NuGet シンボル パッケージの作成方法 | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 9/12/2017
+ms.date: 09/12/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 4667a70d-5a17-4f1e-b2f2-b8d0c6af3882
 description: "シンボルのみを含む NuGet パッケージを作成し、Visual Studio でその他の NuGet パッケージをデバッグする方法。"
 keywords: "NuGet シンボル パッケージ, NuGet パッケージ デバッグ, NuGet デバッグ対応, パッケージ シンボル, シンボル パッケージ規則"
 ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2bdb8a2c946618b0c297c70bf7fcf6a9038b2a02
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: e1d90009c739a7f358e9581c7032523b8b284936
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="creating-symbol-packages"></a>シンボル パッケージを作成する
 
-nuget.org やその他のソースのためにパッケージをビルドするだけでなく、NuGet では、関連するシンボル パッケージを作成し、それを [SymbolSource リポジトリ](http://www.symbolsource.org/Public)に公開することもできます。
+nuget.org やその他のソースのためにパッケージをビルドするだけでなく、NuGet では、関連するシンボル パッケージを作成し、それを SymbolSource リポジトリに公開することもできます。
 
-公開後、パッケージ コンシューマーは Visual Studio で自分のシンボル ソースに `http://srv.symbolsource.org/pdb/Public` を追加できます。それにより、Visual Studio デバッガーでパッケージ コードに入ることができます。 このプロセスの詳細については、「[Visual Studio デバッガーでのシンボル (.pdb) ファイルとソース ファイルの指定](/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger)」を参照してください。
-
+公開後、パッケージ コンシューマーは Visual Studio で自分のシンボル ソースに `https://nuget.smbsrc.net` を追加できます。それにより、Visual Studio デバッガーでパッケージ コードに入ることができます。 このプロセスの詳細については、「[Visual Studio デバッガーでのシンボル (.pdb) ファイルとソース ファイルの指定](/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger)」を参照してください。
 
 ## <a name="creating-a-symbol-package"></a>シンボル パッケージを作成する
 
@@ -36,7 +34,7 @@ nuget.org やその他のソースのためにパッケージをビルドする�
 
 いずれのパッケージも、`.nuspec` ファイルまたはプロジェクト ファイルから、`-Symbols` オプションで作成できます。
 
-```
+```cli
 nuget pack MyPackage.nuspec -Symbols
 
 nuget pack MyProject.csproj -Symbols
@@ -108,13 +106,13 @@ nuget pack MyProject.csproj -Symbols
 
 1. 便宜上、最初に NuGet で API キーを保存します ([パッケージの公開](../create-packages/publish-a-package.md)ページを参照してください)。この保存は nuget.org と symbolsource.org の両方に適用されます。symbolsource.org はあなたがパッケージ所有者であることを nuget.org に確認するためです。
 
-    ```
+    ```cli
     nuget SetApiKey Your-API-Key
     ```
 
 1. プライマリ パッケージを nuget.org に公開したら、シンボル パッケージを次のようにプッシュします。ファイル名の `.symbols` に起因し、symbolsource.org がターゲットとして自動的に使用されます。
 
-    ```
+    ```cli
     nuget push MyPackage.symbols.nupkg
     ```
 > [!Note]
@@ -122,13 +120,13 @@ nuget pack MyProject.csproj -Symbols
 
 1. 別のシンボル リポジトリに公開するには、あるいは命名規則に従わないシンボル パッケージをプッシュするには、`-Source` オプションを使用します。
 
-    ```
+    ```cli
     nuget push MyPackage.symbols.nupkg -source https://nuget.smbsrc.net/
     ```
 
 1. 次を利用し、プライマリ パッケージとシンボル パッケージの両方を両方のリポジトリに同時にプッシュすることもできます。
 
-    ```
+    ```cli
     nuget push MyPackage.nupkg
     ```
 
@@ -136,4 +134,5 @@ nuget pack MyProject.csproj -Symbols
 
 ## <a name="see-also"></a>参照
 
- - <a href="https://www.symbolsource.org/Public/Wiki/Using" target="_blank">SymbolSource の使用</a> (symbolsource.org)
+[Moving to the new SymbolSource engine](https://tripleemcoder.com/2015/10/04/moving-to-the-new-symbolsource-engine/) (新しい SymbolSource エンジンへの移行) (symbolsource.org)
+

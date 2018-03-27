@@ -3,38 +3,28 @@ title: "NuGet パッケージの複数バージョン対応 | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 9/27/2017
+ms.date: 09/27/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 2646ffcd-83ae-4086-8915-a7fba3f53e45
 description: "1 つの NuGet パッケージ内から複数の .NET Framework バージョンに対応するためのさまざま方法の説明。"
 keywords: "NuGet パッケージ バージョン対応, .NET Framework バージョン, NuGet と .NET, 複数のフレームワークのバージョンに対応, NuGet パッケージ作成"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: d23158c6dab838b723764994e94fc21cab52f553
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 723dbcc12ecc4e16d2ba4662559f107b9b22e2c2
+ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="supporting-multiple-net-framework-versions"></a>複数の .NET Framework バージョンのサポート
 
-*NuGet 4.0+ を使用する .NET Core プロジェクトについては、「[NuGet pack and restore as MSBuild targets](../schema/msbuild-targets.md)」 (MSBuild ターゲットとしての NuGet pack および restore) をご覧ください。複数バージョン対応に関する詳細があります。*
+*NuGet 4.0+ を使用する .NET Core プロジェクトについては、「[NuGet pack and restore as MSBuild targets](../reference/msbuild-targets.md)」 (MSBuild ターゲットとしての NuGet pack および restore) をご覧ください。複数バージョン対応に関する詳細があります。*
 
 多くのライブラリは、特定のバージョンの .NET Framework に対応しています。 たとえば、あるバージョンのライブラリは UWP に固有であり、別のバージョンは .NET Framework 4.6 の機能を活用します。
 
 それに対応するために、NuGet では、「[パッケージを作成する](../create-packages/creating-a-package.md#from-a-convention-based-working-directory)」に説明がある、規則ベースの作業ディレクトリ方法を利用するとき、1 つのパッケージに同じライブラリの複数のバージョンを置くことができます。
-
-このトピックの内容
-
-- [フレームワーク バージョンのフォルダー構造](#framework-version-folder-structure)
-- [プロジェクトでアセンブリ バージョンとターゲット フレームワークを組み合わせる](#matching-assembly-versions-and-the-target-framework-in-a-project)
-- [フレームワーク バージョン別にアセンブリをグループ化する](#grouping-assemblies-by-framework-version)
-- [使用する NuGet ターゲットを決定する](#determining-which-nuget-target-to-use)
-- [コンテンツ ファイルと PowerShell スクリプト](#content-files-and-powershell-scripts)
-
 
 ## <a name="framework-version-folder-structure"></a>フレームワーク バージョンのフォルダー構造
 
@@ -42,7 +32,7 @@ ms.lasthandoff: 12/14/2017
 
     lib\{framework name}[{version}]
 
-サポートされている名前の完全一覧については、[ターゲット フレームワーク参照](../schema/target-frameworks.md#supported-frameworks)を参照してください。
+サポートされている名前の完全一覧については、[ターゲット フレームワーク参照](../reference/target-frameworks.md#supported-frameworks)を参照してください。
 
 フレームワークに固有ではないライブラリ バージョンは、ルート `lib` フォルダーに直接置かないでください。 (この機能は `packages.config` でのみサポートされていました。) それを行うと、あらゆるターゲット フレームワークに対応するようになり、どこでもインストールできてしまいます。その結果、予想外のランタイム エラーが発生します。 ルート フォルダー (`lib\abc.dll` など) またはサブフォルダー (`lib\abc\abc.dll` など) へのアセンブリ追加はなくなりました。PackagesReference 形式を使用するときは無視されます。
 
@@ -66,7 +56,7 @@ ms.lasthandoff: 12/14/2017
 </files>
 ```
 
-### <a name="architecture-specific-folders"></a>アーキテクチャ固有フォルダー 
+### <a name="architecture-specific-folders"></a>アーキテクチャ固有フォルダー
 
 アーキテクチャ固有のアセンブリがあるとき、つまり、個々のアセンブリが ARM、x86、x64 を対象とするとき、`runtimes` という名前のフォルダーの `{platform}-{architecture}\lib\{framework}` または `{platform}-{architecture}\native` という名前のサブフォルダー内にそれを置く必要があります。 たとえば、次のフォルダー構造は、Windows 10 と `uap10.0` フレームワークを対象とするネイティブ DLL とマネージ DLL の両方に対応します。
 
@@ -81,8 +71,7 @@ ms.lasthandoff: 12/14/2017
             \native
             \lib\uap10.0
 
-`.nuspec` マニフェストでこれらのファイルを参照する例については、「[Create UWP Packages](../Guides/Create-UWP-Packages.md)」 (UWP パッケージの作成) を参照してください。
-
+`.nuspec` マニフェストでこれらのファイルを参照する例については、「[Create UWP Packages](../guides/create-uwp-packages.md)」 (UWP パッケージの作成) を参照してください。
 
 ## <a name="matching-assembly-versions-and-the-target-framework-in-a-project"></a>プロジェクトでアセンブリ バージョンとターゲット フレームワークを組み合わせる
 
@@ -97,7 +86,6 @@ ms.lasthandoff: 12/14/2017
             \MyAssembly.dll
         \net461
             \MyAssembly.dll
-
 
 .NET Framework 4.6 を対象とするプロジェクトにこのパッケージをインストールすると、NuGet は `net45` フォルダーにアセンブリをインストールします。4.6 以下で利用できる最も上のバージョンであるためです。
 
@@ -144,7 +132,7 @@ NuGet ではまた、ダッシュとプロファイル名をフォルダーの�
 ## <a name="content-files-and-powershell-scripts"></a>コンテンツ ファイルと PowerShell スクリプト
 
 > [!Warning]
-> 変更可能コンテンツ ファイルとスクリプト実行は `packages.config` 形式のみで利用できます。`project.json` と PackagesReference 形式を使用するときは非推奨であり、新しいパッケージには使用しないでください。
+> 変更可能なコンテンツ ファイルとスクリプト実行は `packages.config` 形式のみで利用できます。これらは、他のすべての形式を使用するときは使用されません。また、新しいパッケージにはこれらを使用しないでください。
 
 `packages.config` では、コンテンツ ファイルと PowerShell スクリプトを、`content` フォルダーと `tools` フォルダー内で同じフォルダー規則を使用し、ターゲット フレームワーク別にグループ化できます。 例:
 

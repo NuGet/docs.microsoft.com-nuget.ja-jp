@@ -12,11 +12,11 @@ keywords: "NuGet 1.5 のリリース ノートについては、バグの修正�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 261cfbbd262bad28f142b0c3dff8a541641d9fda
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: 9f93000cd5e86cb8f3798e32daf6a4ded0d4e9c3
+ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="nuget-15-release-notes"></a>NuGet 1.5 のリリース ノート
 
@@ -46,7 +46,7 @@ ASP.NET MVC 3 プロジェクト テンプレートには、一連プロジェ�
 </references>
 ```
 
-のみ、`xunit.dll`と`xunit.extensions.dll`適切な参照される[framework/プロファイル サブフォルダー](../schema/nuspec.md#explicit-assembly-references)の`lib`フォルダー、フォルダー内に他のアセンブリがある場合でもです。
+のみ、`xunit.dll`と`xunit.extensions.dll`適切な参照される[framework/プロファイル サブフォルダー](../reference/nuspec.md#explicit-assembly-references)の`lib`フォルダー、フォルダー内に他のアセンブリがある場合でもです。
 
 この要素を省略したかどうかは、内のすべてのアセンブリを参照しているので、通常の動作が適用されます、`lib`フォルダーです。
 
@@ -87,7 +87,7 @@ NuGet が表示されたら、依存関係を使用してパッケージをア�
 ![依存パッケージの削除](./media/remove-dependent-packages.png)
 
 
-### <a name="get-package-command-improvement"></a>`Get-Package`コマンドの向上
+### <a name="get-package-command-improvement"></a>`Get-Package` コマンドの向上
 `Get-Package`コマンドをサポートするようになりました、`-ProjectName`パラメーター。 したがって、コマンド
 
     Get-Package –ProjectName A

@@ -12,11 +12,11 @@ keywords: "NuGet 2.7 リリース ノートについては、バグの修正、�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b0e12f7e2cffa6e721dd13c117b7b3727cfcb5d7
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: 43638626661ae034bb0a1cc28958a2e2929f047f
+ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="nuget-27-release-notes"></a>NuGet 2.7 リリース ノート
 
@@ -98,7 +98,7 @@ NuGet 2.7 以降では、NuGet は自動的に足りないパッケージをダ�
 
 #### <a name="simplified-package-restore-from-the-command-line"></a>コマンドラインからの簡略化されたパッケージの復元
 
-NuGet 2.7 nuget.exe の新機能が導入されています。`nuget.exe restore`
+NuGet 2.7 nuget.exe の新機能が導入されています。 `nuget.exe restore`
 
 この新しい Restore コマンドでは、ソリューション ファイルまたはフォルダーを引数としてそのまま使用して 1 つのコマンドを使用して、ソリューションのすべてのパッケージを簡単に復元することができます。 さらに、その引数では、現在のフォルダー内に 1 つのソリューションのみがある場合に暗黙的です。 つまり、すべての次のように 1 つのソリューション ファイル (MySolution.sln) を含むフォルダーから。
 
@@ -110,7 +110,7 @@ Restore コマンドはソリューション ファイルを開くし、ソリ�
 
 #### <a name="the-new-package-restore-workflow"></a>新しいパッケージの復元ワークフロー
 
-新しいワークフローを説明しながら興奮してその変更がパッケージを復元するには。 ソース管理からパッケージを省略する場合、単にコミットしないように、`packages`フォルダーです。 Visual Studio ユーザーを開き、ソリューションのビルドは、パッケージを自動的に復元に表示されます。 コマンド ライン ビルドは、単に呼び出し`nuget.exe restore`を呼び出す前に`msbuild`です。 ソリューションに「を有効にする NuGet パッケージの復元」ジェスチャを使用する必要がありますのでは不要になったとビルドを変更するプロジェクトを変更して必要がなくなります。 ここでも、かなりエクスペリエンスの向上を特に NuGet の最新機能を通じて追加されたインポート用の MSBuild imports を含むパッケージの結果と[props/ターゲット ファイルを自動的にインポート](../release-notes/nuget-2.5.md#automatic-import-of-msbuild-targets-and-props-files)\build フォルダーからです。
+新しいワークフローを説明しながら興奮してその変更がパッケージを復元するには。 ソース管理からパッケージを省略する場合、単にコミットしないように、`packages`フォルダーです。 Visual Studio ユーザーを開き、ソリューションのビルドは、パッケージを自動的に復元に表示されます。 コマンド ライン ビルドは、単に呼び出し`nuget.exe restore`を呼び出す前に`msbuild`です。 「を有効にする NuGet パッケージの復元」ジェスチャを使用して、ソリューションにすることを覚えてが不要になったとビルドを変更するプロジェクトを変更して必要がなくなります。 ここでも、かなりエクスペリエンスの向上を特に NuGet の最新機能を通じて追加されたインポート用の MSBuild imports を含むパッケージの結果と[props/ターゲット ファイルを自動的にインポート](../release-notes/nuget-2.5.md#automatic-import-of-msbuild-targets-and-props-files)\build フォルダーからです。
 
 社内で実行した作業、に加えても取り組んでいますいくつか重要なパートナーをこの新しい手法を完了するとします。お必要はありませんが具象タイムラインこれらのいずれにもまだ、各パートナーは新しいアプローチにあるため、期待します。
 

@@ -12,15 +12,15 @@ keywords: "NuGet パッケージ マネージャー コンソールで、NuGet P
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 02233cd0532fab2338e65e0d58b9afc3e2dab6af
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: 8e4b627cff01a353440c47883b98cd93f9edd6cb
+ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="sync-package-package-manager-console-in-visual-studio"></a>Sync パッケージ (Visual Studio でパッケージ マネージャー コンソール)
 
-*Version 3.0 以降。内でのみ使用可能な[NuGet Package Manager Console](Package-Manager-Console.md) Windows 上の Visual Studio でします。*
+*Version 3.0 以降。内でのみ使用可能な[NuGet Package Manager Console](package-manager-console.md) Windows 上の Visual Studio でします。*
 
 指定した (または既定値) からインストールされているパッケージのバージョンを取得では、プロジェクトし、ソリューション内のプロジェクトの残りの部分をバージョンを同期します。
 
@@ -43,14 +43,14 @@ Sync-Package [-Id] <string> [-IgnoreDependencies] [-ProjectName <string>] [[-Ver
 | ソース | 検索するパッケージ ソースの URL またはフォルダーのパス。 ローカル フォルダー パスには、絶対パス、または現在のフォルダーの相対パスを指定できます。 省略した場合、`Sync-Package`現在選択されているパッケージ ソースを検索します。 |
 | IncludePrerelease | 同期では、プレリリースのパッケージが含まれています。 |
 | FileConflictAction | 上書きするか、プロジェクトによって参照されている既存のファイルを無視するように求められたらを実行するアクション。 指定できる値は*上書き、Ignore、None、OverwriteAll*、および*(3.0 以降)* *ignoreall です*です。 |
-| DependencyVersion | 次のいずれかを使用する依存関係パッケージ バージョン:<br/><ul><li>*最小*(既定値): 最小バージョン</li><li>*HighestPatch*: 最小メジャー、マイナー最小、最高の修正プログラムのバージョン</li><li>*HighestMinor*: 主要な最小のバージョン、最高のマイナー、最上位の修正プログラム</li><li>*最も高い*(パラメーターなしで更新プログラム パッケージの既定): 最上位バージョン</li></ul>使用して、既定値を設定することができます、 [ `dependencyVersion` ](../Schema/nuget-config-file.md#config-section)での設定、`Nuget.Config`ファイル。 |
+| DependencyVersion | 次のいずれかを使用する依存関係パッケージ バージョン:<br/><ul><li>*最小*(既定値): 最小バージョン</li><li>*HighestPatch*: 最小メジャー、マイナー最小、最高の修正プログラムのバージョン</li><li>*HighestMinor*: 主要な最小のバージョン、最高のマイナー、最上位の修正プログラム</li><li>*最も高い*(パラメーターなしで更新プログラム パッケージの既定): 最上位バージョン</li></ul>使用して、既定値を設定することができます、 [ `dependencyVersion` ](../reference/nuget-config-file.md#config-section)での設定、`Nuget.Config`ファイル。 |
 | WhatIf | 実際には、同期を実行せず、コマンドを実行している場合にどうなるかを示します。 |
 
 これらのパラメーターのいずれもには、パイプラインの入力またはワイルドカード文字がそのまま使用します。
 
 ## <a name="common-parameters"></a>共通パラメーター
 
-`Sync-Package`次のサポート[一般的な PowerShell パラメーター](http://go.microsoft.com/fwlink/?LinkID=113216): デバッグ、エラー アクション、ErrorVariable、OutBuffer、OutVariable、PipelineVariable、Verbose、WarningAction、WarningVariable、します。
+`Sync-Package` 次のサポート[一般的な PowerShell パラメーター](http://go.microsoft.com/fwlink/?LinkID=113216): デバッグ、エラー アクション、ErrorVariable、OutBuffer、OutVariable、PipelineVariable、Verbose、WarningAction、WarningVariable、します。
 
 ## <a name="examples"></a>使用例
 

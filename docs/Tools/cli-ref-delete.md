@@ -12,17 +12,17 @@ keywords: "nuget の参照を削除、パッケージのコマンドを削除"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 3890e33ab0fc425e1c2ee39631ade57ea9b92bc9
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: b5d53b83cdccaa8e284b844786b0ec27e7afb63a
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="delete-command-nuget-cli"></a>delete コマンド (NuGet CLI)
 
 **適用されます:**パッケージの発行&bullet;**サポートされているバージョン:**すべて
 
-削除またはパッケージ ソースからパッケージを unlists します。 Nuget.org、delete コマンドの[unlists パッケージ](../policies/Deleting-Packages.md)です。
+削除またはパッケージ ソースからパッケージを unlists します。 Nuget.org、delete コマンドの[unlists パッケージ](../policies/deleting-packages.md)です。
 
 ## <a name="usage"></a>使用法
 
@@ -36,8 +36,8 @@ nuget delete <packageID> <packageVersion> [options]
 
 | オプション | 説明 |
 | --- | --- |
-| ApiKey | ターゲットのリポジトリの API キー。 存在しない場合、いずれかで指定されている*%AppData%\NuGet\NuGet.Config*を使用します。 |
-| ConfigFile | NuGet 構成ファイルを適用します。 指定しない場合、 *%AppData%\NuGet\NuGet.Config*を使用します。 |
+| ApiKey | ターゲットのリポジトリの API キー。 存在しない場合は、構成ファイルで指定されているが使用されます。 |
+| ConfigFile | NuGet 構成ファイルを適用します。 指定しない場合、 `%AppData%\NuGet\NuGet.Config` (Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac または Linux) を使用します。|
 | ForceEnglishOutput | *(3.5 +)*インバリアント、英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
 | ヘルプ | ヘルプ コマンドに関する情報を表示します。 |
 | NonInteractive | ユーザー入力または確認を要求するプロンプトを抑制します。 |

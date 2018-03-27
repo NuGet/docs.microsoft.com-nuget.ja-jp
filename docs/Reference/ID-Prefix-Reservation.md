@@ -13,15 +13,15 @@ ms.reviewer:
 - ananguar
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: adea51fdd435b36e236028ad51d9f26969d15a09
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: f74ea3c772a129f4b9cd286a77cf3e88eba2d33b
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="package-id-prefix-reservation"></a>パッケージ ID のプレフィックスの予約
 
-パッケージの所有者は、予約し、ID のプレフィックスを予約して自身の id を保護することができます。 パッケージ使用者が追加情報をパッケージの使用時に消費しているか、パッケージは、識別プロパティの不正な提供されます。 
+パッケージの所有者では、予約でき、ID のプレフィックスを予約して自身の id を保護することができます。 パッケージ使用者が追加情報をパッケージの使用時に消費しているか、パッケージは、識別プロパティの不正な提供されます。 
 
 [nuget.org](https://www.nuget.org/)し、パッケージには予約済み ID が一致する限り、予約済みのパッケージ ID のプレフィックスの所有者から送信されたパッケージの名前付けパターンのプレフィックスの Visual Studio 2017 15.4 またはそれ以降のバージョンが視覚インジケータを表示します。 下方向へ ID プレフィックス予約任せます、ID のプレフィックスの所有者を適用する方法について説明します。
 
@@ -59,7 +59,7 @@ Subprefix 委任、および public としてマーキング プレフィック�
 
 ### <a name="prefix-reservation-visual-indicator"></a>プレフィックスの予約の視覚インジケーター
 
-パッケージ ソース予約済みのプレフィックスがある場合と表示されますでの視覚インジケーターの下、 [nuget.org](https://www.nuget.org/)ギャラリーと Visual Studio 2017 15.4 またはそれ以降のバージョン。
+表示、パッケージのソース予約済みのプレフィックスがの視覚インジケーターの下、 [nuget.org](https://www.nuget.org/)ギャラリーと Visual Studio 2017 15.4 またはそれ以降のバージョン。
 
 **nuget.org ギャラリー**
 ![nuget.org ギャラリー](media/nuget-gallery-reserved-prefix.png)
@@ -75,7 +75,7 @@ Subprefix 委任、および public としてマーキング プレフィック�
 
 1. 電子メールを送信[ account@nuget.org ](mailto:account@nuget.org)オーナーを使用して表示名で[nuget.org](https://www.nuget.org/)、要求している、予約済みのプレフィックスとします。 複数の所有者にプレフィックスのサブセットを委任する場合は、すべての所有者の表示名を説明し、サブセットのプレフィックスを確認します。
 
-アプリケーションが送信されると後の受理または拒否の原因となった条件) (の拒否が通知されます。 所有者の身元を識別する追加の質問を投稿する必要があります。
+アプリケーションが送信されるへの同意または拒否の原因となった条件) (の却下の通知されます。 所有者の身元を識別する追加の質問を投稿する必要があります。
 
 ### <a name="id-prefix-reservation-criteria"></a>ID プレフィックス予約条件
 

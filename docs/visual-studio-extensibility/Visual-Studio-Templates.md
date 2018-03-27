@@ -3,7 +3,7 @@ title: "Visual Studio テンプレートの NuGet パッケージ | Microsoft Do
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 1/3/2018
+ms.date: 01/03/2018
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
@@ -12,11 +12,11 @@ keywords: "Visual Studio の NuGet、Visual Studio プロジェクト テンプ�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 45a2ca2c08660be650f9cf38301f628923e1f8be
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 65b914e1fa59c28615f195b470880a12bf80efbb
+ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/02/2018
 ---
 # <a name="packages-in-visual-studio-templates"></a>Visual Studio テンプレートのパッケージ
 
@@ -149,4 +149,4 @@ MSI を使用してインストールされる SDK は、開発者のマシン�
 
 1. `.vstemplate` ファイルに [`<PromptForSaveOnCreation>true</PromptForSaveOnCreation>`](/visualstudio/extensibility/promptforsaveoncreation-element-visual-studio-templates) を含めることにより、作成時にプロジェクト/項目テンプレートが保存されるようにする必要があります。
 
-1. テンプレートには、`packages.config` ファイルまたは `project.json` ファイルは含まれません。また、NuGet パッケージがインストールされるときに追加される参照やコンテンツも含まれません。
+1. テンプレートに、`packages.config` ファイルは含まれません。また、NuGet パッケージがインストールされるときに追加される参照やコンテンツも含まれません。

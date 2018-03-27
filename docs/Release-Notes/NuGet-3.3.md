@@ -12,11 +12,11 @@ keywords: "NuGet 3.3 リリース ノートについては、バグの修正、�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c83f87231497e14c36f1b8100b7bec720bb63b1c
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: 4d077fb53abd8033aad6da01ad090297109aa68c
+ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="nuget-33-release-notes"></a>NuGet 3.3 のリリース ノート
 
@@ -26,7 +26,7 @@ NuGet 3.3 は、多数のユーザー インターフェイスを更新し、コ
 
 ## <a name="new-features"></a>新機能
 
-* NuGet コマンド ライン クライアントには、認証済みのフィードをシームレスに連携することを許可する資格情報プロバイダーが導入されました。 [資格情報プロバイダーの Visual Studio Team Services をインストールする方法について](../API/nuget-exe-Credential-Providers.md)と NuGet の構成を使用するクライアントは、NuGet Docs でご確認いただけます。
+* NuGet コマンド ライン クライアントには、認証済みのフィードをシームレスに連携することを許可する資格情報プロバイダーが導入されました。 [資格情報プロバイダーの Visual Studio Team Services をインストールする方法について](../api/nuget-exe-credential-providers.md)と NuGet の構成を使用するクライアントは、NuGet Docs でご確認いただけます。
 
 ## <a name="new-user-interface-features"></a>新しいユーザー インターフェイスの機能
 
@@ -47,7 +47,7 @@ NuGet 3.3 は、多数のユーザー インターフェイスを更新し、コ
 
 ## <a name="contentfiles"></a>ContentFiles
 
-コンテンツがサポートされるようになりました`project.json`マネージ プロジェクトは、新しい`contentFiles`フォルダーと`.nuspec``contentFiles`要素表記します。  このコンテンツは、プロジェクト システムとのやり取りのパッケージの作成者によって直接指定できます。  コンテンツ ファイルを構成する方法の詳細について、`.nuspec`ドキュメントは含まれて、 [.nuspec 参照](../schema/nuspec.md)です。
+コンテンツがサポートされるようになりました`project.json`マネージ プロジェクトは、新しい`contentFiles`フォルダーと`.nuspec``contentFiles`要素表記します。  このコンテンツは、プロジェクト システムとのやり取りのパッケージの作成者によって直接指定できます。  コンテンツ ファイルを構成する方法の詳細について、`.nuspec`ドキュメントは含まれて、 [.nuspec 参照](../reference/nuspec.md)です。
 
 ## <a name="nuget-locals-cache-management"></a>NuGet ローカル キャッシュの管理
 

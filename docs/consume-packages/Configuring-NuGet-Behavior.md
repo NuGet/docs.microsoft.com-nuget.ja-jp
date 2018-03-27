@@ -7,44 +7,36 @@ ms.date: 10/25/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: c1e34826-d07d-4609-a0fd-123459ae89c5
 description: "NuGet.Config ファイルは、グローバルとプロジェクト単位の両方で NuGet の動作を制御し、変更するには nuget config コマンドを使います。"
 keywords: "NuGet 構成ファイル, NuGet の構成, NuGet の動作の設定, NuGet の設定, Nuget.Config, NuGetDefaults.Config, 既定値"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f9e56b68f70387435cdaa1537db503abb912fd2a
-ms.sourcegitcommit: 122bf7ce308365ea45da018b0768f0536de76a1f
+ms.openlocfilehash: c46f23fcbec5dfcb6122434d43097212f6230fb0
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="configuring-nuget-behavior"></a>NuGet の動作を構成する
 
-NuGet の動作は、1 つ以上の `NuGet.Config` (XML) ファイルの設定を総合して決まります。ファイルは、プロジェクト レベル、ユーザー レベル、およびコンピューター全体レベルで作成できます。 特にパッケージ ソースを構成するグローバルな `NuGetDefaults.Config` ファイル (2.7 以降) まありす。 設定は、CLI、パッケージ マネージャー コンソール、パッケージ マネージャー UI で発行されるすべてのコマンドに適用されます。
-
-このトピックの内容
-
-- [NuGet.Config ファイルの場所と使用](#config-file-locations-and-uses)
-- [設定の変更](#changing-config-settings)
-- [設定の適用方法](#how-settings-are-applied)
-- [NuGetDefaults.Config ファイル](#nuget-defaults-file)
+NuGet の動作は、1 つ以上の `NuGet.Config` (XML) ファイルの設定を総合して決まります。ファイルは、プロジェクト レベル、ユーザー レベル、およびコンピューター全体レベルで作成できます。 具体的には、グローバル `NuGetDefaults.Config` ファイルでパッケージ ソースも構成されます。 設定は、CLI、パッケージ マネージャー コンソール、パッケージ マネージャー UI で発行されるすべてのコマンドに適用されます。
 
 ## <a name="config-file-locations-and-uses"></a>構成ファイルの場所と使用
 
 | スコープ | NuGet.Config ファイルの場所 | 説明 |
 | --- | --- | --- |
-| プロジェクト | プロジェクト フォルダーまたはドライブのルートまでの任意のフォルダー | プロジェクト フォルダーにある場合は、設定はそのプロジェクトのみに適用されます。 複数のプロジェクト サブフォルダーを含む親フォルダーにある場合は、設定はそれらのサブフォルダーのすべてのプロジェクトに適用されます。 |
-| ユーザー | Windows: %APPDATA%\NuGet\NuGet.Config<br/>Mac/Linux: ~/.nuget/NuGet.Config | 設定はすべての操作に適用されますが、プロジェクト レベルの設定によって上書きされます。 CLI コマンドの場合は、`-configFile` スイッチを使って別の構成ファイルを指定し、既定のユーザー レベルのファイルの設定を無視することができます。 |
-| コンピューター | Windows: %ProgramFiles(x86)%\NuGet\Config<br/>Mac/Linux: $XDG_DATA_HOME (通常は ~/.local/share) | 設定はそのコンピューターでのすべての操作に適用されますが、ユーザー レベルまたはプロジェクト レベルの設定によって上書きされます。 |
+| プロジェクト | 現在のフォルダー (プロジェクト フォルダーとも呼ばれる) またはドライブのルートまでの任意のフォルダー。| プロジェクト フォルダーにある場合は、設定はそのプロジェクトのみに適用されます。 複数のプロジェクト サブフォルダーを含む親フォルダーにある場合は、設定はそれらのサブフォルダーのすべてのプロジェクトに適用されます。 |
+| ユーザー | Windows: `%APPDATA%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.nuget/NuGet/NuGet.Config` | 設定はすべての操作に適用されますが、プロジェクト レベルの設定によって上書きされます。 |
+| コンピューター | Windows: `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux: `$XDG_DATA_HOME` (通常は `~/.local/share`) | 設定はそのコンピューターでのすべての操作に適用されますが、ユーザー レベルまたはプロジェクト レベルの設定によって上書きされます。 |
 
 以前のバージョンの NuGet に関する注意事項:
-- NuGet 3.3 以前では、ソリューション全体の設定用に `.nuget` フォルダーが使われていました。 このファイルは、NuGet 3.4 以降では使われません。
+- NuGet 3.3 以前では、ソリューション全体の設定用に `.nuget` フォルダーが使われていました。 このファイルは、NuGet 3.4 以降では使用されません。
 - NuGet 2.6 から 3.x では、Windows でのコンピューター レベルの構成ファイルは %ProgramData%\NuGet\Config[\\{IDE}[\\{Version}[\\{SKU}]]]\NuGet.Config にありました。*{IDE}* には *VisualStudio* を使用でき、*{Version}* は Visual Studio のバージョン (*14.0* など)、*{SKU}* は *Community*、*Pro*、または *Enterprise* です。 設定を NuGet 4.0 以降に移行するには、単に構成ファイルを %ProgramFiles(x86)%\NuGet\Config にコピーします。Linux の以前の場所は /etc/opt、Mac の以前の場所は /Library/Application Support でした。
 
 ## <a name="changing-config-settings"></a>構成設定の変更
 
-`NuGet.Config` ファイルは、[NuGet の構成設定](../Schema/nuget-config-file.md)に関するトピックで説明されているように、キーと値のペアを含む単純な XML テキスト ファイルです。
+`NuGet.Config` ファイルは、[NuGet の構成設定](../reference/nuget-config-file.md)に関するトピックで説明されているように、キーと値のペアを含む単純な XML テキスト ファイルです。
 
 設定は、NuGet CLI の [config コマンド](../tools/cli-ref-config.md)を使って管理します。
 - 既定では、変更はユーザー レベルの構成ファイルに対して行われます。
@@ -59,7 +51,7 @@ NuGet の動作は、1 つ以上の `NuGet.Config` (XML) ファイルの設定�
 
 Windows の場合:
 
-```
+```cli
 # Set repositoryPath in the user-level config file
 nuget config -set repositoryPath=c:\packages 
 
@@ -73,7 +65,7 @@ nuget config -set repositoryPath=c:\packages -configfile %ProgramFiles(x86)%\NuG
 
 Mac/Linux の場合:
 
-```
+```cli
 # Set repositoryPath in the user-level config file
 nuget config -set repositoryPath=/home/packages 
 
@@ -92,7 +84,7 @@ nuget config -set repositoryPath=/home/packages -configfile $XDG_DATA_HOME/NuGet
 
 値を削除するには、値を空にしてキーを指定します。
 
-```
+```cli
 # Windows
 nuget config -set repositoryPath= -configfile c:\my.Config
 
@@ -109,8 +101,6 @@ nuget config -set repositoryPath= -configfile /home/my.Config
 <configuration>
 </configuration>
 ```
-
-<br/>
 
 ## <a name="how-settings-are-applied"></a>設定の適用方法
 
@@ -147,7 +137,7 @@ NuGet はこれらのファイルで設定を探すので、適用は次のよ�
 
 その場合、次の場所にそれぞれ指定された内容の `NuGet.Config` ファイルが 4 つ存在します  (コンピューター レベルのファイルはこの例には含まれませんが、ユーザー レベルのファイルと同じように動作します)。
 
-ファイル A: ユーザー レベル ファイル (Windows では %APPDATA%\NuGet\NuGet.Config、Mac/Linux では ~/.nuget/NuGet.Config):
+ファイル A. ユーザーレベルのファイル (Windows では `%APPDATA%\NuGet\NuGet.Config`、Mac/Linux では `~/.nuget/NuGet/NuGet.Config`):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -163,7 +153,7 @@ NuGet はこれらのファイルで設定を探すので、適用は次のよ�
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
-    <config>        
+    <config>
         <add key="repositoryPath" value="disk_drive_2/tmp" />
     </config>
     <packageRestore>
@@ -221,11 +211,16 @@ NuGet は、呼び出された場所に応じて、次のように設定を読�
 
 ### <a name="nugetdefaultsconfig-location"></a>NuGetDefaults.Config の場所
 
-Windows: %ProgramFiles(x86)%\NuGet\Config (NuGet 2.7 から NuGet 3.x: %PROGRAMDATA%\NuGet\NuGetDefaults.Config)。Mac/Linux: $XDG_DATA_HOME (通常は ~/.local/share)。 
+次の表は、ターゲットの OS に応じた `NuGetDefaults.Config` ファイルの格納場所の一覧です。
+
+| OS プラットフォーム  | NuGetDefaults.Config の場所 |
+| --- | --- |
+| Windows      | **Visual Studio 2017 または NuGet 4.x 以降:** %ProgramFiles(x86)%\NuGet\Config <br />**Visual Studio 2015 以前または NuGet 3.x 以前:** %PROGRAMDATA%\NuGet |
+| Mac/Linux    | $XDG_DATA_HOME (通常は ~/.local/share)|
 
 ### <a name="nugetdefaultsconfig-settings"></a>NuGetDefaults.Config の設定
 
-- `packageSources`: このコレクションは標準の構成ファイルの `packageSources` と同じ意味であり、望ましい順位で既定のソースを指定します。 この設定が `NuGetDefaults.Config` に存在する場合、NuGet は既定のパッケージ ソースとして nuget.org を使いません。 管理者はこれにより、このファイルを使うすべてのユーザーが同じソースを使うようにし、必要な場合は nuget.org の使用を禁止することができます。
+- `packageSources`: このコレクションは標準の構成ファイルの `packageSources` と同じ意味であり、既定のソースを指定します。 NuGet は、`packages.config` 参照形式を使用してプロジェクトのパッケージをインストールまたは更新するときに、ソースを順番に使用します。 PackageReference 形式を使用するプロジェクトの場合、構成ファイルの順序に関係なく、NuGet はまずローカル ソースを使用し、次にネットワーク共有のソースを使用し、次に HTTP ソースを使用します。 復元操作の場合、NuGet はソースの順序を常に無視します。
 
 - `disabledPackageSources`: このコレクションも `NuGet.Config` ファイルと同じ意味であり、影響を受ける各ソースの名前と、ソースが無効かどうかを示す true/false の値を列記します。 これにより、ソースの名前と URL を、既定で有効にしなくても、`packageSources` に残しておくことができます。 個々の開発者は、正しい URL を改めて調べなくても、他の `NuGet.Config` ファイルでソースの値を false に設定することにより、ソースを再び有効にできます。 これは、組織の内部ソースの URL の完全なリストを開発者に提供しながら、既定で個別のチームのソースのみを有効にする場合にも便利です。
 

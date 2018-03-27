@@ -12,11 +12,11 @@ keywords: "NuGet 1.2 リリース ノートについては、バグの修正、�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: cb9eb1cb8fc3a77fc297e04ce73aaf8e24fc557a
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: 9c8fff67eb61ab673eb62113e0cc46c0868be237
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="nuget-12-release-notes"></a>NuGet 1.2 リリース ノート
 
@@ -73,4 +73,4 @@ Nuget.exe コマンドライン ツールを使用する場合は、API キー�
 
 * **1.2 の非互換性をパッケージ化**: コマンド ライン ツールの最新バージョンでビルドされたパッケージ、nuget.exe (> 1.2) は、NuGet VS アドイン (1.1) などの古いバージョンでは動作しません。 互換性のないスキーマについて何かを示すエラー メッセージに実行するを実行する場合にこのエラーが発生します。 NuGet を最新バージョンに更新してください。
 * **NuGet.Server 非互換性**: フィード NuGet.Server プロジェクトを使用して内部の NuGet をホストしている場合は、NuGet.Server の最新バージョンでそのプロジェクトを更新する必要があります。
-* **署名の不一致エラー**: 署名の不一致に関するメッセージがアップグレード中にエラーが発生発生した場合は、NuGet をまずアンインストールしてからインストールする必要があります。 これに記載されて、[既知の問題のページ](../release-notes/Known-Issues.md)詳細を提供します。 問題は Visual Studio 2010 SP1 を実行しているユーザーに影響を与えるおよびバージョンが適切に署名できません NuGet 1.0 がインストールされているのみです。 このバージョンのみ利用可能となった、CodePlex web サイトから、短時間のため、この問題はならないに影響を与えるユーザーが多すぎます。
+* **署名の不一致エラー**: 署名の不一致に関するメッセージがアップグレード中にエラーが発生発生した場合は NuGet をまずアンインストールしてからインストールする必要があります。 これに記載されて、[既知の問題のページ](../release-notes/known-issues.md)詳細を提供します。 問題は Visual Studio 2010 SP1 を実行しているユーザーに影響を与えるおよびバージョンが適切に署名できません NuGet 1.0 がインストールされているのみです。 このバージョンのみ利用可能となった、CodePlex web サイトから、短時間のため、この問題はならないに影響を与えるユーザーが多すぎます。

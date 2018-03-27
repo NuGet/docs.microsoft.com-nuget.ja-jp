@@ -3,35 +3,35 @@ title: "Team Foundation ビルドでの NuGet パッケージの復元のチュ�
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 1/9/2017
+ms.date: 01/09/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 3113cccd-35f7-4980-8a6e-fc06556b5064
 description: "Team Foundation ビルド (TFS と Visual Studio Team Services の両方) で NuGet パッケージを復元する方法について説明します。"
 keywords: "NuGet パッケージの復元、NuGet および TFS、NuGet および VSTS、NuGet のビルド システム、team foundation ビルド、カスタム MSBuild プロジェクト、クラウドを構築、継続的インテグレーション"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 82decfa1a39cb99c405840a8f13b0bc993111c09
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 9e3ef6e3bcc55705315fcb6ccf3e917963c62250
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="setting-up-package-restore-with-team-foundation-build"></a>Team Foundation ビルドでのパッケージの復元の設定
 
-> 対象:
->  - TFS の任意のバージョンで実行されているカスタム MSBuild プロジェクト
->  - Team Foundation Server 2012 またはそれ以前
->  - TFS 2013 以降に移行されたカスタム Team Foundation ビルド プロセス テンプレート
->  - Nuget の復元機能が削除されたビルド プロセス テンプレート
->
-> ビルド プロセス テンプレートを含む Visual Studio Team Services またはオンプレミスの Team Foundation Server 2013 を使用している場合は、パッケージの自動復元がビルド プロセスの一環として発生します。
-
-このセクションでは、Git と Team Services バージョン管理の両方における [Team Services ビルド](/vsts/build-release/index)の一環としてパッケージを復元する詳細な手順のチュートリアルについて説明します。
+この記事では、Git と Team Services バージョン管理の両方における [Team Services ビルド](/vsts/build-release/index)の一環としてパッケージを復元する方法に関する詳細なチュートリアルを提供します。
 
 このチュートリアルは、Visual Studio Team Service の使用のシナリオに固有ですが、概念は他のバージョン管理およびビルドシステムにも適用されます。
+
+対象:
+
+- TFS の任意のバージョンで実行されているカスタム MSBuild プロジェクト
+- Team Foundation Server 2012 またはそれ以前
+- TFS 2013 以降に移行されたカスタム Team Foundation ビルド プロセス テンプレート
+- Nuget の復元機能が削除されたビルド プロセス テンプレート
+
+ビルド プロセス テンプレートを含む Visual Studio Team Services または Team Foundation Server 2013 を使用している場合は、パッケージの自動復元がビルド プロセスの一環として発生します。
 
 ## <a name="the-general-approach"></a>一般的な方法
 
@@ -41,9 +41,9 @@ NuGet を使用する利点は、バージョン管理システムへのバイ�
 
 NuGet は、現在まで長期にわたってビルドの一部としての[パッケージ復元](../consume-packages/package-restore.md)をサポートしています。 以前の実装では、NuGet は、プロジェクトのビルド中にパッケージを復元したので、ビルド プロセスを拡張する必要があるパッケージの場合に、卵が先か鶏が先かという問題がありました。 しかし、MSBuild では、ビルド中のビルドの拡張は許可されないので、これは MSBuild の問題だと主張されることがありますが、私はこれが固有の問題であると主張します。 拡張する必要がある局面によっては、パッケージが復元されるときには登録するのに遅すぎることがあります。
 
-この問題の解決策として、ビルド プロセスの最初の手順としてパッケージが復元されることを確認します。 NuGet 2.7 以降では、簡素化されたコマンド ラインを使用してこれを簡単に実行できます。
+この問題の解決策として、ビルド プロセスの最初の手順としてパッケージが復元されることを確認します。
 
-```
+```cli
 nuget restore path\to\solution.sln
 ```
 
@@ -99,7 +99,6 @@ nuget restore path\to\solution.sln
     </solution>
 </configuration>
 ```
-
 
 **packages** フォルダーをチェックインしないことをバージョン管理に伝達するために、git (`.gitignore`) および TF バージョン管理 (`.tfignore`) の両方の無視ファイルも追加しました。 これらのファイルは、チェックインしたくないファイルのパターンについて記述します。
 

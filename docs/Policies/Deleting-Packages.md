@@ -3,21 +3,20 @@ title: "nuget.org から NuGet パッケージを削除する | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 1/9/2017
+ms.date: 01/18/2018
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: a348ca2e-0a5d-40ad-ba33-9bb37e1d980b
 description: "nuget.org の一覧からパッケージを削除するポリシーです。パッケージが他のポリシーに違反しない限り、完全な削除はサポートされません。"
 keywords: "NuGet パッケージの削除、NuGet パッケージを一覧から削除、パッケージ使用の禁止事項"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9e388171f83fae7deb4f20033184dfa91bfab3da
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 6169e46e55176757bc1ad471a3d80885cb50e403
+ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/02/2018
 ---
 # <a name="deleting-packages"></a>パッケージの削除
 

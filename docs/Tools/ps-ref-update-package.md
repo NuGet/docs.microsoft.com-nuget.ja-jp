@@ -12,15 +12,15 @@ keywords: "NuGet パッケージ マネージャー コンソールで、NuGet P
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 768fdb4d7c785b4f3ed9e70958390676ea965794
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: 293d9a7fdcce633eb5a97e5f76398deb5c13bdb4
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="update-package-package-manager-console-in-visual-studio"></a>更新プログラム パッケージ (Visual Studio でパッケージ マネージャー コンソール)
 
-*内でのみ使用可能な[NuGet Package Manager Console](Package-Manager-Console.md) Windows 上の Visual Studio でします。*
+*内でのみ使用可能な[NuGet Package Manager Console](package-manager-console.md) Windows 上の Visual Studio でします。*
 
 パッケージとその依存関係またはプロジェクトでは、すべてのパッケージを新しいバージョンに更新されます。
 
@@ -38,8 +38,6 @@ NuGet 2.8 + で`Update-Package`プロジェクトで既存のパッケージを�
 Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
 ```
 
-NuGet 2.7 およびそれ以前では、新しいバージョンが既にインストールされていることを示すエラーを説明します。
-
 ## <a name="parameters"></a>パラメーター
 
 |  パラメーター | 説明 |
@@ -51,9 +49,9 @@ NuGet 2.7 およびそれ以前では、新しいバージョンが既にイン�
 | セーフ | 現在インストールされているパッケージと同じメジャーおよびマイナー バージョンの唯一のバージョンにアップグレードするように制約します。 |
 | ソース | 検索するパッケージ ソースの URL またはフォルダーのパス。 ローカル フォルダー パスには、絶対パス、または現在のフォルダーの相対パスを指定できます。 省略した場合、`Uninstall-Package`現在選択されているパッケージ ソースを検索します。 |
 | IncludePrerelease | プレリリースのパッケージ更新プログラムにはが含まれます。 |
-| 再インストール | Resintalls パッケージが、現在インストールされているバージョンを使用します。 参照してください[再インストールして、パッケージを更新する](../consume-packages/reinstalling-and-updating-packages.md)です。 |
+| 再インストール | Resintalls パッケージが、現在インストールされているバージョンを使用します。 「[パッケージの再インストールと更新](../consume-packages/reinstalling-and-updating-packages.md)」をご覧ください。 |
 | FileConflictAction | 上書きするか、プロジェクトによって参照されている既存のファイルを無視するように求められたらを実行するアクション。 指定できる値は*上書き、Ignore、None、OverwriteAll*、および*ignoreall です*(3.0 以降)。 |
-| DependencyVersion | 次のいずれかを使用する依存関係パッケージ バージョン:<br/><ul><li>*最小*(既定値): 最小バージョン</li><li>*HighestPatch*: 最小メジャー、マイナー最小、最高の修正プログラムのバージョン</li><li>*HighestMinor*: 主要な最小のバージョン、最高のマイナー、最上位の修正プログラム</li><li>*最も高い*(パラメーターなしで更新プログラム パッケージの既定): 最上位バージョン</li></ul>使用して、既定値を設定することができます、 [ `dependencyVersion` ](../Schema/nuget-config-file.md#config-section)での設定、`Nuget.Config`ファイル。 |
+| DependencyVersion | 次のいずれかを使用する依存関係パッケージ バージョン:<br/><ul><li>*最小*(既定値): 最小バージョン</li><li>*HighestPatch*: 最小メジャー、マイナー最小、最高の修正プログラムのバージョン</li><li>*HighestMinor*: 主要な最小のバージョン、最高のマイナー、最上位の修正プログラム</li><li>*最も高い*(パラメーターなしで更新プログラム パッケージの既定): 最上位バージョン</li></ul>使用して、既定値を設定することができます、 [ `dependencyVersion` ](../reference/nuget-config-file.md#config-section)での設定、`Nuget.Config`ファイル。 |
 | ToHighestPatch | 現在インストールされているパッケージとマイナー バージョンが同じでバージョンのみへのアップグレードを制約します。 |
 | ToHighestMinor | 現在インストールされているパッケージと同じメジャー バージョンのバージョンのみへのアップグレードを制約します。 |
 | WhatIf | 実際には、更新プログラムを実行せず、コマンドを実行している場合にどうなるかを示します。 |
@@ -62,7 +60,7 @@ NuGet 2.7 およびそれ以前では、新しいバージョンが既にイン�
 
 ### <a name="common-parameters"></a>共通パラメーター
 
-`Update-Package`次のサポート[一般的な PowerShell パラメーター](http://go.microsoft.com/fwlink/?LinkID=113216): デバッグ、エラー アクション、ErrorVariable、OutBuffer、OutVariable、PipelineVariable、Verbose、WarningAction、WarningVariable、します。
+`Update-Package` 次のサポート[一般的な PowerShell パラメーター](http://go.microsoft.com/fwlink/?LinkID=113216): デバッグ、エラー アクション、ErrorVariable、OutBuffer、OutVariable、PipelineVariable、Verbose、WarningAction、WarningVariable、します。
 
 ### <a name="examples"></a>使用例
 

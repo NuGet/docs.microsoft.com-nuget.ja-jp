@@ -1,34 +1,30 @@
 ---
-title: "Visual Studio プロジェクト ファイルの NuGet PackageReference | Microsoft Docs"
+title: NuGet PackageReference 形式 (プロジェクト ファイルのパッケージ参照) | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 7/17/2017
+ms.date: 03/16/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-ms.assetid: 5a554e9d-1266-48c2-92e8-6dd00b1d6810
-description: "NuGet 4.0+ と VS2017 でサポートされているプロジェクト ファイルの NuGet PackageReference に関する詳細"
-keywords: "NuGet パッケージ依存性, パッケージ参照, プロジェクト ファイル, PackageReference, packages.config, project.json, VS2017, Visual Studio 2017, NuGet 4"
+ms.technology: ''
+description: NuGet 4.0 以降と VS2017 および .NET Core 2.0 でサポートされているプロジェクト ファイルの NuGet PackageReference に関する詳細
+keywords: NuGet パッケージの依存関係、パッケージ参照、プロジェクト ファイル、PackageReference、packages.config、VS2017、Visual Studio 2017、NuGet 4、.NET Core 2.0
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 275957c94e4a4bb45f359cd48816acf4f286ebad
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: e1880c9b294e19ef1b71c7b17b02df8ff1cf1b73
+ms.sourcegitcommit: 718e6cb88e45fa07c85d653f216bf92eaaf81625
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/20/2018
 ---
 # <a name="package-references-packagereference-in-project-files"></a>プロジェクト ファイルのパッケージ参照 (PackageReference)
 
-パッケージ参照では、`PackageReference` ノードを使用することで、プロジェクト ファイル内で直接、NuGet 依存関係を管理できます。個別の `packages.config` または `project.json` ファイルが不要になります。 この方法は NuGet の他の側面に影響を与えません。たとえば、`NuGet.Config` ファイルの設定は (パッケージ ソースを含む)、「[Configuring NuGet Behavior](Configuring-NuGet-Behavior.md)」 (NuGet 動作の構成) の説明にあるように、依然として適用されます。
+`PackageReference` ノードを使用するパッケージ参照では、(個別の `packages.config` ファイルとは異なり) NuGet の依存関係をプロジェクト ファイル内で直接管理します。 PackageReference の呼び出しは、NuGet の他の側面には影響を与えません。たとえば、(パッケージ ソースを含む) `NuGet.Config` ファイルの設定が適用されます。詳細については、「[NuGet の動作を構成する](configuring-nuget-behavior.md)」を参照してください。
 
-> [!Important]
-> 現在のところ、.NET Core プロジェクト、.NET Standard プロジェクト、Windows 10 Build 15063 (Creators Update) を対象とする UWP プロジェクトに関して、パッケージ参照は Visual Studio 2017 でのみサポートされています。
+PackageReference の場合、MSBuild 条件を使用し、ターゲット フレームワーク、構成、プラットフォーム、その他のグループ化ごとにパッケージ参照を選択することもできます。 依存関係とコンテンツ フローを細かく制御することもできます。 (詳細については、「[NuGet pack and restore as MSBuild targets](../reference/msbuild-targets.md)」(MSBuild ターゲットとしての NuGet のパックと復元) を参照してください)。
 
-`PackageReference` 手法では、MSBuild 条件を使用し、ターゲット フレームワーク、構成、プラットフォーム、その他のグループ化ごとにパッケージ参照を選択できます。 依存関係とコンテンツ フローを細かく制御することもできます。 動作と[依存関係の解決](Dependency-Resolution.md)の観点からは、`project.json` を使用する場合と同じになります。
-
-MSBuild とプロジェクト ファイルのパッケージ参照の統合については、「[NuGet pack and restore as MSBuild targets](../schema/msbuild-targets.md)」 (MSBuild ターゲットとしての NuGet pack および restore) を参照してください。
+既定では、PackageReference は、Windows 10 Build 15063 (Creators Update) 以降を対象とする .NET Core プロジェクト、.NET Standard プロジェクト、および UWP プロジェクトに使用されます。ただし、C++ UWP プロジェクトは例外です。 完全な .NET Framework プロジェクトは PackageReference をサポートしていますが、現在の既定は `packages.config` です。 PackageReference を使用するには、依存関係を `packages.config` からプロジェクト ファイルに移行し、packages.config を削除します。
 
 ## <a name="adding-a-packagereference"></a>PackageReference を追加する
 
@@ -37,14 +33,14 @@ MSBuild とプロジェクト ファイルのパッケージ参照の統合に�
 ```xml
 <ItemGroup>
     <!-- ... -->
-    <PackageReference Include="Contoso.Utility.UsefulStuff" Version="3.6.0" />    
+    <PackageReference Include="Contoso.Utility.UsefulStuff" Version="3.6.0" />
     <!-- ... -->
 </ItemGroup>
 ```
 
 ## <a name="controlling-dependency-version"></a>依存関係のバージョンを制御する
 
-パッケージのバージョンを指定するための規則は、`packages.config` または `project.json` を使用する場合と同じです。
+パッケージのバージョンを指定するための規則は、`packages.config` を使用する場合と同じです。
 
 ```xml
 <ItemGroup>
@@ -90,16 +86,15 @@ MSBuild とプロジェクト ファイルのパッケージ参照の統合に�
 | タグ | 説明 | 既定値 |
 | --- | --- | --- |
 | IncludeAssets | これらのアセットは使用されます | すべて |
-| ExcludeAssets | これらのアセットは使用されません | none | 
+| ExcludeAssets | これらのアセットは使用されません | none |
 | PrivateAssets | これらのアセットは使用されますが、親プロジェクトに流れません | contentfiles;analyzers;build |
-
 
 これらのタグに使用できる値は次のようになります。単独で表示する `all` と `none` を除き、複数の値はセミコロンで区切られます。
 
 | [値] | 説明 |
 | --- | ---
 | compile | `lib` フォルダーの内容 |
-| ランタイム | `runtime` フォルダーの内容 |
+| ランタイム | `runtimes` フォルダーの内容 |
 | contentFiles | `contentfiles` フォルダーの内容 |
 | ビルド | `build` フォルダーの props と targets |
 | analyzers | .NET アナライザー |
@@ -134,7 +129,7 @@ MSBuild とプロジェクト ファイルのパッケージ参照の統合に�
 ```xml
 <ItemGroup>
     <!-- ... -->
-    <PackageReference Include="Newtonsoft.json" Version="9.0.1" Condition="'$(TargetFramework)' == 'net452'" />    
+    <PackageReference Include="Newtonsoft.json" Version="9.0.1" Condition="'$(TargetFramework)' == 'net452'" />
     <!-- ... -->
 </ItemGroup>
 ```

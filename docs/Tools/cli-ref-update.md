@@ -12,11 +12,11 @@ keywords: "nuget 参照の更新、更新プログラム パッケージ コマ�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 891ce1f27102b16125c93e7a66ebd29f6fc626db
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: 6acf3a74e5c26bc4e2cef9b0db4a72442d311449
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="update-command-nuget-cli"></a>更新コマンド (NuGet CLI)
 
@@ -42,7 +42,7 @@ nuget update <configPath> [options]
 
 | オプション | 説明 |
 | --- | --- |
-| ConfigFile | NuGet 構成ファイルを適用します。 指定しない場合、 *%AppData%\NuGet\NuGet.Config*を使用します。 |
+| ConfigFile | NuGet 構成ファイルを適用します。 指定しない場合、 `%AppData%\NuGet\NuGet.Config` (Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac または Linux) を使用します。|
 | FileConflictAction | 上書きするか、プロジェクトによって参照されている既存のファイルを無視するように求められたらを実行するアクションを指定します。 値は*で上書きし、無視する場合に、none*です。 |
 | ForceEnglishOutput | *(3.5 +)*インバリアント、英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
 | ヘルプ | ヘルプ コマンドに関する情報を表示します。 |
@@ -54,7 +54,7 @@ nuget update <configPath> [options]
 | RepositoryPath | パッケージがインストールされているローカル フォルダーを指定します。 |
 | セーフ | のみを更新する最高のバージョンが同じメジャーおよびマイナー バージョン内で使用できるようにインストールされているパッケージがインストールされるように指定します。 |
 | Self | Nuget.exe、最新のバージョンに更新です。その他のすべての引数は無視されます。 |
-| ソース | (Url) として、更新プログラムを使用するパッケージ ソースの一覧を指定します。 コマンドが構成ファイルで提供されるソースを使用する省略するを参照して[構成 NuGet 動作](../Consume-Packages/Configuring-NuGet-Behavior.md)です。 |
+| ソース | (Url) として、更新プログラムを使用するパッケージ ソースの一覧を指定します。 コマンドが構成ファイルで提供されるソースを使用する省略するを参照して[構成 NuGet 動作](../consume-packages/configuring-nuget-behavior.md)です。 |
 | 詳細度 | 出力に表示される詳細情報の量を指定します:*通常*、 *quiet*、*詳細*です。 |
 | Version | 1 つのパッケージ ID に使用する場合は、更新するパッケージのバージョンを指定します。 |
 

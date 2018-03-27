@@ -3,21 +3,20 @@ title: "Visual Studio プロジェクト システムの NuGet サポート | Mi
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 1/9/2017
+ms.date: 01/09/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 9d7fa7f6-82ed-4df6-9734-f43a3d8e3b98
 description: "サードパーティ プロジェクト タイプのために NuGet を Visual Studio プロジェクト システムに統合する"
 keywords: "Visual Studio の NuGet, カスタム プロジェクト タイプ, Visual Studio プロジェクト"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9c8cad46f18578bec41bd9280985e42972a9b3c1
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: e2f7c4a32f80b96360f08d04efb8af639af2ddd3
+ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/02/2018
 ---
 # <a name="nuget-support-for-the-visual-studio-project-system"></a>Visual Studio プロジェクト システムの NuGet サポート
 
@@ -25,20 +24,18 @@ Visual Studio でサードパーティ プロジェクト タイプをサポー�
 
 NuGet と統合するためには、プロジェクト システムはこのトピックで説明するすべてのプロジェクト機能に関して独自のサポートを公開する必要があります。
 
-
-> [!NOTE]
-> パッケージを自分のプロジェクトにインストールする目的で、そのプロジェクトには実際にない機能を宣言しないでください。 Visual Studio のさまざまな機能とその他の拡張機能は、NuGet クライアント以外のプロジェクト機能に依存します。 自分のプロジェクトの機能を誤って公開すると、これらのコンポーネントに誤作動を引き起こし、ユーザー エクスペリエンスの質が落ちる可能性があります。
+> [!Note]
+> パッケージを自分のプロジェクトにインストールする目的で、そのプロジェクトに実際にはない機能を宣言しないでください。 Visual Studio のさまざまな機能とその他の拡張機能は、NuGet クライアント以外のプロジェクト機能に依存します。 自分のプロジェクトの機能を誤って公開すると、これらのコンポーネントに誤作動を引き起こし、ユーザー エクスペリエンスの質が落ちる可能性があります。
 
 ## <a name="advertise-project-capabilities"></a>プロジェクトの機能を公開する
 
 NuGet クライアントは、[プロジェクトの機能](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/about_project_capabilities.md)に基づいて、プロジェクト タイプと互換性のあるパッケージを判断します。これを次の表にまとめています。
 
-
-|機能|説明|
-|----------------|-----------|
-|AssemblyReferences|(WinRTReferences とは対照的に) プロジェクトがアセンブリ参照をサポートしていることを示します。|
-|DeclaredSourceItems|プロジェクトが (DNX ではなく) 典型的な MSBuild プロジェクトであることを示します。このプロジェクトでは、(コンパイルに含まれるすべてのファイルを使用する `project.json` ファイルではなく) プロジェクト自体でソース アイテムが宣言されます。|
-|UserSourceItems|任意のファイルをプロジェクトに追加することがユーザーに許可されることを示します。|
+| 機能 | 説明 |
+| --- | --- |
+| AssemblyReferences | (WinRTReferences とは対照的に) プロジェクトがアセンブリ参照をサポートしていることを示します。 |
+| DeclaredSourceItems | プロジェクトが (DNX ではなく) 典型的な MSBuild プロジェクトであることを示します。このプロジェクトでは、プロジェクト自体でソース アイテムが宣言されます。 |
+| UserSourceItems|任意のファイルをプロジェクトに追加することがユーザーに許可されることを示します。 |
 
 CPS ベースのプロジェクト システムの場合、このセクションの残りで説明するプロジェクト機能の実装詳細は既に行われています。 「[declaring project capabilities in CPS projects](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/about_project_capabilities.md#how-to-declare-project-capabilities-in-your-project)」 (CPS プロジェクトのプロジェクト機能の宣言) を参照してください。
 
@@ -76,9 +73,8 @@ public interface IVsBooleanSymbolPresenceChecker
 }
 ```
 
-
 このインターフェイスのサンプル実装は次のようになります。
-    
+
 ```cs
 class VsProjectCapabilitiesPresenceChecker : IVsBooleanSymbolPresenceChecker
 {

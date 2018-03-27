@@ -3,44 +3,36 @@ title: "NuGet パッケージの依存関係の解決 | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 8/14/2017
+ms.date: 08/14/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 1d530a72-3486-4a0d-b6fb-017524616f91
 description: "NuGet 2.x と NuGet 3.x 以降の両方について、NuGet パッケージの依存関係が解決されてインストールされるプロセスを詳しく説明します。"
 keywords: "NuGet パッケージの依存関係, NuGet のバージョン管理, 依存関係のバージョン, バージョン グラフ, バージョンの解決, 推移的な復元"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 93a3d077a6dd1946485fc8c48f97c8009280890c
-ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
+ms.openlocfilehash: aa2537a2538d0ea665944784ef183dc12faa9b38
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>NuGet でのパッケージ依存関係の解決方法
 
 パッケージがインストールまたは再インストールされるときは常に ([復元](../consume-packages/package-restore.md)プロセスの一部としてインストールされる場合も含めて)、NuGet はその最初のパッケージが依存する他のパッケージもすべてインストールします。
 
-これらの直接依存するものにもそれぞれに独自の依存関係が存在する可能性があり、任意の深さまでそれが続きます。 これにより、すべてのレベルにおけるパッケージ間の関係が記述された "*依存関係グラフ*" と呼ばれるものが生成されます。
+これらの直接依存するものにもそれぞれに独自の依存関係が存在する可能性があり、任意の深さまでそれが続きます。 これにより、*依存関係グラフ*と呼ばれるものが生成されます。これには、すべてのレベルにおけるパッケージ間の関係が記述されています。
 
-複数のパッケージに同じ依存関係がある場合、グラフに同じパッケージ ID が異なるバージョン制約で複数回出現する可能性があります。 ただし、プロジェクトで使うことができる指定されたパッケージのバージョンは 1 つだけなので、NuGet は使うバージョンを選ぶ必要があります。 実際のプロセスは、使われているパッケージ参照の形式によって異なります。
+複数のパッケージに同じ依存関係がある場合、グラフに同じパッケージ ID が異なるバージョン制約で複数回出現する可能性があります。 ただし、プロジェクトで使用可能な指定されたパッケージのバージョンは 1 つのみであるため、NuGet は、使用されるバージョンを選択する必要があります。 実際のプロセスは、使われているパッケージ参照の形式によって異なります。
 
-このトピックの内容:
-- [PackageReference と project.json での依存関係の解決](#dependency-resolution-with-packagereference-and-projectjson)
-- [packages.config での依存関係の解決](#dependency-resolution-with-packagesconfig)
-- [参照の除外](#excluding-references)。あるプロジェクトで指定されている依存関係と、別のプロジェクトによって生成されるアセンブリの間に競合があるときに必要になります。
-- [パッケージをインストールする間の依存関係の更新](#dependency-updates-during-package-install)
-- [互換性のないパッケージのエラーの解決](#resolving-incompatible-package-errors)
+## <a name="dependency-resolution-with-packagereference"></a>PackageReference による依存関係の解決
 
-## <a name="dependency-resolution-with-packagereference-and-projectjson"></a>PackageReference と project.json での依存関係の解決
+PackageReference 形式を使用してパッケージをプロジェクトにインストールする場合、NuGet は、フラットなパッケージ グラフへの参照を適切なファイルに追加して、競合を未然に解決します。 このプロセスは、"*推移的な復元*" と呼ばれます。 この場合、パッケージの再インストールまたは復元はグラフに列記されているパッケージをダウンロードするプロセスであり、結果としてビルドはいっそう高速で予測可能になります。 また、ワイルドカード (浮動) バージョン (2.8\* など) を利用することもでき、コストがかかってエラーが発生しやすい `nuget update` の呼び出しをクライアント コンピューターやビルド サーバーで回避できます。
 
-PackageReference または `project.json` の形式を使ってプロジェクトにパッケージをインストールする場合、NuGet はフラットなパッケージ グラフへの参照を適切なファイルに追加して、事前に競合を解決します。 このプロセスは、"*推移的な復元*" と呼ばれます。 この場合、パッケージの再インストールまたは復元はグラフに列記されているパッケージをダウンロードするプロセスであり、結果としてビルドはいっそう高速で予測可能になります。 また、ワイルドカード (浮動) バージョン (2.8\* など) を利用することもでき、コストがかかってエラーが発生しやすい `nuget update` の呼び出しをクライアント コンピューターやビルド サーバーで回避できます。
+ビルド以前に NuGet の復元プロセスを実行すると、最初にメモリ内で依存関係が解決された後、PackageReference を使用するプロジェクトの `obj` フォルダー内にある `project.assets.json` という名前のファイルに、結果のグラフを書き込みます。 その後、MSBuild はこのファイルを読み取り、潜在的な参照が見つかるフォルダーのセットに変換して、メモリ内のプロジェクト ツリーに追加します。
 
-ビルド前に実行した NuGet の復元プロセスは、最初にメモリ内で依存関係を解決した後、結果のグラフを、PackageReference を使うプロジェクトの `obj` フォルダーの `project.assets.json` という名前のファイルに、または `project.json` と共に使われる `project.lock.json` という名前のファイルに書き込みます。 その後、MSBuild はこのファイルを読み取り、潜在的な参照が見つかるフォルダーのセットに変換して、メモリ内のプロジェクト ツリーに追加します。
-
-ロック ファイルは一時的なものであり、ソース管理に追加してはなりません。 ロック ファイルは既定で `.gitignore` と `.tfignore` の両方に一覧表示されます。 「[パッケージとソース管理](Packages-and-Source-Control.md)」をご覧ください。
+ロック ファイルは一時的なものであり、ソース管理に追加してはなりません。 ロック ファイルは既定で `.gitignore` と `.tfignore` の両方に一覧表示されます。 「[パッケージとソース管理](packages-and-source-control.md)」をご覧ください。
 
 ### <a name="dependency-resolution-rules"></a>依存関係の解決ルール
 
@@ -115,16 +107,15 @@ PackageReference または `project.json` の形式を使ってプロジェク�
 
 `packages.config` の場合、NuGet は個々のパッケージのインストール中に依存関係の競合の解決を試みます。 つまり、パッケージ B に依存するパッケージ A がインストールされていて、パッケージ B が別のものの依存関係として `packages.config` のリストに既に含まれる場合、NuGet は要求されているパッケージ B のバージョンを比較し、すべてのバージョン制約を満たすバージョンの発見を試みます。 具体的には、NuGet は依存関係を満たす低い方の *major.minor* バージョンを選びます。
 
-既定では、2.7 以前の NuGet は最も高い "*パッチ*" バージョンを解決します (*major.minor.patch.build* 表記規則を使います)。 [NuGet 2.8 以降](../release-notes/nuget-2.8.md#patch-resolution-for-dependencies)では、この動作が最低のパッチ バージョンを既定で探すように変更されています。 この設定は、`Nuget.Config` の `DependencyVersion` 属性およびコマンド ラインの `-DependencyVersion` スイッチで制御できます。  
+NuGet 2.8 は、既定により、最も低い "パッチ" バージョンを探します (「[NuGet 2.8 のリリース ノート](../release-notes/nuget-2.8.md#patch-resolution-for-dependencies)」を参照してください)。 この設定は、`Nuget.Config` の `DependencyVersion` 属性およびコマンド ラインの `-DependencyVersion` スイッチで制御できます。  
 
 `packages.config` の依存関係解決プロセスは、大規模な依存関係グラフでは複雑になります。 パッケージの各新規インストールでは、グラフ全体を走査して、バージョン間の競合の可能性を明らかにする必要があります。 競合が発生するときは、インストールが停止されて、プロジェクトは不明な状態のままになります (特に、プロジェクト ファイル自体への変更の可能性がある場合)。 他のパッケージ参照形式を使うと、このような問題はありません。
 
+## <a name="managing-dependency-assets"></a>依存関係アセットの管理
 
-## <a name="managing-dependency-assets"></a>依存関係の資産の管理
+PackageReference 形式を使用すると、依存関係から最上位のプロジェクトへの資産のフローを制御できます。 詳細については、[PackageReference](package-references-in-project-files.md#controlling-dependency-assets) に関するページを参照してください。
 
-`project.json` 形式または PackageReference 形式を使うと、依存関係から最上位レベルのプロジェクトへの資産のフローを制御できます。 詳しくは、「[project.json reference](../Schema/project-json.md)」(project.json リファレンス) および「[Package references in project files](Package-References-in-Project-Files.md#controlling-dependency-assets)」(プロジェクト ファイルでのパッケージ参照) をご覧ください。
-
-最上位レベルのプロジェクト自体がパッケージである場合は、`include` および `exclude` 属性と `.nuspec` ファイルの依存関係リストを使って、このフローを制御することもできます。 「.nuspec Reference」(.nuspec リファレンス) の「[Dependencies](../Schema/nuspec.md#dependencies)」(依存関係) をご覧ください。
+最上位レベルのプロジェクト自体がパッケージである場合は、`include` および `exclude` 属性と `.nuspec` ファイルの依存関係リストを使って、このフローを制御することもできます。 「.nuspec Reference」(.nuspec リファレンス) の「[Dependencies](../reference/nuspec.md#dependencies)」(依存関係) をご覧ください。
 
 ## <a name="excluding-references"></a>参照の除外
 
@@ -140,42 +131,17 @@ PackageReference または `project.json` の形式を使ってプロジェク�
 
 - `packages.config`: 必要なバージョンの `C.dll` だけを参照するように、`.csproj` ファイルからパッケージ C への参照を削除します。
     
-- `project.json`: パッケージ C の依存関係に `"exclude" : "all"` を追加します。
-
-    ```json
-    {
-        "dependencies": {
-            "PackageC": {
-            "version": "1.0.0",
-            "exclude": "all"
-            }
-        }
-    }
-    ```
-
-- [プロジェクト ファイル内のパッケージ参照](../consume-packages/package-references-in-project-files.md)で (NuGet 4.0 以降のみ)、次のように依存関係に `ExcludeAssets="All"` を追加します。
-
-    ```xml
-    <PackageReference Include="packageC" Version="1.0.0" ExcludeAssets="All" />
-    ```
-
 ## <a name="dependency-updates-during-package-install"></a>パッケージをインストールする間の依存関係の更新 
 
-2.4.x 以前の NuGet では、依存関係がプロジェクトに既に存在するパッケージがインストールされるときに、既存のバージョンが制約を満たしている場合であっても、バージョンの制約を満たす最新のバージョンに依存関係が更新されます。 
-
-たとえば、パッケージ A はパッケージ B に依存し、バージョン番号として 1.0 が指定されているものとします。 ソース リポジトリには、パッケージ B のバージョン 1.0、1.1、1.2 が含まれます。B のバージョン 1.0 が既に含まれるプロジェクトに A をインストールした場合、B はバージョン 1.2 に更新されます。 
-
-NuGet 2.5 以降では、依存関係のバージョンが既に満たされている場合、他のパッケージのインストール中に依存関係は更新されません。 
-
-上と同じ例で、NuGet 2.5 以降のプロジェクトにパッケージ A をインストールすると、パッケージ B は既にバージョン制約を満たしているので 1.0 のままになります。 ただし、パッケージ A で B のバージョン 1.1 以上が要求されていた場合は、B 1.2 がインストールします。 
+依存関係のバージョンが既に満たされている場合、他のパッケージのインストール中に依存関係は更新されません。 たとえば、パッケージ A はパッケージ B に依存し、バージョン番号として 1.0 が指定されているものとします。 ソース リポジトリには、パッケージ B のバージョン 1.0、1.1、および 1.2 が含まれます。B のバージョン 1.0 が既に含まれているプロジェクトに A をインストールした場合、B 1.0 はバージョン制約を満たしているので、そのまま使用されます。 ただし、パッケージ A で B のバージョン 1.1 以上が要求されていた場合は、B 1.2 がインストールします。 
 
 ## <a name="resolving-incompatible-package-errors"></a>互換性のないパッケージのエラーの解決
 
 パッケージの復元操作の間に、"1 つ以上のパッケージは <プロジェクトのターゲット フレームワーク> と互換性がありません" またはパッケージはプロジェクトのターゲット フレームワークと "互換性がありません" という内容のエラーが表示されることがあります。
 
-このエラーは、プロジェクトで参照されているパッケージの 1 つ以上が、プロジェクトのターゲット フレームワークをサポートしていることを示さない場合に発生します。つまり、パッケージの `lib` フォルダーには、プロジェクトと互換性のあるターゲット フレームワーク用の適切な DLL が含まれません  (「[Target frameworks](../Schema/Target-Frameworks.md)」(ターゲット フレームワーク) をご覧ください)。 
+このエラーは、プロジェクトで参照されているパッケージの 1 つ以上が、プロジェクトのターゲット フレームワークをサポートしていることを示さない場合に発生します。つまり、パッケージの `lib` フォルダーには、プロジェクトと互換性のあるターゲット フレームワーク用の適切な DLL が含まれません  (「[Target frameworks](../reference/target-frameworks.md)」(ターゲット フレームワーク) をご覧ください)。 
 
-たとえば、プロジェクトのターゲットが `netstandard1.6` である場合に、`lib\net20` および `\lib\net45` フォルダーだけに DLL が含まれるパッケージをインストールしようとすると、パッケージおよび場合によっては依存関係に対し、次のようなメッセージが表示されます。
+たとえば、プロジェクトのターゲットが `netstandard1.6` で、`lib\net20` フォルダーと `\lib\net45` フォルダーのみに DLL が含まれるパッケージをインストールしようとすると、パッケージおよび場合によっては依存関係について、次のようなメッセージが表示されます。
 
 ```output
 Restoring packages for myproject.csproj...
@@ -195,4 +161,4 @@ Package restore failed. Rolling back package changes for 'MyProject'.
 
 - 使うパッケージでサポートされているフレームワークに、プロジェクトのターゲットを変更します。
 - パッケージの作成者に連絡し、協力して、選んだフレームワークに対するサポートを追加します。 [nuget.org](https://www.nuget.org/) の各パッケージ リスト ページには、そのための **[Contact Owners]** リンクがあります。
-- **お勧めしません**: パッケージ作成者と作業するときの一時的な解決策として、`netcore`、`netstandard`、および `netcoreapp` を対象とするプロジェクトでは、他のフレームワークを互換性があるものとして指定し、これらの他のフレームワークを対象とするパッケージを使うことができます。 [project.json のインポート](../Schema/project-json.md#imports)に関するページおよび [MSBuild 復元ターゲットの PackageTargetFallback](../Schema/msbuild-targets.md#packagetargetfallback) に関するページをご覧ください。 この方法では予期しない動作が発生する可能性があるので、繰り返しますが、パッケージ作成者との共同作業または更新によってパッケージの非互換性を解決することをお勧めします。
+

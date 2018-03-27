@@ -3,26 +3,25 @@ title: "NuGet パッケージの公開方法 | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/5/2017
+ms.date: 10/05/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 2342aabd-983e-4db1-9230-57c84fa36969
 description: "NuGet パッケージを nuget.org やプライベート フィードに公開する方法と nuget.org でパッケージ所有権を管理する方法に関する詳細。"
 keywords: "NuGet パッケージ公開, NuGet パッケージを公開する, NuGet パッケージ所有権, nuget.org に公開する, プライベート NuGet フィード"
 ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: fab25931165afb65aa3fd09c5bc37492ce814a49
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 6cb582c036392ae2792f2fa4d307370e91c4f961
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="publishing-packages"></a>パッケージを公開する
 
-`nuget pack` で[パッケージを作成](../create-packages/creating-a-package.md)したら、簡単な手順を踏むだけで他の開発者に利用してもらうことができます。公開と非公開を選択できます。
+パッケージを作成し、`.nukpg` ファイルを入手している場合は、このプロセスにより、他の開発者がパッケージを簡単に利用できるようにすることができます。公開または非公開のいずれかを選択できます。
 
 - 公開パッケージの場合、このトピックで説明するように、[nuget.org](https://www.nuget.org/packages/manage/upload) 経由で世界中の開発者が利用できます。
 - 非公開パッケージの場合、ファイル共有、プライベート NuGet サーバー、 [Visual Studio Team Services Package Management](https://www.visualstudio.com/docs/package/nuget/publish)、あるいは myget、ProGet、Nexus Repository、Artifactory のようなサードパーティ リポジトリで保存することで、チームや組織だけが利用できます。 詳細については、「[Hosting Packages Overview](../hosting-packages/overview.md)」 (パッケージ ホストの概要) を参照してください。
@@ -35,50 +34,51 @@ nuget.org の場合、最初に[無料アカウントを作成する](https://ww
 
 ![NuGet 登録とサインインの場所](media/publish_NuGetSignIn.png)
 
-次に、nuget.org Web ポータルからパッケージをアップロードするか、コマンド ラインから nuget.org にプッシュするか、次のセクションで説明するように、Visual Studio Team Services から CI/CD プロセスの一部として公開できます。
+次に、次のセクションで説明するように、nuget.org Web ポータルを使用する方法、コマンド ラインから nuget.org にプッシュする (`nuget.exe` 4.1.0 以降が必要) 方法、または Visual Studio Team Services を介して CI/CD プロセスの一環として発行する方法のいずれかでパッケージをアップロードできます。
 
-### <a name="web-portal-use-the-upload-package-tab-on-nugetorg"></a>Web ポータル: nuget.org の [Upload Package ] タブを使用する:
+### <a name="web-portal-use-the-upload-package-tab-on-nugetorg"></a>Web ポータル: nuget.org の [パッケージのアップロード] を使用
 
 ![NuGet Package Manager でパッケージをアップロードする](media/publish_UploadYourPackage.PNG)
 
-### <a name="command-line"></a>コマンド ライン:
+### <a name="command-line"></a>コマンド ライン
+
 > [!Important]
 > nuget.org にパッケージをプッシュするには、[nuget.exe v4.1.0 以降](https://www.nuget.org/downloads)を使用する必要があります。これは必須の [NuGet プロトコル](../api/nuget-protocols.md)を実装します。
 
 1. ユーザー名をクリックし、アカウント設定に移動します。
-2. **[API キー]** の下で、**[クリップボードにコピー]** をクリックし、CLI で必要となるアクセス キーを取得します。
+1. **[API キー]** で、**[クリップボードにコピー]** をクリックして、CLI で必要となるアクセス キーを取得します。
 
     ![アカウント設定から API キーをコピーする](media/publish_APIKey.png)
 
-3. コマンド プロンプトで次のコマンドを実行します。
+1. コマンド プロンプトで次のコマンドを実行します。
 
-    ```
+    ```cli
     nuget setApiKey Your-API-Key
     ```
 
     この操作により、コンピューターに API キーが格納されます。同じコンピューターでこの手順を繰り返す必要がなくなります。
 
-4. コマンドを利用し、NuGet ギャラリーにパッケージをプッシュする:
+1. コマンドを利用し、NuGet ギャラリーにパッケージをプッシュする:
 
-    ```
+    ```cli
     nuget push YourPackage.nupkg -Source https://api.nuget.org/v3/index.json
     ```
 
-5. 一般公開前に、nuget.org にアップロードされたすべてのパッケージはウイルス スキャンが行われ、見つかった場合、拒否されます。 nuget.org の一覧にあるすべてのパッケージも定期的にスキャンされます。
+1. 一般公開前に、nuget.org にアップロードされたすべてのパッケージはウイルス スキャンが行われ、見つかった場合、拒否されます。 nuget.org の一覧にあるすべてのパッケージも定期的にスキャンされます。
 
-6. nuget.org のアカウントで、**[Manage my packages]** をクリックし、公開したパッケージを確認します。また、確認の電子メールが届きます。 パッケージにインデックスが付けられ、検索結果に表示されるようになり、他のユーザーが検索可能になるまで時間がかかることがあります。その間、パッケージ ページには次のメッセージが表示されます。
+1. nuget.org のアカウントで、**[Manage my packages]\(マイ パッケージの管理\)** をクリックすると、公開したばかりのパッケージが表示されます。また、確認の電子メールが届きます。 パッケージにインデックスが付けられ、検索結果に表示されるようになり、他のユーザーが検索可能になるまで時間がかかることがあります。その間、パッケージ ページには次のメッセージが表示されます。
 
     ![パッケージのインデックスがまだ作成されていないことを示すメッセージ](media/publish_NotYetIndexed.png)
 
 ### <a name="package-validation-and-indexing"></a>パッケージの検証とインデックスの作成
 
-NuGet.org にプッシュされたパッケージはいくつかの検証を受けます。 パッケージがすべての検証に合格すると、インデックスが作成され、検索結果に表示されるようになりますが、それには時間がかかることがあります。 インデックス作成が完了すると、パッケージが正常に公開されたことを示す確認の電子メールが届きます。 パッケージが検証で不合格になった場合、パッケージの詳細ページが更新され、関連エラーが表示されます。それに関する電子メールも届きます。
+nuget.org にプッシュされたパッケージはいくつかの検証を受けます。 パッケージがすべての検証に合格すると、インデックスが作成され、検索結果に表示されるようになりますが、それには時間がかかることがあります。 インデックスの作成が完了すると、パッケージが正常に公開されたことを示す確認の電子メールが届きます。 パッケージが検証で不合格になった場合、パッケージの詳細ページが更新され、関連するエラーが表示されます。それに関する電子メールも届きます。
 
-パッケージの検証とインデックスの作成は、通常、15 以内で完了します。 パッケージ公開に予想以上の時間がかかる場合、[status.nuget.org](https://status.nuget.org/) にアクセスし、NuGet.org に中断が発生していないか確認してください。 すべてのシステムが動作しているとき、1 時間以内にパッケージが正常に公開されない場合、NuGet.org にログインし、パッケージ ページの [Contact Support] リンクからお問い合わせください。
+パッケージの検証とインデックスの作成は、通常、15 以内で完了します。 パッケージ公開に予想以上の時間がかかる場合、[status.nuget.org](https://status.nuget.org/) にアクセスし、nuget.org に中断が発生していないか確認してください。 すべてのシステムが動作しているとき、1 時間以内にパッケージが正常に公開されない場合、nuget.org にログインし、パッケージ ページの [Contact Support] リンクからお問い合わせください。
 
 ### <a name="visual-studio-team-services-cicd"></a>Visual Studio Team Services (CI/CD)
 
-CI/CD (継続的インテグレーション/配置) の一部として Visual Studio Team Services を利用して nuget.org にパッケージをプッシュする場合、NuGet タスクで nuget.exe 4.1 以上を使用する必要があります。 詳細は、Microsoft DevOps ブログの「[Using the latest NuGet in your build](https://blogs.msdn.microsoft.com/devops/2017/09/29/using-the-latest-nuget-in-your-build/)」 (ビルドで最新の NuGet を利用する) にあります。
+継続的インテグレーション/配置プロセスの一部として Visual Studio Team Services を利用して nuget.org にパッケージをプッシュする場合、NuGet タスクで `nuget.exe` 4.1 以上を使用する必要があります。 詳細は、Microsoft DevOps ブログの「[Using the latest NuGet in your build](https://blogs.msdn.microsoft.com/devops/2017/09/29/using-the-latest-nuget-in-your-build/)」 (ビルドで最新の NuGet を利用する) にあります。
 
 ## <a name="managing-package-owners-on-nugetorg"></a>nuget.org でパッケージ所有者を管理する
 

@@ -12,11 +12,11 @@ keywords: "nuget プッシュ参照、プッシュ コマンド"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 50883bc85ab96cba54fb4ce0bd344e8148c4fab1
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: 095e81406df3db5fbfc6c5202362894b2c6d7cf8
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="push-command-nuget-cli"></a>push コマンド (NuGet CLI)
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/25/2018
 
 パッケージをパッケージ ソースにプッシュし、それを公開します。
 
-NuGet の既定の構成を読み込むことにより取得`%AppData%\NuGet\NuGet.Config`、読み込み時、`Nuget.Config`または`.nuget\Nuget.Config`ドライブのルートから開始し、現在のディレクトリで終わるファイル (を参照してください[NuGet の動作を構成する](../consume-packages/configuring-nuget-behavior.md))
+NuGet の既定の構成を読み込むことにより取得`%AppData%\NuGet\NuGet.Config`(Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac または Linux) が、読み込み、`Nuget.Config`または`.nuget\Nuget.Config`ドライブのルートから開始し、現在のディレクトリで終わるファイル (を参照してください[構成NuGet 動作](../consume-packages/configuring-nuget-behavior.md))
 
 ## <a name="usage"></a>使用法
 
@@ -41,14 +41,14 @@ nuget push <packagePath> [options]
 
 | オプション | 説明 |
 | --- | --- |
-| ApiKey | ターゲットのリポジトリの API キー。 存在しない場合、いずれかで指定されている*%AppData%\NuGet\NuGet.Config*を使用します。 |
-| ConfigFile | NuGet 構成ファイルを適用します。 指定しない場合、 *%AppData%\NuGet\NuGet.Config*を使用します。 |
+| ApiKey | ターゲットのリポジトリの API キー。 存在しない場合は、構成ファイルで指定されているが使用されます。 |
+| ConfigFile | NuGet 構成ファイルを適用します。 指定しない場合、 `%AppData%\NuGet\NuGet.Config` (Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac または Linux) を使用します。|
 | DisableBuffering | メモリの使用量を削減する http (s) サーバーへのプッシュ時にバッファー処理を無効にします。 注意: このオプションを使用すると、統合 Windows 認証動かないことがあります。 |
 | ForceEnglishOutput | *(3.5 +)*インバリアント、英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
 | ヘルプ | ヘルプ コマンドに関する情報を表示します。 |
 | NonInteractive | ユーザー入力または確認を要求するプロンプトを抑制します。 |
 | NoSymbols | *(3.5 +)*シンボル パッケージが存在する場合にプッシュされませんシンボル サーバーにします。 |
-| ソース | サーバー URL を指定します。 NuGet は、UNC またはローカル フォルダーのソースを識別し、単に HTTP を使用して、プッシュされずにあるファイルをコピーします。  また、NuGet 3.4.2 から始めて、これは必須のパラメーターを除いて、`NuGet.Config`ファイルを指定します、 *DefaultPushSource*値 (を参照してください[構成 NuGet 動作](../Consume-Packages/Configuring-NuGet-Behavior.md))。 |
+| ソース | サーバー URL を指定します。 NuGet は、UNC またはローカル フォルダーのソースを識別し、単に HTTP を使用して、プッシュされずにあるファイルをコピーします。  また、NuGet 3.4.2 から始めて、これは必須のパラメーターを除いて、`NuGet.Config`ファイルを指定します、 *DefaultPushSource*値 (を参照してください[構成 NuGet 動作](../consume-packages/configuring-nuget-behavior.md))。 |
 | SymbolSource | *(3.5 +)*シンボル サーバーの URL を指定します; は、プッシュ nuget.org するときに使用する nuget.smbsrc.net |
 | SymbolApiKey | *(3.5 +)*で指定された URL では、API キーを指定`-SymbolSource`です。 |
 | Timeout | (秒単位) をサーバーにプッシュするためのタイムアウト値を指定します。 既定では 300 秒 (5 分) です。 |

@@ -12,11 +12,11 @@ keywords: "nuget の参照をパッケージのコマンドをインストール
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b77e0e6ce045d1a1e59b29f770b5aca13fc4e7e3
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: 8d5f53c833fb42c9fe37d0629eab33e8f0bc70d7
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="install-command-nuget-cli"></a>コマンド (NuGet CLI) をインストールします。
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/25/2018
 > [!Tip]
 > プロジェクトのコンテキスト外で直接パッケージをダウンロードするには、ページにアクセスして、パッケージの[nuget.org](https://www.nuget.org)を選択し、**ダウンロード**リンクします。
 
-ソースが指定されていない場合、グローバル構成ファイルに一覧表示`%APPDATA%\NuGet\NuGet.Config`、使用されます。 参照してください[構成 NuGet 動作](../consume-packages/configuring-nuget-behavior.md)の詳細。
+ソースが指定されていない場合、グローバル構成ファイルに一覧表示`%APPDATA%\NuGet\NuGet.Config`(Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac または Linux) を使用します。 参照してください[構成 NuGet 動作](../consume-packages/configuring-nuget-behavior.md)の詳細。
 
 特定のパッケージが指定されていない場合`install`プロジェクトの表示されているすべてのパッケージをインストール`packages.config`ようなファイル[ `restore`](cli-ref-restore.md)です。
 
@@ -47,7 +47,7 @@ nuget install <packageID | configFilePath> [options]
 
 | オプション | 説明 |
 | --- | --- |
-| ConfigFile | NuGet 構成ファイルを適用します。 指定しない場合、 *%AppData%\NuGet\NuGet.Config*を使用します。 |
+| ConfigFile | NuGet 構成ファイルを適用します。 指定しない場合、 `%AppData%\NuGet\NuGet.Config` (Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac または Linux) を使用します。|
 | DependencyVersion | *(4.4 +)*既定の依存関係の解決の動作をオーバーライドする特定のバージョンを指定します。 |
 | DisableParallelProcessing | 複数のパッケージを並列でインストールを無効にします。 |
 | ExcludeVersion | パッケージ名のみとバージョン番号ではないという名前のフォルダーにパッケージをインストールします。 |
@@ -62,7 +62,7 @@ nuget install <packageID | configFilePath> [options]
 | PreRelease | インストールするプレリリースのパッケージを使用できます。 このフラグは、使用してパッケージを復元するときに必要ありません`packages.config`です。 |
 | RequireConsent | ダウンロードして、パッケージをインストールする前にパッケージを復元が有効になっていることを確認します。 詳細については、「[パッケージの復元](../consume-packages/package-restore.md)です。 |
 | SolutionDirectory | パッケージを復元するためのソリューションのルート フォルダーを指定します。 |
-| ソース | (Url) として使用するパッケージ ソースの一覧を指定します。 コマンドが構成ファイルで提供されるソースを使用する省略するを参照して[構成 NuGet 動作](../Consume-Packages/Configuring-NuGet-Behavior.md)です。 |
+| ソース | (Url) として使用するパッケージ ソースの一覧を指定します。 コマンドが構成ファイルで提供されるソースを使用する省略するを参照して[構成 NuGet 動作](../consume-packages/configuring-nuget-behavior.md)です。 |
 | 詳細度 | 出力に表示される詳細情報の量を指定します:*通常*、 *quiet*、*詳細*です。 |
 | Version | インストールするパッケージのバージョンを指定します。 |
 

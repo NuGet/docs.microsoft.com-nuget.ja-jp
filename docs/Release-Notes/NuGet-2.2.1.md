@@ -13,10 +13,10 @@ ms.reviewer:
 - karann-msft
 - unniravindranathan
 ms.openlocfilehash: c3e912dcabeb3a26c880b42560a3cec6f7bf2db9
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/02/2018
 ---
 # <a name="nuget-221-release-notes"></a>NuGet 2.2.1 リリース ノート
 
@@ -30,7 +30,7 @@ NuGet は Visual Studio 2012 の一部として提供されている、ときに
 NuGet の UI と PowerShell コンソールは、次の言語にローカライズされます。
 
 1. 中国語 (簡体字、中国)
-1. では [
+1. では 
 1. チェコ語
 1. 英語
 1. フランス語

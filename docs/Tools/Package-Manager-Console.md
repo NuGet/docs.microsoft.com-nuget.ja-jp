@@ -7,17 +7,18 @@ ms.date: 01/23/2018
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-f1_keywords: vs.nuget.packagemanager.console
+f1_keywords:
+- vs.nuget.packagemanager.console
 description: "Visual Studio で NuGet パッケージ マネージャー コンソールを使用してパッケージを操作するための手順です。"
 keywords: "NuGet パッケージ マネージャー コンソールで、NuGet powershell、NuGet パッケージを管理します。"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b89c51812cee0f64c6f5c39cd9d86bc4a0be068e
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: 60c7edd0497e162cc511424e9acfbbfd6f53fd46
+ms.sourcegitcommit: a40a6ce6897b2d9411397b2e29b1be234eb6e50c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="package-manager-console"></a>パッケージ マネージャー コンソール
 
@@ -59,7 +60,7 @@ NuGet パッケージ マネージャー コンソールは、Windows 2012 以�
 
 1. 別のパッケージのソースまたはプロジェクトを選択すると、後続のコマンドの既定の設定を変更します。 上書きをこれらの設定、既定値を変更することがなくほとんどのコマンド サポート`-Source`と`-ProjectName`オプション。
 
-1. パッケージ ソースを管理するには、歯車アイコンを選択します。 これへのショートカットを**ツール > オプション > NuGet Package Manager > パッケージ ソース** ダイアログ ボックスの定義に従って、[パッケージ マネージャーの UI](Package-Manager-UI.md#package-sources)ページ。 また、コントロールをプロジェクトのセレクターの右側には、本体の内容をクリアします。
+1. パッケージ ソースを管理するには、歯車アイコンを選択します。 これへのショートカットを**ツール > オプション > NuGet Package Manager > パッケージ ソース** ダイアログ ボックスの定義に従って、[パッケージ マネージャーの UI](package-manager-ui.md#package-sources)ページ。 また、コントロールをプロジェクトのセレクターの右側には、本体の内容をクリアします。
 
     ![パッケージ マネージャー コンソールの設定およびクリア コントロール](media/PackageManagerConsoleControls2.png)
 
@@ -187,7 +188,7 @@ C:\Users\<user>\Documents\WindowsPowerShell\NuGet_profile.ps1
 
 ## <a name="using-the-nugetexe-cli-in-the-console"></a>コンソールで nuget.exe CLI を使用します。
 
-させる、 [ `nuget.exe` CLI](nuget-exe-CLI-Reference.md)パッケージ マネージャー コンソールで、使用可能なインストール、 [NuGet.CommandLine](http://www.nuget.org/packages/NuGet.CommandLine/)コンソールからのパッケージ。
+させる、 [ `nuget.exe` CLI](nuget-exe-cli-reference.md)パッケージ マネージャー コンソールで、使用可能なインストール、 [NuGet.CommandLine](http://www.nuget.org/packages/NuGet.CommandLine/)コンソールからのパッケージ。
 
 ```ps
 # Other versions are available, see http://www.nuget.org/packages/NuGet.CommandLine/

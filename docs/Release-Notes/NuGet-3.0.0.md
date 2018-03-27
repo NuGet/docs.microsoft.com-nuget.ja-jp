@@ -12,11 +12,11 @@ keywords: "NuGet 3.0.0 リリース ノートについては、バグの修正�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ef8557c37105eb7915919c7b15d41d024921761f
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: 65251b28093d2ac275053b8bfef6620e16e3fb4a
+ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="nuget-30-release-notes"></a>NuGet 3.0 リリース ノート
 
@@ -30,7 +30,7 @@ NuGet 3.0 は、Visual Studio 2015 にバンドル拡張機能として、2015 �
 
 ## <a name="known-issues"></a>既知の問題
 
-このリリースで提供される既知の問題の数があったし、これらの項目すべてでは 7 月 29日で Windows 10 のリリースで一致するように、スケジュールされた 3.1 リリースで修正します。  これらの既知の問題を解決するには、その日以降に、ギャラリーから、Visual Studio 拡張機能を更新することができます。
+このリリースで提供される既知の問題の数があったし、これらの項目すべてでは 7 月 29日で Windows 10 のリリースで一致するように、スケジュールされた 3.1 リリースで修正します。  これらの既知の問題を解決するには、その日以降に、ギャラリーから、Visual Studio 拡張機能を更新できます。
 
 *  プレビュー ウィンドウに「を表示しない次回からこの」ラベルと、「作成者」パッケージの説明 ウィンドウでラベルの翻訳が指定されていません。
 *  コントロールをソース TFS を使用して、プロジェクトで作業する時に NuGet ことはできません、package manager ユーザー インターフェイスを提供 Nuget.Config ファイルが読み取り専用とマークされている場合。

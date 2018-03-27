@@ -12,11 +12,11 @@ keywords: "NuGet 1.8 リリース ノートについては、バグの修正、�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: e77c8a7cc2096e11571025b2a55bc6f20dfa4351
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: 139c30e29d8148eab7298329a07d8e412259e595
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="nuget-18-release-notes"></a>NuGet 1.8 のリリース ノート
 
@@ -35,7 +35,7 @@ VS 2010 SP1 を実行している場合、インストールされている古�
 
 NuGet 1.8 のリリース後すぐ 1.8 の暗号化の変更が、Windows XP でユーザーを超えたことがわかりました。
 
-この問題に対処する修正プログラムをリリースしたためです。  Visual Studio 拡張機能ギャラリーを通じて NuGet を更新することでは、この修正プログラムを受け取ります。
+この問題に対処する修正プログラムをリリースしたためです。  NuGet Visual Studio 拡張機能ギャラリーを更新することでは、この修正プログラムを受信します。
 
 ## <a name="features"></a>フィーチャー
 

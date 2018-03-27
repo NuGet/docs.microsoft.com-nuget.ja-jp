@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 42e7a619-1c69-454b-8243-16e2f9f950d0
 description: "認証、パッケージのインストール、ツールなど、NuGet に関する既知の問題。"
 keywords: "NuGet の既知の問題, NuGet の問題"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ce145212da3830216e123f39257a6707712f88c9
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: ac00e3f11c54290a31319e7f2946fd965a0a9288
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="known-issues-with-nuget"></a>NuGet に関する既知の問題
 
@@ -46,7 +45,7 @@ NuGet 3.4 および 3.4.1 で NuGet アドインを使用している場合、�
 
 ![ソースがない NuGet の構成](./media/knownIssue-34-NoSources.PNG)
 
-`%AppData%\NuGet\` フォルダーの `NuGet.Config` ファイルが誤って空になっています。 この問題を解決するには: Visual Studio 2015 を終了し、`%AppData%\NuGet\` フォルダーの `NuGet.Config` ファイルを削除し、Visual Studio を再起動します。  新しい `NuGet.Config` ファイルが生成され、続行できるようになります。
+`%AppData%\NuGet\` (Windows) フォルダーまたは `~/.nuget/` (Mac/Linux) フォルダーの `NuGet.Config` ファイルが誤って空になります。 この問題を解決するには、Visual Studio を終了し (Windows で該当する場合)、`NuGet.Config` ファイルを削除し、操作をやり直します。 NuGet から新しい `NuGet.Config` が生成され、続行できるようになります。
 
 ## <a name="error-installing-packages-with-nuget-27"></a>NuGet 2.7 を使用してパッケージをインストールするときのエラー
 
@@ -68,7 +67,6 @@ install-package log4net
         FullyQualifiedErrorId : NuGetCmdletUnhandledException,NuGet.PowerShell.Commands.InstallPackageCommand
 ```
 
-
 システムで `VSLangProj.dll` COM コンポーネントの登録が解除されている場合に、タイプ ライブラリによってこのエラーが発生します。 このエラーは、たとえば 2 つのバージョンの Visual Studio が並列でインストールされていて、古い方のバージョンをアンインストールしたときなどに発生します。 その結果、上記の COM ライブラリの登録が誤って解除されることがあります。
 
 **解決策:**
@@ -82,12 +80,12 @@ install-package log4net
 このエラーの詳細については、この[作業項目](https://nuget.codeplex.com/workitem/3609 "作業項目 3609") を参照してください。
 
 ## <a name="build-failure-after-package-update-in-vs-2012"></a>VS 2012 のパッケージの更新後のビルド エラー
+
 問題: VS 2012 RTM を使用しています。 NuGet パッケージを更新すると、"完全にアンインストールできなかったパッケージがあります" というメッセージを受け取ります。 また、Visual Studio を再起動するように求められます。 VS を再起動すると、通常とは異なるビルド エラーを受け取ります。
 
-この原因は、以前のパッケージに含まれる特定のファイルが、バックグラウンドの MSBuild プロセスでロックされていることです。
-VS の再起動後も、バックグラウンドの MSBuild プロセスで、以前のパッケージに含まれるファイルが継続して使用されているため、ビルド エラーが発生します。
+この原因は、以前のパッケージに含まれる特定のファイルが、バックグラウンドの MSBuild プロセスでロックされていることです。 VS の再起動後も、バックグラウンドの MSBuild プロセスで、以前のパッケージに含まれるファイルが継続して使用されているため、ビルド エラーが発生します。
 
-この問題を解決するには、VS 2012 の更新プログラム ([VS 2012 更新プログラム 2](http://www.microsoft.com/download/details.aspx?id=38188) など) をインストールします。
+この問題を解決するには、VS 2012 Update (VS 2012 Update 2 など) をインストールします。
 
 ## <a name="upgrading-to-latest-nuget-from-an-older-version-causes-a-signature-verification-error"></a>以前のバージョンから最新の NuGet にアップグレードすると、署名の検証エラーが発生する
 
@@ -98,7 +96,7 @@ VS 2010 SP1 を実行していて、NuGet の以前のバージョンをイン�
 ログを表示すると、`SignatureMismatchException` のメンションが表示されることがあります。
 
 これを防ぐには、[Visual Studio 2010 SP1 修正プログラム](http://bit.ly/vsixcertfix)をインストールします。
-または、(管理者として Visual Studio を実行しているときに) NuGet をアンインストールし、VS 拡張ギャラリーから NuGet をインストールするだけ、という回避策もあります。  詳細については、[http://support.microsoft.com/kb/2581019](http://support.microsoft.com/kb/2581019) を参照してください。
+または、(管理者として Visual Studio を実行しているときに) NuGet をアンインストールし、VS 拡張ギャラリーから NuGet をインストールするだけ、という回避策もあります。  詳細については、「[http://support.microsoft.com/kb/2581019](http://support.microsoft.com/kb/2581019)」を参照してください。
 
 ## <a name="package-manager-console-throws-an-exception-when-the-reflector-visual-studio-add-in-is-also-installed"></a>Reflector Visual Studio アドインもインストールされている場合、パッケージ マネージャー コンソールから例外がスローされます。
 
@@ -157,40 +155,37 @@ Reflector VS アドインをインストールしている場合、パッケー�
 
 その場合は、[StackOverflow について説明した解決策](http://stackoverflow.com/questions/12638289/embedding-powershell-v2-0-in-net-app-on-windows-8-rtm)に従って解決してください。
 
-## <a name="the-add-package-library-reference-dialog-throws-an-exception-if-the-solution-contains-installshield-limited-edition-project"></a>ソリューションに InstallShield Limited Edition プロジェクトが含まれている場合、[Add Package Library Reference]\(パッケージ ライブラリ参照の追加\) ダイアログから例外がスローされます。
+## <a name="the-add-package-library-reference-dialog-throws-an-exception-if-the-solution-contains-installshield-limited-edition-project"></a>ソリューションに InstallShield Limited Edition プロジェクトが含まれている場合、[Add Package Library Reference]\(パッケージ ライブラリ参照の追加\) ダイアログから例外がスローされる
 
 ソリューションに 1 つ以上の InstallShield Limited Edition プロジェクトが含まれている場合、**[Add Package Library Reference]\(パッケージ ライブラリ参照の追加\)** ダイアログを開くと、例外がスローされることがわかっています。 現時点では、InstallShield プロジェクトを削除するかアンロードする以外の回避策がまだありません。
 
 ## <a name="uninstall-button-greyed-out-nuget-requires-admin-privileges-to-installuninstall"></a>[アンインストール] ボタンが淡色表示されている場合は NuGet のインストール/アンインストールに管理者特権が必要
 
-Visual Studio 拡張機能マネージャーを使用して NuGet をアンインストールしようとすると、[アンインストール] ボタンが無効になっていることがあります。
-NuGet のインストール/アンインストールには管理者特権が必要です。 拡張機能をアンインストールするには、管理者として Visual Studio を再起動します。
-NuGet の使用には管理者アクセス権は必要ありません。
+Visual Studio 拡張機能マネージャーを使用して NuGet をアンインストールしようとすると、[アンインストール] ボタンが無効になっていることがあります。 NuGet のインストール/アンインストールには管理者特権が必要です。 拡張機能をアンインストールするには、管理者として Visual Studio を再起動します。 NuGet の使用には管理者アクセス権は必要ありません。
 
 ## <a name="the-package-manager-console-crashes-when-i-open-it-in-windows-xp-whats-wrong"></a>Windows XP でパッケージ マネージャー コンソールを開こうとするとクラッシュする 理由
 
-NuGet には PowerShell 2.0 ランタイムが必要です。 Windows XP の既定では PowerShell 2.0 がインストールされていません。 PowerShell 2.0 ランタイムは、[http://support.microsoft.com/kb/968929](http://support.microsoft.com/kb/968929) からダウンロードできます。 インストール後に Visual Studio を再起動すると、パッケージ マネージャー コンソールを開くことができるようになります。
+NuGet には PowerShell 2.0 ランタイムが必要です。 Windows XP の既定では PowerShell 2.0 がインストールされていません。 Powershell 2.0 ランタイムは [http://support.microsoft.com/kb/968929](http://support.microsoft.com/kb/968929) からダウンロードできます。 インストール後に Visual Studio を再起動すると、パッケージ マネージャー コンソールを開くことができるようになります。
 
 ## <a name="visual-studio-2010-sp1-beta-crashes-on-exit-if-the-package-manager-console-is-open"></a>パッケージ マネージャー コンソールが開いていると、Visual Studio 2010 SP1 ベータ版の終了時にクラッシュします。
 
-Visual Studio 2010 SP1 ベータ版をインストールした場合、パッケージ マネージャー コンソールを開いたままにして Visual Studio を終了するとクラッシュすることがあります。 これは、Visual Studio の既知の問題であり、SP1 RTM リリースで修正される予定です。
-現在のところは、クラッシュを無視するか、可能であれば SP1 ベータ版をアンインストールしてください。
+Visual Studio 2010 SP1 ベータ版をインストールした場合、パッケージ マネージャー コンソールを開いたままにして Visual Studio を終了するとクラッシュすることがあります。 これは、Visual Studio の既知の問題であり、SP1 RTM リリースで修正される予定です。 現在のところは、クラッシュを無視するか、可能であれば SP1 ベータ版をアンインストールしてください。
 
 ## <a name="the-element-metadata--has-invalid-child-element-exception-occurs"></a>"'metadata' に無効な子要素が含まれています" 例外が発生する
 
-プレリリース バージョンの NuGet を使用してビルドしたパッケージをインストールすると、そのプロジェクトを含む RTM バージョンの NuGet を実行しているときに、"名前空間 'schemas.microsoft.com/packaging/2010/07/nuspec.xsd' の要素 'metadata' に無効な子要素が含まれています" というエラー メッセージが発生することがあります。 各パッケージをアンインストールし、RTM バージョンの NuGet を使用して各パッケージを再インストールする必要があります。
+プレリリース バージョンの NuGet を使用してビルドしたパッケージをインストールすると、そのプロジェクトを含む RTM バージョンの NuGet を実行しているときに、"名前空間 'schemas.microsoft.com/packaging/2010/07/nuspec.xsd' の要素 'metadata' に無効な子要素が含まれています" というエラー メッセージが発生することがあります。 各パッケージをアンインストールし、RTM バージョンの NuGet を使用して再インストールする必要があります。
 
-## <a name="attempting-to-install-or-uninstall-results-in-the-error-cannot-create-a-file-when-that-file-already-existsrdquo"></a>インストールまたはアンインストールをしようしようとすると、"既に存在するファイルを作成することはできません&rdquo; というエラーが発生する
+## <a name="attempting-to-install-or-uninstall-results-in-the-error-cannot-create-a-file-when-that-file-already-exists"></a>インストールまたはアンインストールをしようとすると、"既に存在するファイルを作成することはできません。" というエラーが発生する
 
 Visual Studio 拡張機能は、なんらかの理由で、VSIX 拡張機能をアンインストールしたにもかかわらず一部のファイルが残っているという正常ではない状態になっています。 この問題を解決するには:
 
 1. Visual Studio の終了
-2. 次のフォルダーを開きます (コンピューターの別のドライブにある可能性があります)
+1. 次のフォルダーを開きます (コンピューターの別のドライブにある可能性があります)
 
     C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\Extensions\Microsoft Corporation\NuGet Package Manager\<version>\
 
-3. 拡張子が *.deleteme* のファイルをすべて削除します。
-4. Visual Studio を再起動します
+1. 拡張子が *.deleteme* のファイルをすべて削除します。
+1. Visual Studio を再起動します
 
 これらの手順を実行すると、続行できるようになります。
 
@@ -217,6 +212,7 @@ Visual Studio 拡張機能は、なんらかの理由で、VSIX 拡張機能を�
     throw "My error message"
 
 ## <a name="installing-nuget-with-restricted-access-on-windows-2003-can-crash-visual-studio"></a>Windows 2003 で制限されたアクセス権を使用して NuGet をインストールすると、Visual Studio がクラッシュすることがある
+
 Visual Studio 拡張機能マネージャーを使用して、管理者特権を使用せずに NuGet をインストールしようとすると、既定で [制限されたアクセス権でこのプログラムを実行する] がオンの [実行] ダイアログが表示されます。
 
 ![制限付きの実行ダイアログ](./media/RunAsRestricted.png)
@@ -224,13 +220,15 @@ Visual Studio 拡張機能マネージャーを使用して、管理者特権を
 オンのまま [OK] をクリックすると、Visual Studio がクラッシュします。 このオプションをオフにしてから NuGet をインストールしてください。
 
 ## <a name="cannot-uninstall-nuget-for-windows-phone-tools"></a>NuGet for Windows Phone Tools をアンインストールできない
+
 Windows Phone Tools は Visual Studio 拡張機能マネージャーをサポートしていません。 NuGet をアンインストールするには、次のコマンドを実行します。
 
      vsixinstaller.exe /uninstall:NuPackToolsVsix.Microsoft.67e54e40-0ae3-42c5-a949-fddf5739e7a5
 
 ## <a name="changing-the-capitalization-of-nuget-package-ids-breaks-package-restore"></a>NuGet パッケージ ID の大文字と小文字を変更すると、パッケージの復元が中断する
+
 [この GitHub の問題](https://github.com/Particular/NServiceBus/issues/1271#issuecomment-20865932)で議論されているように、NuGet パッケージの大文字と小文字を変更することは NuGet でサポートされていますが、既存の大文字と小文字が異なるパッケージがローカル パッケージ キャッシュに存在する場合、パッケージの復元時に複雑な状況になります。 ビルド時のパッケージの復元で発生する可能性のある中断について、パッケージの既存のユーザーに伝える方法がある場合にのみ、大文字と小文字の変更を要求することをお勧めします。
 
-## <a name="reporting-issues"></a>問題の報告
-NuGet クライアントに関する問題は、[こちら](https://nuget.codeplex.com/WorkItem/Create)で報告してください。
-NuGet ギャラリーに関する問題は、[こちら](https://github.com/nuget/nugetgallery/issues)で報告してください。
+## <a name="reporting-issues"></a>レポートの問題
+
+NuGet の問題を報告するには、[https://github.com/nuget/home/issues](https://github.com/nuget/home/issues) にアクセスしてください。

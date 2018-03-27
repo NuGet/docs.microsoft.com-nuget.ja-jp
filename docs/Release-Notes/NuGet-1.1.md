@@ -12,11 +12,11 @@ keywords: "NuGet 1.1 のリリース ノートについては、バグの修正�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 68c3415fe328fe6d9db91757a7fc180da8489a9f
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: 6a596e61f144e7269f703f2dba3dddb4fd338e6a
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="nuget-10-and-11-release-notes"></a>NuGet 1.0 および 1.1 のリリース ノートします。
 
@@ -135,7 +135,7 @@ CTP 2 以降のこのリリース候補版で行った変更を次に示しま�
 
 CTP 2 での最も重要な変更を次に示します。
 
-* パッケージを OData サービス エンドポイント ATOM からフィードを切り替えられます: CTP2 バージョンの NuGet をアップグレードする場合は、パッケージのソースとして、次の URL を追加することを確認する: [http://go.microsoft.com/fwlink/?LinkID=204820](http://go.microsoft.com/fwlink/?LinkID=204820)です。
+* パッケージを OData サービス エンドポイント ATOM からフィードを切り替えられます: CTP2 バージョンの NuGet をアップグレードする場合は、パッケージのソースとして、次の URL を追加することを確認する: https://feed.nuget.org/ctp2/odata/v1/ です。
 * 追加パッケージ コマンドの名前を変更*Install-package*です。
 * 更新、`.nuspec`形式です。 `.nuspec`形式が含まれています、 *iconUrl*をパッケージの追加 ダイアログに表示される 32 x 32 png アイコンを指定するフィールドです。 必ず、パッケージを区別するために設定します。 `.nuspec`形式も含まれています、新しい*projectUrl*フィールドの詳細については、パッケージを提供する web ページを指すように使用することができます。
 

@@ -12,11 +12,11 @@ keywords: "NuGet 2.5 リリース ノートについては、バグの修正、�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c2c6cf85b9ebccf200be9ef4a2bf96802cffcaea
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: 4fb696a1f4d76bdd3461df6af461f279f9f0a8b0
+ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="nuget-25-release-notes"></a>NuGet 2.5 のリリース ノート
 
@@ -62,7 +62,7 @@ NuGet 2.5 に大幅な貢献の次の外部共同作成者いただき、あり�
 
 ### <a name="allow-users-to-overwrite-content-files-that-already-exist"></a>ユーザーが既に存在するコンテンツのファイルの上書きを許可します。
 
-NuGet パッケージに含まれるときにディスクに既に存在するコンテンツのファイルを上書きする権限をすべての時間の多かった機能の 1 つされました。 NuGet 2.5 以降では、これらの競合は、識別し、以前これらのファイルのスキップされた常に対し、ファイルを上書きする求められます。
+NuGet パッケージに含まれるときにディスクに既に存在するコンテンツのファイルを上書きする権限をすべての時間の多かった機能の 1 つされました。 NuGet 2.5 以降では、これらの競合識別され、これらのファイルがスキップされた常に以前は、ファイルを上書きするように求められます。
 
 ![コンテンツ ファイルを上書き](./media/NuGet-2.5/overwrite-file.png)
 

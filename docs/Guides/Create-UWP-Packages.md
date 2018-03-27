@@ -3,21 +3,20 @@ title: "ユニバーサル Windows プラットフォーム用の NuGet パッ�
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 7/17/2017
+ms.date: 03/21/2017
 ms.topic: get-started-article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: d98524b1-a674-4803-8ac5-3c6bce867f86
 description: "ユニバーサル Windows プラットフォーム用の Windows ランタイム コンポーネントを使用して NuGet パッケージを作成するためのエンド ツー エンド チュートリアル。"
 keywords: "パッケージを作成する, UWP のパッケージ, Windows ランタイム コンポーネント"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0513ad063d01e573672b6c84a9e819b6df516f03
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: af650b6cd67855a67d0f49cdbd9f510bf90a60f6
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-uwp-packages"></a>UWP パッケージを作成する
 
@@ -25,20 +24,11 @@ ms.lasthandoff: 12/14/2017
 
 このチュートリアルでは、マネージ プロジェクトとネイティブ プロジェクトの両方で使用できるネイティブ UWP コンポーネント (XAML コントロールを含む) で NuGet パッケージを作成します。
 
-1. [前提条件](#pre-requisites)
-1. [UWP Windows ランタイム コンポーネントを作成する](#create-a-uwp-windows-runtime-component)
-1. [.nuspec ファイルを作成して更新する](#create-and-update-the-nuspec-file)
-1. [コンポーネントをパッケージ化する](#package-the-component)
-1. [関連トピック](#related-topics)
+## <a name="prerequisites"></a>必須コンポーネント
 
-## <a name="pre-requisites"></a>前提条件
+1. Visual Studio 2017 または Visual Studio 2015。 [visualstudio.com](https://www.visualstudio.com/) から無料の 2017 Community Edition をインストールします。Professional Edition と Enterprise Edition を使用することもできます。
 
-1. Visual Studio 2017 または Visual Studio 2015。 [visualstudio.com](https://www.visualstudio.com/) から無料の Community Edition をインストールします。Professional Edition と Enterprise Edition も使用できます。
-1. NuGet CLI。 [nuget.org/downloads](https://nuget.org/downloads) から最新バージョンの nuget.exe をダウンロードして、任意の場所に保存します。 次に、その場所を PATH 環境変数に追加します (まだ存在していない場合)。
-
-> [!Note]
-> nuget.exe はインストーラーではなく CLI ツール自体です。したがって、ブラウザーからダウンロードしたファイルは実行するのではなく、必ず保存してください。
-
+1. NuGet CLI。 [nuget.org/downloads](https://nuget.org/downloads) から最新バージョンの `nuget.exe` をダウンロードして、任意の場所に保存します (`.exe`を直接ダウンロードします)。 次に、その場所を PATH 環境変数に追加します (まだ存在していない場合)。
 
 ## <a name="create-a-uwp-windows-runtime-component"></a>UWP Windows ランタイム コンポーネントを作成する
 
@@ -63,7 +53,6 @@ ms.lasthandoff: 12/14/2017
 > [!Note]
 > このチュートリアルでは、パッケージのデバッグ成果物を使用します。 非デバッグ パッケージの場合は、代わりに [バッチ ビルド] ダイアログでリリース オプションをオンにして、以下の手順で結果として得られる Release フォルダーを参照します。
 
-
 ## <a name="create-and-update-the-nuspec-file"></a>.nuspec ファイルを作成して更新する
 
 初期 `.nuspec` ファイルを作成するには、次の 3 つの手順を実行します。 次のセクションでは、他の必要な更新について説明します。
@@ -71,7 +60,7 @@ ms.lasthandoff: 12/14/2017
 1. コマンド プロンプトを開き、`ImageEnhancer.vcxproj` (これは、ソリューション ファイルの下のサブフォルダーになります) を含むフォルダーに移動します。
 1. NuGet `spec` コマンドを実行して、`ImageEnhancer.nuspec` (ファイルの名前は `.vcxproj` ファイルの名前から取得されます) を生成します。
 
-    ```
+    ```cli
     nuget spec
     ```
 
@@ -97,8 +86,6 @@ ms.lasthandoff: 12/14/2017
 
 > [!Note]
 > 公開用にビルドされたパッケージの場合は、`<tags>` 要素に特に注意してください。これらのタグは他のユーザーがパッケージを検索して、パッケージの動作を理解するのに役立ちます。
-
-
 
 ### <a name="adding-windows-metadata-to-the-package"></a>パッケージへの Windows メタデータの追加
 
@@ -169,7 +156,7 @@ Windows ランタイム コンポーネントには、一般公開されるす�
 
 ### <a name="adding-targets"></a>.targets の追加
 
-次は、NuGet パッケージを使用する可能性のある C++ および JavaScript プロジェクトで、必要なアセンブリと winmd ファイルを識別するための .targets ファイルが必要になります  (C# および Visual Basic プロジェクトでは、これは自動的に行われます)。下のテキストを `ImageEnhancer.targets` にコピーして、このファイルを作成し、`.nuspec` ファイルと同じフォルダーに保存します。
+次は、NuGet パッケージを使用する可能性のある C++ および JavaScript プロジェクトで、必要なアセンブリと winmd ファイルを識別するための .targets ファイルが必要になります  (C# および Visual Basic プロジェクトでは、これは自動的に行われます)。下のテキストを `ImageEnhancer.targets` にコピーして、このファイルを作成し、`.nuspec` ファイルと同じフォルダーに保存します。 _注_: この `.targets` ファイルはパッケージ ID (`.nupspec` ファイルの `<Id>` 要素など) と同じ名前にする必要があります。
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -247,27 +234,26 @@ Windows ランタイム コンポーネントには、一般公開されるす�
 </package>
 ```
 
-
 ## <a name="package-the-component"></a>コンポーネントをパッケージ化する
 
 パッケージに含める必要があるすべてのファイルを参照する `.nuspec` が完成したら、以下の `pack` コマンドを実行できます。
 
-```
+```cli
 nuget pack ImageEnhancer.nuspec
 ```
 
-これで `ImageEnhancer.YOUR_NAME.1.0.0.nupkg` が生成されます。 [NuGet パッケージ エクスプローラー](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer)などのツールでこのファイルを開き、すべてのノードを展開すると、以下のコンテンツが表示されます。
+これにより、`ImageEnhancer.YOUR_NAME.1.0.0.nupkg`が生成されます。 [NuGet パッケージ エクスプローラー](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer)などのツールでこのファイルを開き、すべてのノードを展開すると、以下のコンテンツが表示されます。
 
 ![ImageEnhancer パッケージが表示された NuGet パッケージ エクスプローラー](media/UWP-PackageExplorer.png)
 
 > [!Tip]
 > `.nupkg` ファイルは、異なる拡張子が付いた単なる .zip ファイルです。 したがって、`.nupkg` を `.zip` に変えてパッケージの内容を調べることもできますが、パッケージを nuget.org にアップロードする前に必ず、拡張子を復元してください。
 
-パッケージを他の開発者が使用できるようにする場合は、[パッケージの発行](../create-packages/publish-a-package.md)に関するページの手順に従ってください。
+パッケージを他の開発者が使用できるようにする場合は、「[パッケージの公開](../create-packages/publish-a-package.md)」の手順に従ってください。
 
 ## <a name="related-topics"></a>関連トピック
 
-- [.nuspec 参照](../schema/nuspec.md)
+- [.nuspec 参照](../reference/nuspec.md)
 - [シンボル パッケージ](../create-packages/symbol-packages.md)
 - [パッケージのバージョン管理](../reference/package-versioning.md)
 - [複数の .NET Framework バージョンのサポート](../create-packages/supporting-multiple-target-frameworks.md)

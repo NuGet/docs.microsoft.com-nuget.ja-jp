@@ -13,40 +13,22 @@ keywords: "NuGet パッケージ作成, パッケージの作成, nuspec マニ�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6675d21a2900a1b61e17c08518b328732f4472c5
-ms.sourcegitcommit: 1cb047b24b3b69d80e808c23b2ace0d98d2dfdcc
+ms.openlocfilehash: 613e3eb9d08a0da96340f32b13c486508fa32439
+ms.sourcegitcommit: df21fe770900644d476d51622a999597a6f20ef8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="creating-nuget-packages"></a>NuGet パッケージの作成
 
-パッケージやそれに含まれるコードに関係なく、`nuget.exe` を使用してその機能をコンポーネントにパッケージ化し、数を問わず他の開発者と共有できます。 `nuget.exe` をインストールする方法については、「[Install NuGet CLI](../guides/Install-NuGet.md#nuget-cli)」 (NuGet CLI のインストール) を参照してください。 Visual Studio では、`nuget.exe` が自動的に含まれることはありません。
+パッケージやそれに含まれるコードに関係なく、`nuget.exe` を使用してその機能をコンポーネントにパッケージ化し、数を問わず他の開発者と共有できます。 `nuget.exe` をインストールする方法については、「[Install NuGet CLI](../install-nuget-client-tools.md#nugetexe-cli)」 (NuGet CLI のインストール) を参照してください。 Visual Studio では、`nuget.exe` が自動的に含まれることはありません。
 
-技術的には、NuGet パッケージは `.nupkg` 拡張子で名前が変更された ZIP ファイルに過ぎません。コンテンツは特定の規則に一致します。 このトピックでは、そのような規則に一致するパッケージの作成過程について説明します。 焦点を絞ったチュートリアルが必要であれば、「[Create and Publish a Package Quickstart](../quickstart/create-and-publish-a-package.md)」 (パッケージの作成と公開のクイックスタート) を参照してください。
+技術的には、NuGet パッケージは `.nupkg` 拡張子で名前が変更された ZIP ファイルに過ぎません。コンテンツは特定の規則に一致します。 このトピックでは、そのような規則に一致するパッケージの作成過程について説明します。 焦点を絞ったチュートリアルが必要であれば、「[Create and Publish a Package Quickstart](../quickstart/create-and-publish-a-package.md)」 (クイックスタート: パッケージの作成と公開) を参照してください。
 
-パッケージ化は、コンパイルされたコード (アセンブリ)、シンボル、パッケージとして届けるその他のファイルで始まります (「[Overview and workflow](Overview-and-Workflow.md)」 (概要とワークフロー) を参照してください)。 このプロセスは、パッケージに入るファイルのコンパイル (あるいはコンパイル以外の生成) とは関係ありません。パッケージ ファイルの情報を引き出し、コンパイルしたアセンブリとパッケージの同期を維持することはできます。
-
-このトピックの内容:
-
-- [パッケージ化するアセンブリを決定する](#deciding-which-assemblies-to-package)
-- [`.nuspec` ファイルのロールと構造](#the-role-and-structure-of-the-nuspec-file)
-- 次から [`.nuspec` ファイルを作成する](#creating-the-nuspec-file):
-    - [規則ベースの作業ディレクトリ](#from-a-convention-based-working-directory)
-    - [アセンブリ DLL](#from-an-assembly-dll)
-    - [Visual Studio プロジェクト](#from-a-visual-studio-project)
-    - [新しいファイルと既定値](#new-file-with-default-values)    
-- [一意のパッケージ識別子を選択し、バージョン番号を設定する](#choosing-a-unique-package-identifier-and-setting-the-version-number)
-- [パッケージの種類を設定する](#setting-a-package-type) (NuGet 3.5 以降)
-- [ReadMe とその他のファイルの追加](#adding-a-readme-and-other-files)
-- [パッケージに MSBuild プロパティとターゲットを含める](#including-msbuild-props-and-targets-in-a-package)
-- [COM 相互運用アセンブリを含むパッケージを作成する](#authoring-packages-with-com-interop-assemblies)
-- [nuget パックを実行し、.nupkg ファイルを生成する](#running-nuget-pack-to-generate-the-nupkg-file)
-
-以上の中心的手順を終えたら、本書で説明するように、他のさまざまな機能を組み込むことができます。 下の「[次の手順](#next-steps)」をご覧ください。
+パッケージ化は、コンパイルされたコード (アセンブリ)、シンボル、パッケージとして届けるその他のファイルで始まります (「[Overview and workflow](overview-and-workflow.md)」 (概要とワークフロー) を参照してください)。 このプロセスは、パッケージに入るファイルのコンパイル (またはコンパイル以外の方法による生成) とは関係ありません。ただし、パッケージ ファイルの情報を引き出し、コンパイル済みアセンブリとパッケージの同期を維持することはできます。
 
 > [!Note]
-> このトピックは、Visual Studio 2017 と NuGet 4.0+ を使用する .NET Core プロジェクト以外のプロジェクト タイプに適用されます。 NuGet 4.0+ を使用する .NET Core プロジェクトの場合、NuGet は `.csproj` ファイルの情報を直接使用します。 詳細については、「[Create .NET Standard Packages with Visual Studio 2017](../guides/create-net-standard-packages-vs2017.md)」 (Visual Studio 2017 で .NET Standard パッケージを作成する) と「[NuGet pack and restore as MSBuild targets](../schema/msbuild-targets.md)」 (MSBuild ターゲットとしての NuGet pack および restore) を参照してください。
+> このトピックは、Visual Studio 2017 と NuGet 4.0+ を使用する .NET Core プロジェクト以外のプロジェクト タイプに適用されます。 .NET Core プロジェクトの場合、NuGet は、プロジェクト ファイルの情報を直接使用します。 詳細については、「[Create .NET Standard Packages with Visual Studio 2017](../guides/create-net-standard-packages-vs2017.md)」 (Visual Studio 2017 で .NET Standard パッケージを作成する) と「[NuGet pack and restore as MSBuild targets](../reference/msbuild-targets.md)」 (MSBuild ターゲットとしての NuGet pack および restore) を参照してください。
 
 ## <a name="deciding-which-assemblies-to-package"></a>パッケージ化するアセンブリを決定する
 
@@ -55,7 +37,8 @@ ms.lasthandoff: 01/08/2018
 - 一般的に、各アセンブリが他に依存せずに有用であれば、NuGet パッケージあたりアセンブリを 1 つにすることが最善です。 たとえば、`Utilities.dll` が `Parser.dll` に依存し、`Parser.dll` がそれ自体で有用であれば、それぞれに 1 つパッケージを作成します。 それにより、開発者は `Utilities.dll` に依存せず `Parser.dll` を使用できます。
 
 - 非依存では有用でない複数のアセンブリからライブラリが構成される場合、それらを組み合わせて 1 つのパッケージを作成できます。 前の例を使えば、`Utilities.dll` でのみ使用されるコードが `Parser.dll` に含まれる場合、同じパッケージで `Parser.dll` を維持できます。
-    - 同様に、`Utilities.dll` が `Utilities.resources.dll` に依存し、後者がそれ自体で有用ではない場合、両方を同じパッケージに入れます。
+
+- 同様に、`Utilities.dll` が `Utilities.resources.dll` に依存し、後者がそれ自体で有用ではない場合、両方を同じパッケージに入れます。
 
 リソースは、実際には特殊なケースです。 プロジェクトにパッケージをインストールするとき、NuGet はパッケージの DLL にアセンブリ参照を自動的に追加します。ただし、`.resources.dll` という名前のものは、ローカライズされたサテライト アセンブリであるため*除外*されます (「[ローカライズされたパッケージを作成する](creating-localized-packages.md)」を参照してください)。 そのため、避けなければ不可欠なパッケージ コードが含まれてしまうファイルには `.resources.dll` を使わないようにします。
 
@@ -69,12 +52,12 @@ ms.lasthandoff: 01/08/2018
 
 1. パッケージの内容を説明し、それ自体、パッケージに含まれます。
 1. パッケージの作成を推進し、パッケージをプロジェクトにインストールする方法を NuGet に指示します。 たとえば、マニフェストは他の依存関係を特定します。それにより、NuGet はメイン パッケージのインストール時にそのような依存関係もインストールできます。
-1. 下の説明のように、必須プロパティと任意プロパティの両方が含まれます。 ここにはない他のプロパティなど、詳しくは、[.nuspec リファレンス](../schema/nuspec.md)をご覧ください。
+1. 下の説明のように、必須プロパティと任意プロパティの両方が含まれます。 ここにはない他のプロパティなど、詳しくは、[.nuspec リファレンス](../reference/nuspec.md)をご覧ください。
 
 必須プロパティ:
 
 - パッケージの識別子。パッケージをホストするギャラリー全体で一意にする必要があります。
-- *Major.Minor.Patch[-Suffix]* という形式の特別なバージョン番号。*-Suffix* で[プレリリース版](Prerelease-Packages.md)を識別します。
+- *Major.Minor.Patch[-Suffix]* という形式の特別なバージョン番号。*-Suffix* で[プレリリース版](prerelease-packages.md)を識別します。
 - ホスト (nuget.org など) に表示されるパッケージ タイトル。
 - 作成者と所有者の情報。
 - パッケージの詳しい説明。
@@ -83,7 +66,7 @@ ms.lasthandoff: 01/08/2018
 
 - リリース ノート
 - 著作権情報
-- [Visual Studio のパッケージ マネージャー UI](../Tools/Package-Manager-UI.md) の簡単な説明。
+- [Visual Studio のパッケージ マネージャー UI](../tools/package-manager-ui.md) の簡単な説明。
 - ロケール ID
 - ホーム ページとライセンス URL
 - アイコン URL
@@ -146,11 +129,11 @@ ms.lasthandoff: 01/08/2018
 </package>
 ```
 
-依存関係の宣言とバージョン番号の指定については、「[パッケージのバージョン管理](../reference/package-versioning.md)」を参照してください。 パッケージで直接、依存関係からアセットを表面化させることもできます。`dependency` 要素で `include` 属性と `exclude` 属性を使用します。 [.nuspec リファレンスの依存関係](../Schema/nuspec.md#dependencies)をご覧ください。
+依存関係の宣言とバージョン番号の指定については、「[パッケージのバージョン管理](../reference/package-versioning.md)」を参照してください。 パッケージで直接、依存関係からアセットを表面化させることもできます。`dependency` 要素で `include` 属性と `exclude` 属性を使用します。 [.nuspec リファレンスの依存関係](../reference/nuspec.md#dependencies)をご覧ください。
 
 マニフェストはそれから作成されたパッケージに含まれるため、既存のパッケージを調べることで追加の例をいくつも見つけることができます。 探す場所としては、コンピューターのグローバル パッケージ キャッシュが適しています。この場所は次のコマンドで返されます。
 
-```
+```cli
 nuget locals -list global-packages
 ```
 
@@ -188,17 +171,17 @@ NuGet パッケージは `.nupkg` 拡張子で名前が変更されている ZIP
 | フォルダー | 説明 | パッケージ インストール時のアクション |
 | --- | --- | --- |
 | (ルート) | ReadMe.txt の場所 | Visual Studio では、パッケージのインストール時に ReadMe.txt ファイルが表示されます。 |
-| lib/{tfm} | 指定されたターゲット フレームワーク モニカー (TFM) のアセンブリ (`.dll`)、ドキュメント (`.xml`)、シンボル (`.pdb`) | アセンブリは参照として追加されます。`.xml` と `.pdb` はプロジェクト フォルダーにコピーされます。 フレームワーク ターゲット固有のサブフォルダーを作成するには、「[複数のターゲット フレームワークのサポート](Supporting-Multiple-Target-Frameworks.md)」を参照してください。 |
-| runtimes | アーキテクチャ固有のアセンブリ (`.dll`)、シンボル (`.pdb`)、ネイティブ リソース (`.pri`) ファイル | アセンブリは参照として追加されます。その他のファイルはプロジェクト フォルダーにコピーされます。 「[複数のターゲット フレームワークのサポート](Supporting-Multiple-Target-Frameworks.md)」を参照してください。 |
+| lib/{tfm} | 指定されたターゲット フレームワーク モニカー (TFM) のアセンブリ (`.dll`)、ドキュメント (`.xml`)、シンボル (`.pdb`) | アセンブリは参照として追加されます。`.xml` と `.pdb` はプロジェクト フォルダーにコピーされます。 フレームワーク ターゲット固有のサブフォルダーを作成するには、「[複数のターゲット フレームワークのサポート](supporting-multiple-target-frameworks.md)」を参照してください。 |
+| runtimes | アーキテクチャ固有のアセンブリ (`.dll`)、シンボル (`.pdb`)、ネイティブ リソース (`.pri`) ファイル | アセンブリは参照として追加されます。その他のファイルはプロジェクト フォルダーにコピーされます。 「[複数のターゲット フレームワークのサポート](supporting-multiple-target-frameworks.md)」を参照してください。 |
 | コンテンツ | 任意のファイル | コンテンツはプロジェクト ルートにコピーされます。 **コンテンツ** フォルダーは最終的にパッケージを使用するターゲット アプリケーションのルートであると考えてください。 パッケージでアプリケーションの */images* フォルダーに画像が追加されるようにするには、パッケージの *content/images* フォルダーにそれを置きます。 |
-| ビルド | MSBuild の `.targets` ファイルと `.props` ファイル | プロジェクト ファイルの (NuGet 2.x) または `project.lock.json` (NuGet 3.x+) に自動的に挿入されます。 |
+| ビルド | MSBuild の `.targets` ファイルと `.props` ファイル | プロジェクト ファイルまたは `project.lock.json` (NuGet 3.x 以降) に自動的に挿入されます。 |
 | ツール | Powershell のスクリプトとプログラムにはパッケージ マネージャー コンソールからアクセスできます。 | `tools` フォルダーはパッケージ マネージャー コンソールだけの `PATH` 環境変数に追加されます (厳密に言うと、プロジェクトのビルド時に MSBuild に設定される `PATH` にでは*ありません*)。 |
 
 フォルダー構造には、任意の数のターゲット フレームワークに対して任意の数のアセンブリを含めることができるため、複数のフレームワークをサポートするパッケージの作成時、この方法は必須となります。 
 
 いずれの場合でも、必要なフォルダー構造を配置したら、そのフォルダーで次のコマンドを実行し、`.nuspec` ファイルを作成します。
 
-```
+```cli
 nuget spec
 ```
 
@@ -208,7 +191,7 @@ nuget spec
 
 単純にアセンブリからパッケージを作成する場合、次のコマンドを使用し、アセンブリでメタデータから `.nuspec` ファイルを生成できます。
 
-```
+```cli
 nuget spec <assembly-name>.dll
 ```
 
@@ -218,7 +201,7 @@ nuget spec <assembly-name>.dll
 
 `.csproj` または `.vbproj` ファイルから `.nuspec` を作成する方法が便利です。これらのプロジェクトにインストールされているその他のパッケージが依存関係として自動的に参照されるためです。 プロジェクト ファイルと同じフォルダーで次のコマンドを使用します。
 
-```
+```cli
 # Use in a folder containing a project file <project-name>.csproj or <project-name>.vbproj
 nuget spec
 ```
@@ -231,7 +214,7 @@ nuget spec
 <id>$id$</id>
 ```
 
-このトークンは、パッケージ化のとき、プロジェクト ファイルからの `AssemblyName` 値で置換されます。 プロジェクト値と `.nuspec` トークンのマッピングについては、[置換トークンの参照に関するトピック](../schema/nuspec.md#replacement-tokens)を参照してください。
+このトークンは、パッケージ化のとき、プロジェクト ファイルからの `AssemblyName` 値で置換されます。 プロジェクト値と `.nuspec` トークンのマッピングについては、[置換トークンの参照に関するトピック](../reference/nuspec.md#replacement-tokens)を参照してください。
 
 トークンを利用することで、プロジェクトを更新するとき、`.nuspec` のバージョン番号などの重要な値を自分で更新する必要がなくなります。 (必要であれば、トークンはいつでもリテラル値に変更できます。) 
 
@@ -241,7 +224,7 @@ nuget spec
 
 *NuGet 2.x のみ。NuGet 3.0+ では利用できません。*
 
-NuGet 2.x では、パッケージ マネージャー コンソールのツールまたは追加コマンドをインストールするソリューションレベル パッケージの概念がサポートされました (`tools` フォルダーのコンテンツ)。しかしながら、参照、コンテンツ、またはソリューションのプロジェクトに対するビルド カスタマイズは追加されません。 このようなパッケージのその直接の `lib`、`content`、`build` フォルダーにはファイルは含まれておらず、その依存関係の `lib`、`content`、`build` フォルダーにもファイルは含まれていません。 
+NuGet 2.x では、パッケージ マネージャー コンソールのツールまたは追加コマンドをインストールするソリューションレベル パッケージの概念がサポートされました (`tools` フォルダーのコンテンツ)。しかしながら、参照、コンテンツ、またはソリューションのプロジェクトに対するビルド カスタマイズは追加されません。 このようなパッケージのその直接の `lib`、`content`、`build` フォルダーにはファイルは含まれておらず、その依存関係の `lib`、`content`、`build` フォルダーにもファイルは含まれていません。
 
 NuGet は、プロジェクトの `packages.config` ファイルではなく、`.nuget` フォルダーの `packages.config` ファイルで、インストールされたソリューションレベル パッケージを追跡記録します。
 
@@ -249,7 +232,7 @@ NuGet は、プロジェクトの `packages.config` ファイルではなく、`
 
 次のコマンドでは、プレースホルダーを含む既定のマニフェストが作成されます。それにより、適切なファイル構造で始められます。
 
-```
+```cli
 nuget spec [<package-name>]
 ```
 
@@ -286,11 +269,9 @@ NuGet 3.5+ では、パッケージに特定の*パッケージの種類*の印�
 
 - 種類が `DotnetCliTool` のパッケージは [.NET CLI](/dotnet/articles/core/tools/index) の拡張であり、コマンド ラインから呼び出されます。 このようなパッケージは .NET Core プロジェクトにのみインストールできます。復元操作には影響を与えません。 このようなプロジェクト別の拡張機能に関する詳細は、[.NET Core 拡張性](/dotnet/articles/core/tools/extensibility#per-project-based-extensibility)ドキュメントにあります。
 
-    DotnetCliTool パッケージがインストールされると、Visual Studio では、`dependencies` ノードではなく、`project.json` `tools` ノードにパッケージが置かれます。
-
 - カスタム タイプのパッケージでは、パッケージ ID と同じ形式ルールに準拠する任意の種類識別子が使用されます。 ただし、`Dependency` と `DotnetCliTool` 以外の種類は、Visual Studio の NuGet パッケージ マネージャーには認識されません。
 
-パッケージの種類は `.nuspec` ファイルか `project.json` で設定されます。 いずれの場合でも、種類 `Dependency` を明示的に*設定せず*、種類が指定されているときにこの種類を採用する NuGet に依存する方法が下位互換性のために最適です。
+パッケージの種類は `.nuspec` ファイルで設定されます。 下位互換性を維持するには、種類 `Dependency` を明示的に設定*しない*で、NuGet に依存するのが最適な方法です。NuGet は、種類が指定されない場合、この種類を想定します。
 
 - `.nuspec`: `<metadata>` 要素の下の `packageTypes\packageType` ノード内のパッケージの種類を示します。
 
@@ -304,17 +285,6 @@ NuGet 3.5+ では、パッケージに特定の*パッケージの種類*の印�
         </packageTypes>
         </metadata>
     </package>
-    ```
-
-- `project.json`: `packOptions.packageType` プロパティ json 内のパッケージの種類を示します。
-
-    ```json
-    {
-        // ...
-        "packOptions": {
-        "packageType": "DotnetCliTool"
-        }
-    }
     ```
 
 ## <a name="adding-a-readme-and-other-files"></a>ReadMe とその他のファイルの追加
@@ -366,7 +336,7 @@ NuGet 3.5+ では、パッケージに特定の*パッケージの種類*の印�
 ```xml
 <?xml version="1.0"?>
 <package >
-    <metadata>
+    <metadata minClientVersion="2.5">
     <!-- ... -->
     </metadata>
     <files>
@@ -379,7 +349,9 @@ NuGet 3.5+ では、パッケージに特定の*パッケージの種類*の印�
 </package>
 ```
 
-NuGet 2.x は `\build` ファイルを使用してパッケージをインストールすると、`.targets` ファイルと `.props` ファイルを指すプロジェクト ファイルに MSBuild `<Import>` 要素を追加します。 (`.props` はプロジェクト ファイルの一番上に、`.targets` は一番下に追加されます。)
+[NuGet 2.5](../release-notes/NuGet-2.5.md#automatic-import-of-msbuild-targets-and-props-files) で、パッケージに MSBuild のプロパティとターゲットを含めることができるようになりました。そのため、`metadata` 要素に `minClientVersion="2.5"` 属性を追加して、パッケージを使用するために必要な最小限の NuGet クライアント バージョンを示すことをお勧めします。
+
+NuGet で `\build` ファイルを使用してパッケージをインストールすると、`.targets` ファイルと `.props` ファイルを指す MSBuild `<Import>` 要素がプロジェクト ファイルに追加されます。 (`.props` はプロジェクト ファイルの一番上に、`.targets` は一番下に追加されます。)
 
 NuGet 3.x を使用する場合、ターゲットはプロジェクトに追加されませんが、`project.lock.json` を通じて使用できます。
 
@@ -387,7 +359,7 @@ NuGet 3.x を使用する場合、ターゲットはプロジェクトに追加�
 
 COM 相互運用アセンブリを含むパッケージには、PackageReference 形式を利用して正しい `EmbedInteropTypes` メタデータがプロジェクトに追加されるように、適切な [targets ファイル](#including-msbuild-props-and-targets-in-a-package)が含まれる必要があります。 既定では、PackageReference が使用されるとき、`EmbedInteropTypes` メタデータは常にすべてのアセンブリに対して false になります。それにより、targets ファイルでこのメタデータが明示的に追加されます。 競合を回避するために、ターゲット名を一意にする必要があります。理想的には、パッケージ名と組み込むアセンブリの組み合わせを使用します。下の例の `{InteropAssemblyName}` をその値で置換します。 (例については、[NuGet.Samples.Interop](https://github.com/NuGet/Samples/tree/master/NuGet.Samples.Interop) もご覧ください。)
 
-```xml      
+```xml
 <Target Name="EmbeddingAssemblyNameFromPackageId" AfterTargets="ResolveReferences" BeforeTargets="FindReferenceAssembliesForReferences">
   <PropertyGroup>
     <_InteropAssemblyFileName>{InteropAssemblyName}</_InteropAssemblyFileName>
@@ -402,7 +374,7 @@ COM 相互運用アセンブリを含むパッケージには、PackageReference
 
 `packages.config` 参照形式を利用するとき、パッケージからアセンブリの参照を追加すると、NuGet と Visual Studio は COM 相互運用アセンブリがないか調べ、プロジェクト ファイルで `EmbedInteropTypes` を true に設定します。 この場合、ターゲットが上書きされます。
 
-また、既定では、[ビルド アセットの推移的なフローはありません](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)。 ここで説明したように作成したパッケージの動作は、プロジェクトからプロジェクト参照に推移的依存関係として引き出されたときとは異なります。 パッケージの利用者は、ビルドを含めないように PrivateAssets の既定値を変更することでそれをフローさせることができます。  
+また、既定では、[ビルド アセットの推移的なフローはありません](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)。 ここで説明したように作成したパッケージの動作は、プロジェクトからプロジェクト参照に推移的依存関係として引き出されたときとは異なります。 パッケージの利用者は、ビルドを含めないように PrivateAssets の既定値を変更することでそれをフローさせることができます。
 
 <a name="creating-the-package"></a>
 
@@ -410,13 +382,13 @@ COM 相互運用アセンブリを含むパッケージには、PackageReference
 
 アセンブリまたは規則ベースの作業ディレクトリを使用するとき、自分の `.nuspec` ファイルで `nuget pack` を実行してパッケージを作成します。`<manifest-name>` を特定のファイル名で置換します。
 
-```
+```cli
 nuget pack <project-name>.nuspec
 ```
 
 Visual Studio プロジェクトを使用するとき、自分のプロジェクト ファイルで `nuget pack` を実行します。それにより、プロジェクトの `.nuspec` ファイルが自動的に読み込まれ、その中にトークンがあれば、プロジェクト ファイルの値を利用して置換されます。
 
-```
+```cli
 nuget pack <project-name>.csproj
 ```
 
@@ -440,7 +412,7 @@ Visual Studio プロジェクトの共通オプションには以下のような
 
 - **参照されるプロジェクト**: プロジェクトが他のプロジェクトを参照する場合、参照されるプロジェクトをパッケージの一部あるいは依存関係として追加できます。`-IncludeReferencedProjects` オプションを使用します。
 
-    ```
+    ```cli
     nuget pack MyProject.csproj -IncludeReferencedProjects
     ```
 
@@ -450,13 +422,13 @@ Visual Studio プロジェクトの共通オプションには以下のような
 
 - **ビルド構成**: 既定では、NuGet では、プロジェクト ファイルに設定されている既定のビルド構成が使用されます。一般的には、*デバッグ*です。 *リリース*など、別のビルド構成からファイルをパッケージ化するには、構成と共に `-properties` オプションを使用します。
 
-    ```
+    ```cli
     nuget pack MyProject.csproj -properties Configuration=Release
     ```
 
 - **シンボル**: 利用者がデバッガーでパッケージ コードをステップ実行することを可能にするシンボルを含めるには、`-Symbols` オプションを使用します。
 
-    ```
+    ```cli
     nuget pack MyProject.csproj -symbols
     ```
 
@@ -464,12 +436,12 @@ Visual Studio プロジェクトの共通オプションには以下のような
 
 パッケージを公開する前に、通常、パッケージをプロジェクトにインストールするプロセスをテストします。 このテストにより、必要なファイルがすべて、プロジェクト内の適切な場所に入ります。
 
-インストールは Visual Studio またはコマンド ラインで手動テストできます。通常の[パッケージ インストール手順](../Quickstart/Use-a-Package.md)を利用します。
+インストールは Visual Studio またはコマンド ラインで手動テストできます。通常の[パッケージ インストール手順](../consume-packages/ways-to-install-a-package.md)を利用します。
 
 自動テストの基本プロセスは次のようになります。
 
 1. `.nupkg` ファイルをローカル フォルダーにコピーします。
-1. `nuget sources -name <name> -source <path>` コマンドを利用し、パッケージ ソースにフォルダーを追加します ([nuget ソース](../tools/cli-ref-sources.md)を参照してください)。 指定されたコンピューターのいずれかで、このローカル ソースを 1 回設定します。
+1. `nuget sources add -name <name> -source <path>` コマンドを利用し、パッケージ ソースにフォルダーを追加します ([nuget ソース](../tools/cli-ref-sources.md)を参照してください)。 指定されたコンピューターのいずれかで、このローカル ソースを 1 回設定します。
 1. `nuget install <packageID> -source <name>` を利用し、そのソースからパッケージをインストールします。`<name>` は、`nuget sources` に指定されたソースの名前に一致します。 ソースを指定することで、そのソースだけからパッケージがインストールされます。
 1. ファイルが正しくインストールされていることをファイル システムで調べます。
 

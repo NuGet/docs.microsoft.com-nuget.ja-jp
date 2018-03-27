@@ -3,40 +3,26 @@ title: "NuGet に関してよく寄せられる質問 | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 12/07/2017
+ms.date: 01/11/2018
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 199a915d-9595-4ae2-a1fb-b15da6d7735a
 description: "コマンド ラインと Visual Studio での NuGet の使用、および NuGet ギャラリーでの作業に関する一般的な質問と回答。"
 keywords: "NuGet に関する Q&A, 質問と回答, 一般的な問題, NuGet のバージョン, パッケージのバージョン"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: d19a24a2d1955e996e18d44fee346865d36493f8
-ms.sourcegitcommit: e5b7cf6675be9891341c196afe822cea6f71d60c
+ms.openlocfilehash: 3782fe5dcf8df002d99446aa7548a6eacc62211c
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet に関してよく寄せられる質問
 
-このトピックの内容:
-
-- [はじめに](#getting-started)
-- [Visual Studio の NuGet](#nuget-in-visual-studio)
-- [NuGet コマンド ライン](#nuget-command-line)
-- [NuGet パッケージ マネージャー コンソール](#nuget-package-manager-console)
-- [パッケージの作成と発行](#creating-and-publishing-packages)
-- [パッケージの操作](#working-with-packages)
-- [nuget.org でのパッケージの管理](#managing-packages-on-nugetorg)
-- [nuget.org にアクセスできない](#nugetorg-not-accessible)
-
-## <a name="getting-started"></a>作業の開始
-
 **NuGet を実行するために必要なものは何ですか?**
 
-UI とコマンド ライン ツールの両方に関するすべての情報は、[インストール ガイド](../guides/install-nuget.md)で入手できます。
+UI とコマンド ライン ツールの両方に関するすべての情報は、[インストール ガイド](../install-nuget-client-tools.md)で入手できます。
 
 **NuGet で Mono はサポートされますか?**
 
@@ -50,15 +36,15 @@ UI とコマンド ライン ツールの両方に関するすべての情報は
 
 パッケージについて学習するための主なソースとして、nuget.org (または別のプライベート フィード) のリスト ページがあります。 nuget.org の各パッケージ ページには、パッケージ、そのバージョン履歴、使用状況の統計の説明が含まれます。 パッケージ ページの **[情報]** セクションには、プロジェクトの Web サイトへのリンクも含まれています。通常はこのサイトで、パッケージの使用方法について学習する際に役立つ多くの例とその他のドキュメントを見つけます。
 
-詳細については、「[パッケージの検索と選択](../Consume-Packages/Finding-and-Choosing-Packages.md)」を参照してください。
+詳細については、「[パッケージの検索と選択](../consume-packages/finding-and-choosing-packages.md)」を参照してください。
 
 ## <a name="nuget-in-visual-studio"></a>Visual Studio の NuGet
 
 **別の Visual Studio 製品では NuGet はどのようにサポートされますか?**
 
-- Windows の Visual Studio では、[パッケージ マネージャー UI](../tools/Package-Manager-UI.md) と[パッケージ マネージャー コンソール](../tools/Package-Manager-Console.md)がサポートされます。
+- Windows の Visual Studio では、[パッケージ マネージャー UI](../tools/package-manager-ui.md) と[パッケージ マネージャー コンソール](../tools/package-manager-console.md)がサポートされます。
 - 「[プロジェクトに NuGet パッケージを含める](/visualstudio/mac/nuget-walkthrough)」で説明されているように、Visual Studio for Mac には NuGet 機能が組み込まれています。
-- Visual Studio Code (すべてのプラットフォーム) には、直接 NuGet は統合されていません。 [NuGet CLI](../tools/nuget-exe-CLI-Reference.md) または [dotnet CLI](../tools/dotnet-commands.md) を使用してください。
+- Visual Studio Code (すべてのプラットフォーム) には、直接 NuGet は統合されていません。 [NuGet CLI](../tools/nuget-exe-cli-reference.md) または [dotnet CLI](../tools/dotnet-commands.md) を使用してください。
 - Visual Studio Team Services では、[NuGet パッケージを復元するためのビルド ステップ](/vsts/build-release/tasks/package/nuget)が提供されます。 [Team Services でプライベート NuGet パッケージ フィードをホストする](https://www.visualstudio.com/docs/package/nuget/publish)こともできます。
 
 **インストールされている NuGet ツールの正確なバージョンはどのように確認すればよいですか?**
@@ -79,19 +65,23 @@ NuGet では、Windows、Web、クラウド、SharePoint、Wix などのさま�
 
 **Visual Studio テンプレートの一部であるパッケージはどのように更新すればよいですか?**
 
-パッケージ マネージャー UI の **[更新]** タブに移動して、**[すべて更新]** を選択するか、パッケージ マネージャー コンソールで [`Update-Package` コマンド](../Tools/ps-ref-update-package.md)を使用します。
+パッケージ マネージャー UI の **[更新]** タブに移動して、**[すべて更新]** を選択するか、パッケージ マネージャー コンソールで [`Update-Package` コマンド](../tools/ps-ref-update-package.md)を使用します。
 
 テンプレート自体を更新するには、テンプレート リポジトリを手動で更新する必要があります。 これについては、[Xavier Decoster のブログ](http://www.xavierdecoster.com/update-project-template-to-latest-nuget-packages)を参照してください。 最新バージョンのすべての依存関係が相互に互換性がない場合、手動で更新するとテンプレートが壊れる可能性があるため、これは自身の責任で行うことに注意してください。
 
 **Visual Studio 外部で NuGet を使用できますか?**
 
-はい。NuGet はコマンド ラインから直接動作します。 [インストール ガイド](../guides/install-nuget.md)と [CLI 参照](../tools/nuget-exe-CLI-Reference.md)に関するページを参照してください。
+はい。NuGet はコマンド ラインから直接動作します。 [インストール ガイド](../install-nuget-client-tools.md)と [CLI 参照](../tools/nuget-exe-cli-reference.md)に関するページを参照してください。
 
 ## <a name="nuget-command-line"></a>NuGet コマンド ライン
 
 **最新バージョンの NuGet コマンド ライン ツールはどのように取得すればよいですか?**
 
-[インストール ガイド](../guides/install-nuget.md)を参照してください。
+[インストール ガイド](../install-nuget-client-tools.md)を参照してください。
+
+**nuget.exe のライセンスとは何ですか?**
+
+MIT ライセンスの条件に従って、nuget.exe を再配布できます。 再配布を選択した nuget.exe のコピーを更新および修正するのは、お客様の責任です。
 
 **NuGet コマンド ライン ツールを拡張することはできますか?**
 
@@ -143,11 +133,11 @@ Visual Studio オートメーション オブジェクト モデルのトップ 
 
 **既定のパッケージ フォルダーとは異なる場所にパッケージをインストールするにはどうすればよいですか?**
 
-`nuget config -set repositoryPath=<path>` を使用して、`Nuget.Config` で [`repositoryPath`](../Schema/nuget-config-file.md#config-section) を設定します。
+`nuget config -set repositoryPath=<path>` を使用して、`Nuget.Config` で [`repositoryPath`](../reference/nuget-config-file.md#config-section) を設定します。
 
 **NuGet パッケージ フォルダーがソース管理に追加されないようにするにはどうすればよいですか?**
 
-`Nuget.Config` の [`disableSourceControlIntegration`](../Schema/nuget-config-file.md#solution-section) を `true` に設定します。 このキーはソリューション レベルで動作するため、`$(Solutiondir)\.nuget\Nuget.Config` ファイルに追加する必要があります。 Visual Studio からのパッケージの復元を有効にすると、このファイルは自動的に作成されます。
+`Nuget.Config` の [`disableSourceControlIntegration`](../reference/nuget-config-file.md#solution-section) を `true` に設定します。 このキーはソリューション レベルで動作するため、`$(Solutiondir)\.nuget\Nuget.Config` ファイルに追加する必要があります。 Visual Studio からのパッケージの復元を有効にすると、このファイルは自動的に作成されます。
 
 **パッケージの復元を無効にするにはどうすればよいですか?**
 
@@ -166,14 +156,13 @@ Visual Studio オートメーション オブジェクト モデルのトップ 
 **自分のリポジトリ リストに nuget.org が表示されません。これを戻すにはどうすればよいですか?**
 
 - 自分のソース リストに `https://api.nuget.org/v3/index.json` を追加します。または、
-- `%appdata%\.nuget\NuGet.Config` を削除して、NuGet で再作成できるようにします。
+- `%appdata%\.nuget\NuGet.Config` (Windows) または `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) を削除し、NuGet で自動的に再作成します。
 
 **パッケージで特定のライセンス情報が提供されない場合の既定のライセンス条項は何ですか?**
 
 各パッケージには、パッケージに含まれている条項が適用されます。 パッケージのアクセス、ダウンロード、または取得の前に、適用される条項を確認する必要があります。 nuget.org で、パッケージ ページの **[ライセンス情報]** リンクを使用します。
 
 パッケージでライセンス条項が指定されていない場合は、nuget.org パッケージ ページの **[Contact owners]\(所有者に問い合わせる\)** リンクを使用して、パッケージ所有者に直接問い合わせてください。 Microsoft はサードパーティのパッケージ プロバイダーを通じてユーザーに知的財産ライセンスを付与することはありません。また、サードパーティによって提供される情報について責任を負いません。
-
 
 ## <a name="managing-packages-on-nugetorg"></a>nuget.org でのパッケージの管理
 
@@ -187,7 +176,7 @@ NuGet では、すべてのパッケージに署名する必要があります�
 
 **今後発行されるパッケージの名前を予約することはできますか?**
 
-はい。 ご使用のアカウントのパッケージ ID プレフィックスを要求することで、[nuget.org](https://www.nuget.org/) でパッケージの ID を予約できます。 パッケージ ID プレフィックスを要求するには、パッケージ所有者の表示名と、要求するパッケージ ID プレフィックスを添えて、アカウント (アットマーク) nuget.org にメールを送信します。  
+はい。 ご使用のアカウントのパッケージ ID プレフィックスを要求することで、[nuget.org](https://www.nuget.org/) でパッケージの ID を予約できます。 パッケージ ID プレフィックスを要求するには、[ドキュメント](https://docs.microsoft.com/nuget/reference/id-prefix-reservation)の指示に従ってください。
 
 **パッケージの所有権はどのように要求するのですか?**
 
@@ -232,7 +221,7 @@ NuGet では HTTP を使用してパッケージをダウンロードするた�
 
 *MTR をキャプチャするには:*
 
-- [http://winmtr.net/download/](http://winmtr.net/) から WinMTR をダウンロードします。
+- [http://winmtr.net/download/](http://winmtr.net/) から WinMTR をダウンロードします
 - ホスト名として「`api.nuget.org`」を入力して、**[開始]** をクリックします。
 - **[送信]** 列が 100 以上になるまで待ちます。
 

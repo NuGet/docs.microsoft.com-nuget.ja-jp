@@ -17,11 +17,11 @@ keywords: "NuGet UI では、NuGet パッケージ マネージャー UI では�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0ff60c3cecee5fd9b7f698d2abed7553f5d89c1d
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: 35bb856ccff43c77af7eac67da4614d83dcdc533
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="nuget-package-manager-ui"></a>NuGet パッケージ マネージャーの UI
 
@@ -66,7 +66,7 @@ Windows 上の Visual Studio で NuGet パッケージ マネージャー UI を
 
     ![パッケージをアンインストールします。](media/UninstallPackage.png)
 
-1. 注意してください、 **preprelease を含める**と**パッケージ ソース**コントロールがある影響しないパッケージをアンインストールするとします。
+1. 注意してください、 **Include prerelease**と**パッケージ ソース**コントロールがある影響しないパッケージをアンインストールするとします。
 
 ## <a name="updating-a-package"></a>パッケージの更新
 
@@ -76,7 +76,7 @@ Windows 上の Visual Studio で NuGet パッケージ マネージャー UI を
 
     ![パッケージの更新](media/UpdatePackages.png)
 
-1. <a name="implicit_reference"></a>一部のパッケージ、**更新**ボタンが無効になり、メッセージが参照されている"暗黙的に、SDK によって"というメッセージが表示されます (または"AutoReferenced") です。 メッセージは、Microsoft.NETCore.App または Microsoft.NETStandard.Library など、パッケージが、大規模なフレームワークまたは SDK の一部であるとは別に更新してはならないことを示します。 (このような packagee が付いている内部的に`<IsImplicitlyDefined>True</IsImplicitlyDefined>`)。パッケージを更新するが所属する SDK を更新します。
+1. <a name="implicit_reference"></a>一部のパッケージ、**更新**ボタンが無効になり、メッセージが参照されている"暗黙的に、SDK によって"というメッセージが表示されます (または"AutoReferenced") です。 メッセージは、Microsoft.NETCore.App または Microsoft.NETStandard.Library など、パッケージが、大規模なフレームワークまたは SDK の一部であるとは別に更新してはならないことを示します。 (このようなパッケージが付いている内部的に`<IsImplicitlyDefined>True</IsImplicitlyDefined>`)。パッケージを更新するが所属する SDK を更新します。
 
     ![参照または AutoReferenced として暗黙的にマークされているパッケージの例](media/PackageManagerUIAutoReferenced.png)
 
@@ -101,7 +101,7 @@ Windows 上の Visual Studio で NuGet パッケージ マネージャー UI を
 
 ![[パッケージ マネージャー UI の統合] タブ](media/ConsolidateTab.png)
 
-この例では、ClassLibrary1 プロジェクトは EntityFramework を使用した 6.2.0、EntityFramework 6.2.0 ConsoleApp1 が使用されている一方です。 パッケージのバージョンを統合するには、次の操作を行います。
+この例では、ClassLibrary1 プロジェクトは EntityFramework を使用した 6.2.0、EntityFramework 6.1.0 ConsoleApp1 が使用されている一方です。 パッケージのバージョンを統合するには、次の操作を行います。
 
 - プロジェクトの一覧で更新するプロジェクトを選択します。
 - 内のそれらのすべてのプロジェクトで使用するバージョンを選択して、**バージョン**EntityFramework 6.2.0 などのコントロールです。
@@ -129,10 +129,10 @@ Visual Studio のパッケージの取得元のソースを変更するには、
 1. パッケージ ソースを変更するには、選択しでの編集を行う、**名前**と**ソース**ボックス、および選択**更新**です。
 1. パッケージ ソースを無効にするには、一覧内の名前の左側のボックスをオフにします。
 1. 削除するには、パッケージ ソースを選択し、、 **X**ボタンをクリックします。
-1. 上矢印を使用し、下向きの矢印ボタンをパッケージ ソースの優先順位を変更します。 Visual Studio は、プロジェクトのパッケージを復元するときに、優先順位の順序でこれらのソースを検索します。 詳細については、次を参照してください。[パッケージの復元](../Consume-Packages/Package-Restore.md)です。
+1. 上矢印を使用し、下向きの矢印ボタンをパッケージ ソースの優先順位を変更します。 Visual Studio は、プロジェクトのパッケージを復元するときに、優先順位の順序でこれらのソースを検索します。 詳細については、次を参照してください。[パッケージの復元](../consume-packages/package-restore.md)です。
 
 > [!Tip]
-> 場合は、パッケージ ソースでは、削除した後再表示され、コンピューター レベルまたはユーザー レベルで表示場合があります`NuGet.Config`ファイル。 参照してください[構成 NuGet 動作](../Consume-Packages/Configuring-NuGet-Behavior.md)これらのファイルの場所を削除して、ソース ファイルを手動で編集するかを使用して、 [nuget コマンドをソース](../tools/nuget-exe-CLI-reference.md)です。
+> 場合は、パッケージ ソースでは、削除した後再表示され、コンピューター レベルまたはユーザー レベルで表示場合があります`NuGet.Config`ファイル。 参照してください[構成 NuGet 動作](../consume-packages/configuring-nuget-behavior.md)これらのファイルの場所を削除して、ソース ファイルを手動で編集するかを使用して、 [nuget コマンドをソース](../tools/nuget-exe-CLI-reference.md)です。
 
 ## <a name="package-manager-options-control"></a>パッケージ マネージャーのオプションを制御します。
 
