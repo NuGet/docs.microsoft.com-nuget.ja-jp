@@ -1,46 +1,49 @@
 ---
-title: "NuGet パッケージのバージョンのリファレンス |Microsoft ドキュメント"
+title: NuGet パッケージのバージョンのリファレンス |Microsoft ドキュメント
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 12/08/2017
+ms.date: 03/23/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "バージョン番号と NuGet パッケージ、依存しているとの依存関係がどのようにインストールするのには、他のパッケージの範囲を指定する方法の詳細。"
-keywords: "バージョン管理、NuGet パッケージの依存関係、NuGet の依存関係のバージョン、NuGet のバージョン番号、NuGet パッケージのバージョン、バージョン範囲、バージョン指定、正規化されたバージョン番号"
+ms.technology: ''
+description: バージョン番号と NuGet パッケージ、依存しているとの依存関係がどのようにインストールするのには、他のパッケージの範囲を指定する方法の詳細。
+keywords: バージョン管理、NuGet パッケージの依存関係、NuGet の依存関係のバージョン、NuGet のバージョン番号、NuGet パッケージのバージョン、バージョン範囲、バージョン指定、正規化されたバージョン番号
 ms.reviewer:
 - anandr
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 70472d7d97d073009237a047e0fdf528b221dfd0
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 678ad79d9106a9f592ae4f47bc93cc117496e2c9
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="package-versioning"></a><span data-ttu-id="dcd95-104">パッケージのバージョン管理</span><span class="sxs-lookup"><span data-stu-id="dcd95-104">Package versioning</span></span>
+# <a name="package-versioning"></a><span data-ttu-id="e17c4-104">パッケージのバージョン管理</span><span class="sxs-lookup"><span data-stu-id="e17c4-104">Package versioning</span></span>
 
-<span data-ttu-id="dcd95-105">特定のパッケージは常に、そのパッケージの識別子と厳密なバージョン番号を使用する参照します。</span><span class="sxs-lookup"><span data-stu-id="dcd95-105">A specific package is always referred to using its package identifier and an exact version number.</span></span> <span data-ttu-id="dcd95-106">たとえば、 [Entity Framework](https://www.nuget.org/packages/EntityFramework/) nuget.org がいくつか十特定使用可能なパッケージをバージョンからまで*4.1.10311*バージョン*6.1.3* (、最新の安定しました。リリース) などのさまざまなリリース前のバージョンおよび*6.2.0-beta1*です。</span><span class="sxs-lookup"><span data-stu-id="dcd95-106">For example, [Entity Framework](https://www.nuget.org/packages/EntityFramework/) on nuget.org has several dozen specific packages available, ranging from version *4.1.10311* to version *6.1.3* (the latest stable release) and a variety of pre-release versions like *6.2.0-beta1*.</span></span>
+<span data-ttu-id="e17c4-105">特定のパッケージは常に、そのパッケージの識別子と厳密なバージョン番号を使用する参照します。</span><span class="sxs-lookup"><span data-stu-id="e17c4-105">A specific package is always referred to using its package identifier and an exact version number.</span></span> <span data-ttu-id="e17c4-106">たとえば、 [Entity Framework](https://www.nuget.org/packages/EntityFramework/) nuget.org がいくつか十特定使用可能なパッケージをバージョンからまで*4.1.10311*バージョン*6.1.3* (、最新の安定しました。リリース) などのさまざまなリリース前のバージョンおよび*6.2.0-beta1*です。</span><span class="sxs-lookup"><span data-stu-id="e17c4-106">For example, [Entity Framework](https://www.nuget.org/packages/EntityFramework/) on nuget.org has several dozen specific packages available, ranging from version *4.1.10311* to version *6.1.3* (the latest stable release) and a variety of pre-release versions like *6.2.0-beta1*.</span></span>
 
-<span data-ttu-id="dcd95-107">パッケージを作成するときに、省略可能なプレリリース テキスト サフィックスを持つ特定のバージョン番号を割り当てます。</span><span class="sxs-lookup"><span data-stu-id="dcd95-107">When creating a package, you assign a specific version number with an optional pre-release text suffix.</span></span> <span data-ttu-id="dcd95-108">その一方で、パッケージを使用する際に、厳密なバージョン番号または許容可能なバージョンの範囲のいずれかを指定できます。</span><span class="sxs-lookup"><span data-stu-id="dcd95-108">When consuming packages, on the other hand, you can specify either an exact version number or a range of acceptable versions.</span></span>
+<span data-ttu-id="e17c4-107">パッケージを作成するときに、省略可能なプレリリース テキスト サフィックスを持つ特定のバージョン番号を割り当てます。</span><span class="sxs-lookup"><span data-stu-id="e17c4-107">When creating a package, you assign a specific version number with an optional pre-release text suffix.</span></span> <span data-ttu-id="e17c4-108">その一方で、パッケージを使用する際に、厳密なバージョン番号または許容可能なバージョンの範囲のいずれかを指定できます。</span><span class="sxs-lookup"><span data-stu-id="e17c4-108">When consuming packages, on the other hand, you can specify either an exact version number or a range of acceptable versions.</span></span>
 
-<span data-ttu-id="dcd95-109">このトピックの内容:</span><span class="sxs-lookup"><span data-stu-id="dcd95-109">In this topic:</span></span>
+<span data-ttu-id="e17c4-109">このトピックの内容:</span><span class="sxs-lookup"><span data-stu-id="e17c4-109">In this topic:</span></span>
 
-- <span data-ttu-id="dcd95-110">[バージョンの基礎](#version-basics)プレリリース サフィックスを含むです。</span><span class="sxs-lookup"><span data-stu-id="dcd95-110">[Version basics](#version-basics) including pre-release suffixes.</span></span>
-- [<span data-ttu-id="dcd95-111">バージョン範囲およびワイルドカード</span><span class="sxs-lookup"><span data-stu-id="dcd95-111">Version ranges and wildcards</span></span>](#version-ranges-and-wildcards)
-- [<span data-ttu-id="dcd95-112">正規化されたバージョン番号</span><span class="sxs-lookup"><span data-stu-id="dcd95-112">Normalized version numbers</span></span>](#normalized-version-numbers)
+- <span data-ttu-id="e17c4-110">[バージョンの基礎](#version-basics)プレリリース サフィックスを含むです。</span><span class="sxs-lookup"><span data-stu-id="e17c4-110">[Version basics](#version-basics) including pre-release suffixes.</span></span>
+- [<span data-ttu-id="e17c4-111">バージョン範囲およびワイルドカード</span><span class="sxs-lookup"><span data-stu-id="e17c4-111">Version ranges and wildcards</span></span>](#version-ranges-and-wildcards)
+- [<span data-ttu-id="e17c4-112">正規化されたバージョン番号</span><span class="sxs-lookup"><span data-stu-id="e17c4-112">Normalized version numbers</span></span>](#normalized-version-numbers)
 
-## <a name="version-basics"></a><span data-ttu-id="dcd95-113">バージョンの基礎</span><span class="sxs-lookup"><span data-stu-id="dcd95-113">Version basics</span></span>
+## <a name="version-basics"></a><span data-ttu-id="e17c4-113">バージョンの基礎</span><span class="sxs-lookup"><span data-stu-id="e17c4-113">Version basics</span></span>
 
-<span data-ttu-id="dcd95-114">特定のバージョン番号の形式は*Major.Minor.Patch [-サフィックス]*意味は次のコンポーネントのある、します。</span><span class="sxs-lookup"><span data-stu-id="dcd95-114">A specific version number is in the form *Major.Minor.Patch[-Suffix]*, where the components have the following meanings:</span></span>
+<span data-ttu-id="e17c4-114">特定のバージョン番号の形式は*Major.Minor.Patch [-サフィックス]*意味は次のコンポーネントのある、します。</span><span class="sxs-lookup"><span data-stu-id="e17c4-114">A specific version number is in the form *Major.Minor.Patch[-Suffix]*, where the components have the following meanings:</span></span>
 
-- <span data-ttu-id="dcd95-115">*主要な*: 重大な変更</span><span class="sxs-lookup"><span data-stu-id="dcd95-115">*Major*: Breaking changes</span></span>
-- <span data-ttu-id="dcd95-116">*マイナー*: 下位互換性のあるの新機能</span><span class="sxs-lookup"><span data-stu-id="dcd95-116">*Minor*: New features, but backwards compatible</span></span>
-- <span data-ttu-id="dcd95-117">*修正プログラム*: 旧バージョンと互換性のあるバグの修正のみ</span><span class="sxs-lookup"><span data-stu-id="dcd95-117">*Patch*: Backwards compatible bug fixes only</span></span>
-- <span data-ttu-id="dcd95-118">*-サフィックス*(省略可能): リリース前のバージョンを示す文字列でハイフンの後ろに (以下、[セマンティック バージョニングまたは SemVer 1.0 規約](http://semver.org/spec/v1.0.0.html))。</span><span class="sxs-lookup"><span data-stu-id="dcd95-118">*-Suffix* (optional): a hyphen followed by a string denoting a pre-release version (following the [Semantic Versioning or SemVer 1.0 convention](http://semver.org/spec/v1.0.0.html)).</span></span>
+- <span data-ttu-id="e17c4-115">*主要な*: 重大な変更</span><span class="sxs-lookup"><span data-stu-id="e17c4-115">*Major*: Breaking changes</span></span>
+- <span data-ttu-id="e17c4-116">*マイナー*: 下位互換性のあるの新機能</span><span class="sxs-lookup"><span data-stu-id="e17c4-116">*Minor*: New features, but backwards compatible</span></span>
+- <span data-ttu-id="e17c4-117">*修正プログラム*: 旧バージョンと互換性のあるバグの修正のみ</span><span class="sxs-lookup"><span data-stu-id="e17c4-117">*Patch*: Backwards compatible bug fixes only</span></span>
+- <span data-ttu-id="e17c4-118">*-サフィックス*(省略可能): リリース前のバージョンを示す文字列でハイフンの後ろに (以下、[セマンティック バージョニングまたは SemVer 1.0 規約](http://semver.org/spec/v1.0.0.html))。</span><span class="sxs-lookup"><span data-stu-id="e17c4-118">*-Suffix* (optional): a hyphen followed by a string denoting a pre-release version (following the [Semantic Versioning or SemVer 1.0 convention](http://semver.org/spec/v1.0.0.html)).</span></span>
 
-<span data-ttu-id="dcd95-119">**例:**</span><span class="sxs-lookup"><span data-stu-id="dcd95-119">**Examples:**</span></span>
+<span data-ttu-id="e17c4-119">**例:**</span><span class="sxs-lookup"><span data-stu-id="e17c4-119">**Examples:**</span></span>
 
     1.0.1
     6.11.1231
@@ -48,22 +51,22 @@ ms.lasthandoff: 02/02/2018
     2.2.44-beta1
 
 > [!Important]
-> <span data-ttu-id="dcd95-120">nuget.org は、厳密なバージョン番号が欠落しているパッケージのアップロードを拒否します。</span><span class="sxs-lookup"><span data-stu-id="dcd95-120">nuget.org rejects any package upload that lacks an exact version number.</span></span> <span data-ttu-id="dcd95-121">バージョンを指定する必要があります、`.nuspec`またはプロジェクト ファイルにパッケージを作成するために使用します。</span><span class="sxs-lookup"><span data-stu-id="dcd95-121">The version must be specified in the `.nuspec` or project file used to create the package.</span></span>
+> <span data-ttu-id="e17c4-120">nuget.org は、厳密なバージョン番号が欠落しているパッケージのアップロードを拒否します。</span><span class="sxs-lookup"><span data-stu-id="e17c4-120">nuget.org rejects any package upload that lacks an exact version number.</span></span> <span data-ttu-id="e17c4-121">バージョンを指定する必要があります、`.nuspec`またはプロジェクト ファイルにパッケージを作成するために使用します。</span><span class="sxs-lookup"><span data-stu-id="e17c4-121">The version must be specified in the `.nuspec` or project file used to create the package.</span></span>
 
-### <a name="pre-release-versions"></a><span data-ttu-id="dcd95-122">プレリリース版</span><span class="sxs-lookup"><span data-stu-id="dcd95-122">Pre-release versions</span></span>
+### <a name="pre-release-versions"></a><span data-ttu-id="e17c4-122">プレリリース版</span><span class="sxs-lookup"><span data-stu-id="e17c4-122">Pre-release versions</span></span>
 
-<span data-ttu-id="dcd95-123">技術的には、パッケージの作成者できる任意の文字列をサフィックスとして使用を NuGet がプレリリースとしてこのような任意のバージョンを処理し、他の解釈も負わないものとは、リリース前のバージョンを示すためにします。</span><span class="sxs-lookup"><span data-stu-id="dcd95-123">Technically speaking, package creators can use any string as a suffix to denote a pre-release version, as NuGet treats any such version as pre-release and makes no other interpretation.</span></span> <span data-ttu-id="dcd95-124">NuGet 表示がどのような UI で、フル バージョンの文字列が含まれている、コンシューマーにサフィックスの意味の解釈を終了します。</span><span class="sxs-lookup"><span data-stu-id="dcd95-124">That is, NuGet displays the full version string in whatever UI is involved, leaving any interpretation of the suffix's meaning to the consumer.</span></span>
+<span data-ttu-id="e17c4-123">技術的には、パッケージの作成者できる任意の文字列をサフィックスとして使用を NuGet がプレリリースとしてこのような任意のバージョンを処理し、他の解釈も負わないものとは、リリース前のバージョンを示すためにします。</span><span class="sxs-lookup"><span data-stu-id="e17c4-123">Technically speaking, package creators can use any string as a suffix to denote a pre-release version, as NuGet treats any such version as pre-release and makes no other interpretation.</span></span> <span data-ttu-id="e17c4-124">NuGet 表示がどのような UI で、フル バージョンの文字列が含まれている、コンシューマーにサフィックスの意味の解釈を終了します。</span><span class="sxs-lookup"><span data-stu-id="e17c4-124">That is, NuGet displays the full version string in whatever UI is involved, leaving any interpretation of the suffix's meaning to the consumer.</span></span>
 
-<span data-ttu-id="dcd95-125">ただし、パッケージの開発者は一般に認識されている名前付け規則に従います。</span><span class="sxs-lookup"><span data-stu-id="dcd95-125">That said, package developers generally follow recognized naming conventions:</span></span>
+<span data-ttu-id="e17c4-125">ただし、パッケージの開発者は一般に認識されている名前付け規則に従います。</span><span class="sxs-lookup"><span data-stu-id="e17c4-125">That said, package developers generally follow recognized naming conventions:</span></span>
 
-- <span data-ttu-id="dcd95-126">`-alpha`: アルファ リリースでは、通常処理中と実験に使用します。</span><span class="sxs-lookup"><span data-stu-id="dcd95-126">`-alpha`: Alpha release, typically used for work-in-progress and experimentation.</span></span>
-- <span data-ttu-id="dcd95-127">`-beta`: ベータ リリース。一般的に、次に計画されているリリースの機能をすべて利用できますが、既知のバグが含まれている可能性があります。</span><span class="sxs-lookup"><span data-stu-id="dcd95-127">`-beta`: Beta release, typically one that is feature complete for the next planned release, but may contain known bugs.</span></span>
-- <span data-ttu-id="dcd95-128">`-rc`: リリース候補。一般的に、重大なバグが現れない限り、最終版 (安定版) となる可能性があるリリース。</span><span class="sxs-lookup"><span data-stu-id="dcd95-128">`-rc`: Release candidate, typically a release that's potentially final (stable) unless significant bugs emerge.</span></span>
+- <span data-ttu-id="e17c4-126">`-alpha`: アルファ リリースでは、通常処理中と実験に使用します。</span><span class="sxs-lookup"><span data-stu-id="e17c4-126">`-alpha`: Alpha release, typically used for work-in-progress and experimentation.</span></span>
+- <span data-ttu-id="e17c4-127">`-beta`: ベータ リリース。一般的に、次に計画されているリリースの機能をすべて利用できますが、既知のバグが含まれている可能性があります。</span><span class="sxs-lookup"><span data-stu-id="e17c4-127">`-beta`: Beta release, typically one that is feature complete for the next planned release, but may contain known bugs.</span></span>
+- <span data-ttu-id="e17c4-128">`-rc`: リリース候補。一般的に、重大なバグが現れない限り、最終版 (安定版) となる可能性があるリリース。</span><span class="sxs-lookup"><span data-stu-id="e17c4-128">`-rc`: Release candidate, typically a release that's potentially final (stable) unless significant bugs emerge.</span></span>
 
 > [!Note]
-> <span data-ttu-id="dcd95-129">NuGet 4.3.0+ をサポートしている[SemVer 2.0.0](http://semver.org/spec/v2.0.0.html)、する番号をサポートするプレリリース ドット付き表記でとして*1.0.1-build.23*です。</span><span class="sxs-lookup"><span data-stu-id="dcd95-129">NuGet 4.3.0+ supports [SemVer 2.0.0](http://semver.org/spec/v2.0.0.html), which supports pre-release numbers with dot notation, as in *1.0.1-build.23*.</span></span> <span data-ttu-id="dcd95-130">4.3.0 前に、のバージョンの NuGet では、ドット表記はサポートされていません。</span><span class="sxs-lookup"><span data-stu-id="dcd95-130">Dot notation is not supported with NuGet versions before 4.3.0.</span></span> <span data-ttu-id="dcd95-131">ようにフォームを使用して*1.0.1-build23*です。</span><span class="sxs-lookup"><span data-stu-id="dcd95-131">You can use a form like *1.0.1-build23*.</span></span>
+> <span data-ttu-id="e17c4-129">NuGet 4.3.0+ をサポートしている[SemVer 2.0.0](http://semver.org/spec/v2.0.0.html)、する番号をサポートするプレリリース ドット付き表記でとして*1.0.1-build.23*です。</span><span class="sxs-lookup"><span data-stu-id="e17c4-129">NuGet 4.3.0+ supports [SemVer 2.0.0](http://semver.org/spec/v2.0.0.html), which supports pre-release numbers with dot notation, as in *1.0.1-build.23*.</span></span> <span data-ttu-id="e17c4-130">ドット表記は、バージョン 4.3.0 より前の NuGet ではサポートされていません。</span><span class="sxs-lookup"><span data-stu-id="e17c4-130">Dot notation is not supported with NuGet versions before 4.3.0.</span></span> <span data-ttu-id="e17c4-131">ようにフォームを使用して*1.0.1-build23*です。</span><span class="sxs-lookup"><span data-stu-id="e17c4-131">You can use a form like *1.0.1-build23*.</span></span>
 
-<span data-ttu-id="dcd95-132">パッケージ参照および複数のパッケージ バージョンのみが異なるサフィックスを解決するには、NuGet は最初に、サフィックスが付いていないバージョンを選択し、プレリリース版では、アルファベットの逆順に優先順位を適用します。</span><span class="sxs-lookup"><span data-stu-id="dcd95-132">When resolving package references and multiple package versions differ only by suffix, NuGet chooses a version without a suffix first, then applies precedence to pre-release versions in reverse alphabetical order.</span></span> <span data-ttu-id="dcd95-133">たとえば、次のバージョンが示されている正確な順序で選択されます。</span><span class="sxs-lookup"><span data-stu-id="dcd95-133">For example, the following versions would be chosen in the exact order shown:</span></span>
+<span data-ttu-id="e17c4-132">パッケージ参照および複数のパッケージ バージョンのみが異なるサフィックスを解決するには、NuGet は最初に、サフィックスが付いていないバージョンを選択し、プレリリース版では、アルファベットの逆順に優先順位を適用します。</span><span class="sxs-lookup"><span data-stu-id="e17c4-132">When resolving package references and multiple package versions differ only by suffix, NuGet chooses a version without a suffix first, then applies precedence to pre-release versions in reverse alphabetical order.</span></span> <span data-ttu-id="e17c4-133">たとえば、次のバージョンが示されている正確な順序で選択されます。</span><span class="sxs-lookup"><span data-stu-id="e17c4-133">For example, the following versions would be chosen in the exact order shown:</span></span>
 
     1.0.1
     1.0.1-zzz
@@ -74,61 +77,61 @@ ms.lasthandoff: 02/02/2018
     1.0.1-alpha
     1.0.1-aaa
 
-## <a name="semantic-versioning-200"></a><span data-ttu-id="dcd95-134">セマンティック バージョニング 2.0.0</span><span class="sxs-lookup"><span data-stu-id="dcd95-134">Semantic Versioning 2.0.0</span></span>
+## <a name="semantic-versioning-200"></a><span data-ttu-id="e17c4-134">セマンティック バージョニング 2.0.0</span><span class="sxs-lookup"><span data-stu-id="e17c4-134">Semantic Versioning 2.0.0</span></span>
 
-<span data-ttu-id="dcd95-135">NuGet をサポートしている NuGet 4.3.0+ と Visual Studio 2017 バージョン 15.3 +、[セマンティック バージョニング 2.0.0](http://semver.org/spec/v2.0.0.html)です。</span><span class="sxs-lookup"><span data-stu-id="dcd95-135">With NuGet 4.3.0+ and Visual Studio 2017 version 15.3+, NuGet supports [Semantic Versioning 2.0.0](http://semver.org/spec/v2.0.0.html).</span></span>
+<span data-ttu-id="e17c4-135">NuGet をサポートしている NuGet 4.3.0+ と Visual Studio 2017 バージョン 15.3 +、[セマンティック バージョニング 2.0.0](http://semver.org/spec/v2.0.0.html)です。</span><span class="sxs-lookup"><span data-stu-id="e17c4-135">With NuGet 4.3.0+ and Visual Studio 2017 version 15.3+, NuGet supports [Semantic Versioning 2.0.0](http://semver.org/spec/v2.0.0.html).</span></span>
 
-<span data-ttu-id="dcd95-136">SemVer v2.0.0 の特定のセマンティクスは、以前のクライアントではサポートされていません。</span><span class="sxs-lookup"><span data-stu-id="dcd95-136">Certain semantics of SemVer v2.0.0 are not supported in older clients.</span></span> <span data-ttu-id="dcd95-137">NuGet では、パッケージのバージョンが SemVer v2.0.0 固有である場合は true、次のステートメントのいずれかを検討します。</span><span class="sxs-lookup"><span data-stu-id="dcd95-137">NuGet considers a package version to be SemVer v2.0.0 specific if either of the following statements is true:</span></span>
+<span data-ttu-id="e17c4-136">SemVer v2.0.0 の特定のセマンティクスは、以前のクライアントではサポートされていません。</span><span class="sxs-lookup"><span data-stu-id="e17c4-136">Certain semantics of SemVer v2.0.0 are not supported in older clients.</span></span> <span data-ttu-id="e17c4-137">NuGet では、パッケージのバージョンが SemVer v2.0.0 固有である場合は true、次のステートメントのいずれかを検討します。</span><span class="sxs-lookup"><span data-stu-id="e17c4-137">NuGet considers a package version to be SemVer v2.0.0 specific if either of the following statements is true:</span></span>
 
-- <span data-ttu-id="dcd95-138">プレリリース ラベルはドット区切り、たとえば、 *1.0.0-alpha.1*</span><span class="sxs-lookup"><span data-stu-id="dcd95-138">The pre-release label is dot-separated, for example, *1.0.0-alpha.1*</span></span>
-- <span data-ttu-id="dcd95-139">バージョンには、ビルドのメタデータ、たとえば、 *1.0.0+githash*</span><span class="sxs-lookup"><span data-stu-id="dcd95-139">The version has build-metadata, for example, *1.0.0+githash*</span></span>
+- <span data-ttu-id="e17c4-138">プレリリース ラベルはドット区切り、たとえば、 *1.0.0-alpha.1*</span><span class="sxs-lookup"><span data-stu-id="e17c4-138">The pre-release label is dot-separated, for example, *1.0.0-alpha.1*</span></span>
+- <span data-ttu-id="e17c4-139">バージョンには、ビルドのメタデータ、たとえば、 *1.0.0+githash*</span><span class="sxs-lookup"><span data-stu-id="e17c4-139">The version has build-metadata, for example, *1.0.0+githash*</span></span>
 
-<span data-ttu-id="dcd95-140">Nuget.org をパッケージが定義されて SemVer v2.0.0 パッケージとして、次のステートメントのいずれかが true の場合。</span><span class="sxs-lookup"><span data-stu-id="dcd95-140">For nuget.org, a package is defined as a SemVer v2.0.0 package if either of the following statements is true:</span></span>
+<span data-ttu-id="e17c4-140">Nuget.org をパッケージが定義されて SemVer v2.0.0 パッケージとして、次のステートメントのいずれかが true の場合。</span><span class="sxs-lookup"><span data-stu-id="e17c4-140">For nuget.org, a package is defined as a SemVer v2.0.0 package if either of the following statements is true:</span></span>
 
-- <span data-ttu-id="dcd95-141">パッケージのバージョンでは、上記で定義された SemVer v2.0.0 準拠していませんが、準拠していない SemVer v1.0.0 です。</span><span class="sxs-lookup"><span data-stu-id="dcd95-141">The package's own version is SemVer v2.0.0 compliant but not SemVer v1.0.0 compliant, as defined above.</span></span>
-- <span data-ttu-id="dcd95-142">最小値または最大なバージョンが SemVer v2.0.0 準拠していませんが、準拠していない SemVer v1.0.0; 上で定義したパッケージの依存関係のバージョンの範囲のいずれかがあります。たとえば、 *[1.0.0-alpha.1,)*です。</span><span class="sxs-lookup"><span data-stu-id="dcd95-142">Any of the package's dependency version ranges has a minimum or maximum version that is SemVer v2.0.0 compliant but not SemVer v1.0.0 compliant, defined above; for example, *[1.0.0-alpha.1, )*.</span></span>
+- <span data-ttu-id="e17c4-141">パッケージのバージョンでは、上記で定義された SemVer v2.0.0 準拠していませんが、準拠していない SemVer v1.0.0 です。</span><span class="sxs-lookup"><span data-stu-id="e17c4-141">The package's own version is SemVer v2.0.0 compliant but not SemVer v1.0.0 compliant, as defined above.</span></span>
+- <span data-ttu-id="e17c4-142">最小値または最大なバージョンが SemVer v2.0.0 準拠していませんが、準拠していない SemVer v1.0.0; 上で定義したパッケージの依存関係のバージョンの範囲のいずれかがあります。たとえば、 *[1.0.0-alpha.1,)*です。</span><span class="sxs-lookup"><span data-stu-id="e17c4-142">Any of the package's dependency version ranges has a minimum or maximum version that is SemVer v2.0.0 compliant but not SemVer v1.0.0 compliant, defined above; for example, *[1.0.0-alpha.1, )*.</span></span>
 
-<span data-ttu-id="dcd95-143">Nuget.org に SemVer v2.0.0 に固有のパッケージをアップロードする場合、パッケージを古いクライアントに非表示とは使用する次の NuGet クライアントのみ。</span><span class="sxs-lookup"><span data-stu-id="dcd95-143">If you upload a SemVer v2.0.0-specific package to nuget.org, the package is invisible to older clients and available to only the following NuGet clients:</span></span>
+<span data-ttu-id="e17c4-143">Nuget.org に SemVer v2.0.0 に固有のパッケージをアップロードする場合、パッケージを古いクライアントに非表示とは使用する次の NuGet クライアントのみ。</span><span class="sxs-lookup"><span data-stu-id="e17c4-143">If you upload a SemVer v2.0.0-specific package to nuget.org, the package is invisible to older clients and available to only the following NuGet clients:</span></span>
 
-- <span data-ttu-id="dcd95-144">NuGet 4.3.0+</span><span class="sxs-lookup"><span data-stu-id="dcd95-144">NuGet 4.3.0+</span></span>
-- <span data-ttu-id="dcd95-145">Visual Studio 2017 バージョン 15.3 +</span><span class="sxs-lookup"><span data-stu-id="dcd95-145">Visual Studio 2017 version 15.3+</span></span>
-- <span data-ttu-id="dcd95-146">Visual Studio 2015 with [NuGet VSIX v3.6.0](https://dist.nuget.org/visualstudio-2015-vsix/latest/NuGet.Tools.vsix)</span><span class="sxs-lookup"><span data-stu-id="dcd95-146">Visual Studio 2015 with [NuGet VSIX v3.6.0](https://dist.nuget.org/visualstudio-2015-vsix/latest/NuGet.Tools.vsix)</span></span>
-- <span data-ttu-id="dcd95-147">dotnet.exe (.NET SDK 2.0.0+)</span><span class="sxs-lookup"><span data-stu-id="dcd95-147">dotnet.exe (.NET SDK 2.0.0+)</span></span>
+- <span data-ttu-id="e17c4-144">NuGet 4.3.0+</span><span class="sxs-lookup"><span data-stu-id="e17c4-144">NuGet 4.3.0+</span></span>
+- <span data-ttu-id="e17c4-145">Visual Studio 2017 バージョン 15.3 +</span><span class="sxs-lookup"><span data-stu-id="e17c4-145">Visual Studio 2017 version 15.3+</span></span>
+- <span data-ttu-id="e17c4-146">Visual Studio 2015 with [NuGet VSIX v3.6.0](https://dist.nuget.org/visualstudio-2015-vsix/latest/NuGet.Tools.vsix)</span><span class="sxs-lookup"><span data-stu-id="e17c4-146">Visual Studio 2015 with [NuGet VSIX v3.6.0](https://dist.nuget.org/visualstudio-2015-vsix/latest/NuGet.Tools.vsix)</span></span>
+- <span data-ttu-id="e17c4-147">dotnet.exe (.NET SDK 2.0.0+)</span><span class="sxs-lookup"><span data-stu-id="e17c4-147">dotnet.exe (.NET SDK 2.0.0+)</span></span>
 
-<span data-ttu-id="dcd95-148">サード パーティ製のクライアント:</span><span class="sxs-lookup"><span data-stu-id="dcd95-148">Third-party clients:</span></span>
+<span data-ttu-id="e17c4-148">サード パーティ製のクライアント:</span><span class="sxs-lookup"><span data-stu-id="e17c4-148">Third-party clients:</span></span>
 
-- <span data-ttu-id="dcd95-149">JetBrains 名</span><span class="sxs-lookup"><span data-stu-id="dcd95-149">JetBrains Rider</span></span>
-- <span data-ttu-id="dcd95-150">Version 5.0 以降のパケットを作成します。</span><span class="sxs-lookup"><span data-stu-id="dcd95-150">Paket version 5.0+</span></span>
+- <span data-ttu-id="e17c4-149">JetBrains 名</span><span class="sxs-lookup"><span data-stu-id="e17c4-149">JetBrains Rider</span></span>
+- <span data-ttu-id="e17c4-150">Version 5.0 以降のパケットを作成します。</span><span class="sxs-lookup"><span data-stu-id="e17c4-150">Paket version 5.0+</span></span>
 
 <!-- For compatibility with previous dependency-versions page -->
 <a name="version-ranges"></a>
 
-## <a name="version-ranges-and-wildcards"></a><span data-ttu-id="dcd95-151">バージョン範囲およびワイルドカード</span><span class="sxs-lookup"><span data-stu-id="dcd95-151">Version ranges and wildcards</span></span>
+## <a name="version-ranges-and-wildcards"></a><span data-ttu-id="e17c4-151">バージョン範囲およびワイルドカード</span><span class="sxs-lookup"><span data-stu-id="e17c4-151">Version ranges and wildcards</span></span>
 
-<span data-ttu-id="dcd95-152">パッケージの依存関係の場合は、次のとおり、バージョン範囲を指定する間隔の表記を使用して NuGet をサポートします。</span><span class="sxs-lookup"><span data-stu-id="dcd95-152">When referring to package dependencies, NuGet supports using interval notation for specifying version ranges, summarized as follows:</span></span>
+<span data-ttu-id="e17c4-152">パッケージの依存関係の場合は、次のとおり、バージョン範囲を指定する間隔の表記を使用して NuGet をサポートします。</span><span class="sxs-lookup"><span data-stu-id="e17c4-152">When referring to package dependencies, NuGet supports using interval notation for specifying version ranges, summarized as follows:</span></span>
 
-| <span data-ttu-id="dcd95-153">Notation</span><span class="sxs-lookup"><span data-stu-id="dcd95-153">Notation</span></span> | <span data-ttu-id="dcd95-154">適用されるルール</span><span class="sxs-lookup"><span data-stu-id="dcd95-154">Applied rule</span></span> | <span data-ttu-id="dcd95-155">説明</span><span class="sxs-lookup"><span data-stu-id="dcd95-155">Description</span></span> |
+| <span data-ttu-id="e17c4-153">Notation</span><span class="sxs-lookup"><span data-stu-id="e17c4-153">Notation</span></span> | <span data-ttu-id="e17c4-154">適用されるルール</span><span class="sxs-lookup"><span data-stu-id="e17c4-154">Applied rule</span></span> | <span data-ttu-id="e17c4-155">説明</span><span class="sxs-lookup"><span data-stu-id="e17c4-155">Description</span></span> |
 |----------|--------------|-------------|
-| <span data-ttu-id="dcd95-156">1</span><span class="sxs-lookup"><span data-stu-id="dcd95-156">1.0</span></span> | <span data-ttu-id="dcd95-157">1.0 ≤ x</span><span class="sxs-lookup"><span data-stu-id="dcd95-157">1.0 ≤ x</span></span> | <span data-ttu-id="dcd95-158">包括的な最小のバージョン</span><span class="sxs-lookup"><span data-stu-id="dcd95-158">Minimum version, inclusive</span></span> |
-| <span data-ttu-id="dcd95-159">(1.0,)</span><span class="sxs-lookup"><span data-stu-id="dcd95-159">(1.0,)</span></span> | <span data-ttu-id="dcd95-160">1.0 < x</span><span class="sxs-lookup"><span data-stu-id="dcd95-160">1.0 < x</span></span> | <span data-ttu-id="dcd95-161">排他の最小バージョン</span><span class="sxs-lookup"><span data-stu-id="dcd95-161">Minimum version, exclusive</span></span> |
-| <span data-ttu-id="dcd95-162">[1.0]</span><span class="sxs-lookup"><span data-stu-id="dcd95-162">[1.0]</span></span> | <span data-ttu-id="dcd95-163">x = = 1.0</span><span class="sxs-lookup"><span data-stu-id="dcd95-163">x == 1.0</span></span> | <span data-ttu-id="dcd95-164">バージョンに一致します。</span><span class="sxs-lookup"><span data-stu-id="dcd95-164">Exact version match</span></span> |
-| <span data-ttu-id="dcd95-165">(,1.0]</span><span class="sxs-lookup"><span data-stu-id="dcd95-165">(,1.0]</span></span> | <span data-ttu-id="dcd95-166">x ≤ 1.0</span><span class="sxs-lookup"><span data-stu-id="dcd95-166">x ≤ 1.0</span></span> | <span data-ttu-id="dcd95-167">包括的に、最大のバージョン</span><span class="sxs-lookup"><span data-stu-id="dcd95-167">Maximum version, inclusive</span></span> |
-| <span data-ttu-id="dcd95-168">(,1.0)</span><span class="sxs-lookup"><span data-stu-id="dcd95-168">(,1.0)</span></span> | <span data-ttu-id="dcd95-169">x < 1.0</span><span class="sxs-lookup"><span data-stu-id="dcd95-169">x < 1.0</span></span> | <span data-ttu-id="dcd95-170">排他の最大バージョン</span><span class="sxs-lookup"><span data-stu-id="dcd95-170">Maximum version, exclusive</span></span> |
-| <span data-ttu-id="dcd95-171">[1.0,2.0]</span><span class="sxs-lookup"><span data-stu-id="dcd95-171">[1.0,2.0]</span></span> | <span data-ttu-id="dcd95-172">1.0 ≤ x ≤ 2.0</span><span class="sxs-lookup"><span data-stu-id="dcd95-172">1.0 ≤ x ≤ 2.0</span></span> | <span data-ttu-id="dcd95-173">正確な範囲を包括的</span><span class="sxs-lookup"><span data-stu-id="dcd95-173">Exact range, inclusive</span></span> |
-| <span data-ttu-id="dcd95-174">(1.0,2.0)</span><span class="sxs-lookup"><span data-stu-id="dcd95-174">(1.0,2.0)</span></span> | <span data-ttu-id="dcd95-175">1.0 < x < 2.0</span><span class="sxs-lookup"><span data-stu-id="dcd95-175">1.0 < x < 2.0</span></span> | <span data-ttu-id="dcd95-176">正確な範囲、排他</span><span class="sxs-lookup"><span data-stu-id="dcd95-176">Exact range, exclusive</span></span> |
-| <span data-ttu-id="dcd95-177">[1.0,2.0)</span><span class="sxs-lookup"><span data-stu-id="dcd95-177">[1.0,2.0)</span></span> | <span data-ttu-id="dcd95-178">1.0 ≤ x < 2.0</span><span class="sxs-lookup"><span data-stu-id="dcd95-178">1.0 ≤ x < 2.0</span></span> | <span data-ttu-id="dcd95-179">包括的な最小値と排他最大バージョンが混在</span><span class="sxs-lookup"><span data-stu-id="dcd95-179">Mixed inclusive minimum and exclusive maximum version</span></span> |
-| <span data-ttu-id="dcd95-180">(1.0)</span><span class="sxs-lookup"><span data-stu-id="dcd95-180">(1.0)</span></span>    | <span data-ttu-id="dcd95-181">無効な</span><span class="sxs-lookup"><span data-stu-id="dcd95-181">invalid</span></span> | <span data-ttu-id="dcd95-182">無効な</span><span class="sxs-lookup"><span data-stu-id="dcd95-182">invalid</span></span> |
+| <span data-ttu-id="e17c4-156">1</span><span class="sxs-lookup"><span data-stu-id="e17c4-156">1.0</span></span> | <span data-ttu-id="e17c4-157">x ≥ 1.0</span><span class="sxs-lookup"><span data-stu-id="e17c4-157">x ≥ 1.0</span></span> | <span data-ttu-id="e17c4-158">包括的な最小のバージョン</span><span class="sxs-lookup"><span data-stu-id="e17c4-158">Minimum version, inclusive</span></span> |
+| <span data-ttu-id="e17c4-159">(1.0,)</span><span class="sxs-lookup"><span data-stu-id="e17c4-159">(1.0,)</span></span> | <span data-ttu-id="e17c4-160">x > 1.0</span><span class="sxs-lookup"><span data-stu-id="e17c4-160">x > 1.0</span></span> | <span data-ttu-id="e17c4-161">排他の最小バージョン</span><span class="sxs-lookup"><span data-stu-id="e17c4-161">Minimum version, exclusive</span></span> |
+| <span data-ttu-id="e17c4-162">[1.0]</span><span class="sxs-lookup"><span data-stu-id="e17c4-162">[1.0]</span></span> | <span data-ttu-id="e17c4-163">x = = 1.0</span><span class="sxs-lookup"><span data-stu-id="e17c4-163">x == 1.0</span></span> | <span data-ttu-id="e17c4-164">バージョンに一致します。</span><span class="sxs-lookup"><span data-stu-id="e17c4-164">Exact version match</span></span> |
+| <span data-ttu-id="e17c4-165">(,1.0]</span><span class="sxs-lookup"><span data-stu-id="e17c4-165">(,1.0]</span></span> | <span data-ttu-id="e17c4-166">x ≤ 1.0</span><span class="sxs-lookup"><span data-stu-id="e17c4-166">x ≤ 1.0</span></span> | <span data-ttu-id="e17c4-167">包括的に、最大のバージョン</span><span class="sxs-lookup"><span data-stu-id="e17c4-167">Maximum version, inclusive</span></span> |
+| <span data-ttu-id="e17c4-168">(,1.0)</span><span class="sxs-lookup"><span data-stu-id="e17c4-168">(,1.0)</span></span> | <span data-ttu-id="e17c4-169">x < 1.0</span><span class="sxs-lookup"><span data-stu-id="e17c4-169">x < 1.0</span></span> | <span data-ttu-id="e17c4-170">排他の最大バージョン</span><span class="sxs-lookup"><span data-stu-id="e17c4-170">Maximum version, exclusive</span></span> |
+| <span data-ttu-id="e17c4-171">[1.0,2.0]</span><span class="sxs-lookup"><span data-stu-id="e17c4-171">[1.0,2.0]</span></span> | <span data-ttu-id="e17c4-172">1.0 ≤ x ≤ 2.0</span><span class="sxs-lookup"><span data-stu-id="e17c4-172">1.0 ≤ x ≤ 2.0</span></span> | <span data-ttu-id="e17c4-173">正確な範囲を包括的</span><span class="sxs-lookup"><span data-stu-id="e17c4-173">Exact range, inclusive</span></span> |
+| <span data-ttu-id="e17c4-174">(1.0,2.0)</span><span class="sxs-lookup"><span data-stu-id="e17c4-174">(1.0,2.0)</span></span> | <span data-ttu-id="e17c4-175">1.0 < x < 2.0</span><span class="sxs-lookup"><span data-stu-id="e17c4-175">1.0 < x < 2.0</span></span> | <span data-ttu-id="e17c4-176">正確な範囲、排他</span><span class="sxs-lookup"><span data-stu-id="e17c4-176">Exact range, exclusive</span></span> |
+| <span data-ttu-id="e17c4-177">[1.0,2.0)</span><span class="sxs-lookup"><span data-stu-id="e17c4-177">[1.0,2.0)</span></span> | <span data-ttu-id="e17c4-178">1.0 ≤ x < 2.0</span><span class="sxs-lookup"><span data-stu-id="e17c4-178">1.0 ≤ x < 2.0</span></span> | <span data-ttu-id="e17c4-179">包括的な最小値と排他最大バージョンが混在</span><span class="sxs-lookup"><span data-stu-id="e17c4-179">Mixed inclusive minimum and exclusive maximum version</span></span> |
+| <span data-ttu-id="e17c4-180">(1.0)</span><span class="sxs-lookup"><span data-stu-id="e17c4-180">(1.0)</span></span>    | <span data-ttu-id="e17c4-181">無効な</span><span class="sxs-lookup"><span data-stu-id="e17c4-181">invalid</span></span> | <span data-ttu-id="e17c4-182">無効な</span><span class="sxs-lookup"><span data-stu-id="e17c4-182">invalid</span></span> |
 
-<span data-ttu-id="dcd95-183">PackageReference 形式を使用して、NuGet の使用もサポート ワイルドカードの表記法\*メジャー、マイナー、Patch、および数のプレリリース版サフィックス部分。</span><span class="sxs-lookup"><span data-stu-id="dcd95-183">When using the PackageReference format, NuGet also supports using a wildcard notation, \*, for Major, Minor, Patch, and pre-release suffix parts of the number.</span></span> <span data-ttu-id="dcd95-184">ワイルドカードはサポートされていません、`packages.config`形式です。</span><span class="sxs-lookup"><span data-stu-id="dcd95-184">Wildcards are not supported with the `packages.config` format.</span></span>
+<span data-ttu-id="e17c4-183">PackageReference 形式を使用して、NuGet の使用もサポート ワイルドカードの表記法\*メジャー、マイナー、Patch、および数のプレリリース版サフィックス部分。</span><span class="sxs-lookup"><span data-stu-id="e17c4-183">When using the PackageReference format, NuGet also supports using a wildcard notation, \*, for Major, Minor, Patch, and pre-release suffix parts of the number.</span></span> <span data-ttu-id="e17c4-184">ワイルドカードはサポートされていません、`packages.config`形式です。</span><span class="sxs-lookup"><span data-stu-id="e17c4-184">Wildcards are not supported with the `packages.config` format.</span></span>
 
 > [!Note]
-> <span data-ttu-id="dcd95-185">バージョン範囲を解決するときに、プレリリース バージョンは含まれません。</span><span class="sxs-lookup"><span data-stu-id="dcd95-185">Pre-release versions are not included when resolving version ranges.</span></span> <span data-ttu-id="dcd95-186">プレリリース版*は*、ワイルドカードを使用するときに含まれます (\*)。</span><span class="sxs-lookup"><span data-stu-id="dcd95-186">Pre-release versions *are* included when using a wildcard (\*).</span></span> <span data-ttu-id="dcd95-187">バージョン範囲*[1.0,2.0]*、たとえば、含まない 2.0 のベータ版ではワイルドカードの表記法_2.0-\*_はします。</span><span class="sxs-lookup"><span data-stu-id="dcd95-187">The version range *[1.0,2.0]*, for example, does not include 2.0-beta, but the wildcard notation _2.0-\*_ does.</span></span> <span data-ttu-id="dcd95-188">参照してください[発行 912](https://github.com/NuGet/Home/issues/912)プレリリース ワイルドカードの詳細についてはします。</span><span class="sxs-lookup"><span data-stu-id="dcd95-188">See [issue 912](https://github.com/NuGet/Home/issues/912) for further discussion on pre-release wildcards.</span></span>
+> <span data-ttu-id="e17c4-185">バージョン範囲を解決するときに、プレリリース バージョンは含まれません。</span><span class="sxs-lookup"><span data-stu-id="e17c4-185">Pre-release versions are not included when resolving version ranges.</span></span> <span data-ttu-id="e17c4-186">プレリリース版*は*、ワイルドカードを使用するときに含まれます (\*)。</span><span class="sxs-lookup"><span data-stu-id="e17c4-186">Pre-release versions *are* included when using a wildcard (\*).</span></span> <span data-ttu-id="e17c4-187">バージョン範囲*[1.0,2.0]*、たとえば、含まない 2.0 のベータ版ではワイルドカードの表記法_2.0-\*_はします。</span><span class="sxs-lookup"><span data-stu-id="e17c4-187">The version range *[1.0,2.0]*, for example, does not include 2.0-beta, but the wildcard notation _2.0-\*_ does.</span></span> <span data-ttu-id="e17c4-188">参照してください[発行 912](https://github.com/NuGet/Home/issues/912)プレリリース ワイルドカードの詳細についてはします。</span><span class="sxs-lookup"><span data-stu-id="e17c4-188">See [issue 912](https://github.com/NuGet/Home/issues/912) for further discussion on pre-release wildcards.</span></span>
 
-### <a name="examples"></a><span data-ttu-id="dcd95-189">使用例</span><span class="sxs-lookup"><span data-stu-id="dcd95-189">Examples</span></span>
+### <a name="examples"></a><span data-ttu-id="e17c4-189">使用例</span><span class="sxs-lookup"><span data-stu-id="e17c4-189">Examples</span></span>
 
-<span data-ttu-id="dcd95-190">常に、プロジェクト ファイル内のバージョンまたはパッケージの依存関係のバージョンの範囲を指定`packages.config`ファイル、および`.nuspec`ファイル。</span><span class="sxs-lookup"><span data-stu-id="dcd95-190">Always specify a version or version range for package dependencies in project files, `packages.config` files, and `.nuspec` files.</span></span> <span data-ttu-id="dcd95-191">バージョンまたはバージョン範囲、NuGet のない 2.8.x 以前選択して、最新の利用可能なパッケージ、依存関係を解決するときに対し NuGet 3.x し、後で、最小のパッケージ バージョンを選択します。</span><span class="sxs-lookup"><span data-stu-id="dcd95-191">Without a version or version range, NuGet 2.8.x and earlier chooses the latest available package version when resolving a dependency, whereas NuGet 3.x and later chooses the lowest package version.</span></span> <span data-ttu-id="dcd95-192">バージョンまたはバージョン範囲は、この不確実性を回避できます。 を指定します。</span><span class="sxs-lookup"><span data-stu-id="dcd95-192">Specifying a version or version range avoids this uncertainty.</span></span>
+<span data-ttu-id="e17c4-190">常に、プロジェクト ファイル内のバージョンまたはパッケージの依存関係のバージョンの範囲を指定`packages.config`ファイル、および`.nuspec`ファイル。</span><span class="sxs-lookup"><span data-stu-id="e17c4-190">Always specify a version or version range for package dependencies in project files, `packages.config` files, and `.nuspec` files.</span></span> <span data-ttu-id="e17c4-191">バージョンまたはバージョン範囲、NuGet のない 2.8.x 以前選択して、最新の利用可能なパッケージ、依存関係を解決するときに対し NuGet 3.x し、後で、最小のパッケージ バージョンを選択します。</span><span class="sxs-lookup"><span data-stu-id="e17c4-191">Without a version or version range, NuGet 2.8.x and earlier chooses the latest available package version when resolving a dependency, whereas NuGet 3.x and later chooses the lowest package version.</span></span> <span data-ttu-id="e17c4-192">バージョンまたはバージョン範囲は、この不確実性を回避できます。 を指定します。</span><span class="sxs-lookup"><span data-stu-id="e17c4-192">Specifying a version or version range avoids this uncertainty.</span></span>
 
-#### <a name="references-in-project-files-packagereference"></a><span data-ttu-id="dcd95-193">プロジェクト ファイル (PackageReference) 内の参照</span><span class="sxs-lookup"><span data-stu-id="dcd95-193">References in project files (PackageReference)</span></span>
+#### <a name="references-in-project-files-packagereference"></a><span data-ttu-id="e17c4-193">プロジェクト ファイル (PackageReference) 内の参照</span><span class="sxs-lookup"><span data-stu-id="e17c4-193">References in project files (PackageReference)</span></span>
 
 ```xml
 <!-- Accepts any version 6.1 and above. -->
@@ -157,9 +160,9 @@ ms.lasthandoff: 02/02/2018
 <PackageReference Include="ExamplePackage" Version="[1.3.2,1.5)" />
 ```
 
-<span data-ttu-id="dcd95-194">**参照`packages.config`:**</span><span class="sxs-lookup"><span data-stu-id="dcd95-194">**References in `packages.config`:**</span></span>
+<span data-ttu-id="e17c4-194">**参照`packages.config`:**</span><span class="sxs-lookup"><span data-stu-id="e17c4-194">**References in `packages.config`:**</span></span>
 
-<span data-ttu-id="dcd95-195">`packages.config`、すべての依存関係が記載されている完全な`version`パッケージを復元するときに使用される属性です。</span><span class="sxs-lookup"><span data-stu-id="dcd95-195">In `packages.config`, every dependency is listed with an exact `version` attribute that's used when restoring packages.</span></span> <span data-ttu-id="dcd95-196">`allowedVersions`属性は、パッケージを更新する可能性があるバージョンを制限する更新操作中にのみ使用します。</span><span class="sxs-lookup"><span data-stu-id="dcd95-196">The `allowedVersions` attribute is used only during update operations to constrain the versions to which the package might be updated.</span></span>
+<span data-ttu-id="e17c4-195">`packages.config`、すべての依存関係が記載されている完全な`version`パッケージを復元するときに使用される属性です。</span><span class="sxs-lookup"><span data-stu-id="e17c4-195">In `packages.config`, every dependency is listed with an exact `version` attribute that's used when restoring packages.</span></span> <span data-ttu-id="e17c4-196">`allowedVersions`属性は、パッケージを更新する可能性があるバージョンを制限する更新操作中にのみ使用します。</span><span class="sxs-lookup"><span data-stu-id="e17c4-196">The `allowedVersions` attribute is used only during update operations to constrain the versions to which the package might be updated.</span></span>
 
 ```xml
 <!-- Install/restore version 6.1.0, accept any version 6.1.0 and above on update. -->
@@ -188,9 +191,9 @@ ms.lasthandoff: 02/02/2018
 <package id="ExamplePackage" version="1.3.5" allowedVersions="[1.3.2,1.5)" />
 ```
 
-<span data-ttu-id="dcd95-197">**参照`.nuspec`ファイル**</span><span class="sxs-lookup"><span data-stu-id="dcd95-197">**References in `.nuspec` files**</span></span>
+<span data-ttu-id="e17c4-197">**参照`.nuspec`ファイル**</span><span class="sxs-lookup"><span data-stu-id="e17c4-197">**References in `.nuspec` files**</span></span>
 
-<span data-ttu-id="dcd95-198">`version`属性、`<dependency>`要素に依存関係として受け入れ可能な範囲のバージョンを記述します。</span><span class="sxs-lookup"><span data-stu-id="dcd95-198">The `version` attribute in a `<dependency>` element describes the range versions that are acceptable for a dependency.</span></span>
+<span data-ttu-id="e17c4-198">`version`属性、`<dependency>`要素に依存関係として受け入れ可能な範囲のバージョンを記述します。</span><span class="sxs-lookup"><span data-stu-id="e17c4-198">The `version` attribute in a `<dependency>` element describes the range versions that are acceptable for a dependency.</span></span>
 
 ```xml
 <!-- Accepts any version 6.1 and above. -->
@@ -215,24 +218,24 @@ ms.lasthandoff: 02/02/2018
 <dependency id="ExamplePackage" version="[1.3.2,1.5)" />
 ```
 
-## <a name="normalized-version-numbers"></a><span data-ttu-id="dcd95-199">正規化されたバージョン番号</span><span class="sxs-lookup"><span data-stu-id="dcd95-199">Normalized version numbers</span></span>
+## <a name="normalized-version-numbers"></a><span data-ttu-id="e17c4-199">正規化されたバージョン番号</span><span class="sxs-lookup"><span data-stu-id="e17c4-199">Normalized version numbers</span></span>
 
 > [!Note]
-> <span data-ttu-id="dcd95-200">これは、NuGet 3.4 以降では、互換性に影響する変更です。</span><span class="sxs-lookup"><span data-stu-id="dcd95-200">This is a breaking change for NuGet 3.4 and later.</span></span>
+> <span data-ttu-id="e17c4-200">これは、NuGet 3.4 以降では、互換性に影響する変更です。</span><span class="sxs-lookup"><span data-stu-id="e17c4-200">This is a breaking change for NuGet 3.4 and later.</span></span>
 
-<span data-ttu-id="dcd95-201">再インストール、または復元操作のインストール中に、リポジトリからパッケージを取得するときに NuGet 3.4 以降はバージョン番号を次のように処理します。</span><span class="sxs-lookup"><span data-stu-id="dcd95-201">When obtaining packages from a repository during install, reinstall, or restore operations, NuGet 3.4+ treats version numbers as follows:</span></span>
+<span data-ttu-id="e17c4-201">再インストール、または復元操作のインストール中に、リポジトリからパッケージを取得するときに NuGet 3.4 以降はバージョン番号を次のように処理します。</span><span class="sxs-lookup"><span data-stu-id="e17c4-201">When obtaining packages from a repository during install, reinstall, or restore operations, NuGet 3.4+ treats version numbers as follows:</span></span>
 
-- <span data-ttu-id="dcd95-202">先頭の 0 は、バージョン番号から削除されます。</span><span class="sxs-lookup"><span data-stu-id="dcd95-202">Leading zeroes are removed from version numbers:</span></span>
+- <span data-ttu-id="e17c4-202">先頭の 0 は、バージョン番号から削除されます。</span><span class="sxs-lookup"><span data-stu-id="e17c4-202">Leading zeroes are removed from version numbers:</span></span>
 
         1.00 is treated as 1.0
         1.01.1 is treated as 1.1.1
         1.00.0.1 is treated as 1.0.0.1
 
-- <span data-ttu-id="dcd95-203">バージョン番号の 4 番目の部分のゼロは省略されます。</span><span class="sxs-lookup"><span data-stu-id="dcd95-203">A zero in the fourth part of the version number will be omitted</span></span>
+- <span data-ttu-id="e17c4-203">バージョン番号の 4 番目の部分のゼロは省略されます。</span><span class="sxs-lookup"><span data-stu-id="e17c4-203">A zero in the fourth part of the version number will be omitted</span></span>
 
         1.0.0.0 is treated as 1.0.0
         1.0.01.0 is treated as 1.0.1
 
-<span data-ttu-id="dcd95-204">この正規化には、パッケージ自体; のバージョン番号は変わりません。のみ方法 NuGet と一致するバージョンの依存関係を解決するときに影響します。</span><span class="sxs-lookup"><span data-stu-id="dcd95-204">This normalization does not affect the version numbers in the packages themselves; it affects only how NuGet matches versions when resolving dependencies.</span></span>
+<span data-ttu-id="e17c4-204">この正規化には、パッケージ自体; のバージョン番号は変わりません。のみ方法 NuGet と一致するバージョンの依存関係を解決するときに影響します。</span><span class="sxs-lookup"><span data-stu-id="e17c4-204">This normalization does not affect the version numbers in the packages themselves; it affects only how NuGet matches versions when resolving dependencies.</span></span>
 
-<span data-ttu-id="dcd95-205">ただし、NuGet パッケージのリポジトリと同じ方法で NuGet パッケージのバージョンの重複を防ぐためにこれらの値を処理する必要があります。</span><span class="sxs-lookup"><span data-stu-id="dcd95-205">However, NuGet package repositories must treat these values in the same way as NuGet to prevent package version duplication.</span></span> <span data-ttu-id="dcd95-206">バージョンを格納するリポジトリしたがって*1.0*パッケージの必要がありますもホストしていないバージョン*1.0.0*独立した異なるパッケージとして。</span><span class="sxs-lookup"><span data-stu-id="dcd95-206">Thus a repository that contains version *1.0* of a package should not also host version *1.0.0* as a separate and different package.</span></span>
+<span data-ttu-id="e17c4-205">ただし、NuGet パッケージのリポジトリと同じ方法で NuGet パッケージのバージョンの重複を防ぐためにこれらの値を処理する必要があります。</span><span class="sxs-lookup"><span data-stu-id="e17c4-205">However, NuGet package repositories must treat these values in the same way as NuGet to prevent package version duplication.</span></span> <span data-ttu-id="e17c4-206">バージョンを格納するリポジトリしたがって*1.0*パッケージの必要がありますもホストしていないバージョン*1.0.0*独立した異なるパッケージとして。</span><span class="sxs-lookup"><span data-stu-id="e17c4-206">Thus a repository that contains version *1.0* of a package should not also host version *1.0.0* as a separate and different package.</span></span>
