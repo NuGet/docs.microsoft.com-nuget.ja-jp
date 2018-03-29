@@ -1,28 +1,31 @@
 ---
-title: "NuGet CLI コマンドを追加する |Microsoft ドキュメント"
+title: NuGet CLI コマンドを追加する |Microsoft ドキュメント
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "コマンドを追加、nuget.exe への参照"
-keywords: "nuget の参照を追加する、パッケージのコマンドを追加"
+ms.technology: ''
+description: コマンドを追加、nuget.exe への参照
+keywords: nuget の参照を追加する、パッケージのコマンドを追加
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 70c86f8d240bd308224f6b7887b630cc1e953bf8
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 48e093cbae2cecb1652e17a9b26920107aa8aef7
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="add-command-nuget-cli"></a>コマンド (NuGet CLI) を追加します。
 
 **適用されます**: パッケージの発行&bullet;**サポートされているバージョン**: 3.3 +
 
-指定したパッケージをパッケージ ID とバージョン番号のフォルダーを作成する場合、階層構造での HTTP 以外のパッケージ ソース (フォルダーまたは UNC パス) に追加します。 例:
+指定したパッケージをパッケージ ID とバージョン番号のフォルダーを作成する場合、階層構造での HTTP 以外のパッケージ ソース (フォルダーまたは UNC パス) に追加します。 例えば:
 
     \\myserver\packages
       └─<packageID>
@@ -47,7 +50,7 @@ nuget add <packagePath> -Source <sourcePath> [options]
 
 | オプション | 説明 |
 | --- | --- |
-| ConfigFile | NuGet 構成ファイルを適用します。 指定しない場合、 *%AppData%\NuGet\NuGet.Config*を使用します。| 
+| ConfigFile | NuGet 構成ファイルを適用します。 指定しない場合、 `%AppData%\NuGet\NuGet.Config` (Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac または Linux) を使用します。|
 | Expand | パッケージ ソースに、パッケージ内のすべてのファイルを追加します。 |
 | ForceEnglishOutput | *(3.5 +)*インバリアント、英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
 | ヘルプ | ヘルプ コマンドに関する情報を表示します。 |

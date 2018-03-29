@@ -1,23 +1,26 @@
 ---
-title: "NuGet パッケージのバージョンのリファレンス |Microsoft ドキュメント"
+title: NuGet パッケージのバージョンのリファレンス |Microsoft ドキュメント
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 12/08/2017
+ms.date: 03/23/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "バージョン番号と NuGet パッケージ、依存しているとの依存関係がどのようにインストールするのには、他のパッケージの範囲を指定する方法の詳細。"
-keywords: "バージョン管理、NuGet パッケージの依存関係、NuGet の依存関係のバージョン、NuGet のバージョン番号、NuGet パッケージのバージョン、バージョン範囲、バージョン指定、正規化されたバージョン番号"
+ms.technology: ''
+description: バージョン番号と NuGet パッケージ、依存しているとの依存関係がどのようにインストールするのには、他のパッケージの範囲を指定する方法の詳細。
+keywords: バージョン管理、NuGet パッケージの依存関係、NuGet の依存関係のバージョン、NuGet のバージョン番号、NuGet パッケージのバージョン、バージョン範囲、バージョン指定、正規化されたバージョン番号
 ms.reviewer:
 - anandr
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 70472d7d97d073009237a047e0fdf528b221dfd0
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 678ad79d9106a9f592ae4f47bc93cc117496e2c9
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="package-versioning"></a>パッケージのバージョン管理
 
@@ -61,7 +64,7 @@ ms.lasthandoff: 02/02/2018
 - `-rc`: リリース候補。一般的に、重大なバグが現れない限り、最終版 (安定版) となる可能性があるリリース。
 
 > [!Note]
-> NuGet 4.3.0+ をサポートしている[SemVer 2.0.0](http://semver.org/spec/v2.0.0.html)、する番号をサポートするプレリリース ドット付き表記でとして*1.0.1-build.23*です。 4.3.0 前に、のバージョンの NuGet では、ドット表記はサポートされていません。 ようにフォームを使用して*1.0.1-build23*です。
+> NuGet 4.3.0+ をサポートしている[SemVer 2.0.0](http://semver.org/spec/v2.0.0.html)、する番号をサポートするプレリリース ドット付き表記でとして*1.0.1-build.23*です。 ドット表記は、バージョン 4.3.0 より前の NuGet ではサポートされていません。 ようにフォームを使用して*1.0.1-build23*です。
 
 パッケージ参照および複数のパッケージ バージョンのみが異なるサフィックスを解決するには、NuGet は最初に、サフィックスが付いていないバージョンを選択し、プレリリース版では、アルファベットの逆順に優先順位を適用します。 たとえば、次のバージョンが示されている正確な順序で選択されます。
 
@@ -109,8 +112,8 @@ Nuget.org に SemVer v2.0.0 に固有のパッケージをアップロードす�
 
 | Notation | 適用されるルール | 説明 |
 |----------|--------------|-------------|
-| 1 | 1.0 ≤ x | 包括的な最小のバージョン |
-| (1.0,) | 1.0 < x | 排他の最小バージョン |
+| 1 | x ≥ 1.0 | 包括的な最小のバージョン |
+| (1.0,) | x > 1.0 | 排他の最小バージョン |
 | [1.0] | x = = 1.0 | バージョンに一致します。 |
 | (,1.0] | x ≤ 1.0 | 包括的に、最大のバージョン |
 | (,1.0) | x < 1.0 | 排他の最大バージョン |

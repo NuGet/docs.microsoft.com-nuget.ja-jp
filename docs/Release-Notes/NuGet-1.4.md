@@ -1,22 +1,25 @@
 ---
-title: "NuGet 1.4 のリリース ノート |Microsoft ドキュメント"
+title: NuGet 1.4 のリリース ノート |Microsoft ドキュメント
 author: karann-msft
 ms.author: karann-msft
 manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "既知の問題、バグの修正、追加された機能、および Dcr を含む NuGet 1.4 のリリース ノートします。"
-keywords: "NuGet 1.4 のリリース ノートについては、バグの修正、既知の問題、機能、Dcr を追加します。"
+ms.technology: ''
+description: 既知の問題、バグの修正、追加された機能、および Dcr を含む NuGet 1.4 のリリース ノートします。
+keywords: NuGet 1.4 のリリース ノートについては、バグの修正、既知の問題、機能、Dcr を追加します。
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: bc0800361551b996d958e03b9cfa3d745b78e43d
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 1229cd7fddb826902478b69cfdbc16a8ed192b64
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-14-release-notes"></a>NuGet 1.4 のリリース ノート
 

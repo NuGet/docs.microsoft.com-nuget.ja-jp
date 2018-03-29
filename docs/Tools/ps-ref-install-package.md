@@ -1,23 +1,25 @@
 ---
-title: "NuGet のインストール パッケージの PowerShell リファレンス |Microsoft ドキュメント"
+title: NuGet のインストール パッケージの PowerShell リファレンス |Microsoft ドキュメント
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 06/01/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-ms.assetid: 879db0ef-6b72-4a4a-bb68-f9e3a00f64b8
-description: "Visual Studio で NuGet パッケージ マネージャー コンソールのインストール パッケージの PowerShell コマンドのリファレンスです。"
-keywords: "NuGet パッケージ マネージャー コンソールで、NuGet Powershell コマンドでは、NuGet Powershell リファレンス、インストール パッケージ"
+ms.technology: ''
+description: Visual Studio で NuGet パッケージ マネージャー コンソールのインストール パッケージの PowerShell コマンドのリファレンスです。
+keywords: NuGet パッケージ マネージャー コンソールで、NuGet Powershell コマンドでは、NuGet Powershell リファレンス、インストール パッケージ
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f01c990d12392795e90e95e4efe66c6051011c51
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 99c965c2f8c12c7a59ee48e270172b719c1482ea
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="install-package-package-manager-console-in-visual-studio"></a>インストール パッケージ (Visual Studio でパッケージ マネージャー コンソール)
 

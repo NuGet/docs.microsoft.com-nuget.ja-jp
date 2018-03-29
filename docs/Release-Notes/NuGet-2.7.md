@@ -1,22 +1,25 @@
 ---
-title: "NuGet 2.7 リリース ノート |Microsoft ドキュメント"
+title: NuGet 2.7 リリース ノート |Microsoft ドキュメント
 author: karann-msft
 ms.author: karann-msft
 manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "既知の問題、バグの修正、追加された機能、および Dcr を含む NuGet 2.7 リリース ノートです。"
-keywords: "NuGet 2.7 リリース ノートについては、バグの修正、既知の問題、機能、Dcr を追加します。"
+ms.technology: ''
+description: 既知の問題、バグの修正、追加された機能、および Dcr を含む NuGet 2.7 リリース ノートです。
+keywords: NuGet 2.7 リリース ノートについては、バグの修正、既知の問題、機能、Dcr を追加します。
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 43638626661ae034bb0a1cc28958a2e2929f047f
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 71ced70af127c8219001069739a6cec59d7d1684
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-27-release-notes"></a>NuGet 2.7 リリース ノート
 
@@ -158,7 +161,7 @@ NuGet は、影響を受けるパッケージを再インストールを自動�
 
 ### <a name="renaming-the-default-package-source"></a>既定のパッケージ ソースの名前を変更します。
 
-NuGet は、"NuGet オフィシャル パッケージ ソースという"nuget.org を指す既定のパッケージ ソースと常に登録されました。その名前が verbose、ポイントが実際にも指定しませんでした。 これら 2 つの問題に対処するには、単に"nuget.org"、UI でこのパッケージ ソースを変更してしました。 パッケージ ソースの URL も変更されており"www." プレフィックスを含むバンドル ID です。 NuGet 2.7 を使用するは既存の「NuGet オフィシャル パッケージ ソース」は名前として"nuget.org"と"https://www.nuget.org/api/v2/"としてその URL を自動的に更新されます。
+NuGet は、"NuGet オフィシャル パッケージ ソースという"nuget.org を指す既定のパッケージ ソースと常に登録されました。その名前が verbose、ポイントが実際にも指定しませんでした。 これら 2 つの問題に対処するには、単に"nuget.org"、UI でこのパッケージ ソースを変更してしました。 パッケージ ソースの URL も変更されており"www." プレフィックスを含むバンドル ID です。 NuGet 2.7 を使用すると、既存の「NuGet オフィシャル パッケージ ソース」は自動的に更新されます名前として"nuget.org"と"https://www.nuget.org/api/v2/"URL として。
 
 ### <a name="performance-improvements"></a>パフォーマンスの向上
 

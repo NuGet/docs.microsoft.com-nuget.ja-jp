@@ -1,5 +1,5 @@
 ---
-title: "レポート不正使用を URL テンプレート、NuGet API |Microsoft ドキュメント"
+title: レポート不正使用を URL テンプレート、NuGet API |Microsoft ドキュメント
 author:
 - joelverhagen
 - kraigb
@@ -10,17 +10,20 @@ manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "レポートの不正使用を URL テンプレートは、その UI に、不正使用のリンクを表示するクライアントを使用できます。"
-keywords: "NuGet API 不正使用を報告、NuGet API ファイル準拠している、nuget.org レポート URL テンプレート"
+ms.technology: ''
+description: レポートの不正使用を URL テンプレートは、その UI に、不正使用のリンクを表示するクライアントを使用できます。
+keywords: NuGet API 不正使用を報告、NuGet API ファイル準拠している、nuget.org レポート URL テンプレート
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: efbe5704e6e6028f9382fea3fe5ec453f573a2e9
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: ded861e3eaf73e45b8d4bd80b96d54bfeb38e9d6
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="report-abuse-url-template"></a>レポートの不正使用を URL テンプレート
 
@@ -53,7 +56,7 @@ Web ページをサポートする必要があります、クライアントは�
 
 ### <a name="url-placeholders"></a>URL のプレース ホルダー
 
-name        | 種類    | 必須 | メモ
+名前        | 種類    | 必須 | メモ
 ----------- | ------- | -------- | -----
 `{id}`      | string  | Ｘ       | 不正使用を報告するパッケージ ID
 `{version}` | string  | Ｘ       | パッケージのバージョンの不正使用を報告する

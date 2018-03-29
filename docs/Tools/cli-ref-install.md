@@ -1,22 +1,25 @@
 ---
-title: "NuGet CLI コマンドをインストールする |Microsoft ドキュメント"
+title: NuGet CLI コマンドをインストールする |Microsoft ドキュメント
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Nuget.exe-install コマンドのリファレンス"
-keywords: "nuget の参照をパッケージのコマンドをインストールします。"
+ms.technology: ''
+description: Nuget.exe-install コマンドのリファレンス
+keywords: nuget の参照をパッケージのコマンドをインストールします。
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 8d5f53c833fb42c9fe37d0629eab33e8f0bc70d7
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 121d7b50767f1d466d6d0d8494f324b02d8ff6f1
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="install-command-nuget-cli"></a>コマンド (NuGet CLI) をインストールします。
 
@@ -27,7 +30,7 @@ ms.lasthandoff: 03/15/2018
 > [!Tip]
 > プロジェクトのコンテキスト外で直接パッケージをダウンロードするには、ページにアクセスして、パッケージの[nuget.org](https://www.nuget.org)を選択し、**ダウンロード**リンクします。
 
-ソースが指定されていない場合、グローバル構成ファイルに一覧表示`%APPDATA%\NuGet\NuGet.Config`(Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac または Linux) を使用します。 参照してください[構成 NuGet 動作](../consume-packages/configuring-nuget-behavior.md)の詳細。
+ソースが指定されていない場合、グローバル構成ファイルに一覧表示`%appdata%\NuGet\NuGet.Config`(Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac または Linux) を使用します。 参照してください[構成 NuGet 動作](../consume-packages/configuring-nuget-behavior.md)の詳細。
 
 特定のパッケージが指定されていない場合`install`プロジェクトの表示されているすべてのパッケージをインストール`packages.config`ようなファイル[ `restore`](cli-ref-restore.md)です。
 
@@ -55,7 +58,7 @@ nuget install <packageID | configFilePath> [options]
 | ForceEnglishOutput | *(3.5 +)*インバリアント、英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
 | フレームワーク | *(4.4 +)*ターゲット フレームワークの依存関係を選択するために使用します。 'Any' に指定されていない場合の既定値です。 |
 | ヘルプ | ヘルプ コマンドに関する情報を表示します。 |
-| NoCache | NuGet がローカル コンピューターのキャッシュからパッケージを使用するを防ぎます。 |
+| NoCache | NuGet がキャッシュされているパッケージを使用するを防ぎます。 参照してください[グローバル パッケージとキャッシュ フォルダーの管理](../consume-packages/managing-the-global-packages-and-cache-folders.md)です。 |
 | NonInteractive | ユーザー入力または確認を要求するプロンプトを抑制します。 |
 | OutputDirectory | パッケージがインストールされているフォルダーを指定します。 フォルダーが指定されていない場合は、現在のフォルダーが使用されます。 |
 | PackageSaveMode | パッケージのインストール後に保存するファイルの種類を指定します: のいずれかの`nuspec`、 `nupkg`、または`nuspec;nupkg`です。 |

@@ -1,22 +1,25 @@
 ---
-title: "dotNet の NuGet コマンド |Microsoft ドキュメント"
+title: dotNet の NuGet コマンド |Microsoft ドキュメント
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/23/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Dotnet コマンド ライン インターフェイスを使用して NuGet に関連するコマンドの短いリファレンスです。"
-keywords: "dotnet の NuGet コマンド、dotnet パック、dotnet 復元、dotnet nuget ローカル変数、dotnet nuget プッシュ、dotnet nuget の削除"
+ms.technology: ''
+description: Dotnet コマンド ライン インターフェイスを使用して NuGet に関連するコマンドの短いリファレンスです。
+keywords: dotnet の NuGet コマンド、dotnet パック、dotnet 復元、dotnet nuget ローカル変数、dotnet nuget プッシュ、dotnet nuget の削除
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2851938cd43b35454d8e4ad595fbd93229d4dd72
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 352145701fba509e21e774a429d227e7427a1f0d
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="dotnet-commands"></a>dotNet commands
 
@@ -29,7 +32,7 @@ ms.lasthandoff: 02/20/2018
 - [**dotnet パッケージに追加**](/dotnet/core/tools/dotnet-add-package): プロジェクト ファイルへのパッケージ参照を追加し、実行`dotnet restore`パッケージをインストールします。
 - [**パッケージを削除して dotnet**](/dotnet/core/tools/dotnet-remove-package): パッケージ参照をプロジェクト ファイルから削除します。
 - [**dotnet 復元**](/dotnet/core/tools/dotnet-restore?tabs=netcore2x): 依存関係およびプロジェクトのツールを復元します。 NuGet 4.0 の時点でと同じコードが実行されて`nuget restore`です。
-- [**dotnet nuget ローカル**](/dotnet/core/tools/dotnet-nuget-locals): を消去または http 要求のキャッシュ、一時のキャッシュでは、コンピューター全体のグローバル packages フォルダーなどのローカルの NuGet リソースを一覧表示します。
+- [**dotnet nuget ローカル**](/dotnet/core/tools/dotnet-nuget-locals): の場所を一覧表示、*グローバル パッケージ*、 *http キャッシュ*、および*temp*フォルダーの内容を消去し、これらのフォルダーです。
 
 ## <a name="package-creation"></a>パッケージの作成
 

@@ -1,18 +1,21 @@
 ---
-title: "NuGet のエラーと警告のリファレンス |Microsoft ドキュメント"
+title: NuGet のエラーと警告のリファレンス |Microsoft ドキュメント
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 03/06/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "警告とエラー NuGet、さまざまな操作中に、NuGet から発行されたへの参照を完了します。"
-keywords: "NuGet のエラー、NuGet の警告、診断"
+ms.technology: ''
+description: 警告とエラー NuGet、さまざまな操作中に、NuGet から発行されたへの参照を完了します。
+keywords: NuGet のエラー、NuGet の警告、診断
 ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
+ms.workload:
+- dotnet
+- aspnet
 f1_keywords:
 - NU1000
 - NU1001
@@ -50,11 +53,11 @@ f1_keywords:
 - NU3008
 - NU3018
 - NU3028
-ms.openlocfilehash: 59bbe37d1a965e5167800148603869645fc5e0b2
-ms.sourcegitcommit: df21fe770900644d476d51622a999597a6f20ef8
+ms.openlocfilehash: 020e31dc8646c43b86bcee555f1772e8b1db7761
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="errors-and-warnings"></a>エラーと警告
 
@@ -136,7 +139,7 @@ NuGet 4.3.0+ では、このトピックで説明の番号付けはエラーと�
 | --- | --- |
 | **問題点** | パッケージ識別子が見つかりましたが、ソースのいずれかで指定した依存関係の範囲内のバージョンが見つかりません。 パッケージとユーザーではなく、範囲を指定する場合があります。 |
 | **メッセージの例** | *NuGet.Versioning バージョンでパッケージを見つけることができません (> = 9.0.1)<br/> -nuget.org で見つかった 30 版 [バージョンに最も近い: 4.0.0]<br/> -dotnet buildtools で見つかった 10 バージョン [バージョンに最も近い: 4.0.0-rc-2129]<br/> -9 の検出NuGetVolatile のバージョン [バージョンに最も近い: 3.0.0-beta-00032]<br/> -0 のバージョンを記載 dotnet コア<br/>-dotnet roslyn で 0 バージョンを検出* |
-| **解決方法** | プロジェクト ファイルを編集または`packages.config`パッケージのバージョンを修正します。 確認することも、[の NuGet 構成](../consume-packages/Configuring-NuGet-Behavior.md)パッケージ ソースを識別することです。 このパッケージがプロジェクトで直接参照されている場合、requeted バージョンを変更する必要があります。 |
+| **解決方法** | パッケージのバージョンを解決するプロジェクト ファイルを編集します。 確認することも、[の NuGet 構成](../consume-packages/Configuring-NuGet-Behavior.md)パッケージ ソースを識別することです。 このパッケージがプロジェクトで直接参照されている場合、requeted バージョンを変更する必要があります。 |
 
 ### <a name="nu1103"></a>NU1103
 
@@ -144,7 +147,7 @@ NuGet 4.3.0+ では、このトピックで説明の番号付けはエラーと�
 | --- | --- |
 | **問題点** | プロジェクトの依存関係の範囲、安定したバージョンの指定が、その範囲に安定したバージョンが見つかりませんでした。 プレリリース版は見つかりましたが、許可されていません。 |
 | **メッセージの例** | *バージョンと安定したパッケージ NuGet.Versioning を見つけることができません (> = 3.0.0)<br/> -dotnet buildtools で見つかった 10 バージョン [バージョンに最も近い: 4.0.0-rc-2129]<br/> -NuGetVolatile で見つかった 9 版 [バージョンに最も近い: 3.0.0-beta-00032]<br/> -0 のバージョンを記載 dotnet コア<br/>-dotnet roslyn で 0 バージョンが見つかりません* |
-| **解決方法** |  プロジェクト ファイルのバージョンの範囲を編集または`packages.config`にプレリリース版を含めます。 参照してください[パッケージのバージョン管理](../reference/Package-Versioning.md)です。 |
+| **解決方法** |  プレリリース版を含めるようにプロジェクト ファイルのバージョンの範囲を編集します。 参照してください[パッケージのバージョン管理](../reference/Package-Versioning.md)です。 |
 
 ### <a name="nu1104"></a>NU1104
 
@@ -167,8 +170,8 @@ NuGet 4.3.0+ では、このトピックで説明の番号付けはエラーと�
 | | |
 | --- | --- |
 | **問題点** | 依存関係の制約を解決することはできません。 |
-| **メッセージの例** | *{Id} の矛盾する要求を満たすことができません: {競合パス} フレームワーク: {ターゲット グラフ}* 
-| **解決方法** | プロジェクト ファイルを編集または`packages.config`正確なバージョンではなく、依存関係の制約のない複数の範囲を指定します。 |
+| **メッセージの例** | *{Id} の矛盾する要求を満たすことができません: {競合パス} フレームワーク: {ターゲット グラフ}* |
+| **解決方法** | 正確なバージョンではなく、依存関係の制約のない複数の範囲を指定するプロジェクト ファイルを編集します。 |
 |
 
 <a name="nu1107"></a>
@@ -179,7 +182,7 @@ NuGet 4.3.0+ では、このトピックで説明の番号付けはエラーと�
 | --- | --- |
 | **問題点** | パッケージ間で依存関係の制約を解決できません。 |
 | **メッセージの例** | *バージョンの競合の NuGet.Versioning が検出されました。この問題を解決するのには、プロジェクトから直接パッケージを参照します。<br/>NuGet.Packaging 3.5.0 -> NuGet.Versioning (= 3.5.0)<br/>  NuGet.Configuration 4.0.0 -> NuGet.Versioning (= 4.0.0)* |
-| **解決方法** | 正確なバージョンに依存関係の制約を含むパッケージでは、他のパッケージを必要な場合は、バージョンを増やすには許可されません。 プロジェクトへの参照を直接追加 (プロジェクト ファイルでまたは`packages.config`) 正確なバージョンを必要とします。 |
+| **解決方法** | 正確なバージョンに依存関係の制約を含むパッケージでは、他のパッケージを必要な場合は、バージョンを増やすには許可されません。 必要な正しいバージョンを直接 (プロジェクト ファイル) 内のプロジェクトへの参照を追加します。 |
 
 <a name="nu1108"></a>
 

@@ -1,22 +1,25 @@
 ---
-title: "NuGet の Uninstall-package PowerShell リファレンス |Microsoft ドキュメント"
+title: NuGet の Uninstall-package PowerShell リファレンス |Microsoft ドキュメント
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 06/01/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Visual Studio で NuGet パッケージ マネージャー コンソールでアンインストール パッケージの PowerShell コマンドのリファレンスです。"
-keywords: "NuGet パッケージ マネージャー コンソールで、NuGet Powershell コマンドでは、NuGet Powershell リファレンス、アンインストール パッケージ"
+ms.technology: ''
+description: Visual Studio で NuGet パッケージ マネージャー コンソールでアンインストール パッケージの PowerShell コマンドのリファレンスです。
+keywords: NuGet パッケージ マネージャー コンソールで、NuGet Powershell コマンドでは、NuGet Powershell リファレンス、アンインストール パッケージ
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: db7cf9b2282bf40988eee2308c256381c4fd5124
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: b53a36a6456522aa0d9d0d7cdf412de464ba9e08
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="uninstall-package-package-manager-console-in-visual-studio"></a>Uninstall-package (Visual Studio でパッケージ マネージャー コンソール)
 

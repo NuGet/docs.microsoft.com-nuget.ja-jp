@@ -1,22 +1,25 @@
 ---
-title: "NuGet CLI ミラー コマンド |Microsoft ドキュメント"
+title: NuGet CLI ミラー コマンド |Microsoft ドキュメント
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Nuget.exe ミラー コマンドのリファレンス"
-keywords: "nuget ミラー参照、ミラー コマンドです。"
+ms.technology: ''
+description: Nuget.exe ミラー コマンドのリファレンス
+keywords: nuget ミラー参照、ミラー コマンドです。
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0c1969cc04b2e2cead5e9dadf9739fdabdf65f6c
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 512bd72d568cda81eb7c6a1555c36ead66b5c438
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="mirror-command-nuget-cli"></a>[ミラー] (NuGet CLI)
 
@@ -45,7 +48,7 @@ nuget mirror <packageID | configFilePath> <listUrlTarget> <publishUrlTarget> [op
 | --- | --- |
 | ApiKey | ターゲットのリポジトリの API キー。 かどうか、存在していない構成ファイルで指定した期間が使用 (`%AppData%\NuGet\NuGet.Config` (Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac または Linux))。 |
 | ヘルプ | ヘルプ コマンドに関する情報を表示します。 |
-| NoCache | NuGet がローカル コンピューターのキャッシュからパッケージを使用するを防ぎます。 |
+| NoCache | NuGet がキャッシュされているパッケージを使用するを防ぎます。 参照してください[グローバル パッケージとキャッシュ フォルダーの管理](../consume-packages/managing-the-global-packages-and-cache-folders.md)です。 |
 | noop | 新機能が不要になる行いません; 操作をログに記録します。プッシュ操作に成功した場合を想定しています。 |
 | PreRelease | ミラーリングの操作では、プレリリースのパッケージが含まれています。 |
 | ソース | ミラー化するパッケージ ソースの一覧です。 ものがで定義されているソースが指定されていない場合 nuget.org に既定の指定がない場合、構成ファイルを使用、(ApiKey 上記を参照してください)。 |

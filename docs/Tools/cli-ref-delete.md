@@ -1,22 +1,25 @@
 ---
-title: "NuGet CLI コマンドの削除 |Microsoft ドキュメント"
+title: NuGet CLI コマンドの削除 |Microsoft ドキュメント
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Nuget.exe delete コマンドのリファレンス"
-keywords: "nuget の参照を削除、パッケージのコマンドを削除"
+ms.technology: ''
+description: Nuget.exe delete コマンドのリファレンス
+keywords: nuget の参照を削除、パッケージのコマンドを削除
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b5d53b83cdccaa8e284b844786b0ec27e7afb63a
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 9445042c46ef41721def1fbbb8dcebf4afc14d1b
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="delete-command-nuget-cli"></a>delete コマンド (NuGet CLI)
 

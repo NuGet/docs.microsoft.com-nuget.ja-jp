@@ -14,7 +14,7 @@
 ### [トラブルシューティング](consume-packages/package-restore-troubleshooting.md)
 ## [パッケージの再インストールと更新](consume-packages/reinstalling-and-updating-packages.md)
 ## [パッケージとソース管理](consume-packages/packages-and-source-control.md)
-## [NuGet のキャッシュを管理する](consume-packages/managing-the-nuget-cache.md)
+## [グローバル パッケージとキャッシュ フォルダーの管理](consume-packages/managing-the-global-packages-and-cache-folders.md)
 ## [NuGet の動作を構成する](consume-packages/configuring-nuget-behavior.md)
 ## [依存関係の解決](consume-packages/dependency-resolution.md)
 # パッケージの作成
@@ -31,8 +31,8 @@
 ## ガイド
 ### [UWP パッケージの作成](guides/create-uwp-packages.md)
 ### [NuGet パッケージとして UWP コントロールを作成する](guides/create-uwp-controls.md)
-### [.NET 標準パッケージの作成 (Visual Studio 2015)](guides/create-net-standard-packages-vs2015.md)
-### [Xamarin 用パッケージの作成](guides/create-packages-for-xamarin.md)
+### [Visual Studio 2015 での NET Standard/NET Framework パッケージの作成](guides/create-net-standard-packages-vs2015.md)
+### [Visual Studio 2015 での Xamarin 用パッケージの作成](guides/create-packages-for-xamarin.md)
 # パッケージのホスト
 ## [概要](hosting-packages/overview.md)
 ## [ローカル フィード](hosting-packages/local-feeds.md)
@@ -88,7 +88,7 @@
 ### [Visual Studio 向け NuGet 資格情報プロバイダー](reference/extensibility/nuget-credential-providers-for-visual-studio.md)
 ### [nuget.exe 資格情報プロバイダー](reference/extensibility/nuget-exe-credential-providers.md)
 ## アーカイブ済みコンテンツ
-### [project.json 参照の形式](archive/project-json.md)
+### [project.json の管理形式](archive/project-json.md)
 ### [project.json および UWP](archive/project-json-and-uwp.md)
 ### [project.json impact](archive/project-json-impact.md)
 # API

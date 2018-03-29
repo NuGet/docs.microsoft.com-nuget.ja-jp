@@ -1,26 +1,29 @@
 ---
-title: "NuGet 用 .NET Compiler Platform のアナライザーの形式 | Microsoft Docs"
+title: NuGet 用 .NET Compiler Platform のアナライザーの形式 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/09/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "API またはライブラリを実装する NuGet パッケージにパッケージ化され配布される、.NET アナライザーの規則です。"
-keywords: "NuGet アナライザーの規則, .NET アナライザー, NuGet および .NET Compiler Platform, NuGet および Roslyn"
+ms.technology: ''
+description: API またはライブラリを実装する NuGet パッケージにパッケージ化され配布される、.NET アナライザーの規則です。
+keywords: NuGet アナライザーの規則, .NET アナライザー, NuGet および .NET Compiler Platform, NuGet および Roslyn
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: e44cfa609c14422d50769e512108844cbd2f96a4
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 26e40346b1d76d2f4f0e4177dbe0670f10db164c
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="analyzer-nuget-formats"></a>アナライザーの NuGet の形式
 
-("Roslyn" としても知られている) .NET Compiler Platform では、開発者がコードを記述する際に構文ツリーとセマンティックスが検証される[アナライザー] (https://github.com/dotnet/roslyn/wiki/How-To-Write-a-C%23-Analyzer-and-Code-Fix) を記述できます。 これにより、開発者は、特定の API またはライブラリの使用の助けとなるドメイン固有の分析ツールを作成できるようになります。 詳細については、[.NET/Roslyn](https://github.com/dotnet/roslyn/wiki) GitHub wiki を参照してください。 MSDN マガジンの「[Roslyn を使用した API 向けライブ コード アナライザーの作成](https://msdn.microsoft.com/magazine/dn879356.aspx)」の記事も参照してください。
+.NET コンパイラ プラットフォーム ("Roslyn"とも呼ばれます) には、[アナライザー] を作成する開発者ができるように (https://github.com/dotnet/roslyn/wiki/How-To-Write-a-C%23-Analyzer-and-Code-Fix)が書き込まれることの確認コードのセマンティクスと構文ツリー。 これにより、開発者は、特定の API またはライブラリの使用の助けとなるドメイン固有の分析ツールを作成できるようになります。 詳細については、[.NET/Roslyn](https://github.com/dotnet/roslyn/wiki) GitHub wiki を参照してください。 MSDN マガジンの「[Roslyn を使用した API 向けライブ コード アナライザーの作成](https://msdn.microsoft.com/magazine/dn879356.aspx)」の記事も参照してください。
 
 アナライザー自体は、通常、問題となっている API またはライブラリを実装する NuGet パッケージの一部としてパッケージ化され配布されています。
 

@@ -1,5 +1,5 @@
 ---
-title: "NuGet API のメタデータをパッケージ化 |Microsoft ドキュメント"
+title: NuGet API のメタデータをパッケージ化 |Microsoft ドキュメント
 author:
 - joelverhagen
 - kraigb
@@ -10,17 +10,20 @@ manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "パッケージの登録ベース URL は、パッケージに関するメタデータをフェッチできます。"
-keywords: "NuGet API パッケージ メタデータ、NuGet API の登録を NuGet API 一覧にないパッケージ"
+ms.technology: ''
+description: パッケージの登録ベース URL は、パッケージに関するメタデータをフェッチできます。
+keywords: NuGet API パッケージ メタデータ、NuGet API の登録を NuGet API 一覧にないパッケージ
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: c098d70d58011bad7f9829f0c95c87c1339dd362
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: c7b32e1d2bb9250de1e0b707405a75184b2bd8b4
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="package-metadata"></a>パッケージのメタデータ
 
@@ -35,8 +38,8 @@ NuGet V3 API を使用して、パッケージ ソースで使用可能なパッ
 @type の値                     | メモ
 ------------------------------- | -----
 RegistrationsBaseUrl            | 最初のリリース
-RegistrationsBaseUrl/3.0.0-beta | エイリアス`RegistrationsBaseUrl`
-RegistrationsBaseUrl/3.0.0-rc   | エイリアス`RegistrationsBaseUrl`
+RegistrationsBaseUrl/3.0.0-beta | エイリアス `RegistrationsBaseUrl`
+RegistrationsBaseUrl/3.0.0-rc   | エイリアス `RegistrationsBaseUrl`
 RegistrationsBaseUrl/3.4.0      | Gzip 圧縮された応答
 RegistrationsBaseUrl/3.6.0      | SemVer 2.0.0 パッケージが含まれています
 
@@ -85,7 +88,7 @@ Nuget.org の用途は、次のように、ヒューリスティック: 128 以�
 
 ### <a name="request-parameters"></a>要求パラメーター
 
-name     | イン     | 型    | 必須 | メモ
+名前     | イン     | 型    | 必須 | メモ
 -------- | ------ | ------- | -------- | -----
 LOWER_ID | URL    | string  | 可      | パッケージ ID は、小文字
 
@@ -95,7 +98,7 @@ LOWER_ID | URL    | string  | 可      | パッケージ ID は、小文字
 
 応答は、ルート オブジェクトが、次のプロパティを JSON ドキュメントを示します。
 
-name  | 種類             | 必須 | メモ
+名前  | 種類             | 必須 | メモ
 ----- | ---------------- | -------- | -----
 count | 整数          | 可      | インデックス内の登録ページの数
 items | オブジェクトの配列 | 可      | 登録ページの配列
@@ -106,7 +109,7 @@ items | オブジェクトの配列 | 可      | 登録ページの配列
 
 登録インデックス内で見つかった登録ページのオブジェクトには、次のプロパティがあります。
 
-name   | 種類             | 必須 | メモ
+名前   | 種類             | 必須 | メモ
 ------ | ---------------- | -------- | -----
 @id    | string           | 可      | [登録] ページの URL
 count  | 整数          | 可      | 登録の数のままにします ページ
@@ -130,7 +133,7 @@ Page オブジェクトの内の各項目`items`配列が登録リーフを表�
 
 登録ページで見つかった登録リーフ オブジェクトには、次のプロパティがあります。
 
-name           | 種類   | 必須 | メモ
+名前           | 種類   | 必須 | メモ
 -------------- | ------ | -------- | -----
 @id            | string | 可      | 登録リーフへの URL
 catalogEntry   | object | 可      | パッケージのメタデータを含むカタログのエントリ
@@ -142,11 +145,11 @@ packageContent | string | 可      | パッケージのコンテンツ (これ�
 
 `catalogEntry`登録リーフ オブジェクトのプロパティでは、次のプロパティ。
 
-name                     | 種類                       | 必須 | メモ
+名前                     | 種類                       | 必須 | メモ
 ------------------------ | -------------------------- | -------- | -----
 @id                      | string                     | 可      | このオブジェクトを生成するために使用するドキュメントの URL
 作成者                  | 文字列または文字列の配列 | Ｘ       | 
-dependencyGroups         | オブジェクトの配列           | Ｘ       | パッケージのコンテンツ (これは .nupkg) への URL
+dependencyGroups         | オブジェクトの配列           | Ｘ       | ターゲット フレームワークでグループ化、パッケージの依存関係
 説明              | string                     | Ｘ       | 
 iconUrl                  | string                     | Ｘ       | 
 ID                       | string                     | 可      | パッケージの ID
@@ -167,7 +170,7 @@ version                  | string                     | 可      | パッケー�
 
 依存関係グループの各オブジェクトには、次のプロパティがあります。
 
-name            | 種類             | 必須 | メモ
+名前            | 種類             | 必須 | メモ
 --------------- | ---------------- | -------- | -----
 targetFramework | string           | Ｘ       | これらの依存関係に適用される対象のフレームワーク
 依存関係    | オブジェクトの配列 | Ｘ       |
@@ -180,7 +183,7 @@ targetFramework | string           | Ｘ       | これらの依存関係に適�
 
 各パッケージの依存関係には、次のプロパティがあります。
 
-name         | 種類   | 必須 | メモ
+名前         | 種類   | 必須 | メモ
 ------------ | ------ | -------- | -----
 ID           | string | 可      | パッケージの依存関係の ID
 range        | object | Ｘ       | 許可される[バージョン範囲](../reference/package-versioning.md#version-ranges-and-wildcards)依存関係の
@@ -204,7 +207,7 @@ range        | object | Ｘ       | 許可される[バージョン範囲](../re
 
 ときに、`items`登録インデックスでは、配列は提供されていない、HTTP GET 要求、`@id`値は、ルート オブジェクトのある JSON ドキュメントを返します。 オブジェクトには、次のプロパティがあります。
 
-name   | 種類             | 必須 | メモ
+名前   | 種類             | 必須 | メモ
 ------ | ---------------- | -------- | -----
 @id    | string           | 可      | [登録] ページの URL
 count  | 整数          | 可      | 登録の数のままにします ページ
@@ -231,7 +234,7 @@ items  | オブジェクトの配列 | 可      | 登録のままと関連付け
 
 登録リーフでは、次のプロパティを持つルート オブジェクトで JSON ドキュメントを示します。
 
-name           | 種類    | 必須 | メモ
+名前           | 種類    | 必須 | メモ
 -------------- | ------- | -------- | -----
 @id            | string  | 可      | 登録リーフへの URL
 catalogEntry   | string  | Ｘ       | これらのリーフを生成したカタログ エントリへの URL

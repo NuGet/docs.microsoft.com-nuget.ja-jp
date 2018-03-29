@@ -1,5 +1,5 @@
 ---
-title: "概要では、NuGet API |Microsoft ドキュメント"
+title: 概要では、NuGet API |Microsoft ドキュメント
 author:
 - joelverhagen
 - kraigb
@@ -10,17 +10,20 @@ manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "NuGet API とは、パッケージをダウンロード、メタデータのフェッチなど、新しいパッケージの発行に使用できる HTTP エンドポイントのセットです。"
-keywords: "NuGet V3 API、NuGet V2 API、NuGet JSON、NuGet の登録 API を NuGet API フラット コンテナー、NuGet nupkg API、NuGet メタデータ API、NuGet 検索 API、NuGet プッシュ API、NuGe 公開 API、NuGet は、API を削除、NuGet 非公開 API、NuGet プロトコル"
+ms.technology: ''
+description: NuGet API とは、パッケージをダウンロード、メタデータのフェッチなど、新しいパッケージの発行に使用できる HTTP エンドポイントのセットです。
+keywords: NuGet V3 API、NuGet V2 API、NuGet JSON、NuGet の登録 API を NuGet API フラット コンテナー、NuGet nupkg API、NuGet メタデータ API、NuGet 検索 API、NuGet プッシュ API、NuGe 公開 API、NuGet は、API を削除、NuGet 非公開 API、NuGet プロトコル
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: c28b0912be6dbccab06078100cb71821c3658e08
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 7053a971c80a94cf035e8f149c332b36e66a9ea9
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-api"></a>NuGet API
 
@@ -32,8 +35,7 @@ NuGet API とは、パッケージをダウンロード、メタデータのフ�
 
 ## <a name="service-index"></a>サービスのインデックス
 
-API のエントリ ポイントは、よく知られている場所で JSON ドキュメントです。 このドキュメントと呼ばれる、**サービス インデックス**です。
-Nuget.org のサービスのインデックスの位置は`https://api.nuget.org/v3/index.json`します。
+API のエントリ ポイントは、よく知られている場所で JSON ドキュメントです。 このドキュメントと呼ばれる、**サービス インデックス**です。 Nuget.org のサービスのインデックスの位置は`https://api.nuget.org/v3/index.json`します。
 
 この JSON ドキュメントの一覧を含む*リソース*をさまざまな機能を提供し、異なるユース ケースを処理します。
 
@@ -109,11 +111,12 @@ Del | 削除またはリソースを unlists します。
 
 ## <a name="http-request-headers"></a>HTTP 要求ヘッダー
 
-name                     | 説明
+名前                     | 説明
 ------------------------ | -----------
 X-NuGet-ApiKey           | プッシュと削除に必要なを参照してください[`PackagePublish`リソース](package-publish-resource.md)
-X-NuGet-Client-Version   | **非推奨**と置き換えられます`X-NuGet-Protocol-Version`
+X-NuGet-Client-Version   | **非推奨**と置き換えられます `X-NuGet-Protocol-Version`
 X-NuGet-Protocol-Version | 場合によっては nuget.org にのみ必要なを参照してください[nuget.org プロトコル](NuGet-Protocols.md)
+X-NuGet-Session-Id       | *省略可能な*します。 NuGet クライアント v4.7 + 同じ NuGet クライアントのセッションの一部である HTTP 要求を識別します。 `PackageReference`復元操作がありますが完了すると、自動などの他のシナリオの 1 つのセッション id と`packages.config`復元いくつか別のセッション id のコードを組み込む方法のためである可能性があります。
 
 ## <a name="authentication"></a>認証
 

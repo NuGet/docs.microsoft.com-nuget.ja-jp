@@ -1,22 +1,25 @@
 ---
-title: "NuGet packages.config ファイル参照 | Microsoft Docs"
+title: NuGet packages.config ファイル参照 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 12/07/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "一部のプロジェクト タイプでは、packages.config で、プロジェクトで使用される NuGet パッケージの一覧が保守管理されます。"
-keywords: "NuGet packages.config ファイル, NuGet パッケージ参照, NuGet 依存関係"
+ms.technology: ''
+description: 一部のプロジェクト タイプでは、packages.config で、プロジェクトで使用される NuGet パッケージの一覧が保守管理されます。
+keywords: NuGet packages.config ファイル, NuGet パッケージ参照, NuGet 依存関係
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 1839ca4761f6f35d0a650cdc2e3cf36b1b08ef2d
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 38d4724d25476d372a936cb8ebf08e2b53fcf9f4
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="packagesconfig-reference"></a>packages.config 参照
 

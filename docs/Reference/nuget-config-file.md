@@ -1,22 +1,25 @@
 ---
-title: "NuGet.Config ファイル参照 | Microsoft Docs"
+title: NuGet.Config ファイル参照 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 10/25/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "config、bindingRedirects、packageRestore、solution、packageSource の各セクションを含む NuGet.Config ファイル参照。"
-keywords: "NuGet.Config ファイル、NuGet 構成参照、NuGet 構成オプション"
+ms.technology: ''
+description: config、bindingRedirects、packageRestore、solution、packageSource の各セクションを含む NuGet.Config ファイル参照。
+keywords: NuGet.Config ファイル、NuGet 構成参照、NuGet 構成オプション
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6a5be1ebcca0accafcdaf32f0b1b7ca66ec53425
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: e2a9d4f10ac6af4e5bc7386d4f78e18c2a5752c4
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nugetconfig-reference"></a>NuGet.Config 参照
 
@@ -48,13 +51,13 @@ NuGet の動作は、「[Configuring NuGet Behavior](../consume-packages/configu
 
 [`nuget config` コマンド](../tools/cli-ref-config.md)を使用して設定できる、さまざまな構成設定が含まれます。
 
-注: `dependencyVersion` と `repositoryPath` については、`packages.config` を使用するプロジェクトのみに適用されます。 `globalPackagesFolder` PackageReference 形式を使用してプロジェクトにのみ適用されます。
+`dependencyVersion` および`repositoryPath`を使用してプロジェクトにのみ適用`packages.config`です。 `globalPackagesFolder` PackageReference 形式を使用してプロジェクトにのみ適用されます。
 
 | キー | [値] |
 | --- | --- |
 | dependencyVersion (`packages.config` のみ) | `-DependencyVersion` スイッチが直接指定されない場合の、パッケージのインストール、復元、および更新における既定の `DependencyVersion` 値です。 この値は、NuGet パッケージ マネージャー UI でも使用されます。 値は `Lowest`、`HighestPatch`、`HighestMinor`、`Highest` となります。 |
-| globalPackagesFolder (`packages.config` を使用しないプロジェクト) | 既定のグローバル パッケージ フォルダーの場所です。 既定値は、`%USERPROFILE%\.nuget\packages` (Windows) または `~/.nuget/packages` (Mac/Linux) です。 相対パスは、プロジェクト固有の `Nuget.Config` ファイルで使用できます。 |
-| repositoryPath (`packages.config` のみ) | 既定の `$(Solutiondir)/packages` フォルダーではなく、NuGet パッケージをインストールする場所です。 相対パスは、プロジェクト固有の `Nuget.Config` ファイルで使用できます。 |
+| globalPackagesFolder (PackageReference をのみを使用してプロジェクト) | 既定のグローバル パッケージ フォルダーの場所です。 既定値は、`%userprofile%\.nuget\packages` (Windows) または `~/.nuget/packages` (Mac/Linux) です。 相対パスは、プロジェクト固有の `Nuget.Config` ファイルで使用できます。 この設定は、優先 NUGET_PACKAGES 環境変数でオーバーライドされます。 |
+| repositoryPath (`packages.config` のみ) | 既定の `$(Solutiondir)/packages` フォルダーではなく、NuGet パッケージをインストールする場所です。 相対パスは、プロジェクト固有の `Nuget.Config` ファイルで使用できます。 この設定は、優先 NUGET_PACKAGES 環境変数でオーバーライドされます。 |
 | defaultPushSource | 操作に対してパッケージ ソースが他に見つからない場合に、既定値として使用すべきパッケージ ソースの URL またはパスを識別します。 |
 | http_proxy http_proxy.user http_proxy.password no_proxy | パッケージ ソースに接続するときに使用するプロキシ設定です。`http_proxy` の形式は `http://<username>:<password>@<domain>` とする必要があります。 パスワードは暗号化され、手動で追加することはできません。 `no_proxy` の場合、値はドメイン、バイパス、プロキシ サーバーのコンマ区切りのリストとなります。 これらの値に対して http_proxy および no_proxy の環境変数を使用することもできます。 詳細については、「[NuGet proxy settings](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html)」 (NuGet プロキシ設定) (skolima.blogspot.com) を参照してください。 |
 
@@ -64,7 +67,7 @@ NuGet の動作は、「[Configuring NuGet Behavior](../consume-packages/configu
 <config>
     <add key="dependencyVersion" value="Highest" />
     <add key="globalPackagesFolder" value="c:\packages" />
-    <add key="repositoryPath" value="c:\repo" />
+    <add key="repositoryPath" value="c:\installed_packages" />
     <add key="http_proxy" value="http://company-squid:3128@contoso.com" />
 </config>
 ```

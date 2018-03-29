@@ -1,5 +1,5 @@
 ---
-title: "サービス インデックスでは、NuGet API |Microsoft ドキュメント"
+title: サービス インデックスでは、NuGet API |Microsoft ドキュメント
 author:
 - joelverhagen
 - kraigb
@@ -10,17 +10,20 @@ manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "サービス インデックスは、NuGet HTTP API のエントリ ポイントであり、サーバーの機能を列挙します。"
-keywords: "NuGet API エントリ ポイント、NuGetA PI エンドポイントの検出"
+ms.technology: ''
+description: サービス インデックスは、NuGet HTTP API のエントリ ポイントであり、サーバーの機能を列挙します。
+keywords: NuGet API エントリ ポイント、NuGetA PI エンドポイントの検出
 ms.reviewer:
 - karann
 - unnir
-ms.openlocfilehash: 8de0bc15edc358d091d84da54b8b67c085f29645
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 1c1dea25067cc582a14a0dd22c2f3f7f70d40a02
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="service-index"></a>サービスのインデックス
 
@@ -48,7 +51,7 @@ nuget.org のサービスのインデックスにある`https://api.nuget.org/v3
 
 リソース内のオブジェクトとは、`resources`配列。 これは、パッケージ ソースのバージョン管理機能を表します。 リソースには、次のプロパティがあります。
 
-name          | 種類   | 必須 | メモ
+名前          | 種類   | 必須 | メモ
 ------------- | ------ | -------- | -----
 @id           | string | 可      | リソースへの URL
 @type         | string | 可      | リソースの種類を表す文字列定数
@@ -68,7 +71,7 @@ name          | 種類   | 必須 | メモ
 
 ### <a name="sample-request"></a>要求のサンプル
 
-GET https://api.nuget.org/v3/index.json
+取得 https://api.nuget.org/v3/index.json
 
 ### <a name="sample-response"></a>応答のサンプル
 

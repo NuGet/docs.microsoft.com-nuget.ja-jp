@@ -1,23 +1,26 @@
 ---
-title: "NuGet のターゲット フレームワーク参照 | Microsoft Docs"
+title: NuGet のターゲット フレームワーク参照 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 12/11/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "NuGet ターゲット フレームワーク参照は、パッケージのフレームワーク依存コンポーネントを特定し、分離します。"
-keywords: "NuGet パッケージのターゲット設定, .NET Framework のターゲット, .NET Framework のバージョン"
+ms.technology: ''
+description: NuGet ターゲット フレームワーク参照は、パッケージのフレームワーク依存コンポーネントを特定し、分離します。
+keywords: NuGet パッケージのターゲット設定, .NET Framework のターゲット, .NET Framework のバージョン
 ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 7e3621f01312e3b4fdbef116e5044869416b851c
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 0a9c45ef31e27c2242edce48e2cf272e5280dcff
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="target-frameworks"></a>ターゲット フレームワーク
 
@@ -38,7 +41,7 @@ NuGet は、多様な場所にあるターゲット フレームワーク参照�
 
 NuGet クライアントは以下の表のフレームワークをサポートしています。 同等のものがかっこ [] 内に示されています。 `dotnet` などの一部のツールは、一部のファイルで正規の TFM のバリエーションを使用することがあります。 たとえば、`dotnet pack` は `.nuspec` ファイルで `netcoreapp2.0` ではなく `.NETCoreApp2.0` を使用します。 さまざまな NuGet クライアント ツールがこれらのバリエーションを適切に処理しますが、ファイルを直接編集するときは常に正規の TFM を使用することをお勧めします。
 
-| name           | 省略形 | TFM/TxM |
+| 名前           | 省略形 | TFM/TxM |
 | -------------  | ------------ | --------- |
 |.NET Framework  | net          | net11     |
 |                |              | net20     |
@@ -280,7 +283,7 @@ NuGet 3.3 以前には `dotnet` シリーズのモニカーを使用し、v3.4 �
 
 さらに、Xamarin をターゲットとする NuGet パッケージでは、Xamarin で定義された他のフレームワークも使用することができます。 [Xamarin 用の NuGet パッケージの作成](https://developer.xamarin.com/guides/cross-platform/advanced/nuget/)に関するページを参照してください。
 
-| name | 説明 | .NET Standard |
+| 名前 | 説明 | .NET Standard |
 | --- | --- | ---
 | monoandroid | Android OS の Mono サポート | netstandard1.4 |
 | monotouch | iOS の Mono サポート | netstandard1.4 |

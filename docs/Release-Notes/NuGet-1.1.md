@@ -1,22 +1,25 @@
 ---
-title: "NuGet 1.0 および 1.1 のリリース ノート |Microsoft ドキュメント"
+title: NuGet 1.0 および 1.1 のリリース ノート |Microsoft ドキュメント
 author: karann-msft
 ms.author: karann-msft
 manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "既知の問題、バグの修正、追加された機能、および Dcr を含む NuGet 1.1 のリリース ノートします。"
-keywords: "NuGet 1.1 のリリース ノートについては、バグの修正、既知の問題、機能、Dcr を追加します。"
+ms.technology: ''
+description: 既知の問題、バグの修正、追加された機能、および Dcr を含む NuGet 1.1 のリリース ノートします。
+keywords: NuGet 1.1 のリリース ノートについては、バグの修正、既知の問題、機能、Dcr を追加します。
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6a596e61f144e7269f703f2dba3dddb4fd338e6a
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: dd320df2d725e58182cd908ce621571ea018b350
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-10-and-11-release-notes"></a>NuGet 1.0 および 1.1 のリリース ノートします。
 
@@ -49,7 +52,7 @@ NuGet コマンド ライン ツールが必要です。
 
 * 古いビルドをまずアンインストールします。 これを行う管理者として VS を実行する必要があります。
 * あるすべての既存のフィードを削除します。
-* 指す新しいフィードを追加[http://go.microsoft.com/fwlink/?LinkId=206669](http://go.microsoft.com/fwlink/?LinkId=206669)です。
+* 指す新しいフィードを追加[ http://go.microsoft.com/fwlink/?LinkId=206669](http://go.microsoft.com/fwlink/?LinkId=206669)です。
 
 ## <a name="nuget-11"></a>NuGet 1.1
 
@@ -135,7 +138,7 @@ CTP 2 以降のこのリリース候補版で行った変更を次に示しま�
 
 CTP 2 での最も重要な変更を次に示します。
 
-* パッケージを OData サービス エンドポイント ATOM からフィードを切り替えられます: CTP2 バージョンの NuGet をアップグレードする場合は、パッケージのソースとして、次の URL を追加することを確認する: https://feed.nuget.org/ctp2/odata/v1/ です。
+* パッケージを OData サービス エンドポイント ATOM からフィードを切り替えられます: CTP2 バージョンの NuGet をアップグレードする場合は、パッケージのソースとして、次の URL を追加することを確認する:`https://feed.nuget.org/ctp2/odata/v1/`です。
 * 追加パッケージ コマンドの名前を変更*Install-package*です。
 * 更新、`.nuspec`形式です。 `.nuspec`形式が含まれています、 *iconUrl*をパッケージの追加 ダイアログに表示される 32 x 32 png アイコンを指定するフィールドです。 必ず、パッケージを区別するために設定します。 `.nuspec`形式も含まれています、新しい*projectUrl*フィールドの詳細については、パッケージを提供する web ページを指すように使用することができます。
 

@@ -1,23 +1,26 @@
 ---
-title: "NuGet の .nuspec ファイル リファレンス | Microsoft Docs"
+title: NuGet の .nuspec ファイル リファレンス | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 08/29/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: ".nuspec ファイルには、パッケージを作成するとき、およびパッケージのコンシューマーに情報を提供するために使われる、パッケージのメタデータが含まれています。"
-keywords: "nuspec リファレンス, NuGet パッケージ メタデータ, NuGet パッケージ マニフェスト, nuspec スキーマ"
+ms.technology: ''
+description: .nuspec ファイルには、パッケージを作成するとき、およびパッケージのコンシューマーに情報を提供するために使われる、パッケージのメタデータが含まれています。
+keywords: nuspec リファレンス, NuGet パッケージ メタデータ, NuGet パッケージ マニフェスト, nuspec スキーマ
 ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 90693b09fce966e3bc28ca24360a3fb4e1f73386
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 3cc9ab4e352de9b3fabbfd92303f0d528d804c20
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuspec-reference"></a>.nuspec リファレンス
 
@@ -319,7 +322,7 @@ nuget pack MyProject.csproj
 > [!Important]
 > プロジェクトにパッケージをインストールするとき、NuGet はパッケージの DLL にアセンブリ参照を自動的に追加します。ただし、指定されている `.resources.dll` は、ローカライズされたサテライト アセンブリであると見なされるため "*除外*" されます。 そのため、避けなければ不可欠なパッケージ コードが含まれてしまうファイルには `.resources.dll` を使わないようにします。
 
-この自動動作をバイパスして、パッケージに含めるファイルを明示的に制御するには、`<files>` 要素を `<package>` の子要素 (および `<metadata>` の兄弟要素) として配置し、各ファイルを個別の `<file>` 要素で示します。 例:
+この自動動作をバイパスして、パッケージに含めるファイルを明示的に制御するには、`<files>` 要素を `<package>` の子要素 (および `<metadata>` の兄弟要素) として配置し、各ファイルを個別の `<file>` 要素で示します。 例えば:
 
 ```xml
 <files>
@@ -559,7 +562,7 @@ NuGet 2.x 以前および `packages.config` を使っているプロジェクト
 - `TxM` は、NuGet がサポートする任意の有効なターゲット フレームワーク モニカーです (「[ターゲット フレームワーク](../reference/target-frameworks.md)」を参照)。
 - この構文の末尾に、任意のフォルダー構造を追加できます。
 
-例:
+例えば:
 
     Language- and framework-agnostic:
         /contentFiles/any/any/config.xml

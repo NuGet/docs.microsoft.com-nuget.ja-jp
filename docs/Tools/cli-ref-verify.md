@@ -1,22 +1,25 @@
 ---
-title: "NuGet CLI コマンドを確認してください |Microsoft ドキュメント"
+title: NuGet CLI コマンドを確認してください |Microsoft ドキュメント
 author: dtivel
 ms.author: dtivel
 manager: doronm
 ms.date: 03/06/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "検証コマンドを実行、nuget.exe への参照"
-keywords: "nuget の参照の検証、コマンドを確認してください。"
+ms.technology: ''
+description: 検証コマンドを実行、nuget.exe への参照
+keywords: nuget の参照の検証、コマンドを確認してください。
 ms.reviewer:
 - karann
 - rmpablos
-ms.openlocfilehash: 096c79670267d9b602dd6ad30640e832441c31c5
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 4423e491e0ab5dc1e13982440db42bc9b0e85c38
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="verify-command-nuget-cli"></a>コマンド (NuGet CLI) を確認してください。
 

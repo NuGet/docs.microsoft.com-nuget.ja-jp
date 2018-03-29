@@ -1,22 +1,25 @@
 ---
-title: "NuGet 1.8 リリース ノート |Microsoft ドキュメント"
+title: NuGet 1.8 リリース ノート |Microsoft ドキュメント
 author: karann-msft
 ms.author: karann-msft
 manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "既知の問題、バグの修正、追加された機能、および Dcr を含む NuGet 1.8 のリリース ノートします。"
-keywords: "NuGet 1.8 リリース ノートについては、バグの修正、既知の問題、機能、Dcr を追加します。"
+ms.technology: ''
+description: 既知の問題、バグの修正、追加された機能、および Dcr を含む NuGet 1.8 のリリース ノートします。
+keywords: NuGet 1.8 リリース ノートについては、バグの修正、既知の問題、機能、Dcr を追加します。
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 139c30e29d8148eab7298329a07d8e412259e595
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: b94382f79143cac6bd5deccb5e5253ba8c6f60ec
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-18-release-notes"></a>NuGet 1.8 のリリース ノート
 
@@ -27,7 +30,7 @@ NuGet 1.8 は、2012 年 5 月 23 日にリリースされました。
 ## <a name="known-installation-issue"></a>インストールの既知の問題
 VS 2010 SP1 を実行している場合、インストールされている古いバージョンがある場合は、NuGet をアップグレードしようとしています。 インストール エラーに発生する可能性があります。
 
-回避策では、NuGet をシンプルにアンインストールし、VS 拡張機能ギャラリーからインストールします。  参照してください[http://support.microsoft.com/kb/2581019](http://support.microsoft.com/kb/2581019)詳細については、または[VS 修正プログラムに直接進んで](http://bit.ly/vsixcertfix)です。
+回避策では、NuGet をシンプルにアンインストールし、VS 拡張機能ギャラリーからインストールします。  参照してください[ http://support.microsoft.com/kb/2581019 ](http://support.microsoft.com/kb/2581019)詳細については、または[VS 修正プログラムに直接進んで](http://bit.ly/vsixcertfix)です。
 
 注意: Visual Studio には、(削除 ボタンは無効になっている) 拡張機能をアンインストールすることを許可しません、可能性の高い場合"管理者として実行 を使用して Visual Studio を再起動するには
 
@@ -60,7 +63,7 @@ NuGet 1.8 には、.NET Framework のサテライト アセンブリの機能に
 
 サテライト パッケージに注意して 1 つの既存のバグは NuGet では、ローカライズされたリソースにはコピーされません、 `bin` Web サイト プロジェクトのフォルダーです。  この問題は、NuGet の次のリリースで修正されます。
 
-完全なサンプルを作成し、サテライト パッケージを使用する方法を示す、次を参照してください。 [https://github.com/NuGet/SatellitePackageSample](https://github.com/NuGet/SatellitePackageSample)です。
+完全なサンプルを作成し、サテライト パッケージを使用する方法を示す、次を参照してください。 [ https://github.com/NuGet/SatellitePackageSample](https://github.com/NuGet/SatellitePackageSample)です。
 
 ### <a name="package-restore-consent"></a>パッケージの復元の同意
 NuGet 1.8 は、ユーザーのプライバシーを保護するパッケージの復元での重要な制約をサポートするための基礎が配置されます。 この制約は、プロジェクトおよびパッケージの復元に明示的に同意するパッケージの復元を使用しているソリューションを構築する開発者のオンラインへの移行を構成済みのパッケージ ソースからパッケージをダウンロードする必要があります。

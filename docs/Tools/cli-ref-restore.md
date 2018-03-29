@@ -1,22 +1,25 @@
 ---
-title: "復元コマンドは NuGet CLI |Microsoft ドキュメント"
+title: 復元コマンドは NuGet CLI |Microsoft ドキュメント
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Nuget.exe restore コマンドのリファレンス"
-keywords: "nuget の参照を復元、restore コマンドのパッケージ"
+ms.technology: ''
+description: Nuget.exe restore コマンドのリファレンス
+keywords: nuget の参照を復元、restore コマンドのパッケージ
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2416ad652244e0ea60651147ad74a1513cdb75ff
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 64f12fdedc8fbfcee15c1dcddc445148f458c030
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="restore-command-nuget-cli"></a>restore コマンド (NuGet CLI)
 
@@ -46,15 +49,15 @@ nuget restore <projectPath> [options]
 | ヘルプ | ヘルプ コマンドに関する情報を表示します。 |
 | MSBuildPath | *(4.0 以降)*よりも優先、コマンドで使用する MSBuild のパスを指定`-MSBuildVersion`です。 |
 | MSBuildVersion | *(3.2 +)*このコマンドで使用する MSBuild のバージョンを指定します。 サポートされている値は、4、12、14、15 です。 既定では、パスに MSBuild を取得、それ以外の場合、既定値 MSBuild の最上位にインストールされているバージョンです。 |
-| NoCache | NuGet がローカル コンピューターのキャッシュからパッケージを使用するを防ぎます。 |
+| NoCache | NuGet がキャッシュされているパッケージを使用するを防ぎます。 参照してください[グローバル パッケージとキャッシュ フォルダーの管理](../consume-packages/managing-the-global-packages-and-cache-folders.md)です。 |
 | NonInteractive | ユーザー入力または確認を要求するプロンプトを抑制します。 |
-| OutputDirectory | パッケージがインストールされているフォルダーを指定します。 フォルダーが指定されていない場合は、現在のフォルダーが使用されます。 |
+| OutputDirectory | パッケージがインストールされているフォルダーを指定します。 フォルダーが指定されていない場合は、現在のフォルダーが使用されます。 復元するときに必要な`packages.config`ファイル`PackagesDirectory`または`SolutionDirectory`を使用します。|
 | PackageSaveMode | パッケージのインストール後に保存するファイルの種類を指定します: のいずれかの`nuspec`、 `nupkg`、または`nuspec;nupkg`です。 |
-| PackagesDirectory | `OutputDirectory` と同じ。 |
+| PackagesDirectory | `OutputDirectory` と同じ。 復元するときに必要な`packages.config`ファイル`OutputDirectory`または`SolutionDirectory`を使用します。 |
 | Project2ProjectTimeOut | タイムアウト (秒) プロジェクト間参照を解決するためです。 |
 | 再帰 | *(4.0 以降)* UWP と .NET Core プロジェクトのすべての参照プロジェクトを復元します。 使用してプロジェクトには適用されません`packages.config`です。 |
 | RequireConsent | ダウンロードして、パッケージをインストールする前にパッケージを復元が有効になっていることを確認します。 詳細については、「[パッケージの復元](../consume-packages/package-restore.md)です。 |
-| SolutionDirectory | ソリューション フォルダーを指定します。 ソリューションのパッケージを復元するときに無効です。 |
+| SolutionDirectory | ソリューション フォルダーを指定します。 ソリューションのパッケージを復元するときに無効です。 復元するときに必要な`packages.config`ファイル`PackagesDirectory`または`OutputDirectory`を使用します。 |
 | ソース | 復元操作に使用する (Url) とパッケージ ソースの一覧を指定します。 コマンドが構成ファイルで提供されるソースを使用する省略するを参照して[構成 NuGet 動作](../consume-packages/configuring-nuget-behavior.md)です。 |
 | 詳細度 |> の出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細*です。 |
 

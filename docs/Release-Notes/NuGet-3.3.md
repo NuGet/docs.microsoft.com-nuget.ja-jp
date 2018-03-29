@@ -1,22 +1,25 @@
 ---
-title: "NuGet 3.3 リリース ノート |Microsoft ドキュメント"
+title: NuGet 3.3 リリース ノート |Microsoft ドキュメント
 author: karann-msft
 ms.author: karann-msft
 manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "既知の問題、バグの修正、追加された機能、および Dcr を含む NuGet 3.3 のリリース ノートです。"
-keywords: "NuGet 3.3 リリース ノートについては、バグの修正、既知の問題、機能、Dcr を追加します。"
+ms.technology: ''
+description: 既知の問題、バグの修正、追加された機能、および Dcr を含む NuGet 3.3 のリリース ノートです。
+keywords: NuGet 3.3 リリース ノートについては、バグの修正、既知の問題、機能、Dcr を追加します。
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 4d077fb53abd8033aad6da01ad090297109aa68c
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: ab5e1ca550297c608017cb56dff32f4bd4bbb885
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-33-release-notes"></a>NuGet 3.3 のリリース ノート
 
@@ -65,4 +68,4 @@ GitHub の 3.3 のリリースで処理された問題の一覧が見つかり�
 
 ## <a name="known-issues"></a>既知の問題
 
-あることができます、GitHub の問題一覧上の問題を追跡するために続行: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)
+あることができます、GitHub の問題一覧上の問題を追跡するために続行します。 [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)

@@ -1,24 +1,27 @@
 ---
-title: "NuGet パッケージ マネージャー コンソール ガイド |Microsoft ドキュメント"
+title: NuGet パッケージ マネージャー コンソール ガイド |Microsoft ドキュメント
 author: kraigb
 hms.author: kraigb
 manager: ghogen
 ms.date: 01/23/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
+ms.technology: ''
 f1_keywords:
 - vs.nuget.packagemanager.console
-description: "Visual Studio で NuGet パッケージ マネージャー コンソールを使用してパッケージを操作するための手順です。"
-keywords: "NuGet パッケージ マネージャー コンソールで、NuGet powershell、NuGet パッケージを管理します。"
+description: Visual Studio で NuGet パッケージ マネージャー コンソールを使用してパッケージを操作するための手順です。
+keywords: NuGet パッケージ マネージャー コンソールで、NuGet powershell、NuGet パッケージを管理します。
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 60c7edd0497e162cc511424e9acfbbfd6f53fd46
-ms.sourcegitcommit: a40a6ce6897b2d9411397b2e29b1be234eb6e50c
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: af22a524f6b4a41a4c24077fe396846da6fb1ff8
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="package-manager-console"></a>パッケージ マネージャー コンソール
 
@@ -80,19 +83,10 @@ Install-Package Elmah -ProjectName UtilitiesLib
 
 参照してください[Install-package](../tools/ps-ref-install-package.md)です。
 
-パッケージをインストールするには、次の操作を実行します。
+コンソールでパッケージをインストールするどおりに、同じ手順で説明されている[パッケージがインストールされているときに起こる](../consume-packages/ways-to-install-a-package.md#what-happens-when-a-package-is-installed)、以下が追加されます。
 
-- 暗黙的なアグリーメントをコンソール ウィンドウで該当するライセンス条項を表示します。 条項に同意しない場合は、パッケージをすぐにアンインストールしてください。
-- 使用されている参照形式で、プロジェクトへの参照を追加します。 参照は、ソリューション エクスプ ローラーと、該当する参照のフォーマット ファイルで、後で表示されます。 ただし、PackageReference、使用する必要があるプロジェクト ファイル内の変更を直接表示するプロジェクトを保存します。
-- パッケージによってキャッシュされます。
-  - PackageReference: パッケージにキャッシュされた`%USERPROFILE%\.nuget\packages`つまりファイルのロックと`project.assets.json`が更新されます。
-  - `packages.config`: 作成、`packages`フォルダー内にサブフォルダーへのパッケージ ファイル、ソリューションのルートとコピーにします。 `package.config`ファイルを更新します。
-- 更新プログラム`app.config`や`web.config`パッケージで使用する場合[ソースと config ファイルの変換](../create-packages/source-and-config-file-transformations.md)です。
-- プロジェクトに既に存在していない場合は、すべての依存関係をインストールします。 プロセスでは、パッケージのバージョンを更新この可能性があります」の説明に従って[依存関係の解決](../consume-packages/dependency-resolution.md)です。
-- Visual Studio のウィンドウで、使用可能な場合、パッケージの readme ファイルを表示します。
-
-> [!Tip]
-> パッケージをインストールする主な利点の 1 つ、`Install-Package`コンソールのコマンドは、パッケージ マネージャーの UI を使用した場合と同様に、プロジェクトへの参照を追加します。 これに対し、 `nuget install` CLI コマンドは、のみパッケージをダウンロードし、参照を自動的に追加できません。
+- コンソールでは、黙示の許諾契約書には、そのウィンドウに適用されるライセンス条項を表示します。 条項に同意しない場合は、パッケージをすぐにアンインストールしてください。
+- パッケージへの参照は、プロジェクト ファイルに追加されに表示されます**ソリューション エクスプ ローラー**下にある、**参照**ノード、プロジェクト ファイル内の変更を直接表示するプロジェクトを保存する必要があります。
 
 ## <a name="uninstalling-a-package"></a>パッケージをアンインストールします。
 
@@ -111,12 +105,9 @@ Uninstall-Package Elmah -Force
 
 パッケージをアンインストールするには、次の操作を実行します。
 
-- プロジェクト (および、使用されている参照形式) から、パッケージへの参照を削除します。 参照がソリューション エクスプ ローラーで表示されません。 (表示から削除するプロジェクトをリビルドする必要があります、 **Bin**フォルダーです)。
+- プロジェクト (および、使用されている管理形式) から、パッケージへの参照を削除します。 参照には現れません**ソリューション エクスプ ローラー**です。 (表示から削除するプロジェクトをリビルドする必要があります、 **Bin**フォルダーです)。
 - 加えられた変更を反転させます`app.config`または`web.config`パッケージがインストールされている場合。
 - 以前にインストールされている削除の依存関係残存するパッケージがそれらの依存関係を使用しない場合。
-
-> [!Tip]
-> 同様に`Install-Package`、`Uninstall-Package`コマンドとは異なり、プロジェクト内の参照を管理するための利点には、 `nuget uninstall` CLI コマンド。
 
 ## <a name="updating-a-package"></a>パッケージの更新
 
@@ -159,7 +150,7 @@ Find-Package jquery -AllVersions -ExactMatch
 
 Visual Studio 2017 で NuGet と NuGet パッケージ マネージャーが自動的にインストールを選択するときにします。NET に関連するワークロードです。インストールすることも、個別にチェックして、**個々 のコンポーネント > コード ツール > の NuGet package manager** Visual Studio 2017 インストーラー オプション。
 
-NuGet パッケージ マネージャー Visual Studio 2015 以前のバージョンで、欠落している場合は確認も、**ツール > 拡張機能と更新しています.** NuGet Package Manager 拡張機能を検索します。 直接、拡張機能をダウンロードするには Visual Studio での拡張機能インストーラーを使用することがない場合は、 [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html)です。
+NuGet パッケージ マネージャー Visual Studio 2015 以前のバージョンで、欠落している場合は確認も、**ツール > 拡張機能と更新しています.** NuGet Package Manager 拡張機能を検索します。 直接、拡張機能をダウンロードするには Visual Studio での拡張機能インストーラーを使用することがない場合は、 [ https://dist.nuget.org/index.html](https://dist.nuget.org/index.html)です。
 
 パッケージ マネージャー コンソールは Visual Studio for mac と共に現在使用できません。 同等のコマンドがを介して使用できる、 [NuGet CLI](nuget-exe-CLI-reference.md)です。 Visual Studio for Mac は、NuGet パッケージを管理するための UI を持つはできます。 参照してください[などの NuGet パッケージ、プロジェクトの](/visualstudio/mac/nuget-walkthrough)します。
 

@@ -1,27 +1,30 @@
 ---
-title: "NuGet パッケージ マネージャーの UI リファレンス |Microsoft ドキュメント"
+title: NuGet パッケージ マネージャーの UI リファレンス |Microsoft ドキュメント
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 12/08/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
+ms.technology: ''
 f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-description: "Visual Studio で NuGet パッケージ マネージャーの UI を使用して NuGet パッケージを操作するための手順です。"
-keywords: "NuGet UI では、NuGet パッケージ マネージャー UI では、NuGet Visual studio で NuGet パッケージの管理、ユーザー インターフェイスの NuGet パッケージ マネージャー Visual Studio での管理"
+description: Visual Studio で NuGet パッケージ マネージャーの UI を使用して NuGet パッケージを操作するための手順です。
+keywords: NuGet UI では、NuGet パッケージ マネージャー UI では、NuGet Visual studio で NuGet パッケージの管理、ユーザー インターフェイスの NuGet パッケージ マネージャー Visual Studio での管理
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 35bb856ccff43c77af7eac67da4614d83dcdc533
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: ad36c2ab0c6e62c7fe624b35d92e852303ecfdfb
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-package-manager-ui"></a>NuGet パッケージ マネージャーの UI
 
@@ -37,7 +40,7 @@ Windows 上の Visual Studio で NuGet パッケージ マネージャー UI を
 - [パッケージ マネージャーのオプションを制御します。](#package-manager-options-control)
 
 > [!Note]
-> Visual Studio 2015 内の NuGet パッケージ マネージャー、欠落している場合は確認**ツール > 拡張機能と更新しています.**を検索し、 *NuGet Package Manager*拡張機能です。 Visual Studio での拡張機能インストーラーを使用することがない場合は、ダウンロードから直接、拡張機能[https://dist.nuget.org/index.html](https://dist.nuget.org/index.html)です。
+> Visual Studio 2015 内の NuGet パッケージ マネージャー、欠落している場合は確認**ツール > 拡張機能と更新しています.**を検索し、 *NuGet Package Manager*拡張機能です。 Visual Studio での拡張機能インストーラーを使用することがない場合は、ダウンロードから直接、拡張機能[ https://dist.nuget.org/index.html](https://dist.nuget.org/index.html)です。
 >
 > Visual Studio 2017 のいずれかと NuGet と NuGet パッケージ マネージャーが自動的にインストールします。NET に関連するワークロードです。 個別に選択してインストール、**個々 のコンポーネント > コード ツール > の NuGet package manager** Visual Studio 2017 インストーラー オプション。
 
@@ -125,7 +128,7 @@ Visual Studio のパッケージの取得元のソースを変更するには、
 
     ![パッケージ ソースのオプション](media/options.png)
 
-1. ソースを追加するには、次のように選択します。  **+** 、名前を編集、URL またはパスを入力、**ソース**制御、および選択**更新**です。 ソースは、セレクターのドロップダウンに表示されます。
+1. ソースを追加するには、次のように選択します。 **+**、名前を編集、URL またはパスを入力、**ソース**制御、および選択**更新**です。 ソースは、セレクターのドロップダウンに表示されます。
 1. パッケージ ソースを変更するには、選択しでの編集を行う、**名前**と**ソース**ボックス、および選択**更新**です。
 1. パッケージ ソースを無効にするには、一覧内の名前の左側のボックスをオフにします。
 1. 削除するには、パッケージ ソースを選択し、、 **X**ボタンをクリックします。

@@ -1,22 +1,25 @@
 ---
-title: "NuGet のレジスタ TabExpansion PowerShell リファレンス |Microsoft ドキュメント"
+title: NuGet のレジスタ TabExpansion PowerShell リファレンス |Microsoft ドキュメント
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 12/07/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Visual Studio で NuGet パッケージ マネージャー コンソールでのレジスタ TabExpansion PowerShell コマンドのリファレンスです。"
-keywords: "NuGet パッケージ マネージャー コンソールで、NuGet Powershell コマンドでは、NuGet Powershell リファレンス、レジスタ TabExpansion"
+ms.technology: ''
+description: Visual Studio で NuGet パッケージ マネージャー コンソールでのレジスタ TabExpansion PowerShell コマンドのリファレンスです。
+keywords: NuGet パッケージ マネージャー コンソールで、NuGet Powershell コマンドでは、NuGet Powershell リファレンス、レジスタ TabExpansion
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9e363b8a7fa7e25d24331eb3e4eb87141e6a3b97
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: c7b95c46c55b95a8d743f9661ef9c63433b0192d
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="register-tabexpansion-package-manager-console-in-visual-studio"></a>レジスタ TabExpansion (Visual Studio でパッケージ マネージャー コンソール)
 
@@ -34,7 +37,7 @@ Register-TabExpansion [-Name] <String> [-Definition] <Object> [<CommonParameters
 
 | パラメーター | 説明 |
 | --- | --- |
-| name | (必須)拡張を登録するためにコマンド。 -Name スイッチ自体は省略可能です。 |
+| 名前 | (必須)拡張を登録するためにコマンド。 -Name スイッチ自体は省略可能です。 |
 | 定義 | (必須)構文では、引数を表すオブジェクトです。`@{'<parameter>' = {'<value1>', '<value2>', ...}}`場所`<parameter>`を変更するパラメーターとそれぞれの名前を指定`<value>`固有の展開を提供します。 両方単一引用符と二重引用符が受け入れられます。 |
 
 これらのパラメーターのいずれもには、パイプラインの入力またはワイルドカード文字がそのまま使用します。

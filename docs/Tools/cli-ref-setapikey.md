@@ -1,22 +1,25 @@
 ---
-title: "NuGet CLI setapikey コマンド |Microsoft ドキュメント"
+title: NuGet CLI setapikey コマンド |Microsoft ドキュメント
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Nuget.exe setapikey コマンドのリファレンス"
-keywords: "nuget setapikey 参照、setapikey コマンド"
+ms.technology: ''
+description: Nuget.exe setapikey コマンドのリファレンス
+keywords: nuget setapikey 参照、setapikey コマンド
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ca6caddbf1404bcaa1ca068c9556f7cf0c651947
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 696ccf9df5af487d3bf75925c1c1e0d1d1bf7f7b
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="setapikey-command-nuget-cli"></a>setapikey コマンド (NuGet CLI)
 
@@ -36,7 +39,7 @@ nuget setapikey <key> -Source <url> [options]
 
 | オプション | 説明 |
 | --- | --- |
-| ConfigFile | NuGet 構成ファイルを変更します。 指定しない場合、 *%AppData%\NuGet\NuGet.Config*を使用します。 |
+| ConfigFile | NuGet 構成ファイルを適用します。 指定しない場合、 `%AppData%\NuGet\NuGet.Config` (Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac または Linux) を使用します。|
 | ForceEnglishOutput | *(3.5 +)*インバリアント、英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
 | ヘルプ | ヘルプ コマンドに関する情報を表示します。 |
 | NonInteractive | ユーザー入力または確認を要求するプロンプトを抑制します。 |

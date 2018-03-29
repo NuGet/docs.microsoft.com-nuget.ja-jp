@@ -1,22 +1,25 @@
 ---
-title: "NuGet CLI リスト コマンド |Microsoft ドキュメント"
+title: NuGet CLI リスト コマンド |Microsoft ドキュメント
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Nuget.exe 一覧のコマンドのリファレンス"
-keywords: "nuget の一覧の参照、パッケージの一覧表示コマンド"
+ms.technology: ''
+description: Nuget.exe 一覧のコマンドのリファレンス
+keywords: nuget の一覧の参照、パッケージの一覧表示コマンド
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 7e0945b9e64a15a839f62bde0a0ef8f3d83335d4
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 61ad02eb99d6c56968c38841498df8aa9f74159d
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="list-command-nuget-cli"></a>list コマンド (NuGet CLI)
 

@@ -1,5 +1,5 @@
 ---
-title: "カタログ、NuGet V3 API |Microsoft ドキュメント"
+title: カタログ、NuGet V3 API |Microsoft ドキュメント
 author:
 - joelverhagen
 - kraigb
@@ -10,17 +10,20 @@ manager: skofman
 ms.date: 10/30/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "カタログは、すべてのパッケージの作成および nuget.org に削除されたインデックスです。"
-keywords: "NuGet V3 API カタログ、nuget.org トランザクション ログ、nuget.org、クローン nuget.org nuget.org のレコードを追加専用のレプリケートします。"
+ms.technology: ''
+description: カタログは、すべてのパッケージの作成および nuget.org に削除されたインデックスです。
+keywords: NuGet V3 API カタログ、nuget.org トランザクション ログ、nuget.org、クローン nuget.org nuget.org のレコードを追加専用のレプリケートします。
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: be30b21d488c323c439a59fff290a95adaefd902
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 61ed502eee498f5ad0a014e3338503f2855396a5
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="catalog"></a>Catalog
 
@@ -76,7 +79,7 @@ HTTP メソッドのみをカタログ リソースのサポートで見つか�
 
 カタログのインデックスは、次のプロパティを持つオブジェクトを格納する JSON ドキュメントを示します。
 
-name            | 種類             | 必須 | メモ
+名前            | 種類             | 必須 | メモ
 --------------- | ---------------- | -------- | -----
 commitId        | string           | 可      | 最新のコミットに関連付けられている一意の ID
 commitTimeStamp | string           | 可      | 最新のコミットのタイムスタンプ
@@ -93,7 +96,7 @@ items           | オブジェクトの配列 | 可      | 各オブジェクト
 
 カタログのインデックスのカタログ ページ オブジェクトが見つかりませんでした`items`プロパティがある、次のプロパティ。
 
-name            | 種類    | 必須 | メモ
+名前            | 種類    | 必須 | メモ
 --------------- | ------- | -------- | -----
 @id             | string  | 可      | フェッチのカタログ ページの URL
 commitId        | string  | 可      | このページで、最新のコミットに関連付けられている一意の ID
@@ -118,7 +121,7 @@ count           | 整数 | 可      | カタログ ページ内の項目数
 
 カタログのページのドキュメントは、次のプロパティを使用して、JSON オブジェクトを示します。
 
-name            | 種類             | 必須 | メモ
+名前            | 種類             | 必須 | メモ
 --------------- | ---------------- | -------- | -----
 commitId        | string           | 可      | このページで、最新のコミットに関連付けられている一意の ID
 commitTimeStamp | string           | 可      | このページで、最新のコミットのタイムスタンプ
@@ -138,7 +141,7 @@ items           | オブジェクトの配列 | 可      | このページでカ
 
 カタログ] ページの [カタログ アイテムのオブジェクトが見つかった`items`プロパティがある、次のプロパティ。
 
-name            | 種類    | 必須 | メモ
+名前            | 種類    | 必須 | メモ
 --------------- | ------- | -------- | -----
 @id             | string  | 可      | カタログ アイテムをフェッチする URL
 @type           | string  | 可      | カタログ項目の種類
@@ -168,7 +171,7 @@ nuget:version   | string  | 可      | このリーフに関連するパッケ�
 
 カタログ リーフ ドキュメントでは、次のプロパティを使用して、JSON オブジェクトを示します。
 
-name                    | 種類                       | 必須 | メモ
+名前                    | 種類                       | 必須 | メモ
 ----------------------- | -------------------------- | -------- | -----
 @type                   | 文字列または文字列の配列 | 可      | カタログ アイテムの種類
 catalog:commitId        | string                     | 可      | このカタログ アイテムに関連付けられたコミット ID
@@ -199,7 +202,7 @@ version                 | string                     | 可      | カタログ �
 
 パッケージの詳細のカタログ アイテムに加え、次のプロパティがある[カタログのすべてのリーフに含まれている](#catalog-leaf)です。
 
-name                    | 種類                       | 必須 | メモ
+名前                    | 種類                       | 必須 | メモ
 ----------------------- | -------------------------- | -------- | -----
 作成者                 | string                     | Ｘ       |
 created                 | string                     | 可      | パッケージが最初に作成されたときのタイムスタンプ

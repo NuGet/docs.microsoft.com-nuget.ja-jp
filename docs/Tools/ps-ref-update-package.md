@@ -1,22 +1,25 @@
 ---
-title: "NuGet の更新プログラム パッケージの PowerShell リファレンス |Microsoft ドキュメント"
+title: NuGet の更新プログラム パッケージの PowerShell リファレンス |Microsoft ドキュメント
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 12/07/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Visual Studio で NuGet パッケージ マネージャー コンソールで更新プログラム パッケージの PowerShell コマンドのリファレンスです。"
-keywords: "NuGet パッケージ マネージャー コンソールで、NuGet Powershell コマンドでは、NuGet Powershell リファレンス、更新プログラム パッケージ"
+ms.technology: ''
+description: Visual Studio で NuGet パッケージ マネージャー コンソールで更新プログラム パッケージの PowerShell コマンドのリファレンスです。
+keywords: NuGet パッケージ マネージャー コンソールで、NuGet Powershell コマンドでは、NuGet Powershell リファレンス、更新プログラム パッケージ
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 293d9a7fdcce633eb5a97e5f76398deb5c13bdb4
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 05772159d62f73e7d25f71ad36809f5ae8ef6aae
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="update-package-package-manager-console-in-visual-studio"></a>更新プログラム パッケージ (Visual Studio でパッケージ マネージャー コンソール)
 
@@ -47,7 +50,7 @@ Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
 | ProjectName | プロジェクトを更新するパッケージを含む、すべてのプロジェクトには、既定の名前。 |
 | Version | アップグレードは、既定で最新バージョンを使用するバージョンです。 NuGet 3.0 以降で、バージョンの値はのいずれかのことがあります*Lowest、最高、HighestMinor*、または*HighestPatch* (Safe に相当)。 |
 | セーフ | 現在インストールされているパッケージと同じメジャーおよびマイナー バージョンの唯一のバージョンにアップグレードするように制約します。 |
-| ソース | 検索するパッケージ ソースの URL またはフォルダーのパス。 ローカル フォルダー パスには、絶対パス、または現在のフォルダーの相対パスを指定できます。 省略した場合、`Uninstall-Package`現在選択されているパッケージ ソースを検索します。 |
+| ソース | 検索するパッケージ ソースの URL またはフォルダーのパス。 ローカル フォルダー パスには、絶対パス、または現在のフォルダーの相対パスを指定できます。 省略した場合、`Update-Package`現在選択されているパッケージ ソースを検索します。 |
 | IncludePrerelease | プレリリースのパッケージ更新プログラムにはが含まれます。 |
 | 再インストール | Resintalls パッケージが、現在インストールされているバージョンを使用します。 「[パッケージの再インストールと更新](../consume-packages/reinstalling-and-updating-packages.md)」をご覧ください。 |
 | FileConflictAction | 上書きするか、プロジェクトによって参照されている既存のファイルを無視するように求められたらを実行するアクション。 指定できる値は*上書き、Ignore、None、OverwriteAll*、および*ignoreall です*(3.0 以降)。 |

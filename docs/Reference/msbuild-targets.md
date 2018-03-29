@@ -1,21 +1,25 @@
 ---
-title: "MSBuild ターゲットとしての NuGet の pack と restore | Microsoft Docs"
+title: MSBuild ターゲットとしての NuGet の pack と restore | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 03/13/2018
+ms.date: 03/23/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "NuGet の pack と restore は、NuGet 4.0 以降で MSBuild ターゲットとして直接使用できます。"
-keywords: "NuGet と MSBuild, NuGet の pack ターゲット, NuGet の restore ターゲット"
+ms.technology: ''
+description: NuGet の pack と restore は、NuGet 4.0 以降で MSBuild ターゲットとして直接使用できます。
+keywords: NuGet と MSBuild, NuGet の pack ターゲット, NuGet の restore ターゲット
 ms.reviewer:
 - karann-msft
-ms.openlocfilehash: bb0ade1b0f5f81d7c8822d3c2b2f9dd45745fb8d
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+- unniravindranathan
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: a9c2c2229d717dff8472dce0ba568e4a21900b19
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>MSBuild ターゲットとしての NuGet の pack と restore
 
@@ -110,7 +114,7 @@ PackageReference 形式を使用してを使用して、プロジェクトの標
 
 ### <a name="packageiconurl"></a>PackageIconUrl
 
-[NuGet の問題 2582](https://github.com/NuGet/Home/issues/2582) への変更の一部として、最終的に `PackageIconUrl` は `PackageIconUri` に変更され、結果のパッケージのルートに含まれるアイコン ファイルへの相対パスを使用できるようになる予定です。
+変更の一環として[NuGet 問題 352](https://github.com/NuGet/Home/issues/352)、`PackageIconUrl`に最終的に変更されます`PackageIconUri`は、作成したパッケージのルートに含まれているアイコン ファイルへの相対パスを指定できます。
 
 ### <a name="output-assemblies"></a>出力アセンブリ
 
@@ -231,6 +235,61 @@ Nuspec ファイルをパック csproj ファイルの例を示します。
 </Project>
 ```
 
+### <a name="advanced-extension-points-to-create-customized-package"></a>カスタマイズされたパッケージを作成する拡張ポイントの詳細
+
+`pack`ターゲットは、内部のターゲット フレームワーク固有のビルドで実行されている 2 つの拡張ポイントを提供します。 拡張ポイントは、ターゲット フレームワークの特定のコンテンツとパッケージにアセンブリを含むサポートします。
+
+- `TargetsForTfmSpecificBuildOutput` ターゲット: 内のファイルの使用、`lib`フォルダー、またはフォルダーを使用して指定`BuildOutputTargetFolder`です。
+- `TargetsForTfmSpecificContentInPackage` ターゲット: 外でファイルを使用して、`BuildOutputTargetFolder`です。
+
+#### <a name="targetsfortfmspecificbuildoutput"></a>TargetsForTfmSpecificBuildOutput
+
+カスタムのターゲットを作成しの値として指定する、`$(TargetsForTfmSpecificBuildOutput)`プロパティです。 移動する必要があるすべてのファイルについて、 `BuildOutputTargetFolder` (既定では lib)、ターゲットは、ItemGroup にそれらのファイルを書き込む必要があります`BuildOutputInPackage`し、次の 2 つのメタデータ値を設定します。
+
+- `FinalOutputPath`: ファイルの絶対パス指定しないと、ソース パスを評価する、Id が使用されます。
+- `TargetPath`: (省略可能) ファイルは、内のサブフォルダーに移動する必要があるときに設定`lib\<TargetFramework>`サテライト アセンブリを、それぞれのカルチャ フォルダーの下には、その移動と同じように、します。 既定値は、ファイルの名前です。
+
+例:
+
+```
+<PropertyGroup>
+  <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);GetMyPackageFiles</TargetsForTfmSpecificBuildOutput>
+</PropertyGroup>
+
+<Target Name="GetMyPackageFiles">
+  <ItemGroup>
+    <BuildOutputInPackage Include="$(OutputPath)cs\$(AssemblyName).resources.dll">
+        <TargetPath>cs</TargetPath>
+    </BuildOutputInPackage>
+  </ItemGroup>
+</Target>
+```
+
+#### <a name="targetsfortfmspecificcontentinpackage"></a>TargetsForTfmSpecificContentInPackage
+
+カスタムのターゲットを作成しの値として指定する、`$(TargetsForTfmSpecificContentInPackage)`プロパティです。 パッケージに含めるすべてのファイルについて、ターゲットは、ItemGroup にそれらのファイルを書き込む必要があります`TfmSpecificPackageFile`し、次のオプションのメタデータを設定します。
+
+- `PackagePath`: パス、ファイルがパッケージの出力をする必要があります。 NuGet は、複数のファイルが同じパッケージのパスに追加された場合に警告を発行します。
+- `BuildAction`: ビルドのアクションをファイルに割り当てるために必要なだけかどうかに、パッケージのパスが、`contentFiles`フォルダーです。 既定値は"None"です。
+
+例:
+```
+<PropertyGroup>
+    <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);CustomContentTarget</TargetsForTfmSpecificContentInPackage>
+</PropertyGroup>
+
+<Target Name=""CustomContentTarget"">
+    <ItemGroup>
+      <TfmSpecificPackageFile Include=""abc.txt"">
+        <PackagePath>mycontent/$(TargetFramework)</PackagePath>
+      </TfmSpecificPackageFile>
+      <TfmSpecificPackageFile Include=""Extensions/ext.txt"" Condition=""'$(TargetFramework)' == 'net46'"">
+        <PackagePath>net46content</PackagePath>
+      </TfmSpecificPackageFile>  
+    </ItemGroup>
+  </Target>  
+```
+
 ## <a name="restore-target"></a>restore ターゲット
 
 `MSBuild /t:restore` (`nuget restore` と `dotnet restore` が .NET Core プロジェクトで使用) は、次のようにプロジェクト ファイルで参照されるパッケージを復元します。
@@ -254,7 +313,7 @@ Nuspec ファイルをパック csproj ファイルの例を示します。
 | RestorePackagesPath | ユーザー パッケージ フォルダーのパス。 |
 | RestoreDisableParallel | ダウンロード数を一度に 1 つまでに制限します。 |
 | RestoreConfigFile | 適用する `Nuget.Config` ファイルのパス。 |
-| RestoreNoCache | true の場合、Web キャッシュを使用しません。 |
+| RestoreNoCache | True の場合は、キャッシュされているパッケージを使用して回避できます。 参照してください[グローバル パッケージとキャッシュ フォルダーの管理](../consume-packages/managing-the-global-packages-and-cache-folders.md)です。 |
 | RestoreIgnoreFailedSources | true の場合、失敗した、または不足しているパッケージ ソースを無視します。 |
 | RestoreTaskAssemblyFile | `NuGet.Build.Tasks.dll` のパス。 |
 | RestoreGraphProjectInput | 復元するプロジェクトのセミコロン区切りの一覧。絶対パスを指定する必要があります。 |
@@ -282,7 +341,7 @@ restore で、次のファイルがビルドの `obj` フォルダーに作成�
 
 | ファイル | 説明 |
 |--------|--------|
-| `project.assets.json` | 以前の `project.lock.json` |
+| `project.assets.json` | すべてのパッケージ参照の依存関係グラフが含まれています。 |
 | `{projectName}.projectFileExtension.nuget.g.props` | パッケージに含まれる MSBuild プロパティへの参照 |
 | `{projectName}.projectFileExtension.nuget.g.targets` | パッケージに含まれる MSBuild ターゲットへの参照 |
 
