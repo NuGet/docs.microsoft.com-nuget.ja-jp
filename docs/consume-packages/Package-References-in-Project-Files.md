@@ -12,11 +12,14 @@ keywords: NuGet パッケージの依存関係、パッケージ参照、プロ�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: e1880c9b294e19ef1b71c7b17b02df8ff1cf1b73
-ms.sourcegitcommit: 718e6cb88e45fa07c85d653f216bf92eaaf81625
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 99caf371ca1bd85e6af4e879741e3e2caab6e860
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/20/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="package-references-packagereference-in-project-files"></a>プロジェクト ファイルのパッケージ参照 (PackageReference)
 

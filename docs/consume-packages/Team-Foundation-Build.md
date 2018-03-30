@@ -1,22 +1,25 @@
 ---
-title: "Team Foundation ビルドでの NuGet パッケージの復元のチュートリアル | Microsoft Docs"
+title: Team Foundation ビルドでの NuGet パッケージの復元のチュートリアル | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/09/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Team Foundation ビルド (TFS と Visual Studio Team Services の両方) で NuGet パッケージを復元する方法について説明します。"
-keywords: "NuGet パッケージの復元、NuGet および TFS、NuGet および VSTS、NuGet のビルド システム、team foundation ビルド、カスタム MSBuild プロジェクト、クラウドを構築、継続的インテグレーション"
+ms.technology: ''
+description: Team Foundation ビルド (TFS と Visual Studio Team Services の両方) で NuGet パッケージを復元する方法について説明します。
+keywords: NuGet パッケージの復元、NuGet および TFS、NuGet および VSTS、NuGet のビルド システム、team foundation ビルド、カスタム MSBuild プロジェクト、クラウドを構築、継続的インテグレーション
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9e3ef6e3bcc55705315fcb6ccf3e917963c62250
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: f46a7402214bf965918a5195605027913a8c60c2
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="setting-up-package-restore-with-team-foundation-build"></a>Team Foundation ビルドでのパッケージの復元の設定
 
@@ -110,6 +113,9 @@ nuget restore path\to\solution.sln
     bin
     obj
     packages
+    *.nupkg
+    project.lock.json
+    project.assets.json
 
 `.gitignore` ファイルは[非常に強力](https://www.kernel.org/pub/software/scm/git/docs/gitignore.html)です。 たとえば、`packages` フォルダーの内容を一般的にチェックインしなくとも、`.targets` ファイルのチェックインに関する前のガイドに従う場合、代わりに次のコマンドを使用できます。
 
@@ -125,6 +131,9 @@ TF バージョン管理は、[.tfignore](/vsts/tfvc/add-files-server#customize-
     bin
     obj
     packages
+    *.nupkg
+    project.lock.json
+    project.assets.json
 
 ## <a name="buildproj"></a>build.proj
 

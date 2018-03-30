@@ -1,23 +1,26 @@
 ---
-title: "NuGet 4.6 RTM のリリース ノート | Microsoft Docs"
+title: NuGet 4.6 RTM のリリース ノート | Microsoft Docs
 author: anangaur
 ms.author: anangaur
 manager: unnir
 ms.date: 3/7/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "NuGet 4.6.0 のリリース ノートであり、既知の問題、バグ修正、追加機能、および DCR が含まれています。"
-keywords: "NuGet 4.6.0 リリース ノート, バグ修正, 既知の問題, 追加機能, DCR"
+ms.technology: ''
+description: NuGet 4.6.0 のリリース ノートであり、既知の問題、バグ修正、追加機能、および DCR が含まれています。
+keywords: NuGet 4.6.0 リリース ノート, バグ修正, 既知の問題, 追加機能, DCR
 ms.reviewer:
 - karann-msft
 - unniravindranathan
 - anangaur
-ms.openlocfilehash: 32bfe8a7d5d60a0ad24444749beff64edcaab305
-ms.sourcegitcommit: fa31ae10b5a5add7184bf7420554aade8adce6ed
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 004ad16018443292840b00fa88aa78350e371414
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-46-rtm-release-notes"></a>NuGet 4.6 RTM リリース ノート
 

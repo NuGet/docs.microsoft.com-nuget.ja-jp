@@ -1,22 +1,25 @@
 ---
-title: "NuGet に関してよく寄せられる質問 | Microsoft Docs"
+title: NuGet に関してよく寄せられる質問 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/11/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "コマンド ラインと Visual Studio での NuGet の使用、および NuGet ギャラリーでの作業に関する一般的な質問と回答。"
-keywords: "NuGet に関する Q&A, 質問と回答, 一般的な問題, NuGet のバージョン, パッケージのバージョン"
+ms.technology: ''
+description: コマンド ラインと Visual Studio での NuGet の使用、および NuGet ギャラリーでの作業に関する一般的な質問と回答。
+keywords: NuGet に関する Q&A, 質問と回答, 一般的な問題, NuGet のバージョン, パッケージのバージョン
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 3782fe5dcf8df002d99446aa7548a6eacc62211c
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 33e4776054b1cdd874dcd7e955552ef873dbbf5b
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet に関してよく寄せられる質問
 

@@ -1,22 +1,25 @@
 ---
-title: "Visual Studio の NuGet API | Microsoft Docs"
+title: Visual Studio の NuGet API | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/09/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Visual Studio で Managed Extensibility Framework を通じて NuGet がエクスポートする API のインターフェイス リファレンス"
-keywords: "NuGet API、Visual Studio の NuGet、NuGet のプログラミング インターフェイス"
+ms.technology: ''
+description: Visual Studio で Managed Extensibility Framework を通じて NuGet がエクスポートする API のインターフェイス リファレンス
+keywords: NuGet API、Visual Studio の NuGet、NuGet のプログラミング インターフェイス
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 05e461acb46fa22f5269a148f43f62017006a48e
-ms.sourcegitcommit: 33436d122873249dbb20616556cd8c6783f38909
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 1b23535ae3ec1ea490b513a11906ff1338d1997c
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-api-in-visual-studio"></a>Visual Studio の NuGet API
 

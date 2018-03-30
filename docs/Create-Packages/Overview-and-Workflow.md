@@ -1,22 +1,25 @@
 ---
-title: "NuGet パッケージの作成の概要とワークフロー | Microsoft Docs"
+title: NuGet パッケージの作成の概要とワークフロー | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 07/26/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "NuGet パッケージの作成と発行プロセスの概要と、プロセスの他の特定の部分へのリンク。"
-keywords: "NuGet パッケージの作成, NuGet 作成の概要, NuGet 作成のワークフロー, パッケージ作成ワークフロー, パッケージ作成の概要。"
+ms.technology: ''
+description: NuGet パッケージの作成と発行プロセスの概要と、プロセスの他の特定の部分へのリンク。
+keywords: NuGet パッケージの作成, NuGet 作成の概要, NuGet 作成のワークフロー, パッケージ作成ワークフロー, パッケージ作成の概要。
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 84587ad1f511416cc03b6fee153d1df44d0e7aa7
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: df08e15c2632a88ea7cc3333d64f4844c78c278d
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="package-creation-workflow"></a>パッケージ作成ワークフロー
 

@@ -1,22 +1,25 @@
 ---
-title: "ローカライズされた NuGet パッケージの作成方法 | Microsoft Docs"
+title: ローカライズされた NuGet パッケージの作成方法 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/18/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "すべてのアセンブリを 1 つのパッケージに含めるか個別のアセンブリを公開することによって、ローカライズされた NuGet パッケージを作成する 2 つの方法の詳細について説明します。"
-keywords: "NuGet パッケージのローカライズ、NuGet のサテライト アセンブリ、ローカライズされたパッケージの作成、NuGet ローカリゼーション規則"
+ms.technology: ''
+description: すべてのアセンブリを 1 つのパッケージに含めるか個別のアセンブリを公開することによって、ローカライズされた NuGet パッケージを作成する 2 つの方法の詳細について説明します。
+keywords: NuGet パッケージのローカライズ、NuGet のサテライト アセンブリ、ローカライズされたパッケージの作成、NuGet ローカリゼーション規則
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 5946ba6b43d3c418a1624aeb27d12b385d66b2fb
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 39ff6d300ec1a1f7941cad5953599f25f55117f4
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="creating-localized-nuget-packages"></a>ローカライズされた NuGet パッケージを作成する
 
