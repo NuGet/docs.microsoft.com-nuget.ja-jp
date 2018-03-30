@@ -1,73 +1,76 @@
 ---
-title: "NuGet.Server を使用して NuGet フィードをホストする | Microsoft Docs"
+title: NuGet.Server を使用して NuGet フィードをホストする | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 03/13/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "HTTP および OData 経由でパッケージを利用できるようにして、NuGet.Server を使用し、IIS を実行している任意のサーバー上に NuGet パッケージ フィードを作成およびホストする方法です。"
-keywords: "NuGet フィード、NuGet ギャラリー、リモート パッケージ フィード、NuGet.Server"
+ms.technology: ''
+description: HTTP および OData 経由でパッケージを利用できるようにして、NuGet.Server を使用し、IIS を実行している任意のサーバー上に NuGet パッケージ フィードを作成およびホストする方法です。
+keywords: NuGet フィード、NuGet ギャラリー、リモート パッケージ フィード、NuGet.Server
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: d85c1ca88ca44c8f8bfa5cb9c453279f65f26f50
-ms.sourcegitcommit: 9adf5349eab91bd1d044e11f34836d53cfb115b3
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: a8996fed537e5745a1dbeb1c3d12b2a0670e744d
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="nugetserver"></a><span data-ttu-id="2f811-104">NuGet.Server</span><span class="sxs-lookup"><span data-stu-id="2f811-104">NuGet.Server</span></span>
+# <a name="nugetserver"></a><span data-ttu-id="a0a20-104">NuGet.Server</span><span class="sxs-lookup"><span data-stu-id="a0a20-104">NuGet.Server</span></span>
 
-<span data-ttu-id="2f811-105">NuGet.Server は、.NET Foundation によって提供されるパッケージです。このパッケージでは、IIS を実行する任意のサーバー上でパッケージ フィードをホストできる、ASP.NET アプリケーションを作成します。</span><span class="sxs-lookup"><span data-stu-id="2f811-105">NuGet.Server is a package provided by the .NET Foundation that creates an ASP.NET application that can host a package feed on any server that runs IIS.</span></span> <span data-ttu-id="2f811-106">単純に言うと、NuGet.Server では HTTP (具体的には OData) 経由で利用できるサーバーにフォルダーを作成します。</span><span class="sxs-lookup"><span data-stu-id="2f811-106">Simply said, NuGet.Server makes a folder on the server available through HTTP(S) (specifically OData).</span></span> <span data-ttu-id="2f811-107">設定は簡単で、単純なシナリオに最適です。</span><span class="sxs-lookup"><span data-stu-id="2f811-107">It's easy to set up and is best for simple scenarios.</span></span>
+<span data-ttu-id="a0a20-105">NuGet.Server は、.NET Foundation によって提供されるパッケージです。このパッケージでは、IIS を実行する任意のサーバー上でパッケージ フィードをホストできる、ASP.NET アプリケーションを作成します。</span><span class="sxs-lookup"><span data-stu-id="a0a20-105">NuGet.Server is a package provided by the .NET Foundation that creates an ASP.NET application that can host a package feed on any server that runs IIS.</span></span> <span data-ttu-id="a0a20-106">単純に言うと、NuGet.Server では HTTP (具体的には OData) 経由で利用できるサーバーにフォルダーを作成します。</span><span class="sxs-lookup"><span data-stu-id="a0a20-106">Simply said, NuGet.Server makes a folder on the server available through HTTP(S) (specifically OData).</span></span> <span data-ttu-id="a0a20-107">設定は簡単で、単純なシナリオに最適です。</span><span class="sxs-lookup"><span data-stu-id="a0a20-107">It's easy to set up and is best for simple scenarios.</span></span>
 
-1. <span data-ttu-id="2f811-108">Visual Studio で空の ASP.NET Web アプリケーションを作成して、NuGet.Server パッケージを追加します。</span><span class="sxs-lookup"><span data-stu-id="2f811-108">Create an empty ASP.NET Web application in Visual Studio and add the NuGet.Server package to it.</span></span>
-1. <span data-ttu-id="2f811-109">アプリケーションで `Packages` フォルダーを設定し、パッケージを追加します。</span><span class="sxs-lookup"><span data-stu-id="2f811-109">Configure the `Packages` folder in the application and add packages.</span></span>
-1. <span data-ttu-id="2f811-110">アプリケーションを適切なサーバーに展開します。</span><span class="sxs-lookup"><span data-stu-id="2f811-110">Deploy the application to a suitable server.</span></span>
+1. <span data-ttu-id="a0a20-108">Visual Studio で空の ASP.NET Web アプリケーションを作成して、NuGet.Server パッケージを追加します。</span><span class="sxs-lookup"><span data-stu-id="a0a20-108">Create an empty ASP.NET Web application in Visual Studio and add the NuGet.Server package to it.</span></span>
+1. <span data-ttu-id="a0a20-109">アプリケーションで `Packages` フォルダーを設定し、パッケージを追加します。</span><span class="sxs-lookup"><span data-stu-id="a0a20-109">Configure the `Packages` folder in the application and add packages.</span></span>
+1. <span data-ttu-id="a0a20-110">アプリケーションを適切なサーバーに展開します。</span><span class="sxs-lookup"><span data-stu-id="a0a20-110">Deploy the application to a suitable server.</span></span>
 
-<span data-ttu-id="2f811-111">次のセクションでは、C# を使用して、このプロセスを詳しく確認します。</span><span class="sxs-lookup"><span data-stu-id="2f811-111">The following sections walk through this process in detail, using C#.</span></span>
+<span data-ttu-id="a0a20-111">次のセクションでは、C# を使用して、このプロセスを詳しく確認します。</span><span class="sxs-lookup"><span data-stu-id="a0a20-111">The following sections walk through this process in detail, using C#.</span></span>
 
-<span data-ttu-id="2f811-112">NuGet.Server についてさらに質問がある場合は、[https://github.com/nuget/NuGetGallery/issues](https://github.com/nuget/NuGetGallery/issues) で問題を作成してください。</span><span class="sxs-lookup"><span data-stu-id="2f811-112">If you have further questions about NuGet.Server, create an issue on [https://github.com/nuget/NuGetGallery/issues](https://github.com/nuget/NuGetGallery/issues).</span></span>
+<span data-ttu-id="a0a20-112">NuGet.Server についてさらに質問がある場合は、[https://github.com/nuget/NuGetGallery/issues](https://github.com/nuget/NuGetGallery/issues) で問題を作成してください。</span><span class="sxs-lookup"><span data-stu-id="a0a20-112">If you have further questions about NuGet.Server, create an issue on [https://github.com/nuget/NuGetGallery/issues](https://github.com/nuget/NuGetGallery/issues).</span></span>
 
-## <a name="create-and-deploy-an-aspnet-web-application-with-nugetserver"></a><span data-ttu-id="2f811-113">NuGet.Server を使用して ASP.NET Web アプリケーションを作成して配置する</span><span class="sxs-lookup"><span data-stu-id="2f811-113">Create and deploy an ASP.NET Web application with NuGet.Server</span></span>
+## <a name="create-and-deploy-an-aspnet-web-application-with-nugetserver"></a><span data-ttu-id="a0a20-113">NuGet.Server を使用して ASP.NET Web アプリケーションを作成して配置する</span><span class="sxs-lookup"><span data-stu-id="a0a20-113">Create and deploy an ASP.NET Web application with NuGet.Server</span></span>
 
-1. <span data-ttu-id="2f811-114">Visual Studio で、**[ファイル] > [新規] > [プロジェクト]** を選択し、「ASP.NET」を検索し、C# 用に **[ASP.NET Web アプリケーション (.NET Framework)]** テンプレートを選択し、**[フレームワーク]** を [.NET Framework 4.6] に設定します。</span><span class="sxs-lookup"><span data-stu-id="2f811-114">In Visual Studio, select **File > New > Project**, search for "ASP.NET", select the **ASP.NET Web Application (.NET Framework)** template for C#, and set **Framework** to ".NET Framework 4.6":</span></span>
+1. <span data-ttu-id="a0a20-114">Visual Studio で、**[ファイル] > [新規] > [プロジェクト]** を選択し、「ASP.NET」を検索し、C# 用に **[ASP.NET Web アプリケーション (.NET Framework)]** テンプレートを選択し、**[フレームワーク]** を [.NET Framework 4.6] に設定します。</span><span class="sxs-lookup"><span data-stu-id="a0a20-114">In Visual Studio, select **File > New > Project**, search for "ASP.NET", select the **ASP.NET Web Application (.NET Framework)** template for C#, and set **Framework** to ".NET Framework 4.6":</span></span>
 
     ![新しいプロジェクトのターゲット フレームワークを設定する](media/Hosting_01-NuGet.Server-Set4.6.png)
 
-1. <span data-ttu-id="2f811-116">アプリケーションに NuGet.Server *以外*の適切な名前を付けて [OK] を選択し、次のダイアログで**空**のテンプレートを選択して **[OK]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="2f811-116">Give the application a suitable name *other* than NuGet.Server, select OK, and in the next dialog select the **Empty** template, then select **OK**.</span></span>
+1. <span data-ttu-id="a0a20-116">アプリケーションに NuGet.Server *以外*の適切な名前を付けて [OK] を選択し、次のダイアログで**空**のテンプレートを選択して **[OK]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="a0a20-116">Give the application a suitable name *other* than NuGet.Server, select OK, and in the next dialog select the **Empty** template, then select **OK**.</span></span>
 
-1. <span data-ttu-id="2f811-117">プロジェクトを右クリックし、**[NuGet パッケージの管理]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="2f811-117">Right-click the project, select **Manage NuGet Packages**.</span></span>
+1. <span data-ttu-id="a0a20-117">プロジェクトを右クリックし、**[NuGet パッケージの管理]** を選択します。</span><span class="sxs-lookup"><span data-stu-id="a0a20-117">Right-click the project, select **Manage NuGet Packages**.</span></span>
 
-1. <span data-ttu-id="2f811-118">.NET Framework 4.6 を対象にしている場合は、パッケージ マネージャー UI で **[参照]** タブを選択し、最新バージョンの NuGet.Server パッケージを検索してインストールします</span><span class="sxs-lookup"><span data-stu-id="2f811-118">In the Package Manager UI, select the **Browse** tab, then search and install the latest version of the NuGet.Server package if you're targeting .NET Framework 4.6.</span></span> <span data-ttu-id="2f811-119">(また、`Install-Package NuGet.Server` を使用して、パッケージ マネージャー コンソールからインストールすることもできます。)メッセージに従って、ライセンス条項に同意します。</span><span class="sxs-lookup"><span data-stu-id="2f811-119">(You can also install it from the Package Manager Console with `Install-Package NuGet.Server`.) Accept the license terms if prompted.</span></span>
+1. <span data-ttu-id="a0a20-118">.NET Framework 4.6 を対象にしている場合は、パッケージ マネージャー UI で **[参照]** タブを選択し、最新バージョンの NuGet.Server パッケージを検索してインストールします</span><span class="sxs-lookup"><span data-stu-id="a0a20-118">In the Package Manager UI, select the **Browse** tab, then search and install the latest version of the NuGet.Server package if you're targeting .NET Framework 4.6.</span></span> <span data-ttu-id="a0a20-119">(また、`Install-Package NuGet.Server` を使用して、パッケージ マネージャー コンソールからインストールすることもできます。)メッセージに従って、ライセンス条項に同意します。</span><span class="sxs-lookup"><span data-stu-id="a0a20-119">(You can also install it from the Package Manager Console with `Install-Package NuGet.Server`.) Accept the license terms if prompted.</span></span>
 
     ![NuGet.Server パッケージをインストールする](media/Hosting_02-NuGet.Server-Package.png)
 
-1. <span data-ttu-id="2f811-121">NuGet.Server をインストールすると、空の Web アプリケーションはパッケージ ソースに変換されます。</span><span class="sxs-lookup"><span data-stu-id="2f811-121">Installing NuGet.Server converts the empty Web application into a package source.</span></span> <span data-ttu-id="2f811-122">この操作を行うと、他の多様なパッケージがインストールされ、アプリケーション内に `Packages` フォルダーが作成され、追加の設定を含めるために `web.config` が変更されます (詳細については、ファイルのコメントを参照してください)。</span><span class="sxs-lookup"><span data-stu-id="2f811-122">It installs a variety of other packages, creates a `Packages` folder in the application, and modifies `web.config` to include additional settings (see the comments in that file for details).</span></span>
+1. <span data-ttu-id="a0a20-121">NuGet.Server をインストールすると、空の Web アプリケーションはパッケージ ソースに変換されます。</span><span class="sxs-lookup"><span data-stu-id="a0a20-121">Installing NuGet.Server converts the empty Web application into a package source.</span></span> <span data-ttu-id="a0a20-122">この操作を行うと、他の多様なパッケージがインストールされ、アプリケーション内に `Packages` フォルダーが作成され、追加の設定を含めるために `web.config` が変更されます (詳細については、ファイルのコメントを参照してください)。</span><span class="sxs-lookup"><span data-stu-id="a0a20-122">It installs a variety of other packages, creates a `Packages` folder in the application, and modifies `web.config` to include additional settings (see the comments in that file for details).</span></span>
 
     > [!Important]
-    > <span data-ttu-id="2f811-123">NuGet.Server パッケージでファイルの変更が完了した後は、`web.config` をよく確認してください。</span><span class="sxs-lookup"><span data-stu-id="2f811-123">Carefully inspect `web.config` after the NuGet.Server package has completed its modifications to that file.</span></span> <span data-ttu-id="2f811-124">NuGet.Server で既存の要素を上書きすることはできません。代わりに重複する要素が作成されます。</span><span class="sxs-lookup"><span data-stu-id="2f811-124">NuGet.Server may not overwrite existing elements but instead create duplicate elements.</span></span> <span data-ttu-id="2f811-125">このような重複があると、後でプロジェクトを実行しようとしたときに "内部サーバー エラー" が発生します。</span><span class="sxs-lookup"><span data-stu-id="2f811-125">Those duplicates will cause an "Internal Server Error" when you later try to run the project.</span></span> <span data-ttu-id="2f811-126">たとえば、NuGet.Server をインストールする前に `web.config` に `<compilation debug="true" targetFramework="4.5.2" />` を含めると、パッケージによって上書きされませんが 2 つ目の `<compilation debug="true" targetFramework="4.6" />` が挿入されます。</span><span class="sxs-lookup"><span data-stu-id="2f811-126">For example, if your `web.config` contains `<compilation debug="true" targetFramework="4.5.2" />` before installing NuGet.Server, the package doesn't overwrite it but inserts a second `<compilation debug="true" targetFramework="4.6" />`.</span></span> <span data-ttu-id="2f811-127">この場合は、以前の Framework バージョンの要素を削除してください。</span><span class="sxs-lookup"><span data-stu-id="2f811-127">In that case, delete the element with the older framework version.</span></span>
+    > <span data-ttu-id="a0a20-123">NuGet.Server パッケージでファイルの変更が完了した後は、`web.config` をよく確認してください。</span><span class="sxs-lookup"><span data-stu-id="a0a20-123">Carefully inspect `web.config` after the NuGet.Server package has completed its modifications to that file.</span></span> <span data-ttu-id="a0a20-124">NuGet.Server で既存の要素を上書きすることはできません。代わりに重複する要素が作成されます。</span><span class="sxs-lookup"><span data-stu-id="a0a20-124">NuGet.Server may not overwrite existing elements but instead create duplicate elements.</span></span> <span data-ttu-id="a0a20-125">このような重複があると、後でプロジェクトを実行しようとしたときに "内部サーバー エラー" が発生します。</span><span class="sxs-lookup"><span data-stu-id="a0a20-125">Those duplicates will cause an "Internal Server Error" when you later try to run the project.</span></span> <span data-ttu-id="a0a20-126">たとえば、NuGet.Server をインストールする前に `web.config` に `<compilation debug="true" targetFramework="4.5.2" />` を含めると、パッケージによって上書きされませんが 2 つ目の `<compilation debug="true" targetFramework="4.6" />` が挿入されます。</span><span class="sxs-lookup"><span data-stu-id="a0a20-126">For example, if your `web.config` contains `<compilation debug="true" targetFramework="4.5.2" />` before installing NuGet.Server, the package doesn't overwrite it but inserts a second `<compilation debug="true" targetFramework="4.6" />`.</span></span> <span data-ttu-id="a0a20-127">この場合は、以前の Framework バージョンの要素を削除してください。</span><span class="sxs-lookup"><span data-stu-id="a0a20-127">In that case, delete the element with the older framework version.</span></span>
 
-1. <span data-ttu-id="2f811-128">アプリケーションをサーバーに公開するときに、パッケージをフィードで使用できるようにするには、Visual Studio の `Packages` フォルダーに各 `.nupkg` ファイルを追加して、それぞれの **[ビルド アクション]** を **[コンテンツ]** に、**[出力ディレクトリにコピー]** を **[常にコピーする]** に設定します。</span><span class="sxs-lookup"><span data-stu-id="2f811-128">To make packages available in the feed when you publish the application to a server, add each `.nupkg` files to the `Packages` folder in Visual Studio, then set each one's **Build Action** to **Content** and **Copy to Output Directory** to **Copy always**:</span></span>
+1. <span data-ttu-id="a0a20-128">アプリケーションをサーバーに公開するときに、パッケージをフィードで使用できるようにするには、Visual Studio の `Packages` フォルダーに各 `.nupkg` ファイルを追加して、それぞれの **[ビルド アクション]** を **[コンテンツ]** に、**[出力ディレクトリにコピー]** を **[常にコピーする]** に設定します。</span><span class="sxs-lookup"><span data-stu-id="a0a20-128">To make packages available in the feed when you publish the application to a server, add each `.nupkg` files to the `Packages` folder in Visual Studio, then set each one's **Build Action** to **Content** and **Copy to Output Directory** to **Copy always**:</span></span>
 
     ![プロジェクト内の [Packages] フォルダーにパッケージをコピーする](media/Hosting_03-NuGet.Server-Package-Folder.png)
 
-1. <span data-ttu-id="2f811-130">Visual Studio のローカルでサイトを実行します (**[デバッグ] > [デバッグなしで開始]** を使用するか Ctrl キーを押しながら F5 キーを押します)。</span><span class="sxs-lookup"><span data-stu-id="2f811-130">Run the site locally in Visual Studio (using **Debug > Start Without Debugging** or Ctrl+F5).</span></span> <span data-ttu-id="2f811-131">ホーム ページには、パッケージ フィードの URL が次のように表示されます。</span><span class="sxs-lookup"><span data-stu-id="2f811-131">The home page provides the package feed URLs as shown below.</span></span> <span data-ttu-id="2f811-132">エラーが表示される場合は、手順 5 で説明したような重複する要素がないか `web.config` をよく確認します。</span><span class="sxs-lookup"><span data-stu-id="2f811-132">If you see errors, carefully inspect your `web.config` for duplicate elements are noted earlier with step 5.</span></span>
+1. <span data-ttu-id="a0a20-130">Visual Studio のローカルでサイトを実行します (**[デバッグ] > [デバッグなしで開始]** を使用するか Ctrl キーを押しながら F5 キーを押します)。</span><span class="sxs-lookup"><span data-stu-id="a0a20-130">Run the site locally in Visual Studio (using **Debug > Start Without Debugging** or Ctrl+F5).</span></span> <span data-ttu-id="a0a20-131">ホーム ページには、パッケージ フィードの URL が次のように表示されます。</span><span class="sxs-lookup"><span data-stu-id="a0a20-131">The home page provides the package feed URLs as shown below.</span></span> <span data-ttu-id="a0a20-132">エラーが表示される場合は、手順 5 で説明したような重複する要素がないか `web.config` をよく確認します。</span><span class="sxs-lookup"><span data-stu-id="a0a20-132">If you see errors, carefully inspect your `web.config` for duplicate elements are noted earlier with step 5.</span></span>
 
     ![NuGet.Server を使用したアプリケーションの既定のホーム ページ](media/Hosting_04-NuGet.Server-FeedHomePage.png)
 
-1. <span data-ttu-id="2f811-134">パッケージの OData フィードを表示するには、上記の囲まれた領域内にある **[ここ]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="2f811-134">Click on **here** in the area outlined above to see the OData feed of packages.</span></span>
+1. <span data-ttu-id="a0a20-134">パッケージの OData フィードを表示するには、上記の囲まれた領域内にある **[ここ]** をクリックします。</span><span class="sxs-lookup"><span data-stu-id="a0a20-134">Click on **here** in the area outlined above to see the OData feed of packages.</span></span>
 
-1. <span data-ttu-id="2f811-135">初めてアプリケーションを実行すると、NuGet.Server では各パッケージにフォルダーが含まれるように、`Packages` フォルダーが再構築されます。</span><span class="sxs-lookup"><span data-stu-id="2f811-135">The first time you run the application, NuGet.Server restructures the `Packages` folder to contain a folder for each package.</span></span> <span data-ttu-id="2f811-136">これは、パフォーマンスを向上させるために、NuGet 3.3 で導入された[ローカル記憶域のレイアウト](http://blog.nuget.org/20151118/nuget-3.3.html#folder-based-repository-commands)に一致します。</span><span class="sxs-lookup"><span data-stu-id="2f811-136">This matches the [local storage layout](http://blog.nuget.org/20151118/nuget-3.3.html#folder-based-repository-commands) introduced with NuGet 3.3 to improve performance.</span></span> <span data-ttu-id="2f811-137">さらにパッケージを追加する場合、継続してこの構造に従います。</span><span class="sxs-lookup"><span data-stu-id="2f811-137">When adding more packages, continue to follow this structure.</span></span>
+1. <span data-ttu-id="a0a20-135">初めてアプリケーションを実行すると、NuGet.Server では各パッケージにフォルダーが含まれるように、`Packages` フォルダーが再構築されます。</span><span class="sxs-lookup"><span data-stu-id="a0a20-135">The first time you run the application, NuGet.Server restructures the `Packages` folder to contain a folder for each package.</span></span> <span data-ttu-id="a0a20-136">これは、パフォーマンスを向上させるために、NuGet 3.3 で導入された[ローカル記憶域のレイアウト](http://blog.nuget.org/20151118/nuget-3.3.html#folder-based-repository-commands)に一致します。</span><span class="sxs-lookup"><span data-stu-id="a0a20-136">This matches the [local storage layout](http://blog.nuget.org/20151118/nuget-3.3.html#folder-based-repository-commands) introduced with NuGet 3.3 to improve performance.</span></span> <span data-ttu-id="a0a20-137">さらにパッケージを追加する場合、継続してこの構造に従います。</span><span class="sxs-lookup"><span data-stu-id="a0a20-137">When adding more packages, continue to follow this structure.</span></span>
 
-1. <span data-ttu-id="2f811-138">ローカルの配置をテストしたら、必要に応じてアプリケーションをその他の内部または外部のサイトに展開します。</span><span class="sxs-lookup"><span data-stu-id="2f811-138">Once you've tested your local deployment, deploy the application to any other internal or external site as needed.</span></span>
+1. <span data-ttu-id="a0a20-138">ローカルの配置をテストしたら、必要に応じてアプリケーションをその他の内部または外部のサイトに展開します。</span><span class="sxs-lookup"><span data-stu-id="a0a20-138">Once you've tested your local deployment, deploy the application to any other internal or external site as needed.</span></span>
 
-1. <span data-ttu-id="2f811-139">`http://<domain>` に展開されると、パッケージ ソースに使用する URL は `http://<domain>/nuget` になります。</span><span class="sxs-lookup"><span data-stu-id="2f811-139">Once deployed to `http://<domain>`, the URL that you use for the package source will be `http://<domain>/nuget`.</span></span>
+1. <span data-ttu-id="a0a20-139">`http://<domain>` に展開されると、パッケージ ソースに使用する URL は `http://<domain>/nuget` になります。</span><span class="sxs-lookup"><span data-stu-id="a0a20-139">Once deployed to `http://<domain>`, the URL that you use for the package source will be `http://<domain>/nuget`.</span></span>
 
-## <a name="configuring-the-packages-folder"></a><span data-ttu-id="2f811-140">パッケージ フォルダーを構成する</span><span class="sxs-lookup"><span data-stu-id="2f811-140">Configuring the Packages folder</span></span>
+## <a name="configuring-the-packages-folder"></a><span data-ttu-id="a0a20-140">パッケージ フォルダーを構成する</span><span class="sxs-lookup"><span data-stu-id="a0a20-140">Configuring the Packages folder</span></span>
 
-<span data-ttu-id="2f811-141">`NuGet.Server` 1.5 以降を使用して、`web.config` 内の `appSetting/packagesPath` 値を使用して、パッケージ フォルダーをより具体的に構成できます。</span><span class="sxs-lookup"><span data-stu-id="2f811-141">With `NuGet.Server` 1.5 and later, you can more specifically configure the package folder using the `appSetting/packagesPath` value in `web.config`:</span></span>
+<span data-ttu-id="a0a20-141">`NuGet.Server` 1.5 以降を使用して、`web.config` 内の `appSetting/packagesPath` 値を使用して、パッケージ フォルダーをより具体的に構成できます。</span><span class="sxs-lookup"><span data-stu-id="a0a20-141">With `NuGet.Server` 1.5 and later, you can more specifically configure the package folder using the `appSetting/packagesPath` value in `web.config`:</span></span>
 
 ```xml
 <appSettings>
@@ -76,15 +79,15 @@ ms.lasthandoff: 03/16/2018
 </appSettings>
 ```
 
-<span data-ttu-id="2f811-142">`packagesPath` は絶対パスまたは仮想パスにすることができます。</span><span class="sxs-lookup"><span data-stu-id="2f811-142">`packagesPath` can be an absolute or virtual path.</span></span>
+<span data-ttu-id="a0a20-142">`packagesPath` は絶対パスまたは仮想パスにすることができます。</span><span class="sxs-lookup"><span data-stu-id="a0a20-142">`packagesPath` can be an absolute or virtual path.</span></span>
 
-<span data-ttu-id="2f811-143">`packagesPath` が省略された場合、または空白のままの場合は、パッケージ フォルダーは既定の `~/Packages` です。</span><span class="sxs-lookup"><span data-stu-id="2f811-143">When `packagesPath` is omitted or left blank, the packages folder is the default `~/Packages`.</span></span>
+<span data-ttu-id="a0a20-143">`packagesPath` が省略された場合、または空白のままの場合は、パッケージ フォルダーは既定の `~/Packages` です。</span><span class="sxs-lookup"><span data-stu-id="a0a20-143">When `packagesPath` is omitted or left blank, the packages folder is the default `~/Packages`.</span></span>
 
-## <a name="adding-packages-to-the-feed-externally"></a><span data-ttu-id="2f811-144">パッケージを外部からフィードに追加する</span><span class="sxs-lookup"><span data-stu-id="2f811-144">Adding packages to the feed externally</span></span>
+## <a name="adding-packages-to-the-feed-externally"></a><span data-ttu-id="a0a20-144">パッケージを外部からフィードに追加する</span><span class="sxs-lookup"><span data-stu-id="a0a20-144">Adding packages to the feed externally</span></span>
 
-<span data-ttu-id="2f811-145">`web.config` で API キーの値を設定した場合、NuGet.Server サイトが実行されているときに、[nuget push](../tools/cli-ref-push.md) を使用してパッケージを追加できます。</span><span class="sxs-lookup"><span data-stu-id="2f811-145">Once a NuGet.Server site is running, you can add packages using [nuget push](../tools/cli-ref-push.md) provided that you set an API key value in `web.config`.</span></span>
+<span data-ttu-id="a0a20-145">`web.config` で API キーの値を設定した場合、NuGet.Server サイトが実行されているときに、[nuget push](../tools/cli-ref-push.md) を使用してパッケージを追加できます。</span><span class="sxs-lookup"><span data-stu-id="a0a20-145">Once a NuGet.Server site is running, you can add packages using [nuget push](../tools/cli-ref-push.md) provided that you set an API key value in `web.config`.</span></span>
 
-<span data-ttu-id="2f811-146">NuGet.Server パッケージをインストールした後、`web.config` に空の `appSetting/apiKey` 値が含まれます。</span><span class="sxs-lookup"><span data-stu-id="2f811-146">After installing the NuGet.Server package, `web.config` contains an empty `appSetting/apiKey` value:</span></span>
+<span data-ttu-id="a0a20-146">NuGet.Server パッケージをインストールした後、`web.config` に空の `appSetting/apiKey` 値が含まれます。</span><span class="sxs-lookup"><span data-stu-id="a0a20-146">After installing the NuGet.Server package, `web.config` contains an empty `appSetting/apiKey` value:</span></span>
 
 ```xml
 <appSettings>
@@ -92,9 +95,9 @@ ms.lasthandoff: 03/16/2018
 </appSettings>
 ```
 
-<span data-ttu-id="2f811-147">`apiKey` が省略された場合、または空白の場合は、パッケージのフィードへのプッシュは無効になります。</span><span class="sxs-lookup"><span data-stu-id="2f811-147">When `apiKey` is omitted or blank, pushing packages to the feed is disabled.</span></span>
+<span data-ttu-id="a0a20-147">`apiKey` が省略された場合、または空白の場合は、パッケージのフィードへのプッシュは無効になります。</span><span class="sxs-lookup"><span data-stu-id="a0a20-147">When `apiKey` is omitted or blank, pushing packages to the feed is disabled.</span></span>
 
-<span data-ttu-id="2f811-148">この機能を有効にするには、`apiKey` に値 (理想的には、強力なパスワード) を設定し、`true` の値を含む `appSettings/requireApiKey` と呼ばれるキーを追加します。</span><span class="sxs-lookup"><span data-stu-id="2f811-148">To enable this capability, set the `apiKey` to a value (ideally a strong password) and add a key called `appSettings/requireApiKey` with the value of `true`:</span></span>
+<span data-ttu-id="a0a20-148">この機能を有効にするには、`apiKey` に値 (理想的には、強力なパスワード) を設定し、`true` の値を含む `appSettings/requireApiKey` と呼ばれるキーを追加します。</span><span class="sxs-lookup"><span data-stu-id="a0a20-148">To enable this capability, set the `apiKey` to a value (ideally a strong password) and add a key called `appSettings/requireApiKey` with the value of `true`:</span></span>
 
 ```xml
 <appSettings>
@@ -106,14 +109,14 @@ ms.lasthandoff: 03/16/2018
 </appSettings>
 ```
 
-<span data-ttu-id="2f811-149">サーバーが既にセキュリティで保護されているか、または、API キーが必要ない場合 (たとえば、ローカル チーム ネットワーク上でプライベート サーバーを使用している場合)、`requireApiKey` を `false` に設定できます。</span><span class="sxs-lookup"><span data-stu-id="2f811-149">If your server is already secured or you do not otherwise require an API key (for example, when using a private server on a local team network), you can set `requireApiKey` to `false`.</span></span> <span data-ttu-id="2f811-150">これで、サーバーへのアクセス権を持つすべてのユーザーは、パッケージをプッシュできるようになります。</span><span class="sxs-lookup"><span data-stu-id="2f811-150">All users with access to the server can then push packages.</span></span>
+<span data-ttu-id="a0a20-149">サーバーが既にセキュリティで保護されているか、または、API キーが必要ない場合 (たとえば、ローカル チーム ネットワーク上でプライベート サーバーを使用している場合)、`requireApiKey` を `false` に設定できます。</span><span class="sxs-lookup"><span data-stu-id="a0a20-149">If your server is already secured or you do not otherwise require an API key (for example, when using a private server on a local team network), you can set `requireApiKey` to `false`.</span></span> <span data-ttu-id="a0a20-150">これで、サーバーへのアクセス権を持つすべてのユーザーは、パッケージをプッシュできるようになります。</span><span class="sxs-lookup"><span data-stu-id="a0a20-150">All users with access to the server can then push packages.</span></span>
 
-## <a name="removing-packages-from-the-feed"></a><span data-ttu-id="2f811-151">フィードからパッケージを削除する</span><span class="sxs-lookup"><span data-stu-id="2f811-151">Removing packages from the feed</span></span>
+## <a name="removing-packages-from-the-feed"></a><span data-ttu-id="a0a20-151">フィードからパッケージを削除する</span><span class="sxs-lookup"><span data-stu-id="a0a20-151">Removing packages from the feed</span></span>
 
-<span data-ttu-id="2f811-152">NuGet.Server で、API キーをコメントに追加して [nuget delete](../tools/cli-ref-delete.md) コマンドを実行すると、リポジトリからパッケージを削除できます。</span><span class="sxs-lookup"><span data-stu-id="2f811-152">With NuGet.Server, the [nuget delete](../tools/cli-ref-delete.md) command removes a package from the repository provided that you include the API key with the comment.</span></span>
+<span data-ttu-id="a0a20-152">NuGet.Server で、API キーをコメントに追加して [nuget delete](../tools/cli-ref-delete.md) コマンドを実行すると、リポジトリからパッケージを削除できます。</span><span class="sxs-lookup"><span data-stu-id="a0a20-152">With NuGet.Server, the [nuget delete](../tools/cli-ref-delete.md) command removes a package from the repository provided that you include the API key with the comment.</span></span>
 
-<span data-ttu-id="2f811-153">代わりにパッケージをリストから削除する (パッケージの復元のために使用できる状態のままにする) ように動作を変更する場合は、`web.config` の `enableDelisting` キーを true に変更します。</span><span class="sxs-lookup"><span data-stu-id="2f811-153">If you want to change the behavior to delist the package instead (leaving it available for package restore), change the `enableDelisting` key in `web.config` to true.</span></span>
+<span data-ttu-id="a0a20-153">代わりにパッケージをリストから削除する (パッケージの復元のために使用できる状態のままにする) ように動作を変更する場合は、`web.config` の `enableDelisting` キーを true に変更します。</span><span class="sxs-lookup"><span data-stu-id="a0a20-153">If you want to change the behavior to delist the package instead (leaving it available for package restore), change the `enableDelisting` key in `web.config` to true.</span></span>
 
-## <a name="nugetserver-support"></a><span data-ttu-id="2f811-154">NuGet.Server のサポート</span><span class="sxs-lookup"><span data-stu-id="2f811-154">NuGet.Server support</span></span>
+## <a name="nugetserver-support"></a><span data-ttu-id="a0a20-154">NuGet.Server のサポート</span><span class="sxs-lookup"><span data-stu-id="a0a20-154">NuGet.Server support</span></span>
 
-<span data-ttu-id="2f811-155">NuGet.Server の使用についてその他のサポートが必要な場合は、[https://github.com/nuget/NuGetGallery/issues](https://github.com/nuget/NuGetGallery/issues) で問題を作成してください。</span><span class="sxs-lookup"><span data-stu-id="2f811-155">For additional help using NuGet.Server, create an issue on [https://github.com/nuget/NuGetGallery/issues](https://github.com/nuget/NuGetGallery/issues).</span></span>
+<span data-ttu-id="a0a20-155">NuGet.Server の使用についてその他のサポートが必要な場合は、[https://github.com/nuget/NuGetGallery/issues](https://github.com/nuget/NuGetGallery/issues) で問題を作成してください。</span><span class="sxs-lookup"><span data-stu-id="a0a20-155">For additional help using NuGet.Server, create an issue on [https://github.com/nuget/NuGetGallery/issues](https://github.com/nuget/NuGetGallery/issues).</span></span>
