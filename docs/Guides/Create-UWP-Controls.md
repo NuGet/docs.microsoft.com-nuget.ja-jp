@@ -1,22 +1,25 @@
 ---
-title: "NuGet を使って UWP をパッケージ化する方法 | Microsoft Docs"
+title: NuGet を使って UWP をパッケージ化する方法 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 03/14/2018
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.prod: nuget
-ms.technology: 
-description: "必要なメタデータと、Visual Studio と Blend デザイナーのサポート ファイルが含まれている UWP コントロールが含まれている NuGet パッケージを作成する方法を説明します。"
-keywords: "NuGet UWP コントロール、Visual Studio XAML デザイナー、Blend デザイナー、カスタム コントロール"
+ms.technology: ''
+description: 必要なメタデータと、Visual Studio と Blend デザイナーのサポート ファイルが含まれている UWP コントロールが含まれている NuGet パッケージを作成する方法を説明します。
+keywords: NuGet UWP コントロール、Visual Studio XAML デザイナー、Blend デザイナー、カスタム コントロール
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 1af5118eb71836d8b8bcfa8ff713d9fef3c86374
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: f024fd1823c77d57d30c4f841bf03494194c8339
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="creating-uwp-controls-as-nuget-packages"></a>NuGet パッケージとして UWP コントロールを作成する
 
@@ -100,7 +103,7 @@ UWP パッケージに含まれる TargetPlatformVersion (TPV) と TargetPlatfor
     \lib\uap10.0\*
     \ref\uap10.0\*
 
-適切な TPMinV チェックを適用するには、[MSBuild ターゲット ファイル](/visualstudio/msbuild/msbuild-targets)を作成し、`build\uap10.0" folder as `<your_assembly_name>.targets 以下でパッケージ化します (<your_assembly_name>' は特定のアセンブリの名前に置き換えます)。
+適切な TPMinV チェックを適用するには、[MSBuild ターゲット ファイル](/visualstudio/msbuild/msbuild-targets)を作成し、`build\uap10.0" folder as `<your_assembly_name>.targets`, replacing ` 以下でパッケージ化します (<your_assembly_name>' は特定のアセンブリの名前に置き換えます)。
 
 ターゲット ファイルがどのように表示されるかの例を次に示します。
 
