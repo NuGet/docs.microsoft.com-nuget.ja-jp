@@ -102,6 +102,7 @@
 ## [パッケージ コンテンツ](api/package-base-address-resource.md)
 ## [URL の不正使用を報告する](api/report-abuse-resource.md)
 ## [カタログ](api/catalog-resource.md)
+## [速度の制限](api/rate-limits.md)
 ## [nuget.org プロトコル](api/nuget-protocols.md)
 # Visual Studio 機能拡張
 ## [Visual Studio の NuGet API](visual-studio-extensibility/nuget-api-in-visual-studio.md)
