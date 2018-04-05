@@ -1,26 +1,29 @@
 ---
-title: "NuGet パッケージとソース管理 | Microsoft Docs"
+title: NuGet パッケージとソース管理 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 07/17/2017
+ms.date: 03/16/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "バージョン管理システムとソース管理システム内で NuGet パッケージを処理する方法、git と TFVC でパッケージを省略する方法に関する考慮事項です。"
-keywords: "NuGet のソース管理、NuGet のバージョン管理、NuGet と git、NuGet と TFS、NuGet と TFVC、パッケージの省略、ソース管理リポジトリ、バージョン管理リポジトリ"
+ms.technology: ''
+description: バージョン管理システムとソース管理システム内で NuGet パッケージを処理する方法、git と TFVC でパッケージを省略する方法に関する考慮事項です。
+keywords: NuGet のソース管理、NuGet のバージョン管理、NuGet と git、NuGet と TFS、NuGet と TFVC、パッケージの省略、ソース管理リポジトリ、バージョン管理リポジトリ
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6261625d5d7eaa748f9ad15510b7b2af3c814e44
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 43fc1653616091b0f974903147645c0c99c8f57b
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="omitting-nuget-packages-in-source-control-systems"></a>ソース管理システムで NuGet パッケージを省略する
 
-通常、開発者はソース管理リポジトリの NuGet パッケージを省略し、代わりに[パッケージの復元](../consume-packages/package-restore.md)に依存して、ビルド前にプロジェクトの依存関係を再インストールします。
+通常、開発者はソース管理リポジトリの NuGet パッケージを省略し、代わりに[パッケージの復元](package-restore.md)に依存して、ビルド前にプロジェクトの依存関係を再インストールします。
 
 パッケージの復元に依存する理由には、次のようなものがあります。
 
@@ -29,11 +32,11 @@ ms.lasthandoff: 02/14/2018
 1. 使用中のパッケージを削除しないようにする必要があるので、未使用のパッケージ フォルダーのソリューションをクリーンにするのが難しくなります。
 1. パッケージを省略して、自分が依存するその他のユーザーからのコードとパッケージの間に所有者のクリーンな境界を維持します。 多くの NuGet パッケージは、独自のソース管理リポジトリに保持されます。
 
-パッケージの復元は NuGet を使用した既定の動作ですが、一部の手動の動作は、以下のセクションで示すように、ソース管理からパッケージ&mdash;名前は、プロジェクトの `packages` フォルダー&mdash;を省略する必要があります。
+パッケージの復元は NuGet と共に既定の動作ですが、ソース管理からパッケージ&mdash;つまり、プロジェクトの `packages` フォルダー&mdash;を省略するには、以下のセクションで示すように、一部手動の操作を実行する必要があります。
 
 ## <a name="omitting-packages-with-git"></a>Git でパッケージを省略する
 
-ソース管理に `packages` フォルダーが含まれないようにするには、[.gitignore ファイル](https://git-scm.com/docs/gitignore)を使用します。 [Visual Studio プロジェクトの `.gitignore` のサンプル](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore)を参照してください。
+[.gitignore ファイル](https://git-scm.com/docs/gitignore)を使用して、中でも NuGet パッケージ (`.nupkg`)、`packages` フォルダー、`project.assets.json` を省略します。 [Visual Studio プロジェクトの `.gitignore` のサンプル](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore)を参照してください。
 
 `.gitignore` ファイルの重要な部分は次のとおりです。
 
@@ -41,20 +44,24 @@ ms.lasthandoff: 02/14/2018
 # Ignore NuGet Packages
 *.nupkg
 
-# Ignore the packages folder
-**/packages/*
+# The packages folder can be ignored because of Package Restore
+**/[Pp]ackages/*
 
-# Include packages/build/, which is used as an MSBuild target
-!**/packages/build/
+# except build/, which is used as an MSBuild target.
+!**/[Pp]ackages/build/
 
-# Uncomment if necessary; generally it's regenerated when needed
-#!**/packages/repositories.config
+# Uncomment if necessary however generally it will be regenerated when needed
+#!**/[Pp]ackages/repositories.config
+
+# NuGet v3's project.json files produces more ignorable files
+*.nuget.props
+*.nuget.targets
 
 # Ignore other intermediate files that NuGet might create. project.lock.json is used in conjunction
-# with project.json; project.assets.json is used in conjunction with the PackageReference format.
+# with project.json (NuGet v3); project.assets.json is used in conjunction with the PackageReference
+# format (NuGet v4 and .NET Core).
 project.lock.json
 project.assets.json
-*.nuget.props
 ```
 
 ## <a name="omitting-packages-with-team-foundation-version-control"></a>Team Foundation バージョン管理でパッケージを省略する
@@ -92,7 +99,7 @@ project.assets.json
    # with additional folder names if it's not in the same folder as .tfignore.   
    packages
 
-   # Include package target files which may be required for MSBuild, again prefixing the folder name as needed.
+   # Exclude package target files which may be required for MSBuild, again prefixing the folder name as needed.
    !packages/*.targets
 
    # Omit temporary files

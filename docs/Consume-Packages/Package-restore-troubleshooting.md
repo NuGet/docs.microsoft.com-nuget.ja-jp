@@ -1,22 +1,25 @@
 ---
-title: "Visual Studio での NuGet パッケージの復元に関するトラブルシューティング | Microsoft Docs"
+title: Visual Studio での NuGet パッケージの復元に関するトラブルシューティング | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 03/13/2018
+ms.date: 03/16/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Visual Studio の一般的な NuGet の復元エラーの説明とトラブルシューティングの方法です。"
-keywords: "NuGet パッケージの復元、パッケージの復元、トラブルシューティング、問題解決"
+ms.technology: ''
+description: Visual Studio の一般的な NuGet の復元エラーの説明とトラブルシューティングの方法です。
+keywords: NuGet パッケージの復元、パッケージの復元、トラブルシューティング、問題解決
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 8efaed497a596921af3c73ab919831c73bf598e0
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 27a43ceaefdf3a7842183a64ea57d05416d6cb02
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="troubleshooting-package-restore-errors"></a>パッケージの復元エラーのトラブルシューティング
 
@@ -48,7 +51,10 @@ This project references NuGet package(s) that are missing on this computer.
 Use NuGet Package Restore to download them. The missing file is {name}.
 ```
 
-このエラーは、1 つ以上の NuGet パッケージの参照を含むプロジェクトをビルドしようとしましたが、それらのパッケージが現在プロジェクトにキャッシュされていないことを示します (パッケージは、プロジェクトが `packages.config` を使用する場合はソリューション ルートの `packages` フォルダーにキャッシュされ、プロジェクトが PackageReference 形式を使用する場合は `obj/project.assets.json` ファイルにキャッシュされます)。
+このエラーは、ビルドしようとしているプロジェクトに、現在コンピューターまたはプロジェクトにインストールされていない NuGet パッケージへの参照が 1 つ以上含まれている場合に発生します。
+
+- PackageReference 管理形式を使用する場合、このエラーは、「[グローバル パッケージとキャッシュ フォルダーの管理](managing-the-global-packages-and-cache-folders.md)」で説明されているように、パッケージが "*グローバル パッケージ*" フォルダーにインストールされていないことを意味します。
+- `packages.config` を使用する場合、このエラーは、パッケージがソリューション ルートにある `packages` フォルダーにインストールされていないことを意味します。
 
 このような状況は、ソース管理や別のダウンロードからプロジェクトのソース コードを取得する場合によく発生します。 パッケージは、nuget.org のようなパッケージ フィードから復元できるので、通常はソース管理やダウンロードから除外されます ([パッケージとソース管理](Packages-and-Source-Control.md)に関するページを参照してください)。 パッケージを含めると、リポジトリがいっぱいになったり、.zip ファイルが不必要に大きくなったりします。
 
@@ -59,7 +65,7 @@ Use NuGet Package Restore to download them. The missing file is {name}.
 - コマンド ラインで `nuget restore` を実行します (ただし、`dotnet restore` を使用する `dotnet` で作成されたプロジェクトは例外です)。
 - PackageReference 形式を使用するプロジェクトのコマンド ラインで、`msbuild /t:restore` を実行します。
 
-復元が成功すると、`packages` フォルダー (`packages.config` の使用時) または `obj/project.assets.json` ファイル (PackageReference の使用時) のいずれかが表示されます。 この場合、プロジェクトを正常にビルドできるようになります。 ビルドできない場合は、フォローを受けられるように [GitHub で問題を報告してください](https://github.com/NuGet/docs.microsoft.com-nuget/issues)。
+復元に成功したら、"*グローバル パッケージ*" フォルダーにパッケージが表示されます。 PackageReference を使用するプロジェクトの場合、復元によって `obj/project.assets.json` ファイルが再び作成されます。`packages.config` を使用するプロジェクトの場合、プロジェクトの `packages` フォルダーにパッケージが表示されます。 この場合、プロジェクトを正常にビルドできるようになります。 ビルドできない場合は、フォローを受けられるように [GitHub で問題を報告してください](https://github.com/NuGet/docs.microsoft.com-nuget/issues)。
 
 <a name="assets"></a>
 
@@ -71,7 +77,9 @@ Use NuGet Package Restore to download them. The missing file is {name}.
 Assets file '<path>\project.assets.json' not found. Run a NuGet package restore to generate this file.
 ```
 
-このエラーは、[前のセクション](#missing)で説明したエラーと同じ理由で発生し、同じ救済手段を利用できます。 たとえば、ソース管理から取得した .NET Core プロジェクトで `msbuild` を実行しても、パッケージは自動的に復元されません。 この場合、`msbuild /t:restore` の後に `msbuild` を実行するか、`dotnet build` を使用します (これでパッケージが自動的に復元されます)。
+PackageReference 管理形式を使用する場合、`project.assets.json` ファイルによってプロジェクトの依存関係グラフが保持されます。このグラフを使用して、必要なパッケージがすべてコンピューターにインストールされていることを確認します。 このファイルはパッケージの復元を通じて動的に生成されるため、通常はソース管理に追加されません。 その結果、自動的にパッケージを復元しない `msbuild` などのツールでプロジェクトをビルドすると、このエラーが発生します。
+
+この場合、`msbuild /t:restore` の後に `msbuild` を実行するか、`dotnet build` を使用します (これでパッケージが自動的に復元されます)。 また、[前のセクション](#missing)のいずれかの方法を使用してパッケージを復元することもできます。
 
 <a name="consent"></a>
 
@@ -103,11 +111,12 @@ during build.' You can also give consent by setting the environment variable
 </configuration>
 ```
 
-`nuget.config` の `packageRestore` 設定を直接編集する場合は、オプションのダイアログ ボックスに現在の値が表示されるように Visual Studio を再起動します。
+> [!Important]
+> `nuget.config` の `packageRestore` 設定を直接編集する場合は、オプションのダイアログ ボックスに現在の値が表示されるように Visual Studio を再起動します。
 
 ## <a name="other-potential-conditions"></a>その他の考えられる条件
 
-- ファイルが見つからないため、NuGet の復元を使用してダウンロードするというメッセージのビルド エラーが発生することがあります。 ただし、復元を実行すると、"すべてのパッケージは既にインストールされており、復元するものはありません" と表示されることがあります。 この場合は、`packages` フォルダー (`packages.config` の使用時) または `obj/project.assets.json` ファイル (PackageReference の使用時) を削除し、復元を実行し直してください。
+- ファイルが見つからないため、NuGet の復元を使用してダウンロードするというメッセージのビルド エラーが発生することがあります。 ただし、復元を実行すると、"すべてのパッケージは既にインストールされており、復元するものはありません" と表示されることがあります。 この場合は、`packages` フォルダー (`packages.config` の使用時) または `obj/project.assets.json` ファイル (PackageReference の使用時) を削除し、復元を実行し直してください。 エラーが引き続き発生する場合は、コマンドラインから `nuget locals all -clear` または `dotnet locals all --clear` を使用して、「[グローバル パッケージとキャッシュ フォルダーの管理](managing-the-global-packages-and-cache-folders.md)」で説明されているように、"*グローバル パッケージ*" フォルダーとキャッシュ フォルダーをクリアします。
 
 - ソース管理からプロジェクトを取得するときに、プロジェクト フォルダーが読み取り専用に設定されている可能性があります。 フォルダーのアクセス許可を変更し、パッケージの復元を実行し直してください。
 

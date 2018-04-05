@@ -1,22 +1,25 @@
 ---
-title: "project.json の NuGet パッケージの作成者に与える影響 | Microsoft Docs"
+title: project.json の NuGet パッケージの作成者に与える影響 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/18/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "NuGet 3.x での project.json の実装が、サポートされていない機能、コンテンツ、パッケージ形式などのパッケージの作成者にどのように影響するかの詳細です。"
-keywords: "NuGet と project.json、project.json の影響、パッケージの作成に関する考慮事項、project.json の機能"
+ms.technology: ''
+description: NuGet 3.x での project.json の実装が、サポートされていない機能、コンテンツ、パッケージ形式などのパッケージの作成者にどのように影響するかの詳細です。
+keywords: NuGet と project.json、project.json の影響、パッケージの作成に関する考慮事項、project.json の機能
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b732d48b169825764d614c338658f8c6ef45e765
-ms.sourcegitcommit: eabd401616a98dda2ae6293612acb3b81b584967
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 6e8af98504a2866106e84943989aeb91f2e9c1fb
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="impact-of-projectjson-when-creating-packages"></a>パッケージを作成するときの project.json の影響
 
@@ -51,7 +54,7 @@ NuGet 3 以降で使用される `project.json` システムは、次のセク�
 
 コンテンツ ファイルはパッケージ内で引き続き実行することができ、現在は無視されますが、エンド ユーザーは引き続き適切な位置にコピーできます。
 
-コンテンツ ファイルを戻す提案のいずれかを表示でき、その進行状況はこちらで見守ることができます: [https://github.com/NuGet/Home/issues/627](https://github.com/NuGet/Home/issues/627)。
+コンテンツ ファイルを戻すための提案の 1 つと、またその進捗について確認するには、[https://github.com/NuGet/Home/issues/627](https://github.com/NuGet/Home/issues/627) を参照してください。
 
 ## <a name="impact-for-package-authors"></a>パッケージの作成者への影響
 

@@ -1,26 +1,29 @@
 ---
-title: "NuGet project.json のアーカイブ コンテンツ | Microsoft Docs"
+title: NuGet project.json のアーカイブ コンテンツ | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/17/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "NuGet のドキュメントの他の分野から削除された project.json のその他のコンテンツ。"
-keywords: "NuGet project.json ファイル"
+ms.technology: ''
+description: NuGet のドキュメントの他の分野から削除された project.json のその他のコンテンツ。
+keywords: NuGet project.json ファイル
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 42a40c6c637839c13effc9e476ac5702a92cfd2a
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 16361fe16d8ecc7064af4b6d636435a31a5663dc
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="projectjson-archive"></a>project.json のアーカイブ
 
-`project.json`参照形式は、NuGet 3.x で導入され、特定のプロジェクトの種類に使用されていました。 これは、PackageReference 形式の導入に伴い、使用されなくなりました。PackageReference 形式では、依存関係のリストがプロジェクト ファイルに直接格納されます。
+`project.json` 管理形式は、NuGet 3.x で導入され、特定のプロジェクトの種類に使用されていました。 これは、PackageReference 形式の導入に伴い、使用されなくなりました。PackageReference 形式では、依存関係のリストがプロジェクト ファイルに直接格納されます。
 
 関連項目:
 
@@ -28,11 +31,11 @@ ms.lasthandoff: 02/01/2018
 - [パッケージ作成者に対する project.json の影響](project-json-impact.md)
 - [project.json および UWP](project-json-and-uwp.md)
 
-## <a name="projectjson-reference-format"></a>project.json 参照形式
+## <a name="projectjson-management-format"></a>project.json の管理形式
 
 *"もともとは「[パッケージの復元](../what-is-nuget.md)」内。"*
 
-参照形式のリストには、次のものが含まれます。
+管理形式の一覧には次が含まれます。
 
 - [`project.json`](project-json.md): *(使用されていない)* プロジェクトの依存関係のリストを保持する JSON ファイルです。全体的なパッケージ グラフは関連ファイル `project.lock.json` に含まれます。 PackageReference が優先され、この形式は使用されていません。
 
@@ -138,7 +141,7 @@ PackageReference の動作は、`project.json` にも適用されます。 nuget
 
 *"もともとは「[NuGet.Config 参照](../reference/nuget-config-file.md)」内。"*
 
-`globalPackagesFolder` は、`project.json` にのみ適用されます。
+`globalPackagesFolder` は、`project.json` にのみ適用されます。 (追加情報: PackageReference にも適用されます。)
 
 ### <a name="nuspec-file-reference"></a>nuspec ファイル参照
 
@@ -150,7 +153,7 @@ PackageReference の動作は、`project.json` にも適用されます。 nuget
 
 *もともとは「[パッケージ マネージャー UI リファレンス](../tools/package-manager-ui.md)」内。*
 
-`project.json` 参照形式を使用するプロジェクトは、**[プレビュー ウィンドウを表示する]** オプションのみを表示します。
+`project.json` 管理形式を使用するプロジェクトでは、**[プレビュー ウィンドウを表示する]** オプションのみが表示されます。
 
 ### <a name="visual-studio-templates"></a>Visual Studio テンプレート
 

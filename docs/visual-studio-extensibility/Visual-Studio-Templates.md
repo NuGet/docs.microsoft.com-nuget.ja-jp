@@ -1,22 +1,25 @@
 ---
-title: "Visual Studio テンプレートの NuGet パッケージ | Microsoft Docs"
+title: Visual Studio テンプレートの NuGet パッケージ | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/03/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "NuGet パッケージを Visual Studio プロジェクトと項目テンプレートの一部として含める方法について説明します。"
-keywords: "Visual Studio の NuGet、Visual Studio プロジェクト テンプレート、Visual Studio 項目テンプレート、プロジェクト テンプレートのパッケージ、項目テンプレートのパッケージ"
+ms.technology: ''
+description: NuGet パッケージを Visual Studio プロジェクトと項目テンプレートの一部として含める方法について説明します。
+keywords: Visual Studio の NuGet、Visual Studio プロジェクト テンプレート、Visual Studio 項目テンプレート、プロジェクト テンプレートのパッケージ、項目テンプレートのパッケージ
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 65b914e1fa59c28615f195b470880a12bf80efbb
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 8c1751ba9caf5e71ace7a81575e4e5448b1e4185
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="packages-in-visual-studio-templates"></a>Visual Studio テンプレートのパッケージ
 
@@ -62,7 +65,7 @@ Visual Studio プロジェクト テンプレートと項目テンプレート�
     </WizardData>
     ```
 
-    *(NuGet 2.2.1 以降)* 複数のパッケージ ソースをサポートするため、ウィザードは複数の `<package>` 要素をサポートします。 `id` と `version` の両方の属性が必要です。つまり、新しいバージョンが利用可能な場合でも、パッケージの特定のバージョンがインストールされます。 これによりパッケージの更新によりテンプレートが破損されるのを防ぎ、テンプレートを使用する開発者にパッケージの更新の選択を任せます。
+    複数のパッケージ ソースをサポートするため、ウィザードでは複数の `<package>` 要素がサポートされます。 `id` と `version` の両方の属性が必要です。つまり、新しいバージョンが利用可能な場合でも、パッケージの特定のバージョンがインストールされます。 これによりパッケージの更新によりテンプレートが破損されるのを防ぎ、テンプレートを使用する開発者にパッケージの更新の選択を任せます。
 
 1. 次のセクションで説明するように、NuGet がパッケージを検索するリポジトリを指定します。
 

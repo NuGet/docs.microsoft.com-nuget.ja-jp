@@ -1,23 +1,26 @@
 ---
-title: "NuGet 4.5 RTM のリリース ノート | Microsoft Docs"
+title: NuGet 4.5 RTM のリリース ノート | Microsoft Docs
 author: anangaur
 ms.author: anangaur
 manager: unniravindranathan
 ms.date: 12/4/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "NuGet 4.5 RTM の既知の問題、バグ修正、追加機能、および DCR を含む、そのリリース ノートです。"
-keywords: "NuGet 4.5 RTM リリース ノート, バグ修正, 既知の問題, 追加機能, DCR"
+ms.technology: ''
+description: NuGet 4.5 RTM の既知の問題、バグ修正、追加機能、および DCR を含む、そのリリース ノートです。
+keywords: NuGet 4.5 RTM リリース ノート, バグ修正, 既知の問題, 追加機能, DCR
 ms.reviewer:
 - karann-msft
 - unniravindranathan
 - anangaur
-ms.openlocfilehash: e4727d46812cbfeb2e7094ddf28bf4e738e8aeea
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: dbde7256ed5526761107272792d7c7cdc324a3ef
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-45-rtm-release-notes"></a>NuGet 4.5 RTM リリース ノート
 
@@ -72,7 +75,7 @@ NuGet 4.4 RTM で修正された問題については、[NuGet 4.4 RTM のリリ
 - 15.5p1 での[回帰]: Portable0.0 がスキップされる - [#6105](https://github.com/NuGet/Home/issues/6105)
 - 復元後パッケージのアセットが見つからない - [#5995](https://github.com/NuGet/Home/issues/5995)
 - スペースを含む URI でプラグイン資格情報プロバイダーが動作しない - [#5982](https://github.com/NuGet/Home/issues/5982)
-- パッケージの復元に失敗した場合、最小の詳細がオンの場合でもエラーが出力される必要がある - [#5658](https://github.com/NuGet/Home/issues/5658)
+- パッケージの復元に失敗した場合、最小の詳細がオンであっても、エラーは出力に印字される必要がある - [#5658](https://github.com/NuGet/Home/issues/5658)
 - ソリューション レベルでの dotnet restore が ReferenceOutputAssembly が false の ProjectReference に従わず、ビルドがランダムに失敗する - [#5490](https://github.com/NuGet/Home/issues/5490)
 - オブジェクト メソッドで PMC のオートコンプリートが正しく動作しない - [#4800](https://github.com/NuGet/Home/issues/4800)
 - Visual Studio 2015 ツールセットで nuget.exe の復元が失敗する - [#4713](https://github.com/NuGet/Home/issues/4713)

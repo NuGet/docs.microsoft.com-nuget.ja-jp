@@ -1,22 +1,25 @@
 ---
-title: "NuGet の既知の問題 | Microsoft Docs"
+title: NuGet の既知の問題 | Microsoft Docs
 author: karann-msft
 ms.author: karann-msft
 manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "認証、パッケージのインストール、ツールなど、NuGet に関する既知の問題。"
-keywords: "NuGet の既知の問題, NuGet の問題"
+ms.technology: ''
+description: 認証、パッケージのインストール、ツールなど、NuGet に関する既知の問題。
+keywords: NuGet の既知の問題, NuGet の問題
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ac00e3f11c54290a31319e7f2946fd965a0a9288
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: c36da5dc73dddbd540a36d171583cbf542e0678f
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="known-issues-with-nuget"></a>NuGet に関する既知の問題
 
@@ -227,7 +230,7 @@ Windows Phone Tools は Visual Studio 拡張機能マネージャーをサポー
 
 ## <a name="changing-the-capitalization-of-nuget-package-ids-breaks-package-restore"></a>NuGet パッケージ ID の大文字と小文字を変更すると、パッケージの復元が中断する
 
-[この GitHub の問題](https://github.com/Particular/NServiceBus/issues/1271#issuecomment-20865932)で議論されているように、NuGet パッケージの大文字と小文字を変更することは NuGet でサポートされていますが、既存の大文字と小文字が異なるパッケージがローカル パッケージ キャッシュに存在する場合、パッケージの復元時に複雑な状況になります。 ビルド時のパッケージの復元で発生する可能性のある中断について、パッケージの既存のユーザーに伝える方法がある場合にのみ、大文字と小文字の変更を要求することをお勧めします。
+[この GitHub の問題](https://github.com/Particular/NServiceBus/issues/1271#issuecomment-20865932)で議論されているように、NuGet ではパッケージの大文字と小文字の変更がサポートされていますが、自分の "*グローバル パッケージ*" フォルダーに大文字と小文字が異なるパッケージを既に持っているユーザーがいた場合、パッケージを復元する際に困難な状況が発生します。 ビルド時のパッケージの復元で発生する可能性のある中断について、パッケージの既存のユーザーに伝える方法がある場合にのみ、大文字と小文字の変更を要求することをお勧めします。
 
 ## <a name="reporting-issues"></a>レポートの問題
 

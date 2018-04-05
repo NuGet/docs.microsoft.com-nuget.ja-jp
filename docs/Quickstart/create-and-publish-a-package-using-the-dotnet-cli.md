@@ -1,22 +1,25 @@
 ---
-title: "dotnet CLI を使用した NuGet パッケージの作成と公開 | Microsoft Docs"
+title: dotnet CLI を使用した NuGet パッケージの作成と公開 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/24/2018
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.prod: nuget
-ms.technology: 
-description: ".NET Core CLI (dotnet) を使用した NuGet パッケージの作成と公開に関するチュートリアル。"
-keywords: "NuGet パッケージの作成、NuGet パッケージの公開、NuGet チュートリアル、NuGet パッケージの dotnet publish"
+ms.technology: ''
+description: .NET Core CLI (dotnet) を使用した NuGet パッケージの作成と公開に関するチュートリアル。
+keywords: NuGet パッケージの作成、NuGet パッケージの公開、NuGet チュートリアル、NuGet パッケージの dotnet publish
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 086de5378fe4ae928e6bd00cd3a87afd7c366a01
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 536e39ae64649ca1c11afa95c20872515e9e4c83
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-and-publish-a-package"></a>パッケージの作成と公開
 
@@ -59,7 +62,7 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="run-the-pack-command"></a>pack コマンドを実行する
 
-プロジェクトから NuGet パッケージ (`.nupkg` ファイル) をビルドするには、`dotnet pack` コマンドを実行します。
+プロジェクトから NuGet パッケージ (`.nupkg` ファイル) を作成するには、`dotnet pack` コマンドを実行します。このコマンドではプロジェクトのビルドも自動的に行われます。
 
 ```cli
 # Uses the project file in the current folder by default
@@ -75,6 +78,14 @@ Copyright (C) Microsoft Corporation. All rights reserved.
   Restore completed in 29.91 ms for D:\proj\AppLoggerNet\AppLogger\AppLogger.csproj.
   AppLogger -> D:\proj\AppLoggerNet\AppLogger\bin\Debug\netstandard2.0\AppLogger.dll
   Successfully created package 'D:\proj\AppLoggerNet\AppLogger\bin\Debug\AppLogger.1.0.0.nupkg'.
+```
+
+### <a name="automatically-generate-package-on-build"></a>ビルド時に自動的にパッケージを生成する
+
+`dotnet build` の実行時に自動的に `dotnet pack` を実行させるには、プロジェクト ファイルの `<PropertyGroup>` 内に次の行を追加します。
+
+```xml
+<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 ```
 
 ## <a name="publish-the-package"></a>パッケージを公開する
@@ -106,4 +117,4 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 - [複数のターゲット フレームワークのサポート](../create-packages/supporting-multiple-target-frameworks.md)
 - [パッケージのバージョン管理](../reference/package-versioning.md)
 - [ローカライズされたパッケージを作成する](../create-packages/creating-localized-packages.md)
-- [パッケージの署名](../create-packages/Sign-a-package.md)
+- [署名パッケージ](../create-packages/Sign-a-package.md)
