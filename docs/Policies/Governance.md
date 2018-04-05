@@ -1,22 +1,25 @@
 ---
-title: "NuGet プロジェクトのガバナンス | Microsoft Docs"
+title: NuGet プロジェクトのガバナンス | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/18/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "コミッター、共同作成者、およびユーザーの役割と責任を含む、NuGet のガバナンス モデル。"
-keywords: "NuGet ガバナンス, NuGet のヴェノベレント ディクテーター, コミッターの責任, 共同作成者の責任, ユーザーの責任"
+ms.technology: ''
+description: コミッター、共同作成者、およびユーザーの役割と責任を含む、NuGet のガバナンス モデル。
+keywords: NuGet ガバナンス, NuGet のヴェノベレント ディクテーター, コミッターの責任, 共同作成者の責任, ユーザーの責任
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ea1ddcc3e145afe3b905b23db37e1e61500200bb
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: aa48b95482c65de47d54daff142402dd2ff6558a
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-governance"></a>NuGet のガバナンス
 

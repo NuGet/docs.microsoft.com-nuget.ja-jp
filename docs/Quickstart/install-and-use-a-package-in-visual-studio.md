@@ -1,26 +1,29 @@
 ---
-title: "Visual Studio 内から NuGet パッケージを使用するための入門ガイド | Microsoft Docs"
+title: Visual Studio 内から NuGet パッケージを使用するための入門ガイド | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/23/2018
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.prod: nuget
-ms.technology: 
-description: "Visual Studio プロジェクトで NuGet パッケージをインストールし、使用するプロセスを説明したチュートリアル。"
-keywords: "NuGet をインストールする, NuGet パッケージの使用, NuGet パッケージをインストールする, NuGet パッケージ参照, NuGet パッケージを使用する"
+ms.technology: ''
+description: Visual Studio プロジェクトで NuGet パッケージをインストールし、使用するプロセスを説明したチュートリアル。
+keywords: NuGet をインストールする, NuGet パッケージの使用, NuGet パッケージをインストールする, NuGet パッケージ参照, NuGet パッケージを使用する
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ff905fec6d6af4fa40fd4331cb970121b6eb0879
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 4205893cc02cffff8926513a555393d10c046f43
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="install-and-use-a-package-in-visual-studio"></a>Visual Studio でパッケージをインストールして使用する
 
-NuGet パッケージには、他の開発者がお客様のプロジェクトで使用できるようにした、再利用可能なコードが含まれます。 背景については、[NuGet の紹介](../What-is-NuGet.md)に関するページを参照してください。 一般的な [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) パッケージおよびユニバーサル Windows プラットフォーム (UWP) プロジェクトに関するこの記事で説明するとおり、パッケージを Visual Studio プロジェクトにインストールするには、パッケージ マネージャー UI またはパッケージ マネージャー コンソールを使用します。
+NuGet パッケージには、他の開発者がお客様のプロジェクトで使用できるようにした、再利用可能なコードが含まれます。 背景については、[NuGet の紹介](../What-is-NuGet.md)に関するページを参照してください。 Package Manager UI または Package Manager Console を使用して、パッケージが Visual Studio プロジェクトにインストールされます。 この記事では、よく使用されている [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) パッケージとユニバーサル Windows プラットフォーム (UWP) プロジェクトを使用したプロセスを示します。 同じプロセスは、他の任意の .NET または .NET Core プロジェクトにも適用されます。
 
 インストール後、`using <namespace>` でコード内のパッケージを参照します。\<namespace\> は、使用しているパッケージに固有です。 参照が行われたら、その API からパッケージを呼び出すことができます。
 
@@ -36,7 +39,9 @@ NuGet パッケージには、他の開発者がお客様のプロジェクト�
 
 ## <a name="create-a-project"></a>プロジェクトを作成する
 
-NuGet パッケージは、ある種類の .NET プロジェクトにインストールできます。 このチュートリアルでは、単純なユニバーサル Windows (UWP) アプリを使用します。 **[ファイル]、[新しいプロジェクト]** の順に使用し、**[Windows ユニバーサル]、[空白のアプリ (ユニバーサル Windows)]** の順に選択して、Visual Studio でプロジェクトを作成します。 プロンプトが表示されたら、ターゲット バージョンと最小バージョンの既定値を受け入れます。
+NuGet パッケージは任意の .NET プロジェクトにインストールできます。ただし、パッケージが同じターゲット フレームワークをプロジェクトとしてサポートしていることが条件です。
+
+このチュートリアルでは、単純なユニバーサル Windows (UWP) アプリを使用します。 **[ファイル]、[新しいプロジェクト]** の順に使用し、**[Windows ユニバーサル]、[空白のアプリ (ユニバーサル Windows)]** の順に選択して、Visual Studio でプロジェクトを作成します。 プロンプトが表示されたら、ターゲット バージョンと最小バージョンの既定値を受け入れます。
 
 ## <a name="add-the-newtonsoftjson-nuget-package"></a>Newtonsoft.Json NuGet パッケージを追加する
 
@@ -56,7 +61,7 @@ NuGet パッケージは、ある種類の .NET プロジェクトにインス�
 
 1. (Visual Studio 2017) パッケージ管理形式を選択するように求められたら、**[プロジェクト ファイルの PackageReference]** を選択します。
 
-    ![パッケージ参照形式を選択する](media/QS_Use-03b-SelectFormat.png)
+    ![パッケージ管理形式の選択](media/QS_Use-03b-SelectFormat.png)
 
 1. 変更の確認を求められた場合、**[OK]** を選択します。
 

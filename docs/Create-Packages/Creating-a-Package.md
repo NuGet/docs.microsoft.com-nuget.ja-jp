@@ -1,23 +1,25 @@
 ---
-title: "NuGet パッケージの作成方法 | Microsoft Docs"
+title: NuGet パッケージの作成方法 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 12/12/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-ms.assetid: 456797cb-e3e4-4b88-9b01-8b5153cee802
-description: "NuGet パッケージを設計し、作成する過程を詳しく説明します。ファイルやバージョン管理など、重要な決定ポイントが含まれます。"
-keywords: "NuGet パッケージ作成, パッケージの作成, nuspec マニフェスト, NuGet パッケージ規則, NuGet パッケージ バージョン"
+ms.technology: ''
+description: NuGet パッケージを設計し、作成する過程を詳しく説明します。ファイルやバージョン管理など、重要な決定ポイントが含まれます。
+keywords: NuGet パッケージ作成, パッケージの作成, nuspec マニフェスト, NuGet パッケージ規則, NuGet パッケージ バージョン
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 613e3eb9d08a0da96340f32b13c486508fa32439
-ms.sourcegitcommit: df21fe770900644d476d51622a999597a6f20ef8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 7bb7e16a317aff908effe0b6c603ea53c9e8a563
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="creating-nuget-packages"></a>NuGet パッケージの作成
 
@@ -131,7 +133,7 @@ ms.lasthandoff: 03/12/2018
 
 依存関係の宣言とバージョン番号の指定については、「[パッケージのバージョン管理](../reference/package-versioning.md)」を参照してください。 パッケージで直接、依存関係からアセットを表面化させることもできます。`dependency` 要素で `include` 属性と `exclude` 属性を使用します。 [.nuspec リファレンスの依存関係](../reference/nuspec.md#dependencies)をご覧ください。
 
-マニフェストはそれから作成されたパッケージに含まれるため、既存のパッケージを調べることで追加の例をいくつも見つけることができます。 探す場所としては、コンピューターのグローバル パッケージ キャッシュが適しています。この場所は次のコマンドで返されます。
+マニフェストはそれから作成されたパッケージに含まれるため、既存のパッケージを調べることで追加の例をいくつも見つけることができます。 探す場所としては、コンピューターの "*グローバル パッケージ*" フォルダーが適しています。この場所は次のコマンドで返されます。
 
 ```cli
 nuget locals -list global-packages
@@ -351,7 +353,9 @@ NuGet 3.5+ では、パッケージに特定の*パッケージの種類*の印�
 
 [NuGet 2.5](../release-notes/NuGet-2.5.md#automatic-import-of-msbuild-targets-and-props-files) で、パッケージに MSBuild のプロパティとターゲットを含めることができるようになりました。そのため、`metadata` 要素に `minClientVersion="2.5"` 属性を追加して、パッケージを使用するために必要な最小限の NuGet クライアント バージョンを示すことをお勧めします。
 
-NuGet で `\build` ファイルを使用してパッケージをインストールすると、`.targets` ファイルと `.props` ファイルを指す MSBuild `<Import>` 要素がプロジェクト ファイルに追加されます。 (`.props` はプロジェクト ファイルの一番上に、`.targets` は一番下に追加されます。)
+NuGet で `\build` ファイルを使用してパッケージをインストールすると、`.targets` ファイルと `.props` ファイルを指す MSBuild `<Import>` 要素がプロジェクト ファイルに追加されます。 (`.props` はプロジェクト ファイルの一番上に、`.targets` は一番下に追加されます。)別個の条件付き MSBuild `<Import>` 要素が、各ターゲット フレームワークに追加されます。
+
+相互フレームワーク ターゲットの MSBuild `.props` および `.targets` ファイルは、`\buildCrossTargeting` フォルダーに配置できます。 パッケージ インストール時に、NuGet は対応する `<Import>` 要素を条件付きのプロジェクト ファイルに追加します。その際、ターゲット フレームワークは設定されません (MSBuild プロパティ `$(TargetFramework)` は必ず空になっています)。
 
 NuGet 3.x を使用する場合、ターゲットはプロジェクトに追加されませんが、`project.lock.json` を通じて使用できます。
 
@@ -372,7 +376,7 @@ COM 相互運用アセンブリを含むパッケージには、PackageReference
 </Target>
 ```
 
-`packages.config` 参照形式を利用するとき、パッケージからアセンブリの参照を追加すると、NuGet と Visual Studio は COM 相互運用アセンブリがないか調べ、プロジェクト ファイルで `EmbedInteropTypes` を true に設定します。 この場合、ターゲットが上書きされます。
+`packages.config` 管理形式を利用するとき、パッケージからアセンブリの参照を追加すると、NuGet と Visual Studio は COM 相互運用アセンブリがないか調べ、プロジェクト ファイルで `EmbedInteropTypes` を true に設定します。 この場合、ターゲットが上書きされます。
 
 また、既定では、[ビルド アセットの推移的なフローはありません](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)。 ここで説明したように作成したパッケージの動作は、プロジェクトからプロジェクト参照に推移的依存関係として引き出されたときとは異なります。 パッケージの利用者は、ビルドを含めないように PrivateAssets の既定値を変更することでそれをフローさせることができます。
 

@@ -1,23 +1,25 @@
 ---
-title: "NuGet パッケージの検索と選択 | Microsoft Docs"
+title: NuGet パッケージの検索と選択 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 12/07/2017
+ms.date: 03/16/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-ms.assetid: 8886f899-797b-4704-9d16-820b55b71186
-description: "NuGet 検索構文の詳細を含む、プロジェクトに最適な NuGet パッケージを検索して選択する方法の概要。"
-keywords: "NuGet パッケージの利用, NuGet パッケージの検出, 最適な NuGet パッケージ, パッケージの決定, パッケージの利用, パッケージの評価, NuGet 検索構文"
+ms.technology: ''
+description: NuGet 検索構文の詳細を含む、プロジェクトに最適な NuGet パッケージを検索して選択する方法の概要。
+keywords: NuGet パッケージの利用, NuGet パッケージの検出, 最適な NuGet パッケージ, パッケージの決定, パッケージの利用, パッケージの評価, NuGet 検索構文
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0c52fa237a663fcf227e8336534d344e432523b4
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 319361623e60b8bdfe3c2dbc9bdcae65783a17e3
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>プロジェクトの NuGet パッケージの検索と評価
 
@@ -41,7 +43,7 @@ nuget.org にアクセスしたとき、または Visual Studio でパッケー�
 
 ### <a name="does-the-package-support-my-projects-target-framework"></a>パッケージでプロジェクトのターゲット フレームワークはサポートされますか?
 
-NuGet でパッケージがプロジェクトにインストールされるのは、そのパッケージのサポートされているフレームワークにプロジェクトのターゲット フレームワークが含まれている場合のみです  (パッケージの作成時にこれがどのように行われるかについては、「[Supporting multiple target frameworks](../create-packages/supporting-multiple-target-frameworks.md)」 (複数のターゲット フレームワークのサポート) を参照してください)。パッケージに互換性がない場合、NuGet はエラーを表示します。
+NuGet でパッケージがプロジェクトにインストールされるのは、そのパッケージのサポートされているフレームワークにプロジェクトのターゲット フレームワークが含まれている場合のみです  パッケージに互換性がない場合、NuGet はエラーを表示します。
 
 サポートされているフレームワークが nuget.org ギャラリーに直接リストされるパッケージもありますが、そのようなデータは必要でないため、多くのパッケージにはそのリストは含まれません。 現時点では、特定のターゲット フレームワークをサポートするパッケージを nuget.org で検索する手段はありません (この機能は検討中です。[NuGet の問題 2936](https://github.com/NuGet/NuGetGallery/issues/2936) を参照してください)。
 
@@ -59,7 +61,7 @@ NuGet でパッケージがプロジェクトにインストールされるの�
 
 ![nuget.org の [プレリリースを含める] チェックボックス](media/Finding-06-include-prerelease.png)
 
-Visual Studio の場合、また NuGet CLI を使用する場合、既定では NuGet にプレリリース版は含まれません。 この動作を変更するには、次の手順を実行します。
+Visual Studio の場合、また、NuGet CLI および dotnet CLI ツールを使用する場合、既定では NuGet にプレリリース版は含まれません。 この動作を変更するには、次の手順を実行します。
 
 - **Visual Studio のパッケージ マネージャー UI**: **[NuGet パッケージの管理]** UI で、**[プレリリースを含める]** ボックスを設定します。 このボックスを設定または設定解除するとパッケージ マネージャー UI とインストールできるバージョンのリストが更新されます。
 
@@ -67,7 +69,9 @@ Visual Studio の場合、また NuGet CLI を使用する場合、既定では 
 
 - **パッケージ マネージャー コンソール**: `Find-Package`、`Get-Package`、`Install-Package`、`Sync-Package`、`Update-Package` コマンドで `-IncludePrerelease` スイッチを使用します。 「[PowerShell Reference](../tools/powershell-reference.md)」 (PowerShell リファレンス) を参照してください。
 
-- **NuGet CLI**: `install`、`update`、`delete`、`mirror` コマンドで `-prerelease` スイッチを使用します。 「[NuGet CLI reference](../tools/nuget-exe-cli-reference.md)」 (NuGet CLI リファレンス) を参照してください。
+- **nuget.exe CLI**: `install`、`update`、`delete`、`mirror` コマンドで `-prerelease` スイッチを使用します。 「[NuGet CLI reference](../tools/nuget-exe-cli-reference.md)」(NuGet CLI リファレンス) を参照してください。
+
+- **dotnet.exe CLI**: `-v` 引数を使用して、正確なプレリリース バージョンを指定します。 「[dotnet add package](/dotnet/core/tools/dotnet-add-package)」を参照してください。
 
 <a name="native-cpp-packages"></a>
 
@@ -79,7 +83,7 @@ NuGet では、Visual Studio の C++ プロジェクトで使用できるネイ�
 
 ## <a name="evaluating-packages"></a>パッケージの評価
 
-パッケージの有用性を評価する最良の方法は、そのパッケージをダウンロードして、自身のコードで試してみることです。 結局、人気の高いパッケージはどれも最初はごく少数の開発者のみが使用するため、あなたは早期導入者の 1 人である可能性があります  (nuget.org のすべてのパッケージに対して、日常的にウイルス スキャンが実行されていることに注意してください)。
+パッケージの有用性を評価する最適な方法は、該当のパッケージをダウンロードし、自分のコードで試行してみることです (なお、nuget.org のすべてのパッケージでは、定期的にウィルスをスキャンしています)。 結局、人気の高いパッケージはどれも最初はごく少数の開発者のみが使用するため、あなたは早期導入者の 1 人である可能性があります 
 
 同時に、NuGet パッケージを使用するということはそれに依存することを意味するため、堅牢で信頼性が高いことを確認する必要があります。 パッケージをインストールして直接テストするには時間がかかるため、パッケージのリスト ページの情報を使用して、パッケージの品質について多くを学習することもできます。
 
@@ -93,7 +97,7 @@ NuGet では、Visual Studio の C++ プロジェクトで使用できるネイ�
 
 - *最近のインストール*: パッケージ ページの **[統計]** で、**[View full stats]\(完全な統計を表示\)** を選択します。完全な統計のページには、バージョン番号ごとに過去 6 週間のパッケージのインストール数が表示されます。 他の開発者が積極的に使用しているパッケージを選択することをお勧めします。
 
-- *サポート*: パッケージ ページの **[情報]** で、**[プロジェクト サイト]** (使用可能な場合) を選択すると、使用可能なサポート オプションが表示されます。 専用サイトを持つプロジェクトは、一般的に、よりよくサポートされています。
+- *サポート*: パッケージ ページの **[情報]** で、**[プロジェクト サイト]** (使用可能な場合) を選択すると、作成者が提供しているサポート オプションが表示されます。 専用サイトを持つプロジェクトは、一般的に、よりよくサポートされています。
 
 - *開発者履歴*: パッケージ ページの **[所有者]** で、所有者を選択すると、発行済みの他のパッケージが表示されます。 複数のパッケージがある場合、今後も継続的に作業がサポートされる可能性が高くなります。
 
@@ -108,29 +112,19 @@ NuGet では、Visual Studio の C++ プロジェクトで使用できるネイ�
 
 NuGet パッケージ検索は、nuget.org、NuGet CLI、Visual Studio の NuGet パッケージ マネージャー拡張機能で同じように動作します。 一般に、検索はキーワードとパッケージの説明に適用されます。
 
-- **キーワード**: この検索では、入力されたすべてのキーワードを含む関連するパッケージを探します。 例:
-
-    ```
-    modern UI javascript
-    ```
-
-- **語句**: 用語を引用符で囲んで入力すると、これらの用語と完全に一致する大文字と小文字を区別しない用語を探します。 例:
-
-    ```
-    "modern UI" package
-    ```
-
+- **キーワード**: この検索では、入力されたすべてのキーワードを含む関連するパッケージを探します。 例 : `modern UI javascript`
+- **語句**: 用語を引用符で囲んで入力すると、これらの用語と完全に一致する大文字と小文字を区別しない用語を探します。 例 : `"modern UI" package`
 - **フィルタリング**: 構文 `<property>:<term>` (この `<property>` (大文字と小文字を区別しない) に `id`、`packageid`、`version`、`title`、`tags`、`author`、`description`、`summary`、`owner` を指定することができます) を使用して、特定のプロパティに検索用語を適用することができます。 必要に応じて、用語を引用符で囲むことができ、同時に複数のプロパティを検索することができます。 また、`id` プロパティの検索が部分文字列一致であるのに対して、`packageid` では完全一致を使用します。 次に例を示します。
 
     ```
-    id:NuGet.Core                //Match any part of the id property
+    id:NuGet.Core                # Match any part of the id property
     Id:"Nuget.Core"
     ID:jQuery
-    title:jquery                 //Searches title as shown on the package listing
-    PackageId:jquery             //Match the package id exactly
-    id:jquery id:ui              //Search for multiple terms in the id
-    id:jquery tags:validation    //Search multiple properties
-    id:"jquery.ui"               //Phrase search
-    invalid:jquery ui            //Unsupported properties are ignored, so this
-                                 //is the same as searching on jquery ui
+    title:jquery                 # Searches title as shown on the package listing
+    PackageId:jquery             # Match the package id exactly
+    id:jquery id:ui              # Search for multiple terms in the id
+    id:jquery tags:validation    # Search multiple properties
+    id:"jquery.ui"               # Phrase search
+    invalid:jquery ui            # Unsupported properties are ignored, so this
+                                 # is the same as searching on jquery ui
     ```

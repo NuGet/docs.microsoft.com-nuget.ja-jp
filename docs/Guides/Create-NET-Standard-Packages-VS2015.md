@@ -1,35 +1,38 @@
 ---
-title: "Visual Studio 2015 での .NET Standard NuGet パッケージの作成 | Microsoft Docs"
+title: Visual Studio 2015 での .NET Standard および .NET Framework の NuGet パッケージの作成 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 02/02/2018
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.prod: nuget
-ms.technology: 
-description: "NuGet 3.x と Visual Studio 2015 を使用して、.NET Standard NuGet パッケージを作成するためのエンド ツー エンド チュートリアル。"
-keywords: "パッケージを作成する, .NET Standard パッケージ, .NET Standard マッピング テーブル"
+ms.technology: ''
+description: NuGet 3.x と Visual Studio 2015 を使用して、.NET Standard および .NET Framework の NuGet パッケージを作成するためのエンド ツー エンド チュートリアル。
+keywords: パッケージを作成する, .NET Standard パッケージ, .NET Framework パッケージ
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: abf6a56cbc84bdd066e31e77c7883825a8456144
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: dbe0a0788b5fc9ba37f7db601bd51c3e4f78f5b8
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="create-net-standard-packages-with-visual-studio-2015"></a>Visual Studio 2015 での .NET Standard NuGet パッケージの作成
+# <a name="create-net-standard-and-net-framework-packages-with-visual-studio-2015"></a>Visual Studio 2015 での NET Standard および NET Framework パッケージの作成
 
-*NuGet 3.x に適用されます。NuGet 4.x 以降を使用している場合は、[Visual Studio 2017 でのパッケージの作成と公開](../quickstart/create-and-publish-a-package-using-visual-studio.md)に関するページを参照してください。*
+**注:** .NET Standard ライブラリを開発するには、Visual Studio 2017 をお勧めします。 Visual Studio 2015 でも動作できますが、.NET Core ツールはプレビュー状態にしかなりません。 NuGet 4.x 以降および Visual Studio 2017 を使用している場合は、[Visual Studio 2017 でのパッケージの作成と公開](../quickstart/create-and-publish-a-package-using-visual-studio.md)に関するページを参照してください。
 
 [.NET Standard ライブラリ](/dotnet/articles/standard/library)は、すべての .NET ランタイムで使用できるようにすることを目的とした .NET API の正式な仕様です。したがって、.NET エコシステムでより高い統一性が確立されます。 .NET Standard Library は、ワークロードに関係なく、すべての .NET プラットフォーム用に統一された BCL (基本クラス ライブラリ) API のセットを定義して実装します。 これにより、開発者はすべての .NET ランタイム間で使用可能なコードを生成できます。また、共有コードでプラットフォーム固有の条件付きコンパイル ディレクティブを除去するまでとはいかないまでも減らすことはできます。
 
-このガイドでは、.NET Standard Library 1.4 をターゲットとする NuGet パッケージの作成方法について説明します。 このようなライブラリは、.NET Framework 4.6.1、ユニバーサル Windows プラットフォーム 10、.NET Core、および Mono/Xamarin に適用できます。 詳細については、このトピックの後半の「[.NET Standard マッピング テーブル](#net-standard-mapping-table)」を参照してください。
+このガイドでは、 .NET Standard Library 1.4 をターゲットとするか、または .NET Framework 4.6 をターゲットとする NuGet パッケージの作成について説明します。 .NET Standard 1.4 ライブラリは、.NET Framework 4.6.1、ユニバーサル Windows プラットフォーム 10、.NET Core、および Mono/Xamarin に適用できます。 詳細については、「[.NET Standard マッピング テーブル](/dotnet/standard/net-standard#net-implementation-support)」 (.NET ドキュメント) を参照してください。 必要な場合は、他のバージョンの .NET Standard ライブラリを選択できます。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
 1. Visual Studio 2015 更新プログラム 3
-1. [.NET Core SDK](https://www.microsoft.com/net/download/)
+1. (.NET Standard のみ) [.NET Core SDK](https://www.microsoft.com/net/download/)
 1. NuGet CLI。 [nuget.org/downloads](https://nuget.org/downloads) から最新バージョンの nuget.exe をダウンロードして、任意の場所に保存します。 次に、その場所を PATH 環境変数に追加します (まだ存在していない場合)。
 
     > [!Note]
@@ -37,13 +40,13 @@ ms.lasthandoff: 03/15/2018
 
 ## <a name="create-the-class-library-project"></a>クラス ライブラリ プロジェクトを作成する
 
-1. Visual Studio で、**[ファイル]、[新規]、[プロジェクト]** の順に移動し、**[Visual C#]、[Windows]** ノードの順に展開して **[クラス ライブラリ (ポータブル)]** を選択し、名前を AppLogger に変更してから [OK] をクリックします。
+1. Visual Studio で、**[ファイル] > [新規] > [プロジェクト]** の順に移動し、**[Visual C#] > [Windows]** ノードの順に展開して **[クラス ライブラリ (ポータブル)]** を選択し、名前を AppLogger に変更してから **[OK]** を選択します。
 
     ![新しいクラス ライブラリ プロジェクトを作成する](media/NetStandard-NewProject.png)
 
-1. 表示された **[ポータブル クラス ライブラリの追加]** ダイアログ ボックスで、`.NET Framework 4.6` と `ASP.NET Core 1.0` オプションを選択します。
+1. 表示された **[ポータブル クラス ライブラリの追加]** ダイアログ ボックスで、`.NET Framework 4.6` と `ASP.NET Core 1.0` のオプションを選択します。 (.NET Framework をターゲットにしている場合は、どちらか適切なオプションを選択できます。)
 
-1. ソリューション エクスプローラーで `AppLogger (Portable)` を右クリックして **[プロパティ]** を選択し、**[ライブラリ]** タブを選択してから **[ターゲット]** セクションの **[ターゲットの .NET Platform Standard]** をクリックします。 これで確認のプロンプトが表示されます。その後、ドロップダウンから `.NET Standard 1.4` を選択できます。
+1. .NET Standard をターゲットにしている場合、ソリューション エクスプローラーで `AppLogger (Portable)` を右クリックして **[プロパティ]** を選択し、**[ライブラリ]** タブを選択してから **[ターゲット]** セクションの **[ターゲットの .NET Platform Standard]** を選択します。 この動作によって確認を促すメッセージが表示され、以降はドロップ ダウンから `.NET Standard 1.4` (または、使用可能な別のバージョン) を選択できるようになります。
 
     ![.NET Standard 1.4 へのターゲットの設定](media/NetStandard-ChangeTarget.png)
 
@@ -96,11 +99,23 @@ ms.lasthandoff: 03/15/2018
 
 1. 参照アセンブリを `.nuspec` ファイル、つまり、ライブラリの DLL および IntelliSense XML ファイルに追加します。
 
+    .NET Standard をターゲットにしている場合、エントリは以下のように表示されます。
+
     ```xml
     <!-- Insert below <metadata> element -->
     <files>
         <file src="bin\Release\AppLogger.dll" target="lib\netstandard1.4\AppLogger.dll" />
         <file src="bin\Release\AppLogger.xml" target="lib\netstandard1.4\AppLogger.xml" />
+    </files>
+    ```
+
+    .NET Framework をターゲットにしている場合、エントリは以下のように表示されます。
+
+    ```xml
+    <!-- Insert below <metadata> element -->
+    <files>
+        <file src="bin\Release\AppLogger.dll" target="lib\net46\AppLogger.dll" />
+        <file src="bin\Release\AppLogger.xml" target="lib\net46\AppLogger.xml" />
     </files>
     ```
 
@@ -146,7 +161,7 @@ ms.lasthandoff: 03/15/2018
 nuget pack AppLogger.nuspec
 ```
 
-これで `AppLogger.YOUR_NAME.1.0.0.nupkg` が生成されます。 [NuGet パッケージ エクスプローラー](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer)などのツールでこのファイルを開き、すべてのノードを展開すると、以下のコンテンツが表示されます。
+これにより、`AppLogger.YOUR_NAME.1.0.0.nupkg`が生成されます。 [NuGet パッケージ エクスプローラー](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer)などのツールでこのファイルを開き、すべてのノードを展開すると、以下のコンテンツ (.NET Standard に対する表示) が表示されます。
 
 ![AppLogger パッケージが表示された NuGet パッケージ エクスプローラー](media/NetStandard-PackageExplorer.png)
 
@@ -156,19 +171,6 @@ nuget pack AppLogger.nuspec
 パッケージを他の開発者が使用できるようにする場合は、「[パッケージを公開する](../create-packages/publish-a-package.md)」の手順に従ってください。
 
 `pack` には Mac OS X の場合は Mono 4.4.2 が必要であり、Linux 1 システムでは動作しないことに注意してください。 Mac の場合、`.nuspec` ファイルの Windows パス名を Unix 形式のパスに変換する必要もあります。
-
-## <a name="net-standard-mapping-table"></a>.NET Standard マッピング テーブル
-
-| プラットフォーム名 | Alias |
-| --- | --- |
-| .NET Standard | netstandard | 1 | 1.1 | 1.2 | 1.3 | 1.4 | 1.5 | 1.6 |
-| .NET Core | netcoreapp | &#x2192; | &#x2192; | &#x2192; | &#x2192; | &#x2192; | &#x2192; | 1 |
-| .NET Framework | net | 4.5 | 4.5.1 | 4.6 | 4.6.1 | 4.6.2 | 4.6.3 |
-| Mono/Xamarin プラットフォーム | &#x2192; | &#x2192; | &#x2192; | &#x2192; | &#x2192; | &#x2192; |
-| ユニバーサル Windows プラットフォーム | uap | &#x2192; | &#x2192; | &#x2192; | &#x2192; |10.0 |
-| Windows | win| &#x2192; | 8.0 | 8.1 |
-| Windows Phone | wpa| &#x2192;| &#x2192; | 8.1 |
-| Windows Phone Silverlight | wp | 8.0 |
 
 ## <a name="related-topics"></a>関連トピック
 

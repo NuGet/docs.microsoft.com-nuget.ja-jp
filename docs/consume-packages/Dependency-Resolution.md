@@ -1,22 +1,25 @@
 ---
-title: "NuGet パッケージの依存関係の解決 | Microsoft Docs"
+title: NuGet パッケージの依存関係の解決 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 08/14/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "NuGet 2.x と NuGet 3.x 以降の両方について、NuGet パッケージの依存関係が解決されてインストールされるプロセスを詳しく説明します。"
-keywords: "NuGet パッケージの依存関係, NuGet のバージョン管理, 依存関係のバージョン, バージョン グラフ, バージョンの解決, 推移的な復元"
+ms.technology: ''
+description: NuGet 2.x と NuGet 3.x 以降の両方について、NuGet パッケージの依存関係が解決されてインストールされるプロセスを詳しく説明します。
+keywords: NuGet パッケージの依存関係, NuGet のバージョン管理, 依存関係のバージョン, バージョン グラフ, バージョンの解決, 推移的な復元
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: aa2537a2538d0ea665944784ef183dc12faa9b38
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: d387acd369c88a64abaa2cb94a913fe211df8da1
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>NuGet でのパッケージ依存関係の解決方法
 
@@ -24,7 +27,7 @@ ms.lasthandoff: 03/08/2018
 
 これらの直接依存するものにもそれぞれに独自の依存関係が存在する可能性があり、任意の深さまでそれが続きます。 これにより、*依存関係グラフ*と呼ばれるものが生成されます。これには、すべてのレベルにおけるパッケージ間の関係が記述されています。
 
-複数のパッケージに同じ依存関係がある場合、グラフに同じパッケージ ID が異なるバージョン制約で複数回出現する可能性があります。 ただし、プロジェクトで使用可能な指定されたパッケージのバージョンは 1 つのみであるため、NuGet は、使用されるバージョンを選択する必要があります。 実際のプロセスは、使われているパッケージ参照の形式によって異なります。
+複数のパッケージに同じ依存関係がある場合、グラフに同じパッケージ ID が異なるバージョン制約で複数回出現する可能性があります。 ただし、プロジェクトで使用可能な指定されたパッケージのバージョンは 1 つのみであるため、NuGet は、使用されるバージョンを選択する必要があります。 実際のプロセスは、使われているパッケージ管理の形式によって異なります。
 
 ## <a name="dependency-resolution-with-packagereference"></a>PackageReference による依存関係の解決
 
@@ -109,7 +112,7 @@ PackageReference 形式を使用してパッケージをプロジェクトにイ
 
 NuGet 2.8 は、既定により、最も低い "パッチ" バージョンを探します (「[NuGet 2.8 のリリース ノート](../release-notes/nuget-2.8.md#patch-resolution-for-dependencies)」を参照してください)。 この設定は、`Nuget.Config` の `DependencyVersion` 属性およびコマンド ラインの `-DependencyVersion` スイッチで制御できます。  
 
-`packages.config` の依存関係解決プロセスは、大規模な依存関係グラフでは複雑になります。 パッケージの各新規インストールでは、グラフ全体を走査して、バージョン間の競合の可能性を明らかにする必要があります。 競合が発生するときは、インストールが停止されて、プロジェクトは不明な状態のままになります (特に、プロジェクト ファイル自体への変更の可能性がある場合)。 他のパッケージ参照形式を使うと、このような問題はありません。
+`packages.config` の依存関係解決プロセスは、大規模な依存関係グラフでは複雑になります。 パッケージの各新規インストールでは、グラフ全体を走査して、バージョン間の競合の可能性を明らかにする必要があります。 競合が発生するときは、インストールが停止されて、プロジェクトは不明な状態のままになります (特に、プロジェクト ファイル自体への変更の可能性がある場合)。 他のパッケージ管理形式を使うと、このような問題はありません。
 
 ## <a name="managing-dependency-assets"></a>依存関係アセットの管理
 
@@ -121,7 +124,7 @@ PackageReference 形式を使用すると、依存関係から最上位のプロ
 
 同じ名前のアセンブリがプロジェクト内の複数の箇所で参照されていて、設計時エラーおよびビルド時エラーが発生することがあります。 あるプロジェクトは、`C.dll` のカスタム バージョンを含み、やはり `C.dll` を含むパッケージ C を参照しているものとします。 同時に、このプロジェクトはパッケージ B にも依存しており、パッケージ B もパッケージ C と `C.dll` に依存しています。 結果として、NuGet はどの `C.dll` を使えばよいのか決定できず、かといってパッケージ B もパッケージ C に依存しているため、プロジェクトでのパッケージ C に対する依存関係を単に削除するわけにもいきません。
 
-これを解決するには、必要な `C.dll` を直接参照し (または、適切なパッケージを参照している別のパッケージを使い)、すべての資産を除外するパッケージ C への依存関係を追加します。 これは、使われているパッケージ参照形式に応じて、次のように行われます。
+これを解決するには、必要な `C.dll` を直接参照し (または、適切なパッケージを参照している別のパッケージを使い)、すべての資産を除外するパッケージ C への依存関係を追加します。 これは、使われているパッケージ管理形式に応じて、次のように行われます。
 
 - [PackageReference](../consume-packages/package-references-in-project-files.md): 依存関係に `Exclude="All"` を追加します。
 

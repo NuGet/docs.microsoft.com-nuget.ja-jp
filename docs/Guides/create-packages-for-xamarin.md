@@ -1,28 +1,31 @@
 ---
-title: "Xamarin 用 NuGet パッケージの作成 (iOS、Android、および Windows 用) | Microsoft Docs"
+title: Visual Studio 2015 による Xamarin 用 NuGet パッケージの作成 (iOS、Android、および Windows 用) | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/09/2017
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.prod: nuget
-ms.technology: 
-description: "iOS、Android、および Windows でネイティブ API を使用する、Xamarin の NuGet パッケージを作成するためのエンド ツー エンド チュートリアル。"
-keywords: "パッケージを作成する, Xamarin のパッケージ, クロスプラットフォーム パッケージ"
+ms.technology: ''
+description: iOS、Android、および Windows でネイティブ API を使用する、Xamarin の NuGet パッケージを作成するためのエンド ツー エンド チュートリアル。
+keywords: パッケージを作成する, Xamarin のパッケージ, クロスプラットフォーム パッケージ
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 3e1460de060980365a5eaa2ef91c052cc359bb70
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: e101ca2d124a19d2cf758776717b3680aa5bbdd8
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="create-packages-for-xamarin"></a>Xamarin 用パッケージの作成
+# <a name="create-packages-for-xamarin-with-visual-studio-2015"></a>Visual Studio 2015 での Xamarin 用パッケージの作成
 
-クロスプラットフォーム パッケージには、実行時のオペレーティング システムに応じて、iOS、Android、および Windows でネイティブ API を使用するコードが含まれます。 これを行うのは簡単ですが、開発者が共通の API のセキュリティ、外部からのアクセスを通じて PCL または .NET Standard ライブラリからパッケージを使用できるようにすることをお勧めします。
+Xamarin 用 パッケージには、実行時のオペレーティング システムに応じて、iOS、Android、および Windows でネイティブ API を使用するコードが含まれます。 これを行うのは簡単ですが、開発者が共通の API のセキュリティ、外部からのアクセスを通じて PCL または .NET Standard ライブラリからパッケージを使用できるようにすることをお勧めします。
 
-このチュートリアルでは、iOS、Android、および Windows 上のモバイル プロジェクトで使用できるクロスプラットフォームの NuGet パッケージを作成します。
+このチュートリアルでは、Visual Studio 2015 を使用して、iOS、Android、および Windows 上のモバイル プロジェクトで使用できるクロスプラットフォームの NuGet パッケージを作成します。
 
 1. [前提条件](#prerequisites)
 1. [プロジェクトの構造体および抽象化コードを作成する](#create-the-project-structure-and-abstraction-code)

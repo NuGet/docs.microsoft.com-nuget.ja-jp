@@ -1,22 +1,25 @@
 ---
-title: "NuGet の動作を構成する | Microsoft Docs"
+title: NuGet の動作を構成する | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 10/25/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "NuGet.Config ファイルは、グローバルとプロジェクト単位の両方で NuGet の動作を制御し、変更するには nuget config コマンドを使います。"
-keywords: "NuGet 構成ファイル, NuGet の構成, NuGet の動作の設定, NuGet の設定, Nuget.Config, NuGetDefaults.Config, 既定値"
+ms.technology: ''
+description: NuGet.Config ファイルは、グローバルとプロジェクト単位の両方で NuGet の動作を制御し、変更するには nuget config コマンドを使います。
+keywords: NuGet 構成ファイル, NuGet の構成, NuGet の動作の設定, NuGet の設定, Nuget.Config, NuGetDefaults.Config, 既定値
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c46f23fcbec5dfcb6122434d43097212f6230fb0
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: a575868894d5ca9992b1c9984cf4920bd2858209
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configuring-nuget-behavior"></a>NuGet の動作を構成する
 
@@ -27,7 +30,7 @@ NuGet の動作は、1 つ以上の `NuGet.Config` (XML) ファイルの設定�
 | スコープ | NuGet.Config ファイルの場所 | 説明 |
 | --- | --- | --- |
 | プロジェクト | 現在のフォルダー (プロジェクト フォルダーとも呼ばれる) またはドライブのルートまでの任意のフォルダー。| プロジェクト フォルダーにある場合は、設定はそのプロジェクトのみに適用されます。 複数のプロジェクト サブフォルダーを含む親フォルダーにある場合は、設定はそれらのサブフォルダーのすべてのプロジェクトに適用されます。 |
-| ユーザー | Windows: `%APPDATA%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.nuget/NuGet/NuGet.Config` | 設定はすべての操作に適用されますが、プロジェクト レベルの設定によって上書きされます。 |
+| ユーザー | Windows: `%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.nuget/NuGet/NuGet.Config` | 設定はすべての操作に適用されますが、プロジェクト レベルの設定によって上書きされます。 |
 | コンピューター | Windows: `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux: `$XDG_DATA_HOME` (通常は `~/.local/share`) | 設定はそのコンピューターでのすべての操作に適用されますが、ユーザー レベルまたはプロジェクト レベルの設定によって上書きされます。 |
 
 以前のバージョンの NuGet に関する注意事項:
@@ -94,7 +97,7 @@ nuget config -set repositoryPath= -configfile /home/my.Config
 
 ### <a name="creating-a-new-config-file"></a>新しい構成ファイルの作成
 
-次のテンプレートを新しいファイルにコピーした後、`nuget config --configFile <filename>` を使って値を設定します。
+次のテンプレートを新しいファイルにコピーした後、`nuget config -configFile <filename>` を使って値を設定します。
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -137,7 +140,7 @@ NuGet はこれらのファイルで設定を探すので、適用は次のよ�
 
 その場合、次の場所にそれぞれ指定された内容の `NuGet.Config` ファイルが 4 つ存在します  (コンピューター レベルのファイルはこの例には含まれませんが、ユーザー レベルのファイルと同じように動作します)。
 
-ファイル A. ユーザーレベルのファイル (Windows では `%APPDATA%\NuGet\NuGet.Config`、Mac/Linux では `~/.nuget/NuGet/NuGet.Config`):
+ファイル A. ユーザーレベルのファイル (Windows では `%appdata%\NuGet\NuGet.Config`、Mac/Linux では `~/.nuget/NuGet/NuGet.Config`):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -220,7 +223,7 @@ NuGet は、呼び出された場所に応じて、次のように設定を読�
 
 ### <a name="nugetdefaultsconfig-settings"></a>NuGetDefaults.Config の設定
 
-- `packageSources`: このコレクションは標準の構成ファイルの `packageSources` と同じ意味であり、既定のソースを指定します。 NuGet は、`packages.config` 参照形式を使用してプロジェクトのパッケージをインストールまたは更新するときに、ソースを順番に使用します。 PackageReference 形式を使用するプロジェクトの場合、構成ファイルの順序に関係なく、NuGet はまずローカル ソースを使用し、次にネットワーク共有のソースを使用し、次に HTTP ソースを使用します。 復元操作の場合、NuGet はソースの順序を常に無視します。
+- `packageSources`: このコレクションは標準の構成ファイルの `packageSources` と同じ意味であり、既定のソースを指定します。 NuGet は、`packages.config` 管理形式を使用してプロジェクトのパッケージをインストールまたは更新するときに、ソースを順番に使用します。 PackageReference 形式を使用するプロジェクトの場合、構成ファイルの順序に関係なく、NuGet はまずローカル ソースを使用し、次にネットワーク共有のソースを使用し、次に HTTP ソースを使用します。 復元操作の場合、NuGet はソースの順序を常に無視します。
 
 - `disabledPackageSources`: このコレクションも `NuGet.Config` ファイルと同じ意味であり、影響を受ける各ソースの名前と、ソースが無効かどうかを示す true/false の値を列記します。 これにより、ソースの名前と URL を、既定で有効にしなくても、`packageSources` に残しておくことができます。 個々の開発者は、正しい URL を改めて調べなくても、他の `NuGet.Config` ファイルでソースの値を false に設定することにより、ソースを再び有効にできます。 これは、組織の内部ソースの URL の完全なリストを開発者に提供しながら、既定で個別のチームのソースのみを有効にする場合にも便利です。
 

@@ -1,28 +1,31 @@
 ---
-title: "NuGet の project.json ファイル リファレンス | Microsoft Docs"
+title: NuGet の project.json ファイル リファレンス | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 07/27/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "一部のプロジェクト タイプでは、project.json で、プロジェクトで使用される NuGet パッケージの一覧が保守管理されます。"
-keywords: "NuGet project.json、NuGet パッケージ参照、NuGet の依存関係、project.lock.json"
+ms.technology: ''
+description: 一部のプロジェクト タイプでは、project.json で、プロジェクトで使用される NuGet パッケージの一覧が保守管理されます。
+keywords: NuGet project.json、NuGet パッケージ参照、NuGet の依存関係、project.lock.json
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2e2c521b18dd67e49942cc20eafef0be7f91573a
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 21542a219faa3d1fa0c32a838645d4471c5aa935
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="projectjson-reference"></a>project.json 参照
 
 *NuGet 3.x 以降*
 
-`project.json` ファイルは、パッケージ参照形式と呼ばれるプロジェクトで使用されるパッケージのリストを保持します。 これは `packages.config` に優先しますが、NuGet 4.0 以降では、[PackageReference](../consume-packages/package-references-in-project-files.md) によって置き換えられます。
+`project.json` ファイルは、パッケージ管理形式と呼ばれるプロジェクトで使用されるパッケージのリストを保持します。 これは `packages.config` に優先しますが、NuGet 4.0 以降では、[PackageReference](../consume-packages/package-references-in-project-files.md) によって置き換えられます。
 
 [`project.lock.json`](#projectlockjson) ファイル (後述) も、`project.json` を使用するプロジェクトで使用されます。
 
@@ -122,7 +125,7 @@ ms.lasthandoff: 01/25/2018
     }
  ```
 
-`frameworks` セクションでは、1 つのエントリのみが許可されます  (例外は、使用されていない DNX ツールチェーンでビルドされた ASP.NET プロジェクトの `project.json` ファイルで、これは複数のターゲットを許可します)。
+`frameworks` セクションでは、1 つのエントリのみが許可されます  (例外は、使用されていない DNX ツール チェーンでビルドされた ASP.NET プロジェクトの `project.json` ファイルで、これは複数のターゲットを許可します)。
 
 ## <a name="runtimes"></a>Runtimes
 

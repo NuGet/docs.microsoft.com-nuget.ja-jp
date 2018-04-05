@@ -1,23 +1,25 @@
 ---
-title: "NuGet パッケージの再インストールと更新 | Microsoft Docs"
+title: NuGet パッケージの再インストールと更新 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 12/07/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-ms.assetid: 2785879b-97f0-4a85-b3cc-bf4eaa5c39bf
-description: "パッケージをいつ更新して再インストールする必要があるのかに関する詳細と、壊れた Visual Studio のパッケージ参照について。"
-keywords: "NuGet パッケージのインストール, NuGet パッケージの再インストール, NuGet パッケージの復元, パッケージの更新, パッケージの復元、壊れている参照の修正"
+ms.technology: ''
+description: パッケージをいつ更新して再インストールする必要があるのかに関する詳細と、壊れた Visual Studio のパッケージ参照について。
+keywords: NuGet パッケージのインストール, NuGet パッケージの再インストール, NuGet パッケージの復元, パッケージの更新, パッケージの復元、壊れている参照の修正
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: e2875630b24fbe04fc7bcab52335d849e54160de
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 9da385f51abf5877589c29ebdeffefc9a1a20a2e
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>パッケージを再インストールし更新する方法
 
@@ -48,7 +50,7 @@ ms.lasthandoff: 03/08/2018
 
 既定では、パッケージを再インストールまたは更新した場合、パッケージ ソースから使用可能な最新バージョンが*常に*インストールされます。
 
-ただし、`packages.config` 参照形式を使用するプロジェクトでは、バージョン範囲を具体的に制限することができます。 たとえば、恐らくはパッケージ API の大幅な変更により、アプリケーションがパッケージのバージョン 2.0 以上では機能せず、1.x のみで機能することがわかっている場合、バージョン 1.x にアップグレードすることに制限したいとします。 これにより、偶発的に更新されることにより、アプリケーションが機能しなくなってしまうことを避けることができます。
+ただし、`packages.config` 管理形式を使用するプロジェクトでは、バージョン範囲を具体的に制限することができます。 たとえば、恐らくはパッケージ API の大幅な変更により、アプリケーションがパッケージのバージョン 2.0 以上では機能せず、1.x のみで機能することがわかっている場合、バージョン 1.x にアップグレードすることに制限したいとします。 これにより、偶発的に更新されることにより、アプリケーションが機能しなくなってしまうことを避けることができます。
 
 制限を設定するには、テキスト エディターで `packages.config` を開き、問題の依存関係を探し、バージョン範囲と共に `allowedVersions` 属性を追加します。 たとえば、更新をバージョン 1.x に制限する場合、`allowedVersions` を `[1,2)` に設定します。
 
