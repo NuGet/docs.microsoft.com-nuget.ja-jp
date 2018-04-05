@@ -74,6 +74,7 @@
 # 参照
 ## [.nuspec](reference/nuspec.md)
 ## [プロジェクト ファイルのパッケージ参照](consume-packages/package-references-in-project-files.md)
+## [packages.config の PackageReference への移行](reference/migrate-packages-config-to-package-reference.md)
 ## [packages.config](reference/packages-config.md)
 ## [パッケージのバージョン管理](reference/package-versioning.md)
 ## [Nuget.Config ファイル](reference/nuget-config-file.md)
