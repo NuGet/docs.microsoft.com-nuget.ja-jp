@@ -15,11 +15,11 @@ ms.reviewer:
 ms.workload:
 - dotnet
 - aspnet
-ms.openlocfilehash: 99caf371ca1bd85e6af4e879741e3e2caab6e860
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 7844ace0565b2e70f8f68e6e61548f0f28171689
+ms.sourcegitcommit: 5b223c5814799caa6309e95792a2d338df692778
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/04/2018
 ---
 # <a name="package-references-packagereference-in-project-files"></a>プロジェクト ファイルのパッケージ参照 (PackageReference)
 
@@ -94,10 +94,10 @@ PackageReference の場合、MSBuild 条件を使用し、ターゲット フレ
 
 これらのタグに使用できる値は次のようになります。単独で表示する `all` と `none` を除き、複数の値はセミコロンで区切られます。
 
-| [値] | 説明 |
+| 値 | 説明 |
 | --- | ---
-| compile | `lib` フォルダーの内容 |
-| ランタイム | `runtimes` フォルダーの内容 |
+| compile | `lib` フォルダーの内容と、プロジェクトをフォルダー内のアセンブリに対してコンパイルできるかどうかのコントロール |
+| runtime | `lib` と `runtimes` フォルダーの内容と、これらのアセンブリがコピーされて出力ディレクトリをビルドするかどうかのコントロール |
 | contentFiles | `contentfiles` フォルダーの内容 |
 | ビルド | `build` フォルダーの props と targets |
 | analyzers | .NET アナライザー |

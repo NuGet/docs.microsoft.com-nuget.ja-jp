@@ -15,11 +15,11 @@ ms.reviewer:
 ms.workload:
 - dotnet
 - aspnet
-ms.openlocfilehash: a575868894d5ca9992b1c9984cf4920bd2858209
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 88f10cf15e16013ac99f315e572f932fd3948f73
+ms.sourcegitcommit: ecb598c790d4154366bc92757ec7db1a51c34faf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="configuring-nuget-behavior"></a>NuGet の動作を構成する
 
@@ -30,8 +30,8 @@ NuGet の動作は、1 つ以上の `NuGet.Config` (XML) ファイルの設定�
 | スコープ | NuGet.Config ファイルの場所 | 説明 |
 | --- | --- | --- |
 | プロジェクト | 現在のフォルダー (プロジェクト フォルダーとも呼ばれる) またはドライブのルートまでの任意のフォルダー。| プロジェクト フォルダーにある場合は、設定はそのプロジェクトのみに適用されます。 複数のプロジェクト サブフォルダーを含む親フォルダーにある場合は、設定はそれらのサブフォルダーのすべてのプロジェクトに適用されます。 |
-| ユーザー | Windows: `%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.nuget/NuGet/NuGet.Config` | 設定はすべての操作に適用されますが、プロジェクト レベルの設定によって上書きされます。 |
-| コンピューター | Windows: `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux: `$XDG_DATA_HOME` (通常は `~/.local/share`) | 設定はそのコンピューターでのすべての操作に適用されますが、ユーザー レベルまたはプロジェクト レベルの設定によって上書きされます。 |
+| ユーザー | Windows: `%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.config/NuGet/NuGet.Config` または `~/.nuget/NuGet/NuGet.Config` (OS のディストリビューションによって異なります) | 設定はすべての操作に適用されますが、プロジェクト レベルの設定によって上書きされます。 |
+| コンピューター | Windows: `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux: `$XDG_DATA_HOME`。 `$XDG_DATA_HOME` が null または空の場合は、`~/.local/share` または `/usr/local/share` が使用されます (OS 配布によって異なります)  | 設定はそのコンピューターでのすべての操作に適用されますが、ユーザー レベルまたはプロジェクト レベルの設定によって上書きされます。 |
 
 以前のバージョンの NuGet に関する注意事項:
 - NuGet 3.3 以前では、ソリューション全体の設定用に `.nuget` フォルダーが使われていました。 このファイルは、NuGet 3.4 以降では使用されません。
@@ -140,7 +140,7 @@ NuGet はこれらのファイルで設定を探すので、適用は次のよ�
 
 その場合、次の場所にそれぞれ指定された内容の `NuGet.Config` ファイルが 4 つ存在します  (コンピューター レベルのファイルはこの例には含まれませんが、ユーザー レベルのファイルと同じように動作します)。
 
-ファイル A. ユーザーレベルのファイル (Windows では `%appdata%\NuGet\NuGet.Config`、Mac/Linux では `~/.nuget/NuGet/NuGet.Config`):
+ファイル A. ユーザーレベルのファイル (Windows では `%appdata%\NuGet\NuGet.Config`、Mac/Linux では `~/.config/NuGet/NuGet.Config`):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -218,8 +218,8 @@ NuGet は、呼び出された場所に応じて、次のように設定を読�
 
 | OS プラットフォーム  | NuGetDefaults.Config の場所 |
 | --- | --- |
-| Windows      | **Visual Studio 2017 または NuGet 4.x 以降:** %ProgramFiles(x86)%\NuGet\Config <br />**Visual Studio 2015 以前または NuGet 3.x 以前:** %PROGRAMDATA%\NuGet |
-| Mac/Linux    | $XDG_DATA_HOME (通常は ~/.local/share)|
+| Windows      | **Visual Studio 2017 または NuGet 4.x+:** `%ProgramFiles(x86)%\NuGet\Config` <br />**Visual Studio 2015 以前または NuGet 3.x 以前:** `%PROGRAMDATA%\NuGet` |
+| Mac/Linux    | `$XDG_DATA_HOME` (通常は `~/.local/share` または `/usr/local/share`。OS のディストリビューションに依存します)|
 
 ### <a name="nugetdefaultsconfig-settings"></a>NuGetDefaults.Config の設定
 
