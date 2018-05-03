@@ -1,25 +1,16 @@
 ---
-title: NuGet 3.3 リリース ノート |Microsoft ドキュメント
-author: karann-msft
-ms.author: karann-msft
-manager: ghogen
-ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
+title: NuGet 3.3 のリリース ノート
 description: 既知の問題、バグの修正、追加された機能、および Dcr を含む NuGet 3.3 のリリース ノートです。
-keywords: NuGet 3.3 リリース ノートについては、バグの修正、既知の問題、機能、Dcr を追加します。
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: ab5e1ca550297c608017cb56dff32f4bd4bbb885
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+author: karann-msft
+ms.author: karann
+manager: unnir
+ms.date: 11/11/2016
+ms.topic: conceptual
+ms.openlocfilehash: adf193437de237ed32da481e627552a8dba6f656
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-33-release-notes"></a>NuGet 3.3 のリリース ノート
 
@@ -48,7 +39,7 @@ NuGet 3.3 は、多数のユーザー インターフェイスを更新し、コ
 
 このバージョンでは導入された、`add`と`init`」の説明に従ってフォルダー ベースのリポジトリを初期化するためのコマンド、 [nuget.exe 参照](../tools/nuget-exe-cli-reference.md)です。 構築され、このフォルダーに保持するリポジトリの構造は[かなり高いパフォーマンス メリットをもたらします](http://blog.nuget.org/20150922/Accelerate-Package-Source.html)ブログで説明したようです。
 
-## <a name="contentfiles"></a>ContentFiles
+## <a name="contentfiles"></a>コンテンツ ファイル
 
 コンテンツがサポートされるようになりました`project.json`マネージ プロジェクトは、新しい`contentFiles`フォルダーと`.nuspec``contentFiles`要素表記します。  このコンテンツは、プロジェクト システムとのやり取りのパッケージの作成者によって直接指定できます。  コンテンツ ファイルを構成する方法の詳細について、`.nuspec`ドキュメントは含まれて、 [.nuspec 参照](../reference/nuspec.md)です。
 

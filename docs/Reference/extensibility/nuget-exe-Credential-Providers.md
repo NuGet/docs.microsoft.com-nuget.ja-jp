@@ -1,22 +1,16 @@
 ---
-title: "nuget.exe 資格情報プロバイダー |Microsoft ドキュメント"
+title: nuget.exe 資格情報プロバイダー
+description: nuget.exe 資格情報プロバイダーを使用して、フィードを使用認証は、特定の規則に従うコマンドライン実行可能ファイルとして実装されます。
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 12/12/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "nuget.exe 資格情報プロバイダーを使用して、フィードを使用認証は、特定の規則に従うコマンドライン実行可能ファイルとして実装されます。"
-keywords: nuget.exe credential providers, credential provider API, authenticate with feed, authenticate with gallery
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 88ce0106ad4e628ba8120f94b7951c7746ab67f3
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 494ea83007895e973585395e0cfe05b7226c4c3e
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>Nuget.exe 資格情報プロバイダーを使用したフィードの認証
 

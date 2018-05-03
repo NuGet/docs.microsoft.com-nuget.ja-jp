@@ -1,29 +1,20 @@
 ---
-title: NuGet CLI プッシュ コマンド |Microsoft ドキュメント
+title: NuGet CLI プッシュ コマンド
+description: Nuget.exe プッシュ コマンドのリファレンス
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Nuget.exe プッシュ コマンドのリファレンス
-keywords: nuget プッシュ参照、プッシュ コマンド
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 832f7aeb2b485acbb83e5213916fc3423df961ab
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 959b539fc20bc47f38946cb660375a6652582a0d
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="push-command-nuget-cli"></a>push コマンド (NuGet CLI)
 
-**適用されます:**パッケージの発行&bullet;**サポートされているバージョン:**すべて; nuget.org に必要な 4.1.0+
+**適用されます:** パッケージの発行&bullet;**サポートされているバージョン:** すべて; nuget.org に必要な 4.1.0+
 
 > [!Important]
 > Nuget.org をパッケージにプッシュするを使用する必要があります nuget.exe v4.1.0 以降、必須を実装する[NuGet プロトコル](../api/nuget-protocols.md)です。
@@ -47,13 +38,13 @@ nuget push <packagePath> [options]
 | ApiKey | ターゲットのリポジトリの API キー。 存在しない場合は、構成ファイルで指定されているが使用されます。 |
 | ConfigFile | NuGet 構成ファイルを適用します。 指定しない場合、 `%AppData%\NuGet\NuGet.Config` (Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac または Linux) を使用します。|
 | DisableBuffering | メモリの使用量を削減する http (s) サーバーへのプッシュ時にバッファー処理を無効にします。 注意: このオプションを使用すると、統合 Windows 認証動かないことがあります。 |
-| ForceEnglishOutput | *(3.5 +)*インバリアント、英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
+| ForceEnglishOutput | *(3.5 +)* インバリアント、英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
 | ヘルプ | ヘルプ コマンドに関する情報を表示します。 |
 | NonInteractive | ユーザー入力または確認を要求するプロンプトを抑制します。 |
-| NoSymbols | *(3.5 +)*シンボル パッケージが存在する場合にプッシュされませんシンボル サーバーにします。 |
+| シンボルなし | *(3.5 +)* シンボル パッケージが存在する場合にプッシュされませんシンボル サーバーにします。 |
 | ソース | サーバー URL を指定します。 NuGet は、UNC またはローカル フォルダーのソースを識別し、単に HTTP を使用して、プッシュされずにあるファイルをコピーします。  また、NuGet 3.4.2 から始めて、これは必須のパラメーターを除いて、`NuGet.Config`ファイルを指定します、 *DefaultPushSource*値 (を参照してください[構成 NuGet 動作](../consume-packages/configuring-nuget-behavior.md))。 |
-| SymbolSource | *(3.5 +)*シンボル サーバーの URL を指定します; は、プッシュ nuget.org するときに使用する nuget.smbsrc.net |
-| SymbolApiKey | *(3.5 +)*で指定された URL では、API キーを指定`-SymbolSource`です。 |
+| SymbolSource | *(3.5 +)* シンボル サーバーの URL を指定します; は、プッシュ nuget.org するときに使用する nuget.smbsrc.net |
+| SymbolApiKey | *(3.5 +)* で指定された URL では、API キーを指定`-SymbolSource`です。 |
 | Timeout | (秒単位) をサーバーにプッシュするためのタイムアウト値を指定します。 既定では 300 秒 (5 分) です。 |
 | 詳細度 | 出力に表示される詳細情報の量を指定します:*通常*、 *quiet*、*詳細*です。 |
 

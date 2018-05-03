@@ -1,22 +1,16 @@
 ---
-title: "NuGet の参照をコマンド ライン インターフェイス (CLI) |Microsoft ドキュメント"
+title: NuGet コマンド ライン インターフェイス (CLI) リファレンス
+description: Nuget.exe CLI のコマンド ライン リファレンス インデックス
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/23/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: 
-description: "Nuget.exe CLI のコマンド ライン リファレンス インデックス"
-keywords: "nuget.exe 参照インデックス、nuget.exe コマンド ライン インターフェイス、nuget.exe CLI、nuget コマンド"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 8b1ee17702f5a54a77dc2cd663e13729a9b4a39f
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: ed91a31505ab1de9447cdbeb87c8ad08f7ba56d8
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="nuget-cli-reference"></a>NuGet CLI 参照
 
@@ -28,7 +22,7 @@ NuGet コマンド ライン インターフェイス (CLI)、 `nuget.exe`NuGet 
 
 ## <a name="installing-nugetexe"></a>Nuget.exe をインストールします。
 
-[!INCLUDE[install-cli](../includes/install-cli.md)]
+[!INCLUDE [install-cli](../includes/install-cli.md)]
 
 > [!Tip]
 > NuGet CLI を使用可能にパッケージ マネージャー コンソール内で Visual Studio で、次を参照してください。[コンソールで nuget.exe CLI を使用して](package-manager-console.md#using-the-nugetexe-cli-in-the-console)です。
@@ -51,8 +45,8 @@ NuGet コマンド ライン インターフェイス (CLI)、 `nuget.exe`NuGet 
 | [push](cli-ref-push.md) | 置換 | すべて | パッケージ ソースにパッケージを発行します。 |
 | [config](cli-ref-config.md) | すべて | すべて | 取得または NuGet の構成値を設定します。 |
 | [help または ?](cli-ref-help.md) | すべて | すべて | ヘルプ情報や、コマンドのヘルプを表示します。 |
-| [locals](cli-ref-locals.md) | 利用 | 3.3+ | 消去またはさまざまなキャッシュまたはグローバルのパッケージ フォルダーで、パッケージが一覧表示またはそれらのフォルダーを識別します。 |
-| [restore](cli-ref-restore.md) | 利用 | 2.7+ | 使用中のパッケージ参照の形式によって参照されるすべてのパッケージを復元します。 モノラルでを実行するときに、PackageReference 形式を使用してパッケージを復元はサポートされていません。 |
+| [locals](cli-ref-locals.md) | 利用 | 3.3+ | 場所を一覧表示、*グローバル パッケージ*、 *http キャッシュ*、および*temp*フォルダーとそれらのフォルダーの内容をクリアします。 |
+| [restore](cli-ref-restore.md) | 利用 | 2.7+ | 使用中のパッケージの管理形式によって参照されるすべてのパッケージを復元します。 モノラルでを実行するときに、PackageReference 形式を使用してパッケージを復元はサポートされていません。 |
 | [setapikey](cli-ref-setapikey.md) | 発行、消費量 | すべて | パッケージ ソースのアクセス キーが必要な場合は、特定のパッケージ ソースの API キーを保存します。 |
 | [spec](cli-ref-spec.md) | 作成 | すべて | 生成、`.nuspec`ファイル、Visual Studio プロジェクトからファイルを生成する場合は、トークンを使用します。 |
 

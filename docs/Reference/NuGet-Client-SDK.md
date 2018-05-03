@@ -1,24 +1,18 @@
 ---
-title: "NuGet v3 クライアントと NuGetGallery Api |Microsoft ドキュメント"
+title: NuGet v3 クライアントと NuGetGallery Api
+description: NuGet および NuGetGallery Api は進化し続けるとまだ文書化された、ですが例としては、Dave Glick のブログでご確認いただけます。
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/09/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "NuGet および NuGetGallery Api は進化し続けるとまだ文書化された、ですが例としては、Dave Glick のブログでご確認いただけます。"
-keywords: NuGet API, NuGetGallery API, NuGet v3 libraries
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 3eeb4d4df06c235e3b6af50859899c12db3f8f18
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: b4a7944cdadc90f035b9fe93d7343fd2a93d5868
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
-# <a name="nuget-client-sdk"></a>NuGet Client SDK
+# <a name="nuget-client-sdk"></a>NuGet クライアント SDK
 
 NuGet v3 クライアントと NuGetGallery Api は、絶えず進化をすぐに文書化される安定した領域を持つに取り組んでいます。
 

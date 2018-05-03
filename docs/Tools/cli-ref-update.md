@@ -1,29 +1,20 @@
 ---
-title: NuGet CLI コマンドの更新 |Microsoft ドキュメント
+title: NuGet CLI 更新コマンド
+description: Nuget.exe 更新コマンドのリファレンス
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 12/07/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Nuget.exe 更新コマンドのリファレンス
-keywords: nuget 参照の更新、更新プログラム パッケージ コマンド
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 1ea04f2fa2a753065ee4f17cbb926e37acf129e0
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: e6964d92436ce1bac9e6af85f6dae75fcf40378d
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="update-command-nuget-cli"></a>更新コマンド (NuGet CLI)
 
-**適用されます:**消費をパッケージ化&bullet;**サポートされているバージョン:**すべて
+**適用されます:** 消費をパッケージ化&bullet;**サポートされているバージョン:** すべて
 
 プロジェクト内のすべてのパッケージを更新 (を使用して`packages.config`) を使用可能な最新のバージョン。 実行することをお勧め['restore'](cli-ref-restore.md)実行する前に、`update`です。 (個々 のパッケージを更新する[ `nuget install` ](cli-ref-install.md)ケースの NuGet が最新バージョンをインストール、バージョン番号を指定することがなくです)。
 
@@ -47,13 +38,13 @@ nuget update <configPath> [options]
 | --- | --- |
 | ConfigFile | NuGet 構成ファイルを適用します。 指定しない場合、 `%AppData%\NuGet\NuGet.Config` (Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac または Linux) を使用します。|
 | FileConflictAction | 上書きするか、プロジェクトによって参照されている既存のファイルを無視するように求められたらを実行するアクションを指定します。 値は*で上書きし、無視する場合に、none*です。 |
-| ForceEnglishOutput | *(3.5 +)*インバリアント、英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
+| ForceEnglishOutput | *(3.5 +)* インバリアント、英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
 | ヘルプ | ヘルプ コマンドに関する情報を表示します。 |
 | ID | パッケージを更新する Id の一覧を指定します。 |
-| MSBuildPath | *(4.0 以降)*よりも優先、コマンドで使用する MSBuild のパスを指定`-MSBuildVersion`です。 |
-| MSBuildVersion | *(3.2 +)*このコマンドで使用する MSBuild のバージョンを指定します。 サポートされている値は、4、12、14、15 です。 既定では、パスに MSBuild を取得、それ以外の場合、既定値 MSBuild の最上位にインストールされているバージョンです。 |
+| MSBuildPath | *(4.0 以降)* よりも優先、コマンドで使用する MSBuild のパスを指定`-MSBuildVersion`です。 |
+| MSBuildVersion | *(3.2 +)* このコマンドで使用する MSBuild のバージョンを指定します。 サポートされている値は、4、12、14、15 です。 既定では、パスに MSBuild を取得、それ以外の場合、既定値 MSBuild の最上位にインストールされているバージョンです。 |
 | NonInteractive | ユーザー入力または確認を要求するプロンプトを抑制します。 |
-| PreRelease | プレリリース バージョンを更新できるようにします。 このフラグは既にインストールされているプレリリースのパッケージを更新するときに必要ありません。 |
+| プレリリース版 | プレリリース バージョンを更新できるようにします。 このフラグは既にインストールされているプレリリースのパッケージを更新するときに必要ありません。 |
 | RepositoryPath | パッケージがインストールされているローカル フォルダーを指定します。 |
 | セーフ | のみを更新する最高のバージョンが同じメジャーおよびマイナー バージョン内で使用できるようにインストールされているパッケージがインストールされるように指定します。 |
 | Self | Nuget.exe、最新のバージョンに更新です。その他のすべての引数は無視されます。 |

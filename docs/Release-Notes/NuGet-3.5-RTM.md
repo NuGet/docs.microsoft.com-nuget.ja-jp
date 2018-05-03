@@ -1,22 +1,16 @@
 ---
-title: "NuGet 3.5 のベータ リリース ノート |Microsoft ドキュメント"
+title: NuGet 3.5 のベータ リリース ノート
+description: 既知の問題、バグの修正、追加された機能、および Dcr を含む NuGet 3.5 用のリリース ノートです。
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "既知の問題、バグの修正、追加された機能、および Dcr を含む NuGet 3.5 用のリリース ノートです。"
-keywords: "NuGet 3.5 リリース ノートについては、バグの修正、既知の問題、機能、Dcr を追加します。"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: ee78ceb2ff032c05c0f8ef9a6623b94cc56ee0a9
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: cdb540229cae0e6e952ac2a0c00c8801ccbbb28d
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-35-release-notes"></a>NuGet 3.5 のリリース ノート
 
@@ -80,7 +74,7 @@ ms.lasthandoff: 02/02/2018
 
 * について指定されていませんプロジェクトの中に nuget.exe 更新 *.csproj を呼び出すことがないとき、 `packages.config`  -  [#1496。](https://github.com/NuGet/Home/issues/1496)
 
-* `packages.config`5 xx 状態コード - V2 のソースからの復元を再試行しません[#1217](https://github.com/NuGet/Home/issues/1217)
+* `packages.config` 5 xx 状態コード - V2 のソースからの復元を再試行しません[#1217](https://github.com/NuGet/Home/issues/1217)
 
 * 2 つのドットでファイル src で`.nuspec`それでも - [#2947](https://github.com/NuGet/Home/issues/2947)
 
@@ -148,7 +142,7 @@ ms.lasthandoff: 02/02/2018
 
 * 1 つのソースの承認に失敗した場合は、ブロックをインストール[#2034](https://github.com/NuGet/Home/issues/2034)
 
-* `.nuspec`バージョン範囲は-IncludeReferencedProjects バージョン - をオーバーライドする必要があります[#1983](https://github.com/NuGet/Home/issues/1983)
+* `.nuspec` バージョン範囲は-IncludeReferencedProjects バージョン - をオーバーライドする必要があります[#1983](https://github.com/NuGet/Home/issues/1983)
 
 * 更新プログラム パッケージ super 速度の遅い -「しようとした依存関係情報を収集する」- [#1909](https://github.com/NuGet/Home/issues/1909)
 
@@ -226,7 +220,7 @@ ms.lasthandoff: 02/02/2018
 
 * 資格情報のプラグインは、エラー-1 で終了しましたエラーをダウンロードする、複数のソースの資格情報プロバイダーを使用する場合にパッケージ化/ [#2885。](https://github.com/NuGet/Home/issues/2885)
 
-* `project.json`nuget の復元時に変更されました - 何も再コンパイルの原因[#2817](https://github.com/NuGet/Home/issues/2817)
+* `project.json` nuget の復元時に変更されました - 何も再コンパイルの原因[#2817](https://github.com/NuGet/Home/issues/2817)
 
 * シンボルしていないパッケージを今まででインストールまたは更新に使用される[#2807](https://github.com/NuGet/Home/issues/2807)
 

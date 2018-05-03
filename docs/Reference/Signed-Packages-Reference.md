@@ -1,26 +1,17 @@
 ---
-title: パッケージの参照を署名 |Microsoft ドキュメント
+title: NuGet パッケージの参照の署名
+description: NuGet パッケージの署名の要件。
 author: rido-min
 ms.author: rido-min
-manager: unniravindranathan
-ms.date: 03/06/2018
+manager: unnir
+ms.date: 04/24/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: パッケージ機能の説明を署名します。
-keywords: NuGet パッケージの署名、署名、証明書
-ms.reviewer:
-- ananguar
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: a2a338596f7d98ded11da6fb02bafba3521249ab
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: ananguar
+ms.openlocfilehash: 751a8ff14bdc3a647985da4f908ad1a0fd0def9a
+ms.sourcegitcommit: 5fcd6d664749aa720359104ef7a66d38aeecadc2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/27/2018
 ---
 # <a name="signed-packages"></a>署名付きパッケージ
 
@@ -38,6 +29,9 @@ NuGet パッケージは、改ざんされたコンテンツに対する保護�
 
 > [!Important]
 > nuget.org 現在受け付けない署名付きパッケージ。 カスタム フィードに公開する場合はパッケージに署名することができます。
+
+> [!Important]
+> パッケージの署名は現在サポートされて windows nuget.exe を使用する場合のみです。 Windows で nuget.exe または Visual Studio を使用する場合にのみ、署名付きパッケージの検証は現在サポートされています。
 
 ## <a name="certificate-requirements"></a>証明書の要件
 

@@ -1,22 +1,16 @@
 ---
-title: "NuGet 1.3 リリース ノート |Microsoft ドキュメント"
+title: NuGet 1.3 リリース ノート
+description: 既知の問題、バグの修正、追加された機能、および Dcr を含む NuGet 1.3 リリース ノートです。
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "既知の問題、バグの修正、追加された機能、および Dcr を含む NuGet 1.3 リリース ノートです。"
-keywords: "NuGet 1.3 リリース ノートについては、バグの修正、既知の問題、機能、Dcr を追加します。"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 59169be5b39ba4436e13e0935a0ad6efa724e08e
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: c0284fe0afb11bf6465897132cccd160674ea3e1
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-13-release-notes"></a>NuGet 1.3 リリース ノート
 
@@ -30,7 +24,7 @@ NuGet 1.3 は、2011 年 4 月 25 日にリリースされました。
 
 チームと提携して NuGet チーム[SymbolSource.org](http://www.symbolsource.org/)をソースと PDB をパッケージと共に公開の非常に簡単な方法を提供します。 これにより、パッケージのコンシューマーは、デバッガーでは、パッケージのソースにステップ インできます。 詳細については、読み取り[の作成とシンボル パッケージを公開する](../create-packages/symbol-packages.md)ソースと NuGet パッケージを公開する簡単な方法です。 ライブ デモについてこの機能の深さで NuGet の一部として Mix11 話しも監視できます。 この機能は完全にビデオの 20 分間のマークで始まる説明します。
 
-### <a name="open-packagepage-command"></a>`Open-PackagePage`コマンド
+### <a name="open-packagepage-command"></a>`Open-PackagePage` コマンド
 
 このコマンドでは、簡単に、パッケージ マネージャー コンソール内からパッケージのプロジェクト ページにアクセスできます。 ライセンスの URL と、不正使用のレポート ページ、パッケージを開くオプションも用意されています。
 コマンドの構文です。

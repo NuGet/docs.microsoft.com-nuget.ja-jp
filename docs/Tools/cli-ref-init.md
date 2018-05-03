@@ -1,29 +1,20 @@
 ---
-title: NuGet CLI init コマンド |Microsoft ドキュメント
+title: NuGet CLI init コマンド
+description: Nuget.exe init コマンドのリファレンス
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Nuget.exe init コマンドのリファレンス
-keywords: nuget init 参照、init コマンド
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 01a3553622020b5868e33ece09cd7555cb712fd3
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: f5e819d014637d1ebb0403d9d838f9362efb20f0
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="init-command-nuget-cli"></a>init コマンド (NuGet CLI)
 
-**適用されます:**パッケージの作成&bullet;**サポートされているバージョン:** 3.3 +
+**適用されます:** パッケージの作成&bullet;**サポートされているバージョン:** 3.3 +
 
 説明に従って、階層構造を使用して目的のフォルダーにフラット フォルダーからすべてのパッケージをコピー、[コマンド追加](cli-ref-add.md)です。 使用して、`init`を使用すると、`add`フォルダー内の各パッケージにコマンド。
 
@@ -42,7 +33,7 @@ nuget init <source> <destination> [options]
 | オプション | 説明 |
 | --- | --- |
 | ConfigFile | NuGet 構成ファイルを適用します。 指定しない場合、 `%AppData%\NuGet\NuGet.Config` (Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac または Linux) を使用します。|
-| ForceEnglishOutput | *(3.5 +)*インバリアント、英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
+| ForceEnglishOutput | *(3.5 +)* インバリアント、英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
 | Expand | パッケージ ソースに追加される各パッケージ内のすべてのファイルを追加します。同じ`-Expand`で、`add`コマンド。 |
 | ヘルプ | ヘルプ コマンドに関する情報を表示します。 |
 | NonInteractive | ユーザー入力または確認を要求するプロンプトを抑制します。 |

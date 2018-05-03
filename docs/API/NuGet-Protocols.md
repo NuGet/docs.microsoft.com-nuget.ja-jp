@@ -1,21 +1,17 @@
 ---
-title: "nuget.org プロトコル |Microsoft ドキュメント"
+title: nuget.org プロトコル
+description: NuGet のクライアントと対話する継続的に進化 nuget.org プロトコル。
 author: anangaur
 ms.author: anangaur
-manager: unniravindranathan
+manager: unnir
 ms.date: 10/30/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "NuGet のクライアントと対話する継続的に進化 nuget.org プロトコル。"
-ms.reviewer:
-- kraigb
-- karann-msft
-ms.openlocfilehash: 488a86a36a6bc83c91f0182bf437ddb83e707e31
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.reviewer: kraigb
+ms.openlocfilehash: cc6d52617ea8b69d5b18b831ddf8a1a85dd6798f
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nugetorg-protocols"></a>nuget.org protocols
 
@@ -54,7 +50,7 @@ NuGet のエコシステムで広範に実装されている NuGet API につい
 
 #### <a name="request-parameters"></a>要求パラメーター
 
-name           | イン     | 型   | 必須 | メモ
+名前           | イン     | 型   | 必須 | メモ
 -------------- | ------ | ------ | -------- | -----
 ID             | URL    | string | 可      | 確認してくださいスコープ キーを要求する対象のパッケージ identidier
 VERSION        | URL    | string | Ｘ       | パッケージのバージョン
@@ -77,7 +73,7 @@ X-NuGet-ApiKey | Header | string | 可      | たとえば、`X-NuGet-ApiKey: {U
 
 #### <a name="request-parameters"></a>要求パラメーター
 
-name           | イン     | 型   | 必須 | メモ
+名前           | イン     | 型   | 必須 | メモ
 -------------  | ------ | ------ | -------- | -----
 ID             | URL    | string | 可      | 確認してくださいスコープ キーを要求する対象のパッケージ識別子
 VERSION        | URL    | string | Ｘ       | パッケージのバージョン

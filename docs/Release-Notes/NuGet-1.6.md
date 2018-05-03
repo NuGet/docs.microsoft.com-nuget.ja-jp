@@ -1,22 +1,16 @@
 ---
-title: "NuGet 1.6 リリース ノート |Microsoft ドキュメント"
+title: NuGet 1.6 リリース ノート
+description: 既知の問題、バグの修正、追加された機能、および Dcr を含む NuGet 1.6 リリース ノートです。
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "既知の問題、バグの修正、追加された機能、および Dcr を含む NuGet 1.6 リリース ノートです。"
-keywords: "NuGet 1.6 リリース ノートについては、バグの修正、既知の問題、機能、Dcr を追加します。"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 114b03cede24dee520ace1d8aa920a648ad16af1
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 0345e180893a56302385d27792c4e15ba5d96989
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
  # <a name="nuget-16-release-notes"></a>NuGet 1.6 リリース ノート
 
@@ -27,7 +21,7 @@ NuGet 1.6 は、2011 年 12 月 13 日にリリースされました。
 ## <a name="known-installation-issue"></a>インストールの既知の問題
 VS 2010 SP1 を実行している場合、インストールされている古いバージョンがある場合は、NuGet をアップグレードしようとしています。 インストール エラーに発生する可能性があります。
 
-回避策では、NuGet をシンプルにアンインストールし、VS 拡張機能ギャラリーからインストールします。  詳細については、[http://support.microsoft.com/kb/2581019](http://support.microsoft.com/kb/2581019) を参照してください。
+回避策では、NuGet をシンプルにアンインストールし、VS 拡張機能ギャラリーからインストールします。  詳細については、「[http://support.microsoft.com/kb/2581019](http://support.microsoft.com/kb/2581019)」を参照してください。
 
 注意: Visual Studio には、(削除 ボタンは無効になっている) 拡張機能をアンインストールすることを許可しません、可能性の高い場合"管理者として実行 を使用して Visual Studio を再起動するには
 

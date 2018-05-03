@@ -1,26 +1,17 @@
 ---
-title: "パッケージのコンテンツを NuGet API |Microsoft ドキュメント"
-author:
-- joelverhagen
-- kraigb
-ms.author:
-- joelverhagen
-- kraigb
+title: パッケージのコンテンツを NuGet API
+description: パッケージのベース アドレスは、パッケージ自体をフェッチするための単純なインターフェイスです。
+author: joelverhagen
+ms.author: jver
 manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: 
-description: "パッケージのベース アドレスは、パッケージ自体をフェッチするための単純なインターフェイスです。"
-keywords: "NuGet は、コンテナー、NuGet パッケージのベース アドレス、NuGet nupkg API、API の NuGet パッケージのバージョンを NuGet API フラットな一覧にないパッケージでは、NuGet API ダウンロード nuspec"
-ms.reviewer:
-- karann
-- unniravindranathan
-ms.openlocfilehash: c2e631dc0bba95ac849430d77142f27ef591f741
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.reviewer: kraigb
+ms.openlocfilehash: a6ac40368f30d33f35d4ca0b6cc18ce4bd6efee5
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="package-content"></a>パッケージの内容
 
@@ -55,7 +46,7 @@ HTTP メソッドを登録リソースのサポートで見つかったすべて
 
 ### <a name="request-parameters"></a>要求パラメーター
 
-name     | イン     | 型    | 必須 | メモ
+名前     | イン     | 型    | 必須 | メモ
 -------- | ------ | ------- | -------- | -----
 LOWER_ID | URL    | string  | 可      | パッケージ ID、小文字
 
@@ -67,7 +58,7 @@ LOWER_ID | URL    | string  | 可      | パッケージ ID、小文字
 
 パッケージ ソースに 1 つまたは複数のバージョンがある場合は、200 ステータス コードが返されます。 応答本文は、次のプロパティを使用して、JSON オブジェクトを示します。
 
-name     | 種類             | 必須 | メモ
+名前     | 種類             | 必須 | メモ
 -------- | ---------------- | -------- | -----
 バージョン | 文字列の配列 | 可      | パッケージに使用できる Id
 
@@ -91,7 +82,7 @@ name     | 種類             | 必須 | メモ
 
 ### <a name="request-parameters"></a>要求パラメーター
 
-name          | イン     | 型   | 必須 | メモ
+名前          | イン     | 型   | 必須 | メモ
 ------------- | ------ | ------ | -------- | -----
 LOWER_ID      | URL    | string | 可      | パッケージ ID、小文字
 LOWER_VERSION | URL    | string | 可      | パッケージのバージョンが正規化され、小文字
@@ -122,7 +113,7 @@ LOWER_VERSION | URL    | string | 可      | パッケージのバージョン�
 
 ### <a name="request-parameters"></a>要求パラメーター
 
-name          | イン     | 型    | 必須 | メモ
+名前          | イン     | 型    | 必須 | メモ
 ------------- | ------ | ------- | -------- | -----
 LOWER_ID      | URL    | string  | 可      | パッケージ ID、小文字
 LOWER_VERSION | URL    | 整数 | 可      | パッケージのバージョンが正規化され、小文字

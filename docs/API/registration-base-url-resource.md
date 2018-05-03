@@ -1,29 +1,17 @@
 ---
-title: NuGet API のメタデータをパッケージ化 |Microsoft ドキュメント
-author:
-- joelverhagen
-- kraigb
-ms.author:
-- joelverhagen
-- kraigb
+title: パッケージのメタデータを NuGet API
+description: パッケージの登録ベース URL は、パッケージに関するメタデータをフェッチできます。
+author: joelverhagen
+ms.author: jver
 manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: パッケージの登録ベース URL は、パッケージに関するメタデータをフェッチできます。
-keywords: NuGet API パッケージ メタデータ、NuGet API の登録を NuGet API 一覧にないパッケージ
-ms.reviewer:
-- karann
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: c7b32e1d2bb9250de1e0b707405a75184b2bd8b4
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: kraigb
+ms.openlocfilehash: 50064e1450232e9cdedcc042a09c08860f802e76
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="package-metadata"></a>パッケージのメタデータ
 
@@ -101,7 +89,7 @@ LOWER_ID | URL    | string  | 可      | パッケージ ID は、小文字
 名前  | 種類             | 必須 | メモ
 ----- | ---------------- | -------- | -----
 count | 整数          | 可      | インデックス内の登録ページの数
-items | オブジェクトの配列 | 可      | 登録ページの配列
+項目 | オブジェクトの配列 | 可      | 登録ページの配列
 
 インデックス オブジェクトの内の各項目`items`配列登録ページを表す JSON オブジェクトです。
 
@@ -113,7 +101,7 @@ items | オブジェクトの配列 | 可      | 登録ページの配列
 ------ | ---------------- | -------- | -----
 @id    | string           | 可      | [登録] ページの URL
 count  | 整数          | 可      | 登録の数のままにします ページ
-items  | オブジェクトの配列 | Ｘ       | 登録のままと関連付けるメタデータの配列
+項目  | オブジェクトの配列 | Ｘ       | 登録のままと関連付けるメタデータの配列
 低い  | string           | 可      | (包括) のページで、最小 SemVer 2.0.0 バージョン
 親 | string           | Ｘ       | 登録インデックスへの URL
 上限  | string           | 可      | (包括) のページの最上位の SemVer 2.0.0 バージョン
@@ -211,7 +199,7 @@ range        | object | Ｘ       | 許可される[バージョン範囲](../re
 ------ | ---------------- | -------- | -----
 @id    | string           | 可      | [登録] ページの URL
 count  | 整数          | 可      | 登録の数のままにします ページ
-items  | オブジェクトの配列 | 可      | 登録のままと関連付けるメタデータの配列
+項目  | オブジェクトの配列 | 可      | 登録のままと関連付けるメタデータの配列
 低い  | string           | 可      | (包括) のページで、最小 SemVer 2.0.0 バージョン
 親 | string           | 可      | 登録インデックスへの URL
 上限  | string           | 可      | (包括) のページの最上位の SemVer 2.0.0 バージョン

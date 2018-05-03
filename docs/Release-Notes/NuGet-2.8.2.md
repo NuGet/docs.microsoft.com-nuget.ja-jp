@@ -1,22 +1,16 @@
 ---
-title: "NuGet 2.8.2 リリース ノート |Microsoft ドキュメント"
+title: NuGet 2.8.2 リリース ノート
+description: NuGet 2.8.2 などのリリース ノートには、問題、バグの修正、追加された機能、および Dcr が知られています。
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "NuGet 2.8.2 などのリリース ノートには、問題、バグの修正、追加された機能、および Dcr が知られています。"
-keywords: "NuGet 2.8.2 リリース ノートについては、バグの修正、既知の問題、機能、Dcr を追加します。"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: f50bd1f0c981ef293a4d2ff425e0dffbdf58036c
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: a004c250d60a4ed1ca8dede1e83b2a68e10299bf
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-282-release-notes"></a>NuGet 2.8.2 リリース ノート
 

@@ -1,26 +1,17 @@
 ---
-title: "検索では、NuGet API |Microsoft ドキュメント"
-author:
-- joelverhagen
-- kraigb
-ms.author:
-- joelverhagen
-- kraigb
+title: 検索を NuGet API
+description: Search サービスでは、キーワードでパッケージを照会して、パッケージの特定のフィールドにフィルターの結果にクライアントを許可します。
+author: joelverhagen
+ms.author: jver
 manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: 
-description: "Search サービスでは、キーワードでパッケージを照会して、パッケージの特定のフィールドにフィルターの結果にクライアントを許可します。"
-keywords: "NuGet 検索 API では、NuGet パッケージ、NuGet パッケージを照会する、API であり、NuGet パッケージを参照する API の検出します。"
-ms.reviewer:
-- karann
-- unniravindranathan
-ms.openlocfilehash: 612ce0f46b654335a29bb36a64b27525994162ed
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.reviewer: kraigb
+ms.openlocfilehash: 76600ee916305ee01ddfb675c83c184e980c5a42
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="search"></a>検索
 
@@ -33,8 +24,8 @@ V3 API を使用して、パッケージ ソースで使用可能なパッケー
 @type の値                   | メモ
 ----------------------------- | -----
 SearchQueryService            | 最初のリリース
-SearchQueryService/3.0.0-beta | エイリアス`SearchQueryService`
-SearchQueryService/3.0.0-rc   | エイリアス`SearchQueryService`
+SearchQueryService/3.0.0-beta | エイリアス `SearchQueryService`
+SearchQueryService/3.0.0-rc   | エイリアス `SearchQueryService`
 
 ## <a name="base-url"></a>[基本 URL]
 
@@ -54,12 +45,12 @@ HTTP メソッドを登録リソースのサポートで見つかったすべて
 
 ### <a name="request-parameters"></a>要求パラメーター
 
-name        | イン     | 型    | 必須 | メモ
+名前        | イン     | 型    | 必須 | メモ
 ----------- | ------ | ------- | -------- | -----
 q           | URL    | string  | Ｘ       | パッケージをフィルターするために使用する検索用語
 スキップ        | URL    | 整数 | Ｘ       | 改ページをスキップします。 結果の数
 take        | URL    | 整数 | Ｘ       | 結果を返すには、改ページの数
-プレリリース版  | URL    | boolean | Ｘ       | `true`または`false`に含めるかどうかを決定する[プレリリース パッケージ](../create-packages/prerelease-packages.md)
+プレリリース版  | URL    | boolean | Ｘ       | `true` または`false`に含めるかどうかを決定する[プレリリース パッケージ](../create-packages/prerelease-packages.md)
 semVerLevel | URL    | string  | Ｘ       | SemVer 1.0.0 バージョン文字列 
 
 検索クエリ`q`はサーバーの実装で定義されている方法で解析します。 nuget.org の基本的なフィルタ リングをサポートしている、[さまざまなフィールド](../consume-packages/finding-and-choosing-packages.md#search-syntax)です。 ない場合は`q`は、提供、skip と take によって課される境界内のすべてのパッケージを返す必要があります。 これにより、NuGet の Visual Studio エクスペリエンスでは、「参照」タブです。
@@ -80,9 +71,9 @@ semVerLevel | URL    | string  | Ｘ       | SemVer 1.0.0 バージョン文字�
 
 ルートの JSON オブジェクトには、次のプロパティがあります。
 
-name      | 種類             | 必須 | メモ
+名前      | 種類             | 必須 | メモ
 --------- | ---------------- | -------- | -----
-totalHits | 整数          | 可      | 無視すると、一致の合計数`skip`と`take`
+totalHits | 整数          | 可      | 無視すると、一致の合計数`skip`と `take`
 [データ]      | オブジェクトの配列 | 可      | 要求に一致する検索結果
 
 ### <a name="search-result"></a>検索結果
@@ -90,7 +81,7 @@ totalHits | 整数          | 可      | 無視すると、一致の合計数`sk
 内の各項目、`data`配列が同じパッケージ ID を共有するパッケージのバージョンのグループの構成された JSON オブジェクト
 オブジェクトには、次のプロパティがあります。
 
-name           | 種類                       | 必須 | メモ
+名前           | 種類                       | 必須 | メモ
 -------------- | -------------------------- | -------- | -----
 ID             | string                     | 可      | 一致するパッケージの ID
 version        | string                     | 可      | (ビルドのメタデータを含む可能性があります)、パッケージの完全な SemVer 2.0.0 バージョン文字列
@@ -112,7 +103,7 @@ Nuget.org、検証済みのパッケージは予約済み ID のプレフィッ�
 
 検索結果のオブジェクトに含まれるメタデータは、最新バージョンのパッケージから取得されます。 内の各項目、`versions`配列は、次のプロパティを使用して、JSON オブジェクト。
 
-name      | 種類    | 必須 | メモ
+名前      | 種類    | 必須 | メモ
 --------- | ------- | -------- | -----
 @id       | string  | 可      | 関連付けられたへの絶対 URL[登録リーフ](registration-base-url-resource.md#registration-leaf)
 version   | string  | 可      | (ビルドのメタデータを含む可能性があります)、パッケージの完全な SemVer 2.0.0 バージョン文字列

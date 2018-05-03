@@ -1,29 +1,20 @@
 ---
-title: NuGet CLI パック コマンド |Microsoft ドキュメント
+title: NuGet CLI パック コマンド
+description: Nuget.exe パック コマンドのリファレンス
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Nuget.exe パック コマンドのリファレンス
-keywords: nuget パックの参照、パック コマンド
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 14ecf724477f652275eb68a090bb57b8640d4a8a
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: a2468b099a822e69298ea78c80cfd1d5d5c09938
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="pack-command-nuget-cli"></a>パック コマンド (NuGet CLI)
 
-**適用されます:**パッケージの作成&bullet;**サポートされているバージョン:** 2.7 +
+**適用されます:** パッケージの作成&bullet;**サポートされているバージョン:** 2.7 +
 
 に基づいて、指定された NuGet パッケージを作成`.nuspec`またはプロジェクト ファイルです。 `dotnet pack`コマンド (を参照してください[dotnet コマンド](dotnet-Commands.md)) および`msbuild /t:pack`(を参照してください[MSBuild ターゲット](../reference/msbuild-targets.md)) の代替として使用することがあります。
 
@@ -33,7 +24,7 @@ ms.lasthandoff: 03/28/2018
 ## <a name="usage"></a>使用法
 
 ```cli
-nuget pack <nuspecPath | projectPath> [options]
+nuget pack <nuspecPath | projectPath> [options] [-Properties ...]
 ```
 
 ここで`<nuspecPath>`と`<projectPath>`指定、`.nuspec`またはプロジェクト ファイル、それぞれします。
@@ -46,17 +37,17 @@ nuget pack <nuspecPath | projectPath> [options]
 | ビルド | パッケージを構築する前に、プロジェクトをビルドすることを指定します。 |
 | 除外 | パッケージを作成するときに除外する 1 つまたは複数のワイルドカード パターンを指定します。 複数のパターンを指定するに繰り返します - 除外するフラグ。 次の例を参照してください。 |
 | ExcludeEmptyDirectories | パッケージを作成するときに、空のディレクトリを含めることを防ぎます。 |
-| ForceEnglishOutput | *(3.5 +)*インバリアント、英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
+| ForceEnglishOutput | *(3.5 +)* インバリアント、英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
 | ヘルプ | ヘルプ コマンドに関する情報を表示します。 |
 | IncludeReferencedProjects | 依存関係として、またはパッケージの一部として、ビルド、パッケージに参照先のプロジェクトを含める必要がありますを示します。 参照先プロジェクトに対応する`.nuspec`をその参照先プロジェクトが、依存関係として追加し、プロジェクトと同じ名前を持つファイルです。 それ以外の場合、参照先プロジェクトは、パッケージの一部として追加されます。 |
 | MinClientVersion | 設定、 *minClientVersion*作成されたパッケージの属性です。 この値は、既存の値をオーバーライド*minClientVersion*で属性 (該当する場合)、`.nuspec`ファイル。 |
-| MSBuildPath | *(4.0 以降)*よりも優先、コマンドで使用する MSBuild のパスを指定`-MSBuildVersion`です。 |
-| MSBuildVersion | *(3.2 +)*このコマンドで使用する MSBuild のバージョンを指定します。 サポートされている値は、4、12、14、15 です。 既定では、パスに MSBuild を取得、それ以外の場合、既定値 MSBuild の最上位にインストールされているバージョンです。 |
+| MSBuildPath | *(4.0 以降)* よりも優先、コマンドで使用する MSBuild のパスを指定`-MSBuildVersion`です。 |
+| MSBuildVersion | *(3.2 +)* このコマンドで使用する MSBuild のバージョンを指定します。 サポートされている値は、4、12、14、15 です。 既定では、パスに MSBuild を取得、それ以外の場合、既定値 MSBuild の最上位にインストールされているバージョンです。 |
 | NoDefaultExcludes | により、NuGet の既定の除外ファイルおよびファイルとフォルダーには、ピリオドなどの開始をパッケージ化`.svn`と`.gitignore`です。 |
 | NoPackageAnalysis | パッケージのビルド後に、パックでパッケージの分析を実行しないことを指定します。 |
 | OutputDirectory | 作成されたパッケージが格納されているフォルダーを指定します。 フォルダーが指定されていない場合は、現在のフォルダーが使用されます。 |
-| プロパティ | プロジェクト ファイル内の値をオーバーライドするプロパティの一覧を指定します参照してください[MSBuild プロジェクトの共通プロパティ](/visualstudio/msbuild/common-msbuild-project-properties)プロパティ名にします。 プロパティ引数をここでは、トークンのリスト = 値のペアをセミコロンで区切られた場所のたびに`$token$`で、`.nuspec`ファイルは指定した値に置き換えられます。 値は、引用符で囲まれた文字列にすることができます。 "Configuration"プロパティの既定値がある"Debug"に注意してください。 リリース構成を変更するには、使用`-Properties Configuration=Release`です。 |
-| サフィックス | *(3.4.4+)*内部的に生成されたバージョン番号、ビルドまたはその他のプレリリース版の識別子を追加するために使用される通常にサフィックスを追加します。 たとえばを使用して`-suffix nightly`バージョン番号 like でパッケージを作成`1.2.3-nightly`です。 サフィックスは、警告、エラー、およびさまざまなバージョンの NuGet と NuGet パッケージ マネージャーの潜在的な非互換性を回避するのには文字で始める必要があります。 |
+| プロパティ | その他のオプションの後に、コマンドラインの最後には表示されます。 プロジェクト ファイル内の値をオーバーライドするプロパティの一覧を指定します参照してください[MSBuild プロジェクトの共通プロパティ](/visualstudio/msbuild/common-msbuild-project-properties)プロパティ名にします。 プロパティ引数をここでは、トークンのリスト = 値のペアをセミコロンで区切られた場所のたびに`$token$`で、`.nuspec`ファイルは指定した値に置き換えられます。 値は、引用符で囲まれた文字列にすることができます。 "Configuration"プロパティの既定値がある"Debug"に注意してください。 リリース構成を変更するには、使用`-Properties Configuration=Release`です。 |
+| サフィックス | *(3.4.4+)* 内部的に生成されたバージョン番号、ビルドまたはその他のプレリリース版の識別子を追加するために使用される通常にサフィックスを追加します。 たとえばを使用して`-suffix nightly`バージョン番号 like でパッケージを作成`1.2.3-nightly`です。 サフィックスは、警告、エラー、およびさまざまなバージョンの NuGet と NuGet パッケージ マネージャーの潜在的な非互換性を回避するのには文字で始める必要があります。 |
 | シンボル | パッケージには、ソースとシンボルが含まれているを指定します。 使用すると、`.nuspec`ファイル、通常の NuGet パッケージ ファイルが作成され、対応するシンボル パッケージです。 |
 | ツール | プロジェクトの出力ファイルを配置する必要がありますを指定します、`tool`フォルダーです。 |
 | 詳細度 | 出力に表示される詳細情報の量を指定します:*通常*、 *quiet*、*詳細*です。 |
@@ -96,8 +87,8 @@ nuget pack foo.csproj -Properties Configuration=Release
 
 nuget pack foo.csproj -Build -Symbols -Properties owners=janedoe,xiaop;version="1.0.5"
 
-# create a package from project foo.csproj, using MSBuild version 12 to build the project
-nuget pack foo.csproj -Build -Symbols -Properties owners=janedoe,xiaop;version="1.0.5" -MSBuildVersion 12
+# Create a package from project foo.csproj, using MSBuild version 12 to build the project
+nuget pack foo.csproj -Build -Symbols -MSBuildVersion 12 -Properties owners=janedoe,xiaop;version="1.0.5
 
 nuget pack foo.nuspec -Version 2.1.0
 

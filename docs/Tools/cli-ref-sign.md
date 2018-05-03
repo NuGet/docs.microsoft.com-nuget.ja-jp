@@ -1,33 +1,25 @@
 ---
-title: NuGet CLI 記号コマンド |Microsoft ドキュメント
+title: NuGet CLI 記号コマンド
+description: Nuget.exe 記号コマンドのリファレンス
 author: dtivel
 ms.author: dtivel
 manager: doronm
 ms.date: 03/06/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Nuget.exe 記号コマンドのリファレンス
-keywords: nuget 記号の参照、サインオン コマンド
-ms.reviewer:
-- karann
-- rmpablos
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 9c83e5abae0e70cdc62917861c1febfce4f792c7
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: rmpablos
+ms.openlocfilehash: 7e84d794b802cfd69c785f720280fd5c022a46f6
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="sign-command-nuget-cli"></a>サインオン コマンド (NuGet CLI)
 
-**適用されます:**パッケージの作成&bullet;**サポートされているバージョン:** 4.6 以上
+**適用されます:** パッケージの作成&bullet;**サポートされているバージョン:** 4.6 以上
 
 証明書では、最初の引数に一致するすべてのパッケージに署名します。 ファイルとは、サブジェクト名または拇印を提供することで、証明書ストアにインストールされている証明書から秘密キー付きの証明書を取得できます。
 
-パッケージの署名はまだサポートされていません Mono でまたは Windows 以外のプラットフォーム。
+パッケージの署名はまだサポートされていません、Mono で、または Windows 以外のプラットフォーム上の .NET Core で。
 
 ## <a name="usage"></a>使用法
 

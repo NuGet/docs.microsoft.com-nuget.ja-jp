@@ -1,31 +1,22 @@
 ---
-title: NuGet.Config ファイル参照 | Microsoft Docs
+title: nuget.config ファイルの参照
+description: config、bindingRedirects、packageRestore、solution、packageSource の各セクションを含む NuGet.Config ファイル参照。
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 10/25/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: config、bindingRedirects、packageRestore、solution、packageSource の各セクションを含む NuGet.Config ファイル参照。
-keywords: NuGet.Config ファイル、NuGet 構成参照、NuGet 構成オプション
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: e2a9d4f10ac6af4e5bc7386d4f78e18c2a5752c4
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 871cd05ed010d2a31348151de6b7e225ed2dc915
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
-# <a name="nugetconfig-reference"></a>NuGet.Config 参照
+# <a name="nugetconfig-reference"></a>nuget.config の参照
 
 NuGet の動作は、「[Configuring NuGet Behavior](../consume-packages/configuring-nuget-behavior.md)」(NuGet 動作の構成) に記載の各種 `NuGet.Config` ファイルでの設定によって制御されます。
 
-`NuGet.Config` は、最上位の `<configuration>` ノードを含む XML ファイルであり、このトピックで説明するセクション要素が含まれます。 各セクションには、`key` 属性および `value` 属性を持つ 0 個以上の `<add>` 要素が含まれています。 「[examples config file](#example-config-file)」 (構成ファイルの例) を参照してください。 名前の設定には大文字と小文字の区別があり、値には[環境変数](#using-environment-variables)を使用することができます。
+`nuget.config` は、最上位の `<configuration>` ノードを含む XML ファイルであり、このトピックで説明するセクション要素が含まれます。 各セクションには、`key` 属性および `value` 属性を持つ 0 個以上の `<add>` 要素が含まれています。 「[examples config file](#example-config-file)」 (構成ファイルの例) を参照してください。 名前の設定には大文字と小文字の区別があり、値には[環境変数](#using-environment-variables)を使用することができます。
 
 このトピックの内容:
 
@@ -56,8 +47,8 @@ NuGet の動作は、「[Configuring NuGet Behavior](../consume-packages/configu
 | キー | [値] |
 | --- | --- |
 | dependencyVersion (`packages.config` のみ) | `-DependencyVersion` スイッチが直接指定されない場合の、パッケージのインストール、復元、および更新における既定の `DependencyVersion` 値です。 この値は、NuGet パッケージ マネージャー UI でも使用されます。 値は `Lowest`、`HighestPatch`、`HighestMinor`、`Highest` となります。 |
-| globalPackagesFolder (PackageReference をのみを使用してプロジェクト) | 既定のグローバル パッケージ フォルダーの場所です。 既定値は、`%userprofile%\.nuget\packages` (Windows) または `~/.nuget/packages` (Mac/Linux) です。 相対パスは、プロジェクト固有の `Nuget.Config` ファイルで使用できます。 この設定は、優先 NUGET_PACKAGES 環境変数でオーバーライドされます。 |
-| repositoryPath (`packages.config` のみ) | 既定の `$(Solutiondir)/packages` フォルダーではなく、NuGet パッケージをインストールする場所です。 相対パスは、プロジェクト固有の `Nuget.Config` ファイルで使用できます。 この設定は、優先 NUGET_PACKAGES 環境変数でオーバーライドされます。 |
+| globalPackagesFolder (PackageReference をのみを使用してプロジェクト) | 既定のグローバル パッケージ フォルダーの場所です。 既定値は、`%userprofile%\.nuget\packages` (Windows) または `~/.nuget/packages` (Mac/Linux) です。 相対パスは、プロジェクト固有の `nuget.config` ファイルで使用できます。 この設定は、優先 NUGET_PACKAGES 環境変数でオーバーライドされます。 |
+| repositoryPath (`packages.config` のみ) | 既定の `$(Solutiondir)/packages` フォルダーではなく、NuGet パッケージをインストールする場所です。 相対パスは、プロジェクト固有の `nuget.config` ファイルで使用できます。 この設定は、優先 NUGET_PACKAGES 環境変数でオーバーライドされます。 |
 | defaultPushSource | 操作に対してパッケージ ソースが他に見つからない場合に、既定値として使用すべきパッケージ ソースの URL またはパスを識別します。 |
 | http_proxy http_proxy.user http_proxy.password no_proxy | パッケージ ソースに接続するときに使用するプロキシ設定です。`http_proxy` の形式は `http://<username>:<password>@<domain>` とする必要があります。 パスワードは暗号化され、手動で追加することはできません。 `no_proxy` の場合、値はドメイン、バイパス、プロキシ サーバーのコンマ区切りのリストとなります。 これらの値に対して http_proxy および no_proxy の環境変数を使用することもできます。 詳細については、「[NuGet proxy settings](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html)」 (NuGet プロキシ設定) (skolima.blogspot.com) を参照してください。 |
 
@@ -108,7 +99,7 @@ NuGet の動作は、「[Configuring NuGet Behavior](../consume-packages/configu
 
 ## <a name="solution-section"></a>ソリューション セクション
 
-ソリューションの `packages` フォルダーをソース管理に含めるかどうかを制御します。 このセクションは、ソリューション フォルダー内の `Nuget.Config` ファイルでのみ機能します。
+ソリューションの `packages` フォルダーをソース管理に含めるかどうかを制御します。 このセクションは、ソリューション フォルダー内の `nuget.config` ファイルでのみ機能します。
 
 | キー | [値] |
 | --- | --- |
@@ -227,7 +218,8 @@ NuGet の動作は、「[Configuring NuGet Behavior](../consume-packages/configu
 
 ### <a name="activepackagesource"></a>activePackageSource
 
-*(2.x のみ。3.x 以降では使用されていない)*
+
+  *(2.x のみ。3.x 以降では非推奨とされます)*
 
 現在アクティブなソースを識別し、すべてのソースの集計を示します。
 
@@ -249,7 +241,7 @@ NuGet の動作は、「[Configuring NuGet Behavior](../consume-packages/configu
 
 ## <a name="using-environment-variables"></a>環境変数の使用
 
-環境変数を `NuGet.Config` 値 (NuGet 3.4 以降) に使用することで、実行時に設定を適用できます。
+環境変数を `nuget.config` 値 (NuGet 3.4 以降) に使用することで、実行時に設定を適用できます。
 
 たとえば、Windows 上の `HOME` 環境変数を `c:\users\username` に設定すると、構成ファイル内の `%HOME%\NuGetRepository` の値は `c:\users\username\NuGetRepository` に解決されます。
 
@@ -259,7 +251,7 @@ NuGet の動作は、「[Configuring NuGet Behavior](../consume-packages/configu
 
 ## <a name="example-config-file"></a>構成ファイルの例
 
-複数の設定が含まれている `NuGet.Config` ファイルの例を次に示します。
+複数の設定が含まれている `nuget.config` ファイルの例を次に示します。
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

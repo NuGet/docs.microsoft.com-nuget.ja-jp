@@ -1,30 +1,21 @@
 ---
-title: NuGet パッケージ マネージャーの UI リファレンス |Microsoft ドキュメント
+title: NuGet パッケージ マネージャーの UI リファレンス
+description: Visual Studio で NuGet パッケージ マネージャーの UI を使用して NuGet パッケージを操作するための手順です。
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 12/08/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
+ms.topic: conceptual
 f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-description: Visual Studio で NuGet パッケージ マネージャーの UI を使用して NuGet パッケージを操作するための手順です。
-keywords: NuGet UI では、NuGet パッケージ マネージャー UI では、NuGet Visual studio で NuGet パッケージの管理、ユーザー インターフェイスの NuGet パッケージ マネージャー Visual Studio での管理
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: ad36c2ab0c6e62c7fe624b35d92e852303ecfdfb
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 99bd51798460a56cb8515d46791a9e75d9e630cc
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="nuget-package-manager-ui"></a>NuGet パッケージ マネージャーの UI
 
@@ -40,7 +31,7 @@ Windows 上の Visual Studio で NuGet パッケージ マネージャー UI を
 - [パッケージ マネージャーのオプションを制御します。](#package-manager-options-control)
 
 > [!Note]
-> Visual Studio 2015 内の NuGet パッケージ マネージャー、欠落している場合は確認**ツール > 拡張機能と更新しています.**を検索し、 *NuGet Package Manager*拡張機能です。 Visual Studio での拡張機能インストーラーを使用することがない場合は、ダウンロードから直接、拡張機能[ https://dist.nuget.org/index.html](https://dist.nuget.org/index.html)です。
+> Visual Studio 2015 内の NuGet パッケージ マネージャー、欠落している場合は確認**ツール > 拡張機能と更新しています.** を検索し、 *NuGet Package Manager*拡張機能です。 Visual Studio での拡張機能インストーラーを使用することがない場合は、ダウンロードから直接、拡張機能[ https://dist.nuget.org/index.html](https://dist.nuget.org/index.html)です。
 >
 > Visual Studio 2017 のいずれかと NuGet と NuGet パッケージ マネージャーが自動的にインストールします。NET に関連するワークロードです。 個別に選択してインストール、**個々 のコンポーネント > コード ツール > の NuGet package manager** Visual Studio 2017 インストーラー オプション。
 
@@ -59,7 +50,7 @@ Windows 上の Visual Studio で NuGet パッケージ マネージャー UI を
     ![ソリューション エクスプ ローラー内の参照](media/References.png)
 
 > [!Tip]
-    > プレリリース バージョンを検索に含めるし、プレリリース版で利用できるように、バージョン ドロップダウンの選択、**プレリリースを含める**オプション。
+> プレリリース バージョンを検索に含めるし、プレリリース版で利用できるように、バージョン ドロップダウンの選択、**プレリリースを含める**オプション。
 
 ## <a name="uninstalling-a-package"></a>パッケージをアンインストールします。
 
@@ -90,7 +81,7 @@ Windows 上の Visual Studio で NuGet パッケージ マネージャー UI を
 
 ソリューションのパッケージの管理は、同時に複数のプロジェクトを操作する便利な手段です。
 
-1. 選択、**ツール > NuGet Package Manager > ソリューションの NuGet パッケージを管理しています.**メニュー コマンド、またはソリューションを右クリックし  **NuGet パッケージを管理しています.**:
+1. 選択、**ツール > NuGet Package Manager > ソリューションの NuGet パッケージを管理しています.** メニュー コマンド、またはソリューションを右クリックし  **NuGet パッケージを管理しています.**:
 
     ![ソリューションの NuGet パッケージを管理します。](media/ManagePackagesSolutionUICommand.png)
 

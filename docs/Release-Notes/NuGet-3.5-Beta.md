@@ -1,28 +1,22 @@
 ---
-title: "NuGet 3.5 のベータ リリース ノート |Microsoft ドキュメント"
+title: NuGet 3.5 のベータ リリース ノート
+description: 既知の問題、バグの修正、追加された機能、および Dcr を含む NuGet 3.5 のベータ版のリリース ノートします。
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "既知の問題、バグの修正、追加された機能、および Dcr を含む NuGet 3.5 のベータ版のリリース ノートします。"
-keywords: "NuGet 3.5 のベータ リリース ノートについては、バグの修正、既知の問題、機能、Dcr を追加します。"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 52e8ac4f14af991c41455aeaa2b0bf163c4ab70b
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: aee2a66101fd7e95ec6240edaeda60ed48d0915a
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-35-beta-release-notes"></a>NuGet 3.5 のベータ リリース ノート
 
 [NuGet 3.4 リリース ノート](../release-notes/nuget-3.4.md) | [NuGet 3.5 Beta2 リリース ノート](../release-notes/nuget-3.5-Beta2.md)
 
-NuGet 3.5 のベータ版は、16、2016 年 5 月 ASP.NET Core プレビュー Tooling wave の一部としてにリリースされました。 このリリースでは、.NET Core RC2 と ASP.NET Core RC2 のサポートを追加します。 このリリースの詳細についてを参照してください[http://dot.net](http://dot.net)です。
+NuGet 3.5 のベータ版は、16、2016 年 5 月 ASP.NET Core プレビュー Tooling wave の一部としてにリリースされました。 このリリースでは、.NET Core RC2 と ASP.NET Core RC2 のサポートを追加します。 このリリースの詳細についてを参照してください[ http://dot.net](http://dot.net)です。
 
 VSIX と nuget.exe の両方をダウンロードする[ここ](https://dist.nuget.org/index.html)です。
 

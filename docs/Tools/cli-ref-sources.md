@@ -1,29 +1,20 @@
 ---
-title: NuGet CLI コマンドをソース |Microsoft ドキュメント
+title: NuGet CLI コマンドをソースします。
+description: ソースのコマンドを nuget.exe への参照
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: ソースのコマンドを nuget.exe への参照
-keywords: nuget のソースの参照、コマンドをソース
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 5fb34654dc294de34cf0e15f784240884dc1e3d1
-ms.sourcegitcommit: ecb598c790d4154366bc92757ec7db1a51c34faf
+ms.openlocfilehash: d588ff09075ad75b76b7dd3645f3cdff29f6f093
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="sources-command-nuget-cli"></a>ソースのコマンド (NuGet CLI)
 
-**適用されます:**パッケージ消費、パブリッシング&bullet;**サポートされているバージョン:**すべて
+**適用されます:** パッケージ消費、パブリッシング&bullet;**サポートされているバージョン:** すべて
 
 ユーザー スコープの構成ファイルまたは指定された構成ファイル内にあるソースの一覧を管理します。 ユーザー スコープの構成ファイルにある`%appdata%\NuGet\NuGet.Config`(Windows) と`~/.nuget/NuGet/NuGet.Config`(Mac または Linux)。
 
@@ -42,7 +33,7 @@ nuget sources <operation> -Name <name> -Source <source>
 | オプション | 説明 |
 | --- | --- |
 | ConfigFile | NuGet 構成ファイルを適用します。 指定しない場合、 `%AppData%\NuGet\NuGet.Config` (Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac または Linux) を使用します。|
-| ForceEnglishOutput | *(3.5 +)*インバリアント、英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
+| ForceEnglishOutput | *(3.5 +)* インバリアント、英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
 | 形式 | 適用されます、`list`アクションを指定できます`Detailed`(既定) または`Short`です。 |
 | ヘルプ | ヘルプ コマンドに関する情報を表示します。 |
 | NonInteractive | ユーザー入力または確認を要求するプロンプトを抑制します。 |

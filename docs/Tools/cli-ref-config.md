@@ -1,29 +1,20 @@
 ---
-title: NuGet CLI config コマンド |Microsoft ドキュメント
+title: NuGet CLI config コマンド
+description: Nuget.exe config コマンドのリファレンス
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Nuget.exe config コマンドのリファレンス
-keywords: nuget config 参照、config コマンド
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: e3d08f210bd56fcb8eb701fc9b241a3ab45998ec
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 414eb8386f949347772f33170de881534dc71482
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="config-command-nuget-cli"></a>config コマンド (NuGet CLI)
 
-**適用されます:**すべて&bullet;**サポートされているバージョン**: すべて
+**適用されます:** すべて&bullet;**サポートされているバージョン**: すべて
 
 取得または NuGet の構成値を設定します。 追加の使用率は、次を参照してください。 [NuGet の動作を構成する](../consume-packages/configuring-nuget-behavior.md)です。 使用可能なキー名の詳細についてを参照してください、 [NuGet config ファイル参照](../reference/nuget-config-file.md)です。
 
@@ -46,7 +37,7 @@ NuGet 3.4 以降で`<value>`使える[環境変数](cli-ref-environment-variable
 | --- | --- |
 | AsPath | 構成は、パスとして値を返しますするときに無視`-Set`を使用します。 |
 | ConfigFile | NuGet 構成ファイルを変更します。 指定しない場合、 `%AppData%\NuGet\NuGet.Config` (Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac または Linux) を使用します。|
-| ForceEnglishOutput | *(3.5 +)*インバリアント、英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
+| ForceEnglishOutput | *(3.5 +)* インバリアント、英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
 | ヘルプ | ヘルプ コマンドに関する情報を表示します。 |
 | NonInteractive | ユーザー入力または確認を要求するプロンプトを抑制します。 |
 | 詳細度 | 出力に表示される詳細情報の量を指定します:*通常*、 *quiet*、*詳細*です。 |

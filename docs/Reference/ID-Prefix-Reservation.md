@@ -1,26 +1,17 @@
 ---
-title: ID プレフィックス予約リファレンス |Microsoft ドキュメント
+title: ID プレフィックス予約参照
+description: パッケージ ID プレフィックス予約機能の説明、作成者ガイドです。
 author: diverdan92
 ms.author: diverdan92
-manager: unniravindranathan
+manager: unnir
 ms.date: 10/09/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: パッケージ ID プレフィックス予約機能の説明、作成者ガイドです。
-keywords: NuGet パッケージ ID、プレフィックス、予約
-ms.reviewer:
-- ananguar
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 7b1956612bd48a1c59503418f1a4d7d9dee900f5
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: ananguar
+ms.openlocfilehash: 63f442ae25b92aacbbf5af7d9b3ea1a5dafe5fc9
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="package-id-prefix-reservation"></a>パッケージ ID のプレフィックスの予約
 
@@ -40,7 +31,7 @@ ms.lasthandoff: 03/28/2018
 
 1. パッケージを送信するたびに[nuget.org](https://www.nuget.org/) ID のプレフィックスを予約済みの所有者から発生しない限り、予約済み ID のプレフィックスに一致する ID を持つパッケージが拒否されました。
 
-1. Visual Studio 2017 バージョン 15.4 以降で、予約済み ID のプレフィックスに一致し、ID のプレフィックスを予約されている所有者に由来するパッケージは視覚的になります[nuget.org](https://www.nuget.org/)パッケージがあることを示す予約済み ID プレフィックス。 これは新しいパッケージの送信と所有者の下にある既存のパッケージの両方に当てはまります。 **注:**単一フィードがパッケージのソースとして選択されている場合にのみ、Visual Studio でのインジケーターが表示されます。
+1. Visual Studio 2017 バージョン 15.4 以降で、予約済み ID のプレフィックスに一致し、ID のプレフィックスを予約されている所有者に由来するパッケージは視覚的になります[nuget.org](https://www.nuget.org/)パッケージがあることを示す予約済み ID プレフィックス。 これは新しいパッケージの送信と所有者の下にある既存のパッケージの両方に当てはまります。 **注:** 単一フィードがパッケージのソースとして選択されている場合にのみ、Visual Studio でのインジケーターが表示されます。
 
 1. 予約済み ID のプレフィックスに一致するすべての既存のパッケージが、*いない*予約済みの所有者によって所有されているプレフィックスは変更されません (、一覧にないことはできませんが、視覚インジケーターが付いていませんも)。 さらに、これらのパッケージの所有者は、パッケージに新しいバージョンを送信できます。
 
@@ -74,9 +65,9 @@ Subprefix 委任、および public としてマーキング プレフィック�
 
 1. 確認して、受け入れ[プレフィックス ID 予約の条件](#id-prefix-reservation-criteria)です。
 
-1. 他にも、予約する名前空間を決定[プレフィックス予約シナリオを高度な](#advanced-prefix-reservation-scenarios)が必要な場合があります。
+2. 他にも、予約する名前空間を決定[プレフィックス予約シナリオを高度な](#advanced-prefix-reservation-scenarios)が必要な場合があります。
 
-1. 電子メールを送信[ account@nuget.org ](mailto:account@nuget.org)オーナーを使用して表示名で[nuget.org](https://www.nuget.org/)、要求している、予約済みのプレフィックスとします。 複数の所有者にプレフィックスのサブセットを委任する場合は、すべての所有者の表示名を説明し、サブセットのプレフィックスを確認します。
+3. 電子メールを送信[ account@nuget.org ](mailto:account@nuget.org)オーナーを使用して表示名で[nuget.org](https://www.nuget.org/)、要求している、予約済みのプレフィックスとします。 複数の所有者にプレフィックスのサブセットを委任する場合は、すべての所有者の表示名を説明し、サブセットのプレフィックスを確認します。
 
 アプリケーションが送信されるへの同意または拒否の原因となった条件) (の却下の通知されます。 所有者の身元を識別する追加の質問を投稿する必要があります。
 

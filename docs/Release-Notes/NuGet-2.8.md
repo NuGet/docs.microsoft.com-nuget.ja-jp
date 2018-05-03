@@ -1,22 +1,16 @@
 ---
-title: "NuGet 2.8 リリース ノート |Microsoft ドキュメント"
+title: NuGet 2.8 のリリース ノート
+description: 既知の問題、バグの修正、追加された機能、および Dcr を含む NuGet 2.8 のリリース ノートします。
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "既知の問題、バグの修正、追加された機能、および Dcr を含む NuGet 2.8 のリリース ノートします。"
-keywords: "NuGet 2.8 リリース ノートについては、バグの修正、既知の問題、機能、Dcr を追加します。"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 39b885adc9e23eb815f65639875c4a4c27d61a4c
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 9f472f1370bfedaf04ebe889c0da01155b8aec22
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="nuget-28-release-notes"></a>NuGet 2.8 のリリース ノート
 
@@ -28,21 +22,21 @@ NuGet 2.8 は、2014 年 1 月 29 日にリリースされました。
 
 1. [Llewellyn Pritchard](https://www.codeplex.com/site/users/view/leppie) ([@leppie](https://twitter.com/leppie))
     - [#3466](https://nuget.codeplex.com/workitem/3466)梱包パッケージ、依存関係パッケージの Id を検証するときにします。
-1. [マルテン Balliauw](https://www.codeplex.com/site/users/view/maartenba) ([@maartenballiauw](https://twitter.com/maartenballiauw))
+2. [マルテン Balliauw](https://www.codeplex.com/site/users/view/maartenba) ([@maartenballiauw](https://twitter.com/maartenballiauw))
     - [#2379](https://nuget.codeplex.com/workitem/2379) -persistening 資格情報をフィードするときに、$metadata サフィックスを削除します。
-1. [Filip De の](https://www.codeplex.com/site/users/view/FilipDeVos)([@foxtricks](https://twitter.com/foxtricks))
+3. [Filip De の](https://www.codeplex.com/site/users/view/FilipDeVos)([@foxtricks](https://twitter.com/foxtricks))
     - [#3538](http://nuget.codeplex.com/workitem/3538) - nuget.exe update コマンド用のプロジェクト ファイルの指定をサポートします。
-1. [Juan Gonzalez](https://www.codeplex.com/site/users/view/jjgonzalez)
+4. [Juan Gonzalez](https://www.codeplex.com/site/users/view/jjgonzalez)
     - [#3536](http://nuget.codeplex.com/workitem/3536) -- IncludeReferencedProjects と共に渡すできません置換トークンです。
-1. [David Poole](https://www.codeplex.com/site/users/view/Sarkie) ([@Sarkie_Dave](https://twitter.com/Sarkie_Dave))
+5. [David Poole](https://www.codeplex.com/site/users/view/Sarkie) ([@Sarkie_Dave](https://twitter.com/Sarkie_Dave))
     - [#3677](http://nuget.codeplex.com/workitem/3677) -修正 nuget.push 大きなパッケージのプッシュ時に、OutOfMemoryException をスローします。
-1. [Wouter Ouwens](https://www.codeplex.com/site/users/view/Despotes)
+6. [Wouter Ouwens](https://www.codeplex.com/site/users/view/Despotes)
     - [#3666](http://nuget.codeplex.com/workitem/3666) -プロジェクトが別の CLI と C++ プロジェクトを参照するときの修正プログラムの無効なターゲット パス。
-1. [Adam Ralph](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
+7. [Adam Ralph](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
     - [#3639](https://nuget.codeplex.com/workitem/3639) -開発の依存関係として既定でインストールするパッケージを許可します。
-1. [David ファウラー](https://www.codeplex.com/site/users/view/dfowler) ([@davidfowl](https://twitter.com/davidfowl))
+8. [David ファウラー](https://www.codeplex.com/site/users/view/dfowler) ([@davidfowl](https://twitter.com/davidfowl))
     - [#3717](https://nuget.codeplex.com/workitem/3717) -最新のパッチ バージョンにアップグレードする暗黙の型を削除します。
-1. [Gregory Vandenbrouck](https://www.codeplex.com/site/users/view/vdbg)
+9. [Gregory Vandenbrouck](https://www.codeplex.com/site/users/view/vdbg)
     - いくつかのバグの修正と NuGet.Server、nuget.exe ミラー コマンドおよびその他の機能強化。
     - この作業は、2.8 のマスターに統合する右のタイミングで協力 Gregory を使用して数か月間、経由で行われました。
 
@@ -60,7 +54,7 @@ NuGet 2.8 は、2014 年 1 月 29 日にリリースされました。
 
 この例では、たとえ Developer1 と Developer2 インストールPackageA@1.0.0PackageB の別のバージョンのそれぞれに終了しました。 NuGet 2.8 は、修正プログラムのバージョンの依存関係の解決の動作がメジャーおよびマイナー バージョンの動作と一致するように、この既定の動作を変更します。 上記の例で、次に、PackageB@1.0.0インストールの結果としてインストールされるPackageA@1.0.0修正プログラムの新しいバージョンに関係なく、します。
 
-## <a name="-dependencyversion-switch"></a>-DependencyVersion Switch
+## <a name="-dependencyversion-switch"></a>-DependencyVersion スイッチ
 
 NuGet 2.8 の変更が、_既定_動作の依存関係を解決するためにも追加 - DependencyVersion スイッチ経由で依存関係の解決プロセスを細かく制御パッケージ マネージャー コンソールです。 スイッチは、最下位の可能なバージョン (既定の動作)、最大の可能なバージョンまたは最高のマイナーまたは修正プログラムのバージョンに依存関係を解決できます。  このスイッチは、powershell コマンドでのインストール パッケージに対してのみ機能します。
 

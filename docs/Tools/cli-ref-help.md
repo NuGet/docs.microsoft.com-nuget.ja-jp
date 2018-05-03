@@ -1,29 +1,20 @@
 ---
-title: NuGet CLI help コマンド |Microsoft ドキュメント
+title: NuGet CLI help コマンド
+description: Nuget.exe help コマンドのリファレンス
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Nuget.exe help コマンドのリファレンス
-keywords: nuget ヘルプ リファレンス、コマンドのヘルプします。
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 440861e53b4a9ff73a9d3e8a2a3dad7dbddc9584
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: dbfc803e24c824d30e128d6e86cfa3c43660668f
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="help-or--command-nuget-cli"></a>役立ちますか? コマンド (NuGet CLI)
 
-**適用されます:**すべて&bullet;**サポートされているバージョン**: すべて
+**適用されます:** すべて&bullet;**サポートされているバージョン**: すべて
 
 ヘルプ情報と、特定のコマンドに関するヘルプ情報する一般的な表示にします。
 
@@ -45,7 +36,7 @@ nuget ? [command] [options]
 | --- | --- |
 | すべて | すべての利用可能なコマンドは詳細なヘルプを表示します。特定のコマンドを指定した場合は無視されます。 |
 | ConfigFile | NuGet 構成ファイルを適用します。 指定しない場合、 `%AppData%\NuGet\NuGet.Config` (Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac または Linux) を使用します。|
-| ForceEnglishOutput | *(3.5 +)*インバリアント、英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
+| ForceEnglishOutput | *(3.5 +)* インバリアント、英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
 | ヘルプ | ヘルプ コマンド自体の情報のヘルプを表示します。 |
 | Markdown | マークダウン形式で使用する場合の詳細なヘルプを印刷`-All`です。 それ以外の場合は無視されます。 |
 | NonInteractive | ユーザー入力または確認を要求するプロンプトを抑制します。 |

@@ -1,29 +1,17 @@
 ---
-title: カタログ、NuGet V3 API |Microsoft ドキュメント
-author:
-- joelverhagen
-- kraigb
-ms.author:
-- joelverhagen
-- kraigb
+title: NuGet V3 API のカタログ リソース
+description: カタログは、すべてのパッケージの作成および nuget.org に削除されたインデックスです。
+author: joelverhagen
+ms.author: jver
 manager: skofman
 ms.date: 10/30/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: カタログは、すべてのパッケージの作成および nuget.org に削除されたインデックスです。
-keywords: NuGet V3 API カタログ、nuget.org トランザクション ログ、nuget.org、クローン nuget.org nuget.org のレコードを追加専用のレプリケートします。
-ms.reviewer:
-- karann
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 61ed502eee498f5ad0a014e3338503f2855396a5
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: kraigb
+ms.openlocfilehash: 464b252ca318a5bd3487c723dbf4c7062e4698a3
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="catalog"></a>Catalog
 
@@ -84,7 +72,7 @@ HTTP メソッドのみをカタログ リソースのサポートで見つか�
 commitId        | string           | 可      | 最新のコミットに関連付けられている一意の ID
 commitTimeStamp | string           | 可      | 最新のコミットのタイムスタンプ
 count           | 整数          | 可      | インデックスのページの数
-items           | オブジェクトの配列 | 可      | 各オブジェクト、ページを表す、オブジェクトの配列
+項目           | オブジェクトの配列 | 可      | 各オブジェクト、ページを表す、オブジェクトの配列
 
 内の各要素、`items`配列は、各ページに関するいくつかの最小限の情報を持つオブジェクト。 これらのページ オブジェクトでは、カタログ リーフ (アイテム) は含まれません。 この配列内の要素の順序が定義されていません。 ページの順序でメモリを使用してクライアントを指定できます、`commitTimeStamp`プロパティです。
 
@@ -126,7 +114,7 @@ count           | 整数 | 可      | カタログ ページ内の項目数
 commitId        | string           | 可      | このページで、最新のコミットに関連付けられている一意の ID
 commitTimeStamp | string           | 可      | このページで、最新のコミットのタイムスタンプ
 count           | 整数          | 可      | ページ内の項目数
-items           | オブジェクトの配列 | 可      | このページでカタログ アイテム
+項目           | オブジェクトの配列 | 可      | このページでカタログ アイテム
 親          | string           | 可      | カタログのインデックスへの URL
 
 内の各要素、`items`配列は、カタログ アイテムについての詳細を最小限に抑えるを持つオブジェクト。 これらの項目オブジェクトでは、すべてのカタログ アイテムのデータは含まれません。 ページの内の項目の順序`items`配列が定義されていません。 項目の順序でメモリを使用してクライアントを指定できます、`commitTimeStamp`プロパティです。

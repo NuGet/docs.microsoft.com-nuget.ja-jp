@@ -1,22 +1,16 @@
 ---
-title: "NuGet 3.2 RC のリリース ノート |Microsoft ドキュメント"
+title: NuGet 3.2 RC のリリース ノートには
+description: 既知の問題、バグの修正、追加された機能、および Dcr を含む NuGet 3.2 RC のリリース ノートします。
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "既知の問題、バグの修正、追加された機能、および Dcr を含む NuGet 3.2 RC のリリース ノートします。"
-keywords: "NuGet 3.2 RC のリリース ノート、バグの修正、既知の問題、機能、Dcr を追加します。"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: b19f62217ed79689ce067107dd64dfffe2c59291
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 0310bac6fdb3ef92176f9224ace1620a230664af
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-32-rc-release-notes"></a>NuGet 3.2 RC のリリース ノートには
 
@@ -27,7 +21,7 @@ NuGet 3.2 リリース候補版がリリースされた機能強化や、3.1.1 �
 ## <a name="new-features"></a>新機能
 
 * 同じフォルダーに存在するプロジェクトを異なるようになりましたが`project.json`ファイルをフォルダーの各プロジェクトに固有です。  各プロジェクトの名前、`project.json`ファイル`{ProjectName}.project.json`NuGet を正しく参照してプロジェクトごとにそのコンテンツを適切に使用するとします。  新しい機能をサポートしているこの[1102](https://github.com/NuGet/Home/issues/1102)
-* `NuGet.Config`では、相対パス - として globalPackagesFolder [1062](https://github.com/NuGet/Home/issues/1062)
+* `NuGet.Config` では、相対パス - として globalPackagesFolder [1062](https://github.com/NuGet/Home/issues/1062)
 
 ## <a name="command-line-updates"></a>更新プログラムのコマンドライン
 
@@ -45,7 +39,7 @@ NuGet 3.2 リリース候補版がリリースされた機能強化や、3.1.1 �
 * 正常時に返される 1、エラー状態が発生した - NuGet 復元コマンドを修正[1186](https://github.com/NuGet/Home/issues/1186)
 * 今すぐネットワーク接続の再試行すべて 200 ミリ秒の場合は HTTP 5xx エラー: 5 回試行の最大の[1120](https://github.com/NuGet/Home/issues/1120)
 * Push コマンドの中にサーバーのリダイレクト応答の処理強化[1051](https://github.com/NuGet/Home/issues/1051)
-* `nuget install -source`では、URL またはリポジトリ名の引数として無効です Nuget.Config を[1046。](https://github.com/NuGet/Home/issues/1046)
+* `nuget install -source` では、URL またはリポジトリ名の引数として無効です Nuget.Config を[1046。](https://github.com/NuGet/Home/issues/1046)
 * いないに配置されていたリポジトリの復元中に足りないパッケージが警告ではなくエラーとして報告されるようになりました[1038](https://github.com/NuGet/Home/issues/1038)
 * Unix または Linux のシナリオ - \r\n の multipartwebrequest 処理を修正[776](https://github.com/NuGet/Home/issues/776)
 
@@ -122,4 +116,4 @@ Visual Studio 拡張機能は含まれて NuGet GitHub の課題の完全な一�
 
 ## <a name="known-issues"></a>既知の問題
 
-あることができます、GitHub の問題一覧上の問題を追跡するために続行: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)
+あることができます、GitHub の問題一覧上の問題を追跡するために続行します。 [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)

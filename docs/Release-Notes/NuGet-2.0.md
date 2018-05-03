@@ -1,22 +1,16 @@
 ---
-title: "NuGet 2.0 リリース ノート |Microsoft ドキュメント"
+title: NuGet 2.0 のリリース ノート
+description: 既知の問題、バグの修正、追加された機能、および Dcr を含む NuGet 2.0 のリリース ノートします。
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "既知の問題、バグの修正、追加された機能、および Dcr を含む NuGet 2.0 のリリース ノートします。"
-keywords: "NuGet 2.0 リリース ノートについては、バグの修正、既知の問題、機能、Dcr を追加します。"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: eaa3c8db1cce72ff93671a1df63698748cdfab70
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 0e637a953d9d5d10394857a352be96a7f68dc4e8
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-20-release-notes"></a>NuGet 2.0 のリリース ノート
 
@@ -27,7 +21,7 @@ NuGet 2.0 は、2012 年 6 月 19 日にリリースされました。
 ## <a name="known-installation-issue"></a>インストールの既知の問題
 VS 2010 SP1 を実行している場合、インストールされている古いバージョンがある場合は、NuGet をアップグレードしようとしています。 インストール エラーに発生する可能性があります。
 
-回避策では、NuGet をシンプルにアンインストールし、VS 拡張機能ギャラリーからインストールします。  参照してください[http://support.microsoft.com/kb/2581019](http://support.microsoft.com/kb/2581019)詳細については、または[VS 修正プログラムに直接進んで](http://bit.ly/vsixcertfix)です。
+回避策では、NuGet をシンプルにアンインストールし、VS 拡張機能ギャラリーからインストールします。  参照してください[ http://support.microsoft.com/kb/2581019 ](http://support.microsoft.com/kb/2581019)詳細については、または[VS 修正プログラムに直接進んで](http://bit.ly/vsixcertfix)です。
 
 注意: Visual Studio には、(削除 ボタンは無効になっている) 拡張機能をアンインストールすることを許可しません、可能性の高い場合"管理者として実行 を使用して Visual Studio を再起動するには
 
@@ -37,7 +31,7 @@ VS 2010 SP1 を実行している場合、インストールされている古�
 
 ## <a name="group-dependencies-by-target-frameworks"></a>ターゲット フレームワークでグループの依存関係
 
-バージョン 2.0 以降では、パッケージの依存関係が異なる場合は、ターゲット プロジェクトのフレームワークのプロファイルに基づいています。 これは、更新された`.nuspec`スキーマです。 `<dependencies>`要素のセットを含めるようになりましたことができます`<group>`要素。 各グループは、0 個以上含まれています。`<dependency>`要素および`targetFramework`属性。 ターゲット フレームワークをプロジェクトのターゲット フレームワーク プロファイルと互換性がある場合、グループ内のすべての依存関係が一緒にインストールされます。 例:
+バージョン 2.0 以降では、パッケージの依存関係が異なる場合は、ターゲット プロジェクトのフレームワークのプロファイルに基づいています。 これは、更新された`.nuspec`スキーマです。 `<dependencies>`要素のセットを含めるようになりましたことができます`<group>`要素。 各グループは、0 個以上含まれています。`<dependency>`要素および`targetFramework`属性。 ターゲット フレームワークをプロジェクトのターゲット フレームワーク プロファイルと互換性がある場合、グループ内のすべての依存関係が一緒にインストールされます。 例えば:
 
 ```xml
 <dependencies>
@@ -74,7 +68,7 @@ VS 2010 SP1 を実行している場合、インストールされている古�
 
 ## <a name="grouping-content-files-and-powershell-scripts-by-target-framework"></a>ターゲット フレームワークでコンテンツ ファイルおよび PowerShell スクリプトをグループ化
 
-アセンブリの参照に加えてターゲット フレームワークではコンテンツ ファイルおよび PowerShell スクリプトのグループ化をもできます。 同じフォルダー構造がで見つかった、`lib`ターゲット フレームワークを指定するためのフォルダーに同じ方法で適用できます、`content`と`tools`フォルダーです。 例:
+アセンブリの参照に加えてターゲット フレームワークではコンテンツ ファイルおよび PowerShell スクリプトのグループ化をもできます。 同じフォルダー構造がで見つかった、`lib`ターゲット フレームワークを指定するためのフォルダーに同じ方法で適用できます、`content`と`tools`フォルダーです。 例えば:
 
     \content
         \net11

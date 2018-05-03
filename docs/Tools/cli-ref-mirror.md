@@ -1,29 +1,20 @@
 ---
-title: NuGet CLI ミラー コマンド |Microsoft ドキュメント
+title: NuGet CLI ミラー コマンド
+description: Nuget.exe ミラー コマンドのリファレンス
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Nuget.exe ミラー コマンドのリファレンス
-keywords: nuget ミラー参照、ミラー コマンドです。
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 512bd72d568cda81eb7c6a1555c36ead66b5c438
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 5ba13196d385abf42a5af2faa3fe6f0e80fb59d8
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="mirror-command-nuget-cli"></a>[ミラー] (NuGet CLI)
 
-**適用されます:**パッケージの発行&bullet;**サポートされているバージョン:** 3.2 以降で廃止されました
+**適用されます:** パッケージの発行&bullet;**サポートされているバージョン:** 3.2 以降で廃止されました
 
 パッケージとターゲットのリポジトリに指定されたソース リポジトリからその依存関係を反映します。
 
@@ -50,7 +41,7 @@ nuget mirror <packageID | configFilePath> <listUrlTarget> <publishUrlTarget> [op
 | ヘルプ | ヘルプ コマンドに関する情報を表示します。 |
 | NoCache | NuGet がキャッシュされているパッケージを使用するを防ぎます。 参照してください[グローバル パッケージとキャッシュ フォルダーの管理](../consume-packages/managing-the-global-packages-and-cache-folders.md)です。 |
 | noop | 新機能が不要になる行いません; 操作をログに記録します。プッシュ操作に成功した場合を想定しています。 |
-| PreRelease | ミラーリングの操作では、プレリリースのパッケージが含まれています。 |
+| プレリリース版 | ミラーリングの操作では、プレリリースのパッケージが含まれています。 |
 | ソース | ミラー化するパッケージ ソースの一覧です。 ものがで定義されているソースが指定されていない場合 nuget.org に既定の指定がない場合、構成ファイルを使用、(ApiKey 上記を参照してください)。 |
 | Timeout | (秒単位) をサーバーにプッシュするためのタイムアウト値を指定します。 既定では 300 秒 (5 分) です。 |
 | Version | インストールするパッケージのバージョン。 指定しない場合、最新バージョンがミラー化されます。 |

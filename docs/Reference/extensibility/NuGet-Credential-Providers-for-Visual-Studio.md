@@ -1,22 +1,16 @@
 ---
-title: "Visual Studio の NuGet の資格情報プロバイダー |Microsoft ドキュメント"
+title: Visual Studio の NuGet の資格情報プロバイダー
+description: NuGet の資格情報プロバイダーは、Visual Studio 拡張機能で IVsCredentialProvider インターフェイスを実装することによって、フィードで認証します。
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/09/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "NuGet の資格情報プロバイダーは、Visual Studio 拡張機能で IVsCredentialProvider インターフェイスを実装することによって、フィードで認証します。"
-keywords: "NuGet の資格情報プロバイダー、フィードでの認証、ギャラリー、NuGet の visual studio 拡張機能での認証"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: ff143526c814c69f1a133a62c1ad1a8f5fbedd60
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 740df87b0d663aac482d888e916662528ce27030
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>NuGet の資格情報プロバイダーと Visual Studio でのフィードの認証
 
@@ -85,7 +79,7 @@ Visual Studio のカスタム NuGet 資格情報プロバイダーを実装す�
 | IWebProxy プロキシ | ネットワークで通信を行うときに使用する web プロキシです。 プロキシ認証の構成が存在しない場合は null です。 |
 | bool isProxyRequest | この要求はプロキシ認証の資格情報を取得する場合は true。 実装がプロキシ資格情報を取得するために有効でない場合 null を返される必要があります。 |
 | bool isRetry | True の場合、資格情報がこの Uri は、以前要求したが、指定された資格情報は、承認されたアクセスを許可しませんでした。 |
-| bool nonInteractive | True の場合、資格情報プロバイダーはすべてのユーザー メッセージを抑制して、既定値の代わりに使用する必要があります。 |
+| 非対話型の bool | True の場合、資格情報プロバイダーはすべてのユーザー メッセージを抑制して、既定値の代わりに使用する必要があります。 |
 | CancellationToken cancellationToken | このキャンセル トークンを確認して、操作要求元の資格情報が取り消されましたかどうかを特定する必要があります。 |
 
 **戻り値**: 資格情報オブジェクトを実装する、 [ `System.Net.ICredentials`インターフェイス](/dotnet/api/system.net.icredentials?view=netstandard-2.0)です。

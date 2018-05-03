@@ -1,21 +1,12 @@
 ---
-title: NuGet のエラーと警告のリファレンス |Microsoft ドキュメント
+title: NuGet のエラーと警告のリファレンス
+description: 警告とエラー NuGet、さまざまな操作中に、NuGet から発行されたへの参照を完了します。
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 03/06/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: 警告とエラー NuGet、さまざまな操作中に、NuGet から発行されたへの参照を完了します。
-keywords: NuGet のエラー、NuGet の警告、診断
-ms.reviewer:
-- anangaur
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
+ms.reviewer: anangaur
 f1_keywords:
 - NU1000
 - NU1001
@@ -53,11 +44,11 @@ f1_keywords:
 - NU3008
 - NU3018
 - NU3028
-ms.openlocfilehash: 020e31dc8646c43b86bcee555f1772e8b1db7761
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: dcff20e35adc0a3dbcc7bef482f81a937cf059c5
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="errors-and-warnings"></a>エラーと警告
 
@@ -69,7 +60,7 @@ NuGet 4.3.0+ では、このトピックで説明の番号付けはエラーと�
 
 | グループ化 | エラー番号 |
 | --- | --- |
-| [無効な入力エラー](#invalid-input-errors) | [NU1001](#nu1001), [NU1002](#nu1002), [NU1003](#nu1003) |
+| [無効な入力エラー](#invalid-input-errors) | [NU1001](#nu1001)、 [NU1002](#nu1002)、 [NU1003](#nu1003) |
 | [パッケージとプロジェクトの不足エラー](#missing-package-and-project-errors) | [NU1100](#nu1100)、 [NU1101](#nu1101)、 [NU1102](#nu1102)、 [NU1103](#nu1103)、 [NU1104](#nu1104)、 [NU1105](#nu1105)、 [NU1106](#nu1106)、 [NU1107](#nu1107) (NU1607 以前) [NU1108](#nu1108) (NU1606 以前) |
 | [互換性に関するエラー](#compatibility-errors) | [NU1201](#nu1201)、 [NU1202](#nu1202)、 [NU1203](#nu1203)、 [NU1401](#nu1401) |
 
@@ -77,12 +68,12 @@ NuGet 4.3.0+ では、このトピックで説明の番号付けはエラーと�
 
 | グループ化 | 警告番号 |
 | --- | --- |
-| [無効な入力の警告](#invalid-input-warnings) | [NU1501](#nu1501), [NU1502](#nu1502), [NU1503](#nu1503) |
+| [無効な入力の警告](#invalid-input-warnings) | [NU1501](#nu1501)、 [NU1502](#nu1502)、 [NU1503](#nu1503) |
 | [予期しないパッケージのバージョンの警告](#unexpected-package-version-warnings) | [NU1601](#nu1601)、 [NU1602](#nu1602)、 [NU1603](#nu1603)、 [NU1604](#nu1604)、 [NU1605](#nu1605) |
 | [競合回避モジュールの競合の警告](#resolver-conflict-warnings) | [NU1608](#nu1608) |
 | [パッケージのフォールバック警告](#package-fallback-warnings) | [NU1701](#nu1701) |
 | [フィードの警告](#feed-warnings) | [NU1801](#nu1801) |
-| [NuGet の内部エラーと警告](#nuget-internal-errors-and-warnings) | [NU1000](#nu1000), [NU1500](#nu1500) |
+| [NuGet の内部エラーと警告](#nuget-internal-errors-and-warnings) | [NU1000](#nu1000)、 [NU1500](#nu1500) |
 | [署名付きパッケージ (作成および検証)](#signed-packages-creation-and-verification)| [NU3000](#nu3000)、 [NU3001](#nu3001)、 [NU3002](#nu3002)、 [NU3004](#nu3004)、 [NU3008](#nu3008)、 [NU3018](#nu3018)、 [NU3028](#nu3028) |
 
 ## <a name="invalid-input-errors"></a>無効な入力エラー

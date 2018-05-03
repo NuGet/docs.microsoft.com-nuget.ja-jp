@@ -1,28 +1,20 @@
 ---
-title: 転送率の制限値 |Microsoft ドキュメント
-author:
-- cmanu
-- anangaur
-ms.author:
-- cmanu
+title: 転送率の制限を NuGet API
+description: NuGet Api によって、不正使用を防ぐために転送率の制限が適用されたされます。
+author: cmanu
+ms.author: cmanu
 manager: skofman
 ms.date: 03/20/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: NuGet Api によって、不正使用を防ぐために転送率の制限が適用されたされます。
-keywords: NuGet API、率を制限します。
 ms.reviewer:
 - skofman
 - anangaur
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: f7891d5e4c008219d9f4808f223f3e5e7ae06ced
-ms.sourcegitcommit: fa40be739d093a37d5f7072b62ebdb4f595f4110
+- kraigb
+ms.openlocfilehash: 3aaebef8fff670759c6484a5a8f90a2f4dd58c66
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="rate-limits"></a>速度の制限
 
@@ -55,4 +47,4 @@ NuGet.org API は、不正使用を防ぐためのレート制限を強制しま
 | API | 制限の種類 | 制限値 | APU usecase | 
 |:---|:---|:---|:--- |
 **PUT** `/api/v2/package` | API キー | 100/分 | V2 プッシュ endpoint を使用して新しい NuGet パッケージ (バージョン) をアップロードします。 
-**DELETE** `/api/v2/package/{id}/{version}` | API キー | 100/分 | 非公開 v2 endpoint を使用して NuGet パッケージ (バージョン) 
+**削除** `/api/v2/package/{id}/{version}` | API キー | 100/分 | 非公開 v2 endpoint を使用して NuGet パッケージ (バージョン) 

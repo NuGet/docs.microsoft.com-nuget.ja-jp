@@ -1,26 +1,17 @@
 ---
-title: "プッシュ モードと NuGet API を削除します |。Microsoft ドキュメント"
-author:
-- joelverhagen
-- kraigb
-ms.author:
-- joelverhagen
-- kraigb
+title: プッシュ モードと NuGet API を削除します。
+description: 発行サービスは、クライアントが新しいパッケージを公開および非公開または既存のパッケージを削除できます。
+author: joelverhagen
+ms.author: jver
 manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: 
-description: "発行サービスは、クライアントが新しいパッケージを公開および非公開または既存のパッケージを削除できます。"
-keywords: "NuGet API プッシュ パッケージ、パッケージを削除する NuGet API、NuGet API は、パッケージ、NuGet API アップロード パッケージを非公開、API の NuGet パッケージの作成"
-ms.reviewer:
-- karann
-- unniravindranathan
-ms.openlocfilehash: f8051ca57fccae77917567d8c9f2f8a120a8d884
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.reviewer: kraigb
+ms.openlocfilehash: 911c8238624f806b1fbb5c7938d02b6bdfbd8614
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="push-and-delete"></a>プッシュ モードと削除
 
@@ -55,7 +46,7 @@ nuget.org には、次の API を使用してプッシュの新しいパッケ�
 
 ### <a name="request-parameters"></a>要求パラメーター
 
-name           | イン     | 型   | 必須 | メモ
+名前           | イン     | 型   | 必須 | メモ
 -------------- | ------ | ------ | -------- | -----
 X-NuGet-ApiKey | Header | string | 可      | たとえば、`X-NuGet-ApiKey: {USER_API_KEY}`
 
@@ -87,7 +78,7 @@ nuget.org としてパッケージの削除要求では、解釈「非公開」�
 
 ### <a name="request-parameters"></a>要求パラメーター
 
-name           | イン     | 型   | 必須 | メモ
+名前           | イン     | 型   | 必須 | メモ
 -------------- | ------ | ------ | -------- | -----
 ID             | URL    | string | 可      | 削除するパッケージの ID
 VERSION        | URL    | string | 可      | 削除するパッケージのバージョン
@@ -110,7 +101,7 @@ X-NuGet-ApiKey | Header | string | 可      | たとえば、`X-NuGet-ApiKey: {U
 
 ### <a name="request-parameters"></a>要求パラメーター
 
-name           | イン     | 型   | 必須 | メモ
+名前           | イン     | 型   | 必須 | メモ
 -------------- | ------ | ------ | -------- | -----
 ID             | URL    | string | 可      | Relist するパッケージの ID
 VERSION        | URL    | string | 可      | Relist するパッケージのバージョン

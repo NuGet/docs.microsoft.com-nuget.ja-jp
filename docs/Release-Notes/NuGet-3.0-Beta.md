@@ -1,25 +1,16 @@
 ---
-title: NuGet 3.0 Beta リリース ノート |Microsoft ドキュメント
-author: karann-msft
-ms.author: karann-msft
-manager: ghogen
-ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
+title: NuGet 3.0 Beta リリース ノート
 description: 既知の問題、バグの修正、追加された機能、および Dcr を含む NuGet 3.0 Beta リリース ノートです。
-keywords: NuGet 3.0 Beta リリース ノートについては、バグの修正、既知の問題、機能、Dcr を追加します。
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: bb64cbce4f26d84e1ba12930578382f887bb85f8
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+author: karann-msft
+ms.author: karann
+manager: unnir
+ms.date: 11/11/2016
+ms.topic: conceptual
+ms.openlocfilehash: 4608b196d19f95410f9fe20f6a22e31c15955b89
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-30-beta-release-notes"></a>NuGet 3.0 Beta リリース ノート
 
@@ -29,7 +20,7 @@ NuGet 3.0 Beta は、Visual Studio 2015 CTP の 6 リリースの 2015 年 2 月
 
 この新しいバージョンをインストールする前に、NuGet の Visual Studio 2015 の拡張機能のより前のバージョンをアンインストールすることを強くお勧めします。  拡張機能のこのバージョンで問題があれば、ことをお勧めする元に戻す、[以前のバージョン](http://nuget.codeplex.com/downloads/get/909582)Visual Studio 2015 preview で使用するためです。
 
-## <a name="visual-studio-2012"></a>Visual Studio 2012+
+## <a name="visual-studio-2012"></a>Visual Studio 2012 +
 
 この NuGet 3.0 Beta は、Visual Studio 2015 CTP 6 拡張機能ギャラリーにインストールできるようにします。 Visual Studio 2012 および Visual Studio 2013 プレビューのドロップを非常に早く取得に努めています。 目的とした共有していた[for Visual Studio 2010 の更新プログラムを中止](http://blog.nuget.org/20141002/visual-studio-2010.html)、難しい判断するためでした。
 

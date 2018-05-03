@@ -1,26 +1,17 @@
 ---
-title: "オートコンプリートは、NuGet API |Microsoft ドキュメント"
-author:
-- joelverhagen
-- kraigb
-ms.author:
-- joelverhagen
-- kraigb
+title: オートコンプリートを NuGet API
+description: 検索のオートコンプリート機能のサービスは、パッケージ Id の対話型の検出とバージョンをサポートします。
+author: joelverhagen
+ms.author: jver
 manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: 
-description: "検索のオートコンプリート機能のサービスは、パッケージ Id の対話型の検出とバージョンをサポートします。"
-keywords: "NuGet のオートコンプリート機能の API では、NuGet パッケージ ID、パッケージ ID の部分文字列を検索します。"
-ms.reviewer:
-- karann
-- unniravindranathan
-ms.openlocfilehash: 7c984ca61799293d7832851b80cf3fefc4734288
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.reviewer: kraigb
+ms.openlocfilehash: d5e1936c6c5406a1a376c16b2bad5351320dfb4f
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="autocomplete"></a>オートコンプリート
 
@@ -33,8 +24,8 @@ ms.lasthandoff: 02/02/2018
 @type の値                          | メモ
 ------------------------------------ | -----
 SearchAutocompleteService            | 最初のリリース
-SearchAutocompleteService/3.0.0-beta | エイリアス`SearchAutocompleteService`
-SearchAutocompleteService/3.0.0-rc   | エイリアス`SearchAutocompleteService`
+SearchAutocompleteService/3.0.0-beta | エイリアス `SearchAutocompleteService`
+SearchAutocompleteService/3.0.0-rc   | エイリアス `SearchAutocompleteService`
 
 ## <a name="base-url"></a>[基本 URL]
 
@@ -54,12 +45,12 @@ HTTP メソッドを登録リソースのサポートで見つかったすべて
 
 ### <a name="request-parameters"></a>要求パラメーター
 
-name        | イン     | 型    | 必須 | メモ
+名前        | イン     | 型    | 必須 | メモ
 ----------- | ------ | ------- | -------- | -----
 q           | URL    | string  | Ｘ       | パッケージ Id と比較する文字列
 スキップ        | URL    | 整数 | Ｘ       | 改ページをスキップします。 結果の数
 take        | URL    | 整数 | Ｘ       | 結果を返すには、改ページの数
-プレリリース版  | URL    | boolean | Ｘ       | `true`または`false`に含めるかどうかを決定する[プレリリース パッケージ](../create-packages/prerelease-packages.md)
+プレリリース版  | URL    | boolean | Ｘ       | `true` または`false`に含めるかどうかを決定する[プレリリース パッケージ](../create-packages/prerelease-packages.md)
 semVerLevel | URL    | string  | Ｘ       | SemVer 1.0.0 バージョン文字列 
 
 オートコンプリート クエリ`q`はサーバーの実装で定義されている方法で解析します。 nuget.org は camel 形式の大文字と記号の文字で元の spliting によって生成される ID の部分は、パッケージ ID のトークンのプレフィックスのクエリをサポートします。
@@ -80,14 +71,14 @@ semVerLevel | URL    | string  | Ｘ       | SemVer 1.0.0 バージョン文字�
 
 ルートの JSON オブジェクトには、次のプロパティがあります。
 
-name      | 種類             | 必須 | メモ
+名前      | 種類             | 必須 | メモ
 --------- | ---------------- | -------- | -----
-totalHits | 整数          | 可      | 無視すると、一致の合計数`skip`と`take`
+totalHits | 整数          | 可      | 無視すると、一致の合計数`skip`と `take`
 [データ]      | 文字列の配列 | 可      | パッケージ Id と一致した要求
 
 ### <a name="sample-request"></a>要求のサンプル
 
-GET https://api-v2v3search-0.nuget.org/autocomplete?q=storage&prerelease=true
+取得 https://api-v2v3search-0.nuget.org/autocomplete?q=storage&prerelease=true
 
 ### <a name="sample-response"></a>応答のサンプル
 
@@ -103,10 +94,10 @@ GET https://api-v2v3search-0.nuget.org/autocomplete?q=storage&prerelease=true
 
 ### <a name="request-parameters"></a>要求パラメーター
 
-name        | イン     | 型    | 必須 | メモ
+名前        | イン     | 型    | 必須 | メモ
 ----------- | ------ | ------- | -------- | -----
 ID          | URL    | string  | 可      | バージョンを取得するパッケージ ID
-プレリリース版  | URL    | boolean | Ｘ       | `true`または`false`に含めるかどうかを決定する[プレリリース パッケージ](../create-packages/prerelease-packages.md)
+プレリリース版  | URL    | boolean | Ｘ       | `true` または`false`に含めるかどうかを決定する[プレリリース パッケージ](../create-packages/prerelease-packages.md)
 semVerLevel | URL    | string  | Ｘ       | SemVer 2.0.0 バージョン文字列 
 
 場合`prerelease`が提供されていない場合、プレリリース版パッケージが除外されます。
@@ -119,7 +110,7 @@ semVerLevel | URL    | string  | Ｘ       | SemVer 2.0.0 バージョン文字�
 
 ルートの JSON オブジェクトには、次のプロパティがあります。
 
-name      | 種類             | 必須 | メモ
+名前      | 種類             | 必須 | メモ
 --------- | ---------------- | -------- | -----
 [データ]      | 文字列の配列 | 可      | 要求に一致するパッケージのバージョン
 

@@ -1,22 +1,16 @@
 ---
-title: "NuGet 3.1 リリース ノート |Microsoft ドキュメント"
+title: NuGet 3.1 リリース ノート
+description: 既知の問題、バグの修正、追加された機能、および Dcr を含む NuGet 3.1 リリース ノートです。
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "既知の問題、バグの修正、追加された機能、および Dcr を含む NuGet 3.1 リリース ノートです。"
-keywords: "NuGet 3.1 リリース ノートについては、バグの修正、既知の問題、機能、Dcr を追加します。"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: a7aa43b8701b3bbef8f6ebce9a5d636ee1bc6abe
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: d14455da6f8af4db92f7105ea1b0e88eb9e71600
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-31-release-notes"></a>NuGet 3.1 リリース ノート
 
@@ -32,7 +26,7 @@ NuGet 3.1 は、Visual Studio 2015 用、2015 年 7 月 27 日に、ユニバー
 
 ### <a name="new-features"></a>新機能
 
-* `project.json`Windows UWP と ASP.NET 5 のサポートのサポート
+* `project.json` Windows UWP と ASP.NET 5 のサポートのサポート
 * 推移的なパッケージのインストール
 
 これらの機能の説明と定義は、ドキュメントの他の場所で確認できます。
@@ -45,10 +39,10 @@ Visual Studio 2015 の次の機能を利用できなく。
 
 次の機能が Visual Studio 2015 とを使用するプロジェクトで使用可能では不要になった、`project.json`仕様
 
-* `install.ps1``uninstall.ps1` -これらのスクリプトは、パッケージのインストール時に無視する、復元、更新、およびアンインストール
+* `install.ps1` `uninstall.ps1` -これらのスクリプトは、パッケージのインストール時に無視する、復元、更新、およびアンインストール
 * 構成の変換は無視されます。
 * コンテンツは、実行しますが、プロジェクトにコピーされません。
-    * この機能を再実装、説明に従って、およびで進行状況をチームの作業: [https://github.com/NuGet/Home/issues/627](https://github.com/NuGet/Home/issues/627)
+    * この機能を再実装、説明に従って、およびで進行状況をチームが動作します。 [https://github.com/NuGet/Home/issues/627](https://github.com/NuGet/Home/issues/627)
 
 
 ### <a name="known-issues"></a>既知の問題
@@ -59,7 +53,7 @@ Visual Studio 2015 の次の機能を利用できなく。
 
 ## <a name="nuget-command-line"></a>コマンド ライン NuGet
 
-NuGet コマンドライン実行可能ファイルが更新され、利用可能になる nuget.exe の過去のバージョンを継続できるように、新しい配布可能な場所に移動します。  Windows での nuget.exe の 3.1 ベータ版をダウンロードすることができます: [http://dist.nuget.org/win-x86-commandline/v3.1.0-beta/nuget.exe](http://dist.nuget.org/win-x86-commandline/v3.1.0-beta/nuget.exe)
+NuGet コマンドライン実行可能ファイルが更新され、利用可能になる nuget.exe の過去のバージョンを継続できるように、新しい配布可能な場所に移動します。  Windows での nuget.exe の 3.1 ベータ版をダウンロードできます。 [http://dist.nuget.org/win-x86-commandline/v3.1.0-beta/nuget.exe](http://dist.nuget.org/win-x86-commandline/v3.1.0-beta/nuget.exe)
 
 Dist.nuget.org ホストで、このテンプレートに依存しているフォルダー構造を新しい配布可能な場所に存在します。
 
@@ -68,11 +62,11 @@ Dist.nuget.org ホストで、このテンプレートに依存しているフ�
 ### <a name="new-features"></a>新機能
 
 * nuget.exe を復元しを使用するプロジェクトにパッケージをインストール、`project.json`ファイル。
-* nuget.exe に接続して、NuGet v3 プロトコルでの使用: [https://api.nuget.org/v3/index.json](https://api.nuget.org/v3/index.json)
+* nuget.exe がへの接続およびで NuGet v3 プロトコルを使用できます。 [https://api.nuget.org/v3/index.json](https://api.nuget.org/v3/index.json)
 
 ## <a name="known-issues"></a>既知の問題 ##
 
 1.    に対してパックを実行することはできません、`project.json`ファイル - [928](https://github.com/NuGet/Home/issues/928)
 2.    モノラル - でサポートされていない[1059](https://github.com/NuGet/Home/issues/1059)
 3.    ローカライズされません - [1058](https://github.com/NuGet/Home/issues/1058)、 [1057](https://github.com/NuGet/Home/issues/1057)
-4.    既存の http://nuget.org/nuget.exe のと同じように、署名されていない[1073](https://github.com/NuGet/Home/issues/1073)
+4.    既存のと同じように、署名されていないhttp://nuget.org/nuget.exe- [1073](https://github.com/NuGet/Home/issues/1073)
