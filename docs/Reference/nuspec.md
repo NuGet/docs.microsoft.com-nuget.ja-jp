@@ -1,26 +1,17 @@
 ---
-title: NuGet の .nuspec ファイル リファレンス | Microsoft Docs
+title: NuGet の .nuspec ファイル リファレンス
+description: .nuspec ファイルには、パッケージを作成するとき、およびパッケージのコンシューマーに情報を提供するために使われる、パッケージのメタデータが含まれています。
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 08/29/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: .nuspec ファイルには、パッケージを作成するとき、およびパッケージのコンシューマーに情報を提供するために使われる、パッケージのメタデータが含まれています。
-keywords: nuspec リファレンス, NuGet パッケージ メタデータ, NuGet パッケージ マニフェスト, nuspec スキーマ
-ms.reviewer:
-- anangaur
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 086826b47402bb5e7066c7a10b1e2ff246fd58ea
-ms.sourcegitcommit: ecb598c790d4154366bc92757ec7db1a51c34faf
+ms.reviewer: anangaur
+ms.openlocfilehash: c11b50aa1637c00f0f0e71a6e20ce5d435db402b
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="nuspec-reference"></a>.nuspec リファレンス
 
@@ -97,14 +88,14 @@ ms.lasthandoff: 04/03/2018
 | **owners** | コンマで区切って指定したパッケージ作成者の一覧。nuget.org でのプロファイル名です。多くの場合は `authors` と同じ一覧であり、nuget.org にパッケージをアップロードするときは無視されます。「[nuget.org でパッケージ所有者を管理する](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg)」をご覧ください。 |
 | **projectUrl** | パッケージのホーム ページの URL。多くの場合、UI 画面と nuget.org に表示されます。 |
 | **licenseUrl** | パッケージのライセンスの URL。通常、UI 画面および nuget.org に表示されます。 |
-| **iconUrl** | UI 表示でパッケージのアイコンとして使われる、背景が透明な 64 x 64 の画像の URL。 この要素の値は、"*画像を直接示す URL*" であり、画像を含む Web ページの URL ではないことに注意してください。 たとえば、GitHub からイメージを使用する URL と同様に、raw ファイルを使用して *https://github.com/ \<username\>/\<リポジトリ\>/raw/\<ブランチ\>/ \<logo.png\>*です。 |
+| **iconUrl** | UI 表示でパッケージのアイコンとして使われる、背景が透明な 64 x 64 の画像の URL。 この要素の値は、"*画像を直接示す URL*" であり、画像を含む Web ページの URL ではないことに注意してください。 たとえば、GitHub からイメージを使用する URL と同様に、raw ファイルを使用して <em>https://github.com/ \<username\>/\<リポジトリ\>/raw/\<ブランチ\>/ \<logo.png\></em>です。 |
 | **requireLicenseAcceptance** | パッケージをインストールする前にクライアントがユーザーに対してパッケージのライセンスへの同意を求めるプロンプトを表示する必要があるかどうかを示すブール値。 |
 | **developmentDependency** | *(2.8 以降)* 開発専用の依存関係としてパッケージをマークするかどうかを指定するブール値。指定すると、そのパッケージは他のパッケージに依存関係として含まれなくなります。 |
 | **summary** | UI 画面用のパッケージの短い説明。 省略すると、`description` を切り詰めたバージョンが使われます。 |
 | **releaseNotes** | *(1.5 以降)* このリリースのパッケージで行われた変更の説明。Visual Studio パッケージ マネージャーの **[更新]** タブなどの UI で、パッケージの説明の代わりによく使われます。 |
 | **copyright** | *(1.5 以降)* パッケージの著作権の詳細。 |
 | **language** | パッケージのロケール ID。 「[ローカライズされたパッケージの作成](../create-packages/creating-localized-packages.md)」をご覧ください。 |
-| **tags** | パッケージについて説明し、検索やフィルターでパッケージを見つけやすくするタグやキーワードを、スペースで区切って列記したリスト。 |
+| **tags**  | パッケージについて説明し、検索やフィルターでパッケージを見つけやすくするタグやキーワードを、スペースで区切って列記したリスト。 |
 | **serviceable** | *(3.3 以降)* NuGet 内部でのみ使われます。 |
 
 #### <a name="collection-elements"></a>コレクション要素
@@ -183,8 +174,8 @@ nuget pack MyProject.csproj
 
 | 包含/除外タグ | ターゲットの影響を受けるフォルダー |
 | --- | --- |
-| contentFiles | Content  |
-| ランタイム | Runtime、Resources、FrameworkAssemblies  |
+| contentFiles | Content |
+| ランタイム | Runtime、Resources、FrameworkAssemblies |
 | compile | lib |
 | ビルド | build (MSBuild のプロパティとターゲット) |
 | native | native |

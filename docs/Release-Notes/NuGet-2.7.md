@@ -1,25 +1,16 @@
 ---
-title: NuGet 2.7 リリース ノート |Microsoft ドキュメント
-author: karann-msft
-ms.author: karann-msft
-manager: ghogen
-ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
+title: NuGet 2.7 リリース ノート
 description: 既知の問題、バグの修正、追加された機能、および Dcr を含む NuGet 2.7 リリース ノートです。
-keywords: NuGet 2.7 リリース ノートについては、バグの修正、既知の問題、機能、Dcr を追加します。
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 71ced70af127c8219001069739a6cec59d7d1684
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+author: karann-msft
+ms.author: karann
+manager: unnir
+ms.date: 11/11/2016
+ms.topic: conceptual
+ms.openlocfilehash: 4b7cea360764e1b069afacabadd9b94d87e21ecc
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="nuget-27-release-notes"></a>NuGet 2.7 リリース ノート
 
@@ -33,36 +24,36 @@ NuGet 2.7、多大な協力の次の外部共同作成者いただき、あり�
 
 1. [Mike Roth](http://www.codeplex.com/site/users/view/mxrss) ([@mxrss](https://twitter.com/mxrss))
     - パッケージおよび詳細度の一覧の詳細とライセンス url を表示します。
-1. [Adam Ralph](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
+2. [Adam Ralph](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
     - [#1956](http://nuget.codeplex.com/workitem/1956) -developmentDependency 属性を追加`packages.config`パック コマンドで実行時のパッケージだけを使用して
-1. [Rafael Nicoletti](http://www.codeplex.com/site/users/view/tkrafael) ([@tkrafael](https://twitter.com/tkrafael))
+3. [Rafael Nicoletti](http://www.codeplex.com/site/users/view/tkrafael) ([@tkrafael](https://twitter.com/tkrafael))
     - Nuget.exe パック コマンド プロパティ キーが重複しないようにします。
-1. [佐藤さん Phegan](http://www.codeplex.com/site/users/view/benphegan) ([@BenPhegan](https://twitter.com/benphegan))
+4. [佐藤さん Phegan](http://www.codeplex.com/site/users/view/benphegan) ([@BenPhegan](https://twitter.com/benphegan))
     - [#2610](http://nuget.codeplex.com/workitem/2610) -を 200 マシン キャッシュのサイズを大ききます。
-1. [Slava Trenogin](http://www.codeplex.com/site/users/view/derigel) ([@derigel](https://twitter.com/derigel))
+5. [Slava Trenogin](http://www.codeplex.com/site/users/view/derigel) ([@derigel](https://twitter.com/derigel))
     - [#3217](http://nuget.codeplex.com/workitem/3217) -修正 NuGet ダイアログが正しくありません タブで更新プログラムを表示
     - 修正プログラム Project.TargetFramework をプロジェクト管理者では null にすることができます。
     - [#3248](http://nuget.codeplex.com/workitem/3248) -修正 SharedPackageRepository FindPackage/FindPackagesById は、存在しない packageId に失敗
-1. [Kevin ボイル](http://www.codeplex.com/site/users/view/KevinBoyleRG)([@kevfromireland](https://twitter.com/kevfromireland))
+6. [Kevin ボイル](http://www.codeplex.com/site/users/view/KevinBoyleRG)([@kevfromireland](https://twitter.com/kevfromireland))
     - [#3234](http://nuget.codeplex.com/workitem/3234) -Nomad プロジェクトのサポートを有効にします。
-1. [Corin Blaikie](http://www.codeplex.com/site/users/view/corinblaikie) ([@corinblaikie](https://twitter.com/corinblaikie))
+7. [Corin Blaikie](http://www.codeplex.com/site/users/view/corinblaikie) ([@corinblaikie](https://twitter.com/corinblaikie))
     - [#3252](http://nuget.codeplex.com/workitem/3252) -ファイルが存在しない場合、修正プッシュ コマンドが失敗する終了コード 0。
-1. [Martin Veselý](http://www.codeplex.com/site/users/view/veselkamartin)
+8. [Martin Veselý](http://www.codeplex.com/site/users/view/veselkamartin)
     - [#3226](http://nuget.codeplex.com/workitem/3226) -追加 BindingRedirect コマンド プロジェクトは、データベース プロジェクトを参照する場合のバグを修正します。
-1. [Miroslav Bajtos](http://www.codeplex.com/site/users/view/miroslavbajtos) ([@bajtos](https://twitter.com/bajtos))
+9. [Miroslav Bajtos](http://www.codeplex.com/site/users/view/miroslavbajtos) ([@bajtos](https://twitter.com/bajtos))
     - [#2891](http://nuget.codeplex.com/workitem/2891) -'除外' 属性でワイルドカードを正しく解析されなかった nuget.pack のバグを修正します。
-1. [Justin Dearing](http://www.codeplex.com/site/users/view/zippy1981) ([@zippy1981](https://twitter.com/zippy1981))
-    - [#3307](http://nuget.codeplex.com/workitem/3307) -バグの修正プログラム`NuGet.targets`渡しません $(Platform) nuget.exe へのパッケージを復元するときにします。
-1. [Brian わたし](http://www.codeplex.com/site/users/view/benerdin)
-    - [#3294](http://nuget.codeplex.com/workitem/3294) -大文字小文字が異なる、最終的に「項目が既に存在する」の例外の原因と、同じ名前のファイルを追加することを許可する nuget.exe パッケージ コマンドでバグを修正します。
-1. [Daniel Cazzulino](http://www.codeplex.com/site/users/view/dcazzulino) ([@kzu](https://twitter.com/kzu))
-    - [#2990](http://nuget.codeplex.com/workitem/2990) -NetPortableProfile クラスへのバージョンの追加プロパティ。
-1. [David Simner](https://www.codeplex.com/site/users/view/DavidSimner)
-    - [#3460](https://nuget.codeplex.com/workitem/3460)の場合は、NullReferenceException のバグを修正 requireApiKey = true の場合、ヘッダー X-NUGET-APIKEY が存在しません。
-1. [Michael Friis](https://www.codeplex.com/site/users/view/friism) ([@friism](https://twitter.com/friism))
-    - [#3278](https://nuget.codeplex.com/workitem/3278) -MonoDevelop で正しく動作するようにファイルの修正 NuGet.Build ターゲット
-1. [Pranav Krishnamoorthy](https://www.codeplex.com/site/users/view/pranavkm) ([@pranav_km](https://twitter.com/pranav_km))
-    - 並列処理を増やすことで復元コマンドのパフォーマンスを向上させる
+10. [Justin Dearing](http://www.codeplex.com/site/users/view/zippy1981) ([@zippy1981](https://twitter.com/zippy1981))
+     - [#3307](http://nuget.codeplex.com/workitem/3307) -バグの修正プログラム`NuGet.targets`渡しません $(Platform) nuget.exe へのパッケージを復元するときにします。
+11. [Brian わたし](http://www.codeplex.com/site/users/view/benerdin)
+     - [#3294](http://nuget.codeplex.com/workitem/3294) -大文字小文字が異なる、最終的に「項目が既に存在する」の例外の原因と、同じ名前のファイルを追加することを許可する nuget.exe パッケージ コマンドでバグを修正します。
+12. [Daniel Cazzulino](http://www.codeplex.com/site/users/view/dcazzulino) ([@kzu](https://twitter.com/kzu))
+     - [#2990](http://nuget.codeplex.com/workitem/2990) -NetPortableProfile クラスへのバージョンの追加プロパティ。
+13. [David Simner](https://www.codeplex.com/site/users/view/DavidSimner)
+     - [#3460](https://nuget.codeplex.com/workitem/3460)の場合は、NullReferenceException のバグを修正 requireApiKey = true の場合、ヘッダー X-NUGET-APIKEY が存在しません。
+14. [Michael Friis](https://www.codeplex.com/site/users/view/friism) ([@friism](https://twitter.com/friism))
+     - [#3278](https://nuget.codeplex.com/workitem/3278) -MonoDevelop で正しく動作するようにファイルの修正 NuGet.Build ターゲット
+15. [Pranav Krishnamoorthy](https://www.codeplex.com/site/users/view/pranavkm) ([@pranav_km](https://twitter.com/pranav_km))
+     - 並列処理を増やすことで復元コマンドのパフォーマンスを向上させる
 
 ## <a name="notable-features-in-the-release"></a>リリースで注目に値する機能
 
@@ -161,7 +152,7 @@ NuGet は、影響を受けるパッケージを再インストールを自動�
 
 ### <a name="renaming-the-default-package-source"></a>既定のパッケージ ソースの名前を変更します。
 
-NuGet は、"NuGet オフィシャル パッケージ ソースという"nuget.org を指す既定のパッケージ ソースと常に登録されました。その名前が verbose、ポイントが実際にも指定しませんでした。 これら 2 つの問題に対処するには、単に"nuget.org"、UI でこのパッケージ ソースを変更してしました。 パッケージ ソースの URL も変更されており"www." プレフィックスを含むバンドル ID です。 NuGet 2.7 を使用すると、既存の「NuGet オフィシャル パッケージ ソース」は自動的に更新されます名前として"nuget.org"と"https://www.nuget.org/api/v2/"URL として。
+NuGet は、"NuGet オフィシャル パッケージ ソースという"nuget.org を指す既定のパッケージ ソースと常に登録されました。その名前が verbose、ポイントが実際にも指定しませんでした。 これら 2 つの問題に対処するには、単に"nuget.org"、UI でこのパッケージ ソースを変更してしました。 パッケージ ソースの URL も変更されており"www." プレフィックスを含むバンドル ID です。 NuGet 2.7 を使用すると、既存の「NuGet オフィシャル パッケージ ソース」は自動的に更新されます名前として"nuget.org"と"<https://www.nuget.org/api/v2/>"URL として。
 
 ### <a name="performance-improvements"></a>パフォーマンスの向上
 
