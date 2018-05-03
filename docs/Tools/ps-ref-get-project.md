@@ -1,52 +1,43 @@
 ---
-title: プロジェクトの NuGet Get PowerShell リファレンス |Microsoft ドキュメント
+title: プロジェクトの NuGet Get PowerShell リファレンス
+description: Visual Studio で NuGet パッケージ マネージャー コンソールで GetProject PowerShell コマンドのリファレンスです。
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 12/07/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Visual Studio で NuGet パッケージ マネージャー コンソールで GetProject PowerShell コマンドのリファレンスです。
-keywords: NuGet パッケージ マネージャー コンソールで、NuGet Powershell コマンドでは、NuGet Powershell リファレンス、Get プロジェクト
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 9fcdcf7c550408cd7dfd73787ee14821c46a1df9
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: a7b66cbf36095e31b5929596300018239749cb15
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
-# <a name="get-project-package-manager-console-in-visual-studio"></a><span data-ttu-id="8d95e-104">Get プロジェクト (Visual Studio でパッケージ マネージャー コンソール)</span><span class="sxs-lookup"><span data-stu-id="8d95e-104">Get-Project (Package Manager Console in Visual Studio)</span></span>
+# <a name="get-project-package-manager-console-in-visual-studio"></a><span data-ttu-id="506dd-103">Get プロジェクト (Visual Studio でパッケージ マネージャー コンソール)</span><span class="sxs-lookup"><span data-stu-id="506dd-103">Get-Project (Package Manager Console in Visual Studio)</span></span>
 
-<span data-ttu-id="8d95e-105">*内でのみ使用可能な[NuGet Package Manager Console](package-manager-console.md) Windows 上の Visual Studio でします。*</span><span class="sxs-lookup"><span data-stu-id="8d95e-105">*Available only within the [NuGet Package Manager Console](package-manager-console.md) in Visual Studio on Windows.*</span></span>
+<span data-ttu-id="506dd-104">*内でのみ使用可能な[NuGet Package Manager Console](package-manager-console.md) Windows 上の Visual Studio でします。*</span><span class="sxs-lookup"><span data-stu-id="506dd-104">*Available only within the [NuGet Package Manager Console](package-manager-console.md) in Visual Studio on Windows.*</span></span>
 
-<span data-ttu-id="8d95e-106">既定値または指定したプロジェクトについての情報を表示します。</span><span class="sxs-lookup"><span data-stu-id="8d95e-106">Displays information about the default or specified project.</span></span> <span data-ttu-id="8d95e-107">`Get-Project` 具体的には、プロジェクトの Visual Studio DTE (Development Tools Environment) のオブジェクトに参照を返します。</span><span class="sxs-lookup"><span data-stu-id="8d95e-107">`Get-Project` specifically returns a referent to the Visual Studio DTE (Development Tools Environment) object for the project.</span></span>
+<span data-ttu-id="506dd-105">既定値または指定したプロジェクトについての情報を表示します。</span><span class="sxs-lookup"><span data-stu-id="506dd-105">Displays information about the default or specified project.</span></span> <span data-ttu-id="506dd-106">`Get-Project` 具体的には、プロジェクトの Visual Studio DTE (Development Tools Environment) のオブジェクトに参照を返します。</span><span class="sxs-lookup"><span data-stu-id="506dd-106">`Get-Project` specifically returns a referent to the Visual Studio DTE (Development Tools Environment) object for the project.</span></span>
 
-## <a name="syntax"></a><span data-ttu-id="8d95e-108">構文</span><span class="sxs-lookup"><span data-stu-id="8d95e-108">Syntax</span></span>
+## <a name="syntax"></a><span data-ttu-id="506dd-107">構文</span><span class="sxs-lookup"><span data-stu-id="506dd-107">Syntax</span></span>
 
 ```ps
 Get-Project [[-Name] <string>] [-All] [<CommonParameters>]
 ```
 
-## <a name="parameters"></a><span data-ttu-id="8d95e-109">パラメーター</span><span class="sxs-lookup"><span data-stu-id="8d95e-109">Parameters</span></span>
+## <a name="parameters"></a><span data-ttu-id="506dd-108">パラメーター</span><span class="sxs-lookup"><span data-stu-id="506dd-108">Parameters</span></span>
 
-| <span data-ttu-id="8d95e-110">パラメーター</span><span class="sxs-lookup"><span data-stu-id="8d95e-110">Parameter</span></span> | <span data-ttu-id="8d95e-111">説明</span><span class="sxs-lookup"><span data-stu-id="8d95e-111">Description</span></span> |
+| <span data-ttu-id="506dd-109">パラメーター</span><span class="sxs-lookup"><span data-stu-id="506dd-109">Parameter</span></span> | <span data-ttu-id="506dd-110">説明</span><span class="sxs-lookup"><span data-stu-id="506dd-110">Description</span></span> |
 | --- | --- |
-| <span data-ttu-id="8d95e-112">名前</span><span class="sxs-lookup"><span data-stu-id="8d95e-112">Name</span></span> | <span data-ttu-id="8d95e-113">既定のパッケージ マネージャー コンソールで選択された既定のプロジェクトを表示するには、プロジェクトに指定します。</span><span class="sxs-lookup"><span data-stu-id="8d95e-113">Specifies the project to display, defaulting to the default project selected in the Package Manager Console.</span></span> <span data-ttu-id="8d95e-114">-Name スイッチは、それ自体の省略可能です。</span><span class="sxs-lookup"><span data-stu-id="8d95e-114">The -Name switch is itself optional.</span></span> |
-| <span data-ttu-id="8d95e-115">すべて</span><span class="sxs-lookup"><span data-stu-id="8d95e-115">All</span></span> | <span data-ttu-id="8d95e-116">このソリューションでのすべてのプロジェクトの情報を表示プロジェクトの順序は確定的ではありません。</span><span class="sxs-lookup"><span data-stu-id="8d95e-116">Displays information for every project in the solution; the order of projects is not deterministic.</span></span> |
+| <span data-ttu-id="506dd-111">名前</span><span class="sxs-lookup"><span data-stu-id="506dd-111">Name</span></span> | <span data-ttu-id="506dd-112">既定のパッケージ マネージャー コンソールで選択された既定のプロジェクトを表示するには、プロジェクトに指定します。</span><span class="sxs-lookup"><span data-stu-id="506dd-112">Specifies the project to display, defaulting to the default project selected in the Package Manager Console.</span></span> <span data-ttu-id="506dd-113">-Name スイッチは、それ自体の省略可能です。</span><span class="sxs-lookup"><span data-stu-id="506dd-113">The -Name switch is itself optional.</span></span> |
+| <span data-ttu-id="506dd-114">すべて</span><span class="sxs-lookup"><span data-stu-id="506dd-114">All</span></span> | <span data-ttu-id="506dd-115">このソリューションでのすべてのプロジェクトの情報を表示プロジェクトの順序は確定的ではありません。</span><span class="sxs-lookup"><span data-stu-id="506dd-115">Displays information for every project in the solution; the order of projects is not deterministic.</span></span> |
 
-<span data-ttu-id="8d95e-117">これらのパラメーターのいずれもには、パイプラインの入力またはワイルドカード文字がそのまま使用します。</span><span class="sxs-lookup"><span data-stu-id="8d95e-117">None of these parameters accept pipeline input or wildcard characters.</span></span>
+<span data-ttu-id="506dd-116">これらのパラメーターのいずれもには、パイプラインの入力またはワイルドカード文字がそのまま使用します。</span><span class="sxs-lookup"><span data-stu-id="506dd-116">None of these parameters accept pipeline input or wildcard characters.</span></span>
 
-## <a name="common-parameters"></a><span data-ttu-id="8d95e-118">共通パラメーター</span><span class="sxs-lookup"><span data-stu-id="8d95e-118">Common Parameters</span></span>
+## <a name="common-parameters"></a><span data-ttu-id="506dd-117">共通パラメーター</span><span class="sxs-lookup"><span data-stu-id="506dd-117">Common Parameters</span></span>
 
-<span data-ttu-id="8d95e-119">`Get-Project` 次のサポート[一般的な PowerShell パラメーター](http://go.microsoft.com/fwlink/?LinkID=113216): デバッグ、エラー アクション、ErrorVariable、OutBuffer、OutVariable、PipelineVariable、Verbose、WarningAction、WarningVariable、します。</span><span class="sxs-lookup"><span data-stu-id="8d95e-119">`Get-Project` supports the following [common PowerShell parameters](http://go.microsoft.com/fwlink/?LinkID=113216): Debug, Error Action, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction, and WarningVariable.</span></span>
+<span data-ttu-id="506dd-118">`Get-Project` 次のサポート[一般的な PowerShell パラメーター](http://go.microsoft.com/fwlink/?LinkID=113216): デバッグ、エラー アクション、ErrorVariable、OutBuffer、OutVariable、PipelineVariable、Verbose、WarningAction、WarningVariable、します。</span><span class="sxs-lookup"><span data-stu-id="506dd-118">`Get-Project` supports the following [common PowerShell parameters](http://go.microsoft.com/fwlink/?LinkID=113216): Debug, Error Action, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction, and WarningVariable.</span></span>
 
-## <a name="examples"></a><span data-ttu-id="8d95e-120">使用例</span><span class="sxs-lookup"><span data-stu-id="8d95e-120">Examples</span></span>
+## <a name="examples"></a><span data-ttu-id="506dd-119">使用例</span><span class="sxs-lookup"><span data-stu-id="506dd-119">Examples</span></span>
 
 ```ps
 # Displays information for the default project
