@@ -1,35 +1,18 @@
 ---
-layout: HubPage
-hide_bc: ''
-title: NuGet のドキュメント | Microsoft Docs
+title: NuGet のドキュメント
 description: NuGet は、.NET などの Microsoft 開発プラットフォーム用のパッケージ マネージャーです。 NuGet クライアント ツールでは、パッケージを作成して使用する機能が提供されます。
-keywords:
-- nuget
-- nuget マネージャー
-- nupkg
-- nuget パッケージ エクスプローラー
-- nuget パッケージ
-- nuget の拡張子
-- nuget.exe
-- nuget コマンドライン
-- nuget CLI
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 02/12/2018
-ms.topic: hub-page
-ms.prod: nuget
-ms.technology: ''
-ms.reviewer:
-- karann-msft
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: c5b1a1b10ea74aa7ad47ecc94918a72486094828
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: overview
+layout: HubPage
+hide_bc: true
+ms.openlocfilehash: 534d9969c7ad73b9eaf4df64834cb46140085507
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 <div id="main" class="v2">
 <div class="container">
@@ -48,8 +31,7 @@ ms.lasthandoff: 03/28/2018
                                     <div class="card">
                                         <div class="cardImageOuter">
                                             <div class="cardImage  bgdAccent1">
-                                                <img src="media/hub/nuget-get-started-what-is-nuget.svg" alt="" />        
-                                            </div>
+                                                <img src="media/hub/nuget-get-started-what-is-nuget.svg" alt="" /><br/>                                            </div>
                                         </div>
                                         <div class="cardText">
                                             <h3>NuGet とは何ですか?</h3>

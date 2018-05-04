@@ -77,7 +77,7 @@
 ## [packages.config の PackageReference への移行](reference/migrate-packages-config-to-package-reference.md)
 ## [packages.config](reference/packages-config.md)
 ## [パッケージのバージョン管理](reference/package-versioning.md)
-## [Nuget.Config ファイル](reference/nuget-config-file.md)
+## [nuget.config ファイル](reference/nuget-config-file.md)
 ## [MSBuild ターゲット](reference/msbuild-targets.md)
 ## [ターゲット フレームワーク](reference/target-frameworks.md)
 ## [アナライザーの規則](reference/analyzers-conventions.md)
@@ -85,6 +85,7 @@
 ## [ID プレフィックスの予約](reference/id-prefix-reservation.md)
 ## [NuGet クライアント SDK](reference/nuget-client-sdk.md)
 ## [署名されたパッケージ参照](reference/signed-packages-reference.md)
+## [nuget.org 上の組織](reference/organizations-on-nuget-org.md)
 ## 機能拡張
 ### [Visual Studio 向け NuGet 資格情報プロバイダー](reference/extensibility/nuget-credential-providers-for-visual-studio.md)
 ### [nuget.exe 資格情報プロバイダー](reference/extensibility/nuget-exe-credential-providers.md)
