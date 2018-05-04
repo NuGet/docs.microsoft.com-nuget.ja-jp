@@ -1,24 +1,29 @@
 #### <a name="windows"></a>Windows
-1. 参照してください[nuget.org/downloads](https://nuget.org/downloads) NuGet 3.3 以降を選択し、(2.8.6 はモノラルと互換性がありません)。 最新バージョンは常に推奨される、おり、nuget.org をパッケージを公開する 4.1.0+ が不要です。
-2. 各ダウンロード、`nuget.exe`ファイルを直接です。 任意のフォルダーにファイルを保存するのには、ブラウザーに指示します。 ファイルが*いない*インストーラーは、ブラウザーから直接実行する場合は、何も表示されません。
-3. 追加するフォルダーを配置した`nuget.exe`ツールを使用して、CLI どこからでも、PATH 環境変数にします。
+
+1. [nuget.org/downloads](https://nuget.org/downloads) にアクセスして、NuGet 3.3 以降を選択します (2.8.6 は Mono と互換性がありません)。 常に最新バージョンが推奨され、パッケージを nuget.org に公開するには 4.1.0 以降が必要です。
+1. 各ダウンロードは、直接 `nuget.exe` ファイルです。 ブラウザーで任意のフォルダーにファイルを保存します。 ファイルがインストーラーで*ない*場合、ブラウザーから直接実行しても何も表示されません。
+1. `nuget.exe` をPATH 環境変数に配置したフォルダーを追加し、任意の場所の CLI ツールを使用します。
 
 #### <a name="macoslinux"></a>macOS/Linux
-動作は、OS の配布によって若干異なります。
 
-1. インストール[モノラル 4.4.2 以降](http://www.mono-project.com/docs/getting-started/install/)です。
-2. シェル プロンプトで次のコマンドを実行します。
-    
+動作は、OS のディストリビューションによって微妙に異なる場合があります。
+
+1. [Mono 4.4.2 以降](http://www.mono-project.com/docs/getting-started/install/)をインストールします。
+
+1. シェル プロンプトで次のコマンドを実行します。
+
     ```bash
     # Download the latest stable `nuget.exe` to `/usr/local/bin`
     sudo curl -o /usr/local/bin/nuget.exe https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
     # Give the file permissions to execute
     sudo chmod 755 /usr/local/bin/nuget.exe
     ```
-3. OS の適切なファイルに次のスクリプトを追加することによって別名を作成 (通常`~/.bash_aliases`または`~/.bash_profile`)。
-    
+
+1. 次のスクリプトを OS の適切なファイルに追加してエイリアスを作成します (通常、`~/.bash_aliases` または `~/.bash_profile`)。
+
     ```bash
     # Create as alias for nuget
     alias nuget="mono /usr/local/bin/nuget.exe"
     ```
-4. シェルを再読み込みされます。  入力することで、インストールをテスト`nuget`パラメーターなしでします。 NuGet CLI ヘルプを表示する必要があります。
+
+1. シェルを再度読み込みます。  パラメーターなしで `nuget` を入力してインストールをテストします。 NuGet CLI ヘルプが表示されます。
