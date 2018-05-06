@@ -1,25 +1,16 @@
 ---
-title: NuGet とは何か。またどのような働きをするのか | Microsoft Docs
+title: NuGet とは何か。またどのような働きをするのか
+description: NuGet とは何で、どのような働きをするのかについて、総合的に紹介します
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/10/2018
 ms.topic: overview
-ms.prod: nuget
-ms.technology: ''
-description: NuGet とは何で、どのような働きをするのかについて、総合的に紹介します
-keywords: NuGet パッケージ マネージャー, 消費量, パッケージの作成, パッケージのホスト, .NET パッケージ, .NET Core パッケージ
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 0d2094177f919d27b9a8320e60c8d1d75ec18fb6
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 7237db8f3be3d9a1d46b9e6be41bff5c06593a20
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="an-introduction-to-nuget"></a>NuGet の概要
 
@@ -93,7 +84,7 @@ NuGet がこのサービスを実行する方法について詳しくは、[依�
 
 - [`packages.config`](reference/packages-config.md): *(NuGet 1.0 以降)* プロジェクト内のすべての依存関係のフラット リストを保持する XML ファイルです。インストールされている他のパッケージの依存関係も含みます。 インストールまたは復元されたパッケージは、`packages` フォルダーに保管されます。
 
-- [PackageReference](consume-packages/package-references-in-project-files.md) (または "プロジェクト ファイルでのパッケージ参照") | *(NuGet 4.0 以降)*プロジェクトの最上位の依存関係のリストがプロジェクト ファイル内に直接保持されるので、個別のファイルは必要ありません。 関連するファイル `obj/project.assets.json` は、プロジェクトがすべての下位レベルの依存関係と共に使用するパッケージの依存関係の全体グラフを管理するために、動的に作成されます。 PackageReference は常に、.NET Core プロジェクトで使用されます。
+- [PackageReference](consume-packages/package-references-in-project-files.md) (または "プロジェクト ファイルでのパッケージ参照") | *(NuGet 4.0 以降)* プロジェクトの最上位の依存関係のリストがプロジェクト ファイル内に直接保持されるので、個別のファイルは必要ありません。 関連するファイル `obj/project.assets.json` は、プロジェクトがすべての下位レベルの依存関係と共に使用するパッケージの依存関係の全体グラフを管理するために、動的に作成されます。 PackageReference は常に、.NET Core プロジェクトで使用されます。
 
 指定されたプロジェクトでどのパッケージ管理形式が採用されるかは、プロジェクトの種類と、NuGet (および Visual Studio) の使用可能なバージョンによって異なります。 使用されている形式を確認するには、最初のパッケージをインストールした後で、プロジェクトのルートにある `packages.config` を調べるだけで済みます。 そのファイルが見つからない場合は、プロジェクト ファイルで直接 \<PackageReference\> 要素を調べます。
 
