@@ -42,7 +42,7 @@
 ### [add](tools/cli-ref-add.md)
 ### [config](tools/cli-ref-config.md)
 ### [delete](tools/cli-ref-delete.md)
-### [help または ?](tools/cli-ref-help.md)
+### [help or ?](tools/cli-ref-help.md)
 ### [init](tools/cli-ref-init.md)
 ### [install](tools/cli-ref-install.md)
 ### [list](tools/cli-ref-list.md)
@@ -114,6 +114,7 @@
 ## [NuGet に関する FAQ](policies/nuget-faq.md)
 ## [ガバナンス](policies/governance.md)
 ## [エコシステム](policies/ecosystem.md)
+## [データ要求](policies/Data-requests.md)
 ## [争議の解決](policies/dispute-resolution.md)
 ## [パッケージの削除](policies/deleting-packages.md)
 # リリース ノート
