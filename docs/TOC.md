@@ -114,6 +114,7 @@
 ## [NuGet に関する FAQ](policies/nuget-faq.md)
 ## [ガバナンス](policies/governance.md)
 ## [エコシステム](policies/ecosystem.md)
+## [データ要求](policies/Data-requests.md)
 ## [争議の解決](policies/dispute-resolution.md)
 ## [パッケージの削除](policies/deleting-packages.md)
 # リリース ノート
