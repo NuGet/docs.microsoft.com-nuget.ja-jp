@@ -42,7 +42,7 @@
 ### [add](tools/cli-ref-add.md)
 ### [config](tools/cli-ref-config.md)
 ### [delete](tools/cli-ref-delete.md)
-### [help または ?](tools/cli-ref-help.md)
+### [help or ?](tools/cli-ref-help.md)
 ### [init](tools/cli-ref-init.md)
 ### [install](tools/cli-ref-install.md)
 ### [list](tools/cli-ref-list.md)
