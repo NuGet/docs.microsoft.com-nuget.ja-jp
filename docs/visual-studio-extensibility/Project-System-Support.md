@@ -1,25 +1,16 @@
 ---
-title: Visual Studio プロジェクト システムの NuGet サポート | Microsoft Docs
+title: Visual Studio プロジェクト システムの NuGet サポート
+description: サードパーティ プロジェクト タイプのために NuGet を Visual Studio プロジェクト システムに統合する
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/09/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: サードパーティ プロジェクト タイプのために NuGet を Visual Studio プロジェクト システムに統合する
-keywords: Visual Studio の NuGet, カスタム プロジェクト タイプ, Visual Studio プロジェクト
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 0ffebfc9e403315482d3781a00a0a6896fd04f0c
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: a9dd503c4c76adda6255d398cc400eb622721912
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-support-for-the-visual-studio-project-system"></a>Visual Studio プロジェクト システムの NuGet サポート
 

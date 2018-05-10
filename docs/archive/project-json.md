@@ -1,25 +1,16 @@
 ---
-title: NuGet の project.json ファイル リファレンス | Microsoft Docs
+title: NuGet の project.json ファイル リファレンス
+description: 一部のプロジェクト タイプでは、project.json で、プロジェクトで使用される NuGet パッケージの一覧が保守管理されます。
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 07/27/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: 一部のプロジェクト タイプでは、project.json で、プロジェクトで使用される NuGet パッケージの一覧が保守管理されます。
-keywords: NuGet project.json、NuGet パッケージ参照、NuGet の依存関係、project.lock.json
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 21542a219faa3d1fa0c32a838645d4471c5aa935
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 52df5c6a4d5f1c0092a85c124903203da83a1821
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="projectjson-reference"></a>project.json 参照
 
@@ -125,7 +116,7 @@ ms.lasthandoff: 03/28/2018
     }
  ```
 
-`frameworks` セクションでは、1 つのエントリのみが許可されます  (例外は、使用されていない DNX ツール チェーンでビルドされた ASP.NET プロジェクトの `project.json` ファイルで、これは複数のターゲットを許可します)。
+`frameworks` セクションでは、1 つのエントリのみが許可されます  (例外は、非推奨の DNX ツール チェーンでビルドされた ASP.NET プロジェクトの `project.json` ファイルで、これは複数のターゲットを許可します。)
 
 ## <a name="runtimes"></a>Runtimes
 

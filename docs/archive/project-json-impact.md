@@ -1,30 +1,21 @@
 ---
-title: project.json の NuGet パッケージの作成者に与える影響 | Microsoft Docs
+title: NuGet パッケージ作成者に対する project.json の影響
+description: NuGet 3.x での project.json の実装が、サポートされていない機能、コンテンツ、パッケージ形式などのパッケージの作成者にどのように影響するかの詳細です。
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: NuGet 3.x での project.json の実装が、サポートされていない機能、コンテンツ、パッケージ形式などのパッケージの作成者にどのように影響するかの詳細です。
-keywords: NuGet と project.json、project.json の影響、パッケージの作成に関する考慮事項、project.json の機能
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 6e8af98504a2866106e84943989aeb91f2e9c1fb
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: 6163297075f741a4132afd748974498fa1600fbb
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="impact-of-projectjson-when-creating-packages"></a>パッケージを作成するときの project.json の影響
 
 > [!Important]
-> このコンテンツは使用されていません。 プロジェクトは、`packages.config` または PackageReference 形式のいずれかを使用する必要があります。
+> このコンテンツは非推奨とされます。 プロジェクトは、`packages.config` または PackageReference 形式のいずれかを使用する必要があります。
 
 NuGet 3 以降で使用される `project.json` システムは、次のセクションで示されるように、いくつかの方法でパッケージの作成者に影響します。
 
@@ -68,7 +59,7 @@ NuGet 3 以降で使用される `project.json` システムは、次のセク�
 
 要約すると、上記の機能が絶対に必要というわけではない場合、ここで説明されている形式は NuGet 3.x 以降によってのみサポートされるので、既存のパッケージ形式と一緒にしておくことをお勧めします。
 
-shim を使用して `packages.config` と `project.json` の両方のシナリオに機能するように、パッケージをビルドすることはできますが、上述の使用されていない機能ではなく、従来の方法でパッケージを構築すると簡単なことが多いです。
+shim を使用して `packages.config` と `project.json` の両方のシナリオに機能するように、パッケージをビルドすることはできますが、上述の非推奨の機能ではなく、従来の方法でパッケージを構築すると簡単なことが多いです。
 
 ## <a name="3x-package-format"></a>3.x のパッケージ形式
 

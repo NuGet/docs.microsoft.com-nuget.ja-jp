@@ -1,29 +1,20 @@
 ---
-title: NuGet project.json のアーカイブ コンテンツ | Microsoft Docs
+title: NuGet project.json のアーカイブ コンテンツ
+description: NuGet のドキュメントの他の分野から削除された project.json のその他のコンテンツ。
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/17/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: NuGet のドキュメントの他の分野から削除された project.json のその他のコンテンツ。
-keywords: NuGet project.json ファイル
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 16361fe16d8ecc7064af4b6d636435a31a5663dc
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: cd0f4bc44c1acaeed3b3ed0241c501ddd281628d
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="projectjson-archive"></a>project.json のアーカイブ
 
-`project.json` 管理形式は、NuGet 3.x で導入され、特定のプロジェクトの種類に使用されていました。 これは、PackageReference 形式の導入に伴い、使用されなくなりました。PackageReference 形式では、依存関係のリストがプロジェクト ファイルに直接格納されます。
+`project.json` 管理形式は、NuGet 3.x で導入され、特定のプロジェクトの種類に使用されていました。 これは、PackageReference 形式の導入に伴い、非推奨となりました。PackageReference 形式では、依存関係のリストがプロジェクト ファイルに直接格納されます。
 
 関連項目:
 
@@ -37,7 +28,7 @@ ms.lasthandoff: 03/28/2018
 
 管理形式の一覧には次が含まれます。
 
-- [`project.json`](project-json.md): *(使用されていない)* プロジェクトの依存関係のリストを保持する JSON ファイルです。全体的なパッケージ グラフは関連ファイル `project.lock.json` に含まれます。 PackageReference が優先され、この形式は使用されていません。
+- [`project.json`](project-json.md): *(使用されていない)* プロジェクトの依存関係のリストを保持する JSON ファイルです。全体的なパッケージ グラフは関連ファイル `project.lock.json` に含まれます。 PackageReference が優先され、この形式は非推奨とされます。
 
 ## <a name="nuget-restore-on-mono"></a>Mono での NuGet の復元
 

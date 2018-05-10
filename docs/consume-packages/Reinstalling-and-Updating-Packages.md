@@ -1,25 +1,16 @@
 ---
-title: NuGet パッケージの再インストールと更新 | Microsoft Docs
+title: NuGet パッケージの再インストールと更新
+description: パッケージをいつ更新して再インストールする必要があるのかに関する詳細と、壊れた Visual Studio のパッケージ参照について。
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 12/07/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: パッケージをいつ更新して再インストールする必要があるのかに関する詳細と、壊れた Visual Studio のパッケージ参照について。
-keywords: NuGet パッケージのインストール, NuGet パッケージの再インストール, NuGet パッケージの復元, パッケージの更新, パッケージの復元、壊れている参照の修正
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 9da385f51abf5877589c29ebdeffefc9a1a20a2e
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: fc2c1a58f787da61041c644085058355de4f12ea
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>パッケージを再インストールし更新する方法
 
@@ -81,7 +72,7 @@ Update-Package -Id <package_name> –reinstall
 Update-Package <package_name>
 ```
 
-既定では、`Update-Package` はソリューション内のすべてのパッケージに影響します。 特定のプロジェクトにアクションを制限するには、ソリューション エクスプローラーに表示されるプロジェクト名を使用し、`-ProjectName` スイッチを使用します。
+既定では、`Update-Package` はソリューション内のすべてのプロジェクトに影響します。 特定のプロジェクトにアクションを制限するには、ソリューション エクスプローラーに表示されるプロジェクト名を使用し、`-ProjectName` スイッチを使用します。
 
 ```ps
 # Reinstall the package in just MyProject

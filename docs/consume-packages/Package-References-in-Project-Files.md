@@ -1,25 +1,16 @@
 ---
-title: NuGet PackageReference 形式 (プロジェクト ファイルのパッケージ参照) | Microsoft Docs
+title: NuGet PackageReference 形式 (プロジェクト ファイルのパッケージ参照)
+description: NuGet 4.0 以降と VS2017 および .NET Core 2.0 でサポートされているプロジェクト ファイルの NuGet PackageReference に関する詳細
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 03/16/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: NuGet 4.0 以降と VS2017 および .NET Core 2.0 でサポートされているプロジェクト ファイルの NuGet PackageReference に関する詳細
-keywords: NuGet パッケージの依存関係、パッケージ参照、プロジェクト ファイル、PackageReference、packages.config、VS2017、Visual Studio 2017、NuGet 4、.NET Core 2.0
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 7844ace0565b2e70f8f68e6e61548f0f28171689
-ms.sourcegitcommit: 5b223c5814799caa6309e95792a2d338df692778
+ms.topic: conceptual
+ms.openlocfilehash: 8f277a8af7f988d6fdcfa75c43a10b3792c2ae22
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/04/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="package-references-packagereference-in-project-files"></a>プロジェクト ファイルのパッケージ参照 (PackageReference)
 
@@ -94,10 +85,10 @@ PackageReference の場合、MSBuild 条件を使用し、ターゲット フレ
 
 これらのタグに使用できる値は次のようになります。単独で表示する `all` と `none` を除き、複数の値はセミコロンで区切られます。
 
-| 値 | 説明 |
+| [値] | 説明 |
 | --- | ---
 | compile | `lib` フォルダーの内容と、プロジェクトをフォルダー内のアセンブリに対してコンパイルできるかどうかのコントロール |
-| runtime | `lib` と `runtimes` フォルダーの内容と、これらのアセンブリがコピーされて出力ディレクトリをビルドするかどうかのコントロール |
+| ランタイム | `lib` と `runtimes` フォルダーの内容と、これらのアセンブリがコピーされて出力ディレクトリをビルドするかどうかのコントロール |
 | contentFiles | `contentfiles` フォルダーの内容 |
 | ビルド | `build` フォルダーの props と targets |
 | analyzers | .NET アナライザー |

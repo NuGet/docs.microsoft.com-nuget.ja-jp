@@ -1,25 +1,16 @@
 ---
-title: NuGet パッケージの使用の概要とワークフロー | Microsoft Docs
+title: NuGet パッケージの使用の概要とワークフロー
+description: プロジェクトで NuGet パッケージを利用する場合のプロセスの概要と、プロセスの他の特定の部分へのリンク。
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 03/22/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: プロジェクトで NuGet パッケージを利用する場合のプロセスの概要と、プロセスの他の特定の部分へのリンク。
-keywords: NuGet パッケージの利用, NuGet 利用の概要, NuGet 利用のワークフロー, パッケージ利用のワークフロー, パッケージ利用の概要
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: e79b09fe8131f25c6bbed650e1927425dcc5d409
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: 765b48b474aee17415f53491514bf6e9d50af010
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="package-consumption-workflow"></a>パッケージ利用のワークフロー
 

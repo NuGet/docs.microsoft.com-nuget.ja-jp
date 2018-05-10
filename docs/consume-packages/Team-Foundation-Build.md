@@ -1,25 +1,16 @@
 ---
-title: Team Foundation ビルドでの NuGet パッケージの復元のチュートリアル | Microsoft Docs
+title: Team Foundation ビルドでの NuGet パッケージの復元のチュートリアル
+description: Team Foundation ビルド (TFS と Visual Studio Team Services の両方) で NuGet パッケージを復元する方法について説明します。
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/09/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Team Foundation ビルド (TFS と Visual Studio Team Services の両方) で NuGet パッケージを復元する方法について説明します。
-keywords: NuGet パッケージの復元、NuGet および TFS、NuGet および VSTS、NuGet のビルド システム、team foundation ビルド、カスタム MSBuild プロジェクト、クラウドを構築、継続的インテグレーション
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: f46a7402214bf965918a5195605027913a8c60c2
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: 5eb8e68b800f623ef41a164f18efff2281e7c7cc
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="setting-up-package-restore-with-team-foundation-build"></a>Team Foundation ビルドでのパッケージの復元の設定
 

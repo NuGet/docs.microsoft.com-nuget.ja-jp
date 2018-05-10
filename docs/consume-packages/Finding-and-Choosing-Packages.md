@@ -1,25 +1,16 @@
 ---
-title: NuGet パッケージの検索と選択 | Microsoft Docs
+title: NuGet パッケージの検索と選択
+description: NuGet 検索構文の詳細を含む、プロジェクトに最適な NuGet パッケージを検索して選択する方法の概要。
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 03/16/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: NuGet 検索構文の詳細を含む、プロジェクトに最適な NuGet パッケージを検索して選択する方法の概要。
-keywords: NuGet パッケージの利用, NuGet パッケージの検出, 最適な NuGet パッケージ, パッケージの決定, パッケージの利用, パッケージの評価, NuGet 検索構文
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 319361623e60b8bdfe3c2dbc9bdcae65783a17e3
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: 94d851cfbc860e50b02ca99595ca41bbf4ce21ef
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>プロジェクトの NuGet パッケージの検索と評価
 
@@ -104,6 +95,8 @@ NuGet では、Visual Studio の C++ プロジェクトで使用できるネイ�
 - *オープン ソース コントリビューション*: 多くのパッケージはオープン ソース リポジトリに保持されます。これにより、パッケージに依存する開発者は、直接バグの修正と機能の向上に貢献できます。 また、任意のパッケージのコントリビューション履歴を見れば、どれだけ多くの開発者が積極的に関与しているかがよくわかります。
 
 - *所有者へのインタビュー*: 新しい開発者は確実に、あなたが使用する優れたパッケージを生成することに同等にコミットできます。NuGet エコシステムに新しい何かをもたらすよい機会となります。 この点を考慮して、リスト ページの **[情報]** にある **[Contact Owners]\(所有者に問い合わせる\)** オプションを介してパッケージ開発者に直接連絡します。 おそらく、所有者はあなたのニーズに応えるために喜んで協力してくれることでしょう。
+
+- *予約されているパッケージ ID プレフィックス*: 多くのパッケージ所有者が[パッケージ ID プレフィックスの予約](../reference/id-prefix-reservation.md)を申請し、与えられています。 [nuget.org](https://www.nuget.org/) または Visual Studio でパッケージ ID の隣にチェックマークが表示されている場合、それはパッケージ所有者が ID プレフィックス予約に関する Microsoft の[条件](../reference/id-prefix-reservation.md#id-prefix-reservation-criteria)を満たしていることを意味します。 パッケージ所有者は、自身とパッケージの同一性確認に成功しています。
 
 > [!Note]
 > 常にパッケージのライセンス条項に留意してください。これは、nuget.org のパッケージのリスト ページにある **[ライセンス情報]** を選択することで確認できます。パッケージでライセンス条項が指定されていない場合は、パッケージ ページの **[Contact owners]\(所有者に問い合わせる\)** リンクを使用して、パッケージ所有者に直接問い合わせてください。 Microsoft はサードパーティのパッケージ プロバイダーを通じてユーザーに知的財産ライセンスを付与することはありません。また、サードパーティによって提供される情報について責任を負いません。

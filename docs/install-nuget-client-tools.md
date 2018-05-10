@@ -1,31 +1,22 @@
 ---
-title: NuGet クライアント ツールのインストール | Microsoft Docs
+title: NuGet クライアント ツールのインストール
+description: Visual Studio 用にクライアント ツール、dotnet コマンド ライン インターフェイス (CLI)、nuget CLI、およびパッケージ マネージャーをインストールするためのガイダンス。
 author: kraigb
 ms.author: kraigb
-manager: ghogen
-ms.date: 01/24/2018
+manager: douge
+ms.date: 04/09/2018
 ms.topic: quickstart
-ms.prod: nuget
-ms.technology: ''
-description: Visual Studio 用にクライアント ツール、dotnet コマンド ライン インターフェイス (CLI)、nuget CLI、およびパッケージ マネージャーをインストールするためのガイダンス。
-keywords: dotnet.exe CLI、nuget.exe CLI、NuGet クライアント ツール、NuGet パッケージ マネージャー、NuGet パッケージ マネージャー コンソール、Visual Studio 用 NuGet、NuGet ベータ チャネル
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: e4dfe1102d1e0e2013136b0ae4975e5036e34642
-ms.sourcegitcommit: ecb598c790d4154366bc92757ec7db1a51c34faf
+ms.openlocfilehash: 6681c910768bc705f5e09340e04e4d368fde5efe
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="installing-nuget-client-tools"></a>NuGet クライアント ツールのインストール
 
->  **パッケージをインストールする場合は、[Nuget パッケージのインストール方法](consume-packages/ways-to-install-a-package.md)に関するページをご覧ください。**
+> **パッケージをインストールする場合は、[Nuget パッケージのインストール方法](consume-packages/ways-to-install-a-package.md)に関するページをご覧ください。**
 
-パッケージ コンシューマーまたはパッケージ作成者として NuGet を使用するには、[コマンド ライン インターフェイス (CLI) ツール](#cli-tools)だけでなく、[Visual Studio の NuGet 機能](#visual-studio)も使用できます。 この記事では、さまざまなツールの機能とそれらのインストール方法について簡単に説明します。また、各ツールの[機能の可用性](#feature-availability)の比較も示します。
+パッケージ コンシューマーまたはパッケージ作成者として NuGet を使用するには、[コマンド ライン インターフェイス (CLI) ツール](#cli-tools)だけでなく、[Visual Studio の NuGet 機能](#visual-studio)も使用できます。 この記事では、さまざまなツールの機能とそれらのインストール方法について簡単に説明します。また、各ツールの[機能の可用性](#feature-availability)の比較も示します。 NuGet でパッケージの利用を開始するには、パッケージをインストールして使用する方法に関するページを参照してください ([.NET CLI](quickstart/install-and-use-a-package-using-the-dotnet-cli.md) 向けページと [Visual Studio](quickstart/install-and-use-a-package-in-visual-studio.md) 向けページがあります)。 NuGet パッケージの作成を開始するには、NET Standard パッケージの作成と公開に関するページを参照してください ([dotnet CLI](quickstart/create-and-publish-a-package-using-the-dotnet-cli.md) 向けページと [Visual Studio](quickstart/create-and-publish-a-package-using-visual-studio.md) 向けページがあります)。
 
 | ツール&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 説明 | ダウンロード&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
 |:------------- |:-------------|:-----|
@@ -56,7 +47,7 @@ NuGet CLI (`nuget.exe`) は、すべての NuGet 機能を提供する Windows �
 
 インストール:
 
-[!INCLUDE[install-cli](includes/install-cli.md)]
+[!INCLUDE [install-cli](includes/install-cli.md)]
 
 > [!Tip]
 > Windows で既存の nuget.exe を最新バージョンに更新するには、`nuget update -self` を使用します。

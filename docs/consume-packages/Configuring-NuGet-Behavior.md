@@ -1,25 +1,16 @@
 ---
-title: NuGet の動作を構成する | Microsoft Docs
+title: NuGet の動作を構成する
+description: NuGet.Config ファイルは、グローバルとプロジェクト単位の両方で NuGet の動作を制御し、変更するには nuget config コマンドを使います。
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 10/25/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: NuGet.Config ファイルは、グローバルとプロジェクト単位の両方で NuGet の動作を制御し、変更するには nuget config コマンドを使います。
-keywords: NuGet 構成ファイル, NuGet の構成, NuGet の動作の設定, NuGet の設定, Nuget.Config, NuGetDefaults.Config, 既定値
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 88f10cf15e16013ac99f315e572f932fd3948f73
-ms.sourcegitcommit: ecb598c790d4154366bc92757ec7db1a51c34faf
+ms.topic: conceptual
+ms.openlocfilehash: c8cc78be1bd48adc603b9447282a6c4bef7f942f
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="configuring-nuget-behavior"></a>NuGet の動作を構成する
 
