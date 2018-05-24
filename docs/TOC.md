@@ -84,7 +84,7 @@
 ## [エラーと警告](reference/errors-and-warnings.md)
 ## [ID プレフィックスの予約](reference/id-prefix-reservation.md)
 ## [NuGet クライアント SDK](reference/nuget-client-sdk.md)
-## [署名されたパッケージ参照](reference/signed-packages-reference.md)
+## [署名付きパッケージ](reference/signed-packages-reference.md)
 ## [nuget.org 上の組織](reference/organizations-on-nuget-org.md)
 ## 機能拡張
 ### [Visual Studio 向け NuGet 資格情報プロバイダー](reference/extensibility/nuget-credential-providers-for-visual-studio.md)
