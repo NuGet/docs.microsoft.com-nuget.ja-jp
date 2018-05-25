@@ -6,22 +6,24 @@ ms.author: anangaur
 manager: unnir
 ms.date: 3/7/2018
 ms.topic: conceptual
-ms.openlocfilehash: d8fc374167e5c7f601c41887c4844854d0177ccb
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 11e604ad9a28ac2b22880a13ef9d8b41d8c09507
+ms.sourcegitcommit: 8127dd73ff8481a1a01acd9b7004dd131a9d84e7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="nuget-46-rtm-release-notes"></a>NuGet 4.6 RTM リリース ノート
 
 [Visual Studio 2017 15.6 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) には、[NuGet 4.6.0](https://dist.nuget.org/win-x86-commandline/v4.6.0/nuget.exe) が付属しています。
 
 ## <a name="summary-whats-new-in-this-release"></a>概要: このリリースの新機能
-* [パッケージの署名](https://docs.microsoft.com/en-us/nuget/create-packages/sign-a-package)のサポートが追加されました。  
-* Visual Studio 2017 と nuget.exe では、[署名済みパッケージ](https://docs.microsoft.com/en-us/nuget/reference/signed-packages-reference)について、パッケージをインストール、復元する前にパッケージの整合性を検証できるようになりました。
+
+* [パッケージの署名](../create-packages/sign-a-package.md)のサポートが追加されました。
+* Visual Studio 2017 と nuget.exe では、[署名済みパッケージ](../reference/signed-packages-reference.md)について、パッケージをインストール、復元する前にパッケージの整合性を検証できるようになりました。
 * 連続する復元のパフォーマンスが向上しました。
 
 ## <a name="known-issues"></a>既知の問題
+
 ### <a name="issues-with-net-standard-20-with-net-framework--nuget"></a>.NET Framework と NuGet での .NET Standard 2.0 の問題 
 
 .NET Standard とそのツールは、.NET Framework 4.6.1 をターゲットとするプロジェクトが、.NET Standard 2.0 以前をターゲットとする NuGet パッケージおよびプロジェクトを使用できるように設計されています。 [このドキュメント](https://github.com/dotnet/standard/issues/481)では、そのシナリオに関連する問題の概要、それらの問題を解決する計画、そのツールの今日の状態で展開できる解決策について説明します。
@@ -29,11 +31,13 @@ ms.lasthandoff: 04/26/2018
 ## <a name="top-issues-fixed-in-this-release"></a>このリリースで修正された主な問題
 
 **パフォーマンスの改善**
+
 * 変更がない場合に資産ファイルを書き込まない - [#6491](https://github.com/NuGet/Home/issues/6491)
 * 子プロジェクトの TFM が親プロジェクトの TFM と一致しない場合、復元によって追加の MSBuild 評価が発生する - [#6311](https://github.com/NuGet/Home/issues/6311)
 * 依存関係グラフ仕様の作成を最適化することで NoOp 復元のパフォーマンスを向上する - [#6252](https://github.com/NuGet/Home/issues/6252)
 
 **バグ**
+
 * ローカル フォルダーにプッシュすると、nupkg がロックされたままになる - [#6325](https://github.com/NuGet/Home/issues/6325)
 * NuGet プラグインの実装: 複数の問題 - [#6149](https://github.com/NuGet/Home/issues/6149)
 * UIHang - VSSolutionManager の MEF の初期化からクエリ サービス呼び出しを削除する - [#6110](https://github.com/NuGet/Home/issues/6110)
@@ -60,6 +64,5 @@ ms.lasthandoff: 04/26/2018
 * CentOS 上で nuget add がハングする - [#2708](https://github.com/NuGet/Home/issues/2708)
 * json.net の場合、packagesavemode -nupkg を使用した復元が失敗する - [#2706](https://github.com/NuGet/Home/issues/2706)
 * restore コマンドの vs 出力ウィンドウでパッケージ マネージャー フィルターを使用できない - [#2704](https://github.com/NuGet/Home/issues/2704)
-
 
 [このリリースで修正されたすべての問題一覧](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.6")
