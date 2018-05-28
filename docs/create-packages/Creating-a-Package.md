@@ -6,11 +6,11 @@ ms.author: kraigb
 manager: douge
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: c1e3bfd1c7e80c7deb505ef732d73c2edf3e32f7
-ms.sourcegitcommit: 5fcd6d664749aa720359104ef7a66d38aeecadc2
+ms.openlocfilehash: 1657479e1a87f7022caa2fd991127b4ca702cdac
+ms.sourcegitcommit: 00c4c809c69c16fcf4d81012eb53ea22f0691d0b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/27/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="creating-nuget-packages"></a>NuGet パッケージの作成
 
@@ -157,7 +157,7 @@ nuget locals -list global-packages
 
 ### <a name="from-a-convention-based-working-directory"></a>規則ベースの作業ディレクトリから
 
-NuGet パッケージは `.nupkg` 拡張子で名前が変更されている ZIP ファイルに過ぎないため、多くの場合、ファイル システムで必要なフォルダー構造を作り、その構造から `.nuspec` ファイルを直接作成するのが最も簡単です。 `nuget pack` コマンドはその後、そのフォルダー構造にすべてのファイルを自動的に追加します。ただし、`.` で始まるフォルダーを除きます。同じ構造にプライベート ファイルを維持できます。
+NuGet パッケージは `.nupkg` 拡張子で名前が変更されている ZIP ファイルに過ぎないため、多くの場合、ローカルのファイル システムに必要なフォルダー構造を作り、その構造から `.nuspec` ファイルを直接作成するのが最も簡単です。 `nuget pack` コマンドはその後、そのフォルダー構造にすべてのファイルを自動的に追加します。ただし、`.` で始まるフォルダーを除きます。同じ構造にプライベート ファイルを維持できます。
 
 この手法の長所は、パッケージに含めるファイルをマニフェストに指定する必要がないことです (このトピックの後半で説明します)。 パッケージに入るまさにそのフォルダー構造をビルド プロセスで生成させることができます。また、その他の方法ではプロジェクトに含まれないことがある他のファイルを簡単に含めることができます。
 
@@ -361,12 +361,9 @@ NuGet 3.x を使用する場合、ターゲットはプロジェクトに追加�
 COM 相互運用アセンブリを含むパッケージには、PackageReference 形式を利用して正しい `EmbedInteropTypes` メタデータがプロジェクトに追加されるように、適切な [targets ファイル](#including-msbuild-props-and-targets-in-a-package)が含まれる必要があります。 既定では、PackageReference が使用されるとき、`EmbedInteropTypes` メタデータは常にすべてのアセンブリに対して false になります。それにより、targets ファイルでこのメタデータが明示的に追加されます。 競合を回避するために、ターゲット名を一意にする必要があります。理想的には、パッケージ名と組み込むアセンブリの組み合わせを使用します。下の例の `{InteropAssemblyName}` をその値で置換します。 (例については、[NuGet.Samples.Interop](https://github.com/NuGet/Samples/tree/master/NuGet.Samples.Interop) もご覧ください。)
 
 ```xml
-<Target Name="EmbeddingAssemblyNameFromPackageId" AfterTargets="ResolveReferences" BeforeTargets="FindReferenceAssembliesForReferences">
-  <PropertyGroup>
-    <_InteropAssemblyFileName>{InteropAssemblyName}</_InteropAssemblyFileName>
-  </PropertyGroup>
+<Target Name="Embedding**AssemblyName**From**PackageId**" AfterTargets="ResolveReferences" BeforeTargets="FindReferenceAssembliesForReferences">
   <ItemGroup>
-    <ReferencePath Condition=" '%(FileName)' == '$(_InteropAssemblyFileName)' AND '%(ReferencePath.NuGetPackageId)' == '$(MSBuildThisFileName)' ">
+    <ReferencePath Condition=" '%(FileName)' == '{InteropAssemblyName}' AND '%(ReferencePath.NuGetPackageId)' == '$(MSBuildThisFileName)' ">
       <EmbedInteropTypes>true</EmbedInteropTypes>
     </ReferencePath>
   </ItemGroup>
@@ -381,7 +378,7 @@ COM 相互運用アセンブリを含むパッケージには、PackageReference
 
 ## <a name="running-nuget-pack-to-generate-the-nupkg-file"></a>nuget パックを実行し、.nupkg ファイルを生成する
 
-アセンブリまたは規則ベースの作業ディレクトリを使用するとき、自分の `.nuspec` ファイルで `nuget pack` を実行してパッケージを作成します。`<manifest-name>` を特定のファイル名で置換します。
+アセンブリまたは規則ベースの作業ディレクトリを使用するとき、自分の `.nuspec` ファイルで `nuget pack` を実行してパッケージを作成します。`<project-name>` を特定のファイル名で置換します。
 
 ```cli
 nuget pack <project-name>.nuspec
@@ -444,7 +441,7 @@ Visual Studio プロジェクトの共通オプションには以下のような
 1. `.nupkg` ファイルをローカル フォルダーにコピーします。
 1. `nuget sources add -name <name> -source <path>` コマンドを利用し、パッケージ ソースにフォルダーを追加します ([nuget ソース](../tools/cli-ref-sources.md)を参照してください)。 指定されたコンピューターのいずれかで、このローカル ソースを 1 回設定します。
 1. `nuget install <packageID> -source <name>` を利用し、そのソースからパッケージをインストールします。`<name>` は、`nuget sources` に指定されたソースの名前に一致します。 ソースを指定することで、そのソースだけからパッケージがインストールされます。
-1. ファイルが正しくインストールされていることをファイル システムで調べます。
+1. ファイル システムで、ファイルが正しくインストールされていることを調べます。
 
 ## <a name="next-steps"></a>次の手順
 

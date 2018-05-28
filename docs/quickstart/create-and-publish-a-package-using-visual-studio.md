@@ -1,20 +1,23 @@
 ---
-title: Visual Studio を使用した .NET Standard NuGet パッケージの作成と公開の入門ガイド
-description: Visual Studio 2017 を使用した .NET Standard NuGet パッケージの作成と公開に関するチュートリアルです。
+title: Windows の Visual Studio を使用した .NET Standard パッケージの作成と公開
+description: Windows の Visual Studio 2017 を使用した、.NET Standard NuGet パッケージの作成と公開に関するチュートリアルです。
 author: kraigb
 ms.author: kraigb
 manager: douge
-ms.date: 03/18/2018
+ms.date: 05/18/2018
 ms.topic: quickstart
-ms.openlocfilehash: c5d58aa6312eae801607ca44a81bc092a7a7c15f
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: f4e6473d307f2f71016f6926abbcdb1295abc7b5
+ms.sourcegitcommit: f0b31af805183cf3a98eabb504e16d9b05223cfe
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/22/2018
 ---
-# <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard"></a>クイック スタート: Visual Studio を使用した NuGet パッケージの作成と公開 (.NET Standard)
+# <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>クイック スタート: Visual Studio を使用した NuGet パッケージの作成と公開 (.NET Standard、Windows のみ)
 
-Visual Studio で .NET Standard クラス ライブラリから NuGet パッケージを作成し、CLI ツールを使用してパッケージを nuget.org に公開する簡単なプロセスです。
+Windows の Visual Studio で .NET Standard クラス ライブラリから NuGet パッケージを作成し、CLI ツールを使用してパッケージを nuget.org に公開する簡単なプロセスです。
+
+> [!Note]
+> このクイック スタートが適用されるのは、Windows の Visual Studio 2017 のみです。 ここで説明される機能は、Visual Studio for Mac には含まれません。 代わりに [dotnet CLI ツール](create-and-publish-a-package-using-the-dotnet-cli.md)を使用してください。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 

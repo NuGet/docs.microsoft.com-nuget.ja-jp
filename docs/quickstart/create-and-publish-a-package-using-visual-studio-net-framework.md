@@ -1,20 +1,23 @@
 ---
-title: Visual Studio を使用した .NET Framework NuGet パッケージの作成と公開の入門ガイド
-description: Visual Studio 2017 を使用した .NET Framework NuGet パッケージの作成と公開に関するチュートリアルです。
+title: Windows の Visual Studio を使用した .NET Framework パッケージの作成と公開
+description: Windows の Visual Studio 2017 を使用した、.NET Framework NuGet パッケージの作成と公開に関するチュートリアルです。
 author: kraigb
 ms.author: kraigb
 manager: douge
-ms.date: 03/13/2018
+ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: 01760034a121b1ff6f227e006415779898c4cf6d
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: ba02b53c6ac0b4172b8611958775980ce401bf9b
+ms.sourcegitcommit: f0b31af805183cf3a98eabb504e16d9b05223cfe
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/22/2018
 ---
-# <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework"></a>クイック スタート: Visual Studio を使用したパッケージの作成と公開 (.NET Framework)
+# <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>クイック スタート: Visual Studio を使用したパッケージの作成と公開 (.NET Framework、Windows)
 
-.NET Framework クラス ライブラリから NuGet パッケージを作成するには、Visual Studio で DLL を作成した後、nuget.exe コマンド ライン ツールを使用してパッケージを作成し、公開します。
+.NET Framework クラス ライブラリから NuGet パッケージを作成するには、Windows の Visual Studio で DLL を作成した後、nuget.exe コマンド ライン ツールを使用してパッケージを作成し、公開します。
+
+> [!Note]
+> このクイック スタートが適用されるのは、Windows の Visual Studio 2017 のみです。 ここで説明される機能は、Visual Studio for Mac には含まれません。 代わりに [dotnet CLI ツール](create-and-publish-a-package-using-the-dotnet-cli.md)を使用してください。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 

@@ -4,18 +4,18 @@ description: NuGet パッケージを nuget.org やプライベート フィー�
 author: kraigb
 ms.author: kraigb
 manager: douge
-ms.date: 03/19/2018
+ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 539ac9485e6062a0bdc3bb86dac0f028a2de7821
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: 806a64d2d7654e4c1bca89a13d70fd9983c12703
+ms.sourcegitcommit: 8127dd73ff8481a1a01acd9b7004dd131a9d84e7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="publishing-packages"></a>パッケージを公開する
 
-パッケージを作成し、`.nukpg` ファイルを入手している場合は、このプロセスにより、他の開発者がパッケージを簡単に利用できるようにすることができます。公開または非公開のいずれかを選択できます。
+パッケージを作成し、`.nupkg` ファイルを入手している場合は、このプロセスにより、他の開発者がパッケージを簡単に利用できるようにすることができます。公開または非公開のいずれかを選択できます。
 
 - 公開パッケージの場合、この記事で説明するように、[nuget.org](https://www.nuget.org/packages/manage/upload) 経由で世界中の開発者が利用できます (NuGet 4.1.0 以降が必要です)。
 - 非公開パッケージの場合、ファイル共有、プライベート NuGet サーバー、 [Visual Studio Team Services Package Management](https://www.visualstudio.com/docs/package/nuget/publish)、あるいは myget、ProGet、Nexus Repository、Artifactory のようなサードパーティ リポジトリで保存することで、チームや組織だけが利用できます。 詳細については、「[Hosting Packages Overview](../hosting-packages/overview.md)」 (パッケージ ホストの概要) を参照してください。
@@ -71,6 +71,13 @@ nuget.org にパッケージをプッシュするには、[nuget.exe v4.1.0 以�
     ```cli
     nuget push YourPackage.nupkg -Source https://api.nuget.org/v3/index.json
     ```
+
+#### <a name="publish-signed-packages"></a>署名付きパッケージの公開
+
+署名付きパッケージを送信するには、最初にパッケージの署名に使用する[証明書を登録する](../reference/Signed-Packages-Reference.md#register-certificate-on-nugetorg)必要があります。 
+
+> [!Warning]
+> [署名付きパッケージの要件](../reference/Signed-Packages-Reference.md#signature-requirements-on-nugetorg)を満たしていないパッケージは、nuget.org に拒否されます。
 
 ### <a name="package-validation-and-indexing"></a>パッケージの検証とインデックスの作成
 

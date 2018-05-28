@@ -6,11 +6,11 @@ ms.author: kraigb
 manager: douge
 ms.date: 09/27/2017
 ms.topic: conceptual
-ms.openlocfilehash: d1a64c61954381b7ab3a7ecc8aa5a812cfa14e8b
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 9bdcff8210c192a695a5645f28ef88087469ec52
+ms.sourcegitcommit: f0b31af805183cf3a98eabb504e16d9b05223cfe
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="supporting-multiple-net-framework-versions"></a>複数の .NET Framework バージョンのサポート
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/26/2018
 
 サポートされている名前の完全一覧については、[ターゲット フレームワーク参照](../reference/target-frameworks.md#supported-frameworks)を参照してください。
 
-フレームワークに固有ではないライブラリ バージョンは、ルート `lib` フォルダーに直接置かないでください。 (この機能は `packages.config` でのみサポートされていました。) それを行うと、あらゆるターゲット フレームワークに対応するようになり、どこでもインストールできてしまいます。その結果、予想外のランタイム エラーが発生します。 ルート フォルダー (`lib\abc.dll` など) またはサブフォルダー (`lib\abc\abc.dll` など) へのアセンブリ追加は非推奨となりました。PackagesReference 形式を使用するときは無視されます。
+フレームワークに固有ではないライブラリ バージョンは、ルート `lib` フォルダーに直接置かないでください。 (この機能は `packages.config` でのみサポートされていました。) これにより、ライブラリがあらゆるターゲット フレームワークに対応するようになり、どこでもインストールできてしまいます。その結果、予想外のランタイム エラーが発生します。 ルート フォルダー (`lib\abc.dll` など) またはサブフォルダー (`lib\abc\abc.dll` など) へのアセンブリ追加は非推奨となりました。PackagesReference 形式を使用するときは無視されます。
 
 たとえば、次のフォルダー構造では、フレームワーク固有の 4 つのバージョンのアセンブリがサポートされています。
 
