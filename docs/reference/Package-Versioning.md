@@ -1,17 +1,18 @@
 ---
 title: NuGet パッケージのバージョンの参照
 description: バージョン番号と NuGet パッケージ、依存しているとの依存関係がどのようにインストールするのには、他のパッケージの範囲を指定する方法の詳細。
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: d1da26b55c2c273c15c9c16891bf44abffd160a5
-ms.sourcegitcommit: f0b31af805183cf3a98eabb504e16d9b05223cfe
+ms.openlocfilehash: db529a4aa92f0f0bce0b52b21d2a01bf973d01f2
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/22/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817598"
 ---
 # <a name="package-versioning"></a>パッケージのバージョン管理
 

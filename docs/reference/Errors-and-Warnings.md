@@ -1,9 +1,9 @@
 ---
 title: NuGet のエラーと警告のリファレンス
 description: 警告とエラー NuGet、さまざまな操作中に、NuGet から発行されたへの参照を完了します。
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 05/18/2018
 ms.topic: reference
 ms.reviewer: anangaur
@@ -44,11 +44,12 @@ f1_keywords:
 - NU3008
 - NU3018
 - NU3028
-ms.openlocfilehash: 748c2746a61886617e2eefe3e6c4a2e2a5b9d4d3
-ms.sourcegitcommit: 8127dd73ff8481a1a01acd9b7004dd131a9d84e7
+ms.openlocfilehash: 368a9554c5caf92b709f9b29e16b8a7cdb264eec
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/22/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818517"
 ---
 # <a name="errors-and-warnings"></a>エラーと警告
 
@@ -173,7 +174,7 @@ NuGet 4.3.0+ では、このトピックで説明の番号付けはエラーと�
 | --- | --- |
 | **問題点** | パッケージ間で依存関係の制約を解決できません。 |
 | **メッセージの例** | *バージョンの競合の NuGet.Versioning が検出されました。この問題を解決するのには、プロジェクトから直接パッケージを参照します。<br/>NuGet.Packaging 3.5.0 -> NuGet.Versioning (= 3.5.0)<br/>  NuGet.Configuration 4.0.0 -> NuGet.Versioning (= 4.0.0)* |
-| **解決方法** | 正確なバージョンに依存関係の制約を含むパッケージでは、他のパッケージを必要な場合は、バージョンを増やすには許可されません。 必要な正しいバージョンを直接 (プロジェクト ファイル) 内のプロジェクトへの参照を追加します。 |
+| **解決方法** | 正確なバージョンに依存関係の制約を含むパッケージでは、他のパッケージを必要な場合は、バージョンを増やすには許可されません。 必要な正しいバージョンを直接 (プロジェクト ファイル) にパッケージへの参照を追加します。 |
 
 <a name="nu1108"></a>
 
