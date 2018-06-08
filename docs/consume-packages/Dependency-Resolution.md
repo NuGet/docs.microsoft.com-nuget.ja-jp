@@ -1,16 +1,17 @@
 ---
 title: NuGet パッケージの依存関係の解決
 description: NuGet 2.x と NuGet 3.x 以降の両方について、NuGet パッケージの依存関係が解決されてインストールされるプロセスを詳しく説明します。
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: bfe6e348fa9a8f5df7f28509098260128920c528
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 7363b6a28f29b271c8ae2025bba7cb88fc77db67
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818699"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>NuGet でのパッケージ依存関係の解決方法
 

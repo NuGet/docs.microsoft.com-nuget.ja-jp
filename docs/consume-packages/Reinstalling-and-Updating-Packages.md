@@ -1,16 +1,17 @@
 ---
 title: NuGet パッケージの再インストールと更新
 description: パッケージをいつ更新して再インストールする必要があるのかに関する詳細と、壊れた Visual Studio のパッケージ参照について。
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 12/07/2017
 ms.topic: conceptual
-ms.openlocfilehash: fc2c1a58f787da61041c644085058355de4f12ea
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 86765b56c994c96635feb8e706ff794001a1c1dc
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818296"
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>パッケージを再インストールし更新する方法
 

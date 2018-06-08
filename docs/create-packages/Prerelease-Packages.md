@@ -1,16 +1,17 @@
 ---
 title: NuGet パッケージのプレリリース版
 description: プレリリース パッケージのビルド ガイド
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: a4540d29d9ca01f98ee5d1786e8a175ee0ea79f4
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 498509e03a794878eeeadd46d499521d19415600
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818374"
 ---
 # <a name="building-pre-release-packages"></a>プレリリース パッケージのビルド
 
