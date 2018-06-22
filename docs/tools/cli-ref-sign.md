@@ -12,6 +12,7 @@ ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/26/2018
+ms.locfileid: "31820733"
 ---
 # <a name="sign-command-nuget-cli"></a><span data-ttu-id="9409d-103">sign コマンド (NuGet CLI)</span><span class="sxs-lookup"><span data-stu-id="9409d-103">sign command (NuGet CLI)</span></span>
 

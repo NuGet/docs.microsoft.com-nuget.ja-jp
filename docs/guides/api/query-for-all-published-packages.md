@@ -12,6 +12,7 @@ ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/26/2018
+ms.locfileid: "31821370"
 ---
 # <a name="query-for-all-packages-published-to-nugetorg"></a><span data-ttu-id="be06c-103">nuget.org に発行されたすべてのパッケージに対するクエリの実行</span><span class="sxs-lookup"><span data-stu-id="be06c-103">Query for all packages published to nuget.org</span></span>
 
