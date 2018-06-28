@@ -1,16 +1,17 @@
 ---
 title: NuGet パッケージの検索と選択
 description: NuGet 検索構文の詳細を含む、プロジェクトに最適な NuGet パッケージを検索して選択する方法の概要。
-author: kraigb
-ms.author: kraigb
-manager: douge
-ms.date: 03/16/2018
+author: karann-msft
+ms.author: karann
+manager: unnir
+ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 94d851cfbc860e50b02ca99595ca41bbf4ce21ef
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: f1bb145229b0db0e8fdb7fdb31a59aa50bd1d57b
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817903"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>プロジェクトの NuGet パッケージの検索と評価
 
@@ -105,7 +106,7 @@ NuGet では、Visual Studio の C++ プロジェクトで使用できるネイ�
 
 NuGet パッケージ検索は、nuget.org、NuGet CLI、Visual Studio の NuGet パッケージ マネージャー拡張機能で同じように動作します。 一般に、検索はキーワードとパッケージの説明に適用されます。
 
-- **キーワード**: この検索では、入力されたすべてのキーワードを含む関連するパッケージを探します。 例 : `modern UI javascript`
+- **キーワード**: 入力されたいずれかのキーワードを含む関連パッケージを探します。 例 : `modern UI`。 入力したキーワードがすべて含まれるパッケージを検索するには、`modern+UI` のように、用語の間に "+" を入れます。
 - **語句**: 用語を引用符で囲んで入力すると、これらの用語と完全に一致する大文字と小文字を区別しない用語を探します。 例 : `"modern UI" package`
 - **フィルタリング**: 構文 `<property>:<term>` (この `<property>` (大文字と小文字を区別しない) に `id`、`packageid`、`version`、`title`、`tags`、`author`、`description`、`summary`、`owner` を指定することができます) を使用して、特定のプロパティに検索用語を適用することができます。 必要に応じて、用語を引用符で囲むことができ、同時に複数のプロパティを検索することができます。 また、`id` プロパティの検索が部分文字列一致であるのに対して、`packageid` では完全一致を使用します。 次に例を示します。
 
