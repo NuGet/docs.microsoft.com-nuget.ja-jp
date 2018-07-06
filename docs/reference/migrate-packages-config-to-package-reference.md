@@ -1,35 +1,35 @@
 ---
 title: Package.config から PackageReference 形式への移行
-description: Package.config 管理形式から PackageReference NuGet 4.0 以降および VS2017 と .NET Core 2.0 でサポートされるようにプロジェクトを移行する方法の詳細
+description: NuGet 4.0 + と VS2017 および .NET Core 2.0 でサポートされている PackageReference に package.config 管理形式からプロジェクトを移行する方法の詳細について
 author: karann-msft
 ms.author: karann
 manager: unnir
 ms.date: 03/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: e0a4363a2807874ec8e2693c5b1c1a0eb2e8af0e
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 1ca97e1c2dfba876aefe6b06eab10def67b8d848
+ms.sourcegitcommit: 8e3546ab630a24cde8725610b6a68f8eb87afa47
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818787"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37843395"
 ---
-# <a name="migrate-from-packagesconfig-to-packagereference"></a>Packages.config から PackageReference への移行します。
+# <a name="migrate-from-packagesconfig-to-packagereference"></a>Packages.config から PackageReference に移行します。
 
-Visual Studio 2017 バージョン 15.7 Preview 3 からプロジェクトを移行する以降をサポートして、 [packages.config](./packages-config.md)管理形式を[PackageReference](../consume-packages/Package-References-in-Project-Files.md)形式です。
+以降のサポートからプロジェクトを移行している visual Studio 2017 バージョン 15.7年、 [packages.config](./packages-config.md)管理形式を[PackageReference](../consume-packages/Package-References-in-Project-Files.md)形式。
 
 ## <a name="benefits-of-using-packagereference"></a>PackageReference を使用する利点
 
-* **1 つの場所でのすべてのプロジェクト依存関係の管理**: NuGet パッケージを参照してプロジェクト間参照とアセンブリ参照と同じように (を使用して、`PackageReference`ノード) を別々 のではなく、プロジェクト ファイル内で直接管理packages.config ファイル。
-* **最上位レベルの依存関係のっきりビュー**: packages.config とは異なり、PackageReference が直接、プロジェクトにインストールされている NuGet パッケージのみを一覧表示します。 その結果、NuGet パッケージ マネージャーの UI とプロジェクト ファイルは下位レベルの依存関係を持つ整理されています。
-* **パフォーマンスの向上**: PackageReference を使用すると、パッケージが管理で、*グローバル パッケージ*フォルダー (の定義に従って[グローバル パッケージとキャッシュ フォルダーの管理](../consume-packages/managing-the-global-packages-and-cache-folders.md)なく、`packages`ソリューション内のフォルダーです。 その結果、PackageReference は高速に実行し、少ないディスク領域を使用します。
-* **依存関係とコンテンツのフロー制御を微調整**: MSBuild の既存の機能を使用することにより[条件付きで、NuGet パッケージを参照](../consume-packages/Package-References-in-Project-Files.md#adding-a-packagereference-condition)ターゲット フレームワークでごとのパッケージ参照の選択と構成では、プラットフォーム、またはその他のピボットします。
-* **アクティブな開発では、PackageReference**: を参照してください[PackageReference が GitHub の問題](https://aka.ms/nuget-pr-improvements)です。 packages.config がアクティブな開発ではなくなりました。
+* **1 か所ですべてのプロジェクトの依存関係を管理**: プロジェクト間参照とアセンブリの参照では、同様の NuGet パッケージの参照 (を使用して、`PackageReference`ノード) を別々 のではなく、プロジェクト ファイル内で直接管理されますpackages.config ファイル。
+* **最上位レベルの依存関係の表示をすっきり**: PackageReference、packages.config とは異なり、プロジェクトに直接インストールする NuGet パッケージのみを一覧表示します。 その結果、NuGet パッケージ マネージャー UI とプロジェクト ファイルは、下位レベルの依存関係を持つ乱雑はありません。
+* **パフォーマンスの向上**: PackageReference を使用して、パッケージが管理で、*グローバル パッケージ*フォルダー (上の説明に従って[グローバル パッケージとキャッシュ フォルダーの管理](../consume-packages/managing-the-global-packages-and-cache-folders.md)なく、`packages`ソリューション内のフォルダー。 その結果、PackageReference は高速に実行し、少ないディスク領域を使用します。
+* **依存関係とコンテンツのフロー制御を細かく**: MSBuild の既存の機能を使用することにより[条件付きで NuGet パッケージを参照](../consume-packages/Package-References-in-Project-Files.md#adding-a-packagereference-condition)ターゲット フレームワークごとにパッケージ参照を選択し、構成では、プラットフォーム、またはその他のピボットします。
+* **PackageReference は開発**: を参照してください[PackageReference の GitHub 問題](https://aka.ms/nuget-pr-improvements)します。 packages.config は、アクティブな開発ではなくなりました。
 
 ### <a name="limitations"></a>制限事項
 
-* NuGet PackageReference は、Visual Studio 2015 で利用可能な以前ではありません。 移行後のプロジェクトは、Visual Studio 2017 でのみ開くことができます。
-* 移行は、C++ と ASP.NET プロジェクトに使用できる現在ではありません。
-* 一部のパッケージは、PackageReference と完全に互換性ない場合があります。 詳細については、次を参照してください。[互換性の問題をパッケージ化](#package-compatibility-issues)です。
+* NuGet PackageReference は Visual Studio 2015 で使用でき、以前ではありません。 移行されたプロジェクトは、Visual Studio 2017 でのみ開くことができます。
+* 移行は、C++ と ASP.NET プロジェクトを現在ご利用いただけません。
+* いくつかのパッケージは、PackageReference と完全に互換性がない可能性があります。 詳細については、次を参照してください。[互換性の問題をパッケージ化](#package-compatibility-issues)します。
 
 ### <a name="known-issues"></a>既知の問題
 
@@ -49,39 +49,39 @@ Visual Studio 2017 バージョン 15.7 Preview 3 からプロジェクトを移
 
 これで、移行オプションを表示できるようになりました。 このオプションは ASP.NET と C++ のプロジェクト タイプではサポートされておらず、表示されません。 
 
-## <a name="migration-steps"></a>移行手順
+## <a name="migration-steps"></a>移行の手順
 
 > [!Note]
-> Visual Studio ができるようにするには、プロジェクトのバックアップを作成する移行を開始する前に[packages.config にロールバック](#how-to-roll-back-to-packagesconfig)必要な場合です。
+> Visual Studio ができるようにするには、プロジェクトのバックアップを作成する移行を開始する前に[packages.config へのロールバック](#how-to-roll-back-to-packagesconfig)必要な場合。
 
-1. 使用してプロジェクトを含むソリューションを開く`packages.config`です。
+1. 使用してプロジェクトを含むソリューションを開く`packages.config`します。
 
-1. **ソリューション エクスプ ローラー**を右クリックし、**参照**ノードまたは`packages.config`ファイルおよび選択した**PackageReference に packages.config を移行しています.**.
+1. **ソリューション エクスプ ローラー**を右クリックし、**参照**ノードまたは`packages.config`ファイルおよび選択**packages.config の PackageReference に移行しています.**.
 
-1. Migrator は、プロジェクトの NuGet パッケージの参照を分析しに分類しようとしています**最上位レベルの依存関係**(NuGet パッケージをインストールしたディレクトリ) および**推移的な依存関係**。(最上位のパッケージの依存関係としてインストールされたパッケージ)。
+1. Migrator は、プロジェクトの NuGet パッケージ参照を分析し、分類にしようとしています**最上位レベルの依存関係**(NuGet パッケージをインストールしたディレクトリ) と**推移的依存関係**。(最上位のパッケージの依存関係としてインストールされたパッケージ)。
 
    > [!Note]
-   > PackageReference 推移的なパッケージの復元をサポートし、解決の依存関係、動的に依存関係が推移的な必要なインストールしないことに明示的に意味します。
+   > PackageReference は推移的なパッケージの復元をサポートしているし、依存関係を動的に解決する推移的依存関係が明示的にインストールしない必要がある意味します。
 
-1. (省略可能)選択すると、最上位レベルの依存関係として、推移的な依存関係として分類された NuGet パッケージを処理することもできます、**トップレベル**パッケージのオプションです。 このオプションは推移的にフローしないアセットを含むパッケージを自動的に設定 (内、 `build`、 `buildCrossTargeting`、 `contentFiles`、または`analyzers`フォルダー)、開発の依存関係としてマークされているものと (`developmentDependency = "true"`)。
+1. (省略可能)選択して、最上位レベルの依存関係として推移的依存関係として分類された NuGet パッケージを処理することができます、**トップレベル**パッケージのオプション。 このオプションは、推移的をフローしないアセットが含まれているパッケージは自動的に設定 (内、 `build`、 `buildCrossTargeting`、 `contentFiles`、または`analyzers`フォルダー) と開発の依存関係として指定されている (`developmentDependency = "true"`)。
 
-1. いずれかを確認[互換性の問題をパッケージ化](#package-compatibility-issues)です。
+1. いずれかを確認して[互換性の問題をパッケージ化](#package-compatibility-issues)します。
 
 1. 選択**OK**移行を開始します。
 
-1. 移行の最後に、Visual Studio が、バックアップ、インストールされているパッケージ (最上位レベルの依存関係) の一覧、推移的な依存関係として参照されるパッケージの一覧およびの開始時に特定の互換性の問題の一覧にパスを含むレポートを提供します。移行します。 レポートは、バックアップ フォルダーに保存されます。
+1. 移行の最後に、Visual Studio は、バックアップ、インストールされているパッケージ (最上位レベルの依存関係) の一覧、推移的依存関係として参照されるパッケージの一覧およびの初めに特定の互換性の問題の一覧にパスを使用してレポートを提供します。移行します。 レポートは、バックアップ フォルダーに保存されます。
 
-1. ソリューションがビルドされ、実行されることを検証します。 問題が発生した場合[GitHub の問題を報告](https://github.com/NuGet/Home/issues/)です。
+1. ソリューションをビルドし、実行を検証します。 問題が発生した場合[GitHub で問題を報告](https://github.com/NuGet/Home/issues/)します。
 
-## <a name="how-to-roll-back-to-packagesconfig"></a>Packages.config をロールバックする方法
+## <a name="how-to-roll-back-to-packagesconfig"></a>Packages.config にロールバックする方法
 
 1. 移行されたプロジェクトを閉じます。
 
-1. プロジェクト ファイルをコピーし、`packages.config`バックアップから (通常`<solution_root>\MigrationBackup\<unique_guid>\<project_name>\`) プロジェクトのフォルダーにします。 プロジェクトのルート ディレクトリ内に存在する場合は、obj フォルダーを削除します。
+1. プロジェクト ファイルをコピーし、 `packages.config` 、バックアップから (通常`<solution_root>\MigrationBackup\<unique_guid>\<project_name>\`)、プロジェクト フォルダーにします。 プロジェクトのルート ディレクトリに存在する場合は、obj フォルダーを削除します。
 
 1. プロジェクトを開きます。
 
-1. 使用してパッケージ マネージャー コンソールを開き、**ツール > NuGet Package Manager > パッケージ マネージャー コンソール**メニュー コマンド。
+1. 使用してパッケージ マネージャー コンソールを開き、**ツール > NuGet パッケージ マネージャー > パッケージ マネージャー コンソール**メニュー コマンド。
 
 1. コンソールで、次のコマンドを実行します。
 
@@ -91,36 +91,36 @@ Visual Studio 2017 バージョン 15.7 Preview 3 からプロジェクトを移
 
 ## <a name="package-compatibility-issues"></a>パッケージの互換性の問題
 
-Packages.config にサポートされていた一部の機能は、PackageReference でサポートされていません。 Migrator は、分析し、このような問題を検出します。 次の問題の 1 つ以上を持つすべてのパッケージは、移行後に期待どおりに動作しない可能性があります。
+Packages.config でサポートされていた一部の側面は、PackageReference のサポートされていません。 Migrator は、分析し、このような問題を検出します。 次の問題の 1 つ以上を持つ任意のパッケージは、移行後も正常動作しない可能性があります。
 
-### <a name="installps1-scripts-are-ignored-when-the-package-is-installed-after-the-migration"></a>移行後に、パッケージがインストールされている場合、"install.ps1"スクリプトは無視されます。
-
-| | |
-| --- | --- |
-| **説明** | PackageReference をインストールしたり、パッケージのアンインストール中に install.ps1 および uninstall.ps1 PowerShell スクリプトは実行されません。 |
-| **潜在的な影響** | ターゲット プロジェクトにいくつかの動作を構成するこれらのスクリプトに依存しているパッケージには、期待どおりに動かないことがあります。 |
-
-### <a name="content-assets-are-not-available-when-the-package-is-installed-after-the-migration"></a>"content"資産は、移行後に、パッケージがインストールされている場合は使用できません。
+### <a name="installps1-scripts-are-ignored-when-the-package-is-installed-after-the-migration"></a>移行後、パッケージがインストールされている場合、"install.ps1"スクリプトは無視されます。
 
 | | |
 | --- | --- |
-| **説明** | パッケージの内の資産`content`フォルダー PackageReference がサポートされていないは無視されます。 PackageReference サポートを追加する`contentFiles`より推移的なサポートと共有のコンテンツが必要です。  |
-| **潜在的な影響** | 内の資産`content`はコピーされませんプロジェクトとプロジェクト、それらの資産の存在に依存するコードが必要なにリファクタリングします。  |
+| **説明** | Packagereference の場合、インストールしたり、パッケージのアンインストール中に install.ps1 お uninstall.ps1 の PowerShell スクリプトは実行されません。 |
+| **潜在的な影響** | 対象のプロジェクトでいくつかの動作を構成するこれらのスクリプトに依存するパッケージが正しく機能しない可能性があります。 |
 
-### <a name="xdt-transforms-are-not-applied-when-the-package-is-installed-after-the-upgrade"></a>XDT 変換は、アップグレード後に、パッケージがインストールされているときに適用されません。
-
-| | |
-| --- | --- |
-| **説明** | PackageReference XDT 変換はサポートされず`.xdt`インストールまたはパッケージをアンインストールするときに、ファイルは無視されます。   |
-| **潜在的な影響** | XDT いない変換は、プロジェクトの XML ファイルを一般的に、`web.config.install.xdt`と`web.config.uninstall.xdt`、つまり、プロジェクトの` web.config`パッケージをインストールまたはアンインストールする場合、ファイルは更新されません。 |
-
-### <a name="assemblies-in-the-lib-root-are-ignored-when-the-package-is-installed-after-the-migration"></a>移行後に、パッケージがインストールされているときに lib ルート内のアセンブリは無視されます。
+### <a name="content-assets-are-not-available-when-the-package-is-installed-after-the-migration"></a>"content"資産は、移行後、パッケージがインストールされている場合は使用できません。
 
 | | |
 | --- | --- |
-| **説明** | ルートに存在するアセンブリ PackageReference で`lib`ターゲット フレームワークの特定サブ フォルダーがないフォルダーは無視されます。 NuGet は、プロジェクトのターゲット フレームワークに対応するターゲット フレームワーク モニカー (TFM) に一致するサブ フォルダーを検索し、プロジェクトに一致するアセンブリをインストールします。 |
-| **潜在的な影響** | プロジェクトのターゲット フレームワークに対応するターゲット フレームワーク モニカー (TFM) に一致するサブ フォルダーがないパッケージの移行後に期待どおりに動作または移行中にインストールが失敗する可能性がありますいません。 |
+| **説明** | パッケージの資産`content`フォルダーは、PackageReference でサポートされていないは無視されます。 PackageReference のサポートが追加`contentFiles`より推移的なサポートと共有のコンテンツを用意します。  |
+| **潜在的な影響** | 資産`content`はコピーされませんリファクタリングがこれらの資産の存在に依存するコード プロジェクトとプロジェクトに必要です。  |
 
-## <a name="found-an-issue-report-it"></a>問題を発見しますか。 報告してください。
+### <a name="xdt-transforms-are-not-applied-when-the-package-is-installed-after-the-upgrade"></a>アップグレード後に、パッケージがインストールされている場合、XDT 変換は適用されません。
 
-問題は、移行操作を実行する場合は、次のようにしてください。 [NuGet GitHub リポジトリのファイルの問題](https://github.com/NuGet/Home/issues/)です。
+| | |
+| --- | --- |
+| **説明** | PackageReference では、XDT 変換はサポートされていないと`.xdt`のインストールや、パッケージをアンインストールする場合、ファイルは無視されます。   |
+| **潜在的な影響** | XDT 変換はほとんどの場合、そのプロジェクトの XML ファイルに適用されません`web.config.install.xdt`と`web.config.uninstall.xdt`、つまり、プロジェクトの` web.config`ファイルは、パッケージをインストールまたはアンインストール時に更新されません。 |
+
+### <a name="assemblies-in-the-lib-root-are-ignored-when-the-package-is-installed-after-the-migration"></a>移行後、パッケージがインストールされているときに lib ルート内のアセンブリは無視されます。
+
+| | |
+| --- | --- |
+| **説明** | Packagereference の場合、アセンブリの表示のルートにある`lib`ターゲット フレームワークの特定サブ フォルダーがないフォルダーは無視されます。 NuGet では、プロジェクトのターゲット フレームワークに対応するターゲット フレームワーク モニカー (TFM) に一致するサブフォルダーを検索し、プロジェクトに一致するアセンブリをインストールします。 |
+| **潜在的な影響** | プロジェクトのターゲット フレームワークに対応するターゲット フレームワーク モニカー (TFM) に一致するサブフォルダーがないパッケージが、移行後に期待どおりに動作しないまたは移行中にインストールが失敗 |
+
+## <a name="found-an-issue-report-it"></a>問題が見つかりましたか。 報告してください。
+
+移行エクスペリエンスに問題が発生した場合のください[NuGet GitHub リポジトリで問題を報告](https://github.com/NuGet/Home/issues/)します。
