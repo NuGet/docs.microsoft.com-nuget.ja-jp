@@ -58,6 +58,7 @@
 ### [update](tools/cli-ref-update.md)
 ### [verify](tools/cli-ref-verify.md)
 ### [環境変数](tools/cli-ref-environment-variables.md)
+### [長いパスのサポート](tools/cli-ref-long-path.md)
 ## [パッケージ マネージャー UI](tools/package-manager-ui.md)
 ## [パッケージ マネージャー コンソール](tools/package-manager-console.md)
 ## [PowerShell の参照資料](tools/powershell-reference.md)
