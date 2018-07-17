@@ -6,12 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 03/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: 1ca97e1c2dfba876aefe6b06eab10def67b8d848
-ms.sourcegitcommit: 8e3546ab630a24cde8725610b6a68f8eb87afa47
+ms.openlocfilehash: 4f42403abbf07c2c48ce13c70c49f7f3c15c40e4
+ms.sourcegitcommit: a76ecc58f41c2c5b3536ff4a3f3fcbdf5258177c
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37843395"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072367"
 ---
 # <a name="migrate-from-packagesconfig-to-packagereference"></a>Packages.config から PackageReference に移行します。
 
@@ -41,7 +41,7 @@ ms.locfileid: "37843395"
 
 #### <a name="workaround"></a>回避策 
 
-次の NuGet アクションのいずれかを実行します。 
+次の NuGet 操作のいずれかを実行します。 
 * パッケージ マネージャー UI を開く - `References` を右クリックし、`Manage NuGet Packages...` を選択する 
 * パッケージ マネージャー コンソールを開く - `Tools > NuGet Package Manager` から、`Package Manager Console` を選択する 
 * NuGet 復元を実行する - ソリューション エクスプローラーのソリューション ノードを右クリックし、`Restore NuGet Packages` を選択する 
@@ -58,7 +58,7 @@ ms.locfileid: "37843395"
 
 1. **ソリューション エクスプ ローラー**を右クリックし、**参照**ノードまたは`packages.config`ファイルおよび選択**packages.config の PackageReference に移行しています.**.
 
-1. Migrator は、プロジェクトの NuGet パッケージ参照を分析し、分類にしようとしています**最上位レベルの依存関係**(NuGet パッケージをインストールしたディレクトリ) と**推移的依存関係**。(最上位のパッケージの依存関係としてインストールされたパッケージ)。
+1. Migrator は、プロジェクトの NuGet パッケージ参照を分析し、分類にしようとしています**最上位レベルの依存関係**(直接インストールされている NuGet パッケージ) および**推移的依存関係**。(最上位のパッケージの依存関係としてインストールされたパッケージ)。
 
    > [!Note]
    > PackageReference は推移的なパッケージの復元をサポートしているし、依存関係を動的に解決する推移的依存関係が明示的にインストールしない必要がある意味します。
