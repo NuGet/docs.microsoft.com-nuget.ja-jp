@@ -7,12 +7,12 @@ manager: unnir
 ms.date: 08/25/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 48ebddb26aa6c236609691e099a82db80075944e
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: b72369efb906f6d186c914fa3d8dd1da0be94641
+ms.sourcegitcommit: 6cffa6ef59b922df2d87aa9c24034d00542983cd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818426"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37948370"
 ---
 # <a name="hosting-your-own-nuget-feeds"></a>独自の NuGet フィードをホスティングする
 
@@ -31,6 +31,8 @@ ms.locfileid: "34818426"
 - [ProGet](http://inedo.com/proget) (Inedo)
 - [NuGet Server](http://nugetserver.net/)。Inedo のコミュニティ プロジェクト
 - [NuGet Server (オープン ソース)](http://nuget-server.net)。Inedo の NuGet Server と同様のオープンソースの実装
+- [LiGet](https://github.com/ai-traders/liget)。Docker の Kestrel 上で実行される NuGet V2 サーバーのオープン ソースの実装
+- [BaGet](https://github.com/loic-sharma/BaGet)。.NET Core を使用する NuGet V3 サーバーのオープン ソースの実装
 - [Artifactory](https://www.jfrog.com/artifactory/) (JFrog)
 - [Nexus](http://www.sonatype.org/nexus/) (Sonatype)
 - [TeamCity](https://www.jetbrains.com/teamcity/) (JetBrains)
