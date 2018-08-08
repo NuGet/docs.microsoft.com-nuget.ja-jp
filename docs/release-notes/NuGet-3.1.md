@@ -70,4 +70,4 @@ Dist.nuget.org ホストで、このテンプレートに依存しているフ�
 1.    に対してパックを実行することはできません、`project.json`ファイル - [928](https://github.com/NuGet/Home/issues/928)
 2.    モノラル - でサポートされていない[1059](https://github.com/NuGet/Home/issues/1059)
 3.    ローカライズされません - [1058](https://github.com/NuGet/Home/issues/1058)、 [1057](https://github.com/NuGet/Home/issues/1057)
-4.    既存のと同じように、署名されていないhttp://nuget.org/nuget.exe- [1073](https://github.com/NuGet/Home/issues/1073)
+4.    既存のと同じように、署名されていない http://nuget.org/nuget.exe - [1073](https://github.com/NuGet/Home/issues/1073)
