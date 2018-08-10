@@ -7,12 +7,12 @@ manager: unnir
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 9900db1970a89de129d9074e5900e0aa048101de
-ms.sourcegitcommit: 8127dd73ff8481a1a01acd9b7004dd131a9d84e7
+ms.openlocfilehash: 8bbbc785a50e49530bbbd4e88bbd71a8a7bfe911
+ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34449605"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39508180"
 ---
 # <a name="signing-nuget-packages"></a>NuGet パッケージの署名
 
@@ -44,7 +44,7 @@ nuget sign MyPackage.nupkg -CertificateSubjectName <MyCertSubjectName> -Timestam
 - タイムスタンプ サーバーが証明書の要件を満たしていません。
 
 > [!Note]
-> 署名証明書が期限切れになったときに署名の有効な状態を維持するには、署名済みパッケージにタイムスタンプが含まれている必要があります。 タイムスタンプなしで署名すると、署名操作で[警告 NU3002](../reference/Errors-and-Warnings.md#nu3002) が生成されます。
+> 署名証明書が期限切れになったときに署名の有効な状態を維持するには、署名済みパッケージにタイムスタンプが含まれている必要があります。 タイムスタンプなしで署名すると、署名操作で[警告 NU3002](../reference/errors-and-warnings/NU3002.md) が生成されます。
 
 ## <a name="verify-a-signed-package"></a>署名済みパッケージを確認する
 
@@ -56,7 +56,7 @@ nuget verify -signature MyPackage.nupkg
 
 ## <a name="install-a-signed-package"></a>署名済みパッケージをインストールする
 
-署名済みパッケージでは、特定のアクションをインストールする必要はありません。ただし、署名後にコンテンツが変更された場合、インストールはブロックされ、[エラー NU3008](../reference/Errors-and-Warnings.md#nu3008) が生成されます。
+署名済みパッケージでは、特定のアクションをインストールする必要はありません。ただし、署名後にコンテンツが変更された場合、インストールはブロックされ、[エラー NU3008](../reference/errors-and-warnings/NU3008.md) が生成されます。
 
 > [!Warning]
 > 信頼できない証明書で署名されたパッケージは署名なしと見なされ、他の署名されていないパッケージと同様に警告やエラーなしでインストールされます。

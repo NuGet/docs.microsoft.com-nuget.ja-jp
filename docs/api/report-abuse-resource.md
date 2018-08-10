@@ -1,24 +1,24 @@
 ---
-title: レポートの不正使用を URL テンプレート、NuGet API
-description: レポートの不正使用を URL テンプレートは、その UI に、不正使用のリンクを表示するクライアントを使用できます。
+title: レポート不正使用 URL テンプレートは、NuGet API
+description: レポートの不正使用 URL テンプレートは、その UI に、不正使用のリンクを表示するクライアントを使用できます。
 author: joelverhagen
 ms.author: jver
 manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 15cf0953391489d9dd9b5d609c3f4c8f66748f19
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: b1fd65b12590a6c5eeb23d946eec6ca4a1c661bc
+ms.sourcegitcommit: e9c58dbfc1af2876337dcc37b1b070e8ddec0388
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31818468"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40020441"
 ---
-# <a name="report-abuse-url-template"></a>レポートの不正使用を URL テンプレート
+# <a name="report-abuse-url-template"></a>レポートの不正使用の URL テンプレート
 
-クライアント ユーザーが特定のパッケージの不正使用を報告に使用できる URL を作成することができます。 これは、機能は、パッケージ ソースがパッケージ ソースへのレポートの不正使用を委任するすべてのクライアント エクスペリエンス (でもサード パーティ) を有効にするときに便利です。
+クライアントが特定のパッケージに関する不正使用を報告する、ユーザーが使用できる URL を構築するために可能性があります。 これは、機能は、パッケージ ソースがパッケージ ソースへのレポートの不正使用を委任するすべてのクライアント エクスペリエンス (でもサード パーティ) を有効にするときに便利です。
 
-パッケージの内容をフェッチするために使用されるリソースは、`ReportAbuseUriTemplate`リソースで見つかった、[サービス インデックス](service-index.md)です。
+この URL を構築するために使用されるリソースは、`ReportAbuseUriTemplate`リソースで見つかった、[サービス インデックス](service-index.md)します。
 
 ## <a name="versioning"></a>バージョン管理
 
@@ -31,31 +31,31 @@ ReportAbuseUriTemplate/3.0.0-rc   | エイリアス `ReportAbuseUriTemplate/3.0.
 
 ## <a name="url-template"></a>URL テンプレート
 
-次の API の URL がの値、`@id`前述のリソースのいずれかに関連付けられたプロパティ`@type`値。
+次の API の URL の値である、`@id`前述のリソースのいずれかに関連付けられているプロパティ`@type`値。
 
 ## <a name="http-methods"></a>HTTP メソッド
 
-Web ページをサポートする必要があります、クライアントは、ユーザーの代理として、レポートの不正使用を URL に要求をするものではありません、ただし、`GET`を簡単に web ブラウザーで開くクリックされた url を入力できるようにするメソッド。
+Web ページをサポートする必要がありますが、クライアントは、レポートの URL の不正使用に、ユーザーに代わって要求を行うものではありません、`GET`クリックされた URL を web ブラウザーで簡単に開くことができるようにする方法。
 
 ## <a name="construct-the-url"></a>URL を構築します。
 
-クライアントの実装は、既知のパッケージ ID とバージョンを指定するには、web インターフェイスへのアクセスに使用する URL を構築できます。 クライアント実装では、URL に web ブラウザーを開き、任意の不正使用を必要なレポートを作成するようにユーザーにこの構築された URL (またはクリック可能なリンク) を表示します。 不正使用を報告書フォームの実装は、サーバーの実装によって決定されます。
+既知のパッケージ ID とバージョンを指定すると、クライアントの実装は、web インターフェイスへのアクセスに使用する URL を構築できます。 クライアントの実装では、URL に web ブラウザーを開き、任意の不正使用を必要なレポートを作成するようにユーザーにこの構築された URL (またはリンクのクリック可能な) を表示する必要があります。 不適切な発言の報告書フォームの実装は、サーバーの実装によって決定されます。
 
-値、`@id`は、次のプレース ホルダーのトークンのいずれかを含む URL 文字列。
+値、`@id`は次のプレース ホルダーのトークンのいずれかを含む URL 文字列です。
 
 ### <a name="url-placeholders"></a>URL のプレース ホルダー
 
-名前        | 種類    | 必須 | メモ
+name        | 種類    | 必須 | メモ
 ----------- | ------- | -------- | -----
 `{id}`      | string  | Ｘ       | 不正使用を報告するパッケージ ID
 `{version}` | string  | Ｘ       | パッケージのバージョンの不正使用を報告する
 
-`{id}`と`{version}`サーバー実装により解釈される値は、大文字小文字を区別し、バージョンを正規化するかどうかに左右されないをする必要があります。
+`{id}`と`{version}`サーバーの実装によって解釈される値は、大文字と小文字を区別しないと、バージョンを正規化するかどうかに左右されないをする必要があります。
 
-たとえば、nuget.org のレポートの不正使用のテンプレートは、これのようになります。
+たとえば、nuget.org のレポートの不正使用のテンプレートは、ようになります。
 
     https://www.nuget.org/packages/{id}/{version}/ReportAbuse
 
-クライアント実装では、レポートの不正使用をフォームに NuGet.Versioning 4.3.0 のリンクを表示する場合は、次の URL を生成は、ユーザーに提供します。
+クライアント実装 NuGet.Versioning 4.3.0 のレポートの不正使用をフォームにリンクを表示する場合は、次の URL を生成し、ユーザーに提供します。
 
     https://www.nuget.org/packages/NuGet.Versioning/4.3.0/ReportAbuse
