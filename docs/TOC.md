@@ -161,6 +161,7 @@
 ## [パッケージ メタデータ](api/registration-base-url-resource.md)
 ## [パッケージ コンテンツ](api/package-base-address-resource.md)
 ## [URL の不正使用を報告する](api/report-abuse-resource.md)
+## [リポジトリの署名](api/repository-signatures-resource.md)
 ## [カタログ](api/catalog-resource.md)
 ## [速度の制限](api/rate-limits.md)
 ## [nuget.org プロトコル](api/nuget-protocols.md)
