@@ -6,12 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: ffa2128b577673e980f4115f37f8685858c36250
-ms.sourcegitcommit: 6cffa6ef59b922df2d87aa9c24034d00542983cd
+ms.openlocfilehash: c537ee97b79648428df2c1b52894f536f5626a9e
+ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37963160"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39508258"
 ---
 # <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>クイック スタート: Visual Studio を使用したパッケージの作成と公開 (.NET Framework、Windows)
 
@@ -114,7 +114,7 @@ DLL を入手し、プロジェクトのプロパティを設定したら、`nug
 
 ## <a name="edit-the-manifest"></a>マニフェストを編集する
 
-1. `.nuspec` ファイルで既定値のパッケージを作成しようとすると NuGet でエラーが発生するため、次のフィールドを編集して続行する必要があります。 これらの使用方法については、[.nuspec ファイル リファレンスの単一要素](../reference/nuspec.md#single-elements)に関するセクションを参照してください。
+1. `.nuspec` ファイルで既定値のパッケージを作成しようとすると NuGet でエラーが発生するため、次のフィールドを編集して続行する必要があります。 これらの使用方法については、[.nuspec ファイル リファレンスのオプションのメタデータ要素](../reference/nuspec.md#optional-metadata-elements)に関するセクションを参照してください。
 
     - licenseUrl
     - projectUrl
