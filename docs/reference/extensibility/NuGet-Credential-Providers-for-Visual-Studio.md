@@ -1,54 +1,58 @@
 ---
-title: Visual Studio の NuGet の資格情報プロバイダー
-description: NuGet の資格情報プロバイダーは、Visual Studio 拡張機能で IVsCredentialProvider インターフェイスを実装することによって、フィードで認証します。
+title: Visual Studio 向け NuGet 資格情報プロバイダー
+description: NuGet 資格情報プロバイダーは、Visual Studio 拡張機能で IVsCredentialProvider インターフェイスを実装することによって、フィードで認証します。
 author: karann-msft
 ms.author: karann
 manager: unnir
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: d4dbcab7c4005efcdc7efe96df3a70e666c558cc
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: e8d8ae22300b55b93badb65864163d959105dca2
+ms.sourcegitcommit: 8d5121af528e68789485405e24e2100fda2868d6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817845"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42793904"
 ---
-# <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>NuGet の資格情報プロバイダーと Visual Studio でのフィードの認証
+# <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>NuGet 資格情報プロバイダーでフィードを Visual Studio での認証
 
-NuGet Visual Studio 拡張機能、3.6 以降には、認証されているフィードを使用する NuGet を有効にする資格情報プロバイダーがサポートしています。
-Visual Studio の NuGet の資格情報プロバイダーをインストールした後、NuGet の Visual Studio 拡張機能が自動的に獲得および必要に応じて、フィードの認証された資格情報を更新します。
+NuGet Visual Studio Extension 3.6 以降では、資格情報プロバイダーは、認証されたフィードを使用する NuGet を有効にするサポートしています。
+Visual Studio 向け NuGet 資格情報プロバイダーをインストールした後、Visual Studio の NuGet 拡張機能が自動的に獲得および必要に応じて、認証されたフィードの資格情報を更新します。
 
-実装のサンプルは含まれて[VsCredentialProvider サンプル](https://github.com/NuGet/Samples/tree/master/VsCredentialProvider)です。
+実装のサンプルが記載[VsCredentialProvider サンプル](https://github.com/NuGet/Samples/tree/master/VsCredentialProvider)します。
+
+4.8 + 以降、Visual Studio の NuGet が新しいクロス プラットフォーム認証プラグインを同様に、サポートしていますが、パフォーマンス上の理由から推奨されるアプローチではありません。
 
 > [!Note]
-> Visual Studio の NuGet の資格情報プロバイダーが通常の Visual Studio 拡張機能としてインストールする必要があり、必要になります[Visual Studio 2017](https://aka.ms/vs/15/preview/vs_enterprise) (現在プレビュー中) またはそれ以降。
+> Visual Studio 向け NuGet 資格情報プロバイダーを選択し、通常 Visual Studio 拡張機能としてインストールする必要がありますが必要になります[Visual Studio 2017](http://aka.ms/vs/15/release/vs_enterprise.exe)以降。
 >
-> Visual Studio の NuGet の資格情報プロバイダーは、(dotnet 復元や nuget.exe) ではなく Visual Studio でのみ動作します。 Nuget.exe、資格情報プロバイダーを参照してください。 [nuget.exe 資格情報プロバイダー](nuget-exe-Credential-providers.md)です。
+> Visual Studio 向け NuGet 資格情報プロバイダーは、(dotnet 復元または nuget.exe) ではなく Visual Studio でのみ動作します。 Nuget.exe 資格情報プロバイダーは、次を参照してください。 [nuget.exe 資格情報プロバイダー](nuget-exe-Credential-providers.md)します。
+> 資格情報プロバイダーでは、dotnet と msbuild を参照してください[NuGet クロス プラットフォームのプラグイン](nuget-cross-platform-authentication-plugin.md)
 
-## <a name="available-nuget-credential-providers-for-visual-studio"></a>Visual Studio の使用可能な NuGet 資格情報プロバイダー
+## <a name="available-nuget-credential-providers-for-visual-studio"></a>Visual Studio 用の利用可能な NuGet 資格情報プロバイダー
 
 Visual Studio Team Services をサポートするために、Visual Studio の NuGet 拡張機能に組み込まれている資格情報プロバイダーがあります。
 
-NuGet の Visual Studio 拡張機能を使用して、内部`VsCredentialProviderImporter`プラグインの資格情報プロバイダーのスキャンが実行します。 これらのプラグインの資格情報プロバイダーは、型の MEF エクスポートとして探索可能である必要があります`IVsCredentialProvider`です。
+Visual Studio の NuGet 拡張機能を使用して内部`VsCredentialProviderImporter`もプラグインの資格情報プロバイダーがスキャンします。 これらのプラグインの資格情報プロバイダーは、型の MEF エクスポートとして検出可能である必要があります`IVsCredentialProvider`します。
 
 使用可能なプラグインの資格情報プロバイダーは次のとおりです。
 
 - [Visual Studio 2017 向け MyGet 資格情報プロバイダー](http://docs.myget.org/docs/reference/credential-provider-for-visual-studio)
 
-## <a name="creating-a-nuget-credential-provider-for-visual-studio"></a>Visual Studio の NuGet 資格情報プロバイダーを作成します。
+## <a name="creating-a-nuget-credential-provider-for-visual-studio"></a>Visual Studio 向け NuGet 資格情報プロバイダーを作成します。
 
-NuGet Visual Studio 拡張機能、3.6 以降では、資格情報の取得に使用される内部 CredentialService を実装します。 CredentialService には、組み込みおよびプラグインの資格情報プロバイダーの一覧があります。 資格情報を取得するまで、各プロバイダーは順番に試されます。
+NuGet Visual Studio Extension 3.6 以降では、資格情報を取得するために使用される内部の CredentialService を実装します。 CredentialService には、組み込みおよびプラグインの資格情報プロバイダーの一覧があります。 各プロバイダーが資格情報を取得するまで順番に試されます。
 
-資格情報の取得中に資格情報のサービスは資格情報を取得するとすぐに停止する次の順序で資格情報プロバイダーをしてください。
+資格情報の取得中に資格情報サービスに資格情報が取得されるとすぐに停止する次の順序で資格情報プロバイダーは試してください。
 
-1. NuGet の構成ファイルから資格情報がフェッチされます (組み込みを使用して`SettingsCredentialProvider`)。
-1. パッケージ ソースが Visual Studio Team Services にある場合、`VisualStudioAccountProvider`使用されます。
-1. その他のすべてのプラグインの資格情報プロバイダーは順番に試行されます。
-1. 資格情報はまだ取得されていない、ユーザーは、標準の基本認証ダイアログを使用する資格情報を求められます。
+1. NuGet 構成ファイルから資格情報がフェッチされます (組み込みの`SettingsCredentialProvider`)。
+1. Visual Studio Team Services では、パッケージ ソースがある場合、`VisualStudioAccountProvider`使用されます。
+1. プラグインしている他の Visual Studio の資格情報プロバイダーは順番に試行されます。
+1. 順番にクロス プラットフォームの資格情報プロバイダーのすべての NuGet を使用してください。
+1. 資格情報はまだ取得されていない場合、ユーザーは標準の基本認証ダイアログを使用して資格情報を求めます。
 
 ### <a name="implementing-ivscredentialprovidergetcredentialsasync"></a>IVsCredentialProvider.GetCredentialsAsync を実装します。
 
-Visual Studio の NuGet の資格情報プロバイダーを作成するには、公開するパブリック MEF エクスポートを実装する、Visual Studio 拡張機能を作成、 `IVsCredentialProvider` 「」とは大きく分けて次原則に従います。
+Visual Studio 向け NuGet 資格情報プロバイダーを作成するには、公開するパブリック MEF エクスポートを実装する Visual Studio 拡張機能を作成、`IVsCredentialProvider`以下に示す原則に準拠している型します。
 
 ```cs
 public interface IVsCredentialProvider
@@ -63,24 +67,24 @@ public interface IVsCredentialProvider
 }
 ```
 
-実装のサンプルは含まれて[VsCredentialProvider サンプル](https://github.com/NuGet/Samples/tree/master/VsCredentialProvider)です。
+実装のサンプルが記載[VsCredentialProvider サンプル](https://github.com/NuGet/Samples/tree/master/VsCredentialProvider)します。
 
 Visual Studio の各 NuGet 資格情報プロバイダーが必要です。
 
-1. かどうか、資格情報を入力、対象となる URI の資格情報の取得を開始する前に決定します。 かどうかは、プロバイダーは、対象のソースの資格情報を提供できません、返すか`null`です。
-1. プロバイダーでは、対象となる URI の要求を処理している場合、資格情報を指定することはできません、例外がスローされます。
+1. かどうかを対象となる URI の資格情報が提供資格情報の取得を開始する前に決定します。 返されます場合、プロバイダーは、対象のソースの資格情報を提供できません`null`します。
+1. 場合は、プロバイダーは、対象となる URI の要求を処理するには、資格情報を指定することはできません、例外がスローする必要があります。
 
-Visual Studio のカスタム NuGet 資格情報プロバイダーを実装する必要があります、`IVsCredentialProvider`インターフェイスで使用できる、 [NuGet.VisualStudio パッケージ](https://www.nuget.org/packages/NuGet.VisualStudio/)です。
+Visual Studio 向けカスタム NuGet 資格情報プロバイダーを実装する必要があります、`IVsCredentialProvider`インターフェイスで使用できる、 [NuGet.VisualStudio パッケージ](https://www.nuget.org/packages/NuGet.VisualStudio/)します。
 
 #### <a name="getcredentialasync"></a>GetCredentialAsync
 
 | 入力パラメーター |説明|
 | ----------------|-----------|
-| Uri の uri | 資格情報が要求されているパッケージ ソースの Uri。|
-| IWebProxy プロキシ | ネットワークで通信を行うときに使用する web プロキシです。 プロキシ認証の構成が存在しない場合は null です。 |
-| bool isProxyRequest | この要求はプロキシ認証の資格情報を取得する場合は true。 実装がプロキシ資格情報を取得するために有効でない場合 null を返される必要があります。 |
-| bool isRetry | True の場合、資格情報がこの Uri は、以前要求したが、指定された資格情報は、承認されたアクセスを許可しませんでした。 |
-| 非対話型の bool | True の場合、資格情報プロバイダーはすべてのユーザー メッセージを抑制して、既定値の代わりに使用する必要があります。 |
-| CancellationToken cancellationToken | このキャンセル トークンを確認して、操作要求元の資格情報が取り消されましたかどうかを特定する必要があります。 |
+| Uri の uri | 資格情報が要求されているパッケージのソース Uri。|
+| IWebProxy プロキシ | Web プロキシ、ネットワークで通信を行うときに使用します。 プロキシ認証の構成が存在しない場合は null です。 |
+| bool isProxyRequest | この要求は、プロキシ認証の資格情報を取得する場合は true。 実装がプロキシの資格情報を取得するために有効でない場合は null が返されます。 |
+| bool isRetry | True の場合、以前に資格情報が、この Uri の要求が、指定された資格情報は、承認されたアクセスを許可しませんでした。 |
+| 非対話型の bool | True の場合、資格情報プロバイダーはすべてのユーザー メッセージを非表示し、既定値の代わりに使用する必要があります。 |
+| CancellationToken cancellationToken | このキャンセル トークンをチェックして、操作要求元の資格情報が取り消されましたかどうかを判断する必要があります。 |
 
-**戻り値**: 資格情報オブジェクトを実装する、 [ `System.Net.ICredentials`インターフェイス](/dotnet/api/system.net.icredentials?view=netstandard-2.0)です。
+**値を返す**: 実装する資格情報オブジェクト、 [ `System.Net.ICredentials`インターフェイス](/dotnet/api/system.net.icredentials?view=netstandard-2.0)します。

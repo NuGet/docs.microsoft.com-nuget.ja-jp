@@ -7,12 +7,12 @@ manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: fe843a121e2f1aae376f3e30a7b911792057688f
-ms.sourcegitcommit: e9c58dbfc1af2876337dcc37b1b070e8ddec0388
+ms.openlocfilehash: 0cb40a640a0bab63a63b3b690a34f1f8cbf7fcb8
+ms.sourcegitcommit: c643dd2c44e085601551ff7079d696bcc3ad2b49
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40020532"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42793350"
 ---
 # <a name="nuget-api"></a>NuGet API
 
@@ -21,6 +21,8 @@ NuGet API には、パッケージをダウンロード、メタデータをフ�
 この API は NuGet の操作を実行します。 Visual Studio、nuget.exe、および .NET CLI、NuGet クライアントによって使用[ `dotnet restore` ](/dotnet/articles/core/preview3/tools/dotnet-restore)、Visual Studio の UI での検索と[ `nuget.exe push`](../tools/cli-ref-push.md)します。
 
 場合によっては、nuget.org が他のパッケージ ソースが適用されていない追加の要件に注意してください。 これらの違いが説明されている、 [nuget.org プロトコル](nuget-protocols.md)します。
+
+単純な列挙型と利用可能な nuget.exe のバージョンのダウンロードでは、次を参照してください。、 [tools.json](tools-json.md)エンドポイント。
 
 ## <a name="service-index"></a>サービス インデックス
 
