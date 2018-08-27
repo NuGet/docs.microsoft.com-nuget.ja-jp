@@ -6,12 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 05/18/2018
 ms.topic: quickstart
-ms.openlocfilehash: e97773d79b22db1f08d868190895a9417b12c924
-ms.sourcegitcommit: 6cffa6ef59b922df2d87aa9c24034d00542983cd
+ms.openlocfilehash: af6e6e015f2e4adccd99171abb37e7291551351c
+ms.sourcegitcommit: 8d5121af528e68789485405e24e2100fda2868d6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37963088"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42794100"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>クイック スタート: Visual Studio を使用した NuGet パッケージの作成と公開 (.NET Standard、Windows のみ)
 
@@ -149,6 +149,26 @@ msbuild /t:pack /p:Configuration=Release
 ### <a name="manage-the-published-package"></a>公開済みパッケージを管理する
 
 [!INCLUDE [publish-manage](includes/publish-manage.md)]
+
+## <a name="adding-a-readme-and-other-files"></a>ReadMe とその他のファイルの追加
+
+パッケージに含めるファイルを直接指定するには、プロジェクト ファイルを編集して、`content` プロパティを使用します。
+
+```xml
+<ItemGroup>
+  <Content Include="readme.txt">
+    <Pack>true</Pack>
+    <PackagePath>\</PackagePath>
+  </Content>
+</ItemGroup>
+```
+
+これにより、パッケージ ルートに `readme.txt` という名前のファイルが含まれます。 Visual Studio では、パッケージを直接インストールした直後、そのファイルの内容がプレーンテキストとして表示されます。 (パッケージが依存関係としてインストールされた場合、ReadMe ファイルは表示されません。) たとえば、HtmlAgilityPack パッケージの ReadMe は次のように表示されます。
+
+![インストール時の NuGet パッケージの ReadMe ファイルの表示](../create-packages/media/Create_01-ShowReadme.png)
+
+> [!Note]
+> プロジェクトのルートに readme.txt を追加するだけでは、作成されたパッケージに含まれません。
 
 ## <a name="related-topics"></a>関連トピック
 
