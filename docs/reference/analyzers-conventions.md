@@ -6,16 +6,16 @@ ms.author: karann
 manager: unnir
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: dc5896631fa3b15dcc1b84b054cb532d56193f36
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 9e833447820c0fb13cf558a45921554e82e2b2df
+ms.sourcegitcommit: ddc2b07a788d4a92b9df193c9bbd43db945b14d9
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818387"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43119163"
 ---
 # <a name="analyzer-nuget-formats"></a>アナライザーの NuGet の形式
 
-.NET コンパイラ プラットフォーム ("Roslyn"とも呼ばれます) を作成する開発者を許可する[アナライザー](https://github.com/dotnet/roslyn/wiki/How-To-Write-a-C%23-Analyzer-and-Code-Fix)が書き込まれることの確認コードのセマンティクスと構文ツリー。 これにより、開発者は、特定の API またはライブラリの使用の助けとなるドメイン固有の分析ツールを作成できるようになります。 詳細については、[.NET/Roslyn](https://github.com/dotnet/roslyn/wiki) GitHub wiki を参照してください。 MSDN マガジンの「[Roslyn を使用した API 向けライブ コード アナライザーの作成](https://msdn.microsoft.com/magazine/dn879356.aspx)」の記事も参照してください。
+.NET コンパイラ プラットフォーム ("Roslyn"とも呼ばれます) を作成する開発者を許可する[アナライザー](https://github.com/dotnet/roslyn/wiki/How-To-Write-a-C%23-Analyzer-and-Code-Fix)が書き込まれていると、構文ツリーとコードのセマンティクスを確認します。 これにより、開発者は、特定の API またはライブラリの使用の助けとなるドメイン固有の分析ツールを作成できるようになります。 詳細については、[.NET/Roslyn](https://github.com/dotnet/roslyn/wiki) GitHub wiki を参照してください。 MSDN マガジンの「[Roslyn を使用した API 向けライブ コード アナライザーの作成](https://msdn.microsoft.com/magazine/dn879356.aspx)」の記事も参照してください。
 
 アナライザー自体は、通常、問題となっている API またはライブラリを実装する NuGet パッケージの一部としてパッケージ化され配布されています。
 
@@ -44,7 +44,7 @@ ms.locfileid: "34818387"
 
 `analyzers` フォルダーの用途は、パスの指定子がビルド時間ではなく、開発ホストの依存関係であることを除き、[ターゲット フレームワーク](../create-packages/supporting-multiple-target-frameworks.md)で使用されるのと類似しています。 一般的な形式は次のとおりです。
 
-    $/analyzers/{framework_name}{version}/{supported_architecture}/{supported_language}}/{analyzer_name}.dll
+    $/analyzers/{framework_name}{version}/{supported_architecture}/{supported_language}/{analyzer_name}.dll
 
 - **framework_name**: 含まれている DLL を実行する必要がある .NET Framework の*省略可能な* API サーフェス領域。 Roslyn がアナライザーを実行できる唯一のホストであるため、`dotnet` は、現在唯一の有効な値です。 ターゲットを指定しない場合、DLL は*すべて*のターゲットに適用されると見なされます。
 - **supported_language**: `cs` (C#)、`vb` (Visual Basic)、および `fs` (F#) の DLL のいずれかの言語です。 この言語は、その言語を使用するプロジェクトに対してのみ、アナライザーが読み込まれる必要があることを示します。 言語を指定しない場合、DLL はアナライザーがサポートする*すべて*の言語のものであると想定されます。

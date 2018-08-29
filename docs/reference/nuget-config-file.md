@@ -219,8 +219,7 @@ NuGet の動作は、「[Configuring NuGet Behavior](../consume-packages/configu
 
 ### <a name="activepackagesource"></a>activePackageSource
 
-
-  *(2.x のみ。3.x 以降では非推奨とされます)*
+*(2.x のみ。3.x 以降では非推奨とされます)*
 
 現在アクティブなソースを識別し、すべてのソースの集計を示します。
 
