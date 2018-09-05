@@ -1,23 +1,22 @@
 ---
 title: NuGet Find-package PowerShell リファレンス
-description: Visual Studio で NuGet パッケージ マネージャー コンソールで Find-package PowerShell コマンドのリファレンスです。
+description: Visual Studio で NuGet パッケージ マネージャー コンソールでの検索パッケージの PowerShell コマンドのリファレンスです。
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 6/1/2017
 ms.topic: reference
-ms.openlocfilehash: ebecb3818c063d11a2d613a85e2b7baef649dee6
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: c6797e3778c7095a9abfc6cd87e2337313988c20
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34816924"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43550979"
 ---
 # <a name="find-package-package-manager-console-in-visual-studio"></a>Find-package (Visual Studio パッケージ マネージャー コンソール)
 
-*Version 3.0 以降。このトピック内のコマンドをについて説明、 [NuGet Package Manager Console](package-manager-console.md) Windows 上の Visual Studio でします。一般的な PowerShell Find-package コマンドは、次を参照してください。、 [PowerShell PackageManagement 参照](/powershell/module/packagemanagement/?view=powershell-6)です。*
+*バージョン 3.0 以降。このトピックでは、内のコマンドを説明します、 [NuGet パッケージ マネージャー コンソール](package-manager-console.md)Windows 上の Visual Studio でします。汎用の Find-package の PowerShell コマンドでは、次を参照してください。、 [PowerShell PackageManagement 参照](/powershell/module/packagemanagement/?view=powershell-6)します。*
 
-パッケージ ソースから指定された ID またはキーワードに一致するリモート パッケージのセットを取得します。
+パッケージ ソースから指定された ID またはキーワードを含むリモート パッケージのセットを取得します。
 
 ## <a name="syntax"></a>構文
 
@@ -30,16 +29,16 @@ Find-Package [-Id] <keywords> -Source <string> [-AllVersions] [-First [<int>]]
 
 | パラメーター | 説明 |
 | --- | --- |
-| Id&lt;キーワード&gt; | (必須)パッケージ ソースの検索に使用するキーワードです。 ExactMatch-を使用して、パッケージ ID を持つが、キーワードと一致するパッケージのみを返します。 キーワードが指定されていない場合`Find-Package`によって指定される最初のダウンロード、または番号によって上位 20 のパッケージの一覧を返します。 -Id が省略可能なため、no-op に注意してください。 |
-| ソース | 検索するパッケージ ソースの URL またはフォルダーのパス。 ローカル フォルダー パスには、絶対パス、または現在のフォルダーの相対パスを指定できます。 省略した場合、`Find-Package`現在選択されているパッケージ ソースを検索します。 |
-| AllVersions | 最新バージョンのみではなく、各パッケージのすべての利用可能なバージョンを表示します。 |
-| First | リストの先頭から返されるパッケージの数既定値は 20 です。 |
-| Skip | 最初の省略&lt;int&gt;表示される一覧からパッケージです。  |
-| IncludePrerelease | 結果にリリース前のパッケージが含まれています。 |
-| ExactMatch | 使用する指定された&lt;キーワード&gt;大文字小文字を区別パッケージ ID と |
-| 始める | 返します。 パッケージがパッケージ ID が始まる&lt;キーワード&gt;です。 |
+| Id&lt;キーワード&gt; | (必須)パッケージ ソースの検索に使用するキーワードです。 -"Exactmatch"を使用して、パッケージ ID を持つキーワードに一致するパッケージのみを返します。 キーワードが指定されない場合`Find-Package`によって指定される最初のダウンロード、または数によって上位 20 のパッケージの一覧を返します。 Id が省略可能なことに注意してくださいれません。 |
+| ソース | 検索するパッケージ ソースの URL またはフォルダーのパス。 ローカル フォルダー パスには、absolute、または現在のフォルダーの相対パスを指定できます。 省略した場合、`Find-Package`現在選択されているパッケージ ソースを検索します。 |
+| AllVersions | 最新バージョンのみではなく、各パッケージの使用可能なすべてのバージョンが表示されます。 |
+| First | リストの先頭から返すパッケージ数既定では 20 です。 |
+| Skip | 最初の省略&lt;int&gt;表示された一覧からパッケージ。  |
+| IncludePrerelease | 結果には、プレリリース パッケージが含まれています。 |
+| "Exactmatch" | 使用する指定された&lt;キーワード&gt;大文字のパッケージ id |
+| StartWith | 返します。 パッケージがパッケージの ID が始まる&lt;キーワード&gt;します。 |
 
-これらのパラメーターのいずれもには、パイプラインの入力またはワイルドカード文字がそのまま使用します。
+これらのパラメーターには、パイプラインの入力またはワイルドカード文字がそのまま使用します。
 
 ## <a name="common-parameters"></a>共通パラメーター
 

@@ -3,21 +3,20 @@ title: NuGet CLI setapikey コマンド
 description: Nuget.exe setapikey コマンドのリファレンス
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 66fc62074b4e7c39ff2ed6b515eee9f821530536
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: b00e8b1f7a6fda9c1a0c079069fa8ee08a45b419
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817685"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43549221"
 ---
 # <a name="setapikey-command-nuget-cli"></a>setapikey コマンド (NuGet CLI)
 
-**適用されます:** パッケージ消費、パブリッシング&bullet;**サポートされているバージョン:** すべて
+**適用対象:** パッケージの使用、公開&bullet;**サポートされているバージョン:** すべて
 
-特定のサーバー URL の API キーを保存`NuGet.Config`を後続のコマンドを入力する必要があるようにします。
+特定のサーバー URL の API キーを保存します。`NuGet.Config`後続のコマンドを入力する必要がないようにします。
 
 ## <a name="usage"></a>使用法
 
@@ -25,17 +24,17 @@ ms.locfileid: "34817685"
 nuget setapikey <key> -Source <url> [options]
 ```
 
-ここで`<source>`サーバーを識別しますおよび`<key>`キーまたはパスワードを保存します。 場合`<source>`は省略すると、nuget.org と見なされます。
+場所`<source>`サーバーを識別および`<key>`はキーまたはパスワードを保存します。 場合`<source>`は省略すると、nuget.org と見なされます。
 
 ## <a name="options"></a>オプション
 
 | オプション | 説明 |
 | --- | --- |
-| ConfigFile | NuGet 構成ファイルを適用します。 指定しない場合、 `%AppData%\NuGet\NuGet.Config` (Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac または Linux) を使用します。|
-| ForceEnglishOutput | *(3.5 +)* インバリアント、英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
-| ヘルプ | ヘルプ コマンドに関する情報を表示します。 |
-| NonInteractive | ユーザー入力または確認を要求するプロンプトを抑制します。 |
-| 詳細度 | 出力に表示される詳細情報の量を指定します:*通常*、 *quiet*、*詳細*です。 |
+| ConfigFile | 適用する NuGet 構成ファイル。 指定しない場合、 `%AppData%\NuGet\NuGet.Config` (Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac/linux) を使用します。|
+| ForceEnglishOutput | *(3.5 以降)* インバリアントの英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
+| ヘルプ | ヘルプのコマンドの情報を表示します。 |
+| NonInteractive | ユーザー入力や確認のプロンプトを抑制します。 |
+| 詳細度 | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細*します。 |
 
 参照してください[環境変数](cli-ref-environment-variables.md)
 

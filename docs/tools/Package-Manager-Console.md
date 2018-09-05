@@ -3,27 +3,26 @@ title: NuGet パッケージ マネージャー コンソールのガイド
 description: Visual Studio で NuGet パッケージ マネージャー コンソールを使用してパッケージを操作するための手順です。
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/23/2018
 ms.topic: conceptual
 f1_keywords:
 - vs.nuget.packagemanager.console
-ms.openlocfilehash: 06c525cab2dac61c92c4596533173f1d93493d9a
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 88979c67ea7f073f2ea5a02c445186642f77f210
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817659"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43546879"
 ---
 # <a name="package-manager-console"></a>パッケージ マネージャー コンソール
 
-NuGet パッケージ マネージャー コンソールは、Windows 2012 以降のバージョンの Visual Studio に組み込まれています。 (にない Mac または Visual Studio のコード用の Visual Studio に含まれています。)
+NuGet パッケージ マネージャー コンソールは、Windows 2012 以降のバージョンの Visual Studio に組み込まれています。 (違います Visual Studio for Mac または Visual Studio のコードに含まれています。)
 
-コンソールでは、使用できます。 [NuGet PowerShell コマンド](../tools/powershell-reference.md)見つけるには、インストール、アンインストール、および NuGet パッケージを更新します。 コンソールを使用する場合は必要、パッケージ マネージャーの UI が操作を実行する方法を提供できません。 使用する`nuget.exe`コマンド コンソールを参照してください[コンソールで nuget.exe CLI を使用して](#using-the-nugetexe-cli-in-the-console)です。
+コンソールを使用できます。 [NuGet PowerShell コマンド](../tools/powershell-reference.md)見つけるには、インストール、アンインストール、および NuGet パッケージを更新します。 コンソールを使用することは、パッケージ マネージャー UI が操作を実行する方法を提供しない場合に必要があります。 使用する`nuget.exe`コマンド コンソールを参照してください[コンソールで nuget.exe CLI を使用して](#using-the-nugetexe-cli-in-the-console)します。
 
-たとえば、検索し、パッケージをインストールするは 3 つの簡単な手順で行います。
+などの検索とインストール パッケージは、次の 3 つの簡単なステップで行われます。
 
-1. Visual Studio でプロジェクト/ソリューションを開きを使用してコンソールを開き、**ツール > NuGet Package Manager > パッケージ マネージャー コンソール**コマンド。
+1. Visual Studio で、プロジェクト/ソリューションを開き、コンソールを使用して、開く、**ツール > NuGet パッケージ マネージャー > パッケージ マネージャー コンソール**コマンド。
 
 1. インストールするパッケージを検索します。 この既にわかっている場合は、手順 3. に進みます。
 
@@ -40,28 +39,28 @@ NuGet パッケージ マネージャー コンソールは、Windows 2012 以�
     ```
 
 > [!Important]
-> コンソールで使用できるすべての操作を実行することも、 [NuGet CLI](../tools/nuget-exe-cli-reference.md)です。 ただし、コンソールのコマンドは、Visual Studio と保存されているプロジェクト/ソリューションのコンテキスト内で動作し、多くの場合、それと等価の CLI コマンドよりも多くの作業します。 たとえば、コンソールを使用してパッケージをインストールする参照を追加プロジェクトに、CLI コマンドは実行されません。 このため、通常 Visual Studio で作業する開発者は、CLI にコンソールを使用してを選びます。
+> コンソールで利用できるすべての操作を実行することも、 [NuGet CLI](../tools/nuget-exe-cli-reference.md)します。 ただし、コンソールのコマンドは、Visual Studio と保存されているプロジェクト/ソリューションのコンテキスト内で動作し、多くの場合、その同等の CLI コマンドよりも多くの作業します。 たとえば、コンソールを使用してパッケージをインストールする追加しますプロジェクトへの参照を CLI コマンドは実行されません。 このため、通常 Visual Studio で作業する開発者は、CLI にコンソールを使用してを優先します。
 
 > [!Tip]
-> 多くのコンソール操作は、既知のパス名で Visual Studio で開くソリューションによって異なります。 エラーを確認できます、保存されていないソリューションまたはソリューションがない場合、"ソリューションが開かれていないか、保存されません。 確認してください、開く、保存されているソリューションがある。" これは、コンソールで、ソリューション フォルダーを特定できないことを示します。 保存されていないソリューションを保存または作成があるない場合は、ソリューションを保存する場合は、エラーを修正する必要があります。
+> 多くのコンソール操作は、既知のパスの名前を Visual Studio で開いたソリューションに依存します。 エラーが発生したことができます、保存されていないソリューションまたはソリューションがない場合、"ソリューションが開かれていないか、保存されません。 確認してください、オープンと保存されているソリューションがある。" これは、コンソールがソリューション フォルダーを判断できないことを示します。 保存されていないソリューションでは、保存または作成し、お持ちでない場合は、ソリューションを保存、開き、エラーを修正する必要があります。
 
-## <a name="opening-the-console-and-console-controls"></a>コンソール ウィンドウとコンソールのコントロールを開く
+## <a name="opening-the-console-and-console-controls"></a>コンソールを開き、コンソールのコントロール
 
-1. Visual Studio を使用して、コンソールを開き、**ツール > NuGet Package Manager > パッケージ マネージャー コンソール**コマンド。 コンソールでは、Visual Studio のウィンドウを配置し、たいただし配置されていることができます (を参照してください[Visual Studio でのウィンドウ レイアウトをカスタマイズ](/visualstudio/ide/customizing-window-layouts-in-visual-studio))。
+1. Visual Studio を使用して、コンソールを開き、**ツール > NuGet パッケージ マネージャー > パッケージ マネージャー コンソール**コマンド。 コンソールは、配置および自由に配置できる Visual Studio のウィンドウ (を参照してください[Visual Studio でのウィンドウ レイアウトをカスタマイズ](/visualstudio/ide/customizing-window-layouts-in-visual-studio))。
 
-1. 既定では、ウィンドウの上部にあるコントロールで設定されているコンソール コマンドが特定のパッケージのソース ファイルおよびプロジェクトに対して操作します。
+1. 既定では、コンソール コマンドは、特定のパッケージのソースとのプロジェクトに対して、ウィンドウの上部にあるコントロールで設定されている動作します。
 
-    ![パッケージ ソース ファイルおよびプロジェクトのパッケージ マネージャー コンソールのコントロール](media/PackageManagerConsoleControls1.png)
+    ![パッケージ ソース ファイルおよびプロジェクトのパッケージ マネージャー コンソール コントロール](media/PackageManagerConsoleControls1.png)
 
-1. 別のパッケージのソースまたはプロジェクトを選択すると、後続のコマンドの既定の設定を変更します。 上書きをこれらの設定、既定値を変更することがなくほとんどのコマンド サポート`-Source`と`-ProjectName`オプション。
+1. 後続のコマンドの既定の設定を変更する別のパッケージのソースまたはプロジェクトを選択します。 上書きを既定値を変更することがなくこれらの設定のほとんどのコマンドをサポートして`-Source`と`-ProjectName`オプション。
 
-1. パッケージ ソースを管理するには、歯車アイコンを選択します。 これへのショートカットを**ツール > オプション > NuGet Package Manager > パッケージ ソース** ダイアログ ボックスの定義に従って、[パッケージ マネージャーの UI](package-manager-ui.md#package-sources)ページ。 また、コントロールをプロジェクトのセレクターの右側には、本体の内容をクリアします。
+1. パッケージ ソースを管理するには、歯車アイコンを選択します。 これへのショートカット、**ツール > オプション > NuGet パッケージ マネージャー > パッケージ ソース** ダイアログ ボックスでの説明に従って、[パッケージ マネージャー UI](package-manager-ui.md#package-sources)ページ。 また、プロジェクト セレクターの右側に、コントロールは、コンソールの内容をクリアします。
 
-    ![パッケージ マネージャー コンソールの設定およびクリア コントロール](media/PackageManagerConsoleControls2.png)
+    ![パッケージ マネージャー コンソールの設定およびコントロールのクリア](media/PackageManagerConsoleControls2.png)
 
-1. 一番右のボタンは、実行時間の長いコマンドを中断します。 たとえば、実行している`Get-Package -ListAvailable -PageSize 500`上位 500 のパッケージを実行するのに数分かかる場合があります (など nuget.org)、既定のソースを一覧表示します。
+1. 一番右のボタンは、実行時間の長いコマンドを中断します。 たとえば、実行している`Get-Package -ListAvailable -PageSize 500`上位 500 のパッケージを実行するのに数分かかる場合があります (など、nuget.org の場合) には、既定のソースを一覧表示されます。
 
-    ![Package Manager Console ストップ コントロール](media/PackageManagerConsoleControls3.png)
+    ![パッケージ マネージャー コンソール ストップ コントロール](media/PackageManagerConsoleControls3.png)
 
 ## <a name="installing-a-package"></a>パッケージをインストールします。
 
@@ -73,12 +72,12 @@ Install-Package Elmah
 Install-Package Elmah -ProjectName UtilitiesLib
 ```
 
-参照してください[Install-package](../tools/ps-ref-install-package.md)です。
+参照してください[Install-package](../tools/ps-ref-install-package.md)します。
 
-コンソールでパッケージをインストールするどおりに、同じ手順で説明されている[パッケージがインストールされているときに起こる](../consume-packages/ways-to-install-a-package.md#what-happens-when-a-package-is-installed)、以下が追加されます。
+説明に従って、同じ手順を実行、コンソールでパッケージをインストールする[パッケージがインストールされているときに起こる](../consume-packages/ways-to-install-a-package.md#what-happens-when-a-package-is-installed)、次の項目を追加。
 
-- コンソールでは、黙示の許諾契約書には、そのウィンドウに適用されるライセンス条項を表示します。 条項に同意しない場合は、パッケージをすぐにアンインストールしてください。
-- パッケージへの参照は、プロジェクト ファイルに追加されに表示されます**ソリューション エクスプ ローラー**下にある、**参照**ノード、プロジェクト ファイル内の変更を直接表示するプロジェクトを保存する必要があります。
+- コンソールには、暗黙的な契約書には、そのウィンドウで該当するライセンス条項が表示されます。 条項に同意しない場合は、すぐに、パッケージをアンインストールする必要があります。
+- パッケージへの参照はプロジェクト ファイルに追加されに表示されます**ソリューション エクスプ ローラー**下、**参照**ノード、プロジェクト ファイル内の変更を直接表示するプロジェクトを保存する必要があります。
 
 ## <a name="uninstalling-a-package"></a>パッケージをアンインストールします。
 
@@ -93,13 +92,13 @@ Uninstall-Package Elmah -RemoveDependencies
 Uninstall-Package Elmah -Force
 ```
 
-参照してください[Uninstall-package](../tools/ps-ref-uninstall-package.md)です。 使用して[Get-package](../tools/ps-ref-get-package.md)する識別子を検索する必要がある場合の既定のプロジェクトに現在インストールされているすべてのパッケージが表示されます。
+参照してください[Uninstall-package](../tools/ps-ref-uninstall-package.md)します。 使用[Get-package](../tools/ps-ref-get-package.md)に識別子を検索する必要がある場合、既定のプロジェクトにインストールされているすべてのパッケージを参照してください。
 
-パッケージをアンインストールするには、次の操作を実行します。
+パッケージをアンインストールするには、次の操作は実行します。
 
-- プロジェクト (および、使用されている管理形式) から、パッケージへの参照を削除します。 参照には現れません**ソリューション エクスプ ローラー**です。 (表示から削除するプロジェクトをリビルドする必要があります、 **Bin**フォルダーです)。
+- プロジェクト (および使用されている管理形式) から、パッケージへの参照を削除します。 参照が表示されなく**ソリューション エクスプ ローラー**します。 (表示から削除するプロジェクトをリビルドする必要があります、 **Bin**フォルダー)。
 - 加えられた変更を反転させます`app.config`または`web.config`パッケージがインストールされている場合。
-- 以前にインストールされている削除の依存関係残存するパッケージがそれらの依存関係を使用しない場合。
+- 以前にインストールされている削除残存するパッケージがこれらの依存関係を使用しない場合は、依存関係。
 
 ## <a name="updating-a-package"></a>パッケージの更新
 
@@ -119,7 +118,7 @@ Update-Package
 
 参照してください[Get-package](../tools/ps-ref-get-package.md)と[更新プログラム パッケージ](../tools/ps-ref-update-package.md)
 
-## <a name="finding-a-package"></a>パッケージを検索します。
+## <a name="finding-a-package"></a>パッケージの検索
 
 ```ps
 # Find packages containing keywords
@@ -136,27 +135,27 @@ Find-Package logging -First 100
 Find-Package jquery -AllVersions -ExactMatch
 ```
 
-参照してください[Find-package](../tools/ps-ref-find-package.md)です。 Visual Studio 2013 以前のバージョンでを使用して[Get-package](../tools/ps-ref-get-package.md)代わりにします。
+参照してください[Find-package](../tools/ps-ref-find-package.md)します。 Visual Studio 2013 以降を使用して、 [Get-package](../tools/ps-ref-get-package.md)代わりにします。
 
 ## <a name="availability-of-the-console"></a>コンソールの可用性
 
-Visual Studio 2017 で NuGet と NuGet パッケージ マネージャーが自動的にインストールを選択するときにします。NET に関連するワークロードです。インストールすることも、個別にチェックして、**個々 のコンポーネント > コード ツール > の NuGet package manager** Visual Studio 2017 インストーラー オプション。
+Visual Studio 2017、NuGet、NuGet パッケージ マネージャーが自動的にインストールを選択します。NET に関連するワークロードです。チェックして個別にインストールもできる、**個々 のコンポーネント > コード ツール > NuGet パッケージ マネージャー** Visual Studio 2017 インストーラーでオプションです。
 
-NuGet パッケージ マネージャー Visual Studio 2015 以前のバージョンで、欠落している場合は確認も、**ツール > 拡張機能と更新しています.** NuGet Package Manager 拡張機能を検索します。 直接、拡張機能をダウンロードするには Visual Studio での拡張機能インストーラーを使用することがない場合は、 [ https://dist.nuget.org/index.html](https://dist.nuget.org/index.html)です。
+また、NuGet パッケージ マネージャー Visual Studio 2015 以前のバージョンでは不足しているが場合、確認**ツール > 拡張機能と更新しています.** して NuGet パッケージ マネージャー拡張機能を検索します。 直接、拡張機能をダウンロードするには Visual Studio の拡張機能インストーラーを使用する場合は、 [ https://dist.nuget.org/index.html](https://dist.nuget.org/index.html)します。
 
-パッケージ マネージャー コンソールは Visual Studio for mac と共に現在使用できません。 同等のコマンドがを介して使用できる、 [NuGet CLI](nuget-exe-CLI-reference.md)です。 Visual Studio for Mac は、NuGet パッケージを管理するための UI を持つはできます。 参照してください[などの NuGet パッケージ、プロジェクトの](/visualstudio/mac/nuget-walkthrough)します。
+パッケージ マネージャー コンソールを Visual Studio for mac で現在ご利用いただけません 同等のコマンドでは、ただしを利用、 [NuGet CLI](nuget-exe-CLI-reference.md)します。 Visual Studio for Mac は NuGet パッケージを管理するための UI が。 参照してください[を含む NuGet パッケージをプロジェクトに](/visualstudio/mac/nuget-walkthrough)します。
 
-パッケージ マネージャー コンソールは、Visual Studio のコードに含まれていません。
+パッケージ マネージャー コンソールでは、Visual Studio のコードに含まれません。
 
-## <a name="extending-the-package-manager-console"></a>パッケージ マネージャー コンソールの拡張
+## <a name="extending-the-package-manager-console"></a>パッケージ マネージャー コンソールを拡張します。
 
-一部のパッケージは、コンソールの新しいコマンドをインストールします。 たとえば、`MvcScaffolding`のようなコマンドを作成`Scaffold`次に示すを生成する ASP.NET MVC のコント ローラーとビュー。
+一部のパッケージは、コンソールの新しいコマンドをインストールします。 たとえば、`MvcScaffolding`などのコマンドを作成します。`Scaffold`下図のように生成する ASP.NET MVC コント ローラーとビュー。
 
 ![インストールと MvcScaffold の使用](media/PackageManagerConsoleInstall.png)
 
-## <a name="setting-up-a-nuget-powershell-profile"></a>NuGet PowerShell プロファイルを設定します。
+## <a name="setting-up-a-nuget-powershell-profile"></a>NuGet PowerShell プロファイルの設定
 
-PowerShell のプロファイルでは、PowerShell を使用する場合、一般的に使用されるコマンドを使用できるようにすることができます。 NuGet は、通常、次の場所で見つかった NuGet 固有のプロファイルをサポートします。
+PowerShell プロファイルには、PowerShell を使用する場合、一般的に使用されるコマンドを使用できるようにすることができます。 NuGet は、通常、次の場所にある特定の NuGet プロファイルをサポートしています。
 
     %UserProfile%\Documents\WindowsPowerShell\NuGet_profile.ps1
 
@@ -167,11 +166,11 @@ $profile
 C:\Users\<user>\Documents\WindowsPowerShell\NuGet_profile.ps1
 ```
 
-詳細についてを参照してください[Windows PowerShell プロファイル](https://technet.microsoft.com/library/bb613488.aspx)です。
+詳細についてを参照してください[Windows PowerShell プロファイル](https://technet.microsoft.com/library/bb613488.aspx)します。
 
-## <a name="using-the-nugetexe-cli-in-the-console"></a>コンソールで nuget.exe CLI を使用します。
+## <a name="using-the-nugetexe-cli-in-the-console"></a>コンソールで nuget.exe CLI を使用してください。
 
-させる、 [ `nuget.exe` CLI](nuget-exe-cli-reference.md)パッケージ マネージャー コンソールで、使用可能なインストール、 [NuGet.CommandLine](http://www.nuget.org/packages/NuGet.CommandLine/)コンソールからのパッケージ。
+させる、 [ `nuget.exe` CLI](nuget-exe-cli-reference.md) 、パッケージ マネージャー コンソールで使用可能なインストール、 [NuGet.CommandLine](http://www.nuget.org/packages/NuGet.CommandLine/)コンソールからのパッケージ。
 
 ```ps
 # Other versions are available, see http://www.nuget.org/packages/NuGet.CommandLine/

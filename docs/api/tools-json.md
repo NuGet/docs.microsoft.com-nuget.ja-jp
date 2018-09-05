@@ -3,16 +3,15 @@ title: nuget.exe のバージョンを検出するための tools.json
 description: エンドポイント
 author: jver
 ms.author: jver
-manager: skofman
 ms.date: 08/16/2018
 ms.topic: conceptual
 ms.reviewer: kraigb
-ms.openlocfilehash: d11e79cd9109e1760189e848e35ff322be026a4d
-ms.sourcegitcommit: c643dd2c44e085601551ff7079d696bcc3ad2b49
+ms.openlocfilehash: 6184fe8e987e0637cb912999f2e3fa3a3dc9b4ba
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40248356"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43546936"
 ---
 # <a name="toolsjson-for-discovering-nugetexe-versions"></a>nuget.exe のバージョンを検出するための tools.json
 
@@ -38,13 +37,13 @@ Nuget.exe 既にある場合も行えます`nuget.exe update -self`nuget.exe の
 
 ルート JSON オブジェクトには、次のプロパティがあります。
 
-name      | 種類             | 必須
+名前      | 種類             | 必須
 --------- | ---------------- | --------
 nuget.exe | オブジェクトの配列 | 可
 
 内の各オブジェクト、`nuget.exe`配列は、次のプロパティ。
 
-name     | 種類   | 必須 | メモ
+名前     | 種類   | 必須 | メモ
 -------- | ------ | -------- | -----
 version  | string | 可      | SemVer 2.0.0 文字列
 url      | string | 可      | このバージョンの nuget.exe をダウンロードするための絶対 URL

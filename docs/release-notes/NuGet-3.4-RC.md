@@ -1,52 +1,51 @@
 ---
-title: NuGet 3.4 RC のリリース ノート
-description: NuGet 3.4 RC の既知の問題、バグの修正、追加された機能は、Dcr などのリリース ノートします。
+title: NuGet 3.4 RC リリース ノート
+description: 既知の問題、バグの修正、追加機能、および Dcr を含む NuGet 3.4 RC のリリース ノート。
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: e40d685a5256fdfee818f0cc1f1bc352c698f3c2
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 795bdcfaa2e22447856b60d05807aeb0992cdfa0
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31820821"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43546755"
 ---
-# <a name="nuget-34-rc-release-notes"></a>NuGet 3.4 RC のリリース ノート
+# <a name="nuget-34-rc-release-notes"></a>NuGet 3.4 RC リリース ノート
 
-[NuGet 3.3 リリース ノート](../release-notes/nuget-3.3.md) | [NuGet 3.4 リリース ノート](../release-notes/nuget-3.4.md)
+[NuGet 3.3 のリリース ノート](../release-notes/nuget-3.3.md) | [NuGet 3.4 のリリース ノート](../release-notes/nuget-3.4.md)
 
-NuGet 3.4 RC では、Visual Studio 2015 Update 2 RC と共に、2016 年 3 月 3日がリリースされ、心にいくつかの基本思想でビルドされました。
+NuGet 3.4-RC では、2016 年 3 月 3 日 Visual Studio 2015 Update 2 RC と共にリリースされ、心でいくつかの基本思想付きでビルドされました。
 
-* クロスプラット フォーム サポート
+* クロス プラットフォームのサポート
 * パフォーマンスの向上
-* マイナーの UI 機能強化
+* UI の軽微な改善
 
-次の機能は、複数の 3.4 最終リリースの計画とこの RC で利用します。
+次の機能は、複数の 3.4 の最終リリースの計画と、この RC で利用できます。
 
 ## <a name="new-features"></a>新機能
 
-* NuGet クライアント サポート gzip コンテンツ エンコード リポジトリから
+* Gzip コンテンツ エンコード リポジトリから NuGet クライアントを今すぐサポートします。
 * Xproj プロジェクトでパッケージから Pdb のサポート
-* IOS および Android のビルド アクション contentFiles 要素でのサポート
+* IOS と Android のビルド アクションで contentFiles 要素のサポート
 * Netstandard および netstandardapp フレームワーク モニカーのサポート
 
-## <a name="new-user-interface-features"></a>新しいユーザー インターフェイスの機能
+## <a name="new-user-interface-features"></a>ユーザー インターフェイスの新機能
 
-* 特に、インストール、更新、および統合のタブ上の大幅なパフォーマンスの向上
-* インストールされているし、更新プログラムのタブがアルファベット順に並べ替えられました
-* 更新する検索を許可する更新 ボタンの追加
+* 特に、インストールされている、更新プログラム、および統合 タブで大幅なパフォーマンスの向上
+* インストールし、更新プログラムのタブがアルファベット順に並べ替えるようになりました
+* 更新を検索できるようにする更新 ボタンの追加
 
 ## <a name="updates-and-improvements"></a>更新プログラムと機能強化
 
-* パッケージで参照されている`project.json`浮動があるすべてのビルドでバージョンは更新されません。 強制復元、クリーン、再構築、または変更する場合にのみを更新する代わりに、`project.json`です。
-* nuget.org のリポジトリ ソースを NuGet 構成 UI を使用するときに、不要になったプロジェクト構成に求められます。
-* 不要になった NuGet は、共有プロジェクトでパッケージを復元も、ロック ファイルを書き込みます。
-* ネットワーク障害を改良しましたし、到達できないか、応答に低速のサーバーの処理を再試行してください。
-* Visual Studio のパッケージ マネージャーの UI では、キーボードとマウスの動作が強化されています。
-* 最新のサポート`project.json`DNX 内のスキーマです。
+* 参照されるパッケージ`project.json`浮動のあるバージョンですべてのビルドでは更新されません。 復元、クリーン、リビルド、または変更されたときにのみを更新する代わりに、`project.json`します。
+* nuget.org リポジトリ ソースを NuGet 構成 UI を使用すると、不要になったプロジェクト構成に求められます。
+* 不要になった NuGet では、共有プロジェクトでパッケージを復元もロック ファイルを書き込みます。
+* 私たちは、ネットワーク障害を改善しました、到達できないか、応答に低速のサーバーの処理を再試行してください。
+* Visual Studio パッケージ マネージャー UI では、キーボードとマウスの動作が向上しました。
+* 最新のサポート`project.json`DNX 内のスキーマ。
 
 ## <a name="known-issues"></a>既知の問題
 
-あることができます、GitHub の問題一覧上の問題を追跡するために続行します。 [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)
+GitHub の問題一覧上の問題を追跡するために引き続き。 [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)

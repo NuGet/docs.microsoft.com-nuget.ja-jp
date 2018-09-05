@@ -3,15 +3,14 @@ title: Visual Studio 向け NuGet 資格情報プロバイダー
 description: NuGet 資格情報プロバイダーは、Visual Studio 拡張機能で IVsCredentialProvider インターフェイスを実装することによって、フィードで認証します。
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: e8d8ae22300b55b93badb65864163d959105dca2
-ms.sourcegitcommit: 8d5121af528e68789485405e24e2100fda2868d6
+ms.openlocfilehash: abe009fee5863c55a188f4d7c71ed0924dd067ff
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42793904"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43547955"
 ---
 # <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>NuGet 資格情報プロバイダーでフィードを Visual Studio での認証
 

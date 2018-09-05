@@ -1,23 +1,22 @@
 ---
 title: NuGet の Uninstall-package PowerShell リファレンス
-description: Visual Studio で NuGet パッケージ マネージャー コンソールでアンインストール パッケージの PowerShell コマンドのリファレンスです。
+description: Visual Studio で NuGet パッケージ マネージャー コンソールのアンインストール パッケージの PowerShell コマンドのリファレンスです。
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 06/01/2017
 ms.topic: reference
-ms.openlocfilehash: 860a58c359c9b723564a70f83aee4eee5cebf16d
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: ae60473fbb716b23f40b0605be8aaa8515802315
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818868"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43551644"
 ---
 # <a name="uninstall-package-package-manager-console-in-visual-studio"></a>Uninstall-Package (Visual Studio パッケージ マネージャー コンソール)
 
-*このトピック内のコマンドをについて説明、 [NuGet Package Manager Console](package-manager-console.md) Windows 上の Visual Studio でします。汎用の PowerShell アンインストール パッケージ コマンドでは、次を参照してください。、 [PowerShell PackageManagement 参照](/powershell/module/packagemanagement/?view=powershell-6)です。*
+*このトピックでは、内のコマンドを説明します、 [NuGet パッケージ マネージャー コンソール](package-manager-console.md)Windows 上の Visual Studio でします。一般的な PowerShell のアンインストール パッケージ コマンドは、次を参照してください。、 [PowerShell PackageManagement 参照](/powershell/module/packagemanagement/?view=powershell-6)します。*
 
-必要に応じてその依存関係を削除する、プロジェクトからパッケージを削除します。 コマンドが失敗しない限り、その他のパッケージは、このパッケージに依存している場合、– Force オプションを指定します。
+必要に応じてその依存関係を削除する、プロジェクトからパッケージを削除します。 コマンドが失敗しない限り、他のパッケージは、このパッケージに依存している場合、– Force オプションを指定します。
 
 ## <a name="syntax"></a>構文
 
@@ -26,20 +25,20 @@ Uninstall-Package [-Id] <string> [-RemoveDependencies] [-ProjectName <string>] [
     [-Version <string>] [-WhatIf] [<CommonParameters>]
 ```
 
-コマンドが失敗しない限り、その他のパッケージは、このパッケージに依存している場合、– Force オプションを指定します。
+コマンドが失敗しない限り、他のパッケージは、このパッケージに依存している場合、– Force オプションを指定します。
 
 ## <a name="parameters"></a>パラメーター
 
 | パラメーター | 説明 |
 | --- | --- |
 | ID | (必須)アンインストールするパッケージの識別子。 -Id スイッチ自体は省略可能です。 |
-| Version | をアンインストールするパッケージのバージョン、現在インストールされているバージョンを既定とします。 |
-| RemoveDependencies | パッケージとその未使用の依存関係をアンインストールします。 つまり、すべての依存関係に依存している別のパッケージがある場合は、これはスキップされます。 |
-| ProjectName | 既定で、既定のプロジェクト、パッケージをアンインストールするプロジェクトです。 |
-| Force | 場合でも、依存している他のパッケージをアンインストールするパッケージを強制します。 |
-| WhatIf | 実際には、アンインストールを実行せず、コマンドを実行している場合にどうなるかを示します。 |
+| Version | をアンインストールするパッケージのバージョン、現在インストールされているバージョンを既定値します。 |
+| RemoveDependencies | パッケージとその未使用の依存関係をアンインストールします。 すべての依存関係の別のパッケージに依存している場合は、これはスキップされます。 |
+| ProjectName | 既定では、既定のプロジェクト、パッケージをアンインストールするプロジェクトです。 |
+| Force | 場合でも、依存している他のパッケージは、アンインストールするパッケージを強制的にします。 |
+| WhatIf | 実際には、アンインストールを実行せず、コマンドを実行するときに何が起こるかを示します。 |
 
-これらのパラメーターのいずれもには、パイプラインの入力またはワイルドカード文字がそのまま使用します。
+これらのパラメーターには、パイプラインの入力またはワイルドカード文字がそのまま使用します。
 
 ## <a name="common-parameters"></a>共通パラメーター
 

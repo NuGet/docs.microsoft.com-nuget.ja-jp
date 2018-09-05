@@ -3,16 +3,15 @@ title: NuGet API の概要
 description: NuGet API には、パッケージをダウンロード、メタデータをフェッチ、新しいパッケージなどの発行に使用できる HTTP エンドポイントのセットです。
 author: joelverhagen
 ms.author: jver
-manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 0cb40a640a0bab63a63b3b690a34f1f8cbf7fcb8
-ms.sourcegitcommit: c643dd2c44e085601551ff7079d696bcc3ad2b49
+ms.openlocfilehash: 770173d6b84048cf42a5da46cbc474d8cf604a08
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42793350"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43547504"
 ---
 # <a name="nuget-api"></a>NuGet API
 
@@ -103,7 +102,7 @@ Del | リソースを一覧から、または削除します。
 
 ## <a name="http-request-headers"></a>HTTP 要求ヘッダー
 
-name                     | 説明
+名前                     | 説明
 ------------------------ | -----------
 X-NuGet-ApiKey           | プッシュと削除に必要なを参照してください[`PackagePublish`リソース](package-publish-resource.md)
 X-NuGet-Client-Version   | **非推奨とされます**に置き換え、 `X-NuGet-Protocol-Version`

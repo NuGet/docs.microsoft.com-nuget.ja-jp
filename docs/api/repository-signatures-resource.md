@@ -1,27 +1,19 @@
 ---
 title: リポジトリの署名、NuGet API |Microsoft Docs
-author:
-- joelverhagen
-- kraigb
-ms.author:
-- joelverhagen
-- kraigb
-manager: skofman
+author: joelverhagen
+ms.author: jver
 ms.date: 3/2/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
 description: リポジトリのリソースの署名は、クライアントがパッケージ ソースにはリポジトリの署名機能をご案内できます。
-keywords: NuGet API リポジトリの署名、署名証明書、nuget.org nuget.org パッケージへの署名
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 32dd2ee19261488a2b1b92724095a11ced69ae68
-ms.sourcegitcommit: c643dd2c44e085601551ff7079d696bcc3ad2b49
+ms.openlocfilehash: 50f309b99d4bf59e14f3e29b6b0421d8c3e8aa5a
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42793198"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43547982"
 ---
 # <a name="repository-signatures"></a>リポジトリの署名
 
@@ -67,7 +59,7 @@ RepositorySignatures/4.7.0 | 最初のリリース
 
 リポジトリ署名のインデックスは、次のプロパティを持つオブジェクトを含む JSON ドキュメントです。
 
-name                | 種類             | 必須
+名前                | 種類             | 必須
 ------------------- | ---------------- | --------
 allRepositorySigned | boolean          | 可
 signingCertificates | オブジェクトの配列 | 可
@@ -76,7 +68,7 @@ signingCertificates | オブジェクトの配列 | 可
 
 内の 1 つまたは複数の署名証明書が必要があります、`signingCertificates`配列の場合、`allRepositorySigned`ブール値の設定を true にします。 配列が空の場合と`allRepositorySigned`に設定が true の場合、元のすべてのパッケージが無効と見なされるもクライアント ポリシーをパッケージの使用を許可可能性がありますがします。 この配列内の各要素は、次のプロパティを持つ JSON オブジェクトです。
 
-name         | 種類   | 必須 | メモ
+名前         | 種類   | 必須 | メモ
 ------------ | ------ | -------- | -----
 contentUrl   | string | 可      | DER でエンコードされた公開証明書への絶対 URL
 指紋 | object | 可      |
@@ -92,7 +84,7 @@ notAfter     | string | 可      | 証明書の有効期間の終了のタイム
 
 `fingerprints`オブジェクトは、次のプロパティ。
 
-name                   | 種類   | 必須 | メモ
+名前                   | 種類   | 必須 | メモ
 ---------------------- | ------ | -------- | -----
 2.16.840.1.101.3.4.2.1 | string | 可      | SHA 256 フィンガー プリント
 

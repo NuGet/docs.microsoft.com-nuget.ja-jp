@@ -1,26 +1,25 @@
 ---
-title: NuGet CLI ミラー コマンド
-description: Nuget.exe ミラー コマンドのリファレンス
+title: ミラーの NuGet CLI コマンド
+description: Nuget.exe のミラー コマンドのリファレンス
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 4cec854f05fcd207bb15a50ea4ebdc201fdb3ac6
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: d3a322e16c4ba212a856e9bf4d2eaab2872c31b6
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818153"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43550207"
 ---
 # <a name="mirror-command-nuget-cli"></a>mirror コマンド (NuGet CLI)
 
-**適用されます:** パッケージの発行&bullet;**サポートされているバージョン:** 3.2 以降で廃止されました
+**適用対象:** パッケージの発行&bullet;**サポートされているバージョン:** 3.2 + で非推奨とされます
 
-パッケージとターゲットのリポジトリに指定されたソース リポジトリからその依存関係を反映します。
+パッケージをターゲットのリポジトリを指定したソース リポジトリからその依存関係をミラー化します。
 
 > [!NOTE]
-> このコマンドは、NuGet のバージョン 3.2 の前に有効にするには[ https://nuget.codeplex.com/releases](https://nuget.codeplex.com/releases)を最新の安定版リリースを選択し、ダウンロード`NuGet.ServerExtensions.dll`と`Nuget-Signed.exe`、ローカル ディスクと名前の変更に`Nuget-Signed.exe`に`nuget.exe`。
+> このコマンドは、NuGet のバージョン 3.2 の前に有効にするには[ https://nuget.codeplex.com/releases](https://nuget.codeplex.com/releases)ダウンロード、最新の安定版リリースを選択`NuGet.ServerExtensions.dll`と`Nuget-Signed.exe`と、ローカル ディスクと名前の変更を`Nuget-Signed.exe`に`nuget.exe`。
 
 ## <a name="usage"></a>使用法
 
@@ -28,24 +27,24 @@ ms.locfileid: "34818153"
 nuget mirror <packageID | configFilePath> <listUrlTarget> <publishUrlTarget> [options]
 ```
 
-ここで`<packageID>`をミラー化すると、パッケージまたは`<configFilePath>`を識別、`packages.config`をミラー化するパッケージの一覧を含むファイルです。
+場所`<packageID>`を反映するには、パッケージまたは`<configFilePath>`識別、`packages.config`ミラー化するパッケージを一覧するファイル。
 
-`<listUrlTarget>`ソース リポジトリを指定し、`<publishUrlTarget>`ターゲットのリポジトリを指定します。
+`<listUrlTarget>` 、ソース リポジトリを指定し、`<publishUrlTarget>`ターゲット リポジトリを指定します。
 
-場合は、ターゲットのリポジトリ`https://machine/repo`を実行している[NuGet.Server](../hosting-packages/nuget-server.md)、リストとプッシュ url になります`https://machine/repo/nuget`と`https://machine/repo/api/v2/package`、それぞれします。
+ターゲットのリポジトリがある場合`https://machine/repo`を実行している[NuGet.Server](../hosting-packages/nuget-server.md)、リストとプッシュの url になります`https://machine/repo/nuget`と`https://machine/repo/api/v2/package`、それぞれします。
 
 ## <a name="options"></a>オプション
 
 | オプション | 説明 |
 | --- | --- |
-| ApiKey | ターゲットのリポジトリの API キー。 かどうか、存在していない構成ファイルで指定した期間が使用 (`%AppData%\NuGet\NuGet.Config` (Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac または Linux))。 |
-| ヘルプ | ヘルプ コマンドに関する情報を表示します。 |
-| NoCache | NuGet がキャッシュされているパッケージを使用するを防ぎます。 参照してください[グローバル パッケージとキャッシュ フォルダーの管理](../consume-packages/managing-the-global-packages-and-cache-folders.md)です。 |
-| noop | 新機能が不要になる行いません; 操作をログに記録します。プッシュ操作に成功した場合を想定しています。 |
-| プレリリース版 | ミラーリングの操作では、プレリリースのパッケージが含まれています。 |
-| ソース | ミラー化するパッケージ ソースの一覧です。 ものがで定義されているソースが指定されていない場合 nuget.org に既定の指定がない場合、構成ファイルを使用、(ApiKey 上記を参照してください)。 |
-| Timeout | (秒単位) をサーバーにプッシュするためのタイムアウト値を指定します。 既定では 300 秒 (5 分) です。 |
-| Version | インストールするパッケージのバージョン。 指定しない場合、最新バージョンがミラー化されます。 |
+| ApiKey | ターゲットのリポジトリの API キー。 かどうか、存在していない、構成ファイルで指定された 1 つが使用されます (`%AppData%\NuGet\NuGet.Config` (Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac/linux))。 |
+| ヘルプ | ヘルプのコマンドの情報を表示します。 |
+| NoCache | NuGet がキャッシュされたパッケージを使用するを防ぎます。 参照してください[グローバル パッケージとキャッシュ フォルダーの管理](../consume-packages/managing-the-global-packages-and-cache-folders.md)します。 |
+| Noop | ログに記録内容が行いますが、アクションは行われませんプッシュ操作の成功を前提としています。 |
+| プレリリース版 | ミラーリングの操作では、プレリリース パッケージが含まれています。 |
+| ソース | ミラー化するパッケージ ソースの一覧。 定義されているソースが指定されていない場合が指定されていない場合、nuget.org を既定値、構成ファイルが使用されます (ApiKey 上記を参照してください)。 |
+| Timeout | サーバーにプッシュするための秒単位のタイムアウトを指定します。 既定では 300 秒 (5 分) です。 |
+| Version | インストールするパッケージのバージョン。 指定しない場合、最新のバージョンがミラー化します。 |
 
 参照してください[環境変数](cli-ref-environment-variables.md)
 

@@ -1,23 +1,22 @@
 ---
 title: NuGet CLI の一覧表示コマンド
-description: Nuget.exe 一覧のコマンドのリファレンス
+description: Nuget.exe list コマンドのリファレンス
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: b0f144d8abbba7388fe39cd113e4eeddccbca2c6
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 61294f4c9d85336dc8b718fd66b236c692bab00e
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818439"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43549802"
 ---
-# <a name="list-command-nuget-cli"></a>list コマンド (NuGet CLI)
+# <a name="list-command-nuget-cli"></a>(NuGet CLI) の一覧表示コマンド
 
-**適用されます:** パッケージ消費、パブリッシング&bullet;**サポートされているバージョン:** すべて
+**適用対象:** パッケージの使用、公開&bullet;**サポートされているバージョン:** すべて
 
-指定されたソースからのパッケージの一覧を表示します。 すべてのソースが、グローバル構成ファイルで定義されているソースが指定されていない場合`%AppData%\NuGet\NuGet.Config`(Windows) または`~/.nuget/NuGet/NuGet.Config`、使用されます。 場合`NuGet.Config`し、ソースを指定しません`list`既定のフィード (nuget.org) を使用します。
+指定したソースからのパッケージの一覧を表示します。 すべてのソースが、グローバル構成ファイルで定義されているソースが指定されていない場合`%AppData%\NuGet\NuGet.Config`(Windows) または`~/.nuget/NuGet/NuGet.Config`、使用されます。 場合`NuGet.Config`し、ソースを指定しません`list`(nuget.org) の既定のフィードを使用します。
 
 ## <a name="usage"></a>使用法
 
@@ -25,21 +24,21 @@ ms.locfileid: "34818439"
 nuget list [search terms] [options]
 ```
 
-ここで、省略可能な検索用語は、表示される一覧にフィルターされます。 検索語句は、nuget.org にそれらを使用する場合と同様に、パッケージ、タグ、およびパッケージの説明の名前に適用されます。
+省略可能な検索語句は、表示される一覧にフィルターされます。 検索語句は、nuget.org でそれらを使用する場合と同様に、パッケージ、タグ、およびパッケージの説明の名前に適用されます。
 
 ## <a name="options"></a>オプション
 
 | オプション | 説明 |
 | --- | --- |
 | AllVersions | パッケージのすべてのバージョンを一覧表示します。 既定では、最新のバージョンのパッケージのみが表示されます。 |
-| ConfigFile | NuGet 構成ファイルを適用します。 指定しない場合、 `%AppData%\NuGet\NuGet.Config` (Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac または Linux) を使用します。|
-| ForceEnglishOutput | *(3.5 +)* インバリアント、英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
-| ヘルプ | ヘルプ コマンドに関する情報を表示します。 |
-| IncludeDelisted | *(3.2 +)* 一覧にないパッケージを表示します。 |
-| NonInteractive | ユーザー入力または確認を要求するプロンプトを抑制します。 |
-| プレリリース版 | 一覧には、プレリリースのパッケージが含まれています。 |
+| ConfigFile | 適用する NuGet 構成ファイル。 指定しない場合、 `%AppData%\NuGet\NuGet.Config` (Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac/linux) を使用します。|
+| ForceEnglishOutput | *(3.5 以降)* インバリアントの英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
+| ヘルプ | ヘルプのコマンドの情報を表示します。 |
+| IncludeDelisted | *(3.2 以降)* 一覧から削除されたパッケージが表示されます。 |
+| NonInteractive | ユーザー入力や確認のプロンプトを抑制します。 |
+| プレリリース版 | 一覧には、プレリリース パッケージが含まれています。 |
 | ソース | 検索するパッケージ ソースの一覧を指定します。 |
-| 詳細度 | 出力に表示される詳細情報の量を指定します:*通常*、 *quiet*、*詳細*です。 |
+| 詳細度 | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細*します。 |
 
 参照してください[環境変数](cli-ref-environment-variables.md)
 

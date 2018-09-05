@@ -3,21 +3,20 @@ title: NuGet CLI コマンドをソースします。
 description: ソースのコマンドを nuget.exe への参照
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 7c416d92c11328ecb020154981b0ddcc5ba9c5e8
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 7ef856f783c8e11cdb40edb0d1c1458730d87262
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818348"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43548109"
 ---
 # <a name="sources-command-nuget-cli"></a>ソースのコマンド (NuGet CLI)
 
-**適用されます:** パッケージ消費、パブリッシング&bullet;**サポートされているバージョン:** すべて
+**適用対象:** パッケージの使用、公開&bullet;**サポートされているバージョン:** すべて
 
-ユーザー スコープの構成ファイルまたは指定された構成ファイル内にあるソースの一覧を管理します。 ユーザー スコープの構成ファイルにある`%appdata%\NuGet\NuGet.Config`(Windows) と`~/.nuget/NuGet/NuGet.Config`(Mac または Linux)。
+ユーザー スコープの構成ファイルまたは指定した構成ファイル内にあるソースの一覧を管理します。 ユーザー スコープの構成ファイルは`%appdata%\NuGet\NuGet.Config`(Windows) と`~/.nuget/NuGet/NuGet.Config`(Mac/linux)。
 
 ここで、nuget.org のソース URL は `https://api.nuget.org/v3/index.json` となります。
 
@@ -27,24 +26,24 @@ ms.locfileid: "34818348"
 nuget sources <operation> -Name <name> -Source <source>
 ```
 
-ここで`<operation>`の 1 つ*を一覧表示、追加、削除、有効化、無効化、* または*更新*、 `<name>` 、ソースの名前を指定および`<source>`ソースの URL は、します。
+場所`<operation>`の 1 つです*を一覧表示、追加、削除、有効にする、無効化、* または*更新*、 `<name>` 、ソースの名前を指定および`<source>`はソースの URL です。
 
 ## <a name="options"></a>オプション
 
 | オプション | 説明 |
 | --- | --- |
-| ConfigFile | NuGet 構成ファイルを適用します。 指定しない場合、 `%AppData%\NuGet\NuGet.Config` (Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac または Linux) を使用します。|
-| ForceEnglishOutput | *(3.5 +)* インバリアント、英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
-| 形式 | 適用されます、`list`アクションを指定できます`Detailed`(既定) または`Short`です。 |
-| ヘルプ | ヘルプ コマンドに関する情報を表示します。 |
-| NonInteractive | ユーザー入力または確認を要求するプロンプトを抑制します。 |
-| パスワード | ソースと認証のパスワードを指定します。 |
+| ConfigFile | 適用する NuGet 構成ファイル。 指定しない場合、 `%AppData%\NuGet\NuGet.Config` (Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac/linux) を使用します。|
+| ForceEnglishOutput | *(3.5 以降)* インバリアントの英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
+| 形式 | 適用されます、`list`アクションを指定できます`Detailed`(既定値) または`Short`します。 |
+| ヘルプ | ヘルプのコマンドの情報を表示します。 |
+| NonInteractive | ユーザー入力や確認のプロンプトを抑制します。 |
+| [Password] | ソースと認証のパスワードを指定します。 |
 | StorePasswordInClearText | 暗号化された形式を格納する既定の動作ではなく暗号化されていないテキストでパスワードを保存することを示します。 |
 | UserName | ソースと認証のユーザー名を指定します。 |
-| 詳細度 | 出力に表示される詳細情報の量を指定します:*通常*、 *quiet*、*詳細*です。 |
+| 詳細度 | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細*します。 |
 
 > [!Note]
-> 必ず、nuget.exe は後でパッケージ ソースへのアクセスに使用されるため、同じユーザーのコンテキストで、ソースのパスワードを追加してください。 パスワードは、config ファイルで暗号化されて格納され、できますのみ復号化、同じユーザー コンテキストで暗号化されていたとします。 したがって、たとえば使用する場合、ビルド サーバー ビルド サーバーのタスクを実行する同じ Windows ユーザーがパスワードを暗号化する必要があります NuGet パッケージを復元します。
+> 必ず、nuget.exe が後でパッケージ ソースへのアクセスに使用されるため、同じユーザー コンテキストでのソースのパスワードを追加してください。 パスワードは、構成ファイルで暗号化して保存してが暗号化されたために、同じユーザー コンテキストで解除のみできます。 そのため、たとえば使用する場合、ビルド サーバー、ビルド サーバーのタスクを実行する同じ Windows ユーザーがパスワードを暗号化する必要があります NuGet パッケージを復元します。
 
 参照してください[環境変数](cli-ref-environment-variables.md)
 

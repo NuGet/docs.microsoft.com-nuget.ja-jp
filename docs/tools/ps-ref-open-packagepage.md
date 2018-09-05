@@ -1,23 +1,22 @@
 ---
-title: NuGet 開く PackagePage PowerShell リファレンス
+title: NuGet のオープン PackagePage PowerShell リファレンス
 description: Visual Studio で NuGet パッケージ マネージャー コンソールで開く PackagePage PowerShell コマンドのリファレンスです。
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: e64a83c01a7baac330c99fe40ba52f328a2133b8
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 0325aa4ddd718a901dd6a09cdf86cae260e326ab
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817721"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43547169"
 ---
 # <a name="open-packagepage-package-manager-console-in-visual-studio"></a>Open-PackagePage (Visual Studio パッケージ マネージャー コンソール)
 
-*3.0 +; で使用されていません内でのみ使用可能な[NuGet Package Manager Console](package-manager-console.md) Windows 上の Visual Studio でします。*
+*3.0 +; で非推奨とされます。内でのみ使用可能な[NuGet パッケージ マネージャー コンソール](package-manager-console.md)Windows 上の Visual Studio でします。*
 
-プロジェクト、ライセンス、または指定したパッケージの不正使用を URL のレポートで既定のブラウザーを起動します。
+プロジェクト、ライセンス、またはレポートの指定したパッケージの URL の不正使用の既定のブラウザーを起動します。
 
 ## <a name="syntax"></a>構文
 
@@ -31,13 +30,13 @@ Open-PackagePage [-Id] <string> [-Version] [-Source] [-License] [-ReportAbuse]
 | パラメーター | 説明 |
 | --- | --- |
 | ID | 目的のパッケージのパッケージ ID。 -Id スイッチ自体は省略可能です。 |
-| Version | 既定の最新バージョンに、パッケージのバージョン。 |
-| ソース | パッケージ ソースは、ソース ドロップダウンで選択したソースを既定とします。 |
-| ライセンス | パッケージのライセンス URL をブラウザーが開きます。 -ライセンスも - ReportAbuse が指定されている、パッケージのプロジェクトの URL をブラウザーが開きます。 |
-| ReportAbuse | パッケージの不正使用を URL にレポートをブラウザーが開きます。 -ライセンスも - ReportAbuse が指定されている、パッケージのプロジェクトの URL をブラウザーが開きます。 |
-| PassThru | URL を表示します。-whatif を使用して、抑制する状況、ブラウザーを起動します。 |
+| Version | 既定では、最新バージョンのパッケージのバージョン。 |
+| ソース | パッケージ ソースで既定のソースのドロップダウン リストで選択したソースになります。 |
+| ライセンス | パッケージのライセンス URL をブラウザーが開きます。 -ライセンスも - ReportAbuse が指定されて、パッケージのプロジェクトの URL をブラウザーが開きます。 |
+| ReportAbuse | パッケージのレポートの URL の不正使用にブラウザーを開きます。 -ライセンスも - ReportAbuse が指定されて、パッケージのプロジェクトの URL をブラウザーが開きます。 |
+| PassThru | URL を表示します。-whatif を使用すると、ブラウザーを開いてを抑制します。 |
 
-これらのパラメーターのいずれもには、パイプラインの入力またはワイルドカード文字がそのまま使用します。
+これらのパラメーターには、パイプラインの入力またはワイルドカード文字がそのまま使用します。
 
 ## <a name="common-parameters"></a>共通パラメーター
 

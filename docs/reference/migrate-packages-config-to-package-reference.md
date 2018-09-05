@@ -3,15 +3,14 @@ title: Package.config から PackageReference 形式への移行
 description: NuGet 4.0 + と VS2017 および .NET Core 2.0 でサポートされている PackageReference に package.config 管理形式からプロジェクトを移行する方法の詳細について
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 03/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: b05192038bff071ca7a5b8f2e0f735696d09bef6
-ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
+ms.openlocfilehash: 05a82e48c7083a19c50a05fa1df74ebfff8030d1
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39508271"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43546687"
 ---
 # <a name="migrate-from-packagesconfig-to-packagereference"></a>Packages.config から PackageReference に移行します。
 
@@ -41,7 +40,7 @@ ms.locfileid: "39508271"
 
 #### <a name="workaround"></a>回避策 
 
-次の NuGet 操作のいずれかを実行します。 
+次の NuGet アクションのいずれかを実行します。 
 * パッケージ マネージャー UI を開く - `References` を右クリックし、`Manage NuGet Packages...` を選択する 
 * パッケージ マネージャー コンソールを開く - `Tools > NuGet Package Manager` から、`Package Manager Console` を選択する 
 * NuGet 復元を実行する - ソリューション エクスプローラーのソリューション ノードを右クリックし、`Restore NuGet Packages` を選択する 

@@ -3,21 +3,20 @@ title: NuGet の更新プログラム パッケージの PowerShell リファレ
 description: Visual Studio で NuGet パッケージ マネージャー コンソールで更新プログラム パッケージの PowerShell コマンドのリファレンスです。
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: aa039f3ffcc0a7323178dae846733559c0f689b5
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: d47e1978ab7d827e0b8b97cd4e7237019185b50f
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817100"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43546077"
 ---
 # <a name="update-package-package-manager-console-in-visual-studio"></a>Update-Package (Visual Studio パッケージ マネージャー コンソール)
 
-*内でのみ使用可能な[NuGet Package Manager Console](package-manager-console.md) Windows 上の Visual Studio でします。*
+*内でのみ使用可能な[NuGet パッケージ マネージャー コンソール](package-manager-console.md)Windows 上の Visual Studio でします。*
 
-パッケージとその依存関係またはプロジェクトでは、すべてのパッケージを新しいバージョンに更新されます。
+パッケージとその依存関係、またはプロジェクトでは、すべてのパッケージを新しいバージョンに更新します。
 
 ## <a name="syntax"></a>構文
 
@@ -27,7 +26,7 @@ Update-Package [-Id] <string> [-IgnoreDependencies] [-ProjectName <string>] [-Ve
     [-DependencyVersion] [-ToHighestPatch] [-ToHighestMinor] [-WhatIf] [<CommonParameters>]
 ```
 
-NuGet 2.8 + で`Update-Package`プロジェクトで既存のパッケージをダウン グレードすることできます。 たとえば、Microsoft.AspNet.MVC 5.1.0-rc1 がインストールされている場合は、次のコマンドはへのダウン グレードに 5.0.0 以降。
+NuGet 2.8 以降で`Update-Package`プロジェクトに既存のパッケージをダウン グレードすることできます。 たとえば、Microsoft.AspNet.MVC 5.1.0-rc1 がインストールされている場合は、次のコマンドはダウン グレード 5.0.0。
 
 ```ps
 Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
@@ -39,19 +38,19 @@ Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
 | --- | --- |
 | ID | 更新するパッケージの識別子。 省略した場合は、すべてのパッケージを更新します。 -Id スイッチ自体は省略可能です。 |
 | IgnoreDependencies | パッケージの依存関係の更新をスキップします。 |
-| ProjectName | プロジェクトを更新するパッケージを含む、すべてのプロジェクトには、既定の名前。 |
-| Version | アップグレードは、既定で最新バージョンを使用するバージョンです。 NuGet 3.0 以降で、バージョンの値はのいずれかのことがあります*Lowest、最高、HighestMinor*、または*HighestPatch* (Safe に相当)。 |
-| セーフ | 現在インストールされているパッケージと同じメジャーおよびマイナー バージョンの唯一のバージョンにアップグレードするように制約します。 |
-| ソース | 検索するパッケージ ソースの URL またはフォルダーのパス。 ローカル フォルダー パスには、絶対パス、または現在のフォルダーの相対パスを指定できます。 省略した場合、`Update-Package`現在選択されているパッケージ ソースを検索します。 |
-| IncludePrerelease | プレリリースのパッケージ更新プログラムにはが含まれます。 |
-| 再インストール | Resintalls パッケージが、現在インストールされているバージョンを使用します。 「[パッケージの再インストールと更新](../consume-packages/reinstalling-and-updating-packages.md)」をご覧ください。 |
-| FileConflictAction | 上書きするか、プロジェクトによって参照されている既存のファイルを無視するように求められたらを実行するアクション。 指定できる値は*上書き、Ignore、None、OverwriteAll*、および*ignoreall です*(3.0 以降)。 |
-| DependencyVersion | 次のいずれかを使用する依存関係パッケージ バージョン:<br/><ul><li>*最小*(既定値): 最小バージョン</li><li>*HighestPatch*: 最小メジャー、マイナー最小、最高の修正プログラムのバージョン</li><li>*HighestMinor*: 主要な最小のバージョン、最高のマイナー、最上位の修正プログラム</li><li>*最も高い*(パラメーターなしで更新プログラム パッケージの既定): 最上位バージョン</li></ul>使用して、既定値を設定することができます、 [ `dependencyVersion` ](../reference/nuget-config-file.md#config-section)での設定、`Nuget.Config`ファイル。 |
-| ToHighestPatch | 現在インストールされているパッケージとマイナー バージョンが同じでバージョンのみへのアップグレードを制約します。 |
-| ToHighestMinor | 現在インストールされているパッケージと同じメジャー バージョンのバージョンのみへのアップグレードを制約します。 |
-| WhatIf | 実際には、更新プログラムを実行せず、コマンドを実行している場合にどうなるかを示します。 |
+| ProjectName | プロジェクトを更新するパッケージを含む、すべてのプロジェクトに既定の名前。 |
+| Version | アップグレードは、既定では、最新バージョンを使用するバージョンです。 NuGet 3.0 以降でバージョン値は 1 つのことがあります*最低、最高、HighestMinor*、または*HighestPatch* (Safe に相当)。 |
+| Safe | 現在インストールされているパッケージと同じメジャーおよびマイナーのバージョンでのみのバージョンにアップグレードするよう制約します。 |
+| ソース | 検索するパッケージ ソースの URL またはフォルダーのパス。 ローカル フォルダー パスには、absolute、または現在のフォルダーの相対パスを指定できます。 省略した場合、`Update-Package`現在選択されているパッケージ ソースを検索します。 |
+| IncludePrerelease | プレリリース パッケージ更新プログラムにはが含まれています。 |
+| 再インストール | Resintalls パッケージは、現在インストールされているバージョンを使用します。 「[パッケージの再インストールと更新](../consume-packages/reinstalling-and-updating-packages.md)」をご覧ください。 |
+| FileConflictAction | 上書きするか、プロジェクトによって参照されている既存のファイルを無視するように求められる場合に実行するアクション。 指定できる値は*上書き、Ignore、None、OverwriteAll*、および*ignoreall です*(3.0 以降)。 |
+| DependencyVersion | 次のいずれかの値を使用する依存関係パッケージのバージョン:<br/><ul><li>*最も低い*(既定値): 最小バージョン</li><li>*HighestPatch*: 最高レベルの最も大きなを最低軽微な修正プログラムのバージョン</li><li>*HighestMinor*: 主要な最小のバージョン、マイナー、最高の最高の修正プログラム</li><li>*最も高い*(パラメーターなしの更新プログラム パッケージの既定): 最上位のバージョン</li></ul>使用して、既定値を設定することができます、 [ `dependencyVersion` ](../reference/nuget-config-file.md#config-section)での設定、`Nuget.Config`ファイル。 |
+| ToHighestPatch | 現在インストールされているパッケージのマイナー バージョンと同じバージョンへのアップグレードを制約します。 |
+| ToHighestMinor | 現在インストールされているパッケージと同じメジャー バージョンでのみのバージョンにアップグレードするよう制約します。 |
+| WhatIf | 実際には、更新プログラムを実行せず、コマンドを実行するときに何が起こるかを示します。 |
 
-これらのパラメーターのいずれもには、パイプラインの入力またはワイルドカード文字がそのまま使用します。
+これらのパラメーターには、パイプラインの入力またはワイルドカード文字がそのまま使用します。
 
 ### <a name="common-parameters"></a>共通パラメーター
 

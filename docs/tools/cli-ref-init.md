@@ -1,25 +1,24 @@
 ---
 title: NuGet CLI init コマンド
-description: Nuget.exe init コマンドのリファレンス
+description: Nuget.exe の init コマンドのリファレンス
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: f4fda33aabd51fbbf0e5559baaa42af065366ba4
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 4441dc3cc35a96736b51867c196313fc9ccfdac2
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817819"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43551411"
 ---
 # <a name="init-command-nuget-cli"></a>init コマンド (NuGet CLI)
 
-**適用されます:** パッケージの作成&bullet;**サポートされているバージョン:** 3.3 +
+**適用対象:** パッケージの作成&bullet;**サポートされているバージョン:** 3.3 以降
 
-説明に従って、階層構造を使用して目的のフォルダーにフラット フォルダーからすべてのパッケージをコピー、[コマンド追加](cli-ref-add.md)です。 使用して、`init`を使用すると、`add`フォルダー内の各パッケージにコマンド。
+説明に従って、階層構造を使用して目的のフォルダーにフラットなフォルダーからすべてのパッケージをコピー、[コマンドを追加](cli-ref-add.md)します。 使用して、`init`を使用すると、`add`フォルダー内の各パッケージにコマンド。
 
-同様に`add`、変換先がローカル フォルダーまたは UNC パスのいずれかにする必要がありますNuget.org またはプライベート サーバーなどのパッケージ リポジトリの HTTP はサポートされていません。
+同様`add`、変換先がローカル フォルダーまたは UNC パスのいずれかにする必要がありますNuget.org やプライベート サーバーなどの HTTP パッケージ リポジトリがサポートされていません。
 
 ## <a name="usage"></a>使用法
 
@@ -27,18 +26,18 @@ ms.locfileid: "34817819"
 nuget init <source> <destination> [options]
 ```
 
-ここで`<source>`パッケージを含むフォルダーと`<destination>`は、ローカル フォルダーまたは UNC のパス名が、パッケージのコピー先となります。
+場所`<source>`パッケージを含むフォルダーと`<destination>`ローカル フォルダーまたはパッケージのコピー先となる UNC パス名です。
 
 ## <a name="options"></a>オプション
 
 | オプション | 説明 |
 | --- | --- |
-| ConfigFile | NuGet 構成ファイルを適用します。 指定しない場合、 `%AppData%\NuGet\NuGet.Config` (Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac または Linux) を使用します。|
-| ForceEnglishOutput | *(3.5 +)* インバリアント、英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
-| Expand | パッケージ ソースに追加される各パッケージ内のすべてのファイルを追加します。同じ`-Expand`で、`add`コマンド。 |
-| ヘルプ | ヘルプ コマンドに関する情報を表示します。 |
-| NonInteractive | ユーザー入力または確認を要求するプロンプトを抑制します。 |
-| 詳細度 | 出力に表示される詳細情報の量を指定します:*通常*、 *quiet*、*詳細*です。 |
+| ConfigFile | 適用する NuGet 構成ファイル。 指定しない場合、 `%AppData%\NuGet\NuGet.Config` (Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac/linux) を使用します。|
+| ForceEnglishOutput | *(3.5 以降)* インバリアントの英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
+| Expand | パッケージのソースに追加される各パッケージ内のすべてのファイルを追加します。同じ`-Expand`で、`add`コマンド。 |
+| ヘルプ | ヘルプのコマンドの情報を表示します。 |
+| NonInteractive | ユーザー入力や確認のプロンプトを抑制します。 |
+| 詳細度 | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細*します。 |
 
 参照してください[環境変数](cli-ref-environment-variables.md)
 

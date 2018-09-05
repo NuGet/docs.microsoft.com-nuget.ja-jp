@@ -1,23 +1,22 @@
 ---
-title: NuGet パッケージの PowerShell リファレンス
+title: NuGet Get-package PowerShell リファレンス
 description: Visual Studio で NuGet パッケージ マネージャー コンソールで Get-package PowerShell コマンドのリファレンスです。
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: f4b71fc44e44dcbd5d123a0e2fed63adb79964b5
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: a28b29614dfe5abdeb24438b3451d96634a120db
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818504"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43551443"
 ---
 # <a name="get-package-package-manager-console-in-visual-studio"></a>Get-Package (Visual Studio パッケージ マネージャー コンソール)
 
-*このトピック内のコマンドをについて説明、 [NuGet Package Manager Console](package-manager-console.md) Windows 上の Visual Studio でします。一般的な PowerShell Get-package コマンドは、次を参照してください。、 [PowerShell PackageManagement 参照](/powershell/module/packagemanagement/?view=powershell-6)です。*
+*このトピックでは、内のコマンドを説明します、 [NuGet パッケージ マネージャー コンソール](package-manager-console.md)Windows 上の Visual Studio でします。汎用の Get-package の PowerShell コマンドでは、次を参照してください。、 [PowerShell PackageManagement 参照](/powershell/module/packagemanagement/?view=powershell-6)します。*
 
-ローカル リポジトリにインストールされているパッケージの一覧を取得、-listavailable スイッチで使用する場合は、パッケージ ソースから使用可能なパッケージを一覧表示または更新スイッチを使用すると、利用可能な更新を一覧表示します。
+ローカル リポジトリにインストールされているパッケージの一覧を取得、- ListAvailable スイッチと共に使用する場合は、パッケージ ソースから使用可能なパッケージを一覧表示または更新スイッチを使用すると、利用可能な更新を一覧表示されます。
 
 ## <a name="syntax"></a>構文
 
@@ -27,24 +26,24 @@ Get-Package -Source <string> [-ListAvailable] [-Updates] [-ProjectName <string>]
     [-PageSize] [<CommonParameters>]
 ```
 
-パラメーターなしで`Get-Package`既定のプロジェクトにインストールされているパッケージの一覧を表示します。
+パラメーターなしで`Get-Package`既定のプロジェクトにインストールされているパッケージの一覧が表示されます。
 
 ## <a name="parameters"></a>パラメーター
 
 | パラメーター | 説明 |
 | --- | --- |
-| ソース | パッケージの URL またはフォルダーのパス。 ローカル フォルダー パスには、絶対パス、または現在のフォルダーの相対パスを指定できます。 省略した場合、`Get-Package`現在選択されているパッケージ ソースを検索します。 -Listavailable で使用する場合は、nuget.org を既定値です。 |
-| ListAvailable | 既定で nuget.org、パッケージ ソースから使用可能なパッケージを一覧表示します。-PageSize や最初が指定されていない限り、既定値は 50 のパッケージを示しています。 |
-| 更新 | パッケージ ソースで更新が提供されているパッケージを一覧表示します。 |
-| ProjectName | インストールされているパッケージの取得元のプロジェクトです。 省略した場合、ソリューション全体に対してプロジェクトがインストールを返します。 |
-| フィルター | パッケージ ID、説明、およびタグを適用して、パッケージの一覧を絞り込むためのフィルター文字列。 |
+| ソース | パッケージの URL またはフォルダーのパス。 ローカル フォルダー パスには、absolute、または現在のフォルダーの相対パスを指定できます。 省略した場合、`Get-Package`現在選択されているパッケージ ソースを検索します。 -ListAvailable で使用する場合は、nuget.org に既定値です。 |
+| ListAvailable | 既定では nuget.org をパッケージ ソースから使用可能なパッケージを一覧表示します。-PageSize や最初が指定されていない場合、既定値は 50 のパッケージを示します。 |
+| 更新 | パッケージ、パッケージ ソースから使用可能な更新プログラムを一覧表示します。 |
+| ProjectName | インストールされているパッケージの取得元のプロジェクトです。 省略した場合は、ソリューション全体のプロジェクトをインストールされている返します。 |
+| フィルター | パッケージ ID、説明、およびタグに適用して、パッケージの一覧を絞り込むために使用されるフィルター文字列。 |
 | First | リストの先頭から返されるパッケージの数。 指定しない場合、既定値は 50 です。 |
-| Skip | 最初の省略&lt;int&gt;表示される一覧からパッケージです。  |
-| AllVersions | 最新バージョンのみではなく、各パッケージのすべての利用可能なバージョンを表示します。 |
-| IncludePrerelease | 結果にリリース前のパッケージが含まれています。 |
-| PageSize | *(3.0 +)* -Listavailable と共に使用 (必須)、パッケージの数を続行するためのプロンプトを許可する前に一覧表示するときにします。 |
+| Skip | 最初の省略&lt;int&gt;表示された一覧からパッケージ。  |
+| AllVersions | 最新バージョンのみではなく、各パッケージの使用可能なすべてのバージョンが表示されます。 |
+| IncludePrerelease | 結果には、プレリリース パッケージが含まれています。 |
+| PageSize | *(3.0 以降)* 続行を求めるメッセージを渡す前に一覧表示する - ListAvailable (必須)、パッケージの数と使用するとします。 |
 
-これらのパラメーターのいずれもには、パイプラインの入力またはワイルドカード文字がそのまま使用します。
+これらのパラメーターには、パイプラインの入力またはワイルドカード文字がそのまま使用します。
 
 ## <a name="common-parameters"></a>共通パラメーター
 

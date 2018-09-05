@@ -1,26 +1,25 @@
 ---
-title: NuGet CLI パック コマンド
+title: NuGet CLI pack コマンド
 description: Nuget.exe パック コマンドのリファレンス
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 3140d56ac827d932c2323182ad040b8a4d14da5c
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: db236b0eaac34ca9f6f67fd15ca3ad6884f6a18d
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818039"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43549097"
 ---
 # <a name="pack-command-nuget-cli"></a>pack コマンド (NuGet CLI)
 
-**適用されます:** パッケージの作成&bullet;**サポートされているバージョン:** 2.7 +
+**適用対象:** パッケージの作成&bullet;**サポートされているバージョン:** 2.7 以降
 
-に基づいて、指定された NuGet パッケージを作成`.nuspec`またはプロジェクト ファイルです。 `dotnet pack`コマンド (を参照してください[dotnet コマンド](dotnet-Commands.md)) および`msbuild /t:pack`(を参照してください[MSBuild ターゲット](../reference/msbuild-targets.md)) の代替として使用することがあります。
+に基づいて、指定された NuGet パッケージを作成します。`.nuspec`またはプロジェクト ファイル。 `dotnet pack`コマンド (を参照してください[dotnet コマンド](dotnet-Commands.md)) と`msbuild /t:pack`(を参照してください[MSBuild ターゲット](../reference/msbuild-targets.md)) の代替として使用することがあります。
 
 > [!Important]
-> Mono で、プロジェクト ファイルからパッケージを作成することはサポートされていません。 内の非ローカル パスを調整する必要があります、 `.nuspec` nuget.exe しない Windows のパス名自体を変換するために、Unix 形式のパスにファイルします。
+> Mono で、プロジェクト ファイルからパッケージを作成することはサポートされていません。 非ローカル パスを調整する必要があります、 `.nuspec` Unix 形式のパスにファイルの nuget.exe が Windows パス名自体を変換しません。
 
 ## <a name="usage"></a>使用法
 
@@ -28,39 +27,39 @@ ms.locfileid: "34818039"
 nuget pack <nuspecPath | projectPath> [options] [-Properties ...]
 ```
 
-ここで`<nuspecPath>`と`<projectPath>`指定、`.nuspec`またはプロジェクト ファイル、それぞれします。
+場所`<nuspecPath>`と`<projectPath>`指定、`.nuspec`またはプロジェクト ファイルをそれぞれします。
 
 ## <a name="options"></a>オプション
 
 | オプション | 説明 |
 | --- | --- |
-| BasePath | 定義されているファイルのベース パスを設定、`.nuspec`ファイル。 |
+| BasePath | 定義されているファイルの基本パスを設定、`.nuspec`ファイル。 |
 | ビルド | パッケージを構築する前に、プロジェクトをビルドすることを指定します。 |
-| 除外 | パッケージを作成するときに除外する 1 つまたは複数のワイルドカード パターンを指定します。 複数のパターンを指定するに繰り返します - 除外するフラグ。 次の例を参照してください。 |
-| ExcludeEmptyDirectories | パッケージを作成するときに、空のディレクトリを含めることを防ぎます。 |
-| ForceEnglishOutput | *(3.5 +)* インバリアント、英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
-| ヘルプ | ヘルプ コマンドに関する情報を表示します。 |
-| IncludeReferencedProjects | 依存関係として、またはパッケージの一部として、ビルド、パッケージに参照先のプロジェクトを含める必要がありますを示します。 参照先プロジェクトに対応する`.nuspec`をその参照先プロジェクトが、依存関係として追加し、プロジェクトと同じ名前を持つファイルです。 それ以外の場合、参照先プロジェクトは、パッケージの一部として追加されます。 |
-| MinClientVersion | 設定、 *minClientVersion*作成されたパッケージの属性です。 この値は、既存の値をオーバーライド*minClientVersion*で属性 (該当する場合)、`.nuspec`ファイル。 |
-| MSBuildPath | *(4.0 以降)* よりも優先、コマンドで使用する MSBuild のパスを指定`-MSBuildVersion`です。 |
-| MSBuildVersion | *(3.2 +)* このコマンドで使用する MSBuild のバージョンを指定します。 サポートされている値は、4、12、14、15 です。 既定では、パスに MSBuild を取得、それ以外の場合、既定値 MSBuild の最上位にインストールされているバージョンです。 |
-| NoDefaultExcludes | により、NuGet の既定の除外ファイルおよびファイルとフォルダーには、ピリオドなどの開始をパッケージ化`.svn`と`.gitignore`です。 |
+| 除外 | パッケージを作成するときに除外する 1 つまたは複数のワイルドカード パターンを指定します。 1 つ以上のパターンを指定するには、繰り返し除外するフラグ。 次の例を参照してください。 |
+| ExcludeEmptyDirectories | パッケージを作成するときに、空のディレクトリを含めることをできないようにします。 |
+| ForceEnglishOutput | *(3.5 以降)* インバリアントの英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
+| ヘルプ | ヘルプのコマンドの情報を表示します。 |
+| IncludeReferencedProjects | 依存関係として、または、パッケージの一部として、ビルドされたパッケージに参照されるプロジェクトを含める必要がありますを示します。 参照先プロジェクトが、対応する`.nuspec`をその参照先プロジェクトが依存関係として追加し、プロジェクトと同じ名前を持つファイル。 それ以外の場合、参照先のプロジェクトは、パッケージの一部として追加されます。 |
+| MinClientVersion | 設定、 *minClientVersion*作成したパッケージの属性。 この値は、既存の値をオーバーライド*minClientVersion* (あれば) 属性、`.nuspec`ファイル。 |
+| MSBuildPath | *(4.0 以降)* よりも優先、コマンドで使用する MSBuild のパスを示す`-MSBuildVersion`します。 |
+| MSBuildVersion | *(3.2 以降)* このコマンドで使用する MSBuild のバージョンを指定します。 サポートされている値は、4、12、14、15 です。 パスに MSBuild が取得される、既定でそれ以外の場合、既定値 MSBuild の最上位のインストールされているバージョンです。 |
+| NoDefaultExcludes | NuGet の既定の除外をできないようにファイルとフォルダーなど、ドットで始まるファイルをパッケージ化`.svn`と`.gitignore`します。 |
 | NoPackageAnalysis | パッケージのビルド後に、パックでパッケージの分析を実行しないことを指定します。 |
-| OutputDirectory | 作成されたパッケージが格納されているフォルダーを指定します。 フォルダーが指定されていない場合は、現在のフォルダーが使用されます。 |
-| プロパティ | その他のオプションの後に、コマンドラインの最後には表示されます。 プロジェクト ファイル内の値をオーバーライドするプロパティの一覧を指定します参照してください[MSBuild プロジェクトの共通プロパティ](/visualstudio/msbuild/common-msbuild-project-properties)プロパティ名にします。 プロパティ引数をここでは、トークンのリスト = 値のペアをセミコロンで区切られた場所のたびに`$token$`で、`.nuspec`ファイルは指定した値に置き換えられます。 値は、引用符で囲まれた文字列にすることができます。 "Configuration"プロパティの既定値がある"Debug"に注意してください。 リリース構成を変更するには、使用`-Properties Configuration=Release`です。 |
-| サフィックス | *(3.4.4+)* 内部的に生成されたバージョン番号、ビルドまたはその他のプレリリース版の識別子を追加するために使用される通常にサフィックスを追加します。 たとえばを使用して`-suffix nightly`バージョン番号 like でパッケージを作成`1.2.3-nightly`です。 サフィックスは、警告、エラー、およびさまざまなバージョンの NuGet と NuGet パッケージ マネージャーの潜在的な非互換性を回避するのには文字で始める必要があります。 |
-| シンボル | パッケージには、ソースとシンボルが含まれているを指定します。 使用すると、`.nuspec`ファイル、通常の NuGet パッケージ ファイルが作成され、対応するシンボル パッケージです。 |
-| ツール | プロジェクトの出力ファイルを配置する必要がありますを指定します、`tool`フォルダーです。 |
-| 詳細度 | 出力に表示される詳細情報の量を指定します:*通常*、 *quiet*、*詳細*です。 |
-| Version | バージョン番号よりも優先、`.nuspec`ファイル。 |
+| OutputDirectory | 作成したパッケージが格納されているフォルダーを指定します。 フォルダーが指定されていない場合は、現在のフォルダーが使用されます。 |
+| プロパティ | その他のオプションの後に、コマンドラインの最後は表示されます。 は、プロジェクト ファイル内の値をオーバーライドするプロパティの一覧を指定します参照してください[MSBuild プロジェクトの共通プロパティ](/visualstudio/msbuild/common-msbuild-project-properties)プロパティ名。 プロパティの引数をここでは、トークンのリスト = 値のペアをセミコロンで区切った、出現するたび`$token$`で、`.nuspec`ファイルが指定した値と置き換えられます。 値は引用符で囲まれた文字列を指定できます。 「構成」プロパティの既定値は"Debug"に注意してください。 リリース構成を変更するには、使用`-Properties Configuration=Release`します。 |
+| サフィックス | *(3.4.4+)* 内部的に生成されたバージョン番号、ビルドまたはその他のプレリリース版の識別子を追加するために通常使用するサフィックスを追加します。 たとえばを使用して`-suffix nightly`などの数字のバージョンでパッケージを作成`1.2.3-nightly`です。 サフィックスは、警告、エラー、およびさまざまなバージョンの NuGet、NuGet パッケージ マネージャーの潜在的な非互換性を回避するために文字で始まる必要があります。 |
+| シンボル | ソースとシンボル パッケージに含まれることを指定します。 使用すると、`.nuspec`正規の NuGet パッケージ ファイルが作成されますファイル、および対応するシンボル パッケージ。 |
+| ツール | プロジェクトの出力ファイルが配置されることを指定します、`tool`フォルダー。 |
+| 詳細度 | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細*します。 |
+| Version | バージョン番号をオーバーライド、`.nuspec`ファイル。 |
 
 参照してください[環境変数](cli-ref-environment-variables.md)
 
 ## <a name="excluding-development-dependencies"></a>開発の依存関係を除外
 
-一部の NuGet パッケージは、独自のライブラリを作成できますが、必ずしも実際のパッケージの依存関係として必要のない開発依存関係として役立ちます。
+NuGet パッケージの一部は、独自のライブラリを作成できますが、実際のパッケージの依存関係としては必ずしも必要ありません開発依存関係として役立ちます。
 
-`pack`コマンドは無視されます`package`エントリ`packages.config`がある、`developmentDependency`属性に設定`true`です。 これらのエントリは、作成されたパッケージ内の依存関係としては含まれません。
+`pack`コマンドは無視されます`package`エントリ`packages.config`がある、`developmentDependency`属性に設定`true`します。 これらのエントリは、作成したパッケージの依存関係として含まれません。
 
 たとえば、次`packages.config`ソース プロジェクト ファイル。
 
@@ -73,7 +72,7 @@ nuget pack <nuspecPath | projectPath> [options] [-Properties ...]
 </packages>
 ```
 
-このプロジェクトのパッケージを作成して`nuget pack`依存関係を持つ`jQuery`と`microsoft-web-helpers`ではなく`netfx-Guard`です。
+このプロジェクトでパッケージを作成して`nuget pack`依存関係になります`jQuery`と`microsoft-web-helpers`なく`netfx-Guard`します。
 
 ## <a name="examples"></a>使用例
 
