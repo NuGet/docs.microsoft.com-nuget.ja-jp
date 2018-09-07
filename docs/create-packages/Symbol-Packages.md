@@ -3,16 +3,15 @@ title: NuGet シンボル パッケージの作成方法
 description: シンボルのみを含む NuGet パッケージを作成し、Visual Studio でその他の NuGet パッケージをデバッグする方法。
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 09/12/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: e917895d0fa6ed6dc4bc24b72afc7fa0770f2dd0
-ms.sourcegitcommit: 8e3546ab630a24cde8725610b6a68f8eb87afa47
+ms.openlocfilehash: ad1cf08437b4802d981f8c1a96ab9dc75425a2f0
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37843369"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43550616"
 ---
 # <a name="creating-symbol-packages"></a>シンボル パッケージを作成する
 

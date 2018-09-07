@@ -3,15 +3,14 @@ title: NuGet を使用して UI コントロールをパッケージ化する方
 description: UWP コントロールまたは WPF コントロールを含む NuGet パッケージを作成する方法について説明します。これには、必要なメタデータと、Visual Studio と Blend デザイナー用のサポート ファイルが含まれます。
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: ab7499c415f63319fd314f33607f74d400b5f957
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: ce5ad07209a06010150b14092aa1b15ee6f84146
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818659"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43548739"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>NuGet パッケージとして UI コントロールを作成する
 
@@ -63,7 +62,7 @@ XAML コントロールが Visual Studio の XAML デザイナーのツールボ
 - *your_package_file*: `ManagedPackage.winmd` などのコントロール ファイルの名前 ("ManagedPackage" はこの例で任意の名前を使用するだけで、それ以外の意味を持ちません)。
 - *vs_category*: Visual Studio デザイナーのツールボックスにコントロールを表示するグループのラベル。 `VSCategory` は、コントロールをツールボックスに表示するために必要です。
 - *blend_category*: Blend デザイナーの [資産] ウィンドウにコントロールを表示するグループのラベル。 `BlendCategory` は、コントロールを [資産] に表示するために必要です。
-- *type_full_name_n*: `ManagedPackage.MyCustomControl` など、名前空間を含む、各コントロールの完全修飾名です。 マネージ コードとネイティブの両方の種類でドット形式が使用されることに注意してください。
+- *type_full_name_n*: `ManagedPackage.MyCustomControl` など、名前空間を含む、各コントロールの完全修飾名です。 マネージド コードとネイティブの両方の種類でドット形式が使用されることに注意してください。
 
 より高度なシナリオでは、1 つのパッケージに複数のコントロール アセンブリが含まれているときに、複数の `<File>` 要素を `<FileList>` に含めることもできます。 コントロールをカテゴリ別に整理する場合は、複数 `<ToolboxItems>` ノードを 1 つの `<File>` 内に含めることもできます。
 

@@ -3,15 +3,14 @@ title: NuGet パッケージ作成者に対する project.json の影響
 description: NuGet 3.x での project.json の実装が、サポートされていない機能、コンテンツ、パッケージ形式などのパッケージの作成者にどのように影響するかの詳細です。
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3236846864483b2e4f8bdaca2fe285ecc571b415
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 8c85c1a89469c491c6be1f81961197450744349c
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818530"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43545574"
 ---
 # <a name="impact-of-projectjson-when-creating-packages"></a>パッケージを作成するときの project.json の影響
 
@@ -56,7 +55,7 @@ NuGet 3 以降で使用される `project.json` システムは、次のセク�
 
 以下に示すパッケージ形式を使用するには、既存のパッケージはほとんど必要ありません。
 
-この形式では、最も重要視されるシナリオとしてネイティブ コンテンツを有効にします。 つまり、マネージ アセンブリは、ターゲット プラットフォームに基づいたマネージ アセンブリと一緒にバイナリの実装を配布する、ハードウェアの実装に近いかによって異なるということです。 たとえば、System.IO.Compression パッケージでは、このテクノロジを使用しています。 [https://www.nuget.org/packages/System.IO.Compression](https://www.nuget.org/packages/System.IO.Compression)
+この形式では、最も重要視されるシナリオとしてネイティブ コンテンツを有効にします。 つまり、マネージド アセンブリは、ターゲット プラットフォームに基づいたマネージド アセンブリと一緒にバイナリの実装を配布する、ハードウェアの実装に近いかによって異なるということです。 たとえば、System.IO.Compression パッケージでは、このテクノロジを使用しています。 [https://www.nuget.org/packages/System.IO.Compression](https://www.nuget.org/packages/System.IO.Compression)
 
 要約すると、上記の機能が絶対に必要というわけではない場合、ここで説明されている形式は NuGet 3.x 以降によってのみサポートされるので、既存のパッケージ形式と一緒にしておくことをお勧めします。
 

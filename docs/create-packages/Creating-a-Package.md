@@ -3,15 +3,14 @@ title: NuGet パッケージの作成方法
 description: NuGet パッケージを設計し、作成する過程を詳しく説明します。ファイルやバージョン管理など、重要な決定ポイントが含まれます。
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: 435db2d0cddcfd6b9db530cb384cf7facb9170dd
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 37c2208f0942b12428dba9d664f25e7e4f3c0b72
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818465"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43547375"
 ---
 # <a name="creating-nuget-packages"></a>NuGet パッケージの作成
 
@@ -371,7 +370,7 @@ COM 相互運用アセンブリを含むパッケージには、PackageReference
 </Target>
 ```
 
-`packages.config` 管理形式を利用するとき、パッケージからアセンブリの参照を追加すると、NuGet と Visual Studio は COM 相互運用アセンブリがないか調べ、プロジェクト ファイルで `EmbedInteropTypes` を true に設定します。 この場合、ターゲットが上書きされます。
+`packages.config` 管理形式を利用するとき、パッケージからアセンブリの参照を追加すると、NuGet と Visual Studio は COM 相互運用アセンブリがないか調べ、プロジェクト ファイルで `EmbedInteropTypes` を true に設定します。 この場合、ターゲットがオーバーライドされます。
 
 また、既定では、[ビルド アセットの推移的なフローはありません](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)。 ここで説明したように作成したパッケージの動作は、プロジェクトからプロジェクト参照に推移的依存関係として引き出されたときとは異なります。 パッケージの利用者は、ビルドを含めないように PrivateAssets の既定値を変更することでそれをフローさせることができます。
 
@@ -405,7 +404,7 @@ NuGet では、修正が必要なエラーが `.nuspec` ファイルで見つか
 
 ### <a name="additional-options"></a>追加オプション
 
-`nuget pack` ではさまざまなコマンドライン スイッチを使用できます。ファイルを除外したり、マニフェストのバージョン番号を上書きしたり、出力フォルダーを変更したりできます。 完全な一覧は、[pack コマンドに関するページ](../tools/cli-ref-pack.md)を参照してください。
+`nuget pack` ではさまざまなコマンドライン スイッチを使用できます。ファイルを除外したり、マニフェストのバージョン番号をオーバーライドしたり、出力フォルダーを変更したりできます。 完全な一覧は、[pack コマンドに関するページ](../tools/cli-ref-pack.md)を参照してください。
 
 Visual Studio プロジェクトの共通オプションには以下のようなものがあります。
 

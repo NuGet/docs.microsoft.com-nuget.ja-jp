@@ -3,15 +3,14 @@ title: Nuget パッケージのインストール方法
 description: ディスクおよび適用可能なプロジェクト ファイルで何が発生するかなど、NuGet パッケージをプロジェクトにインストールするプロセスを説明します。
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 02/12/2018
 ms.topic: overview
-ms.openlocfilehash: 0f59c3b7f1e32ae34889921c13d15074ef5c1260
-ms.sourcegitcommit: 8e3546ab630a24cde8725610b6a68f8eb87afa47
+ms.openlocfilehash: 3cb3d5f97e9fb7ce292ddc5a95b61c13f64a17e7
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37843382"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43547667"
 ---
 # <a name="different-ways-to-install-a-nuget-package"></a>NuGet パッケージをインストールするためのさまざまな方法
 

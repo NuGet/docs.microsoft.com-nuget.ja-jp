@@ -3,16 +3,15 @@ title: NuGet 4.0 RC リリース ノート
 description: NuGet 4.0 RC のリリース ノートであり、既知の問題、バグ修正、追加機能、および DCR が含まれています。
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 02/03/2017
 ms.topic: conceptual
 ms.reviewer: ananguar
-ms.openlocfilehash: 8124b11d0489a2c72ffcfdde28e8528c1da1f677
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 2d0bb6356c0a20843bdc884b68f5f61838b82e73
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31821887"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43549247"
 ---
 # <a name="nuget-40-rc-release-notes"></a>NuGet 4.0 RC リリース ノート
 
@@ -163,7 +162,7 @@ ms.locfileid: "31821887"
 
 - NuGet xplat を Microsoft.NetCore.App と netcoreapp1.0 に移動する - [#2483](https://github.com/NuGet/Home/issues/2483)
 
-- プッシュ - コマンド ラインからプッシュするとき、シンボル サーバーを上書きできなければならない - [#2348](https://github.com/NuGet/Home/issues/2348)
+- プッシュ - コマンド ラインからプッシュするとき、シンボル サーバーをオーバーライドできなければならない - [#2348](https://github.com/NuGet/Home/issues/2348)
 
 - グローバル パッケージ パスを見つけるためにコードを連結する - [#2296](https://github.com/NuGet/Home/issues/2296)
 

@@ -3,15 +3,14 @@ title: NuGet project.json ファイルと UWP プロジェクト
 description: project.json ファイルを使用してユニバーサル Windows プラットフォーム (UWP) プロジェクトで NuGet の依存関係を追跡する方法の説明。
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 07/17/2017
 ms.topic: conceptual
-ms.openlocfilehash: bd66f0afd6380a18118847d1da02285f5f3ded5d
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: ac3c137dd0ba50571737093eef11c8ab0ef932b2
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818728"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43548665"
 ---
 # <a name="projectjson-and-uwp"></a>project.json および UWP
 
@@ -118,7 +117,7 @@ runtimes フォルダーには、通常はオペレーティング システム�
 
 ## <a name="native-helpers-to-use-platform-specific-apis"></a>プラットフォーム固有の API を使用するネイティブ ヘルパー
 
-次の例では、いくつかのプラットフォームの単なるマネージされた実装を持つものの、Windows 8 固有のネイティブ API を呼び出すことができる Windows 8 のネイティブ ヘルパーを使用するパッケージを示します。
+次の例では、いくつかのプラットフォームの単なるマネージドされた実装を持つものの、Windows 8 固有のネイティブ API を呼び出すことができる Windows 8 のネイティブ ヘルパーを使用するパッケージを示します。
 
     └───MyLibrary
          ├───lib
@@ -148,13 +147,13 @@ runtimes フォルダーには、通常はオペレーティング システム�
 
 - Windows 8 の場合は、`runtimes/win8-<architecture>/lib/MyLibrary.dll` が使用され、`native/MyNativeHelper.dll` がビルドの出力にコピーされます。
 
-上記の例では、`lib/net40` アセンブリは単なるマネージ コードであるのに対して、runtimes フォルダー内のアセンブリはネイティブ ヘルパー アセンブリの p/invoke を行って Windows 8 固有の API を呼び出します。
+上記の例では、`lib/net40` アセンブリは単なるマネージド コードであるのに対して、runtimes フォルダー内のアセンブリはネイティブ ヘルパー アセンブリの p/invoke を行って Windows 8 固有の API を呼び出します。
 
 これまでは単一の `lib` フォルダーのみが選択されているため、ランタイム固有のフォルダーがある場合は、非ランタイム固有の `lib` より優先されます。 ネイティブ フォルダーが付加的なものであり、存在する場合はビルドの出力にコピーされます。
 
-## <a name="managed-wrapper"></a>マネージ ラッパー
+## <a name="managed-wrapper"></a>マネージド ラッパー
 
-ランタイムを使用するもう 1 つの方法として、ネイティブ アセンブリではなく、単なるマネージ ラッパーであるパッケージを配布する方法があります。 このシナリオでは、次のようにパッケージを作成します。
+ランタイムを使用するもう 1 つの方法として、ネイティブ アセンブリではなく、単なるマネージド ラッパーであるパッケージを配布する方法があります。 このシナリオでは、次のようにパッケージを作成します。
 
     └───MyLibrary
          └───runtimes
@@ -174,7 +173,7 @@ runtimes フォルダーには、通常はオペレーティング システム�
                  └───native
                          MyImplementation.dll
 
-この場合、対応するネイティブ アセンブリに依存しないこのパッケージの実装がない限り、トップレベルの `lib` フォルダーはありません。 マネージ アセンブリ `MyLibrary.dll` がこれらの両方のケースでまったく同じであった場合は、トップレベルの `lib` フォルダーに配置することはできます。ただし、win-x86 または win-x64 ではないプラットフォームにインストールされた場合、ネイティブ アセンブリがないとパッケージのインストールに失敗するため、トップレベルの lib は使用されますが、ネイティブ アセンブリはコピーされません。
+この場合、対応するネイティブ アセンブリに依存しないこのパッケージの実装がない限り、トップレベルの `lib` フォルダーはありません。 マネージド アセンブリ `MyLibrary.dll` がこれらの両方のケースでまったく同じであった場合は、トップレベルの `lib` フォルダーに配置することはできます。ただし、win-x86 または win-x64 ではないプラットフォームにインストールされた場合、ネイティブ アセンブリがないとパッケージのインストールに失敗するため、トップレベルの lib は使用されますが、ネイティブ アセンブリはコピーされません。
 
 ## <a name="authoring-packages-for-nuget-2-and-nuget-3"></a>NuGet 2 および NuGet 3 のパッケージの作成
 

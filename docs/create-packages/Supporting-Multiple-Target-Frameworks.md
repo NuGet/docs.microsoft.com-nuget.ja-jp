@@ -3,15 +3,14 @@ title: NuGet パッケージの複数バージョン対応
 description: 1 つの NuGet パッケージ内から複数の .NET Framework バージョンに対応するためのさまざま方法の説明。
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 09/27/2017
 ms.topic: conceptual
-ms.openlocfilehash: 429b9743ea678cd500b6f51630d03aac7812441e
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 0b22d48b9151b903a5307beafa5ccef14e5fecf3
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34816957"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43551707"
 ---
 # <a name="supporting-multiple-net-framework-versions"></a>複数の .NET Framework バージョンのサポート
 
@@ -53,7 +52,7 @@ ms.locfileid: "34816957"
 
 ### <a name="architecture-specific-folders"></a>アーキテクチャ固有フォルダー
 
-アーキテクチャ固有のアセンブリがあるとき、つまり、個々のアセンブリが ARM、x86、x64 を対象とするとき、`runtimes` という名前のフォルダーの `{platform}-{architecture}\lib\{framework}` または `{platform}-{architecture}\native` という名前のサブフォルダー内にそれを置く必要があります。 たとえば、次のフォルダー構造は、Windows 10 と `uap10.0` フレームワークを対象とするネイティブ DLL とマネージ DLL の両方に対応します。
+アーキテクチャ固有のアセンブリがあるとき、つまり、個々のアセンブリが ARM、x86、x64 を対象とするとき、`runtimes` という名前のフォルダーの `{platform}-{architecture}\lib\{framework}` または `{platform}-{architecture}\native` という名前のサブフォルダー内にそれを置く必要があります。 たとえば、次のフォルダー構造は、Windows 10 と `uap10.0` フレームワークを対象とするネイティブ DLL とマネージド DLL の両方に対応します。
 
     \runtimes
         \win10-arm

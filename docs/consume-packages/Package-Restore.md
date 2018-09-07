@@ -3,15 +3,14 @@ title: NuGet パッケージの復元
 description: プロジェクトが依存しているパッケージを NuGet が復元する方法について概要を説明します。復元を無効にする方法や、バージョンを制約する方法についても触れます。
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 34da7f5800671f03df6728e0b948c560f73fd13c
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: b95c4462a214a78452f9dbe35936620636c4f60b
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817048"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43548773"
 ---
 # <a name="package-restore"></a>パッケージの復元
 
@@ -65,7 +64,7 @@ ms.locfileid: "34817048"
     ```
     <br/>
     > [!Note]
-    >  `packageRestore/enabled` の設定は、Visual Studio の起動前またはビルドの開始前に環境変数 **EnableNuGetPackageRestore** の値を TRUE または FALSE に設定することにより、グローバルに上書きできます。
+    >  `packageRestore/enabled` の設定は、Visual Studio の起動前またはビルドの開始前に環境変数 **EnableNuGetPackageRestore** の値を TRUE または FALSE に設定することにより、グローバルにオーバーライドできます。
 
 - **Visual Studio でのビルド中に見つからないパッケージを自動的に確認**: 次に示すように、`NuGet.Config` ファイル (Windows では `%AppData%\NuGet\NuGet.Config`、Mac/Linux では `~/.nuget/NuGet/NuGet.Config`) の `packageRestore/automatic` 設定を変更することにより、自動復元を制御します。 このオプションをオンにして Visual Studio からビルドを実行すると、欠落しているパッケージが自動的に復元されます。 このオプションは、MSBuild を使用してコマンド ラインから実行されるビルドには影響しません。
 

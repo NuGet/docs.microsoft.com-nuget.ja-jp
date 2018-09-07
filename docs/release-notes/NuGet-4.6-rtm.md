@@ -3,15 +3,14 @@ title: NuGet 4.6 RTM リリース ノート
 description: NuGet 4.6.0 のリリース ノートであり、既知の問題、バグ修正、追加機能、および DCR が含まれています。
 author: anangaur
 ms.author: anangaur
-manager: unnir
 ms.date: 3/7/2018
 ms.topic: conceptual
-ms.openlocfilehash: 11e604ad9a28ac2b22880a13ef9d8b41d8c09507
-ms.sourcegitcommit: 8127dd73ff8481a1a01acd9b7004dd131a9d84e7
+ms.openlocfilehash: 3c71d05144aa2b92b916d4ebf319c5a4e321581f
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34449618"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43549845"
 ---
 # <a name="nuget-46-rtm-release-notes"></a>NuGet 4.6 RTM リリース ノート
 

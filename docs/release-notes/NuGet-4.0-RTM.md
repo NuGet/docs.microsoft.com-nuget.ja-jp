@@ -3,15 +3,14 @@ title: NuGet 4.0 RC リリース ノート
 description: 既知の問題、バグ修正、追加された機能、DCR を含む NuGet 4.0 RTM のリリース ノート。
 author: anangaur
 ms.author: anangaur
-manager: unnir
 ms.date: 03/03/2017
 ms.topic: conceptual
-ms.openlocfilehash: f1c5408f75966068e8fa11e63118426bbf562047
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: c27d0aa2e5c9af9cb15d2f487b93e93aca666214
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32045088"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43547762"
 ---
 # <a name="nuget-40-rtm-release-notes"></a>NuGet 4.0 RTM リリース ノート
 

@@ -3,15 +3,14 @@ title: NuGet パッケージ名の争いを解決する
 description: ブランド、商標、その他の競合状況に関連する、NuGet パッケージ発行元間の争いを解決するためのプロセス。
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: f7749dec0726162f122db91397e9581cfad23890
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: a2f1fed578f1635296892ab925219f0f27883c02
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817546"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43550373"
 ---
 # <a name="resolving-disputes-over-nuget-package-names"></a>NuGet パッケージ名に関する争いを解決する
 

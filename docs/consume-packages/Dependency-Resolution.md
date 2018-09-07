@@ -3,15 +3,14 @@ title: NuGet パッケージの依存関係の解決
 description: NuGet 2.x と NuGet 3.x 以降の両方について、NuGet パッケージの依存関係が解決されてインストールされるプロセスを詳しく説明します。
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 7363b6a28f29b271c8ae2025bba7cb88fc77db67
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: cdbe13df04bb27091b684a4ae27b0e751da1098f
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818699"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43549035"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>NuGet でのパッケージ依存関係の解決方法
 
@@ -69,7 +68,7 @@ PackageReference 形式を使用してパッケージをプロジェクトにイ
 
 #### <a name="nearest-wins"></a>最近優先
 
-アプリケーションのパッケージ グラフに同じパッケージの異なるバージョンが含まれる場合、NuGet はグラフ内でアプリケーションに最も近いパッケージを選び、他のすべてのパッケージは無視します。 この動作により、アプリケーションは依存関係グラフ内で特定のパッケージのバージョンを上書きできます。
+アプリケーションのパッケージ グラフに同じパッケージの異なるバージョンが含まれる場合、NuGet はグラフ内でアプリケーションに最も近いパッケージを選び、他のすべてのパッケージは無視します。 この動作により、アプリケーションは依存関係グラフ内で特定のパッケージのバージョンをオーバーライドできます。
 
 次の例では、アプリケーションはバージョン制約 2.0 以上でパッケージ B に直接依存しています。 また、アプリケーションはパッケージ A にも依存していますが、パッケージ A も 1.0 以上の制約でパッケージ B に依存しています。 パッケージ B 2.0 に対する依存関係の方がグラフでアプリケーションに近いので、バージョン 2.0 が使われます。
 

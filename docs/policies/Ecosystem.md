@@ -3,15 +3,14 @@ title: NuGet のエコシステムの概要
 description: NuGet エコシステムの包括的なリソースには、NuGet ソース、Microsoft 以外の NuGet プロジェクト、ユーティリティ、およびトレーニング資料が含まれます。
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 52edc29fe8e9ec8927844a71a01e4983e47b1ce0
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 31243076f36f6ff274c4377c1773ea59dda8c834
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818179"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43548145"
 ---
 # <a name="an-overview-of-the-nuget-ecosystem"></a>NuGet のエコシステムの概要
 

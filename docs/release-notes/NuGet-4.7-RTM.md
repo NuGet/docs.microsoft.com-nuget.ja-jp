@@ -3,15 +3,14 @@ title: NuGet 4.7 RTM リリース ノート
 description: NuGet 4.7.0 のリリース ノートです。既知の問題、バグ修正、追加機能、および DCR を含みます。
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 5/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: 79be74f9c54e27bf2c08e83c7adf81d1f96ce79a
-ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
+ms.openlocfilehash: 4ecbdc5475837b1aa1e723a94c2c6c3e8460f9ef
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39508164"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43549429"
 ---
 # <a name="nuget-47-rtm-release-notes"></a>NuGet 4.7 RTM リリース ノート
 

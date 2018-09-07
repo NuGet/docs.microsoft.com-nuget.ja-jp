@@ -3,16 +3,15 @@ title: NuGet 4.4 RTM リリース ノート
 description: NuGet 4.3 RTM のリリース ノートであり、既知の問題、バグ修正、追加機能、および DCR が含まれています。
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 08/14/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 3e969274e69de03ca9851d31a627919dcc46bb7d
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 9ea11ad5476b02940b171fdc69ac0bf56598418d
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31821669"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43548415"
 ---
 # <a name="nuget-44-rtm-release-notes"></a>NuGet 4.4 RTM リリース ノート
 

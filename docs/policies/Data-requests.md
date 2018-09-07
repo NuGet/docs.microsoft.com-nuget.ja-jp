@@ -3,15 +3,14 @@ title: ユーザー データ要求
 description: ユーザー データのエクスポートと削除を要求することに関する方針
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 05/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: 595a47da59c9b2672a10fc0f19e528c36a790134
-ms.sourcegitcommit: 68c8a494a11c892ac671fec3170ba7be97fb044d
+ms.openlocfilehash: ef054f741755bccf56eedfd462915b8e9fd6931a
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33086205"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43548055"
 ---
 # <a name="user-data-requests"></a>ユーザー データ要求
 

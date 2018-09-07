@@ -3,21 +3,20 @@ title: ユニバーサル Windows プラットフォーム用の NuGet パッケ
 description: ユニバーサル Windows プラットフォーム用の Windows ランタイム コンポーネントを使用して NuGet パッケージを作成するためのエンド ツー エンド チュートリアル。
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 03/21/2017
 ms.topic: tutorial
-ms.openlocfilehash: c5d5bf72b99f6c2fe1b0a708ddb314d5711bc73d
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 16e19be0356bc1d2734ade5cd593ca3ef05bbe5a
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818283"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43546422"
 ---
 # <a name="create-uwp-packages"></a>UWP パッケージを作成する
 
 [ユニバーサル Windows プラットフォーム (UWP)](https://developer.microsoft.com/windows) は、Windows 10 を実行するすべてのデバイスに共通のアプリ プラットフォームを提供します。 このモデル内では、UWP アプリはすべてのデバイスに共通の WinRT API と、アプリが実行されるデバイス ファミリに固有の API (Win32 と .NET を含む) の両方を呼び出すことができます。
 
-このチュートリアルでは、マネージ プロジェクトとネイティブ プロジェクトの両方で使用できるネイティブ UWP コンポーネント (XAML コントロールを含む) で NuGet パッケージを作成します。
+このチュートリアルでは、マネージド プロジェクトとネイティブ プロジェクトの両方で使用できるネイティブ UWP コンポーネント (XAML コントロールを含む) で NuGet パッケージを作成します。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
