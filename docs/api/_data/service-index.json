@@ -1,0 +1,29 @@
+{
+  "version": "3.0.0",
+  "resources": [
+    {
+      "@id": "https://api.nuget.org/v3-flatcontainer/",
+      "@type": "PackageBaseAddress/3.0.0",
+      "comment": "形式 https://api.nuget.org/v3-flatcontainer/{下 id} で、NET core NuGet パッケージの登録情報を格納する場所の URL の Azure storage の基本/{下 id}。{0} 下のバージョン} .nupkg"
+    },
+    {
+      "@id": "https://www.nuget.org/api/v2/package",
+      "@type": "PackagePublish/2.0.0"
+    },
+    {
+      "@id": "https://api-v2v3search-0.nuget.org/query",
+      "@type": "SearchQueryService/3.0.0-rc",
+      "comment": "RC クライアントによって使用される (プライマリ) NuGet 検索サービスのエンドポイントをクエリします。"
+    },
+    {
+      "@id": "https://api-v2v3search-0.nuget.org/autocomplete",
+      "@type": "SearchAutocompleteService/3.0.0-rc",
+      "comment": "RC クライアントによって使用される NuGet 検索サービス (プライマリ) のオートコンプリート エンドポイント"
+    },
+    {
+      "@id": "https://api.nuget.org/v3/registration2/",
+      "@type": "RegistrationsBaseUrl/3.0.0-rc",
+      "comment": "ベース URL の Azure storage NuGet パッケージの登録情報が格納されている RC クライアントによって使用されます。このベース URL では、SemVer 2.0.0 パッケージは含まれません。"
+    }
+  ]
+}
