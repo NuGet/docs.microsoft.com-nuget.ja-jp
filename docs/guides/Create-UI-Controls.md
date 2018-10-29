@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: ce5ad07209a06010150b14092aa1b15ee6f84146
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: dd36987e020c2daa02bb875aa9dbd69c85bba4d3
+ms.sourcegitcommit: 1bd72dca2f85b4267b9924236f1d23dd7b0ed733
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548739"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49951747"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>NuGet パッケージとして UI コントロールを作成する
 
@@ -87,7 +87,9 @@ XAML コントロールが Visual Studio の XAML デザイナーのツールボ
 
 ## <a name="add-custom-icons-to-your-controls"></a>コントロールにカスタム アイコンを追加する
 
-ツールボックス/資産ウィンドウにカスタム アイコンを表示するには、プロジェクトに画像を追加するか、"Namespace.ControlName.extension" という名前の対応する `design.dll` プロジェクトに画像を追加し、ビルド アクションを "埋め込みリソース" に設定します。 利用できる形式は `.png`、`.jpg`、`.jpeg`、`.gif`、`.bmp` です。 推奨されるイメージ サイズは 64 × 64 ピクセルです。
+ツールボックス/資産ウィンドウにカスタム アイコンを表示するには、プロジェクトに画像を追加するか、"Namespace.ControlName.extension" という名前の対応する `design.dll` プロジェクトに画像を追加し、ビルド アクションを "埋め込みリソース" に設定します。 また、関連付けられている `AssemblyInfo.cs` によって ProvideMetadata 属性 (`[assembly: ProvideMetadata(typeof(RegisterMetadata))]`) が指定されていることを確認する必要があります。 この[サンプル](https://github.com/NuGet/Samples/blob/master/ExtensionSDKasNuGetPackage/NativePackage.Design/Properties/AssemblyInfo.cs#L20)をご覧ください。
+
+利用できる形式は `.png`、`.jpg`、`.jpeg`、`.gif`、`.bmp` です。 推奨されるイメージ サイズは 64 × 64 ピクセルです。
 
 次の例では、プロジェクトには、"ManagedPackage.MyCustomControl.png" という名前の画像ファイルが含まれています。
 
