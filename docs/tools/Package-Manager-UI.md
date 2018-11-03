@@ -10,12 +10,12 @@ f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-ms.openlocfilehash: 651bbe63ec95fcedb8e9504022d08d6ba7f9219e
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 1de6ddeca6295c621a90409807af198bc3c7a068
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551758"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981185"
 ---
 # <a name="nuget-package-manager-ui"></a>NuGet パッケージ マネージャー UI
 
@@ -70,7 +70,11 @@ Windows 上の Visual Studio で NuGet パッケージ マネージャー UI を
 
     ![パッケージの更新](media/UpdatePackages.png)
 
-1. <a name="implicit_reference"></a>一部のパッケージ、 **Update**ボタンが無効になり、参照されている"暗黙的に、SDK によって"というメッセージが表示されます (または"AutoReferenced")。 メッセージは、Microsoft.NETCore.App または Microsoft.NETStandard.Library など、パッケージが大規模なフレームワークまたは SDK の一部であるとは別には更新されないことを示します。 (このようなパッケージが内部的に付いて`<IsImplicitlyDefined>True</IsImplicitlyDefined>`)。パッケージを更新するには、パッケージ名を含む SDK への推論が属する、SDK を更新します。 たとえば、Microsoft.NETCore.App のようにパッケージ、.NET Core SDK の一部である、そのため、.NET Core SDK のインストールを更新する必要があります。
+1. <a name="implicit_reference"></a>一部のパッケージ、 **Update**ボタンが無効になり、参照されている"暗黙的に、SDK によって"というメッセージが表示されます (または"AutoReferenced")。 このメッセージは、パッケージが大規模なフレームワークまたは SDK の一部であるとは別には更新されないことを示します。 (このようなパッケージが内部的に付いて`<IsImplicitlyDefined>True</IsImplicitlyDefined>`)。たとえば、 `Microsoft.NETCore.App` .NET Core SDK の一部であり、パッケージのバージョンでないアプリケーションで使用されるランタイム フレームワークのバージョンと同じです。 必要がある[、.NET Core のインストールを更新する](https://aka.ms/dotnet-download)を新しいバージョンの ASP.NET Core と .NET Core ランタイムを取得します。 [.NET Core メタパッケージとバージョン管理の詳細については、このドキュメントを参照してください](/dotnet/core/packages)します。 これは、次の一般的に使用されるパッケージに適用されます。
+    * Microsoft.AspNetCore.All
+    * Microsoft.AspNetCore.App
+    * Microsoft.NETCore.App
+    * NETStandard.Library
 
     ![参照または AutoReferenced として暗黙的にマークされているパッケージの例](media/PackageManagerUIAutoReferenced.png)
 

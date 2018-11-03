@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: ddb22d819a1a4e41a2019705789a11de6cad1d79
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 5fe8b35125d9171a37afb337ed08d06445e5f890
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548443"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981159"
 ---
 # <a name="nuspec-reference"></a>.nuspec リファレンス
 
@@ -86,7 +86,7 @@ UI 表示でパッケージのアイコンとして使われる、背景が透�
 #### <a name="requirelicenseacceptance"></a>requireLicenseAcceptance
 パッケージをインストールする前にクライアントがユーザーに対してパッケージのライセンスへの同意を求めるプロンプトを表示する必要があるかどうかを示すブール値。
 #### <a name="developmentdependency"></a>developmentDependency
-*(2.8 以降)* 開発専用の依存関係としてパッケージをマークするかどうかを指定するブール値。指定すると、そのパッケージは他のパッケージに依存関係として含まれなくなります。
+*(2.8 以降)* 開発専用の依存関係としてパッケージをマークするかどうかを指定するブール値。指定すると、そのパッケージは他のパッケージに依存関係として含まれなくなります。 Packagereference (NuGet 4.8 以降) の場合、コンパイルからコンパイル アセットを除外することをこのフラグも意味します。 参照してください[DevelopmentDependency PackageReference のサポート](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference)
 #### <a name="summary"></a>概要
 UI 画面用のパッケージの短い説明。 省略すると、`description` を切り詰めたバージョンが使われます。
 #### <a name="releasenotes"></a>releaseNotes
@@ -118,7 +118,7 @@ nuget.exe および Visual Studio パッケージ マネージャーで強制す
 #### <a name="contentfiles"></a>contentFiles
 *(3.3 以降)* 使用する側のプロジェクトに含めるコンテンツ ファイルを示す `<files>` 要素のコレクション。 これらのファイルは、プロジェクト システム内でのファイルの使用方法が記述されている属性のセットで指定されます。 [パッケージに含めるファイルの指定](#specifying-files-to-include-in-the-package)に関する後の説明をご覧ください。
 #### <a name="files"></a>ファイル 
-`<package>` ノードでは、`<metadata>` の兄弟として `<files>` ノードを追加するか、または `<metadata>` の子として `<contentFiles>` を追加して、パッケージに含めるアセンブリとコンテンツ ファイルを指定できます。 詳しくは、このトピックで後述する「[アセンブリ ファイルを含める](#including-assembly-files)」と「[コンテンツ ファイルを含める](#including-content-files)」をご覧ください。
+`<package>`ノードを含めることができます、`<files>`ノードを兄弟として`<metadata>`、および`<contentFiles>`下の子`<metadata>`パッケージに含めるアセンブリとコンテンツ ファイルを指定します。 詳しくは、このトピックで後述する「[アセンブリ ファイルを含める](#including-assembly-files)」と「[コンテンツ ファイルを含める](#including-content-files)」をご覧ください。
 
 ## <a name="replacement-tokens"></a>置換トークン
 
@@ -188,7 +188,7 @@ nuget pack MyProject.csproj
 | ビルド | build (MSBuild のプロパティとターゲット) |
 | native | native |
 | none | フォルダーなし |
-| すべて | すべてのフォルダー |
+| all | すべてのフォルダー |
 
 たとえば、次の行は `PackageA` バージョン 1.1.0 以降および `PackageB` バージョン 1.x での依存関係を示します。
 

@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: f04c6a62fc3b5056ad82930447b8ba46a8797fd2
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: cfcb52ba7689f1b392c782b4ad42ba820a76c8bf
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548092"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981133"
 ---
 # <a name="search"></a>検索
 
@@ -99,7 +99,7 @@ projectUrl     | string                     | Ｘ       |
 totalDownloads | 整数                    | Ｘ       | ダウンロードの合計でこの値を推測できなければ、`versions`配列
 検証済み       | boolean                    | Ｘ       | パッケージは、かどうかを示すブール値を JSON[検証](../reference/id-prefix-reservation.md)
 
-Nuget.org には、検証済みのパッケージとは、予約済み ID のプレフィックスに一致するパッケージ ID があり、いずれかの予約された名前空間の所有者が所有する 1 つです。 詳細については、次を参照してください。、 [ID プレフィックスの予約に関するドキュメント](../reference/id-prefix-reservation.md)します。
+Nuget.org には、検証済みのパッケージとは、予約済み ID のプレフィックスに一致するパッケージ ID があり、いずれかの予約済みのプレフィックスの所有者が所有する 1 つです。 詳細については、次を参照してください。、 [ID プレフィックスの予約に関するドキュメント](../reference/id-prefix-reservation.md)します。
 
 検索結果のオブジェクトに含まれるメタデータは、最新バージョンのパッケージから取得されます。 内の各項目、`versions`配列は、次のプロパティを持つ JSON オブジェクト。
 

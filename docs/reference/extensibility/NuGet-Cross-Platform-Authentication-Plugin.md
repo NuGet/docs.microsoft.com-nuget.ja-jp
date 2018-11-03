@@ -5,12 +5,12 @@ author: nkolev92
 ms.author: nikolev
 ms.date: 07/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: 1258ca4b30cb674c3832f12262940729438dd5b0
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: d80339eb81ade1cf2c323a604cc4fac06dcb1012
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546635"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981055"
 ---
 # <a name="nuget-cross-platform-authentication-plugin"></a>NuGet のクロス プラットフォーム認証プラグイン
 
@@ -36,7 +36,7 @@ Dotnet.exe と同様に、MSBuild.exe が既定で非対話型 MSBuild.exe の�
 
 ## <a name="creating-a-cross-platform-authentication-plugin"></a>クロス プラットフォーム認証プラグインを作成します。
 
-実装のサンプルが記載[MSCredProvider プラグイン](https://github.com/Microsoft/mscredprovider)します。
+実装のサンプルが記載[Microsoft 資格情報プロバイダー プラグイン](https://github.com/Microsoft/artifacts-credprovider)します。
 
 プラグインは、NuGet クライアント ツールによって設定されたセキュリティ要件に準拠していることが非常に重要です。
 最低限必要な認証プラグインを使用するプラグイン バージョンは*2.0.0*します。

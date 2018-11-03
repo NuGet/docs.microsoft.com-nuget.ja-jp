@@ -6,12 +6,12 @@ ms.author: diverdan92
 ms.date: 10/09/2017
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 0711f3ee00b4a387d676ca43c98a9467effed90a
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 32f83bede42f7643a9a4fed593643eefea0453c1
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546591"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981003"
 ---
 # <a name="package-id-prefix-reservation"></a>パッケージ ID プレフィックスの予約
 
@@ -65,7 +65,7 @@ ms.locfileid: "43546591"
 
 1. 同意を確認[プレフィックス ID の予約するための条件](#id-prefix-reservation-criteria)します。
 
-2. いずれかだけでなく、予約する名前空間を決定[プレフィックス予約シナリオを高度な](#advanced-prefix-reservation-scenarios)が必要になります。
+2. いずれかだけでなく、予約するプレフィックスを決定[プレフィックス予約シナリオを高度な](#advanced-prefix-reservation-scenarios)が必要になります。
 
 3. メールを送信[ account@nuget.org ](mailto:account@nuget.org)の表示名の所有者と[nuget.org](https://www.nuget.org/)、予約済みのプレフィックスを要求するいるとします。 プレフィックスのサブセットを複数の所有者に委任する場合は、すべての所有者の表示名を説明し、サブセットのプレフィックスを確認します。
 
