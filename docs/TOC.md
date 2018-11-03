@@ -31,7 +31,6 @@
 ## ガイド
 ### [UWP パッケージの作成](guides/create-uwp-packages.md)
 ### [NuGet パッケージとして UI コントロールを作成する](guides/create-UI-controls.md)
-### [Visual Studio 2015 での NET Standard/NET Framework パッケージの作成](guides/create-net-standard-packages-vs2015.md)
 ### [Visual Studio 2015 での Xamarin 用パッケージの作成](guides/create-packages-for-xamarin.md)
 # パッケージのホスト
 ## [概要](hosting-packages/overview.md)
@@ -45,7 +44,7 @@
 ### [help or ?](tools/cli-ref-help.md)
 ### [init](tools/cli-ref-init.md)
 ### [install](tools/cli-ref-install.md)
-### [list](tools/cli-ref-list.md)
+### [リスト](tools/cli-ref-list.md)
 ### [locals](tools/cli-ref-locals.md)
 ### [mirror](tools/cli-ref-mirror.md)
 ### [pack](tools/cli-ref-pack.md)
