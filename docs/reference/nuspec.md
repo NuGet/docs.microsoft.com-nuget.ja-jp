@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 5fe8b35125d9171a37afb337ed08d06445e5f890
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: 48f56ec5f042f6e78e38a202f0879c6949e7ee11
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981159"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580397"
 ---
 # <a name="nuspec-reference"></a>.nuspec リファレンス
 
@@ -147,7 +147,7 @@ nuget pack MyProject.csproj
 | --- | --- | ---
 | **$id$** | プロジェクト ファイル | プロジェクト ファイルの AssemblyName (タイトル) |
 | **$version$** | AssemblyInfo | ある場合は AssemblyInformationalVersion、ない場合は AssemblyVersion |
-| **$author$** | AssemblyInfo | AssemblyCompany |
+| **$authors $** | AssemblyInfo | AssemblyCompany |
 | **$title$** | AssemblyInfo | AssemblyTitle |
 | **$description$** | AssemblyInfo | AssemblyDescription |
 | **$copyright$** | AssemblyInfo | AssemblyCopyright |

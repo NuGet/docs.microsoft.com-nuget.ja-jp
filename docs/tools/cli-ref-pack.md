@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: db236b0eaac34ca9f6f67fd15ca3ad6884f6a18d
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 826316bdbce881836836f2a667cfa5297996d14f
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549097"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580312"
 ---
 # <a name="pack-command-nuget-cli"></a>pack コマンド (NuGet CLI)
 
@@ -38,6 +38,7 @@ nuget pack <nuspecPath | projectPath> [options] [-Properties ...]
 | 除外 | パッケージを作成するときに除外する 1 つまたは複数のワイルドカード パターンを指定します。 1 つ以上のパターンを指定するには、繰り返し除外するフラグ。 次の例を参照してください。 |
 | ExcludeEmptyDirectories | パッケージを作成するときに、空のディレクトリを含めることをできないようにします。 |
 | ForceEnglishOutput | *(3.5 以降)* インバリアントの英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
+| ConfigFile | Pack コマンドの構成ファイルを指定します。 |
 | ヘルプ | ヘルプのコマンドの情報を表示します。 |
 | IncludeReferencedProjects | 依存関係として、または、パッケージの一部として、ビルドされたパッケージに参照されるプロジェクトを含める必要がありますを示します。 参照先プロジェクトが、対応する`.nuspec`をその参照先プロジェクトが依存関係として追加し、プロジェクトと同じ名前を持つファイル。 それ以外の場合、参照先のプロジェクトは、パッケージの一部として追加されます。 |
 | MinClientVersion | 設定、 *minClientVersion*作成したパッケージの属性。 この値は、既存の値をオーバーライド*minClientVersion* (あれば) 属性、`.nuspec`ファイル。 |
@@ -48,7 +49,7 @@ nuget pack <nuspecPath | projectPath> [options] [-Properties ...]
 | OutputDirectory | 作成したパッケージが格納されているフォルダーを指定します。 フォルダーが指定されていない場合は、現在のフォルダーが使用されます。 |
 | プロパティ | その他のオプションの後に、コマンドラインの最後は表示されます。 は、プロジェクト ファイル内の値をオーバーライドするプロパティの一覧を指定します参照してください[MSBuild プロジェクトの共通プロパティ](/visualstudio/msbuild/common-msbuild-project-properties)プロパティ名。 プロパティの引数をここでは、トークンのリスト = 値のペアをセミコロンで区切った、出現するたび`$token$`で、`.nuspec`ファイルが指定した値と置き換えられます。 値は引用符で囲まれた文字列を指定できます。 「構成」プロパティの既定値は"Debug"に注意してください。 リリース構成を変更するには、使用`-Properties Configuration=Release`します。 |
 | サフィックス | *(3.4.4+)* 内部的に生成されたバージョン番号、ビルドまたはその他のプレリリース版の識別子を追加するために通常使用するサフィックスを追加します。 たとえばを使用して`-suffix nightly`などの数字のバージョンでパッケージを作成`1.2.3-nightly`です。 サフィックスは、警告、エラー、およびさまざまなバージョンの NuGet、NuGet パッケージ マネージャーの潜在的な非互換性を回避するために文字で始まる必要があります。 |
-| シンボル | ソースとシンボル パッケージに含まれることを指定します。 使用すると、`.nuspec`正規の NuGet パッケージ ファイルが作成されますファイル、および対応するシンボル パッケージ。 |
+| シンボル | ソースとシンボル パッケージに含まれることを指定します。 使用すると、`.nuspec`正規の NuGet パッケージ ファイルが作成されますファイル、および対応するシンボル パッケージ。 既定で作成、[レガシ シンボル パッケージ](../create-packages/Symbol-Packages.md)します。 シンボル パッケージの新しい推奨される形式は、.snupkg です。 参照してください[シンボル パッケージ (.snupkg) を作成する](../create-packages/Symbol-Packages-snupkg.md)します。 |
 | ツール | プロジェクトの出力ファイルが配置されることを指定します、`tool`フォルダー。 |
 | 詳細度 | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細*します。 |
 | Version | バージョン番号をオーバーライド、`.nuspec`ファイル。 |
@@ -89,6 +90,9 @@ nuget pack foo.csproj -Build -Symbols -Properties owners=janedoe,xiaop;version="
 
 # Create a package from project foo.csproj, using MSBuild version 12 to build the project
 nuget pack foo.csproj -Build -Symbols -MSBuildVersion 12 -Properties owners=janedoe,xiaop;version="1.0.5
+
+# Create a package from project foo.nuspec and the corresponding symbol package using the new recommended format .snupkg
+nuget pack foo.nuspec -Symbols -SymbolPackageFormat snupkg
 
 nuget pack foo.nuspec -Version 2.1.0
 
