@@ -24,8 +24,8 @@
 ## [ソースと構成ファイルの変換](create-packages/source-and-config-file-transformations.md)
 ## [ローカライズされたパッケージを作成する](create-packages/creating-localized-packages.md)
 ## [プレリリース パッケージ](create-packages/prerelease-packages.md)
-## [ネイティブ パッケージ](create-packages/native-packages.md)
-## [シンボル パッケージ](create-packages/symbol-packages.md)
+## [ネイティブ パッケージを作成する](create-packages/native-packages.md)
+## [シンボル パッケージを作成する](create-packages/symbol-packages-snupkg.md)
 ## [署名パッケージ](create-packages/sign-a-package.md)
 ## [パッケージの公開](create-packages/publish-a-package.md)
 ## ガイド
@@ -198,6 +198,7 @@
 ## [方法: API を使用したすべてのパッケージのクエリ](guides/api/query-for-all-published-packages.md)
 ## [サービス インデックス](api/service-index.md)
 ## [プッシュと削除](api/package-publish-resource.md)
+## [シンボル パッケージをプッシュします](api/symbol-package-publish-resource.md)
 ## [検索](api/search-query-service-resource.md)
 ## [オートコンプリート](api/search-autocomplete-service-resource.md)
 ## [パッケージ メタデータ](api/registration-base-url-resource.md)
