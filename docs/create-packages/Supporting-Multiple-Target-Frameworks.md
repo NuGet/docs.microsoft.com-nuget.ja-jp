@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 09/27/2017
 ms.topic: conceptual
-ms.openlocfilehash: 0b22d48b9151b903a5307beafa5ccef14e5fecf3
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: c59839240935e2a6c590dea3adf623313f79f02f
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551707"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981146"
 ---
 # <a name="supporting-multiple-net-framework-versions"></a>複数の .NET Framework バージョンのサポート
 
@@ -65,7 +65,13 @@ ms.locfileid: "43551707"
             \native
             \lib\uap10.0
 
+これらのアセンブリはランタイムでのみ使用できます。そのため、対応するコンパイル時のアセンブリも指定する必要がある場合は、`AnyCPU` アセンブリを `/ref{tfm}` フォルダー内に置きます。 
+
+NuGet では、コンパイル時またはランタイムのアセットを常に 1 つのフォルダーから選択するため、`/ref` からの互換性のあるアセットが存在する場合は、コンパイル時のアセンブリを追加するために `/lib` が無視されます。 同様に、`/runtime` からの互換性のあるアセットが存在する場合は、ランタイムのために `/lib` が無視されます。
+
 `.nuspec` マニフェストでこれらのファイルを参照する例については、「[Create UWP Packages](../guides/create-uwp-packages.md)」 (UWP パッケージの作成) を参照してください。
+
+また、[NuGet を使用した Windows ストア アプリのコンポーネントのパッケージ化](https://blogs.msdn.microsoft.com/mim/2013/09/02/packaging-a-windows-store-apps-component-with-nuget-part-2)に関するページもご覧ください。
 
 ## <a name="matching-assembly-versions-and-the-target-framework-in-a-project"></a>プロジェクトでアセンブリ バージョンとターゲット フレームワークを組み合わせる
 

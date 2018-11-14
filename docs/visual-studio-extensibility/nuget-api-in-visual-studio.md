@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: reference
-ms.openlocfilehash: c2a6675472070b49c9c5b723b9d24a1fa59c2971
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: f1a11eb63c07a5d737a9474870f5653f6f7d850a
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546211"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50980977"
 ---
 # <a name="nuget-api-in-visual-studio"></a>Visual Studio の NuGet API
 
