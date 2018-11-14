@@ -5,36 +5,30 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 648b2679538e38b2451d7857beb5d070deeef7c5
-ms.sourcegitcommit: 47858da1103848cc1b15bdc00ac7219c0ee4a6a0
+ms.openlocfilehash: 71ab5bb464d1513df89ab53e119d9768e880e4e5
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44516205"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981029"
 ---
-# <a name="package-references-packagereference-in-project-files"></a><span data-ttu-id="341c8-103">プロジェクト ファイルのパッケージ参照 (PackageReference)</span><span class="sxs-lookup"><span data-stu-id="341c8-103">Package references (PackageReference) in project files</span></span>
+# <a name="package-references-packagereference-in-project-files"></a><span data-ttu-id="ae76d-103">プロジェクト ファイルのパッケージ参照 (PackageReference)</span><span class="sxs-lookup"><span data-stu-id="ae76d-103">Package references (PackageReference) in project files</span></span>
 
-<span data-ttu-id="341c8-104">`PackageReference` ノードを使用するパッケージ参照では、(個別の `packages.config` ファイルとは異なり) NuGet の依存関係をプロジェクト ファイル内で直接管理します。</span><span class="sxs-lookup"><span data-stu-id="341c8-104">Package references, using the `PackageReference` node, manage NuGet dependencies directly within project files (as opposed to a separate `packages.config` file).</span></span> <span data-ttu-id="341c8-105">PackageReference の呼び出しは、NuGet の他の側面には影響を与えません。たとえば、(パッケージ ソースを含む) `NuGet.Config` ファイルの設定が適用されます。詳細については、「[NuGet の動作を構成する](configuring-nuget-behavior.md)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="341c8-105">Using PackageReference, as it's called, doesn't affect other aspects of NuGet; for example, settings in `NuGet.Config` files (including package sources) are still applied as explained in [Configuring NuGet Behavior](configuring-nuget-behavior.md).</span></span>
+<span data-ttu-id="ae76d-104">`PackageReference` ノードを使用するパッケージ参照では、(個別の `packages.config` ファイルとは異なり) NuGet の依存関係をプロジェクト ファイル内で直接管理します。</span><span class="sxs-lookup"><span data-stu-id="ae76d-104">Package references, using the `PackageReference` node, manage NuGet dependencies directly within project files (as opposed to a separate `packages.config` file).</span></span> <span data-ttu-id="ae76d-105">PackageReference の呼び出しは、NuGet の他の側面には影響を与えません。たとえば、'NuGet.</span><span class="sxs-lookup"><span data-stu-id="ae76d-105">Using PackageReference, as it's called, doesn't affect other aspects of NuGet; for example, settings in \`NuGet.</span></span>
 
-<span data-ttu-id="341c8-106">PackageReference の場合、MSBuild 条件を使用し、ターゲット フレームワーク、構成、プラットフォーム、その他のグループ化ごとにパッケージ参照を選択することもできます。</span><span class="sxs-lookup"><span data-stu-id="341c8-106">With PackageReference, you can also use MSBuild conditions to choose package references per target framework, configuration, platform, or other groupings.</span></span> <span data-ttu-id="341c8-107">依存関係とコンテンツ フローを細かく制御することもできます。</span><span class="sxs-lookup"><span data-stu-id="341c8-107">It also allows for fine-grained control over dependencies and content flow.</span></span> <span data-ttu-id="341c8-108">(詳細については、「[NuGet pack and restore as MSBuild targets](../reference/msbuild-targets.md)」(MSBuild ターゲットとしての NuGet のパックと復元) を参照してください)。</span><span class="sxs-lookup"><span data-stu-id="341c8-108">(See For more details [NuGet pack and restore as MSBuild targets](../reference/msbuild-targets.md).)</span></span>
 
-<span data-ttu-id="341c8-109">既定では、PackageReference は、Windows 10 Build 15063 (Creators Update) 以降を対象とする .NET Core プロジェクト、.NET Standard プロジェクト、および UWP プロジェクトに使用されます。ただし、C++ UWP プロジェクトは例外です。</span><span class="sxs-lookup"><span data-stu-id="341c8-109">By default, PackageReference is used for .NET Core projects, .NET Standard projects, and UWP projects targeting Windows 10 Build 15063 (Creators Update) and later, with the exception of C++ UWP projects.</span></span> <span data-ttu-id="341c8-110">.NET Framework プロジェクトは PackageReference をサポートしていますが、現在の既定は `packages.config` です。</span><span class="sxs-lookup"><span data-stu-id="341c8-110">.NET Framework projects support PackageReference, but currently default to `packages.config`.</span></span> <span data-ttu-id="341c8-111">PackageReference を使用するには、依存関係を `packages.config` からプロジェクト ファイルに移行し、packages.config を削除します。</span><span class="sxs-lookup"><span data-stu-id="341c8-111">To use PackageReference, migrate the dependencies from `packages.config` into your project file, then remove packages.config.</span></span>
 
-## <a name="adding-a-packagereference"></a><span data-ttu-id="341c8-112">PackageReference を追加する</span><span class="sxs-lookup"><span data-stu-id="341c8-112">Adding a PackageReference</span></span>
 
-<span data-ttu-id="341c8-113">次の構文を使用し、プロジェクト ファイルに依存関係を追加します。</span><span class="sxs-lookup"><span data-stu-id="341c8-113">Add a dependency in your project file using the following syntax:</span></span>
 
-```xml
-<ItemGroup>
-    <!-- ... -->
-    <PackageReference Include="Contoso.Utility.UsefulStuff" Version="3.6.0" />
-    <!-- ... -->
-</ItemGroup>
-```
+<span data-ttu-id="ae76d-106">fig' の設定 (パッケージ ソースを含む) は引き続き適用されます。詳しくは「[NuGet の動作を構成する](configuring-nuget-behavior.md)」をご覧ください。</span><span class="sxs-lookup"><span data-stu-id="ae76d-106">fig\` files (including package sources) are still applied as explained in [Configuring NuGet Behavior](configuring-nuget-behavior.md).</span></span>
 
-## <a name="controlling-dependency-version"></a><span data-ttu-id="341c8-114">依存関係のバージョンを制御する</span><span class="sxs-lookup"><span data-stu-id="341c8-114">Controlling dependency version</span></span>
+<span data-ttu-id="ae76d-107">PackageReference の場合、MSBuild 条件を使用し、ターゲット フレームワーク、構成、プラットフォーム、その他のグループ化ごとにパッケージ参照を選択することもできます。</span><span class="sxs-lookup"><span data-stu-id="ae76d-107">With PackageReference, you can also use MSBuild conditions to choose package references per target framework, configuration, platform, or other groupings.</span></span> <span data-ttu-id="ae76d-108">依存関係とコンテンツ フローを細かく制御することもできます。</span><span class="sxs-lookup"><span data-stu-id="ae76d-108">It also allows for fine-grained control over dependencies and content flow.</span></span> <span data-ttu-id="ae76d-109">(詳細については、「[NuGet pack and restore as MSBuild targets](../reference/msbuild-targets.md)」(MSBuild ターゲットとしての NuGet のパックと復元) を参照してください)。</span><span class="sxs-lookup"><span data-stu-id="ae76d-109">(See For more details [NuGet pack and restore as MSBuild targets](../reference/msbuild-targets.md).)</span></span>
 
-<span data-ttu-id="341c8-115">パッケージのバージョンを指定するための規則は、`packages.config` を使用する場合と同じです。</span><span class="sxs-lookup"><span data-stu-id="341c8-115">The convention for specifying the version of a package is the same as when using `packages.config`:</span></span>
+<span data-ttu-id="ae76d-110">既定では、PackageReference は、Windows 10 Build 15063 (Creators Update) 以降を対象とする .NET Core プロジェクト、.NET Standard プロジェクト、および UWP プロジェクトに使用されます。ただし、C++ UWP プロジェクトは例外です。</span><span class="sxs-lookup"><span data-stu-id="ae76d-110">By default, PackageReference is used for .NET Core projects, .NET Standard projects, and UWP projects targeting Windows 10 Build 15063 (Creators Update) and later, with the exception of C++ UWP projects.</span></span> <span data-ttu-id="ae76d-111">.NET Framework プロジェクトは PackageReference をサポートしていますが、現在の既定は `packages.config` です。</span><span class="sxs-lookup"><span data-stu-id="ae76d-111">.NET Framework projects support PackageReference, but currently default to `packages.config`.</span></span> <span data-ttu-id="ae76d-112">PackageReference を使用するには、依存関係を `packages.config` からプロジェクト ファイルに移行し、packages.config を削除します。</span><span class="sxs-lookup"><span data-stu-id="ae76d-112">To use PackageReference, migrate the dependencies from `packages.config` into your project file, then remove packages.config.</span></span>
+
+## <a name="adding-a-packagereference"></a><span data-ttu-id="ae76d-113">PackageReference を追加する</span><span class="sxs-lookup"><span data-stu-id="ae76d-113">Adding a PackageReference</span></span>
+
+<span data-ttu-id="ae76d-114">次の構文を使用し、プロジェクト ファイルに依存関係を追加します。</span><span class="sxs-lookup"><span data-stu-id="ae76d-114">Add a dependency in your project file using the following syntax:</span></span>
 
 ```xml
 <ItemGroup>
@@ -44,10 +38,22 @@ ms.locfileid: "44516205"
 </ItemGroup>
 ```
 
-<span data-ttu-id="341c8-116">上記の例では、3.6.0 は 3.6.0 以上のあらゆるバージョンを意味し、最も下のバージョンが優先されます。詳細は、「[Package versioning](../reference/package-versioning.md#version-ranges-and-wildcards)」 (パッケージ バージョン) にあります。</span><span class="sxs-lookup"><span data-stu-id="341c8-116">In the example above, 3.6.0 means any version that is >=3.6.0 with preference for the lowest version, as described on [Package versioning](../reference/package-versioning.md#version-ranges-and-wildcards).</span></span>
+## <a name="controlling-dependency-version"></a><span data-ttu-id="ae76d-115">依存関係のバージョンを制御する</span><span class="sxs-lookup"><span data-stu-id="ae76d-115">Controlling dependency version</span></span>
 
-## <a name="using-packagereference-for-a-project-with-no-packagereferences"></a><span data-ttu-id="341c8-117">PackageReference のないプロジェクトに PackageReference を使用する</span><span class="sxs-lookup"><span data-stu-id="341c8-117">Using PackageReference for a project with no PackageReferences</span></span>
-<span data-ttu-id="341c8-118">詳細: プロジェクトにパッケージをインストールしていないが (プロジェクト ファイルに PackageReferences がなく、packages.config ファイルがない)、プロジェクトを PackageReference スタイルで復元する場合、プロジェクト ファイルで Project プロパティ RestoreProjectStyle を PackageReference に設定できます。</span><span class="sxs-lookup"><span data-stu-id="341c8-118">Advanced: If you have no packages installed in a project (no PackageReferences in project file and no packages.config file), but want the project to be restored as PackageReference style, you can set a Project property RestoreProjectStyle to PackageReference in your project file.</span></span>
+<span data-ttu-id="ae76d-116">パッケージのバージョンを指定するための規則は、`packages.config` を使用する場合と同じです。</span><span class="sxs-lookup"><span data-stu-id="ae76d-116">The convention for specifying the version of a package is the same as when using `packages.config`:</span></span>
+
+```xml
+<ItemGroup>
+    <!-- ... -->
+    <PackageReference Include="Contoso.Utility.UsefulStuff" Version="3.6.0" />
+    <!-- ... -->
+</ItemGroup>
+```
+
+<span data-ttu-id="ae76d-117">上記の例では、3.6.0 は 3.6.0 以上のあらゆるバージョンを意味し、最も下のバージョンが優先されます。詳細は、「[Package versioning](../reference/package-versioning.md#version-ranges-and-wildcards)」 (パッケージ バージョン) にあります。</span><span class="sxs-lookup"><span data-stu-id="ae76d-117">In the example above, 3.6.0 means any version that is >=3.6.0 with preference for the lowest version, as described on [Package versioning](../reference/package-versioning.md#version-ranges-and-wildcards).</span></span>
+
+## <a name="using-packagereference-for-a-project-with-no-packagereferences"></a><span data-ttu-id="ae76d-118">PackageReference のないプロジェクトに PackageReference を使用する</span><span class="sxs-lookup"><span data-stu-id="ae76d-118">Using PackageReference for a project with no PackageReferences</span></span>
+<span data-ttu-id="ae76d-119">詳細: プロジェクトにパッケージをインストールしていないが (プロジェクト ファイルに PackageReferences がなく、packages.config ファイルがない)、プロジェクトを PackageReference スタイルで復元する場合、プロジェクト ファイルで Project プロパティ RestoreProjectStyle を PackageReference に設定できます。</span><span class="sxs-lookup"><span data-stu-id="ae76d-119">Advanced: If you have no packages installed in a project (no PackageReferences in project file and no packages.config file), but want the project to be restored as PackageReference style, you can set a Project property RestoreProjectStyle to PackageReference in your project file.</span></span>
 ```xml
 <PropertyGroup>
     <!--- ... -->
@@ -55,11 +61,11 @@ ms.locfileid: "44516205"
     <!--- ... -->
 </PropertyGroup>    
 ```
-<span data-ttu-id="341c8-119">PackageReference スタイル (既存の csproj または SDK スタイルのプロジェクト) のプロジェクトを参照するとき、この設定が便利になることがあります。</span><span class="sxs-lookup"><span data-stu-id="341c8-119">This may be useful, if you reference projects which are PackageReference styled (existing csproj or SDK-style projects).</span></span> <span data-ttu-id="341c8-120">そのようなプロジェクトが参照するパッケージを他のプロジェクトで "推移的に" 参照できます。</span><span class="sxs-lookup"><span data-stu-id="341c8-120">This will enable packages that those projects refer to, to be "transitively" referenced by your project.</span></span>
+<span data-ttu-id="ae76d-120">PackageReference スタイル (既存の csproj または SDK スタイルのプロジェクト) のプロジェクトを参照するとき、この設定が便利になることがあります。</span><span class="sxs-lookup"><span data-stu-id="ae76d-120">This may be useful, if you reference projects which are PackageReference styled (existing csproj or SDK-style projects).</span></span> <span data-ttu-id="ae76d-121">そのようなプロジェクトが参照するパッケージを他のプロジェクトで "推移的に" 参照できます。</span><span class="sxs-lookup"><span data-stu-id="ae76d-121">This will enable packages that those projects refer to, to be "transitively" referenced by your project.</span></span>
 
-## <a name="floating-versions"></a><span data-ttu-id="341c8-121">最新バージョン</span><span class="sxs-lookup"><span data-stu-id="341c8-121">Floating Versions</span></span>
+## <a name="floating-versions"></a><span data-ttu-id="ae76d-122">最新バージョン</span><span class="sxs-lookup"><span data-stu-id="ae76d-122">Floating Versions</span></span>
 
-<span data-ttu-id="341c8-122">[最新バージョン](../consume-packages/dependency-resolution.md#floating-versions)が `PackageReference` でサポートされています。</span><span class="sxs-lookup"><span data-stu-id="341c8-122">[Floating versions](../consume-packages/dependency-resolution.md#floating-versions) are supported with `PackageReference`:</span></span>
+<span data-ttu-id="ae76d-123">[最新バージョン](../consume-packages/dependency-resolution.md#floating-versions)が `PackageReference` でサポートされています。</span><span class="sxs-lookup"><span data-stu-id="ae76d-123">[Floating versions](../consume-packages/dependency-resolution.md#floating-versions) are supported with `PackageReference`:</span></span>
 
 ```xml
 <ItemGroup>
@@ -70,9 +76,9 @@ ms.locfileid: "44516205"
 </ItemGroup>
 ```
 
-## <a name="controlling-dependency-assets"></a><span data-ttu-id="341c8-123">依存関係アセットを制御する</span><span class="sxs-lookup"><span data-stu-id="341c8-123">Controlling dependency assets</span></span>
+## <a name="controlling-dependency-assets"></a><span data-ttu-id="ae76d-124">依存関係アセットを制御する</span><span class="sxs-lookup"><span data-stu-id="ae76d-124">Controlling dependency assets</span></span>
 
-<span data-ttu-id="341c8-124">開発ハーネスとしてのみ依存関係を使用するとき、それはパッケージを使用するプロジェクトに公開しないほうが好ましい場合があります。</span><span class="sxs-lookup"><span data-stu-id="341c8-124">You might be using a dependency purely as a development harness and might not want to expose that to projects that will consume your package.</span></span> <span data-ttu-id="341c8-125">このシナリオでは、`PrivateAssets` メタデータを使用し、この動作を制御できます。</span><span class="sxs-lookup"><span data-stu-id="341c8-125">In this scenario, you can use the `PrivateAssets` metadata to control this behavior.</span></span>
+<span data-ttu-id="ae76d-125">開発ハーネスとしてのみ依存関係を使用するとき、それはパッケージを使用するプロジェクトに公開しないほうが好ましい場合があります。</span><span class="sxs-lookup"><span data-stu-id="ae76d-125">You might be using a dependency purely as a development harness and might not want to expose that to projects that will consume your package.</span></span> <span data-ttu-id="ae76d-126">このシナリオでは、`PrivateAssets` メタデータを使用し、この動作を制御できます。</span><span class="sxs-lookup"><span data-stu-id="ae76d-126">In this scenario, you can use the `PrivateAssets` metadata to control this behavior.</span></span>
 
 ```xml
 <ItemGroup>
@@ -86,28 +92,28 @@ ms.locfileid: "44516205"
 </ItemGroup>
 ```
 
-<span data-ttu-id="341c8-126">次のメタデータ タグは依存関係アセットを制御します。</span><span class="sxs-lookup"><span data-stu-id="341c8-126">The following metadata tags control dependency assets:</span></span>
+<span data-ttu-id="ae76d-127">次のメタデータ タグは依存関係アセットを制御します。</span><span class="sxs-lookup"><span data-stu-id="ae76d-127">The following metadata tags control dependency assets:</span></span>
 
-| <span data-ttu-id="341c8-127">タグ</span><span class="sxs-lookup"><span data-stu-id="341c8-127">Tag</span></span> | <span data-ttu-id="341c8-128">説明</span><span class="sxs-lookup"><span data-stu-id="341c8-128">Description</span></span> | <span data-ttu-id="341c8-129">既定値</span><span class="sxs-lookup"><span data-stu-id="341c8-129">Default Value</span></span> |
+| <span data-ttu-id="ae76d-128">タグ</span><span class="sxs-lookup"><span data-stu-id="ae76d-128">Tag</span></span> | <span data-ttu-id="ae76d-129">説明</span><span class="sxs-lookup"><span data-stu-id="ae76d-129">Description</span></span> | <span data-ttu-id="ae76d-130">既定値</span><span class="sxs-lookup"><span data-stu-id="ae76d-130">Default Value</span></span> |
 | --- | --- | --- |
-| <span data-ttu-id="341c8-130">IncludeAssets</span><span class="sxs-lookup"><span data-stu-id="341c8-130">IncludeAssets</span></span> | <span data-ttu-id="341c8-131">これらのアセットは使用されます</span><span class="sxs-lookup"><span data-stu-id="341c8-131">These assets will be consumed</span></span> | <span data-ttu-id="341c8-132">すべて</span><span class="sxs-lookup"><span data-stu-id="341c8-132">all</span></span> |
-| <span data-ttu-id="341c8-133">ExcludeAssets</span><span class="sxs-lookup"><span data-stu-id="341c8-133">ExcludeAssets</span></span> | <span data-ttu-id="341c8-134">これらのアセットは使用されません</span><span class="sxs-lookup"><span data-stu-id="341c8-134">These assets will not be consumed</span></span> | <span data-ttu-id="341c8-135">none</span><span class="sxs-lookup"><span data-stu-id="341c8-135">none</span></span> |
-| <span data-ttu-id="341c8-136">PrivateAssets</span><span class="sxs-lookup"><span data-stu-id="341c8-136">PrivateAssets</span></span> | <span data-ttu-id="341c8-137">これらのアセットは使用されますが、親プロジェクトに流れません</span><span class="sxs-lookup"><span data-stu-id="341c8-137">These assets will be consumed but won't flow to the parent project</span></span> | <span data-ttu-id="341c8-138">contentfiles;analyzers;build</span><span class="sxs-lookup"><span data-stu-id="341c8-138">contentfiles;analyzers;build</span></span> |
+| <span data-ttu-id="ae76d-131">IncludeAssets</span><span class="sxs-lookup"><span data-stu-id="ae76d-131">IncludeAssets</span></span> | <span data-ttu-id="ae76d-132">これらのアセットは使用されます</span><span class="sxs-lookup"><span data-stu-id="ae76d-132">These assets will be consumed</span></span> | <span data-ttu-id="ae76d-133">all</span><span class="sxs-lookup"><span data-stu-id="ae76d-133">all</span></span> |
+| <span data-ttu-id="ae76d-134">ExcludeAssets</span><span class="sxs-lookup"><span data-stu-id="ae76d-134">ExcludeAssets</span></span> | <span data-ttu-id="ae76d-135">これらのアセットは使用されません</span><span class="sxs-lookup"><span data-stu-id="ae76d-135">These assets will not be consumed</span></span> | <span data-ttu-id="ae76d-136">none</span><span class="sxs-lookup"><span data-stu-id="ae76d-136">none</span></span> |
+| <span data-ttu-id="ae76d-137">PrivateAssets</span><span class="sxs-lookup"><span data-stu-id="ae76d-137">PrivateAssets</span></span> | <span data-ttu-id="ae76d-138">これらのアセットは使用されますが、親プロジェクトに流れません</span><span class="sxs-lookup"><span data-stu-id="ae76d-138">These assets will be consumed but won't flow to the parent project</span></span> | <span data-ttu-id="ae76d-139">contentfiles;analyzers;build</span><span class="sxs-lookup"><span data-stu-id="ae76d-139">contentfiles;analyzers;build</span></span> |
 
-<span data-ttu-id="341c8-139">これらのタグに使用できる値は次のようになります。単独で表示する `all` と `none` を除き、複数の値はセミコロンで区切られます。</span><span class="sxs-lookup"><span data-stu-id="341c8-139">Allowable values for these tags are as follows, with multiple values separated by a semicolon except with `all` and `none` which must appear by themselves:</span></span>
+<span data-ttu-id="ae76d-140">これらのタグに使用できる値は次のようになります。単独で表示する `all` と `none` を除き、複数の値はセミコロンで区切られます。</span><span class="sxs-lookup"><span data-stu-id="ae76d-140">Allowable values for these tags are as follows, with multiple values separated by a semicolon except with `all` and `none` which must appear by themselves:</span></span>
 
-| <span data-ttu-id="341c8-140">[値]</span><span class="sxs-lookup"><span data-stu-id="341c8-140">Value</span></span> | <span data-ttu-id="341c8-141">説明</span><span class="sxs-lookup"><span data-stu-id="341c8-141">Description</span></span> |
+| <span data-ttu-id="ae76d-141">[値]</span><span class="sxs-lookup"><span data-stu-id="ae76d-141">Value</span></span> | <span data-ttu-id="ae76d-142">説明</span><span class="sxs-lookup"><span data-stu-id="ae76d-142">Description</span></span> |
 | --- | ---
-| <span data-ttu-id="341c8-142">compile</span><span class="sxs-lookup"><span data-stu-id="341c8-142">compile</span></span> | <span data-ttu-id="341c8-143">`lib` フォルダーの内容と、プロジェクトをフォルダー内のアセンブリに対してコンパイルできるかどうかのコントロール</span><span class="sxs-lookup"><span data-stu-id="341c8-143">Contents of the `lib` folder and controls whether your project can compile against the assemblies within the folder</span></span> |
-| <span data-ttu-id="341c8-144">ランタイム</span><span class="sxs-lookup"><span data-stu-id="341c8-144">runtime</span></span> | <span data-ttu-id="341c8-145">`lib` と `runtimes` フォルダーの内容と、これらのアセンブリがコピーされて出力ディレクトリをビルドするかどうかのコントロール</span><span class="sxs-lookup"><span data-stu-id="341c8-145">Contents of the `lib` and `runtimes` folder and controls whether these assemblies will be copied out to the build output directory</span></span> |
-| <span data-ttu-id="341c8-146">contentFiles</span><span class="sxs-lookup"><span data-stu-id="341c8-146">contentFiles</span></span> | <span data-ttu-id="341c8-147">`contentfiles` フォルダーの内容</span><span class="sxs-lookup"><span data-stu-id="341c8-147">Contents of the `contentfiles` folder</span></span> |
-| <span data-ttu-id="341c8-148">ビルド</span><span class="sxs-lookup"><span data-stu-id="341c8-148">build</span></span> | <span data-ttu-id="341c8-149">`build` フォルダーの props と targets</span><span class="sxs-lookup"><span data-stu-id="341c8-149">Props and targets in the `build` folder</span></span> |
-| <span data-ttu-id="341c8-150">analyzers</span><span class="sxs-lookup"><span data-stu-id="341c8-150">analyzers</span></span> | <span data-ttu-id="341c8-151">.NET アナライザー</span><span class="sxs-lookup"><span data-stu-id="341c8-151">.NET analyzers</span></span> |
-| <span data-ttu-id="341c8-152">native</span><span class="sxs-lookup"><span data-stu-id="341c8-152">native</span></span> | <span data-ttu-id="341c8-153">`native` フォルダーの内容</span><span class="sxs-lookup"><span data-stu-id="341c8-153">Contents of the `native` folder</span></span> |
-| <span data-ttu-id="341c8-154">none</span><span class="sxs-lookup"><span data-stu-id="341c8-154">none</span></span> | <span data-ttu-id="341c8-155">上記のいずれも該当しない。</span><span class="sxs-lookup"><span data-stu-id="341c8-155">None of the above are used.</span></span> |
-| <span data-ttu-id="341c8-156">すべて</span><span class="sxs-lookup"><span data-stu-id="341c8-156">all</span></span> | <span data-ttu-id="341c8-157">上記のすべて (`none` を除く)</span><span class="sxs-lookup"><span data-stu-id="341c8-157">All of the above (except `none`)</span></span> |
+| <span data-ttu-id="ae76d-143">compile</span><span class="sxs-lookup"><span data-stu-id="ae76d-143">compile</span></span> | <span data-ttu-id="ae76d-144">`lib` フォルダーの内容と、プロジェクトをフォルダー内のアセンブリに対してコンパイルできるかどうかのコントロール</span><span class="sxs-lookup"><span data-stu-id="ae76d-144">Contents of the `lib` folder and controls whether your project can compile against the assemblies within the folder</span></span> |
+| <span data-ttu-id="ae76d-145">ランタイム</span><span class="sxs-lookup"><span data-stu-id="ae76d-145">runtime</span></span> | <span data-ttu-id="ae76d-146">`lib` と `runtimes` フォルダーの内容と、これらのアセンブリがコピーされて出力ディレクトリをビルドするかどうかのコントロール</span><span class="sxs-lookup"><span data-stu-id="ae76d-146">Contents of the `lib` and `runtimes` folder and controls whether these assemblies will be copied out to the build output directory</span></span> |
+| <span data-ttu-id="ae76d-147">contentFiles</span><span class="sxs-lookup"><span data-stu-id="ae76d-147">contentFiles</span></span> | <span data-ttu-id="ae76d-148">`contentfiles` フォルダーの内容</span><span class="sxs-lookup"><span data-stu-id="ae76d-148">Contents of the `contentfiles` folder</span></span> |
+| <span data-ttu-id="ae76d-149">ビルド</span><span class="sxs-lookup"><span data-stu-id="ae76d-149">build</span></span> | <span data-ttu-id="ae76d-150">`build` フォルダーの props と targets</span><span class="sxs-lookup"><span data-stu-id="ae76d-150">Props and targets in the `build` folder</span></span> |
+| <span data-ttu-id="ae76d-151">analyzers</span><span class="sxs-lookup"><span data-stu-id="ae76d-151">analyzers</span></span> | <span data-ttu-id="ae76d-152">.NET アナライザー</span><span class="sxs-lookup"><span data-stu-id="ae76d-152">.NET analyzers</span></span> |
+| <span data-ttu-id="ae76d-153">native</span><span class="sxs-lookup"><span data-stu-id="ae76d-153">native</span></span> | <span data-ttu-id="ae76d-154">`native` フォルダーの内容</span><span class="sxs-lookup"><span data-stu-id="ae76d-154">Contents of the `native` folder</span></span> |
+| <span data-ttu-id="ae76d-155">none</span><span class="sxs-lookup"><span data-stu-id="ae76d-155">none</span></span> | <span data-ttu-id="ae76d-156">上記のいずれも該当しない。</span><span class="sxs-lookup"><span data-stu-id="ae76d-156">None of the above are used.</span></span> |
+| <span data-ttu-id="ae76d-157">all</span><span class="sxs-lookup"><span data-stu-id="ae76d-157">all</span></span> | <span data-ttu-id="ae76d-158">上記のすべて (`none` を除く)</span><span class="sxs-lookup"><span data-stu-id="ae76d-158">All of the above (except `none`)</span></span> |
 
-<span data-ttu-id="341c8-158">次の例では、パッケージからのコンテンツ ファイルを除くすべてがプロジェクトによって使用され、コンテンツ ファイルとアナライザーを除くすべてが親プロジェクトに流れます。</span><span class="sxs-lookup"><span data-stu-id="341c8-158">In the following example, everything except the content files from the package would be consumed by the project and everything except content files and analyzers would flow to the parent project.</span></span>
+<span data-ttu-id="ae76d-159">次の例では、パッケージからのコンテンツ ファイルを除くすべてがプロジェクトによって使用され、コンテンツ ファイルとアナライザーを除くすべてが親プロジェクトに流れます。</span><span class="sxs-lookup"><span data-stu-id="ae76d-159">In the following example, everything except the content files from the package would be consumed by the project and everything except content files and analyzers would flow to the parent project.</span></span>
 
 ```xml
 <ItemGroup>
@@ -123,13 +129,13 @@ ms.locfileid: "44516205"
 </ItemGroup>
 ```
 
-<span data-ttu-id="341c8-159">`build` は `PrivateAssets` で含まれないため、targets と props は親プロジェクトに*流れる*ことに注目してください。</span><span class="sxs-lookup"><span data-stu-id="341c8-159">Note that because `build` is not included with `PrivateAssets`, targets and props *will* flow to the parent project.</span></span> <span data-ttu-id="341c8-160">たとえば、上記の参照は、AppLogger という名前の NuGet パッケージをビルドするプロジェクトで使用されます。</span><span class="sxs-lookup"><span data-stu-id="341c8-160">Consider, for example, that the reference above is used in a project that builds a NuGet package called AppLogger.</span></span> <span data-ttu-id="341c8-161">AppLogger は、AppLogger を使用するプロジェクトと同様に、`Contoso.Utility.UsefulStuff` から targets と props を使用できます。</span><span class="sxs-lookup"><span data-stu-id="341c8-161">AppLogger can consume the targets and props from `Contoso.Utility.UsefulStuff`, as can projects that consume AppLogger.</span></span>
+<span data-ttu-id="ae76d-160">`build` は `PrivateAssets` で含まれないため、targets と props は親プロジェクトに*流れる*ことに注目してください。</span><span class="sxs-lookup"><span data-stu-id="ae76d-160">Note that because `build` is not included with `PrivateAssets`, targets and props *will* flow to the parent project.</span></span> <span data-ttu-id="ae76d-161">たとえば、上記の参照は、AppLogger という名前の NuGet パッケージをビルドするプロジェクトで使用されます。</span><span class="sxs-lookup"><span data-stu-id="ae76d-161">Consider, for example, that the reference above is used in a project that builds a NuGet package called AppLogger.</span></span> <span data-ttu-id="ae76d-162">AppLogger は、AppLogger を使用するプロジェクトと同様に、`Contoso.Utility.UsefulStuff` から targets と props を使用できます。</span><span class="sxs-lookup"><span data-stu-id="ae76d-162">AppLogger can consume the targets and props from `Contoso.Utility.UsefulStuff`, as can projects that consume AppLogger.</span></span>
 
-## <a name="adding-a-packagereference-condition"></a><span data-ttu-id="341c8-162">PackageReference 条件を追加する</span><span class="sxs-lookup"><span data-stu-id="341c8-162">Adding a PackageReference condition</span></span>
+## <a name="adding-a-packagereference-condition"></a><span data-ttu-id="ae76d-163">PackageReference 条件を追加する</span><span class="sxs-lookup"><span data-stu-id="ae76d-163">Adding a PackageReference condition</span></span>
 
-<span data-ttu-id="341c8-163">条件を使用し、パッケージを含めるかどうかを制御できます。条件では、あらゆる MSBuild 変数や、targets または props ファイルに定義されている変数を使用できます。</span><span class="sxs-lookup"><span data-stu-id="341c8-163">You can use a condition to control whether a package is included, where conditions can use any MSBuild variable or a variable defined in the targets or props file.</span></span> <span data-ttu-id="341c8-164">ただし、現在のところ `TargetFramework` 変数のみに対応しています。</span><span class="sxs-lookup"><span data-stu-id="341c8-164">However, at presently, only the `TargetFramework` variable is supported.</span></span>
+<span data-ttu-id="ae76d-164">条件を使用し、パッケージを含めるかどうかを制御できます。条件では、あらゆる MSBuild 変数や、targets または props ファイルに定義されている変数を使用できます。</span><span class="sxs-lookup"><span data-stu-id="ae76d-164">You can use a condition to control whether a package is included, where conditions can use any MSBuild variable or a variable defined in the targets or props file.</span></span> <span data-ttu-id="ae76d-165">ただし、現在のところ `TargetFramework` 変数のみに対応しています。</span><span class="sxs-lookup"><span data-stu-id="ae76d-165">However, at presently, only the `TargetFramework` variable is supported.</span></span>
 
-<span data-ttu-id="341c8-165">たとえば、`net452` と共に `netstandard1.4` を対象とするが、`net452` にのみ該当する依存関係があるとします。</span><span class="sxs-lookup"><span data-stu-id="341c8-165">For example, say you're targeting `netstandard1.4` as well as `net452` but have a dependency that is applicable only for `net452`.</span></span> <span data-ttu-id="341c8-166">その場合、パッケージを使用する `netstandard1.4` プロジェクトでは、その不要な依存関係を追加することが望まれません。</span><span class="sxs-lookup"><span data-stu-id="341c8-166">In this case you don't want a `netstandard1.4` project that's consuming your package to add that unnecessary dependency.</span></span> <span data-ttu-id="341c8-167">それを回避するために、次のように `PackageReference` で条件を指定します。</span><span class="sxs-lookup"><span data-stu-id="341c8-167">To prevent this, you specify a condition on the `PackageReference` as follows:</span></span>
+<span data-ttu-id="ae76d-166">たとえば、`net452` と共に `netstandard1.4` を対象とするが、`net452` にのみ該当する依存関係があるとします。</span><span class="sxs-lookup"><span data-stu-id="ae76d-166">For example, say you're targeting `netstandard1.4` as well as `net452` but have a dependency that is applicable only for `net452`.</span></span> <span data-ttu-id="ae76d-167">その場合、パッケージを使用する `netstandard1.4` プロジェクトでは、その不要な依存関係を追加することが望まれません。</span><span class="sxs-lookup"><span data-stu-id="ae76d-167">In this case you don't want a `netstandard1.4` project that's consuming your package to add that unnecessary dependency.</span></span> <span data-ttu-id="ae76d-168">それを回避するために、次のように `PackageReference` で条件を指定します。</span><span class="sxs-lookup"><span data-stu-id="ae76d-168">To prevent this, you specify a condition on the `PackageReference` as follows:</span></span>
 
 ```xml
 <ItemGroup>
@@ -139,11 +145,11 @@ ms.locfileid: "44516205"
 </ItemGroup>
 ```
 
-<span data-ttu-id="341c8-168">このプロジェクトでビルドされたパッケージには、`net452` ターゲットのみの依存関係として Newtonsoft.json が追加されることが示されます。</span><span class="sxs-lookup"><span data-stu-id="341c8-168">A package built using this project will show that Newtonsoft.Json is included as a dependency only for a `net452` target:</span></span>
+<span data-ttu-id="ae76d-169">このプロジェクトでビルドされたパッケージには、`net452` ターゲットのみの依存関係として Newtonsoft.json が追加されることが示されます。</span><span class="sxs-lookup"><span data-stu-id="ae76d-169">A package built using this project will show that Newtonsoft.Json is included as a dependency only for a `net452` target:</span></span>
 
 ![VS2017 で PackageReference に条件を適用した結果](media/PackageReference-Condition.png)
 
-<span data-ttu-id="341c8-170">条件は `ItemGroup` レベルでも適用できます。また、条件はすべての子 `PackageReference` 要素に適用されます。</span><span class="sxs-lookup"><span data-stu-id="341c8-170">Conditions can also be applied at the `ItemGroup` level and will apply to all children `PackageReference` elements:</span></span>
+<span data-ttu-id="ae76d-171">条件は `ItemGroup` レベルでも適用できます。また、条件はすべての子 `PackageReference` 要素に適用されます。</span><span class="sxs-lookup"><span data-stu-id="ae76d-171">Conditions can also be applied at the `ItemGroup` level and will apply to all children `PackageReference` elements:</span></span>
 
 ```xml
 <ItemGroup Condition = "'$(TargetFramework)' == 'net452'">
@@ -153,3 +159,85 @@ ms.locfileid: "44516205"
     <!-- ... -->
 </ItemGroup>
 ```
+
+## <a name="locking-dependencies"></a><span data-ttu-id="ae76d-172">依存関係のロック</span><span class="sxs-lookup"><span data-stu-id="ae76d-172">Locking dependencies</span></span>
+<span data-ttu-id="ae76d-173">"*この機能を使用できるのは、NuGet **4.9** 以降で、かつ Visual Studio 2017 **15.9 Preview 5** 以降を使用している場合です。*"</span><span class="sxs-lookup"><span data-stu-id="ae76d-173">*This feature is available with NuGet **4.9** or above and with Visual Studio 2017 **15.9 Preview 5** or above.*</span></span>
+
+<span data-ttu-id="ae76d-174">NuGet の復元への入力は、プロジェクト ファイルのパッケージ参照のセット (最上位レベルまたは直接の依存関係) であり、出力は推移的依存関係を含むパッケージのすべての依存関係の完全なクロージャーです。</span><span class="sxs-lookup"><span data-stu-id="ae76d-174">Input to NuGet restore is a set of Package References from the project file (top-level or direct dependenices) and the output is a full closure of all the package dependencies including transitive dependencies.</span></span> <span data-ttu-id="ae76d-175">入力の PackageReference リストが変更されていない場合、NuGet では常に同じパッケージの依存関係の完全なクロージャーを生成しようとします。</span><span class="sxs-lookup"><span data-stu-id="ae76d-175">NuGet tries to always produce the same full closure of package dependencies if the input PackageReference list has not changed.</span></span> <span data-ttu-id="ae76d-176">ただし、このようにすることができないシナリオがいくつかあります。</span><span class="sxs-lookup"><span data-stu-id="ae76d-176">However, there are some scenarios where it is unable to do so.</span></span> <span data-ttu-id="ae76d-177">例:</span><span class="sxs-lookup"><span data-stu-id="ae76d-177">For example:</span></span>
+
+* <span data-ttu-id="ae76d-178">`<PackageReference Include="My.Sample.Lib" Version="4.*"/>` などの浮動バージョンを使用する場合。</span><span class="sxs-lookup"><span data-stu-id="ae76d-178">When you use floating versions like `<PackageReference Include="My.Sample.Lib" Version="4.*"/>`.</span></span> <span data-ttu-id="ae76d-179">ここでの意図はパッケージの復元ごとに最新バージョンに浮動することですが、グラフを特定の最新バージョンにロックして、利用可能な場合は明示的なジェスチャに基づいて後続のバージョンに浮動させることをユーザーが求めるシナリオがあります。</span><span class="sxs-lookup"><span data-stu-id="ae76d-179">While the intention here is to float to the latest version on every restore of packages, there are scenarios where users require the graph to be locked to a certain latest version and float to a later version, if available, upon an explicit gesture.</span></span>
+* <span data-ttu-id="ae76d-180">PackageReference のバージョン要件と一致する新しいパッケージのバージョンが公開されている場合。</span><span class="sxs-lookup"><span data-stu-id="ae76d-180">A newer version of the package matching PackageReference version requirements is published.</span></span> <span data-ttu-id="ae76d-181">たとえば、</span><span class="sxs-lookup"><span data-stu-id="ae76d-181">E.g.</span></span> 
+
+  * <span data-ttu-id="ae76d-182">1 日目: `<PackageReference Include="My.Sample.Lib" Version="4.0.0"/>` を指定したが、NuGet リポジトリで利用可能なバージョンが 4.1.0、4.2.0 および 4.3.0 だった場合。</span><span class="sxs-lookup"><span data-stu-id="ae76d-182">Day 1: if you specified `<PackageReference Include="My.Sample.Lib" Version="4.0.0"/>` but the versions available on the NuGet repositories were 4.1.0, 4.2.0 and 4.3.0.</span></span> <span data-ttu-id="ae76d-183">この場合、NuGet は 4.1.0 (最小に最も近いバージョン) に解決されています。</span><span class="sxs-lookup"><span data-stu-id="ae76d-183">In this case, NuGet would have resolved to  4.1.0 (nearest minimum version)</span></span>
+
+  * <span data-ttu-id="ae76d-184">2 日目: バージョン 4.0.0 が公開されます。</span><span class="sxs-lookup"><span data-stu-id="ae76d-184">Day 2: Version 4.0.0 gets published.</span></span> <span data-ttu-id="ae76d-185">NuGet では完全一致が検索され、4.0.0 への解決が始められます。</span><span class="sxs-lookup"><span data-stu-id="ae76d-185">NuGet will now find the exact match and start resolving to 4.0.0</span></span>
+
+* <span data-ttu-id="ae76d-186">指定したパッケージ バージョンがリポジトリから削除される場合。</span><span class="sxs-lookup"><span data-stu-id="ae76d-186">A given package version is removed from the repository.</span></span> <span data-ttu-id="ae76d-187">nuget.org ではパッケージの削除が許可されていませんが、すべてのパッケージ リポジトリがこの制約を持っているわけではありません。</span><span class="sxs-lookup"><span data-stu-id="ae76d-187">Though nuget.org does not allow package deletions, not all package repositories have this constraints.</span></span> <span data-ttu-id="ae76d-188">これにより、削除されたバージョンに解決できない場合、NuGet では最適な一致が検索されます。</span><span class="sxs-lookup"><span data-stu-id="ae76d-188">This results in NuGet finding the best match when it cannot resolve to the deleted version.</span></span>
+
+### <a name="enabling-lock-file"></a><span data-ttu-id="ae76d-189">ロック ファイルの有効化</span><span class="sxs-lookup"><span data-stu-id="ae76d-189">Enabling lock file</span></span>
+<span data-ttu-id="ae76d-190">パッケージの依存関係の完全なクロージャーを保持するために、プロジェクトに対して MSBuild プロパティ `RestorePackagesWithLockFile` を設定して、ロック ファイル機能にオプトインすることができます。</span><span class="sxs-lookup"><span data-stu-id="ae76d-190">In order to persist the full closure of package dependencies you can opt-in to the lock file feature by setting the MSBuild property `RestorePackagesWithLockFile` for your project:</span></span>
+
+```xml
+<PropertyGroup>
+    <!--- ... -->
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <!--- ... -->
+</PropertyGroup>    
+```
+
+<span data-ttu-id="ae76d-191">このプロパティが設定されている場合、NuGet の復元でロック ファイル (すべてのパッケージの依存関係を一覧表示する `packages.lock.json` ファイル) が生成されます。</span><span class="sxs-lookup"><span data-stu-id="ae76d-191">If this property is set, NuGet restore will generate a lock file - `packages.lock.json` file at the project root directory that lists all the package dependencies.</span></span> 
+
+> [!Note]
+> <span data-ttu-id="ae76d-192">プロジェクトのルート ディレクトリに `packages.lock.json` ファイルが含まれている場合、プロパティ `RestorePackagesWithLockFile` が設定されていない場合でも、常に復元でロック ファイルが使用されます。</span><span class="sxs-lookup"><span data-stu-id="ae76d-192">Once a project has `packages.lock.json` file in its root directory, the lock file is always used with restore even if the property `RestorePackagesWithLockFile` is not set.</span></span> <span data-ttu-id="ae76d-193">そのため、この機能にオプトインする別の方法は、プロジェクトのルート ディレクトリに空の `packages.lock.json` ファイルをダミーとして作成することです。</span><span class="sxs-lookup"><span data-stu-id="ae76d-193">So another way to opt-in to this feature is to create a dummy blank `packages.lock.json` file in the project's root directory.</span></span>
+
+### <a name="restore-behavior-with-lock-file"></a><span data-ttu-id="ae76d-194">ロック ファイルでの `restore` の動作</span><span class="sxs-lookup"><span data-stu-id="ae76d-194">`restore` behavior with lock file</span></span>
+<span data-ttu-id="ae76d-195">プロジェクトにロック ファイルが存在する場合、NuGet では `restore` を実行するためにこのロック ファイルが使用されます。</span><span class="sxs-lookup"><span data-stu-id="ae76d-195">If a lock file is present for project, NuGet uses this lock file to run `restore`.</span></span> <span data-ttu-id="ae76d-196">プロジェクト ファイル (または依存プロジェクトのファイル) で言及されたパッケージの依存関係に変更があったかどうか確認するために、NuGet で簡単なチェックが行われます。変更がなかった場合は、ロック ファイルで言及されたパッケージを単純に復元します。</span><span class="sxs-lookup"><span data-stu-id="ae76d-196">NuGet does a quick check to see if there were any changes in the package dependencies as mentioned in the project file (or dependent projects' files) and if there were no changes it just restores the packages mentioned in the lock file.</span></span> <span data-ttu-id="ae76d-197">パッケージの依存関係を再評価することはありません。</span><span class="sxs-lookup"><span data-stu-id="ae76d-197">There is no re-evaluation of package dependencies.</span></span>
+
+<span data-ttu-id="ae76d-198">NuGet によって、プロジェクト ファイルで言及したような定義された依存関係の変更が検出された場合、パッケージ グラフが再評価され、プロジェクトの新しいパッケージ クロージャを反映するためにロック ファイルが更新されます。</span><span class="sxs-lookup"><span data-stu-id="ae76d-198">If NuGet detects a change in the defined dependenices as mentioned in the project file(s), it re-evaluates the package graph and updates the lock file to reflect the new package closure for the project.</span></span>
+
+<span data-ttu-id="ae76d-199">実行中にパッケージの依存関係を変更したくない CI/CD やその他のシナリオでは、`lockedmode` を `true` に設定することでこれを実行できます。</span><span class="sxs-lookup"><span data-stu-id="ae76d-199">For CI/CD and other scenarios, where you would not want to change the package dependenies on the fly, you can do so by setting the `lockedmode` to `true`:</span></span>
+
+<span data-ttu-id="ae76d-200">dotnet.exe の場合は、次を実行します。</span><span class="sxs-lookup"><span data-stu-id="ae76d-200">For dotnet.exe, run:</span></span>
+```
+> dotnet.exe restore --locked-mode
+```
+
+<span data-ttu-id="ae76d-201">msbuild.exe の場合は、次を実行します。</span><span class="sxs-lookup"><span data-stu-id="ae76d-201">For msbuild.exe, run:</span></span>
+```
+> msbuild.exe /t:restore /p:RestoreLockedMode=true
+```
+
+<span data-ttu-id="ae76d-202">自分のプロジェクト ファイルにもこの条件付き MSBuild プロパティを設定できます。</span><span class="sxs-lookup"><span data-stu-id="ae76d-202">You may also set this conditional MSBuild property in your project file:</span></span>
+```xml
+<PropertyGroup>
+    <!--- ... -->
+    <RestoreLockedMode>true</RestoreLockedMode>
+    <!--- ... -->
+</PropertyGroup> 
+```
+
+<span data-ttu-id="ae76d-203">ロック モードが `true` である場合、復元ではロック ファイルに記載されている正確なパッケージが復元されるか、または、ロック ファイルの作成後にプロジェクトの定義されたパッケージの依存関係を更新した場合は、失敗します。</span><span class="sxs-lookup"><span data-stu-id="ae76d-203">If locked mode is `true`, restore will either restore the exact packages as listed in the lock file or fail if you updated the defined package dependencies for the project after lock file was created.</span></span>
+
+### <a name="make-lock-file-part-of-your-source-repository"></a><span data-ttu-id="ae76d-204">ロック ファイルをソース リポジトリの一部にする</span><span class="sxs-lookup"><span data-stu-id="ae76d-204">Make lock file part of your source repository</span></span>
+<span data-ttu-id="ae76d-205">アプリケーションを作成する場合、目的の実行可能ファイルとプロジェクトは依存関係チェーンの最後に位置します。NuGet が復元中にこれを使用できるように、ロック ファイルをソース コード リポジトリにチェックインします。</span><span class="sxs-lookup"><span data-stu-id="ae76d-205">If you are building an application, an executable and the project in question is at the end of the dependency chain then do check in the lock file to the source code repository so that NuGet can make use of it during restore.</span></span>
+
+<span data-ttu-id="ae76d-206">ただし、当該プロジェクトが出荷しないライブラリ プロジェクトである場合や、他のプロジェクトが依存する共通コード プロジェクトである場合は、ソース コードの一部としてロック ファイルをチェックイン**しないでください**。</span><span class="sxs-lookup"><span data-stu-id="ae76d-206">However, if your project is a library project that you do not ship or a common code project on which other projects depend upon, you **should not** check in the lock file as part of your source code.</span></span> <span data-ttu-id="ae76d-207">ロック ファイルを保持しても問題はありませんが、共通コード プロジェクトのロックされているパッケージの依存関係は、ロック ファイル内で記載されているように、この共通コード プロジェクトに依存するプロジェクトの復元/ビルド中に使用されない場合があります。</span><span class="sxs-lookup"><span data-stu-id="ae76d-207">There is no harm in keeping the lock file but the locked package dependencies for the common code project may not be used, as listed in the lock file, during the restore/build of a project that depends on this common-code project.</span></span>
+
+<span data-ttu-id="ae76d-208">例:</span><span class="sxs-lookup"><span data-stu-id="ae76d-208">Eg.</span></span>
+```
+ProjectA
+  |------> PackageX 2.0.0
+  |------> ProjectB
+             |------>PackageX 1.0.0
+```
+<span data-ttu-id="ae76d-209">`ProjectA` が `PackageX` のバージョン `2.0.0` に依存し、`PackageX` のバージョン `1.0.0` に依存する `ProjectB` も参照している場合、`ProjectB` のロック ファイルでは `PackageX` のバージョン `1.0.0` に対する依存関係が記載されます。</span><span class="sxs-lookup"><span data-stu-id="ae76d-209">If `ProjectA` has a dependency on a `PackageX` version `2.0.0` and also references `ProjectB` that depends on `PackageX` version `1.0.0`, then the lock file for `ProjectB` will list a dependency on `PackageX` version `1.0.0`.</span></span> <span data-ttu-id="ae76d-210">ただし、`ProjectA` をビルドすると、そのロック ファイルには `PackageX` のバージョン **`2.0.0`** に対する依存関係が含まれます。`ProjectB` のロック ファイルに記載されている `1.0.0` では**ありません**。</span><span class="sxs-lookup"><span data-stu-id="ae76d-210">However, when `ProjectA` is built, its lock file will contain a dependency on `PackageX` version **`2.0.0`** and **not** `1.0.0` as listed in the lock file for `ProjectB`.</span></span> <span data-ttu-id="ae76d-211">したがって、共通コード プロジェクトのロックファイルは、それが依存するプロジェクトのために解決されるパッケージに対して強い力を持っていません。</span><span class="sxs-lookup"><span data-stu-id="ae76d-211">Thus, the lock file of a common code project has little say over the packages resolved for projects that depend on it.</span></span>
+
+### <a name="lock-file-extensibility"></a><span data-ttu-id="ae76d-212">ロック ファイルの拡張機能</span><span class="sxs-lookup"><span data-stu-id="ae76d-212">Lock file extensibility</span></span>
+<span data-ttu-id="ae76d-213">以下で説明するように、ロック ファイルを使用して復元のさまざまな動作を制御できます。</span><span class="sxs-lookup"><span data-stu-id="ae76d-213">You can control various behaviors of restore with lock file as described below:</span></span>
+
+| <span data-ttu-id="ae76d-214">オプション</span><span class="sxs-lookup"><span data-stu-id="ae76d-214">Option</span></span> | <span data-ttu-id="ae76d-215">対応する MSBuild オプション</span><span class="sxs-lookup"><span data-stu-id="ae76d-215">MSBuild equivalent option</span></span> | 
+|:---  |:--- |
+| `--use-lock-file` | <span data-ttu-id="ae76d-216">プロジェクトのロック ファイルでのブートス トラップの使用です。</span><span class="sxs-lookup"><span data-stu-id="ae76d-216">Bootstraps use of lock file for a project.</span></span> <span data-ttu-id="ae76d-217">代わりに、プロジェクト ファイル内で `RestorePackagesWithLockFile` プロパティを設定することもできます。</span><span class="sxs-lookup"><span data-stu-id="ae76d-217">You can alternatively set `RestorePackagesWithLockFile` property in the project file</span></span> | 
+| `--locked-mode` | <span data-ttu-id="ae76d-218">復元のロック モードを有効にします。</span><span class="sxs-lookup"><span data-stu-id="ae76d-218">Enables locked mode for restore.</span></span> <span data-ttu-id="ae76d-219">これは、繰り返し可能なビルドを取得する必要がある CI/CD のシナリオで役立ちます。</span><span class="sxs-lookup"><span data-stu-id="ae76d-219">This is useful in CI/CD scenarios where you would like to get the erepeatable builds.</span></span> <span data-ttu-id="ae76d-220">または、`RestoreLockedMode` MSBuild プロパティを `true` に設定する方法もあります。</span><span class="sxs-lookup"><span data-stu-id="ae76d-220">This can be also by setting the `RestoreLockedMode` MSBuild property to `true`</span></span> |  
+| `--force-evaluate` | <span data-ttu-id="ae76d-221">このオプションは、プロジェクトで定義する浮動バージョンを使用するパッケージで役立ちます。</span><span class="sxs-lookup"><span data-stu-id="ae76d-221">This option is useful with packages with floating version defined in the project.</span></span> <span data-ttu-id="ae76d-222">既定では、NuGet の復元では、`--force-evaluate` オプションを使用して復元を実行しない限り、各復元に基づくパッケージ バージョンの自動更新は行われません。</span><span class="sxs-lookup"><span data-stu-id="ae76d-222">By default, NuGet restore will not update the package version automatically upon each restore unless you run restore with `--force-evaluate` option.</span></span> |
+| `--lock-file-path` | <span data-ttu-id="ae76d-223">プロジェクトのカスタム ロック ファイルの場所を定義します。</span><span class="sxs-lookup"><span data-stu-id="ae76d-223">Defines a custom lock file location for a project.</span></span> <span data-ttu-id="ae76d-224">これは、MSBuild プロパティ `NuGetLockFilePath` を設定することでも実現できます。</span><span class="sxs-lookup"><span data-stu-id="ae76d-224">This can be also achieved by setting the MSBuild property `NuGetLockFilePath`.</span></span> <span data-ttu-id="ae76d-225">既定では、NuGet はルート ディレクトリでの `packages.lock.json` をサポートします。</span><span class="sxs-lookup"><span data-stu-id="ae76d-225">By default, NuGet supports `packages.lock.json` at the root directory.</span></span> <span data-ttu-id="ae76d-226">同じディレクトリ内に複数のプロジェクトがある場合、NuGet はプロジェクト固有のロック ファイル `packages.<project_name>.lock.json` をサポートします。</span><span class="sxs-lookup"><span data-stu-id="ae76d-226">If you have multiple projects in the same directory, NuGet supports project specific lock file `packages.<project_name>.lock.json`</span></span> |
