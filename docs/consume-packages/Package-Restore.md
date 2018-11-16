@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: b95c4462a214a78452f9dbe35936620636c4f60b
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: da69181aebe3bebcea6acd6e15fde6b77dd33452
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548773"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580299"
 ---
 # <a name="package-restore"></a>パッケージの復元
 
@@ -62,9 +62,9 @@ ms.locfileid: "43548773"
         </packageRestore>
     </configuration>
     ```
-    <br/>
-    > [!Note]
-    >  `packageRestore/enabled` の設定は、Visual Studio の起動前またはビルドの開始前に環境変数 **EnableNuGetPackageRestore** の値を TRUE または FALSE に設定することにより、グローバルにオーバーライドできます。
+
+> [!Note]
+>  `packageRestore/enabled` の設定は、Visual Studio の起動前またはビルドの開始前に環境変数 **EnableNuGetPackageRestore** の値を TRUE または FALSE に設定することにより、グローバルにオーバーライドできます。
 
 - **Visual Studio でのビルド中に見つからないパッケージを自動的に確認**: 次に示すように、`NuGet.Config` ファイル (Windows では `%AppData%\NuGet\NuGet.Config`、Mac/Linux では `~/.nuget/NuGet/NuGet.Config`) の `packageRestore/automatic` 設定を変更することにより、自動復元を制御します。 このオプションをオンにして Visual Studio からビルドを実行すると、欠落しているパッケージが自動的に復元されます。 このオプションは、MSBuild を使用してコマンド ラインから実行されるビルドには影響しません。
 
