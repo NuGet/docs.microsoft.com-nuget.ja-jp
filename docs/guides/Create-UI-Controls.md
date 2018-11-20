@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: dd36987e020c2daa02bb875aa9dbd69c85bba4d3
-ms.sourcegitcommit: 1bd72dca2f85b4267b9924236f1d23dd7b0ed733
+ms.openlocfilehash: dfbd6a3e6d59dfcea6394891703ea66bce5e8e92
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49951747"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580274"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>NuGet パッケージとして UI コントロールを作成する
 
@@ -89,7 +89,11 @@ XAML コントロールが Visual Studio の XAML デザイナーのツールボ
 
 ツールボックス/資産ウィンドウにカスタム アイコンを表示するには、プロジェクトに画像を追加するか、"Namespace.ControlName.extension" という名前の対応する `design.dll` プロジェクトに画像を追加し、ビルド アクションを "埋め込みリソース" に設定します。 また、関連付けられている `AssemblyInfo.cs` によって ProvideMetadata 属性 (`[assembly: ProvideMetadata(typeof(RegisterMetadata))]`) が指定されていることを確認する必要があります。 この[サンプル](https://github.com/NuGet/Samples/blob/master/ExtensionSDKasNuGetPackage/NativePackage.Design/Properties/AssemblyInfo.cs#L20)をご覧ください。
 
-利用できる形式は `.png`、`.jpg`、`.jpeg`、`.gif`、`.bmp` です。 推奨されるイメージ サイズは 64 × 64 ピクセルです。
+利用できる形式は `.png`、`.jpg`、`.jpeg`、`.gif`、`.bmp` です。 推奨される形式は、16 × 16 ピクセルの BMP24 です。
+
+![ツール ボックスのアイコンのサンプル](https://raw.githubusercontent.com/NuGet/docs.microsoft.com-nuget/live/docs/guides/media/ColorPicker_16x16x24.bmp)
+
+ピンク色の背景は実行時に置き換わります。 アイコンの色は、Visual Studio のテーマが変更され、その背景色が予想されるときに変更されます。 詳細については、「[Visual Studio のイメージとアイコン](https://docs.microsoft.com/en-us/visualstudio/extensibility/ux-guidelines/images-and-icons-for-visual-studio)」を参照してください。
 
 次の例では、プロジェクトには、"ManagedPackage.MyCustomControl.png" という名前の画像ファイルが含まれています。
 

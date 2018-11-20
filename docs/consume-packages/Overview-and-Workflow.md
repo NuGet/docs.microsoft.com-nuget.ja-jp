@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/22/2018
 ms.topic: conceptual
-ms.openlocfilehash: a5807a6895a76a7d6660d218b29e1d3a2802ca28
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 5f52b00e0c45882fb7a4bd1c1a80022192f3be6b
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545049"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580247"
 ---
 # <a name="package-consumption-workflow"></a>パッケージ利用のワークフロー
 
@@ -18,7 +18,7 @@ nuget.org と組織が確立する可能性のあるプライベート パッケ
 
 ![パッケージ ソースへの移動、パッケージの検索、プロジェクトへのインストール、パッケージ API への using ステートメントと呼び出しの追加を示すフロー](media/Overview-01-GeneralFlow.png)
 
-"\* _Visual Studio および dotnet.ex` のみ。nuget インストール コマンドは、プロジェクト ファイルまたは packages.config を変更しません。エントリは、手動で管理する必要があります。_"
+\* _Visual Studio および `dotnet.exe` のみ。`nuget install` コマンドは、プロジェクト ファイルまたは `packages.config` ファイルを変更しません。エントリは、手動で管理する必要があります。_
 
 詳細については、「[プロジェクトの NuGet パッケージの検索と評価](../consume-packages/finding-and-choosing-packages.md)」および「[Different ways to install a NuGet package](ways-to-install-a-package.md)」(NuGet パッケージをインストールするためのさまざまな方法) を参照してください。
 

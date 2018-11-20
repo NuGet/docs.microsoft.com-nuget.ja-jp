@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/11/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8c63abc9971623e0732ae8d973fafcd04c5d9f48
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: c136a3dffac38a68b80f730de1e4c3a3a9c8bd5d
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548805"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580364"
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet に関してよく寄せられる質問
 
@@ -166,7 +166,7 @@ NuGet では、すべてのパッケージに署名することをお勧めし�
 
 パッケージに対してリストされる依存関係は、パッケージ自体から自動的に生成されるものであり、編集できないことに注意してください。
 
-また、パッケージを [staging.nuget.org](http://staging.nuget.org) にアップロードすることは、パブリック ギャラリーでパッケージを使用できるようにせずに、パッケージをテストして検証する優れた方法です。
+また、パッケージを [int.nugettest.org](https://int.nugettest.org) にアップロードすることは、パブリック ギャラリーでパッケージを使用できるようにせずに、パッケージをテストして検証する優れた方法です。
 
 **今後発行されるパッケージの名前を予約することはできますか?**
 
@@ -182,9 +182,9 @@ NuGet コミュニティと協力して、パッケージ所有者と他のソ�
 
 **nuget.org に自分のテスト パッケージをアップロードするよう勧めされていますか?**
 
-テスト目的で、[staging.nuget.org](http://staging.nuget.org) を使用することができます。また、[myget.org](https://myget.org) や [Visual Studio Team Services](https://blogs.msdn.microsoft.com/visualstudioalm/2015/08/27/announcing-package-management-support-for-vsotfs/) などのパブリック NuGet サーバーを代わりに使用することもできます。
+テスト目的で、[int.nugettest.org](https://int.nugettest.org) を使用することができます。また、[myget.org](https://myget.org) や [Visual Studio Team Services](https://blogs.msdn.microsoft.com/visualstudioalm/2015/08/27/announcing-package-management-support-for-vsotfs/) などのパブリック NuGet サーバーを代わりに使用することもできます。
 
-staging.nuget.org にアップロードされたパッケージは保持されない場合があることに注意してください。 [preview の終了](http://blog.nuget.org/20130419/goodbye-preview.html)に関するページ参照してください。
+int.nugettest.org にアップロードされたパッケージは保持されない場合があることに注意してください。
 
 **nuget.org にアップロードできるパッケージの最大サイズは何ですか?**
 

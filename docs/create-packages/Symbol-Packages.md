@@ -6,14 +6,18 @@ ms.author: karann
 ms.date: 09/12/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: ad1cf08437b4802d981f8c1a96ab9dc75425a2f0
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 3321cba9082eb35b53ba693e246db18e5d8e187b
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43550616"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580260"
 ---
-# <a name="creating-symbol-packages"></a>シンボル パッケージを作成する
+# <a name="creating-symbol-packages-legacy"></a>シンボル パッケージ (レガシ) の作成
+
+> [!Important]
+> シンボル パッケージに推奨される新しい形式は .snupkg です。 「[シンボル パッケージ (.snupkg) の作成](Symbol-Packages-snupkg.md)」を参照してください。 </br>
+> .symbols.nupkg は、互換性のためにのみ、引き続きサポートされます。
 
 nuget.org やその他のソースのためにパッケージをビルドするだけでなく、NuGet では、関連するシンボル パッケージを作成し、それを SymbolSource リポジトリに公開することもできます。
 
