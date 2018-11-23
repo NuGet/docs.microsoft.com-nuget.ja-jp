@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: 1221631b22eed7d2d8e58bd08ff120d91231d49b
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: db02089bec3d2b8c001518fa0542375dc5418eb8
+ms.sourcegitcommit: c825eb7e222d4a551431643f5b5617ae868ebe0a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580398"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51944068"
 ---
 # <a name="creating-nuget-packages"></a>NuGet パッケージの作成
 
@@ -61,7 +61,8 @@ ms.locfileid: "51580398"
 - 著作権情報
 - [Visual Studio のパッケージ マネージャー UI](../tools/package-manager-ui.md) の簡単な説明。
 - ロケール ID
-- ホーム ページとライセンス URL
+- [プロジェクトの URL]
+- 式またはファイルとしてライセンス (非推奨とされている `licenseUrl`、[`license` nuspec メタデータ要素を使用する](../reference/nuspec.md#license))
 - アイコン URL
 - 依存関係と参照の一覧
 - ギャラリー検索で役立つタグ
@@ -86,10 +87,13 @@ ms.locfileid: "51580398"
             users to easily find other packages by the same owners.  
         -->
         <owners>dejanatc, rjdey</owners>
-
-         <!-- License and project URLs provide links for the gallery -->
-        <licenseUrl>http://opensource.org/licenses/MS-PL</licenseUrl>
+        
+         <!-- Project URL provides a link for the gallery -->
         <projectUrl>http://github.com/contoso/UsefulStuff</projectUrl>
+
+         <!-- License information is displayed on the gallery -->
+        <license type="expression">Apache-2.0</license>
+        
 
         <!-- The icon is used in Visual Studio's package manager UI -->
         <iconUrl>http://github.com/contoso/UsefulStuff/nuget_icon.png</iconUrl>
