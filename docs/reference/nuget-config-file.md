@@ -5,54 +5,56 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: reference
-ms.openlocfilehash: 504a48224051265164f9ab183e63fa5e7f5867e6
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: c294e4c188db2e90e6bcb62b60f71ed5529977fe
+ms.sourcegitcommit: a1846edf70ddb2505d58e536e08e952d870931b0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546916"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52303520"
 ---
-# <a name="nugetconfig-reference"></a><span data-ttu-id="d5e26-103">nuget.config 参照</span><span class="sxs-lookup"><span data-stu-id="d5e26-103">nuget.config reference</span></span>
+# <a name="nugetconfig-reference"></a><span data-ttu-id="61ae8-103">nuget.config 参照</span><span class="sxs-lookup"><span data-stu-id="61ae8-103">nuget.config reference</span></span>
 
-<span data-ttu-id="d5e26-104">NuGet の動作は、「[Configuring NuGet Behavior](../consume-packages/configuring-nuget-behavior.md)」(NuGet 動作の構成) に記載の各種 `NuGet.Config` ファイルでの設定によって制御されます。</span><span class="sxs-lookup"><span data-stu-id="d5e26-104">NuGet behavior is controlled by settings in different `NuGet.Config` files as described in [Configuring NuGet Behavior](../consume-packages/configuring-nuget-behavior.md).</span></span>
+<span data-ttu-id="61ae8-104">NuGet の動作は、「[Configuring NuGet Behavior](../consume-packages/configuring-nuget-behavior.md)」(NuGet 動作の構成) に記載の各種 `NuGet.Config` ファイルでの設定によって制御されます。</span><span class="sxs-lookup"><span data-stu-id="61ae8-104">NuGet behavior is controlled by settings in different `NuGet.Config` files as described in [Configuring NuGet Behavior](../consume-packages/configuring-nuget-behavior.md).</span></span>
 
-<span data-ttu-id="d5e26-105">`nuget.config` は、最上位の `<configuration>` ノードを含む XML ファイルであり、このトピックで説明するセクション要素が含まれます。</span><span class="sxs-lookup"><span data-stu-id="d5e26-105">`nuget.config` is an XML file containing a top-level `<configuration>` node, which then contains the section elements described in this topic.</span></span> <span data-ttu-id="d5e26-106">各セクションには、`key` 属性および `value` 属性を持つ 0 個以上の `<add>` 要素が含まれています。</span><span class="sxs-lookup"><span data-stu-id="d5e26-106">Each section contains zero or more `<add>` elements with `key` and `value` attributes.</span></span> <span data-ttu-id="d5e26-107">「[examples config file](#example-config-file)」 (構成ファイルの例) を参照してください。</span><span class="sxs-lookup"><span data-stu-id="d5e26-107">See the [examples config file](#example-config-file).</span></span> <span data-ttu-id="d5e26-108">名前の設定には大文字と小文字の区別があり、値には[環境変数](#using-environment-variables)を使用することができます。</span><span class="sxs-lookup"><span data-stu-id="d5e26-108">Setting names are case-insensitive, and values can use [environment variables](#using-environment-variables).</span></span>
+<span data-ttu-id="61ae8-105">`nuget.config` は、最上位の `<configuration>` ノードを含む XML ファイルであり、このトピックで説明するセクション要素が含まれます。</span><span class="sxs-lookup"><span data-stu-id="61ae8-105">`nuget.config` is an XML file containing a top-level `<configuration>` node, which then contains the section elements described in this topic.</span></span> <span data-ttu-id="61ae8-106">各セクションには、0 個以上の項目が含まれています。</span><span class="sxs-lookup"><span data-stu-id="61ae8-106">Each section contains zero or more items.</span></span> <span data-ttu-id="61ae8-107">「[examples config file](#example-config-file)」 (構成ファイルの例) を参照してください。</span><span class="sxs-lookup"><span data-stu-id="61ae8-107">See the [examples config file](#example-config-file).</span></span> <span data-ttu-id="61ae8-108">名前の設定には大文字と小文字の区別があり、値には[環境変数](#using-environment-variables)を使用することができます。</span><span class="sxs-lookup"><span data-stu-id="61ae8-108">Setting names are case-insensitive, and values can use [environment variables](#using-environment-variables).</span></span>
 
-<span data-ttu-id="d5e26-109">このトピックの内容:</span><span class="sxs-lookup"><span data-stu-id="d5e26-109">In this topic:</span></span>
+<span data-ttu-id="61ae8-109">このトピックの内容:</span><span class="sxs-lookup"><span data-stu-id="61ae8-109">In this topic:</span></span>
 
-- [<span data-ttu-id="d5e26-110">config セクション</span><span class="sxs-lookup"><span data-stu-id="d5e26-110">config section</span></span>](#config-section)
-- [<span data-ttu-id="d5e26-111">bindingRedirects セクション</span><span class="sxs-lookup"><span data-stu-id="d5e26-111">bindingRedirects section</span></span>](#bindingredirects-section)
-- [<span data-ttu-id="d5e26-112">packageRestore セクション</span><span class="sxs-lookup"><span data-stu-id="d5e26-112">packageRestore section</span></span>](#packagerestore-section)
-- [<span data-ttu-id="d5e26-113">solution セクション</span><span class="sxs-lookup"><span data-stu-id="d5e26-113">solution section</span></span>](#solution-section)
-- <span data-ttu-id="d5e26-114">[パッケージ ソース セクション](#package-source-sections):</span><span class="sxs-lookup"><span data-stu-id="d5e26-114">[Package source sections](#package-source-sections):</span></span>
-  - [<span data-ttu-id="d5e26-115">packageSources</span><span class="sxs-lookup"><span data-stu-id="d5e26-115">packageSources</span></span>](#packagesources)
-  - [<span data-ttu-id="d5e26-116">packageSourceCredentials</span><span class="sxs-lookup"><span data-stu-id="d5e26-116">packageSourceCredentials</span></span>](#packagesourcecredentials)
-  - [<span data-ttu-id="d5e26-117">apikeys</span><span class="sxs-lookup"><span data-stu-id="d5e26-117">apikeys</span></span>](#apikeys)
-  - [<span data-ttu-id="d5e26-118">disabledPackageSources</span><span class="sxs-lookup"><span data-stu-id="d5e26-118">disabledPackageSources</span></span>](#disabledpackagesources)
-  - [<span data-ttu-id="d5e26-119">activePackageSource</span><span class="sxs-lookup"><span data-stu-id="d5e26-119">activePackageSource</span></span>](#activepackagesource)
-- [<span data-ttu-id="d5e26-120">環境変数の使用</span><span class="sxs-lookup"><span data-stu-id="d5e26-120">Using environment variables</span></span>](#using-environment-variables)
-- [<span data-ttu-id="d5e26-121">構成ファイルの例</span><span class="sxs-lookup"><span data-stu-id="d5e26-121">Example config file</span></span>](#example-config-file)
+- [<span data-ttu-id="61ae8-110">config セクション</span><span class="sxs-lookup"><span data-stu-id="61ae8-110">config section</span></span>](#config-section)
+- [<span data-ttu-id="61ae8-111">bindingRedirects セクション</span><span class="sxs-lookup"><span data-stu-id="61ae8-111">bindingRedirects section</span></span>](#bindingredirects-section)
+- [<span data-ttu-id="61ae8-112">packageRestore セクション</span><span class="sxs-lookup"><span data-stu-id="61ae8-112">packageRestore section</span></span>](#packagerestore-section)
+- [<span data-ttu-id="61ae8-113">solution セクション</span><span class="sxs-lookup"><span data-stu-id="61ae8-113">solution section</span></span>](#solution-section)
+- <span data-ttu-id="61ae8-114">[パッケージ ソース セクション](#package-source-sections):</span><span class="sxs-lookup"><span data-stu-id="61ae8-114">[Package source sections](#package-source-sections):</span></span>
+  - [<span data-ttu-id="61ae8-115">packageSources</span><span class="sxs-lookup"><span data-stu-id="61ae8-115">packageSources</span></span>](#packagesources)
+  - [<span data-ttu-id="61ae8-116">packageSourceCredentials</span><span class="sxs-lookup"><span data-stu-id="61ae8-116">packageSourceCredentials</span></span>](#packagesourcecredentials)
+  - [<span data-ttu-id="61ae8-117">apikeys</span><span class="sxs-lookup"><span data-stu-id="61ae8-117">apikeys</span></span>](#apikeys)
+  - [<span data-ttu-id="61ae8-118">disabledPackageSources</span><span class="sxs-lookup"><span data-stu-id="61ae8-118">disabledPackageSources</span></span>](#disabledpackagesources)
+  - [<span data-ttu-id="61ae8-119">activePackageSource</span><span class="sxs-lookup"><span data-stu-id="61ae8-119">activePackageSource</span></span>](#activepackagesource)
+- [<span data-ttu-id="61ae8-120">trustedSigners セクション</span><span class="sxs-lookup"><span data-stu-id="61ae8-120">trustedSigners section</span></span>](#trustedsigners-section)
+- [<span data-ttu-id="61ae8-121">環境変数の使用</span><span class="sxs-lookup"><span data-stu-id="61ae8-121">Using environment variables</span></span>](#using-environment-variables)
+- [<span data-ttu-id="61ae8-122">構成ファイルの例</span><span class="sxs-lookup"><span data-stu-id="61ae8-122">Example config file</span></span>](#example-config-file)
 
 <a name="dependencyVersion"></a>
 <a name="globalPackagesFolder"></a>
 <a name="repositoryPath"></a>
 <a name="proxy-settings"></a>
 
-## <a name="config-section"></a><span data-ttu-id="d5e26-122">config セクション</span><span class="sxs-lookup"><span data-stu-id="d5e26-122">config section</span></span>
+## <a name="config-section"></a><span data-ttu-id="61ae8-123">config セクション</span><span class="sxs-lookup"><span data-stu-id="61ae8-123">config section</span></span>
 
-<span data-ttu-id="d5e26-123">[`nuget config` コマンド](../tools/cli-ref-config.md)を使用して設定できる、さまざまな構成設定が含まれます。</span><span class="sxs-lookup"><span data-stu-id="d5e26-123">Contains miscellaneous configuration settings, which can be set using the [`nuget config` command](../tools/cli-ref-config.md).</span></span>
+<span data-ttu-id="61ae8-124">[`nuget config` コマンド](../tools/cli-ref-config.md)を使用して設定できる、さまざまな構成設定が含まれます。</span><span class="sxs-lookup"><span data-stu-id="61ae8-124">Contains miscellaneous configuration settings, which can be set using the [`nuget config` command](../tools/cli-ref-config.md).</span></span>
 
-<span data-ttu-id="d5e26-124">`dependencyVersion` `repositoryPath`を使用してプロジェクトにのみ適用`packages.config`します。</span><span class="sxs-lookup"><span data-stu-id="d5e26-124">`dependencyVersion` and `repositoryPath` apply only to projects using `packages.config`.</span></span> <span data-ttu-id="d5e26-125">`globalPackagesFolder` PackageReference 形式を使用してプロジェクトにのみ適用されます。</span><span class="sxs-lookup"><span data-stu-id="d5e26-125">`globalPackagesFolder` applies only to projects using the PackageReference format.</span></span>
+<span data-ttu-id="61ae8-125">`dependencyVersion` `repositoryPath`を使用してプロジェクトにのみ適用`packages.config`します。</span><span class="sxs-lookup"><span data-stu-id="61ae8-125">`dependencyVersion` and `repositoryPath` apply only to projects using `packages.config`.</span></span> <span data-ttu-id="61ae8-126">`globalPackagesFolder` PackageReference 形式を使用してプロジェクトにのみ適用されます。</span><span class="sxs-lookup"><span data-stu-id="61ae8-126">`globalPackagesFolder` applies only to projects using the PackageReference format.</span></span>
 
-| <span data-ttu-id="d5e26-126">キー</span><span class="sxs-lookup"><span data-stu-id="d5e26-126">Key</span></span> | <span data-ttu-id="d5e26-127">[値]</span><span class="sxs-lookup"><span data-stu-id="d5e26-127">Value</span></span> |
+| <span data-ttu-id="61ae8-127">キー</span><span class="sxs-lookup"><span data-stu-id="61ae8-127">Key</span></span> | <span data-ttu-id="61ae8-128">[値]</span><span class="sxs-lookup"><span data-stu-id="61ae8-128">Value</span></span> |
 | --- | --- |
-| <span data-ttu-id="d5e26-128">dependencyVersion (`packages.config` のみ)</span><span class="sxs-lookup"><span data-stu-id="d5e26-128">dependencyVersion (`packages.config` only)</span></span> | <span data-ttu-id="d5e26-129">`-DependencyVersion` スイッチが直接指定されない場合の、パッケージのインストール、復元、および更新における既定の `DependencyVersion` 値です。</span><span class="sxs-lookup"><span data-stu-id="d5e26-129">The default `DependencyVersion` value for package install, restore, and update, when the `-DependencyVersion` switch is not specified directly.</span></span> <span data-ttu-id="d5e26-130">この値は、NuGet パッケージ マネージャー UI でも使用されます。</span><span class="sxs-lookup"><span data-stu-id="d5e26-130">This value is also used by the NuGet Package Manager UI.</span></span> <span data-ttu-id="d5e26-131">値は `Lowest`、`HighestPatch`、`HighestMinor`、`Highest` となります。</span><span class="sxs-lookup"><span data-stu-id="d5e26-131">Values are `Lowest`, `HighestPatch`, `HighestMinor`, `Highest`.</span></span> |
-| <span data-ttu-id="d5e26-132">globalPackagesFolder (プロジェクトは PackageReference をのみを使用して)</span><span class="sxs-lookup"><span data-stu-id="d5e26-132">globalPackagesFolder (projects using PackageReference only)</span></span> | <span data-ttu-id="d5e26-133">既定のグローバル パッケージ フォルダーの場所です。</span><span class="sxs-lookup"><span data-stu-id="d5e26-133">The location of the default global packages folder.</span></span> <span data-ttu-id="d5e26-134">既定値は、`%userprofile%\.nuget\packages` (Windows) または `~/.nuget/packages` (Mac/Linux) です。</span><span class="sxs-lookup"><span data-stu-id="d5e26-134">The default is `%userprofile%\.nuget\packages` (Windows) or `~/.nuget/packages` (Mac/Linux).</span></span> <span data-ttu-id="d5e26-135">相対パスは、プロジェクト固有の `nuget.config` ファイルで使用できます。</span><span class="sxs-lookup"><span data-stu-id="d5e26-135">A relative path can be used in project-specific `nuget.config` files.</span></span> <span data-ttu-id="d5e26-136">この設定は、優先 NUGET_PACKAGES 環境変数によってオーバーライドされます。</span><span class="sxs-lookup"><span data-stu-id="d5e26-136">This setting is overridden by the NUGET_PACKAGES environment variable, which takes precedence.</span></span> |
-| <span data-ttu-id="d5e26-137">repositoryPath (`packages.config` のみ)</span><span class="sxs-lookup"><span data-stu-id="d5e26-137">repositoryPath (`packages.config` only)</span></span> | <span data-ttu-id="d5e26-138">既定の `$(Solutiondir)/packages` フォルダーではなく、NuGet パッケージをインストールする場所です。</span><span class="sxs-lookup"><span data-stu-id="d5e26-138">The location in which to install NuGet packages instead of the default `$(Solutiondir)/packages` folder.</span></span> <span data-ttu-id="d5e26-139">相対パスは、プロジェクト固有の `nuget.config` ファイルで使用できます。</span><span class="sxs-lookup"><span data-stu-id="d5e26-139">A relative path can be used in project-specific `nuget.config` files.</span></span> <span data-ttu-id="d5e26-140">この設定は、優先 NUGET_PACKAGES 環境変数によってオーバーライドされます。</span><span class="sxs-lookup"><span data-stu-id="d5e26-140">This setting is overridden by the NUGET_PACKAGES environment variable, which takes precedence.</span></span> |
-| <span data-ttu-id="d5e26-141">defaultPushSource</span><span class="sxs-lookup"><span data-stu-id="d5e26-141">defaultPushSource</span></span> | <span data-ttu-id="d5e26-142">操作に対してパッケージ ソースが他に見つからない場合に、既定値として使用すべきパッケージ ソースの URL またはパスを識別します。</span><span class="sxs-lookup"><span data-stu-id="d5e26-142">Identifies the URL or path of the package source that should be used as the default if no other package sources are found for an operation.</span></span> |
-| <span data-ttu-id="d5e26-143">http_proxy http_proxy.user http_proxy.password no_proxy</span><span class="sxs-lookup"><span data-stu-id="d5e26-143">http_proxy http_proxy.user http_proxy.password no_proxy</span></span> | <span data-ttu-id="d5e26-144">パッケージ ソースに接続するときに使用するプロキシ設定です。`http_proxy` の形式は `http://<username>:<password>@<domain>` とする必要があります。</span><span class="sxs-lookup"><span data-stu-id="d5e26-144">Proxy settings to use when connecting to package sources; `http_proxy` should be in the format `http://<username>:<password>@<domain>`.</span></span> <span data-ttu-id="d5e26-145">パスワードは暗号化され、手動で追加することはできません。</span><span class="sxs-lookup"><span data-stu-id="d5e26-145">Passwords are encrypted and cannot be added manually.</span></span> <span data-ttu-id="d5e26-146">`no_proxy` の場合、値はドメイン、バイパス、プロキシ サーバーのコンマ区切りのリストとなります。</span><span class="sxs-lookup"><span data-stu-id="d5e26-146">For `no_proxy`, the value is a comma-separated list of domains the bypass the proxy server.</span></span> <span data-ttu-id="d5e26-147">これらの値に対して http_proxy および no_proxy の環境変数を使用することもできます。</span><span class="sxs-lookup"><span data-stu-id="d5e26-147">You can alternately use the http_proxy and no_proxy environment variables for those values.</span></span> <span data-ttu-id="d5e26-148">詳細については、「[NuGet proxy settings](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html)」 (NuGet プロキシ設定) (skolima.blogspot.com) を参照してください。</span><span class="sxs-lookup"><span data-stu-id="d5e26-148">For additional details, see [NuGet proxy settings](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com).</span></span> |
+| <span data-ttu-id="61ae8-129">dependencyVersion (`packages.config` のみ)</span><span class="sxs-lookup"><span data-stu-id="61ae8-129">dependencyVersion (`packages.config` only)</span></span> | <span data-ttu-id="61ae8-130">`-DependencyVersion` スイッチが直接指定されない場合の、パッケージのインストール、復元、および更新における既定の `DependencyVersion` 値です。</span><span class="sxs-lookup"><span data-stu-id="61ae8-130">The default `DependencyVersion` value for package install, restore, and update, when the `-DependencyVersion` switch is not specified directly.</span></span> <span data-ttu-id="61ae8-131">この値は、NuGet パッケージ マネージャー UI でも使用されます。</span><span class="sxs-lookup"><span data-stu-id="61ae8-131">This value is also used by the NuGet Package Manager UI.</span></span> <span data-ttu-id="61ae8-132">値は `Lowest`、`HighestPatch`、`HighestMinor`、`Highest` となります。</span><span class="sxs-lookup"><span data-stu-id="61ae8-132">Values are `Lowest`, `HighestPatch`, `HighestMinor`, `Highest`.</span></span> |
+| <span data-ttu-id="61ae8-133">globalPackagesFolder (プロジェクトは PackageReference をのみを使用して)</span><span class="sxs-lookup"><span data-stu-id="61ae8-133">globalPackagesFolder (projects using PackageReference only)</span></span> | <span data-ttu-id="61ae8-134">既定のグローバル パッケージ フォルダーの場所です。</span><span class="sxs-lookup"><span data-stu-id="61ae8-134">The location of the default global packages folder.</span></span> <span data-ttu-id="61ae8-135">既定値は、`%userprofile%\.nuget\packages` (Windows) または `~/.nuget/packages` (Mac/Linux) です。</span><span class="sxs-lookup"><span data-stu-id="61ae8-135">The default is `%userprofile%\.nuget\packages` (Windows) or `~/.nuget/packages` (Mac/Linux).</span></span> <span data-ttu-id="61ae8-136">相対パスは、プロジェクト固有の `nuget.config` ファイルで使用できます。</span><span class="sxs-lookup"><span data-stu-id="61ae8-136">A relative path can be used in project-specific `nuget.config` files.</span></span> <span data-ttu-id="61ae8-137">この設定は、優先 NUGET_PACKAGES 環境変数によってオーバーライドされます。</span><span class="sxs-lookup"><span data-stu-id="61ae8-137">This setting is overridden by the NUGET_PACKAGES environment variable, which takes precedence.</span></span> |
+| <span data-ttu-id="61ae8-138">repositoryPath (`packages.config` のみ)</span><span class="sxs-lookup"><span data-stu-id="61ae8-138">repositoryPath (`packages.config` only)</span></span> | <span data-ttu-id="61ae8-139">既定の `$(Solutiondir)/packages` フォルダーではなく、NuGet パッケージをインストールする場所です。</span><span class="sxs-lookup"><span data-stu-id="61ae8-139">The location in which to install NuGet packages instead of the default `$(Solutiondir)/packages` folder.</span></span> <span data-ttu-id="61ae8-140">相対パスは、プロジェクト固有の `nuget.config` ファイルで使用できます。</span><span class="sxs-lookup"><span data-stu-id="61ae8-140">A relative path can be used in project-specific `nuget.config` files.</span></span> <span data-ttu-id="61ae8-141">この設定は、優先 NUGET_PACKAGES 環境変数によってオーバーライドされます。</span><span class="sxs-lookup"><span data-stu-id="61ae8-141">This setting is overridden by the NUGET_PACKAGES environment variable, which takes precedence.</span></span> |
+| <span data-ttu-id="61ae8-142">defaultPushSource</span><span class="sxs-lookup"><span data-stu-id="61ae8-142">defaultPushSource</span></span> | <span data-ttu-id="61ae8-143">操作に対してパッケージ ソースが他に見つからない場合に、既定値として使用すべきパッケージ ソースの URL またはパスを識別します。</span><span class="sxs-lookup"><span data-stu-id="61ae8-143">Identifies the URL or path of the package source that should be used as the default if no other package sources are found for an operation.</span></span> |
+| <span data-ttu-id="61ae8-144">http_proxy http_proxy.user http_proxy.password no_proxy</span><span class="sxs-lookup"><span data-stu-id="61ae8-144">http_proxy http_proxy.user http_proxy.password no_proxy</span></span> | <span data-ttu-id="61ae8-145">パッケージ ソースに接続するときに使用するプロキシ設定です。`http_proxy` の形式は `http://<username>:<password>@<domain>` とする必要があります。</span><span class="sxs-lookup"><span data-stu-id="61ae8-145">Proxy settings to use when connecting to package sources; `http_proxy` should be in the format `http://<username>:<password>@<domain>`.</span></span> <span data-ttu-id="61ae8-146">パスワードは暗号化され、手動で追加することはできません。</span><span class="sxs-lookup"><span data-stu-id="61ae8-146">Passwords are encrypted and cannot be added manually.</span></span> <span data-ttu-id="61ae8-147">`no_proxy` の場合、値はドメイン、バイパス、プロキシ サーバーのコンマ区切りのリストとなります。</span><span class="sxs-lookup"><span data-stu-id="61ae8-147">For `no_proxy`, the value is a comma-separated list of domains the bypass the proxy server.</span></span> <span data-ttu-id="61ae8-148">これらの値に対して http_proxy および no_proxy の環境変数を使用することもできます。</span><span class="sxs-lookup"><span data-stu-id="61ae8-148">You can alternately use the http_proxy and no_proxy environment variables for those values.</span></span> <span data-ttu-id="61ae8-149">詳細については、「[NuGet proxy settings](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html)」 (NuGet プロキシ設定) (skolima.blogspot.com) を参照してください。</span><span class="sxs-lookup"><span data-stu-id="61ae8-149">For additional details, see [NuGet proxy settings](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com).</span></span> |
+| <span data-ttu-id="61ae8-150">signatureValidationMode</span><span class="sxs-lookup"><span data-stu-id="61ae8-150">signatureValidationMode</span></span> | <span data-ttu-id="61ae8-151">パッケージのインストール パッケージの署名を確認し、復元に使用される検証モードを指定します。</span><span class="sxs-lookup"><span data-stu-id="61ae8-151">Specifies the validation mode used to verify package signatures for package install, and restore.</span></span> <span data-ttu-id="61ae8-152">値は`accept`、`require`します。</span><span class="sxs-lookup"><span data-stu-id="61ae8-152">Values are `accept`, `require`.</span></span> <span data-ttu-id="61ae8-153">既定値は `accept` です。</span><span class="sxs-lookup"><span data-stu-id="61ae8-153">Defaults to `accept`.</span></span>
 
-<span data-ttu-id="d5e26-149">**例**:</span><span class="sxs-lookup"><span data-stu-id="d5e26-149">**Example**:</span></span>
+<span data-ttu-id="61ae8-154">**例**:</span><span class="sxs-lookup"><span data-stu-id="61ae8-154">**Example**:</span></span>
 
 ```xml
 <config>
@@ -60,18 +62,19 @@ ms.locfileid: "43546916"
     <add key="globalPackagesFolder" value="c:\packages" />
     <add key="repositoryPath" value="c:\installed_packages" />
     <add key="http_proxy" value="http://company-squid:3128@contoso.com" />
+    <add key="signatureValidationMode" value="require" />
 </config>
 ```
 
-## <a name="bindingredirects-section"></a><span data-ttu-id="d5e26-150">bindingRedirects セクション</span><span class="sxs-lookup"><span data-stu-id="d5e26-150">bindingRedirects section</span></span>
+## <a name="bindingredirects-section"></a><span data-ttu-id="61ae8-155">bindingRedirects セクション</span><span class="sxs-lookup"><span data-stu-id="61ae8-155">bindingRedirects section</span></span>
 
-<span data-ttu-id="d5e26-151">パッケージのインストール時に、NuGet で自動バインド リダイレクトを実行するかどうかを構成します。</span><span class="sxs-lookup"><span data-stu-id="d5e26-151">Configures whether NuGet does automatic binding redirects when a package is installed.</span></span>
+<span data-ttu-id="61ae8-156">パッケージのインストール時に、NuGet で自動バインド リダイレクトを実行するかどうかを構成します。</span><span class="sxs-lookup"><span data-stu-id="61ae8-156">Configures whether NuGet does automatic binding redirects when a package is installed.</span></span>
 
-| <span data-ttu-id="d5e26-152">キー</span><span class="sxs-lookup"><span data-stu-id="d5e26-152">Key</span></span> | <span data-ttu-id="d5e26-153">[値]</span><span class="sxs-lookup"><span data-stu-id="d5e26-153">Value</span></span> |
+| <span data-ttu-id="61ae8-157">キー</span><span class="sxs-lookup"><span data-stu-id="61ae8-157">Key</span></span> | <span data-ttu-id="61ae8-158">[値]</span><span class="sxs-lookup"><span data-stu-id="61ae8-158">Value</span></span> |
 | --- | --- |
-| <span data-ttu-id="d5e26-154">スキップ</span><span class="sxs-lookup"><span data-stu-id="d5e26-154">skip</span></span> | <span data-ttu-id="d5e26-155">自動バインド リダイレクトを省略するかどうかを示すブール値です。</span><span class="sxs-lookup"><span data-stu-id="d5e26-155">A Boolean indicating whether to skip automatic binding redirects.</span></span> <span data-ttu-id="d5e26-156">既定値は false です。</span><span class="sxs-lookup"><span data-stu-id="d5e26-156">The default is false.</span></span> |
+| <span data-ttu-id="61ae8-159">スキップ</span><span class="sxs-lookup"><span data-stu-id="61ae8-159">skip</span></span> | <span data-ttu-id="61ae8-160">自動バインド リダイレクトを省略するかどうかを示すブール値です。</span><span class="sxs-lookup"><span data-stu-id="61ae8-160">A Boolean indicating whether to skip automatic binding redirects.</span></span> <span data-ttu-id="61ae8-161">既定値は false です。</span><span class="sxs-lookup"><span data-stu-id="61ae8-161">The default is false.</span></span> |
 
-<span data-ttu-id="d5e26-157">**例**:</span><span class="sxs-lookup"><span data-stu-id="d5e26-157">**Example**:</span></span>
+<span data-ttu-id="61ae8-162">**例**:</span><span class="sxs-lookup"><span data-stu-id="61ae8-162">**Example**:</span></span>
 
 ```xml
 <bindingRedirects>
@@ -79,16 +82,16 @@ ms.locfileid: "43546916"
 </bindingRedirects>
 ```
 
-## <a name="packagerestore-section"></a><span data-ttu-id="d5e26-158">packageRestore セクション</span><span class="sxs-lookup"><span data-stu-id="d5e26-158">packageRestore section</span></span>
+## <a name="packagerestore-section"></a><span data-ttu-id="61ae8-163">packageRestore セクション</span><span class="sxs-lookup"><span data-stu-id="61ae8-163">packageRestore section</span></span>
 
-<span data-ttu-id="d5e26-159">ビルド時のパッケージの復元を制御します。</span><span class="sxs-lookup"><span data-stu-id="d5e26-159">Controls package restore during builds.</span></span>
+<span data-ttu-id="61ae8-164">ビルド時のパッケージの復元を制御します。</span><span class="sxs-lookup"><span data-stu-id="61ae8-164">Controls package restore during builds.</span></span>
 
-| <span data-ttu-id="d5e26-160">キー</span><span class="sxs-lookup"><span data-stu-id="d5e26-160">Key</span></span> | <span data-ttu-id="d5e26-161">[値]</span><span class="sxs-lookup"><span data-stu-id="d5e26-161">Value</span></span> |
+| <span data-ttu-id="61ae8-165">キー</span><span class="sxs-lookup"><span data-stu-id="61ae8-165">Key</span></span> | <span data-ttu-id="61ae8-166">[値]</span><span class="sxs-lookup"><span data-stu-id="61ae8-166">Value</span></span> |
 | --- | --- |
-| <span data-ttu-id="d5e26-162">enabled</span><span class="sxs-lookup"><span data-stu-id="d5e26-162">enabled</span></span> | <span data-ttu-id="d5e26-163">NuGet で自動復元を実行できるかどうかを示すブール値です。</span><span class="sxs-lookup"><span data-stu-id="d5e26-163">A Boolean indicating whether NuGet can perform automatic restore.</span></span> <span data-ttu-id="d5e26-164">構成ファイル内にこのキーを設定するのでなく、`True` の値で `EnableNuGetPackageRestore` 環境変数を設定することもできます。</span><span class="sxs-lookup"><span data-stu-id="d5e26-164">You can also set the `EnableNuGetPackageRestore` environment variable with a value of `True` instead of setting this key in the config file.</span></span> |
-| <span data-ttu-id="d5e26-165">自動</span><span class="sxs-lookup"><span data-stu-id="d5e26-165">automatic</span></span> | <span data-ttu-id="d5e26-166">ビルド中に欠落しているパッケージの確認を NuGet で行う必要があるかどうかを示すブール値です。</span><span class="sxs-lookup"><span data-stu-id="d5e26-166">A Boolean indicating whether NuGet should check for missing packages during a build.</span></span> |
+| <span data-ttu-id="61ae8-167">enabled</span><span class="sxs-lookup"><span data-stu-id="61ae8-167">enabled</span></span> | <span data-ttu-id="61ae8-168">NuGet で自動復元を実行できるかどうかを示すブール値です。</span><span class="sxs-lookup"><span data-stu-id="61ae8-168">A Boolean indicating whether NuGet can perform automatic restore.</span></span> <span data-ttu-id="61ae8-169">構成ファイル内にこのキーを設定するのでなく、`True` の値で `EnableNuGetPackageRestore` 環境変数を設定することもできます。</span><span class="sxs-lookup"><span data-stu-id="61ae8-169">You can also set the `EnableNuGetPackageRestore` environment variable with a value of `True` instead of setting this key in the config file.</span></span> |
+| <span data-ttu-id="61ae8-170">自動</span><span class="sxs-lookup"><span data-stu-id="61ae8-170">automatic</span></span> | <span data-ttu-id="61ae8-171">ビルド中に欠落しているパッケージの確認を NuGet で行う必要があるかどうかを示すブール値です。</span><span class="sxs-lookup"><span data-stu-id="61ae8-171">A Boolean indicating whether NuGet should check for missing packages during a build.</span></span> |
 
-<span data-ttu-id="d5e26-167">**例**:</span><span class="sxs-lookup"><span data-stu-id="d5e26-167">**Example**:</span></span>
+<span data-ttu-id="61ae8-172">**例**:</span><span class="sxs-lookup"><span data-stu-id="61ae8-172">**Example**:</span></span>
 
 ```xml
 <packageRestore>
@@ -97,15 +100,15 @@ ms.locfileid: "43546916"
 </packageRestore>
 ```
 
-## <a name="solution-section"></a><span data-ttu-id="d5e26-168">ソリューション セクション</span><span class="sxs-lookup"><span data-stu-id="d5e26-168">solution section</span></span>
+## <a name="solution-section"></a><span data-ttu-id="61ae8-173">ソリューション セクション</span><span class="sxs-lookup"><span data-stu-id="61ae8-173">solution section</span></span>
 
-<span data-ttu-id="d5e26-169">ソリューションの `packages` フォルダーをソース管理に含めるかどうかを制御します。</span><span class="sxs-lookup"><span data-stu-id="d5e26-169">Controls whether the `packages` folder of a solution is included in source control.</span></span> <span data-ttu-id="d5e26-170">このセクションは、ソリューション フォルダー内の `nuget.config` ファイルでのみ機能します。</span><span class="sxs-lookup"><span data-stu-id="d5e26-170">This section works only in `nuget.config` files in a solution folder.</span></span>
+<span data-ttu-id="61ae8-174">ソリューションの `packages` フォルダーをソース管理に含めるかどうかを制御します。</span><span class="sxs-lookup"><span data-stu-id="61ae8-174">Controls whether the `packages` folder of a solution is included in source control.</span></span> <span data-ttu-id="61ae8-175">このセクションは、ソリューション フォルダー内の `nuget.config` ファイルでのみ機能します。</span><span class="sxs-lookup"><span data-stu-id="61ae8-175">This section works only in `nuget.config` files in a solution folder.</span></span>
 
-| <span data-ttu-id="d5e26-171">キー</span><span class="sxs-lookup"><span data-stu-id="d5e26-171">Key</span></span> | <span data-ttu-id="d5e26-172">[値]</span><span class="sxs-lookup"><span data-stu-id="d5e26-172">Value</span></span> |
+| <span data-ttu-id="61ae8-176">キー</span><span class="sxs-lookup"><span data-stu-id="61ae8-176">Key</span></span> | <span data-ttu-id="61ae8-177">[値]</span><span class="sxs-lookup"><span data-stu-id="61ae8-177">Value</span></span> |
 | --- | --- |
-| <span data-ttu-id="d5e26-173">disableSourceControlIntegration</span><span class="sxs-lookup"><span data-stu-id="d5e26-173">disableSourceControlIntegration</span></span> | <span data-ttu-id="d5e26-174">ソース管理を使用する場合に、パッケージ フォルダーを無視するかどうかを示すブール値です。</span><span class="sxs-lookup"><span data-stu-id="d5e26-174">A Boolean indicating whether to ignore the packages folder when working with source control.</span></span> <span data-ttu-id="d5e26-175">既定値は false です。</span><span class="sxs-lookup"><span data-stu-id="d5e26-175">The default value is false.</span></span> |
+| <span data-ttu-id="61ae8-178">disableSourceControlIntegration</span><span class="sxs-lookup"><span data-stu-id="61ae8-178">disableSourceControlIntegration</span></span> | <span data-ttu-id="61ae8-179">ソース管理を使用する場合に、パッケージ フォルダーを無視するかどうかを示すブール値です。</span><span class="sxs-lookup"><span data-stu-id="61ae8-179">A Boolean indicating whether to ignore the packages folder when working with source control.</span></span> <span data-ttu-id="61ae8-180">既定値は false です。</span><span class="sxs-lookup"><span data-stu-id="61ae8-180">The default value is false.</span></span> |
 
-<span data-ttu-id="d5e26-176">**例**:</span><span class="sxs-lookup"><span data-stu-id="d5e26-176">**Example**:</span></span>
+<span data-ttu-id="61ae8-181">**例**:</span><span class="sxs-lookup"><span data-stu-id="61ae8-181">**Example**:</span></span>
 
 ```xml
 <solution>
@@ -113,23 +116,23 @@ ms.locfileid: "43546916"
 </solution>
 ```
 
-## <a name="package-source-sections"></a><span data-ttu-id="d5e26-177">パッケージ ソース セクション</span><span class="sxs-lookup"><span data-stu-id="d5e26-177">Package source sections</span></span>
+## <a name="package-source-sections"></a><span data-ttu-id="61ae8-182">パッケージ ソース セクション</span><span class="sxs-lookup"><span data-stu-id="61ae8-182">Package source sections</span></span>
 
-<span data-ttu-id="d5e26-178">`packageSources`、`packageSourceCredentials`、`apikeys`、`activePackageSource`、および `disabledPackageSources` のすべての連携によって、インストール、復元、および更新の操作中にパッケージ リポジトリを NuGet で操作する方法が構成されます。</span><span class="sxs-lookup"><span data-stu-id="d5e26-178">The `packageSources`, `packageSourceCredentials`, `apikeys`, `activePackageSource`, and `disabledPackageSources` all work together to configure how NuGet works with package repositories during install, restore, and update operations.</span></span>
+<span data-ttu-id="61ae8-183">`packageSources`、 `packageSourceCredentials`、 `apikeys`、 `activePackageSource`、`disabledPackageSources`と`trustedSigners`パッケージ リポジトリとインストール、復元、および更新操作中に NuGet の動作を構成するすべての作業です。</span><span class="sxs-lookup"><span data-stu-id="61ae8-183">The `packageSources`, `packageSourceCredentials`, `apikeys`, `activePackageSource`, `disabledPackageSources` and `trustedSigners` all work together to configure how NuGet works with package repositories during install, restore, and update operations.</span></span>
 
-<span data-ttu-id="d5e26-179">これらの設定を管理するために、通常は、[`nuget sources` コマンド](../tools/cli-ref-sources.md)が使用されます。ただし、`apikeys` の場合は例外であり、[`nuget setapikey` コマンド](../tools/cli-ref-setapikey.md)によって管理されます。</span><span class="sxs-lookup"><span data-stu-id="d5e26-179">The [`nuget sources` command](../tools/cli-ref-sources.md) is generally used to manage these settings, except for `apikeys` which is managed using the [`nuget setapikey` command](../tools/cli-ref-setapikey.md).</span></span>
+<span data-ttu-id="61ae8-184">[ `nuget sources`コマンド](../tools/cli-ref-sources.md)を除き、これらの設定を管理するために使用が一般的に`apikeys`を使用して管理される、 [ `nuget setapikey`コマンド](../tools/cli-ref-setapikey.md)、および`trustedSigners`管理されます。使用して、 [ `nuget trusted-signers`コマンド](../tools/cli-ref-trusted-signers.md)します。</span><span class="sxs-lookup"><span data-stu-id="61ae8-184">The [`nuget sources` command](../tools/cli-ref-sources.md) is generally used to manage these settings, except for `apikeys` which is managed using the [`nuget setapikey` command](../tools/cli-ref-setapikey.md), and `trustedSigners` which is managed using the [`nuget trusted-signers` command](../tools/cli-ref-trusted-signers.md).</span></span>
 
-<span data-ttu-id="d5e26-180">ここで、nuget.org のソース URL は `https://api.nuget.org/v3/index.json` となります。</span><span class="sxs-lookup"><span data-stu-id="d5e26-180">Note that the source URL for nuget.org is `https://api.nuget.org/v3/index.json`.</span></span>
+<span data-ttu-id="61ae8-185">ここで、nuget.org のソース URL は `https://api.nuget.org/v3/index.json` となります。</span><span class="sxs-lookup"><span data-stu-id="61ae8-185">Note that the source URL for nuget.org is `https://api.nuget.org/v3/index.json`.</span></span>
 
-### <a name="packagesources"></a><span data-ttu-id="d5e26-181">packageSources</span><span class="sxs-lookup"><span data-stu-id="d5e26-181">packageSources</span></span>
+### <a name="packagesources"></a><span data-ttu-id="61ae8-186">packageSources</span><span class="sxs-lookup"><span data-stu-id="61ae8-186">packageSources</span></span>
 
-<span data-ttu-id="d5e26-182">すべての既知のパッケージ ソースの一覧を表示します。</span><span class="sxs-lookup"><span data-stu-id="d5e26-182">Lists all known package sources.</span></span> <span data-ttu-id="d5e26-183">PackageReference 形式を使用して任意のプロジェクトと復元操作中に、順序は無視されます。</span><span class="sxs-lookup"><span data-stu-id="d5e26-183">The order is ignored during restore operations and with any project using the PackageReference format.</span></span> <span data-ttu-id="d5e26-184">NuGet のインストール ソースの順序を尊重する操作や更新操作を使用するプロジェクトで`packages.config`します。</span><span class="sxs-lookup"><span data-stu-id="d5e26-184">NuGet respects the order of sources for install and update operations with projects using `packages.config`.</span></span>
+<span data-ttu-id="61ae8-187">すべての既知のパッケージ ソースの一覧を表示します。</span><span class="sxs-lookup"><span data-stu-id="61ae8-187">Lists all known package sources.</span></span> <span data-ttu-id="61ae8-188">PackageReference 形式を使用して任意のプロジェクトと復元操作中に、順序は無視されます。</span><span class="sxs-lookup"><span data-stu-id="61ae8-188">The order is ignored during restore operations and with any project using the PackageReference format.</span></span> <span data-ttu-id="61ae8-189">NuGet のインストール ソースの順序を尊重する操作や更新操作を使用するプロジェクトで`packages.config`します。</span><span class="sxs-lookup"><span data-stu-id="61ae8-189">NuGet respects the order of sources for install and update operations with projects using `packages.config`.</span></span>
 
-| <span data-ttu-id="d5e26-185">キー</span><span class="sxs-lookup"><span data-stu-id="d5e26-185">Key</span></span> | <span data-ttu-id="d5e26-186">[値]</span><span class="sxs-lookup"><span data-stu-id="d5e26-186">Value</span></span> |
+| <span data-ttu-id="61ae8-190">キー</span><span class="sxs-lookup"><span data-stu-id="61ae8-190">Key</span></span> | <span data-ttu-id="61ae8-191">[値]</span><span class="sxs-lookup"><span data-stu-id="61ae8-191">Value</span></span> |
 | --- | --- |
-| <span data-ttu-id="d5e26-187">(パッケージ ソースに割り当てる名前)</span><span class="sxs-lookup"><span data-stu-id="d5e26-187">(name to assign to the package source)</span></span> | <span data-ttu-id="d5e26-188">パッケージ ソースのパスまたは URL です。</span><span class="sxs-lookup"><span data-stu-id="d5e26-188">The path or URL of the package source.</span></span> |
+| <span data-ttu-id="61ae8-192">(パッケージ ソースに割り当てる名前)</span><span class="sxs-lookup"><span data-stu-id="61ae8-192">(name to assign to the package source)</span></span> | <span data-ttu-id="61ae8-193">パッケージ ソースのパスまたは URL です。</span><span class="sxs-lookup"><span data-stu-id="61ae8-193">The path or URL of the package source.</span></span> |
 
-<span data-ttu-id="d5e26-189">**例**:</span><span class="sxs-lookup"><span data-stu-id="d5e26-189">**Example**:</span></span>
+<span data-ttu-id="61ae8-194">**例**:</span><span class="sxs-lookup"><span data-stu-id="61ae8-194">**Example**:</span></span>
 
 ```xml
 <packageSources>
@@ -139,19 +142,19 @@ ms.locfileid: "43546916"
 </packageSources>
 ```
 
-### <a name="packagesourcecredentials"></a><span data-ttu-id="d5e26-190">packageSourceCredentials</span><span class="sxs-lookup"><span data-stu-id="d5e26-190">packageSourceCredentials</span></span>
+### <a name="packagesourcecredentials"></a><span data-ttu-id="61ae8-195">packageSourceCredentials</span><span class="sxs-lookup"><span data-stu-id="61ae8-195">packageSourceCredentials</span></span>
 
-<span data-ttu-id="d5e26-191">通常、`-username` スイッチおよび `-password` スイッチと `nuget sources` によって指定される、ソースのユーザー名とパスワードを格納します。</span><span class="sxs-lookup"><span data-stu-id="d5e26-191">Stores usernames and passwords for sources, typically specified with the `-username` and `-password` switches with `nuget sources`.</span></span> <span data-ttu-id="d5e26-192">`-storepasswordincleartext` オプションが使用されていない場合、既定ではパスワードが暗号化されます。</span><span class="sxs-lookup"><span data-stu-id="d5e26-192">Passwords are encrypted by default unless the `-storepasswordincleartext` option is also used.</span></span>
+<span data-ttu-id="61ae8-196">通常、`-username` スイッチおよび `-password` スイッチと `nuget sources` によって指定される、ソースのユーザー名とパスワードを格納します。</span><span class="sxs-lookup"><span data-stu-id="61ae8-196">Stores usernames and passwords for sources, typically specified with the `-username` and `-password` switches with `nuget sources`.</span></span> <span data-ttu-id="61ae8-197">`-storepasswordincleartext` オプションが使用されていない場合、既定ではパスワードが暗号化されます。</span><span class="sxs-lookup"><span data-stu-id="61ae8-197">Passwords are encrypted by default unless the `-storepasswordincleartext` option is also used.</span></span>
 
-| <span data-ttu-id="d5e26-193">キー</span><span class="sxs-lookup"><span data-stu-id="d5e26-193">Key</span></span> | <span data-ttu-id="d5e26-194">[値]</span><span class="sxs-lookup"><span data-stu-id="d5e26-194">Value</span></span> |
+| <span data-ttu-id="61ae8-198">キー</span><span class="sxs-lookup"><span data-stu-id="61ae8-198">Key</span></span> | <span data-ttu-id="61ae8-199">[値]</span><span class="sxs-lookup"><span data-stu-id="61ae8-199">Value</span></span> |
 | --- | --- |
-| <span data-ttu-id="d5e26-195">username</span><span class="sxs-lookup"><span data-stu-id="d5e26-195">username</span></span> | <span data-ttu-id="d5e26-196">プレーン テキストで表されるソースのユーザー名です。</span><span class="sxs-lookup"><span data-stu-id="d5e26-196">The user name for the source in plain text.</span></span> |
-| <span data-ttu-id="d5e26-197">パスワード</span><span class="sxs-lookup"><span data-stu-id="d5e26-197">password</span></span> | <span data-ttu-id="d5e26-198">ソースの暗号されたパスワードです。</span><span class="sxs-lookup"><span data-stu-id="d5e26-198">The encrypted password for the source.</span></span> |
-| <span data-ttu-id="d5e26-199">cleartextpassword</span><span class="sxs-lookup"><span data-stu-id="d5e26-199">cleartextpassword</span></span> | <span data-ttu-id="d5e26-200">ソースの暗号化されていないパスワードです。</span><span class="sxs-lookup"><span data-stu-id="d5e26-200">The unencrypted password for the source.</span></span> |
+| <span data-ttu-id="61ae8-200">username</span><span class="sxs-lookup"><span data-stu-id="61ae8-200">username</span></span> | <span data-ttu-id="61ae8-201">プレーン テキストで表されるソースのユーザー名です。</span><span class="sxs-lookup"><span data-stu-id="61ae8-201">The user name for the source in plain text.</span></span> |
+| <span data-ttu-id="61ae8-202">パスワード</span><span class="sxs-lookup"><span data-stu-id="61ae8-202">password</span></span> | <span data-ttu-id="61ae8-203">ソースの暗号されたパスワードです。</span><span class="sxs-lookup"><span data-stu-id="61ae8-203">The encrypted password for the source.</span></span> |
+| <span data-ttu-id="61ae8-204">cleartextpassword</span><span class="sxs-lookup"><span data-stu-id="61ae8-204">cleartextpassword</span></span> | <span data-ttu-id="61ae8-205">ソースの暗号化されていないパスワードです。</span><span class="sxs-lookup"><span data-stu-id="61ae8-205">The unencrypted password for the source.</span></span> |
 
-<span data-ttu-id="d5e26-201">**例:**</span><span class="sxs-lookup"><span data-stu-id="d5e26-201">**Example:**</span></span>
+<span data-ttu-id="61ae8-206">**例:**</span><span class="sxs-lookup"><span data-stu-id="61ae8-206">**Example:**</span></span>
 
-<span data-ttu-id="d5e26-202">構成ファイル内の `<packageSourceCredentials>` 要素には、適用可能なソース名ごとに子ノードが含まれます (名前内のスペースは `_x0020_` と置換されます)。</span><span class="sxs-lookup"><span data-stu-id="d5e26-202">In the config file, the `<packageSourceCredentials>` element contains child nodes for each applicable source name (spaces in the name are replaced with `_x0020_`).</span></span> <span data-ttu-id="d5e26-203">つまり、"Contoso" および "Test Source" という名前のソースの場合は、暗号化されたパスワードを使用するとき、構成ファイルには次の内容が含まれます。</span><span class="sxs-lookup"><span data-stu-id="d5e26-203">That is, for sources named "Contoso" and "Test Source", the config file contains the following when using encrypted passwords:</span></span>
+<span data-ttu-id="61ae8-207">構成ファイル内の `<packageSourceCredentials>` 要素には、適用可能なソース名ごとに子ノードが含まれます (名前内のスペースは `_x0020_` と置換されます)。</span><span class="sxs-lookup"><span data-stu-id="61ae8-207">In the config file, the `<packageSourceCredentials>` element contains child nodes for each applicable source name (spaces in the name are replaced with `_x0020_`).</span></span> <span data-ttu-id="61ae8-208">つまり、"Contoso" および "Test Source" という名前のソースの場合は、暗号化されたパスワードを使用するとき、構成ファイルには次の内容が含まれます。</span><span class="sxs-lookup"><span data-stu-id="61ae8-208">That is, for sources named "Contoso" and "Test Source", the config file contains the following when using encrypted passwords:</span></span>
 
 ```xml
 <packageSourceCredentials>
@@ -166,7 +169,7 @@ ms.locfileid: "43546916"
 </packageSourceCredentials>
 ```
 
-<span data-ttu-id="d5e26-204">暗号化されていないパスワードを使用する場合:</span><span class="sxs-lookup"><span data-stu-id="d5e26-204">When using unencrypted passwords:</span></span>
+<span data-ttu-id="61ae8-209">暗号化されていないパスワードを使用する場合:</span><span class="sxs-lookup"><span data-stu-id="61ae8-209">When using unencrypted passwords:</span></span>
 
 ```xml
 <packageSourceCredentials>
@@ -181,15 +184,15 @@ ms.locfileid: "43546916"
 </packageSourceCredentials>
 ```
 
-### <a name="apikeys"></a><span data-ttu-id="d5e26-205">apikeys</span><span class="sxs-lookup"><span data-stu-id="d5e26-205">apikeys</span></span>
+### <a name="apikeys"></a><span data-ttu-id="61ae8-210">apikeys</span><span class="sxs-lookup"><span data-stu-id="61ae8-210">apikeys</span></span>
 
-<span data-ttu-id="d5e26-206">[`nuget setapikey` コマンド](../tools/cli-ref-setapikey.md)で設定される、API キー認証を使用するソースのキーを格納します。</span><span class="sxs-lookup"><span data-stu-id="d5e26-206">Stores keys for sources that use API key authentication, as set with the [`nuget setapikey` command](../tools/cli-ref-setapikey.md).</span></span>
+<span data-ttu-id="61ae8-211">[`nuget setapikey` コマンド](../tools/cli-ref-setapikey.md)で設定される、API キー認証を使用するソースのキーを格納します。</span><span class="sxs-lookup"><span data-stu-id="61ae8-211">Stores keys for sources that use API key authentication, as set with the [`nuget setapikey` command](../tools/cli-ref-setapikey.md).</span></span>
 
-| <span data-ttu-id="d5e26-207">キー</span><span class="sxs-lookup"><span data-stu-id="d5e26-207">Key</span></span> | <span data-ttu-id="d5e26-208">[値]</span><span class="sxs-lookup"><span data-stu-id="d5e26-208">Value</span></span> |
+| <span data-ttu-id="61ae8-212">キー</span><span class="sxs-lookup"><span data-stu-id="61ae8-212">Key</span></span> | <span data-ttu-id="61ae8-213">[値]</span><span class="sxs-lookup"><span data-stu-id="61ae8-213">Value</span></span> |
 | --- | --- |
-| <span data-ttu-id="d5e26-209">(ソース URL)</span><span class="sxs-lookup"><span data-stu-id="d5e26-209">(source URL)</span></span> | <span data-ttu-id="d5e26-210">暗号化された API キー。</span><span class="sxs-lookup"><span data-stu-id="d5e26-210">The encrypted API key.</span></span> |
+| <span data-ttu-id="61ae8-214">(ソース URL)</span><span class="sxs-lookup"><span data-stu-id="61ae8-214">(source URL)</span></span> | <span data-ttu-id="61ae8-215">暗号化された API キー。</span><span class="sxs-lookup"><span data-stu-id="61ae8-215">The encrypted API key.</span></span> |
 
-<span data-ttu-id="d5e26-211">**例**:</span><span class="sxs-lookup"><span data-stu-id="d5e26-211">**Example**:</span></span>
+<span data-ttu-id="61ae8-216">**例**:</span><span class="sxs-lookup"><span data-stu-id="61ae8-216">**Example**:</span></span>
 
 ```xml
 <apikeys>
@@ -197,15 +200,15 @@ ms.locfileid: "43546916"
 </apikeys>
 ```
 
-### <a name="disabledpackagesources"></a><span data-ttu-id="d5e26-212">disabledPackageSources</span><span class="sxs-lookup"><span data-stu-id="d5e26-212">disabledPackageSources</span></span>
+### <a name="disabledpackagesources"></a><span data-ttu-id="61ae8-217">disabledPackageSources</span><span class="sxs-lookup"><span data-stu-id="61ae8-217">disabledPackageSources</span></span>
 
-<span data-ttu-id="d5e26-213">現在無効になっているソースを識別します。</span><span class="sxs-lookup"><span data-stu-id="d5e26-213">Identified currently disabled sources.</span></span> <span data-ttu-id="d5e26-214">空の場合もあります。</span><span class="sxs-lookup"><span data-stu-id="d5e26-214">May be empty.</span></span>
+<span data-ttu-id="61ae8-218">現在無効になっているソースを識別します。</span><span class="sxs-lookup"><span data-stu-id="61ae8-218">Identified currently disabled sources.</span></span> <span data-ttu-id="61ae8-219">空の場合もあります。</span><span class="sxs-lookup"><span data-stu-id="61ae8-219">May be empty.</span></span>
 
-| <span data-ttu-id="d5e26-215">キー</span><span class="sxs-lookup"><span data-stu-id="d5e26-215">Key</span></span> | <span data-ttu-id="d5e26-216">[値]</span><span class="sxs-lookup"><span data-stu-id="d5e26-216">Value</span></span> |
+| <span data-ttu-id="61ae8-220">キー</span><span class="sxs-lookup"><span data-stu-id="61ae8-220">Key</span></span> | <span data-ttu-id="61ae8-221">[値]</span><span class="sxs-lookup"><span data-stu-id="61ae8-221">Value</span></span> |
 | --- | --- |
-| <span data-ttu-id="d5e26-217">(ソースの名前)</span><span class="sxs-lookup"><span data-stu-id="d5e26-217">(name of source)</span></span> | <span data-ttu-id="d5e26-218">ソースが無効になっているかどうかを示すブール値です。</span><span class="sxs-lookup"><span data-stu-id="d5e26-218">A Boolean indicating whether the source is disabled.</span></span> |
+| <span data-ttu-id="61ae8-222">(ソースの名前)</span><span class="sxs-lookup"><span data-stu-id="61ae8-222">(name of source)</span></span> | <span data-ttu-id="61ae8-223">ソースが無効になっているかどうかを示すブール値です。</span><span class="sxs-lookup"><span data-stu-id="61ae8-223">A Boolean indicating whether the source is disabled.</span></span> |
 
-<span data-ttu-id="d5e26-219">**例:**</span><span class="sxs-lookup"><span data-stu-id="d5e26-219">**Example:**</span></span>
+<span data-ttu-id="61ae8-224">**例:**</span><span class="sxs-lookup"><span data-stu-id="61ae8-224">**Example:**</span></span>
 
 ```xml
 <disabledPackageSources>
@@ -216,17 +219,17 @@ ms.locfileid: "43546916"
 <disabledPackageSources />
 ```
 
-### <a name="activepackagesource"></a><span data-ttu-id="d5e26-220">activePackageSource</span><span class="sxs-lookup"><span data-stu-id="d5e26-220">activePackageSource</span></span>
+### <a name="activepackagesource"></a><span data-ttu-id="61ae8-225">activePackageSource</span><span class="sxs-lookup"><span data-stu-id="61ae8-225">activePackageSource</span></span>
 
-<span data-ttu-id="d5e26-221">*(2.x のみ。3.x 以降では非推奨とされます)*</span><span class="sxs-lookup"><span data-stu-id="d5e26-221">*(2.x only; deprecated in 3.x+)*</span></span>
+<span data-ttu-id="61ae8-226">*(2.x のみ。3.x 以降では非推奨とされます)*</span><span class="sxs-lookup"><span data-stu-id="61ae8-226">*(2.x only; deprecated in 3.x+)*</span></span>
 
-<span data-ttu-id="d5e26-222">現在アクティブなソースを識別し、すべてのソースの集計を示します。</span><span class="sxs-lookup"><span data-stu-id="d5e26-222">Identifies to the currently active source or indicates the aggregate of all sources.</span></span>
+<span data-ttu-id="61ae8-227">現在アクティブなソースを識別し、すべてのソースの集計を示します。</span><span class="sxs-lookup"><span data-stu-id="61ae8-227">Identifies to the currently active source or indicates the aggregate of all sources.</span></span>
 
-| <span data-ttu-id="d5e26-223">キー</span><span class="sxs-lookup"><span data-stu-id="d5e26-223">Key</span></span> | <span data-ttu-id="d5e26-224">[値]</span><span class="sxs-lookup"><span data-stu-id="d5e26-224">Value</span></span> |
+| <span data-ttu-id="61ae8-228">キー</span><span class="sxs-lookup"><span data-stu-id="61ae8-228">Key</span></span> | <span data-ttu-id="61ae8-229">[値]</span><span class="sxs-lookup"><span data-stu-id="61ae8-229">Value</span></span> |
 | --- | --- |
-| <span data-ttu-id="d5e26-225">(ソースの名前) または `All`</span><span class="sxs-lookup"><span data-stu-id="d5e26-225">(name of source) or `All`</span></span> | <span data-ttu-id="d5e26-226">キーがソースの名前である場合は、ソースのパスまたは URL が値となります。</span><span class="sxs-lookup"><span data-stu-id="d5e26-226">If key is the name of a source, the value is the source path or URL.</span></span> <span data-ttu-id="d5e26-227">`All` の場合は、値を `(Aggregate source)` にして、無効になっていないすべてのパッケージ ソースを結合する必要があります。</span><span class="sxs-lookup"><span data-stu-id="d5e26-227">If `All`, value should be `(Aggregate source)` to combine all package sources that are not otherwise disabled.</span></span> |
+| <span data-ttu-id="61ae8-230">(ソースの名前) または `All`</span><span class="sxs-lookup"><span data-stu-id="61ae8-230">(name of source) or `All`</span></span> | <span data-ttu-id="61ae8-231">キーがソースの名前である場合は、ソースのパスまたは URL が値となります。</span><span class="sxs-lookup"><span data-stu-id="61ae8-231">If key is the name of a source, the value is the source path or URL.</span></span> <span data-ttu-id="61ae8-232">`All` の場合は、値を `(Aggregate source)` にして、無効になっていないすべてのパッケージ ソースを結合する必要があります。</span><span class="sxs-lookup"><span data-stu-id="61ae8-232">If `All`, value should be `(Aggregate source)` to combine all package sources that are not otherwise disabled.</span></span> |
 
-<span data-ttu-id="d5e26-228">**例**:</span><span class="sxs-lookup"><span data-stu-id="d5e26-228">**Example**:</span></span>
+<span data-ttu-id="61ae8-233">**例**:</span><span class="sxs-lookup"><span data-stu-id="61ae8-233">**Example**:</span></span>
 
 ```xml
 <activePackageSource>
@@ -237,20 +240,49 @@ ms.locfileid: "43546916"
     <add key="All" value="(Aggregate source)" />
 </activePackageSource>
 ```
+## <a name="trustedsigners-section"></a><span data-ttu-id="61ae8-234">trustedSigners セクション</span><span class="sxs-lookup"><span data-stu-id="61ae8-234">trustedSigners section</span></span>
 
-## <a name="using-environment-variables"></a><span data-ttu-id="d5e26-229">環境変数の使用</span><span class="sxs-lookup"><span data-stu-id="d5e26-229">Using environment variables</span></span>
+<span data-ttu-id="61ae8-235">ストアには、パッケージをインストールまたは復元中に許可するために使用する署名者が信頼されています。</span><span class="sxs-lookup"><span data-stu-id="61ae8-235">Stores trusted signers used to allow package while installing or restoring.</span></span> <span data-ttu-id="61ae8-236">ユーザーを設定するとこの一覧を空にすることはできません`signatureValidationMode`に`require`します。</span><span class="sxs-lookup"><span data-stu-id="61ae8-236">This list cannot be empty when the user sets `signatureValidationMode` to `require`.</span></span> 
 
-<span data-ttu-id="d5e26-230">環境変数を `nuget.config` 値 (NuGet 3.4 以降) に使用することで、実行時に設定を適用できます。</span><span class="sxs-lookup"><span data-stu-id="d5e26-230">You can use environment variables in `nuget.config` values (NuGet 3.4+) to apply settings at run time.</span></span>
+<span data-ttu-id="61ae8-237">このセクションを更新するためには、 [ `nuget trusted-signers`コマンド](../tools/cli-ref-trusted-signers.md)します。</span><span class="sxs-lookup"><span data-stu-id="61ae8-237">This section can be updated with the [`nuget trusted-signers` command](../tools/cli-ref-trusted-signers.md).</span></span>
 
-<span data-ttu-id="d5e26-231">たとえば、Windows 上の `HOME` 環境変数を `c:\users\username` に設定すると、構成ファイル内の `%HOME%\NuGetRepository` の値は `c:\users\username\NuGetRepository` に解決されます。</span><span class="sxs-lookup"><span data-stu-id="d5e26-231">For example, if the `HOME` environment variable on Windows is set to `c:\users\username`, then the value of `%HOME%\NuGetRepository` in the configuration file resolves to `c:\users\username\NuGetRepository`.</span></span>
+<span data-ttu-id="61ae8-238">**スキーマ**:</span><span class="sxs-lookup"><span data-stu-id="61ae8-238">**Schema**:</span></span>
 
-<span data-ttu-id="d5e26-232">同様に、Mac/Linux 上の `HOME` を `/home/myStuff` に設定すると、構成ファイル内の `%HOME%/NuGetRepository` は `/home/myStuff/NuGetRepository` に解決されます。</span><span class="sxs-lookup"><span data-stu-id="d5e26-232">Similarly, if `HOME` on Mac/Linux is set to `/home/myStuff`, then `%HOME%/NuGetRepository` in the configuration file resolves to `/home/myStuff/NuGetRepository`.</span></span>
+<span data-ttu-id="61ae8-239">信頼できる署名者のコレクションがある`certificate`項目を指定した署名者を識別するすべての証明書を登録します。</span><span class="sxs-lookup"><span data-stu-id="61ae8-239">A trusted signer has a collection of `certificate` items that enlist all the certificates that identify a given signer.</span></span> <span data-ttu-id="61ae8-240">信頼できる署名者には、いずれかを指定できる、`Author`または`Repository`します。</span><span class="sxs-lookup"><span data-stu-id="61ae8-240">A trusted signer can be either an `Author` or a `Repository`.</span></span>
 
-<span data-ttu-id="d5e26-233">環境変数が見つからない場合、NuGet は構成ファイルからのリテラル値を使用します。</span><span class="sxs-lookup"><span data-stu-id="d5e26-233">If an environment variable is not found, NuGet uses the literal value from the configuration file.</span></span>
+<span data-ttu-id="61ae8-241">信頼された*リポジトリ*も指定します、`serviceIndex`リポジトリの (は有効なある`https`uri) のセミコロンで区切られたリストを必要に応じて指定できますと`owners`者が信頼されているさらを制限するにはその特定のリポジトリ。</span><span class="sxs-lookup"><span data-stu-id="61ae8-241">A trusted *repository* also specifies the `serviceIndex` for the repository (which has to be a valid `https` uri) and can optionally specify a semi-colon delimited list of `owners` to restrict even more who is trusted from that specific repository.</span></span>
 
-## <a name="example-config-file"></a><span data-ttu-id="d5e26-234">構成ファイルの例</span><span class="sxs-lookup"><span data-stu-id="d5e26-234">Example config file</span></span>
+<span data-ttu-id="61ae8-242">証明書フィンガー プリントを使用するサポートされているハッシュ アルゴリズム`SHA256`、`SHA384`と`SHA512`します。</span><span class="sxs-lookup"><span data-stu-id="61ae8-242">The supported hash algorithms used for a certificate fingerprint are `SHA256`, `SHA384` and `SHA512`.</span></span>
 
-<span data-ttu-id="d5e26-235">複数の設定が含まれている `nuget.config` ファイルの例を次に示します。</span><span class="sxs-lookup"><span data-stu-id="d5e26-235">Below is an example `nuget.config` file that illustrates a number of settings:</span></span>
+<span data-ttu-id="61ae8-243">場合、`certificate`指定`allowUntrustedRoot`として`true`特定の証明書が信頼されていないルートにチェーン署名の検証の一部として証明書チェーンの構築中に許可されました。</span><span class="sxs-lookup"><span data-stu-id="61ae8-243">If a `certificate` specifies `allowUntrustedRoot` as `true` the given certificate is allowed to chain to an untrusted root while building the certificate chain as part of the signature verification.</span></span>
+
+<span data-ttu-id="61ae8-244">**例**:</span><span class="sxs-lookup"><span data-stu-id="61ae8-244">**Example**:</span></span>
+
+```xml
+<trustedSigners>
+    <author name="microsoft">
+        <certificate fingerprint="3F9001EA83C560D712C24CF213C3D312CB3BFF51EE89435D3430BD06B5D0EECE" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
+    </author>
+    <repository name="nuget.org" serviceIndex="https://api.nuget.org/v3/index.json">
+        <certificate fingerprint="0E5F38F57DC1BCC806D8494F4F90FBCEDD988B46760709CBEEC6F4219AA6157D" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
+        <owners>microsoft;aspnet;nuget</owners>
+    </repository>
+</trustedSigners>
+```
+
+## <a name="using-environment-variables"></a><span data-ttu-id="61ae8-245">環境変数の使用</span><span class="sxs-lookup"><span data-stu-id="61ae8-245">Using environment variables</span></span>
+
+<span data-ttu-id="61ae8-246">環境変数を `nuget.config` 値 (NuGet 3.4 以降) に使用することで、実行時に設定を適用できます。</span><span class="sxs-lookup"><span data-stu-id="61ae8-246">You can use environment variables in `nuget.config` values (NuGet 3.4+) to apply settings at run time.</span></span>
+
+<span data-ttu-id="61ae8-247">たとえば、Windows 上の `HOME` 環境変数を `c:\users\username` に設定すると、構成ファイル内の `%HOME%\NuGetRepository` の値は `c:\users\username\NuGetRepository` に解決されます。</span><span class="sxs-lookup"><span data-stu-id="61ae8-247">For example, if the `HOME` environment variable on Windows is set to `c:\users\username`, then the value of `%HOME%\NuGetRepository` in the configuration file resolves to `c:\users\username\NuGetRepository`.</span></span>
+
+<span data-ttu-id="61ae8-248">同様に、Mac/Linux 上の `HOME` を `/home/myStuff` に設定すると、構成ファイル内の `%HOME%/NuGetRepository` は `/home/myStuff/NuGetRepository` に解決されます。</span><span class="sxs-lookup"><span data-stu-id="61ae8-248">Similarly, if `HOME` on Mac/Linux is set to `/home/myStuff`, then `%HOME%/NuGetRepository` in the configuration file resolves to `/home/myStuff/NuGetRepository`.</span></span>
+
+<span data-ttu-id="61ae8-249">環境変数が見つからない場合、NuGet は構成ファイルからのリテラル値を使用します。</span><span class="sxs-lookup"><span data-stu-id="61ae8-249">If an environment variable is not found, NuGet uses the literal value from the configuration file.</span></span>
+
+## <a name="example-config-file"></a><span data-ttu-id="61ae8-250">構成ファイルの例</span><span class="sxs-lookup"><span data-stu-id="61ae8-250">Example config file</span></span>
+
+<span data-ttu-id="61ae8-251">複数の設定が含まれている `nuget.config` ファイルの例を次に示します。</span><span class="sxs-lookup"><span data-stu-id="61ae8-251">Below is an example `nuget.config` file that illustrates a number of settings:</span></span>
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -313,5 +345,19 @@ ms.locfileid: "43546916"
     <apikeys>
         <add key="https://MyRepo/ES/api/v2/package" value="encrypted_api_key" />
     </apikeys>
+
+    <!--
+        Used to specify trusted signers to allow during signature verification.
+        See: nuget.exe help trusted-signers
+    -->
+    <trustedSigners>
+        <author name="microsoft">
+            <certificate fingerprint="3F9001EA83C560D712C24CF213C3D312CB3BFF51EE89435D3430BD06B5D0EECE" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
+        </author>
+        <repository name="nuget.org" serviceIndex="https://api.nuget.org/v3/index.json">
+            <certificate fingerprint="0E5F38F57DC1BCC806D8494F4F90FBCEDD988B46760709CBEEC6F4219AA6157D" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
+            <owners>microsoft;aspnet;nuget</owners>
+        </repository>
+    </trustedSigners>
 </configuration>
 ```
