@@ -5,12 +5,12 @@ author: zhili1208
 ms.author: lzhi
 ms.date: 07/12/2018
 ms.topic: reference
-ms.openlocfilehash: 7cd387e3eb05d149da9a88cc1c76dc08588d04b5
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 42b5b7d863d22d7aad99a65700ca11bcc2861db1
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547827"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453495"
 ---
 # <a name="long-path-support-nuget-cli"></a>長いパスのサポート (NuGet CLI)
 
@@ -39,6 +39,6 @@ NuGet.exe 4.8 以降のサポートで長いパスのファイルとディレク
 > 長いパスをサポートするその他の NuGet ツールを有効にします。
 >
 > -   Dotnet CLI には、オペレーティング システムやバージョンに関係なく、長いパスがサポートしています。
-> -   Visual Studio と msbuild/t:restore は、長いパスをまだサポートしていません。
+> -   Visual Studio または msbuild-t: 復元で長いパスはまだサポートされていません。
 > -   NuGet ライブラリを使用して、復元、およびその他のコマンドを実行するソフトウェアは、長いパスのサポート、同じシステムで NuGet.exe が動作するも設定する場合は、windows で longPathAware マニフェスト UseLegacyPathHandling を App.Configでfalseに設定[詳細についてを参照してください。](https://blogs.msdn.microsoft.com/jeremykuhne/2016/07/30/net-4-6-2-and-long-paths-on-windows-10/)
 

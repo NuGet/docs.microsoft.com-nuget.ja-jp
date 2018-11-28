@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: d4c13200494ed3c6fa897ce0083a52c13688b44b
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: fd5188c92f8154391359b8da5c8a32f4d5d6f2c0
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547394"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453586"
 ---
 # <a name="catalog"></a>Catalog
 
@@ -213,7 +213,7 @@ requireLicenseAgreement | boolean                    | Ｘ       | 想定`false`
 タイトル                   | string                     | Ｘ       |
 verbatimVersion         | string                     | Ｘ       | バージョン文字列が、.nuspec で見つかった最初
 
-パッケージ`version`プロパティは、正規化された完全なバージョン文字列。 意味 SemVer 2.0.0 ビルド データは含まれていますここでします。
+パッケージ`version`プロパティでは、完全なバージョン文字列を正規化後。 意味 SemVer 2.0.0 ビルド データは含まれていますここでします。
 
 `created`タイムスタンプは、パッケージは、まずカタログ アイテムのコミット タイムスタンプより前に、の短い形式の時刻は、通常、パッケージ ソースによって受信されたときにします。
 

@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 826316bdbce881836836f2a667cfa5297996d14f
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: b5bd8bd30ad134f36433b8e4721ce131425a1483
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580312"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453365"
 ---
 # <a name="pack-command-nuget-cli"></a>pack コマンド (NuGet CLI)
 
 **適用対象:** パッケージの作成&bullet;**サポートされているバージョン:** 2.7 以降
 
-に基づいて、指定された NuGet パッケージを作成します。`.nuspec`またはプロジェクト ファイル。 `dotnet pack`コマンド (を参照してください[dotnet コマンド](dotnet-Commands.md)) と`msbuild /t:pack`(を参照してください[MSBuild ターゲット](../reference/msbuild-targets.md)) の代替として使用することがあります。
+に基づいて、指定された NuGet パッケージを作成します。`.nuspec`またはプロジェクト ファイル。 `dotnet pack`コマンド (を参照してください[dotnet コマンド](dotnet-Commands.md)) と`msbuild -t:pack`(を参照してください[MSBuild ターゲット](../reference/msbuild-targets.md)) の代替として使用することがあります。
 
 > [!Important]
 > Mono で、プロジェクト ファイルからパッケージを作成することはサポートされていません。 非ローカル パスを調整する必要があります、 `.nuspec` Unix 形式のパスにファイルの nuget.exe が Windows パス名自体を変換しません。
@@ -49,7 +49,7 @@ nuget pack <nuspecPath | projectPath> [options] [-Properties ...]
 | OutputDirectory | 作成したパッケージが格納されているフォルダーを指定します。 フォルダーが指定されていない場合は、現在のフォルダーが使用されます。 |
 | プロパティ | その他のオプションの後に、コマンドラインの最後は表示されます。 は、プロジェクト ファイル内の値をオーバーライドするプロパティの一覧を指定します参照してください[MSBuild プロジェクトの共通プロパティ](/visualstudio/msbuild/common-msbuild-project-properties)プロパティ名。 プロパティの引数をここでは、トークンのリスト = 値のペアをセミコロンで区切った、出現するたび`$token$`で、`.nuspec`ファイルが指定した値と置き換えられます。 値は引用符で囲まれた文字列を指定できます。 「構成」プロパティの既定値は"Debug"に注意してください。 リリース構成を変更するには、使用`-Properties Configuration=Release`します。 |
 | サフィックス | *(3.4.4+)* 内部的に生成されたバージョン番号、ビルドまたはその他のプレリリース版の識別子を追加するために通常使用するサフィックスを追加します。 たとえばを使用して`-suffix nightly`などの数字のバージョンでパッケージを作成`1.2.3-nightly`です。 サフィックスは、警告、エラー、およびさまざまなバージョンの NuGet、NuGet パッケージ マネージャーの潜在的な非互換性を回避するために文字で始まる必要があります。 |
-| シンボル | ソースとシンボル パッケージに含まれることを指定します。 使用すると、`.nuspec`正規の NuGet パッケージ ファイルが作成されますファイル、および対応するシンボル パッケージ。 既定で作成、[レガシ シンボル パッケージ](../create-packages/Symbol-Packages.md)します。 シンボル パッケージの新しい推奨される形式は、.snupkg です。 参照してください[シンボル パッケージ (.snupkg) を作成する](../create-packages/Symbol-Packages-snupkg.md)します。 |
+| シンボル | ソースとシンボル パッケージに含まれることを指定します。 使用すると、`.nuspec`正規の NuGet パッケージ ファイルが作成されますファイル、および対応するシンボル パッケージ。 既定で作成、[レガシ シンボル パッケージ](../create-packages/Symbol-Packages.md)します。 シンボル パッケージに推奨される新しい形式は .snupkg です。 「[シンボル パッケージ (.snupkg) の作成](../create-packages/Symbol-Packages-snupkg.md)」を参照してください。 |
 | ツール | プロジェクトの出力ファイルが配置されることを指定します、`tool`フォルダー。 |
 | 詳細度 | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細*します。 |
 | Version | バージョン番号をオーバーライド、`.nuspec`ファイル。 |
