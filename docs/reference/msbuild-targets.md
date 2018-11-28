@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 07296ce5a9ba85d68eca5f4915d6efea00dc8980
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 7b3fc72ddd3ad6c9185c2bd0f2563df59e77f1c8
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548873"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453547"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>MSBuild ターゲットとしての NuGet の pack と restore
 
@@ -37,7 +37,7 @@ MSBuild 15.1 以降では、NuGet は以下のように `pack` および `restor
 
 ## <a name="pack-target"></a>pack ターゲット
 
-PackageReference 形式を使用して、使用して .NET Standard プロジェクトの`msbuild /t:pack`NuGet パッケージの作成に使用するプロジェクト ファイルからの入力を描画します。
+PackageReference 形式を使用して、使用して .NET Standard プロジェクトの`msbuild -t:pack`NuGet パッケージの作成に使用するプロジェクト ファイルからの入力を描画します。
 
 以下の表では、最初の `<PropertyGroup>` ノード内のプロジェクト ファイルに追加できる MSBuild のプロパティについて説明します。 Visual Studio 2017 以降では、プロジェクトを右クリックし、コンテキスト メニューで **[{project_name} の編集]** を選択して、この編集を簡単に行うことができます。 便宜上、この表は、[`.nuspec` ファイル](../reference/nuspec.md)の同等のプロパティごとに整理されています。
 
@@ -55,7 +55,9 @@ PackageReference 形式を使用して、使用して .NET Standard プロジェ
 | 説明 | 説明 | "パッケージの説明" | |
 | Copyright | Copyright | (なし) | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | False | |
-| LicenseUrl | PackageLicenseUrl | (なし) | |
+| ライセンス | PackageLicenseExpression | (なし) | 対応しています `<license type="expression">` |
+| ライセンス | PackageLicenseFile | (なし) | `<license type="file">` に相当します。 明示的に参照先のライセンス ファイルをパックする必要があります。 |
+| LicenseUrl | PackageLicenseUrl | (なし) | `licenseUrl` PackageLicenseExpression または PackageLicenseFile プロパティを使用して、非推奨とされています。 |
 | ProjectUrl | PackageProjectUrl | (なし) | |
 | IconUrl | PackageIconUrl | (なし) | |
 | Tags | PackageTags | (なし) | 複数のタグはセミコロン (;) で区切られます。 |
@@ -77,6 +79,8 @@ PackageReference 形式を使用して、使用して .NET Standard プロジェ
 - Copyright
 - PackageRequireLicenseAcceptance
 - DevelopmentDependency
+- PackageLicenseExpression
+- PackageLicenseFile
 - PackageLicenseUrl
 - PackageProjectUrl
 - PackageIconUrl
@@ -177,7 +181,7 @@ PackageReference 形式を使用して、使用して .NET Standard プロジェ
 
 ### <a name="includesymbols"></a>IncludeSymbols
 
-`MSBuild /t:pack /p:IncludeSymbols=true` を使用すると、対応する `.pdb` ファイルは他の出力ファイル (`.dll`、`.exe`、`.winmd`、`.xml`、`.json`、`.pri`) と共にコピーされます。 `IncludeSymbols=true` を設定すると、通常のパッケージ*と*シンボル パッケージが作成されます。
+`MSBuild -t:pack -p:IncludeSymbols=true` を使用すると、対応する `.pdb` ファイルは他の出力ファイル (`.dll`、`.exe`、`.winmd`、`.xml`、`.json`、`.pri`) と共にコピーされます。 `IncludeSymbols=true` を設定すると、通常のパッケージ*と*シンボル パッケージが作成されます。
 
 ### <a name="includesource"></a>IncludeSource
 
@@ -185,28 +189,46 @@ PackageReference 形式を使用して、使用して .NET Standard プロジェ
 
 種類が Compile のファイルがプロジェクト フォルダー以外の場所にある場合は、単に `src\<ProjectName>\` に追加されます。
 
+### <a name="packing-a-license-expression-or-a-license-file"></a>梱包ライセンス式またはライセンス ファイル
+
+ライセンスの式を使用する場合は、PackageLicenseExpression プロパティを使用してください。 
+[ライセンスの式のサンプル](#https://github.com/NuGet/Samples/tree/master/PackageLicenseExpressionExample)します。
+
+ライセンス ファイルをパックするときに、PackageLicenseFile プロパティを使用して、パッケージのルートを基準とした、パッケージのパスを指定する必要があります。 さらに、ファイルをパッケージに含まれるかどうかを確認する必要があります。 例:
+
+```xml
+<PropertyGroup>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+</PropertyGroup>
+
+<ItemGroup>
+    <None Include="licenses\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)"/>
+</ItemGroup>
+```
+[ライセンスの有効期間サンプル](#https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample)します。
+
 ### <a name="istool"></a>IsTool
 
-`MSBuild /t:pack /p:IsTool=true` を使用すると、すべての出力ファイル ([Output Assemblies](#output-assemblies) シナリオに指定されているファイル) は、`lib` フォルダーではなく `tools` フォルダーにコピーされます。 これは、`.csproj` ファイルに `PackageType` を設定して指定する `DotNetCliTool` とは異なります。
+`MSBuild -t:pack -p:IsTool=true` を使用すると、すべての出力ファイル ([Output Assemblies](#output-assemblies) シナリオに指定されているファイル) は、`lib` フォルダーではなく `tools` フォルダーにコピーされます。 これは、`.csproj` ファイルに `PackageType` を設定して指定する `DotNetCliTool` とは異なります。
 
 ### <a name="packing-using-a-nuspec"></a>.nuspec を使用したパック
 
 使用することができます、`.nuspec`ファイルをインポートする SDK のプロジェクト ファイルがある場合に、プロジェクトをパック`NuGet.Build.Tasks.Pack.targets`パック タスクを実行できるようにします。 Nuspec ファイルをパックする前に、プロジェクトを復元する必要があります。 プロジェクト ファイルのターゲット フレームワークは関係ありませんされ、nuspec をパックするときに使用されません。 次の 3 つの MSBuild プロパティが `.nuspec` を使用したパックと関係があります。
 
 1. `NuspecFile`: パックに使用する `.nuspec` ファイルの相対パスまたは絶対パス。
-1. `NuspecProperties`: キー=値ペアのセミコロン区切りの一覧。 MSBuild コマンドラインの解析方法に従い、複数のプロパティは `/p:NuspecProperties=\"key1=value1;key2=value2\"` のように指定する必要があります。  
+1. `NuspecProperties`: キー=値ペアのセミコロン区切りの一覧。 MSBuild コマンドラインの解析方法に従い、複数のプロパティは `-p:NuspecProperties=\"key1=value1;key2=value2\"` のように指定する必要があります。  
 1. `NuspecBasePath`: `.nuspec` ファイルのベース パス。
 
 `dotnet.exe` を使用してプロジェクトをパックする場合は、次のようなコマンドを使用します。
 
 ```cli
-dotnet pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:NuspecProperties=<> /p:NuspecBasePath=<Base path> 
+dotnet pack <path to .csproj file> -p:NuspecFile=<path to nuspec file> -p:NuspecProperties=<> -p:NuspecBasePath=<Base path> 
 ```
 
 MSBuild を使用してプロジェクトをパックする場合は、次のようなコマンドを使用します。
 
 ```cli
-msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:NuspecProperties=<> /p:NuspecBasePath=<Base path> 
+msbuild -t:pack <path to .csproj file> -p:NuspecFile=<path to nuspec file> -p:NuspecProperties=<> -p:NuspecBasePath=<Base path> 
 ```
 
 既定では、プロジェクトを構築するために nuspec を梱包 dotnet.exe または msbuild を使用して潜在顧客もことに注意してください。 これを渡すことによって回避できます```--no-build```プロパティの設定に相当する、dotnet.exe を```<NoBuild>true</NoBuild> ```設定と共に、プロジェクト ファイルで```<IncludeBuildOutput>false</IncludeBuildOutput> ```プロジェクト ファイル
@@ -283,7 +305,7 @@ Nuspec ファイルをパックする csproj ファイルの例を示します�
 
 ## <a name="restore-target"></a>restore ターゲット
 
-`MSBuild /t:restore` (`nuget restore` と `dotnet restore` が .NET Core プロジェクトで使用) は、次のようにプロジェクト ファイルで参照されるパッケージを復元します。
+`MSBuild -t:restore` (`nuget restore` と `dotnet restore` が .NET Core プロジェクトで使用) は、次のようにプロジェクト ファイルで参照されるパッケージを復元します。
 
 1. すべてのプロジェクト間参照を読み取ります
 1. プロジェクトのプロパティを読み取って、中間フォルダーとターゲット フレームワークを検出します
@@ -296,7 +318,7 @@ Nuspec ファイルをパックする csproj ファイルの例を示します�
 
 ### <a name="restore-properties"></a>restore のプロパティ
 
-追加の restore 設定を、プロジェクト ファイルの MSBuild プロパティで指定することができます。 また、`/p:` スイッチを使用して、コマンド ラインから値を設定することもできます (次の例を参照してください)。
+追加の restore 設定を、プロジェクト ファイルの MSBuild プロパティで指定することができます。 また、`-p:` スイッチを使用して、コマンド ラインから値を設定することもできます (次の例を参照してください)。
 
 | プロパティ | 説明 |
 |--------|--------|
@@ -315,7 +337,7 @@ Nuspec ファイルをパックする csproj ファイルの例を示します�
 コマンド ライン:
 
 ```cli
-msbuild /t:restore /p:RestoreConfigFile=<path>
+msbuild -t:restore -p:RestoreConfigFile=<path>
 ```
 
 プロジェクト ファイル:
