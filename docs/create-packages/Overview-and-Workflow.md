@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/26/2017
 ms.topic: conceptual
-ms.openlocfilehash: f911e24da76880410f8dfaa2891b609c7beb4a61
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 6b41b23df115c45e830404afcf9defa23615bd7c
+ms.sourcegitcommit: ce97dded7715f217ec44f6c8368ab0df19c38342
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547890"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52615757"
 ---
 # <a name="package-creation-workflow"></a>パッケージ作成ワークフロー
 
@@ -36,7 +36,7 @@ ms.locfileid: "43547890"
 - 「[Creating Localized Packages](../create-packages/creating-localized-packages.md)」 (ローカライズされたパッケージの作成) では、複数の言語リソースを含むパッケージを構築する方法と、個別のローカライズされたサテライト パッケージを使用する方法が説明されています。
 - 「[Pre-release Packages](../create-packages/prerelease-packages.md)」 (プレリリース パッケージ) では、アルファ、ベータ、rc パッケージをそれらに関心のあるユーザー向けにリリースする方法が示されています。
 - 「[Source and Config File Transformations](../create-packages/source-and-config-file-transformations.md)」 (ソースと構成ファイルの変換) では、プロジェクトに追加されたファイルでの一方向のトークン置換を実行する方法と、パッケージのアンインストール時に取り消すこともできる設定を使用して `web.config` と `app.config` を変更する方法が説明されています。
-- 「[Symbol Packages](../create-packages/symbol-packages.md)」 (シンボル パッケージ) では、コンシューマーがデバッグ時にコードにステップ インできるように、ライブラリでシンボルを提供するためのガイダンスが提供されています。
+- 「[Symbol Packages](../create-packages/symbol-packages-snupkg.md)」 (シンボル パッケージ) では、コンシューマーがデバッグ時にコードにステップ インできるように、ライブラリでシンボルを提供するためのガイダンスが提供されています。
 - 「[Package versioning](../reference/package-versioning.md)」 (パッケージのバージョン管理) では、依存関係 (自分のパッケージから利用する他のパッケージ) がある場合に使用できる正確なバージョンを特定する方法が説明されています。
 - 「[Native Packages](../create-packages/native-packages.md)」 (ネイティブ パッケージ) では、C++ コンシューマー用のパッケージの作成プロセスが説明されています。
 - 「[Signing Packages](../create-packages/sign-a-package.md)」(パッケージの署名) では、パッケージにデジタル署名を追加するプロセスが説明されています。

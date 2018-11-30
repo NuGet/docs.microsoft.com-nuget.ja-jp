@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/18/2018
 ms.topic: quickstart
-ms.openlocfilehash: a0bf174e3e27ad6d8fefe18f6213213a4bc77b53
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: faea00372bd387aee1502e388ad1ea88de07b95d
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548939"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453521"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>クイック スタート: Visual Studio を使用した NuGet パッケージの作成と公開 (.NET Standard、Windows のみ)
 
@@ -95,12 +95,12 @@ namespace AppLogger
 NuGet 4.x 以降と MSBuild 15.1 以降では、**Pack** メニュー コマンドを使用する代わりに、プロジェクトに必要なパッケージ データが含まれている場合に `pack` ターゲットをサポートしています。 コマンド プロンプトを開き、プロジェクト フォルダーに移動し、次のコマンドを実行します (MSBuild に必要なすべてのパスが構成されるため、通常は [スタート] メニューの [Developer Command Prompt for Visual Studio]\(Visual Studio 用開発者コマンド プロンプト\) を使用します)。
 
 ```cli
-msbuild /t:pack /p:Configuration=Release
+msbuild -t:pack -p:Configuration=Release
 ```
 
 このパッケージは `bin\Release` フォルダーにあります。
 
-`msbuild /t:pack` のその他のオプションについては、「[NuGet pack and restore as MSBuild targets](../reference/msbuild-targets.md#pack-target)」(MSBuild ターゲットとしての NuGet のパックと復元) をご覧ください。
+`msbuild -t:pack` のその他のオプションについては、「[NuGet pack and restore as MSBuild targets](../reference/msbuild-targets.md#pack-target)」(MSBuild ターゲットとしての NuGet のパックと復元) をご覧ください。
 
 ## <a name="publish-the-package"></a>パッケージを公開する
 

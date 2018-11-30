@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: 7b30fce4a2d9ad0bd7bc2b97f69b8d5d25101b72
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 15268ae33d56042a765420e5076dac49db6cce04
+ms.sourcegitcommit: 1591bb230e106b94162a87dd1d86fe427366730a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545227"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52671176"
 ---
 # <a name="quickstart-install-and-use-a-package-in-visual-studio"></a>クイック スタート: Visual Studio でパッケージをインストールして使用する
 
@@ -64,7 +64,7 @@ NuGet パッケージは任意の .NET プロジェクトにインストール�
 
     ![Newtonsoft.Json パッケージを見つけます](media/QS_Use-08-Console1.png)
 
-1. コマンド `Install-Package Newtonsoft.json` を入力します (「[Install-Package](../tools/ps-ref-install-package.md)」を参照してください)。 コンソール ウィンドウに、このコマンドの出力が表示されます。 通常、エラーは、パッケージがプロジェクトのターゲット フレームワークと互換性がないことを示します。
+1. コマンド `Install-Package Newtonsoft.Json` を入力します (「[Install-Package](../tools/ps-ref-install-package.md)」を参照してください)。 コンソール ウィンドウに、このコマンドの出力が表示されます。 通常、エラーは、パッケージがプロジェクトのターゲット フレームワークと互換性がないことを示します。
 
 ## <a name="use-the-newtonsoftjson-api-in-the-app"></a>アプリで Newtonsoft.Json API を使用する
 
@@ -107,7 +107,7 @@ NuGet パッケージは任意の .NET プロジェクトにインストール�
 1. プロジェクトに Newtonsoft.Json パッケージを追加した後でも、`JsonConvert` の下に赤い波線が表示されます。これは、コード ファイルの上部に `using` ステートメントが必要であるためです。
 
     ```cs
-    using Newtonsoft.json;
+    using Newtonsoft.Json;
     ```
 
 1. アプリをビルドして実行します。F5 キーを押すか、**[デバッグ]、[デバッグの開始]** を選択してください。

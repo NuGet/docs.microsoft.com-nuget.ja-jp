@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 51dd78ef7cc427232982df15657d76d117146853
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: b85b586e76e424442dc0ba3acfecbee1e8755345
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580358"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453469"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>パッケージの復元エラーのトラブルシューティング
 
@@ -57,7 +57,7 @@ Use NuGet Package Restore to download them. The missing file is {name}.
 - Visual Studio で、**[ツール] > [NuGet パッケージ マネージャー] > [パッケージ マネージャー設定]** メニュー コマンドを選択し、**[パッケージの復元]** の両方のオプションをオンにして、**[OK]** を選択します。 ソリューションをもう一度ビルドします。
 - .NET Core プロジェクトの場合は、`dotnet restore` または `dotnet build` (自動的に復元が実行されます) を実行します。
 - コマンド ラインで `nuget restore` を実行します (ただし、`dotnet restore` を使用する `dotnet` で作成されたプロジェクトは例外です)。
-- PackageReference 形式を使用するプロジェクトのコマンド ラインで、`msbuild /t:restore` を実行します。
+- PackageReference 形式を使用するプロジェクトのコマンド ラインで、`msbuild -t:restore` を実行します。
 
 復元に成功したら、"*グローバル パッケージ*" フォルダーにパッケージが表示されます。 PackageReference を使用するプロジェクトの場合、復元によって `obj/project.assets.json` ファイルが再び作成されます。`packages.config` を使用するプロジェクトの場合、プロジェクトの `packages` フォルダーにパッケージが表示されます。 この場合、プロジェクトを正常にビルドできるようになります。 ビルドできない場合は、フォローを受けられるように [GitHub で問題を報告してください](https://github.com/NuGet/docs.microsoft.com-nuget/issues)。
 
@@ -73,7 +73,7 @@ Assets file '<path>\project.assets.json' not found. Run a NuGet package restore 
 
 PackageReference 管理形式を使用する場合、`project.assets.json` ファイルによってプロジェクトの依存関係グラフが保持されます。このグラフを使用して、必要なパッケージがすべてコンピューターにインストールされていることを確認します。 このファイルはパッケージの復元を通じて動的に生成されるため、通常はソース管理に追加されません。 その結果、自動的にパッケージを復元しない `msbuild` などのツールでプロジェクトをビルドすると、このエラーが発生します。
 
-この場合、`msbuild /t:restore` の後に `msbuild` を実行するか、`dotnet build` を使用します (これでパッケージが自動的に復元されます)。 また、[前のセクション](#missing)のいずれかの方法を使用してパッケージを復元することもできます。
+この場合、`msbuild -t:restore` の後に `msbuild` を実行するか、`dotnet build` を使用します (これでパッケージが自動的に復元されます)。 また、[前のセクション](#missing)のいずれかの方法を使用してパッケージを復元することもできます。
 
 <a name="consent"></a>
 
