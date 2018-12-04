@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 81672abf0362e053da2b71c8bd39bd7f96ddf73b
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: c86a07c30631b7ee99526b014ac9c3b9f136aa81
+ms.sourcegitcommit: 1591bb230e106b94162a87dd1d86fe427366730a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549416"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52671189"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>プロジェクトの NuGet パッケージの検索と評価
 
@@ -100,6 +100,21 @@ NuGet では、Visual Studio の C++ プロジェクトで使用できるネイ�
 
 > [!Note]
 > 常にパッケージのライセンス条項に留意してください。これは、nuget.org のパッケージのリスト ページにある **[ライセンス情報]** を選択することで確認できます。パッケージでライセンス条項が指定されていない場合は、パッケージ ページの **[Contact owners]\(所有者に問い合わせる\)** リンクを使用して、パッケージ所有者に直接問い合わせてください。 Microsoft はサードパーティのパッケージ プロバイダーを通じてユーザーに知的財産ライセンスを付与することはありません。また、サードパーティによって提供される情報について責任を負いません。
+
+## <a name="license-url-deprecation"></a>ライセンス URL の非推奨
+[licenseUrl](../reference/nuspec#licenseurl) から [license](../reference/nuspec#license) への移行に従い、一部の NuGet クライアントや NuGet フィードでは、場合によってはまだライセンス情報を表示できない可能性があります。 下位互換性を維持するために、ライセンス URL の指定先は、このような場合にライセンス情報を取得する方法について説明しているこのドキュメントとなります。
+
+パッケージのライセンス URL をクリックしてこのページに移動してきた場合、そのパッケージにはライセンス ファイルが含まれていて、また次が該当します。
+* 新しいライセンス情報を解釈してクライアントに表示する方法をまだ把握していないフィードに接続している、**または**
+* フィードによって提供される可能性のある新しいライセンス情報を解釈して読み取る方法をまだ把握していないクライアントを使用している、**または**
+* 両方の組み合わせ
+
+パッケージ内のライセンス ファイルに含まれている情報を読み取る方法は次のとおりです。
+1. NuGet パッケージをダウンロードし、その内容をフォルダーに解凍します。
+1. そのフォルダーのルートにある `.nuspec` ファイルを開きます。
+1. これは `<license type="file">license\license.txt</license>` のようなタグを含んでいます。 これは、ライセンス ファイルが `license.txt` と名付けられ、同様にそのフォルダーのルートにある `license` というフォルダー内にあることを意味しています。
+1. `license` フォルダーに移動して `license.txt` ファイルを開きます。
+
 
 ## <a name="search-syntax"></a>検索構文
 

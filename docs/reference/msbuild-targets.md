@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7b3fc72ddd3ad6c9185c2bd0f2563df59e77f1c8
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: a9427d87f69a2e942a9802fbdae5193eead1c724
+ms.sourcegitcommit: af58d59669674c3bc0a230d5764e37020a9a3f1e
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453547"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52831021"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>MSBuild ターゲットとしての NuGet の pack と restore
 
@@ -192,7 +192,7 @@ PackageReference 形式を使用して、使用して .NET Standard プロジェ
 ### <a name="packing-a-license-expression-or-a-license-file"></a>梱包ライセンス式またはライセンス ファイル
 
 ライセンスの式を使用する場合は、PackageLicenseExpression プロパティを使用してください。 
-[ライセンスの式のサンプル](#https://github.com/NuGet/Samples/tree/master/PackageLicenseExpressionExample)します。
+[ライセンスの式のサンプル](https://github.com/NuGet/Samples/tree/master/PackageLicenseExpressionExample)します。
 
 ライセンス ファイルをパックするときに、PackageLicenseFile プロパティを使用して、パッケージのルートを基準とした、パッケージのパスを指定する必要があります。 さらに、ファイルをパッケージに含まれるかどうかを確認する必要があります。 例:
 
@@ -205,7 +205,7 @@ PackageReference 形式を使用して、使用して .NET Standard プロジェ
     <None Include="licenses\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)"/>
 </ItemGroup>
 ```
-[ライセンスの有効期間サンプル](#https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample)します。
+[ライセンス ファイルのサンプル](https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample)します。
 
 ### <a name="istool"></a>IsTool
 

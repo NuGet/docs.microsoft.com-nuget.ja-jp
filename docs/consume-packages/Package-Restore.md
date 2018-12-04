@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: da69181aebe3bebcea6acd6e15fde6b77dd33452
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: 9acb87a5f5731fb33c91a1ae9b106c6df492ddcd
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580299"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453534"
 ---
 # <a name="package-restore"></a>パッケージの復元
 
@@ -39,7 +39,7 @@ ms.locfileid: "51580299"
 
 - **NuGet CLI**: [nuget restore](../tools/cli-ref-restore.md) コマンドを使用します。このコマンドは、プロジェクト ファイルまたは `packages.config`に列記されたパッケージを復元します。 ソリューション ファイルを指定することもできます。
 
-- **MSBuild**: [msbuild /t:restore](../reference/msbuild-targets.md#restore-target)コマンドを使用します。このコマンドは、プロジェクト ファイル (PackageReference のみ) に列記されたパッケージを復元します。 NuGet 4.x 以降および MSBuild 15.1 以降でのみ使用できます。これらは、Visual Studio 2017 に含まれています。 `nuget restore` と `dotnet restore` はどちらも、このコマンドを該当するプロジェクトに使います。
+- **MSBuild**: [msbuild -t:restore](../reference/msbuild-targets.md#restore-target) コマンドを使用します。このコマンドは、プロジェクト ファイル (PackageReference のみ) に列記されたパッケージを復元します。 NuGet 4.x 以降および MSBuild 15.1 以降でのみ使用できます。これらは、Visual Studio 2017 に含まれています。 `nuget restore` と `dotnet restore` はどちらも、このコマンドを該当するプロジェクトに使います。
 
 - **Visual Studio Team Services**: Team Services でビルド定義を作成する場合、ビルド タスクの前に、[NuGet の復元](/vsts/build-release/tasks/package/nuget#restore-nuget-packages) タスクまたは [.NET Core の復元](/vsts/build-release/tasks/build/dotnet-core#restore-nuget-packages)タスクが定義に追加されます。 このタスクは、多くのビルド テンプレートに既定で含まれます。
 

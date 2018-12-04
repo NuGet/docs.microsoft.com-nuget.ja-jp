@@ -16,12 +16,12 @@ keywords: NuGet シンボル パッケージ, NuGet パッケージ デバッグ
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: a72b59a391ed25e9617ba3ba3656301a2ed90ddc
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: 48ca4b62e722988b3dfe69306565d7f159805962
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580435"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453456"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>シンボル パッケージ (.snupkg) の作成
 
@@ -41,12 +41,12 @@ nuget pack MyPackage.nuspec -Symbols -SymbolPackageFormat snupkg
 
 nuget pack MyPackage.csproj -Symbols -SymbolPackageFormat snupkg
 
-msbuild /t:pack MyPackage.csproj /p:IncludeSymbols=true /p:SymbolPackageFormat=snupkg
+msbuild -t:pack MyPackage.csproj -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
 ```
 
-`.snupkgs` は、既定では生成されません。 nuget.exe の場合は `-Symbols` と共に `SymbolsPackageFormat` プロパティを、dotnet.exe の場合は `--include-symbols` を、msbuild の場合は `/p:IncludeSymbols` を渡す必要があります。
+`.snupkgs` は、既定では生成されません。 nuget.exe の場合は `-Symbols` と共に `SymbolPackageFormat` プロパティを、dotnet.exe の場合は `--include-symbols` を、msbuild の場合は `-p:IncludeSymbols` を渡す必要があります。
 
-SymbolsPackageFormat プロパティには、`symbols.nupkg` (既定値) または `snupkg` の 2 つの値のうちどちらかを指定できます。 SymbolsPackageFormat が指定されていない場合は `symbols.nupkg` が既定に設定され、レガシ シンボル パッケージが作成されます。
+SymbolPackageFormat プロパティには、`symbols.nupkg` (既定値) または `snupkg` の 2 つの値のうちどちらかを指定できます。 SymbolPackageFormat が指定されていない場合は `symbols.nupkg` が既定に設定され、レガシ シンボル パッケージが作成されます。
 
 > [!Note]
 > 従来の形式 `.symbols.nupkg` は引き続きサポートされますが、これは互換性のみを目的としています ([レガシ シンボル パッケージ](Symbol-Packages.md)に関する記事を参照)。 NuGet.org のシンボル サーバーは、新しいシンボル パッケージ形式 `.snupkg` のみを受け入れます。
@@ -65,13 +65,13 @@ SymbolsPackageFormat プロパティには、`symbols.nupkg` (既定値) また�
     nuget push MyPackage.snupkg
     ```
 
-1. 以下のコマンドを使用して、プライマリ パッケージとシンボル パッケージの両方を同時にプッシュすることもできます。 .nupkg ファイルと .snupkg ファイルの両方が、現在のフォルダーに存在する必要があります。
+1. 以下のコマンドを使用して、プライマリ パッケージとシンボル パッケージの両方を同時にプッシュすることもできます。 .nupkg および .snupkg ファイルの両方が、現在のフォルダーに存在する必要があります。
 
     ```cli
     nuget push MyPackage.nupkg
     ```
 
-この場合、NuGet は nuget.org に `MyPackage.nupkg` を公開してから `MyPackage.snupkg` を公開します。
+NuGet では、両方のパッケージが nuget.org に公開されます。最初に `MyPackage.nupkg` が、次に `MyPackage.snupkg` が公開されます。
 
 ## <a name="nugetorg-symbol-server"></a>NuGet.org のシンボル サーバー
 

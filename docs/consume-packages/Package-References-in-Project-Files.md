@@ -5,22 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 71ab5bb464d1513df89ab53e119d9768e880e4e5
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: d4f0177183ee3edf595c4ce10d1f26cbaca5755d
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981029"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453573"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>プロジェクト ファイルのパッケージ参照 (PackageReference)
 
-`PackageReference` ノードを使用するパッケージ参照では、(個別の `packages.config` ファイルとは異なり) NuGet の依存関係をプロジェクト ファイル内で直接管理します。 PackageReference の呼び出しは、NuGet の他の側面には影響を与えません。たとえば、'NuGet.
-
-
-
-
-
-fig' の設定 (パッケージ ソースを含む) は引き続き適用されます。詳しくは「[NuGet の動作を構成する](configuring-nuget-behavior.md)」をご覧ください。
+`PackageReference` ノードを使用するパッケージ参照では、(個別の `packages.config` ファイルとは異なり) NuGet の依存関係をプロジェクト ファイル内で直接管理します。 PackageReference の呼び出しは、NuGet の他の側面には影響を与えません。たとえば、(パッケージ ソースを含む) `NuGet.config` ファイルの設定が適用されます。詳細については、「[NuGet の動作を構成する](configuring-nuget-behavior.md)」を参照してください。
 
 PackageReference の場合、MSBuild 条件を使用し、ターゲット フレームワーク、構成、プラットフォーム、その他のグループ化ごとにパッケージ参照を選択することもできます。 依存関係とコンテンツ フローを細かく制御することもできます。 (詳細については、「[NuGet pack and restore as MSBuild targets](../reference/msbuild-targets.md)」(MSBuild ターゲットとしての NuGet のパックと復元) を参照してください)。
 
@@ -204,7 +198,7 @@ dotnet.exe の場合は、次を実行します。
 
 msbuild.exe の場合は、次を実行します。
 ```
-> msbuild.exe /t:restore /p:RestoreLockedMode=true
+> msbuild.exe -t:restore -p:RestoreLockedMode=true
 ```
 
 自分のプロジェクト ファイルにもこの条件付き MSBuild プロパティを設定できます。
