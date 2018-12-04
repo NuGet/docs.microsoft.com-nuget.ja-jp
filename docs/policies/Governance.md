@@ -46,13 +46,13 @@ NuGet プロジェクトのリーダーは、ヴェノベレント ディクテ�
 
 最初の更新プログラムがリポジトリに配置される前に、共同作成者は、.NET Foundation の[貢献者ライセンス同意書](http://en.wikipedia.org/wiki/Contributor_License_Agreement)または譲渡契約書に署名する必要があります。 更新プログラムの提出および議論は可能ですが、実際に適切な書類なしにそれをリポジトリにコミットすることはできません。 貢献者ライセンス同意書を取得するには、[contributions@nuget.org](mailto:contributions@nuget.org) にリクエストを送信してください。
 
-共同作成者になるには、次のいずれかのリポジトリにプル要求を送信してください。
+共同作成者になるには、次のいずれかのリポジトリに pull request を送信してください。
 
 - [NuGet クライアント](https://github.com/NuGet/NuGet.Client)
 - [NuGet ギャラリー](https://github.com/nuget/nugetgallery)
 - [NuGet Docs](https://github.com/nuget/nugetdocs)
 
-プル要求を送信する詳細な手順は、リポジトリによって異なります。
+pull request を送信する詳細な手順は、リポジトリによって異なります。
 
 - [NuGet クライアントと NuGet ギャラリーの寄稿手順](https://github.com/NuGet/Home/wiki/Contributing-to-NuGet)
 - [NuGet Docs の寄稿手順](https://github.com/NuGet/NuGetDocs/wiki/Contributing-to-NuGet-Documentation)
