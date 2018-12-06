@@ -10,6 +10,7 @@
 ## [概要とワークフロー](consume-packages/overview-and-workflow.md)
 ## [パッケージの検索と選択](consume-packages/finding-and-choosing-packages.md)
 ## [パッケージのインストール](consume-packages/ways-to-install-a-package.md)
+###[署名付きパッケージ](consume-packages/installing-signed-packages.md)
 ## [パッケージの復元](consume-packages/package-restore.md)
 ### [トラブルシューティング](consume-packages/package-restore-troubleshooting.md)
 ## [パッケージの再インストールと更新](consume-packages/reinstalling-and-updating-packages.md)
