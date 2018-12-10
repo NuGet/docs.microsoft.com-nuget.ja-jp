@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/11/2018
 ms.topic: conceptual
-ms.openlocfilehash: c136a3dffac38a68b80f730de1e4c3a3a9c8bd5d
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: 93a22b423b193874c4c69c37ff9c6d9b4489a48d
+ms.sourcegitcommit: 673e580ae749544a4a071b4efe7d42fd2bb6d209
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580364"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52977577"
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet に関してよく寄せられる質問
 
@@ -39,7 +39,7 @@ UI とコマンド ライン ツールの両方に関するすべての情報は
 - Windows の Visual Studio では、[パッケージ マネージャー UI](../tools/package-manager-ui.md) と[パッケージ マネージャー コンソール](../tools/package-manager-console.md)がサポートされます。
 - 「[プロジェクトに NuGet パッケージを含める](/visualstudio/mac/nuget-walkthrough)」で説明されているように、Visual Studio for Mac には NuGet 機能が組み込まれています。
 - Visual Studio Code (すべてのプラットフォーム) には、直接 NuGet は統合されていません。 [NuGet CLI](../tools/nuget-exe-cli-reference.md) または [dotnet CLI](../tools/dotnet-commands.md) を使用してください。
-- Visual Studio Team Services では、[NuGet パッケージを復元するためのビルド ステップ](/vsts/build-release/tasks/package/nuget)が提供されます。 [Team Services でプライベート NuGet パッケージ フィードをホストする](https://www.visualstudio.com/docs/package/nuget/publish)こともできます。
+- Azure DevOps には、[NuGet パッケージを復元するためのビルド ステップ](/vsts/build-release/tasks/package/nuget)があります。 [Azure DevOps でプライベート NuGet パッケージ フィードをホストする](https://docs.microsoft.com/azure/devops/artifacts/nuget/publish)こともできます。
 
 **インストールされている NuGet ツールの正確なバージョンはどのように確認すればよいですか?**
 
@@ -182,7 +182,7 @@ NuGet コミュニティと協力して、パッケージ所有者と他のソ�
 
 **nuget.org に自分のテスト パッケージをアップロードするよう勧めされていますか?**
 
-テスト目的で、[int.nugettest.org](https://int.nugettest.org) を使用することができます。また、[myget.org](https://myget.org) や [Visual Studio Team Services](https://blogs.msdn.microsoft.com/visualstudioalm/2015/08/27/announcing-package-management-support-for-vsotfs/) などのパブリック NuGet サーバーを代わりに使用することもできます。
+テスト目的で、[int.nugettest.org](https://int.nugettest.org) を使用することができます。また、[myget.org](https://myget.org) や [Azure DevOps](https://blogs.msdn.microsoft.com/visualstudioalm/2015/08/27/announcing-package-management-support-for-vsotfs/) などの別のパブリック NuGet サーバーを使用することもできます。
 
 int.nugettest.org にアップロードされたパッケージは保持されない場合があることに注意してください。
 
