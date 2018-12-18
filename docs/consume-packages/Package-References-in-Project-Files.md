@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: d4f0177183ee3edf595c4ce10d1f26cbaca5755d
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: e4df15be1f29e2c611876aaa49e16ac7d1823938
+ms.sourcegitcommit: be9c51b4b095aea40ef41bbea7e12ef0a194ee74
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453573"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53248456"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>プロジェクト ファイルのパッケージ参照 (PackageReference)
 
@@ -47,7 +47,7 @@ PackageReference の場合、MSBuild 条件を使用し、ターゲット フレ
 上記の例では、3.6.0 は 3.6.0 以上のあらゆるバージョンを意味し、最も下のバージョンが優先されます。詳細は、「[Package versioning](../reference/package-versioning.md#version-ranges-and-wildcards)」 (パッケージ バージョン) にあります。
 
 ## <a name="using-packagereference-for-a-project-with-no-packagereferences"></a>PackageReference のないプロジェクトに PackageReference を使用する
-詳細: プロジェクトにパッケージをインストールしていないが (プロジェクト ファイルに PackageReferences がなく、packages.config ファイルがない)、プロジェクトを PackageReference スタイルで復元する場合、プロジェクト ファイルで Project プロパティ RestoreProjectStyle を PackageReference に設定できます。
+詳細:プロジェクトにパッケージをインストールしていない (プロジェクト ファイルに PackageReferences がなく、packages.config ファイルがない) が、プロジェクトを PackageReference スタイルで復元したい場合は、プロジェクト ファイルで Project プロパティ RestoreProjectStyle を PackageReference に設定できます。
 ```xml
 <PropertyGroup>
     <!--- ... -->
@@ -155,7 +155,7 @@ PackageReference スタイル (既存の csproj または SDK スタイルのプ
 ```
 
 ## <a name="locking-dependencies"></a>依存関係のロック
-"*この機能を使用できるのは、NuGet **4.9** 以降で、かつ Visual Studio 2017 **15.9 Preview 5** 以降を使用している場合です。*"
+"*この機能を使用できるのは、NuGet **4.9** 以降で、かつ Visual Studio 2017 **15.9** 以降を使用している場合です。*"
 
 NuGet の復元への入力は、プロジェクト ファイルのパッケージ参照のセット (最上位レベルまたは直接の依存関係) であり、出力は推移的依存関係を含むパッケージのすべての依存関係の完全なクロージャーです。 入力の PackageReference リストが変更されていない場合、NuGet では常に同じパッケージの依存関係の完全なクロージャーを生成しようとします。 ただし、このようにすることができないシナリオがいくつかあります。 例:
 
@@ -164,7 +164,7 @@ NuGet の復元への入力は、プロジェクト ファイルのパッケー�
 
   * 1 日目: `<PackageReference Include="My.Sample.Lib" Version="4.0.0"/>` を指定したが、NuGet リポジトリで利用可能なバージョンが 4.1.0、4.2.0 および 4.3.0 だった場合。 この場合、NuGet は 4.1.0 (最小に最も近いバージョン) に解決されています。
 
-  * 2 日目: バージョン 4.0.0 が公開されます。 NuGet では完全一致が検索され、4.0.0 への解決が始められます。
+  * 2 日目:バージョン 4.0.0 が公開されます。 NuGet では完全一致が検索され、4.0.0 への解決が始められます。
 
 * 指定したパッケージ バージョンがリポジトリから削除される場合。 nuget.org ではパッケージの削除が許可されていませんが、すべてのパッケージ リポジトリがこの制約を持っているわけではありません。 これにより、削除されたバージョンに解決できない場合、NuGet では最適な一致が検索されます。
 
@@ -213,7 +213,7 @@ msbuild.exe の場合は、次を実行します。
 ロック モードが `true` である場合、復元ではロック ファイルに記載されている正確なパッケージが復元されるか、または、ロック ファイルの作成後にプロジェクトの定義されたパッケージの依存関係を更新した場合は、失敗します。
 
 ### <a name="make-lock-file-part-of-your-source-repository"></a>ロック ファイルをソース リポジトリの一部にする
-アプリケーションを作成する場合、目的の実行可能ファイルとプロジェクトは依存関係チェーンの最後に位置します。NuGet が復元中にこれを使用できるように、ロック ファイルをソース コード リポジトリにチェックインします。
+アプリケーションを作成する場合、目的の実行可能ファイルとプロジェクトは依存関係チェーンの最初に位置します。NuGet が復元中にこれを使用できるように、ロック ファイルをソース コード リポジトリにチェックインします。
 
 ただし、当該プロジェクトが出荷しないライブラリ プロジェクトである場合や、他のプロジェクトが依存する共通コード プロジェクトである場合は、ソース コードの一部としてロック ファイルをチェックイン**しないでください**。 ロック ファイルを保持しても問題はありませんが、共通コード プロジェクトのロックされているパッケージの依存関係は、ロック ファイル内で記載されているように、この共通コード プロジェクトに依存するプロジェクトの復元/ビルド中に使用されない場合があります。
 
