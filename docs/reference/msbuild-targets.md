@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: a9427d87f69a2e942a9802fbdae5193eead1c724
-ms.sourcegitcommit: af58d59669674c3bc0a230d5764e37020a9a3f1e
+ms.openlocfilehash: 878fb582a31667c84f3ae306b554718de72eca7a
+ms.sourcegitcommit: 5c5f0f0e1f79098e27d9566dd98371f6ee16f8b5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52831021"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53645673"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>MSBuild ターゲットとしての NuGet の pack と restore
 
@@ -51,7 +51,7 @@ PackageReference 形式を使用して、使用して .NET Standard プロジェ
 | VersionSuffix | PackageVersionSuffix | (なし) | MSBuild の $(VersionSuffix) PackageVersion を設定すると、PackageVersionSuffix は上書きされます |
 | Authors | Authors | 現在のユーザーのユーザー名 | |
 | 所有者 | N/A | NuSpec にはありません | |
-| Title | Title | PackageId| |
+| タイトル | タイトル | PackageId| |
 | 説明 | 説明 | "パッケージの説明" | |
 | Copyright | Copyright | (なし) | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | False | |
@@ -65,7 +65,7 @@ PackageReference 形式を使用して、使用して .NET Standard プロジェ
 | リポジトリの Url/ | RepositoryUrl | (なし) | リポジトリの URL を複製するか、ソース コードを取得するために使用します。 例: *https://github.com/NuGet/NuGet.Client.git* |
 | リポジトリの種類/ | RepositoryType | (なし) | リポジトリの種類。 例: *git*、 *tfs*します。 |
 | リポジトリとブランチ | RepositoryBranch | (なし) | 省略可能なリポジトリのブランチの情報。 *RepositoryUrl*にインクルードするには、このプロパティも指定する必要があります。 例:*マスター* (NuGet 4.7.0+) |
-| コミットあたりのリポジトリ | RepositoryCommit | (なし) | 省略可能なリポジトリのコミットまたは変更セットをパッケージ ソースを示すためには、に対して構築されました。 *RepositoryUrl*にインクルードするには、このプロパティも指定する必要があります。 例: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0+) |
+| コミットあたりのリポジトリ | RepositoryCommit | (なし) | 省略可能なリポジトリのコミットまたは変更セットをパッケージ ソースを示すためには、に対して構築されました。 *RepositoryUrl*にインクルードするには、このプロパティも指定する必要があります。 例:*0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0+) |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
 | まとめ | サポートなし | | |
 
@@ -117,8 +117,8 @@ PackageReference 形式を使用して、使用して .NET Standard プロジェ
 
 出力アセンブリの出力先を制御する MSBuild プロパティが 2 つあり、プロジェクト ファイルまたはコマンド ラインで使用できます。
 
-- `IncludeBuildOutput`: ビルドの出力アセンブリをパッケージに含めるかどうかを決めるブール値。
-- `BuildOutputTargetFolder`: 出力アセンブリを配置するフォルダーを指定します。 出力アセンブリ (および他の出力ファイル) は、各フレームワーク フォルダーにコピーされます。
+- `IncludeBuildOutput`:ビルドの出力アセンブリをパッケージに含めるかどうかを決定するブール値。
+- `BuildOutputTargetFolder`:出力アセンブリを配置するフォルダーを指定します。 出力アセンブリ (および他の出力ファイル) は、各フレームワーク フォルダーにコピーされます。
 
 ### <a name="package-references"></a>パッケージ参照
 
@@ -202,7 +202,7 @@ PackageReference 形式を使用して、使用して .NET Standard プロジェ
 </PropertyGroup>
 
 <ItemGroup>
-    <None Include="licenses\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)"/>
+    <None Include="licenses\LICENSE.txt" Pack="true" PackagePath=""/>
 </ItemGroup>
 ```
 [ライセンス ファイルのサンプル](https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample)します。
@@ -217,7 +217,7 @@ PackageReference 形式を使用して、使用して .NET Standard プロジェ
 
 1. `NuspecFile`: パックに使用する `.nuspec` ファイルの相対パスまたは絶対パス。
 1. `NuspecProperties`: キー=値ペアのセミコロン区切りの一覧。 MSBuild コマンドラインの解析方法に従い、複数のプロパティは `-p:NuspecProperties=\"key1=value1;key2=value2\"` のように指定する必要があります。  
-1. `NuspecBasePath`: `.nuspec` ファイルのベース パス。
+1. `NuspecBasePath`:ベース パス、`.nuspec`ファイル。
 
 `dotnet.exe` を使用してプロジェクトをパックする場合は、次のようなコマンドを使用します。
 
@@ -252,15 +252,15 @@ Nuspec ファイルをパックする csproj ファイルの例を示します�
 
 `pack`ターゲットは、内部のターゲット フレームワーク固有のビルドで実行している 2 つの拡張機能ポイントを提供します。 拡張機能ポイントは、ターゲット フレームワークの特定のコンテンツなど、パッケージにアセンブリをサポートします。
 
-- `TargetsForTfmSpecificBuildOutput` ターゲット: 内のファイルの使用、`lib`フォルダー、またはフォルダーを使用して指定`BuildOutputTargetFolder`します。
-- `TargetsForTfmSpecificContentInPackage` ターゲット: 外にファイルを使用して、`BuildOutputTargetFolder`します。
+- `TargetsForTfmSpecificBuildOutput` ターゲット:内のファイルの使用、`lib`フォルダー、またはフォルダーを使用して指定`BuildOutputTargetFolder`します。
+- `TargetsForTfmSpecificContentInPackage` ターゲット:外部ファイルの使用、`BuildOutputTargetFolder`します。
 
 #### <a name="targetsfortfmspecificbuildoutput"></a>TargetsForTfmSpecificBuildOutput
 
 カスタムのターゲットを作成しの値として指定する、`$(TargetsForTfmSpecificBuildOutput)`プロパティ。 移動する必要があるすべてのファイルに対して、 `BuildOutputTargetFolder` (既定では lib)、ターゲットは、ItemGroup にそれらのファイルを書き込む必要があります`BuildOutputInPackage`し、次の 2 つのメタデータ値の設定。
 
-- `FinalOutputPath`: ファイルの絶対パス指定しない場合、ソース パスを評価する Id が使用します。
-- `TargetPath`: (省略可能) ファイルがサブフォルダー内にする必要があるときに設定`lib\<TargetFramework>`サテライト アセンブリのそれぞれのカルチャ フォルダーの下には、その移動など、します。 既定値は、ファイルの名前です。
+- `FinalOutputPath`:は、ファイルの絶対パス指定しない場合、ソース パスを評価する Id が使用します。
+- `TargetPath`:(省略可能)ファイルがサブフォルダー内にする必要があるときに設定`lib\<TargetFramework>`サテライト アセンブリのそれぞれのカルチャ フォルダーの下には、その移動など、します。 既定値は、ファイルの名前です。
 
 例:
 
@@ -282,8 +282,8 @@ Nuspec ファイルをパックする csproj ファイルの例を示します�
 
 カスタムのターゲットを作成しの値として指定する、`$(TargetsForTfmSpecificContentInPackage)`プロパティ。 パッケージに含める任意のファイルのターゲットは、ItemGroup にそれらのファイルを書き込む必要があります`TfmSpecificPackageFile`し、次の省略可能なメタデータを設定します。
 
-- `PackagePath`: パス、ファイルがパッケージの出力をする必要があります。 NuGet は、1 つ以上のファイルが同じパッケージのパスに追加された場合に警告を発行します。
-- `BuildAction`: かどうかは、パッケージ パスでは、ファイルに割り当てるには、ビルド アクションにのみ必要な`contentFiles`フォルダー。 "None"に既定値です。
+- `PackagePath`:パスは、ファイルがパッケージの出力をする必要があります。 NuGet は、1 つ以上のファイルが同じパッケージのパスに追加された場合に警告を発行します。
+- `BuildAction`:かどうかは、パッケージ パスでは、ファイルに割り当てるビルド アクションにのみ必要な`contentFiles`フォルダー。 "None"に既定値です。
 
 例:
 ```xml
