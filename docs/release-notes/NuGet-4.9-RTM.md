@@ -5,32 +5,32 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3da1056f64b76f27afa662d879ef9f85868e2a07
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: 7dcb2e430ad80815f716f5567b511ff08acfe31b
+ms.sourcegitcommit: a9babe261f67da0f714d168d04ea54a66628974b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453774"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735137"
 ---
 # <a name="nuget-49-release-notes"></a>NuGet 4.9 リリース ノート
 
-[Visual Studio 2017 15.9.0 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) には、NuGet 4.9.0 機能が付属しています。
+NuGet 配布の種類:
 
+| NuGet のバージョン | 利用可能な Visual Studio バージョン| 利用可能な .NET SDK|
+|:---|:---|:---|
+| **4.9.0** | Visual Studio 2017 バージョン 15.9.0 | 2.1.500、2.2.100 |
+| **4.9.1** | N/A | N/A |
+| [**4.9.2**](https://nuget.org/downloads) |[Visual Studio 2017 バージョン 15.9.4](https://visualstudio.microsoft.com/downloads/) | [2.1.502、2.2.101](https://www.microsoft.com/net/download/visual-studio-sdks) |
 
-また、次の同一機能のコマンド ライン バージョンが利用可能です。
-* NuGet.exe 4.9.x - [nuget.org/downloads](https://nuget.org/downloads)
-* dotnet.exe - [.NET Core SDK 2.1.500](https://www.microsoft.com/net/download/visual-studio-sdks)
+## <a name="summary-whats-new-in-490"></a>概要:4.9.0 の新機能
 
+* 署名: ClientPolicies において、NuGet.Config に記載されている信頼された作成者とリポジトリのセットの使用を要求することを可能にする - [#6961](https://github.com/NuGet/Home/issues/6961)、[ブログ記事](https://blog.nuget.org/20181205/Lock-down-your-dependencies-using-configurable-trust-policies.html)
 
-## <a name="summary-whats-new-in-490"></a>概要: 4.9.0 の新機能
-
-* 署名: ClientPolicies において、NuGet.Config に記載されている信頼された作成者とリポジトリのセットの使用を要求することを可能にする - [#6961](https://github.com/NuGet/Home/issues/6961)
-
-* パックにシンボルを含める ".snupkg" ファイルの作成 -- シンボル サーバーの snupkg ファイルを受け入れるための nuget プロトコルを把握できるようプッシュを強化する - [#6878](https://github.com/NuGet/Home/issues/6878)
+* パックにシンボルを含める ".snupkg" ファイルの作成 -- シンボル サーバーの snupkg ファイルを受け入れるための nuget プロトコルを把握できるようプッシュを強化する - [#6878](https://github.com/NuGet/Home/issues/6878)、[ブログ記事](https://blog.nuget.org/20181116/Improved-debugging-experience-with-the-NuGet-org-symbol-server-and-snupkg.html)
 
 * NuGet 資格情報プラグイン V2 - [#6642](https://github.com/NuGet/Home/issues/6642)
 
-* 自己完結型の NuGet パッケージ - ライセンス - [#4628](https://github.com/NuGet/Home/issues/4628)
+* 自己完結型の NuGet パッケージ - ライセンス - [#4628](https://github.com/NuGet/Home/issues/4628)、[お知らせ](https://github.com/NuGet/Announcements/issues/32)
 
 * PackageReference 上の "GeneratePathProperty" オプトイン メタデータで、"Foo.Bar\1.0\" ディレクトリにパッケージごとの MSBuild プロパティを生成することを可能にする - [#6949](https://github.com/NuGet/Home/issues/6949)
 
@@ -72,7 +72,7 @@ ms.locfileid: "52453774"
 
 * nuget パックの nuspec バージョンのタグを誤って使ったときのエラー メッセージが役に立たない - [#2714](https://github.com/NuGet/Home/issues/2714)
 
-* DCR - 署名: NuGet プロトコルをサポートする: RepositorySignatures/4.9.0 リソース - [#7421](https://github.com/NuGet/Home/issues/7421)
+* DCR - 署名: NuGet プロトコルのサポート: RepositorySignatures/4.9.0 リソース - [#7421](https://github.com/NuGet/Home/issues/7421)
 
 * DCR - .nupkg.metadata ファイルがパッケージの抽出中に作成されるようになった - "content-hash" を含む - [#7283](https://github.com/NuGet/Home/issues/7283)
 
@@ -80,7 +80,7 @@ ms.locfileid: "52453774"
 
 [この 4.9.0 リリースで修正されたすべての問題一覧](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9") <br>
 
-## <a name="summary-whats-new-in-491"></a>概要: 4.9.1 の新機能
+## <a name="summary-whats-new-in-491"></a>概要:4.9.1 の新機能
 
 * 新しいコマンド trusted-signers を介して nuget.config への書き込みの読み取りのサポートを追加する - [#7480](https://github.com/NuGet/Home/issues/7480)
 
@@ -94,15 +94,19 @@ ms.locfileid: "52453774"
 
 [この 4.9.1 リリースで修正されたすべての問題一覧](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.1")
 
+## <a name="summary-whats-new-in-492"></a>概要:4.9.2 の新機能
+
+### <a name="issues-fixed-in-this-release"></a>このリリースで修正された問題
+
+* ソース名に空白文字が含まれていると、VS/dotnet.exe/nuget.exe/msbuild.exe で資格情報が使用されない - [#7517](https://github.com/NuGet/Home/issues/7517)
+
+* LicenseAcceptanceWindow と LicenseFileWindow のアクセシビリティの問題 - [#7452](https://github.com/NuGet/Home/issues/7452)
+
+* DateTimeConverter の DateTime.Parse の FormatException の修正 - [#7539](https://github.com/NuGet/Home/issues/7539)
+
+[この 4.9.2 リリースで修正されたすべての問題一覧](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.2")
+
 ## <a name="known-issues"></a>既知の問題
-
-### <a name="dotnetexenugetexe-doesnt-use-credentials-when-source-name-contains-a-whitespace---7517httpsgithubcomnugethomeissues7517"></a>ソース名に空白文字が含まれていると、dotnet.exe/nuget.exe で資格情報が使用されない - [#7517](https://github.com/NuGet/Home/issues/7517)
-
-#### <a name="issue"></a>懸案事項
-ソース名に空白文字が含まれていると、nuget.exe によって `The ' ' character, hexadecimal value 0x20, cannot be included in a name.` のようなエラーがスローされます。
-
-#### <a name="workaround"></a>回避策
-空白文字を含めないようにソースの名前を変更します。
 
 ### <a name="dotnet-nuget-push---interactive-gives-an-error-on-mac---7519httpsgithubcomnugethomeissues7519"></a>dotnet nuget push --interactive が Mac 上でエラーになる。 - [#7519](https://github.com/NuGet/Home/issues/7519)
 
@@ -111,14 +115,6 @@ ms.locfileid: "52453774"
 
 #### <a name="workaround"></a>回避策
 `dotnet restore --interactive` のように、対話型のオプションを使ってその他の任意の dotnet コマンドを実行し、認証します。 そうすると、認証が資格情報プロバイダーによってキャッシュされる可能性があります。 その後、`dotnet nuget push` を実行します。
-
-### <a name="licenseacceptancewindow-and-licensefilewindow-accessibility-issues---7452httpsgithubcomnugethomeissues7452"></a>LicenseAcceptanceWindow と LicenseFileWindow のアクセシビリティの問題 - [#7452](https://github.com/NuGet/Home/issues/7452)
-
-#### <a name="issue"></a>懸案事項
-ライセンスの同意ウィンドウおよびライセンス ファイル ウィンドウについて、キーボード ナビゲーションと、スクリーン リーダーおよび JAWS を使ったナレーションに関するアクセシビリティの問題があります。
-
-#### <a name="workaround"></a>回避策
-回避策はありません。
 
 ### <a name="packages-in-fallbackfolders-installed-by-net-core-sdk-are-custom-installed-and-fail-signature-validation---7414httpsgithubcomnugethomeissues7414"></a>.NET Core SDK によってインストールされる FallbackFolders 内のパッケージがカスタム インストールされ、署名の検証に失敗する。 - [#7414](https://github.com/NuGet/Home/issues/7414)
 
