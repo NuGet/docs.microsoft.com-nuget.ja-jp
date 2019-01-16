@@ -6,16 +6,16 @@ ms.author: patbel
 ms.date: 11/12/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: ffd0cf5d50a2deed16e1722b32e43047bc81df2f
-ms.sourcegitcommit: a1846edf70ddb2505d58e536e08e952d870931b0
+ms.openlocfilehash: ee4ffaa7e250cdbf313476fd794a8d87c80b69f9
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52303688"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324709"
 ---
 # <a name="trusted-signers-command-nuget-cli"></a>信頼された署名コマンド (NuGet CLI)
 
-**適用対象:** 消費をパッケージ化&bullet;**サポートされているバージョン:** 4.9 +
+**適用対象:** 消費をパッケージ化&bullet;**サポートされているバージョン。** 4.9.1+
 
 取得または信頼できる署名者を NuGet の構成に設定します。 追加の使用状況は、次を参照してください。 [NuGet の動作を構成する](../consume-packages/configuring-nuget-behavior.md)します。 詳細についてを参照するくださいと同様の nuget.config スキーマの外観に、 [NuGet 構成ファイル リファレンス](../reference/nuget-config-file.md)します。
 
@@ -53,7 +53,7 @@ Registered trusted signers:
         
 ```
 
-## <a name="nuget-trusted-signers-add-options"></a>nuget 信頼された署名は、[オプション] を追加します。
+## <a name="nuget-trusted-signers-add-options"></a>nuget trusted-signers add [options]
 
 構成には、指定した名前の信頼できる署名者を追加します。このオプションは、信頼された作成者またはリポジトリを追加するさまざまなジェスチャです。
 
@@ -80,7 +80,7 @@ nuget trusted-signers add <package(s)> -Name <name> [options]
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_注_: このオプションは信頼できるリポジトリのみを追加します。 
+_注_:このオプションは、信頼されているリポジトリをのみ追加されます。 
 
 | オプション | 説明 |
 | --- | --- |
@@ -94,7 +94,7 @@ _注_: このオプションは信頼できるリポジトリのみを追加し�
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_注_: 指定した名前の信頼できる署名者が既に存在する場合、証明書項目は、その署名者に追加されます。 証明書の項目で、信頼された作成者が作成されますそれ以外の場合から証明書の情報を指定します。
+_注_:指定した名前の信頼できる署名者が既に存在する場合、証明書の項目はその署名者に追加されます。 証明書の項目で、信頼された作成者が作成されますそれ以外の場合から証明書の情報を指定します。
 
 | オプション | 説明 |
 | --- | --- |
@@ -110,7 +110,7 @@ _注_: 指定した名前の信頼できる署名者が既に存在する場合�
 
 最新のリストを更新する現在の信頼されたリポジトリで使用される証明書を要求する、信頼できる署名者の既存の証明書のリスト。
 
-_注_: このジェスチャは現在の証明書の一覧を削除し、リポジトリから最新のリストで置き換えることです。
+_注_:このジェスチャは現在の証明書の一覧を削除し、リポジトリから最新の一覧に置き換えます。
 
 ## <a name="options"></a>オプション
 

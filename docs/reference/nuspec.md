@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: e8d4ed1f3fe4394d084a5847200901b23a1b7b39
-ms.sourcegitcommit: c825eb7e222d4a551431643f5b5617ae868ebe0a
+ms.openlocfilehash: 009be99a1c6623a00b4bdbe6db3164ca70782212
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51944081"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324904"
 ---
 # <a name="nuspec-reference"></a>.nuspec リファレンス
 
@@ -90,7 +90,7 @@ SPDX ライセンス式、または UI 表示や nuget.org によく表示され
 
 複合のライセンスを使用して、指定するには、パッケージは、複数の一般的なライセンス下でライセンスが場合、 [SPDX 式構文のバージョン 2.0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60)します。<br>例: `<license type="expression">BSD-2-Clause OR MIT</license>`
 
-SPDX 識別子が割り当てられていないライセンスを使用している、またはカスタムのライセンスは、ライセンスのテキストを持つファイルをパッケージ化できます。 例えば:
+SPDX 識別子が割り当てられていないライセンスを使用している、またはカスタムのライセンスは、ライセンスのテキストを持つファイルをパッケージ化できます。 例:
 ```xml
 <package>
   <metadata>
@@ -105,6 +105,9 @@ SPDX 識別子が割り当てられていないライセンスを使用してい
   </files>
 </package>
 ```
+
+MSBuild と同じを参照してください[ライセンス式またはライセンス ファイルをパッキング](msbuild-targets.md#packing-a-license-expression-or-a-license-file)します。
+
 NuGet のライセンスの式の正確な構文は以下の説明で[ABNF](https://tools.ietf.org/html/rfc5234)します。
 ```cli
 license-id            = <short form license identifier from https://spdx.org/spdx-specification-21-web-version#h.luq9dgcle9mo>
@@ -250,7 +253,7 @@ nuget pack MyProject.csproj
 </dependencies>
 ```
 
-注: `nuget spec` を使ってプロジェクトから `.nuspec` を作成すると、そのプロジェクトに存在する依存関係が結果の `.nuspec` ファイルに自動的に含まれます。
+メモ:作成するときに、`.nuspec`を使用してプロジェクトから`nuget spec`、そのプロジェクト内に存在する依存関係が、最終的な自動的に含まれている`.nuspec`ファイル。
 
 ### <a name="dependency-groups"></a>依存関係グループ
 
@@ -363,7 +366,7 @@ nuget pack MyProject.csproj
 > [!Important]
 > プロジェクトにパッケージをインストールするとき、NuGet はパッケージの DLL にアセンブリ参照を自動的に追加します。ただし、指定されている `.resources.dll` は、ローカライズされたサテライト アセンブリであると見なされるため "*除外*" されます。 そのため、避けなければ不可欠なパッケージ コードが含まれてしまうファイルには `.resources.dll` を使わないようにします。
 
-この自動動作をバイパスして、パッケージに含めるファイルを明示的に制御するには、`<files>` 要素を `<package>` の子要素 (および `<metadata>` の兄弟要素) として配置し、各ファイルを個別の `<file>` 要素で示します。 例えば:
+この自動動作をバイパスして、パッケージに含めるファイルを明示的に制御するには、`<files>` 要素を `<package>` の子要素 (および `<metadata>` の兄弟要素) として配置し、各ファイルを個別の `<file>` 要素で示します。 例:
 
 ```xml
 <files>
@@ -604,7 +607,7 @@ NuGet 2.x 以前および `packages.config` を使っているプロジェクト
 - `TxM` は、NuGet がサポートする任意の有効なターゲット フレームワーク モニカーです (「[ターゲット フレームワーク](../reference/target-frameworks.md)」を参照)。
 - この構文の末尾に、任意のフォルダー構造を追加できます。
 
-例えば:
+例:
 
     Language- and framework-agnostic:
         /contentFiles/any/any/config.xml

@@ -6,29 +6,29 @@ ms.author: karann
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 047ede14c7935844cb4f6d0315772c2a1190e5b8
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 0c76ea43e871009223cc4328449e21e5d02129bb
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547260"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324878"
 ---
 # <a name="target-frameworks"></a>ターゲット フレームワーク
 
 NuGet は、多様な場所にあるターゲット フレームワーク参照を使用してパッケージのフレームワーク依存コンポーネントを特定し、分離します。
 
-- [.nuspec マニフェスト](../reference/nuspec.md): パッケージは、プロジェクトのターゲット フレームワークに依存するプロジェクトに含めるパッケージを指定できます。
-- [.nupkg フォルダー名](../create-packages/creating-a-package.md#from-a-convention-based-working-directory): パッケージの `lib` フォルダー内のフォルダーには、ターゲット フレームワークに従って名前を付けることができます。各フォルダーには、そのフレームワークに適した DLL や他のコンテンツが含まれます。
-- [packages.config](../reference/packages-config.md): 依存関係の `targetframework` 属性で、インストールするパッケージのバリエーションを指定します。
+- [.nuspec マニフェスト](../reference/nuspec.md):パッケージには、プロジェクトのターゲット フレームワークに基づいて、プロジェクトに含まれる個別のパッケージを指定できます。
+- [.nupkg フォルダー名](../create-packages/creating-a-package.md#from-a-convention-based-working-directory):パッケージの内部フォルダー `lib` Dll は、そのフレームワークに適したその他のコンテンツを含む各ターゲット フレームワークに従ってフォルダーの名前を指定できます。
+- [packages.config](../reference/packages-config.md):`targetframework`依存関係の属性をインストールするパッケージの変化形を指定します。
 
 > [!Note]
 > 以下の表を計算する NuGet クライアントのソース コードは、次の場所にあります。
-> - サポートされているフレームワーク名: [FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
-> - フレームワークの優先順位とマッピング: [DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
+> - サポートされているフレームワーク名:[FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
+> - フレームワークの優先順位とマッピング:[DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
 
 ## <a name="supported-frameworks"></a>サポートされるフレームワーク
 
-通常、フレームワークは、短いターゲット フレームワーク モニカー (TFM) で参照されます。 .NET Standard の場合、1 つの参照で複数のフレームワークを参照できるように、*TxM* に汎用化されています。
+通常、フレームワークは、短いターゲット フレームワーク モニカー (TFM) で参照されます。 .NET Standard ではこれが汎用化*TxM*複数のフレームワークの 1 つの参照を許可します。
 
 NuGet クライアントは以下の表のフレームワークをサポートしています。 同等のものがかっこ [] 内に示されています。 `dotnet` などの一部のツールは、一部のファイルで正規の TFM のバリエーションを使用することがあります。 たとえば、`dotnet pack` は `.nuspec` ファイルで `netcoreapp2.0` ではなく `.NETCoreApp2.0` を使用します。 さまざまな NuGet クライアント ツールがこれらのバリエーションを適切に処理しますが、ファイルを直接編集するときは常に正規の TFM を使用することをお勧めします。
 

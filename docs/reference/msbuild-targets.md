@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 878fb582a31667c84f3ae306b554718de72eca7a
-ms.sourcegitcommit: 5c5f0f0e1f79098e27d9566dd98371f6ee16f8b5
+ms.openlocfilehash: 8132595cbfaf553736fbcc81aada283a44d6cdbf
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53645673"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324852"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>MSBuild ターゲットとしての NuGet の pack と restore
 
@@ -72,6 +72,7 @@ PackageReference 形式を使用して、使用して .NET Standard プロジェ
 ### <a name="pack-target-inputs"></a>pack ターゲットの入力
 
 - IsPackable
+- SuppressDependenciesWhenPacking
 - PackageVersion
 - PackageId
 - Authors
@@ -106,6 +107,10 @@ PackageReference 形式を使用して、使用して .NET Standard プロジェ
 - NuspecProperties
 
 ## <a name="pack-scenarios"></a>pack のシナリオ
+
+### <a name="suppress-dependencies"></a>依存関係を抑制します。
+
+パッケージの依存関係から NuGet パッケージの生成を抑制するのには、設定`SuppressDependenciesWhenPacking`に`true`これにより生成された nupkg ファイルからすべての依存関係をスキップしています。
 
 ### <a name="packageiconurl"></a>PackageIconUrl
 
@@ -193,6 +198,14 @@ PackageReference 形式を使用して、使用して .NET Standard プロジェ
 
 ライセンスの式を使用する場合は、PackageLicenseExpression プロパティを使用してください。 
 [ライセンスの式のサンプル](https://github.com/NuGet/Samples/tree/master/PackageLicenseExpressionExample)します。
+
+```xml
+<PropertyGroup>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+</PropertyGroup>
+```
+
+[ライセンスの式と NuGet.org で受け入れられるライセンスについて](nuspec.md#license)します。
 
 ライセンス ファイルをパックするときに、PackageLicenseFile プロパティを使用して、パッケージのルートを基準とした、パッケージのパスを指定する必要があります。 さらに、ファイルをパッケージに含まれるかどうかを確認する必要があります。 例:
 

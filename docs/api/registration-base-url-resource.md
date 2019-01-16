@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: ba47d6fdeeaa4ee9de83ef4dd990707bd4928063
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: 19a1f48164f65f1ff805e036e55abb110247aa72
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453560"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324865"
 ---
 # <a name="package-metadata"></a>パッケージ メタデータ
 
@@ -141,7 +141,8 @@ dependencyGroups         | オブジェクトの配列           | Ｘ       | �
 説明              | string                     | Ｘ       | 
 iconUrl                  | string                     | Ｘ       | 
 ID                       | string                     | 可      | パッケージの ID
-licenseUrl               | string                     | Ｘ       | 
+licenseUrl               | string                     | Ｘ       |
+licenseExpression        | string                     | Ｘ       | 
 一覧                   | boolean                    | Ｘ       | 存在しない場合に表示されていると見なす必要があります。
 minClientVersion         | string                     | Ｘ       | 
 projectUrl               | string                     | Ｘ       | 
@@ -155,6 +156,8 @@ version                  | string                     | 可      | 正規化し�
 パッケージ`version`プロパティでは、完全なバージョン文字列を正規化後。 意味 SemVer 2.0.0 ビルド データは含まれていますここでします。
 
 `dependencyGroups`プロパティは、ターゲット フレームワーク別にグループ化、パッケージの依存関係を表すオブジェクトの配列。 パッケージの依存関係があるない場合、`dependencyGroups`プロパティがない、空の配列、または`dependencies`すべてのグループのプロパティが空または見つかりません。
+
+値、`licenseExpression`プロパティに準拠している[NuGet ライセンス式の構文](https://docs.microsoft.com/en-us/nuget/reference/nuspec#license)します。
 
 #### <a name="package-dependency-group"></a>パッケージの依存関係グループ
 

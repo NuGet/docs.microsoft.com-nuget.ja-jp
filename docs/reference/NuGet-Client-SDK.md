@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8e612d9f86bcffc99870c5541aa6091e678db512
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 97ed3ec7d41d2847c0521af69373a1871eb585dd
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547090"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324683"
 ---
 # <a name="nuget-client-sdk"></a>NuGet クライアント SDK
 
@@ -29,10 +29,14 @@ ms.locfileid: "43547090"
 
 Dave Glick、2016 を発行して、次のブログ シリーズでは、例、および API の一部のドキュメントを見つけることができます。
 
-- [NuGet v3 ライブラリ、第 1 部: 概要と概念](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-1)
-- [NuGet v3 ライブラリ、パート 2: パッケージを検索](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-2)
-- [NuGet v3 ライブラリ、パート 3: パッケージをインストールします。](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-3)
+- [NuGet v3 ライブラリ、第 1 部を表示するには。概要と概念](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-1)
+- [NuGet v3 ライブラリ、第 2 部を表示するには。パッケージを検索](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-2)
+- [NuGet v3 ライブラリ、第 3 部を表示するには。パッケージをインストールします。](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-3)
 
 > [!Note]
 > 次のブログ投稿は、直後に記述された、 **3.4.3**クライアント SDK パッケージがリリースされた NuGet のバージョン。
 > 新しいバージョンのパッケージは、ブログの投稿の情報と互換性のあることがあります。
+
+Martin Björkström では、NuGet クライアント SDK を使用して NuGet パッケージをインストールするために、別のアプローチを紹介しています Dave Glick のブログ シリーズをフォロー アップのブログの投稿を行いました。
+
+- [NuGet v3 ライブラリの再考](https://martinbjorkstrom.com/posts/2018-09-19-revisiting-nuget-client-libraries)

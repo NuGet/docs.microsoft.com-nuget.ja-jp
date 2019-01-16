@@ -6,18 +6,18 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: bb47c72768b0698d8e712c8261321ff38bba2764
-ms.sourcegitcommit: be9c51b4b095aea40ef41bbea7e12ef0a194ee74
+ms.openlocfilehash: 39b710c483ce4b3f2da30df6bb5b6842f9ee1fca
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53248430"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324839"
 ---
 # <a name="nuget-api"></a>NuGet API
 
 NuGet API には、パッケージをダウンロード、メタデータをフェッチ、新しいパッケージを発行および公式の NuGet クライアントで使用できるその他のほとんどの操作を実行するために使用する HTTP エンドポイントのセットです。
 
-この API は NuGet の操作を実行します。 Visual Studio、nuget.exe、および .NET CLI、NuGet クライアントによって使用[ `dotnet restore` ](/dotnet/articles/core/preview3/tools/dotnet-restore)、Visual Studio の UI での検索と[ `nuget.exe push`](../tools/cli-ref-push.md)します。
+この API は NuGet の操作を実行します。 Visual Studio、nuget.exe、および .NET CLI、NuGet クライアントによって使用[ `dotnet restore` ](/dotnet/core/tools/dotnet-restore?tabs=netcore2x)、Visual Studio の UI での検索と[ `nuget.exe push`](../tools/cli-ref-push.md)します。
 
 場合によっては、nuget.org が他のパッケージ ソースが適用されていない追加の要件に注意してください。 これらの違いが説明されている、 [nuget.org プロトコル](nuget-protocols.md)します。
 
@@ -35,7 +35,7 @@ API をサポートしているクライアントでは、それぞれのパッ�
 
 ## <a name="versioning"></a>バージョン管理
 
-API は、NuGet の HTTP プロトコルのバージョン 3 です。 このプロトコルは、"V3 API です"と呼ばれることがあります。 これらのリファレンス ドキュメントは単に"API です"とプロトコルのこのバージョンを参照してください。
+API は、NuGet の HTTP プロトコルのバージョン 3 です。 このプロトコルは、"V3 API"とも呼ばれます。 これらのリファレンス ドキュメントは単に"API です"とプロトコルのこのバージョンを参照してください。
 
 サービス インデックス スキーマのバージョンが付いて、`version`サービス インデックスのプロパティ。 API のバージョン文字列でのメジャー バージョン番号を持つことが定められて`3`します。 サービス インデックス スキーマには、互換性に影響しない変更が行われるため、バージョン文字列のマイナー バージョンが高くなります。
 
@@ -43,7 +43,7 @@ API は、NuGet の HTTP プロトコルのバージョン 3 です。 このプ
 
 NuGet V3 API は、公式の NuGet クライアントのバージョン 2.x で実装されている OData ベースのプロトコルが、V2 API の後継となっているよう名前です。 V3 API は、公式の NuGet クライアントのバージョンが 3.0 で初めてサポートされましたし、まだ最新の主要なプロトコルのバージョンでサポートされていて、NuGet クライアント、4.0 にします。 
 
-改行しないプロトコルの変更には、最初のリリースされた後、api が加えします。
+改行しないプロトコルの変更には、最初のリリースから、api が加えします。
 
 ## <a name="resources-and-schema"></a>リソースとスキーマ
 
