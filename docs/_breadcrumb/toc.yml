@@ -1,41 +1,48 @@
+items:
 - name: Docs
   tocHref: /
   topicHref: /
   items:
-    - name: NuGet
-      tocHref: /nuget/
-      topicHref: /nuget
-      items:
-        - name: クイック スタート
-          tocHref: /nuget/quickstart/
-          topicHref: /nuget/quickstart/install-and-use-a-package-using-the-dotnet-cli
-        - name: ガイド
-          tocHref: /nuget/guides/
-          topicHref: /nuget/guides/create-net-standard-packages-vs2017
-        - name: パッケージの作成
-          tocHref: /nuget/create-packages/
-          topicHref: /nuget/create-packages/overview-and-workflow
-        - name: パッケージの使用
-          tocHref: /nuget/consume-packages/
-          topicHref: /nuget/consume-packages/overview-and-workflow
-        - name: パッケージのホスティング
-          tocHref: /nuget/hosting-packages/
-          topicHref: /nuget/hosting-packages/overview
-        - name: ツール
-          tocHref: /nuget/tools/
-          topicHref: /nuget/tools/nuget-exe-cli-reference
-        - name: 参照
-          tocHref: /nuget/reference/
-          topicHref: /nuget/reference/nuspec
-        - name: API
-          tocHref: /nuget/api/
-          topicHref: /nuget/api/overview
-        - name: Visual Studio 機能拡張
-          tocHref: /nuget/visual-studio-extensibility/
-          topicHref: /nuget/visual-studio-extensibility/nuget-api-in-visual-studio
-        - name: ポリシー
-          tocHref: /nuget/policies/
-          topicHref: /nuget/policies/nuget-faq
-        - name: リリース ノート
-          tocHref: /nuget/release-notes/
-          topicHref: /nuget/release-notes/index
+  - name: NuGet
+    tocHref: /nuget/
+    topicHref: /nuget
+    items:
+    - name: クイック スタート
+      tocHref: /nuget/quickstart/
+      topicHref: /nuget/quickstart/install-and-use-a-package-using-the-dotnet-cli
+    - name: ガイド
+      tocHref: /nuget/guides/
+      topicHref: /nuget/guides/create-net-standard-packages-vs2017
+    - name: パッケージの作成
+      tocHref: /nuget/create-packages/
+      topicHref: /nuget/create-packages/overview-and-workflow
+    - name: パッケージの使用
+      tocHref: /nuget/consume-packages/
+      topicHref: /nuget/consume-packages/overview-and-workflow
+    - name: パッケージのホスティング
+      tocHref: /nuget/hosting-packages/
+      topicHref: /nuget/hosting-packages/overview
+    - name: ツール
+      tocHref: /nuget/tools/
+      topicHref: /nuget/tools/nuget-exe-cli-reference
+    - name: 参照
+      tocHref: /nuget/reference/
+      topicHref: /nuget/reference/nuspec
+    - name: API
+      tocHref: /nuget/api/
+      topicHref: /nuget/api/overview
+    - name: Visual Studio 機能拡張
+      tocHref: /nuget/visual-studio-extensibility/
+      topicHref: /nuget/visual-studio-extensibility/nuget-api-in-visual-studio
+    - name: ポリシー
+      tocHref: /nuget/policies/
+      topicHref: /nuget/policies/governance
+    - name: リリース ノート
+      tocHref: /nuget/release-notes/
+      topicHref: /nuget/release-notes/index
+ms.openlocfilehash: de155b62126e509ae3d554e2caaa70bb91bb90d9
+ms.sourcegitcommit: a801052aa728a3a137225ca3ef3ff89f2d1c6b76
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54403126"
