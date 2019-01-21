@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 09/27/2017
 ms.topic: conceptual
-ms.openlocfilehash: c59839240935e2a6c590dea3adf623313f79f02f
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: a755438c1f63d33271f636cb663cc5b51a5aecbc
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981146"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324813"
 ---
 # <a name="supporting-multiple-net-framework-versions"></a>複数の .NET Framework バージョンのサポート
 
@@ -116,17 +116,17 @@ NuGet ではまた、ダッシュとプロファイル名をフォルダーの�
 
 サポートされているプロファイルは次のとおりです。
 
-- `client`: Client Profile
-- `full`: Full Profile
-- `wp`: Windows Phone
-- `cf`: Compact Framework
+- `client`:Client Profile
+- `full`:Full Profile
+- `wp`:Windows Phone
+- `cf`:Compact Framework
 
 ## <a name="determining-which-nuget-target-to-use"></a>使用する NuGet ターゲットを決定する
 
 ポータブル クラス ライブラリを対象とするライブラリをパッケージ化するとき、フォルダー名と `.nuspec` ファイルで使用する NuGet ターゲットの決定にはこつが要ります。PCL のサブセットのみを対象とする場合は特にそうです。 次の外部リソースが役立ちます。
 
-- [.NET のフレームワーク プロファイル](http://blog.stephencleary.com/2012/05/framework-profiles-in-net.html) (stephenclearly.com)
-- [ポータブル クラス ライブラリ プロファイル](http://embed.plnkr.co/03ck2dCtnJogBKHJ9EjY/preview) (plnkr.co): PCL プロファイルとそれと同等の NuGet ターゲットを列挙するテーブル
+- [.NET のフレームワーク プロファイル](http://blog.stephencleary.com/2012/05/framework-profiles-in-net.html) (stephencleary.com)
+- [ポータブル クラス ライブラリ プロファイル](http://embed.plnkr.co/03ck2dCtnJogBKHJ9EjY/preview) (plnkr.co):PCL プロファイルとそれと同等の NuGet ターゲットを列挙するテーブル
 - [ポータブル クラス ライブラリ プロファイル ツール](https://github.com/StephenCleary/PortableLibraryProfiles) (github.com): システムで利用できる PCL プロファイルを決定するためのコマンド ライン ツール
 
 ## <a name="content-files-and-powershell-scripts"></a>コンテンツ ファイルと PowerShell スクリプト
@@ -134,7 +134,7 @@ NuGet ではまた、ダッシュとプロファイル名をフォルダーの�
 > [!Warning]
 > 変更可能なコンテンツ ファイルとスクリプト実行は `packages.config` 形式のみで利用できます。これらは、他のすべての形式を使用するときは非推奨とされます。また、新しいパッケージにはこれらを使用しないでください。
 
-`packages.config` では、コンテンツ ファイルと PowerShell スクリプトを、`content` フォルダーと `tools` フォルダー内で同じフォルダー規則を使用し、ターゲット フレームワーク別にグループ化できます。 例:
+`packages.config` では、コンテンツ ファイルと PowerShell スクリプトを、`content` フォルダーと `tools` フォルダー内で同じフォルダー規則を使用し、ターゲット フレームワーク別にグループ化できます。 次に例を示します。
 
     \content
         \net46

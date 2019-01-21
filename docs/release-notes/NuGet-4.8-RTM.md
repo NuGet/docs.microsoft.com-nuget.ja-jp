@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 5/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: 641304059c90e360fae4d0956d7b922e34bc6501
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: cf15c4f6a2e3e9f6ce7b6acb2304648041043685
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981120"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324826"
 ---
 # <a name="nuget-48-rtm-release-notes"></a>NuGet 4.8 RTM リリース ノート
 
@@ -22,9 +22,9 @@ ms.locfileid: "50981120"
 * DotNet.exe - [.NET Core SDK 2.1.400](https://www.microsoft.com/net/download/visual-studio-sdks)
 
 
-## <a name="summary-whats-new-in-this-release"></a>概要: このリリースの新機能
+## <a name="summary-whats-new-in-this-release"></a>概要:このリリースの新機能
 * NuGet.exe では、Windows 10 上での長いファイル名がサポートされるようになりました。[#6937](https://github.com/NuGet/Home/issues/6937)
-* クロス プラットフォームなど、MsBuild、DotNet.exe、NuGet.exe、および Visual Studio にわたって、認証プラグインが機能するようになりました。 最初の世代の認証プラグインは、MsBuild、DotNet.exe ではサポートされていませんでした。 注: VS 2017 15.9 プレビューのビルドには、VSTS 認証プラグインが組み込まれています。 [#6486](https://github.com/NuGet/Home/issues/6486)
+* クロス プラットフォームを含め、MsBuild、DotNet.exe、NuGet.exe、および Visual Studio 全体で、認証プラグインが機能するようになりました。 最初の世代の認証プラグインは、MsBuild、DotNet.exe ではサポートされていませんでした。 メモ:VS 2017 15.9 プレビューのビルドには、VSTS 認証プラグインが組み込まれています。 [#6486](https://github.com/NuGet/Home/issues/6486)
 * MsBuild の SDK リゾルバーは、NuGet の一部としてビルドされ、VS 対応の NuGet ツールと共にインストールを行います。 これにより、複数のバージョンでの同期の取得を防止します。[#6799](https://github.com/NuGet/Home/issues/6799)
 * PackageReference では、DevelopmentDependency メタデータがサポートされるようになりました。[#4125](https://github.com/NuGet/Home/issues/4125)
 
@@ -56,7 +56,7 @@ ms.locfileid: "50981120"
 * NuGet 復元もトリガーするプロジェクトをビルドする
 
 これで、移行オプションを表示できるようになりました。 このオプションは ASP.NET と C++ のプロジェクト タイプではサポートされておらず、表示されません。
-注: これは VS 2017 15.9 プレビュー 3 で修正されました。
+メモ:これは VS 2017 15.9 プレビュー 3 で修正されました
 
 ## <a name="issues-fixed-in-this-release"></a>このリリースで修正された問題
 
