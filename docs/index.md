@@ -7,12 +7,12 @@ ms.date: 02/12/2018
 ms.topic: overview
 layout: HubPage
 hide_bc: true
-ms.openlocfilehash: 6e2f00c14433e75323e2b185067e110bc554084c
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 35eef5125c40689da0f888992ea8376bb9eb096b
+ms.sourcegitcommit: a801052aa728a3a137225ca3ef3ff89f2d1c6b76
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43550036"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54403152"
 ---
 <div id="main" class="v2">
 <div class="container">
@@ -53,7 +53,7 @@ ms.locfileid: "43550036"
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                            <h3>クイックスタート: パッケージの使用</h3>
+                                            <h3>クイック スタート: パッケージの使用</h3>
                                             <p>プロジェクト内で NuGet パッケージをインストールし、使用する方法を説明します (.NET CLI と Visual Studio の両方でチュートリアルが用意されています)。</p>
                                         </div>
                                     </div>
@@ -72,7 +72,7 @@ ms.locfileid: "43550036"
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                            <h3>クイックスタート: パッケージの作成</h3>
+                                            <h3>クイック スタート: パッケージの作成</h3>
                                             <p>パッケージ作成用の NuGet ツールと機能を体験します (.NET CLI と Visual Studio の両方でチュートリアルが用意されています)。</p>
                                         </div>
                                     </div>
@@ -224,7 +224,7 @@ ms.locfileid: "43550036"
                             </a>
                         </li>
                         <li>
-                            <a href="policies/nuget-faq.md">
+                            <a href="policies/governance.md">
                             <div class="cardSize">
                                 <div class="cardPadding">
                                     <div class="card">
@@ -235,7 +235,7 @@ ms.locfileid: "43550036"
                                         </div>
                                         <div class="cardText">
                                             <h3>ポリシー</h3>
-                                            <p>オープンソース プロジェクトとしての NuGet、パッケージの削除、および争議の解決に関する情報を含む、よく寄せられる質問です。</p>
+                                            <p>オープンソース プロジェクトとしての NuGet、ガバナンス、エコシステム、争議の解決に関する情報です。</p>
                                         </div>
                                     </div>
                                 </div>

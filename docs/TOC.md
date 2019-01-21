@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: c5b0a8efeaadbfb0cbebf72e818683c1ec9a5077
+ms.sourcegitcommit: a801052aa728a3a137225ca3ef3ff89f2d1c6b76
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54403178"
+---
 # [NuGet とは何ですか?](what-is-nuget.md)
 # [NuGet クライアント ツールのインストール](install-nuget-client-tools.md)
 # クイックスタート
@@ -239,7 +247,6 @@
 ## [プロジェクト システム サポート](visual-studio-extensibility/project-system-support.md)
 ## [Visual Studio テンプレート](visual-studio-extensibility/visual-studio-templates.md)
 # ポリシー
-## [NuGet に関する FAQ](policies/nuget-faq.md)
 ## [ガバナンス](policies/governance.md)
 ## [エコシステム](policies/ecosystem.md)
 ## [データ要求](policies/Data-requests.md)
@@ -305,3 +312,4 @@
 ## [NuGet 1.3](release-notes/NuGet-1.3.md)
 ## [NuGet 1.2](release-notes/NuGet-1.2.md)
 ## [NuGet 1.1](release-notes/NuGet-1.1.md)
+# [よく寄せられる質問](faqs/nuget-faq.md)
