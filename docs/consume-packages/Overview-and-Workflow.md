@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/22/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5f52b00e0c45882fb7a4bd1c1a80022192f3be6b
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: 506a093ff4d62c10c896246f746e6765f64f33f4
+ms.sourcegitcommit: a801052aa728a3a137225ca3ef3ff89f2d1c6b76
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580247"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54403165"
 ---
 # <a name="package-consumption-workflow"></a>パッケージ利用のワークフロー
 
@@ -35,7 +35,7 @@ NuGet は、インストールされている各パッケージの ID とバー�
 
 ![リポジトリの複製およびいずれかの復元コマンドの使用による NuGet パッケージの復元フロー](media/Overview-02-RestoreFlow.png)
 
-「[パッケージの復元](../consume-packages/package-restore.md)」では、プロジェクト ファイルまたは `packages.config` の情報を使用して、すべての依存関係を再インストールします。 「[Dependency Resolution](../consume-packages/dependency-resolution.md)」 (依存関係の解決) で説明されているように、関係するプロセスには違いがあることに注意してください。 また、コンソールで作業しているため、上図にはパッケージ マネージャー コンソールの復元コマンドは示されていません。ユーザーは既に Visual Studio のコンテキスト内にいて、通常、パッケージは自動で復元され、図に示されているようにソリューション レベルのコマンドが提供されます。
+「[パッケージの復元](../consume-packages/package-restore.md)」では、プロジェクト ファイルまたは `packages.config` の情報を使用して、すべての依存関係を再インストールします。 「[Dependency Resolution](../consume-packages/dependency-resolution.md)」 (依存関係の解決) で説明されているように、関係するプロセスには違いがあることに注意してください。 また、上図にはパッケージ マネージャー コンソールの復元コマンドは示されていませんが、これはコンソールで作業している場合、既に Visual Studio のコンテキスト内にいるからです。この場合は通常、パッケージは自動で復元され、図に示されているようにソリューション レベルのコマンドが提供されます。
 
 場合によっては、プロジェクトに既に含まれているパッケージの再インストールが必要になります。その場合、依存関係も再インストールされる可能性があります。 これは、`nuget reinstall` コマンド使用するか、NuGet パッケージ マネージャー コンソールを使用して簡単に行うことができます。 詳細については、「[Reinstalling and Updating Packages](../consume-packages/reinstalling-and-updating-packages.md)」 (パッケージの再インストールと更新) を参照してください。
 
