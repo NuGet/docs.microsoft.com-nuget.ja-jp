@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 09/12/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 3321cba9082eb35b53ba693e246db18e5d8e187b
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: 56125516345b2255998c1f734db60b58b9a92a06
+ms.sourcegitcommit: 585394f063e95dcbc24d7ac0ce07de643eaf6f4d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580260"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "55046329"
 ---
 # <a name="creating-symbol-packages-legacy"></a>シンボル パッケージ (レガシ) の作成
 
@@ -100,7 +100,7 @@ nuget pack MyProject.csproj -Symbols
 ## <a name="publishing-a-symbol-package"></a>シンボル パッケージを公開する
 
 > [!Important]
-> nuget.org にパッケージをプッシュするには、[nuget.exe v4.1.0 以降](https://www.nuget.org/downloads)を使用する必要があります。これは必須の [NuGet プロトコル](../api/nuget-protocols.md)を実装します。
+> nuget.org にパッケージをプッシュするには、[nuget.exe v4.9.1 以降](https://www.nuget.org/downloads)を使用する必要があります。これは必須の [NuGet プロトコル](../api/nuget-protocols.md)を実装します。
 
 1. 便宜上、最初に NuGet で API キーを保存します ([パッケージの公開](../create-packages/publish-a-package.md)ページを参照してください)。この保存は nuget.org と symbolsource.org の両方に適用されます。symbolsource.org はあなたがパッケージ所有者であることを nuget.org に確認するためです。
 
@@ -131,6 +131,6 @@ nuget pack MyProject.csproj -Symbols
    
 その場合、NuGet は、nuget.org にプライマリ パッケージを公開した後、`MyPackage.symbols.nupkg` があればそれを https://nuget.smbsrc.net/ (symbolsource.org のプッシュ URL) に公開します。
 
-## <a name="see-also"></a>参照
+## <a name="see-also"></a>「
 
 [Moving to the new SymbolSource engine](https://tripleemcoder.com/2015/10/04/moving-to-the-new-symbolsource-engine/) (新しい SymbolSource エンジンへの移行) (symbolsource.org)

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7dcb2e430ad80815f716f5567b511ff08acfe31b
-ms.sourcegitcommit: a9babe261f67da0f714d168d04ea54a66628974b
+ms.openlocfilehash: 99578c5ed7e88b7269872bf88c465bbda462870a
+ms.sourcegitcommit: 585394f063e95dcbc24d7ac0ce07de643eaf6f4d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53735137"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "55045109"
 ---
 # <a name="nuget-49-release-notes"></a>NuGet 4.9 リリース ノート
 
@@ -18,9 +18,11 @@ NuGet 配布の種類:
 
 | NuGet のバージョン | 利用可能な Visual Studio バージョン| 利用可能な .NET SDK|
 |:---|:---|:---|
-| **4.9.0** | Visual Studio 2017 バージョン 15.9.0 | 2.1.500、2.2.100 |
-| **4.9.1** | N/A | N/A |
+| [**4.9.0**](https://nuget.org/downloads) | [Visual Studio 2017 バージョン 15.9.0](https://visualstudio.microsoft.com/downloads/) | [2.1.500、2.2.100](https://www.microsoft.com/net/download/visual-studio-sdks) |
+| [**4.9.1**](https://nuget.org/downloads) | N/A | N/A |
 | [**4.9.2**](https://nuget.org/downloads) |[Visual Studio 2017 バージョン 15.9.4](https://visualstudio.microsoft.com/downloads/) | [2.1.502、2.2.101](https://www.microsoft.com/net/download/visual-studio-sdks) |
+| [**4.9.3**](https://nuget.org/downloads) |[Visual Studio 2017 バージョン 15.9.6](https://visualstudio.microsoft.com/downloads/) | N/A |
+
 
 ## <a name="summary-whats-new-in-490"></a>概要:4.9.0 の新機能
 
@@ -35,6 +37,8 @@ NuGet 配布の種類:
 * PackageReference 上の "GeneratePathProperty" オプトイン メタデータで、"Foo.Bar\1.0\" ディレクトリにパッケージごとの MSBuild プロパティを生成することを可能にする - [#6949](https://github.com/NuGet/Home/issues/6949)
 
 * NuGet の操作での顧客の成功を改善する - [#7108](https://github.com/NuGet/Home/issues/7108)
+
+* ロック ファイルを使った反復可能なパッケージの復元を可能にする - [#5602](https://github.com/NuGet/Home/issues/5602)、[お知らせ](https://github.com/NuGet/Announcements/issues/28)、[ブログ記事](https://blog.nuget.org/20181217/Enable-repeatable-package-restores-using-a-lock-file.html)
 
 ### <a name="issues-fixed-in-this-release"></a>このリリースで修正された問題
 
@@ -106,6 +110,35 @@ NuGet 配布の種類:
 
 [この 4.9.2 リリースで修正されたすべての問題一覧](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.2")
 
+## <a name="summary-whats-new-in-493"></a>概要:4.9.3 の新機能
+
+### <a name="issues-fixed-in-this-release"></a>このリリースで修正された問題
+#### <a name="repeatable-package-restores-using-a-lock-file-issues"></a>"ロック ファイルを使った反復可能なパッケージの復元" に関する問題
+
+* 以前にキャッシュされたパッケージに対して、ハッシュとして動作していないロック モードが正しく計算されない - [#7682](https://github.com/NuGet/Home/issues/7682)
+
+* 復元が `packages.lock.json` ファイル内で定義されているものと別のバージョンに解決される - [#7667](https://github.com/NuGet/Home/issues/7667)
+
+* ProjectReferences が関係していると '--locked-mode / RestoreLockedMode' で実際には発生していない復元の失敗が発生する - [#7646](https://github.com/NuGet/Home/issues/7646)
+
+* MSBuild SDK リゾルバーは SDK パッケージの SHA を検証しようとするが、packages.lock.json を使うと復元に失敗する - [#7599](https://github.com/NuGet/Home/issues/7599)
+
+#### <a name="lock-down-your-dependencies-using-configurable-trust-policies-issues"></a>"構成可能な信頼ポリシーを使った依存関係のロックダウン" に関する問題
+* 署名済みパッケージがサポートされていない間は dotnet.exe で trusted-signers を評価すべきではない - [#7574](https://github.com/NuGet/Home/issues/7574)
+
+* 構成ファイル内での trustedSigners の順序が信頼評価に影響を与える - [#7572](https://github.com/NuGet/Home/issues/7572)
+
+* ISettings を実装できない [信頼ポリシー機能をサポートするための API の設定のリファクタリングによって発生] - [#7614](https://github.com/NuGet/Home/issues/7614)
+
+#### <a name="improved-debugging-experience-issues"></a>"デバッグ エクスペリエンスの向上" に関する問題
+
+* .NET Core グローバル ツールのシンボル パッケージを発行できない - [#7632](https://github.com/NuGet/Home/issues/7632)
+
+#### <a name="self-contained-nuget-packages---license-issues"></a>"自己完結型の NuGet パッケージ - ライセンス" に関する問題
+
+* 埋め込みライセンス ファイルを使うとシンボル .snupkg パッケージのビルド中にエラーが発生する - [#7591](https://github.com/NuGet/Home/issues/7591)
+
+[この 4.9.3 リリースで修正されたすべての問題一覧](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.3")
 ## <a name="known-issues"></a>既知の問題
 
 ### <a name="dotnet-nuget-push---interactive-gives-an-error-on-mac---7519httpsgithubcomnugethomeissues7519"></a>dotnet nuget push --interactive が Mac 上でエラーになる。 - [#7519](https://github.com/NuGet/Home/issues/7519)
