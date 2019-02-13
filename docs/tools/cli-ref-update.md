@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: fc34550b3669d83466318645987cfd3078bc3c18
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: ded9b571324d810c2f0e1a46ea76375a28940406
+ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545101"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56145606"
 ---
 # <a name="update-command-nuget-cli"></a>update コマンド (NuGet CLI)
 
@@ -42,7 +42,7 @@ nuget update <configPath> [options]
 | ヘルプ | ヘルプのコマンドの情報を表示します。 |
 | ID | パッケージを更新する Id の一覧を指定します。 |
 | MSBuildPath | *(4.0 以降)* よりも優先、コマンドで使用する MSBuild のパスを示す`-MSBuildVersion`します。 |
-| MSBuildVersion | *(3.2 以降)* このコマンドで使用する MSBuild のバージョンを指定します。 サポートされている値は、4、12、14、15 です。 パスに MSBuild が取得される、既定でそれ以外の場合、既定値 MSBuild の最上位のインストールされているバージョンです。 |
+| MSBuildVersion | *(3.2 以降)* このコマンドで使用する MSBuild のバージョンを指定します。 サポートされている値とは、4、12、14、15.1、15.3、15.4、15.5、15.6、15.7、15.8、15.9 です。 パスに MSBuild が取得される、既定でそれ以外の場合、既定値 MSBuild の最上位のインストールされているバージョンです。 |
 | NonInteractive | ユーザー入力や確認のプロンプトを抑制します。 |
 | プレリリース版 | プレリリース バージョンに更新を許可します。 既にインストールされているプレリリースのパッケージを更新するときに、このフラグは必要ありません。 |
 | RepositoryPath | パッケージがインストールされているローカル フォルダーを指定します。 |

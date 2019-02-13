@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 39b710c483ce4b3f2da30df6bb5b6842f9ee1fca
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: 5d0d60cbcf6516d24efeb04f8262902da69d92d1
+ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324839"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56145658"
 ---
 # <a name="nuget-api"></a>NuGet API
 
@@ -49,17 +49,17 @@ NuGet V3 API は、公式の NuGet クライアントのバージョン 2.x で�
 
 **サービス インデックス**のさまざまなリソースについて説明します。 現在サポートされているリソースのセットは次のとおりです。
 
-リソース名                                                           | 必須 | 説明
-----------------------------------------------------------------------  | -------- | -----------
+リソース名                                                          | 必須 | 説明
+---------------------------------------------------------------------- | -------- | -----------
 [`PackagePublish`](package-publish-resource.md)                        | 可      | プッシュし削除 (または一覧から削除する) パッケージ。
 [`SearchQueryService`](search-query-service-resource.md)               | 可      | フィルター処理し、キーワードでパッケージを検索します。
 [`RegistrationsBaseUrl`](registration-base-url-resource.md)            | 可      | パッケージのメタデータを取得します。
 [`PackageBaseAddress`](package-base-address-resource.md)               | 可      | パッケージ (.nupkg) のコンテンツを取得します。
 [`SearchAutocompleteService`](search-autocomplete-service-resource.md) | Ｘ       | 部分文字列では、パッケージ Id とバージョンを検出します。
 [`ReportAbuseUriTemplate`](report-abuse-resource.md)                   | Ｘ       | 「不正使用を報告」の web ページにアクセスする URL を作成します。
-[`RepositorySignatures`](repository-signatures-resource.md)             | Ｘ      | リポジトリに署名するために使用される証明書を取得します。
-[`Catalog`](catalog-resource.md)                                         | Ｘ      | パッケージのすべてのイベントの完全なレコードです。
-[`SymbolPackagePublish`](symbol-package-publish-resource.md)            | Ｘ      | シンボル パッケージをプッシュします。
+[`RepositorySignatures`](repository-signatures-resource.md)            | Ｘ       | リポジトリに署名するために使用される証明書を取得します。
+[`Catalog`](catalog-resource.md)                                       | Ｘ       | パッケージのすべてのイベントの完全なレコードです。
+[`SymbolPackagePublish`](symbol-package-publish-resource.md)           | Ｘ       | シンボル パッケージをプッシュします。
 
 一般に、API リソースによって返されるすべての非バイナリ データは、JSON を使用してシリアル化されます。 サービス インデックス内の各リソースによって返される応答のスキーマは、そのリソースを個別に定義されます。 各リソースの詳細については、上記のトピックを参照してください。
 
@@ -67,6 +67,19 @@ NuGet V3 API は、公式の NuGet クライアントのバージョン 2.x で�
 
 > [!Note]
 > ときに、ソースを実装しません`SearchAutocompleteService`オートコンプリートの動作が正常に無効にする必要があります。 ときに`ReportAbuseUriTemplate`は実装されていません、nuget.org には、公式の NuGet クライアント フォールバック URL の不正使用を報告する (によって追跡される[NuGet ホーム/#4924](https://github.com/NuGet/Home/issues/4924))。 その他のクライアントは、単にユーザーにレポートの URL の不正使用を表示しないように選択できます。
+
+### <a name="undocumented-resources-on-nugetorg"></a>Nuget.org 上のドキュメントに未記載のリソース
+
+Nuget.org V3 サービス インデックスでは、上記に記載されていない一部のリソースを持っています。 いないリソースを文書化するためのいくつかの理由があります。
+
+最初に、nuget.org の実装の詳細として使用されるリソースについて記載はありません。`SearchGalleryQueryService`はこのカテゴリに分類されます。 [NuGetGallery](https://github.com/NuGet/NuGetGallery)一部 V2 を委任するこのリソースを使用して、データベースを使用する代わりに検索のインデックスにクエリを (OData)。 このリソースは、スケーラビリティ上の理由から導入され、外部使用のためのものではありません。
+
+次に、公式のクライアントの RTM バージョンで出荷されていないリソースについて記載はありません。
+`PackageDisplayMetadataUriTemplate` `PackageVersionDisplayMetadataUriTemplate`このカテゴリに分類されます。
+
+第 3 に、緊密にあるリソースを文書化していない V2 プロトコルを組み合わせて自体は意図的に文書化します。 `LegacyGallery`リソースは、このカテゴリに分類されます。 このリソースは、対応する V2 ソース URL を指す V3 サービス インデックスを使用します。 このリソースのサポート、`nuget.exe list`します。
+
+リソースがここでは、説明されていない場合*強く*に依存関係を実行しないことをお勧めします。 削除するか、予期しない方法で実装を中断することがこれらの文書化されていないリソースの動作を変更しました可能性があります。
 
 ## <a name="timestamps"></a>タイムスタンプ
 

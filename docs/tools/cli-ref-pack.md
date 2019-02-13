@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: d39ec8caf94caa767b6c502cc475e278aa718b95
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: 9db24b2dd6ced0869ac84b25f9796ded5df10f86
+ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324787"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56145645"
 ---
 # <a name="pack-command-nuget-cli"></a>pack コマンド (NuGet CLI)
 
@@ -43,7 +43,7 @@ nuget pack <nuspecPath | projectPath> [options] [-Properties ...]
 | IncludeReferencedProjects | 依存関係として、または、パッケージの一部として、ビルドされたパッケージに参照されるプロジェクトを含める必要がありますを示します。 参照先プロジェクトが、対応する`.nuspec`をその参照先プロジェクトが依存関係として追加し、プロジェクトと同じ名前を持つファイル。 それ以外の場合、参照先のプロジェクトは、パッケージの一部として追加されます。 |
 | MinClientVersion | 設定、 *minClientVersion*作成したパッケージの属性。 この値は、既存の値をオーバーライド*minClientVersion* (あれば) 属性、`.nuspec`ファイル。 |
 | MSBuildPath | *(4.0 以降)* よりも優先、コマンドで使用する MSBuild のパスを示す`-MSBuildVersion`します。 |
-| MSBuildVersion | *(3.2 以降)* このコマンドで使用する MSBuild のバージョンを指定します。 サポートされている値は、4、12、14、15 です。 パスに MSBuild が取得される、既定でそれ以外の場合、既定値 MSBuild の最上位のインストールされているバージョンです。 |
+| MSBuildVersion | *(3.2 以降)* このコマンドで使用する MSBuild のバージョンを指定します。 サポートされている値とは、4、12、14、15.1、15.3、15.4、15.5、15.6、15.7、15.8、15.9 です。 パスに MSBuild が取得される、既定でそれ以外の場合、既定値 MSBuild の最上位のインストールされているバージョンです。 |
 | NoDefaultExcludes | NuGet の既定の除外をできないようにファイルとフォルダーなど、ドットで始まるファイルをパッケージ化`.svn`と`.gitignore`します。 |
 | NoPackageAnalysis | パッケージのビルド後に、パックでパッケージの分析を実行しないことを指定します。 |
 | OutputDirectory | 作成したパッケージが格納されているフォルダーを指定します。 フォルダーが指定されていない場合は、現在のフォルダーが使用されます。 |

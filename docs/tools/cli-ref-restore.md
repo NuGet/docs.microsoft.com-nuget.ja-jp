@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 06e3a26863761b7e7a42752866e7fe369f5be4ef
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: adf97196f50f2a55d6b8ceed93d53ff12b67657b
+ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43550353"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56145632"
 ---
 # <a name="restore-command-nuget-cli"></a>restore (NuGet CLI) コマンド
 
-**適用対象:** 消費をパッケージ化&bullet;**サポートされているバージョン:** 2.7 以降
+**適用対象:** 消費をパッケージ化&bullet;**サポートされているバージョン。** 2.7+
 
 ダウンロードしてから不足しているすべてのパッケージをインストール、`packages`フォルダー。 NuGet 4.0 以降と PackageReference 形式を併用すると生成、`<project>.nuget.props`ファイルの場合は、必要に応じて、`obj`フォルダー。 (ファイルをソース管理から省略できます)。
 
@@ -39,7 +39,7 @@ nuget restore <projectPath> [options]
 | ForceEnglishOutput | *(3.5 以降)* インバリアントの英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
 | ヘルプ | ヘルプのコマンドの情報を表示します。 |
 | MSBuildPath | *(4.0 以降)* よりも優先、コマンドで使用する MSBuild のパスを示す`-MSBuildVersion`します。 |
-| MSBuildVersion | *(3.2 以降)* このコマンドで使用する MSBuild のバージョンを指定します。 サポートされている値は、4、12、14、15 です。 パスに MSBuild が取得される、既定でそれ以外の場合、既定値 MSBuild の最上位のインストールされているバージョンです。 |
+| MSBuildVersion | *(3.2 以降)* このコマンドで使用する MSBuild のバージョンを指定します。 サポートされている値とは、4、12、14、15.1、15.3、15.4、15.5、15.6、15.7、15.8、15.9 です。 パスに MSBuild が取得される、既定でそれ以外の場合、既定値 MSBuild の最上位のインストールされているバージョンです。 |
 | NoCache | NuGet がキャッシュされたパッケージを使用するを防ぎます。 参照してください[グローバル パッケージとキャッシュ フォルダーの管理](../consume-packages/managing-the-global-packages-and-cache-folders.md)します。 |
 | NonInteractive | ユーザー入力や確認のプロンプトを抑制します。 |
 | OutputDirectory | パッケージがインストールされているフォルダーを指定します。 フォルダーが指定されていない場合は、現在のフォルダーが使用されます。 復元するときに必要な`packages.config`ファイル`PackagesDirectory`または`SolutionDirectory`使用されます。|
