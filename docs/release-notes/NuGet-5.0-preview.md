@@ -5,20 +5,52 @@ author: anangaur
 ms.author: anangaur
 ms.date: 1/25/2019
 ms.topic: conceptual
-ms.openlocfilehash: ed3294f88ff99d5e26f630bdbca03aa8446b6e7f
-ms.sourcegitcommit: 0cb4c9853cde3647291062eadee2298dd273311e
+ms.openlocfilehash: 5889ea52f993fa8fe841f8eb83b6da659cdede93
+ms.sourcegitcommit: 1ab750ff17e55c763d646c50e7630138804ce8b8
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55084938"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56247660"
 ---
 # <a name="nuget-50-preview-release-notes"></a>NuGet 5.0 Preview リリース ノート
+
+## <a name="nuget-50-preview-releases"></a>NuGet 5.0 プレビュー リリース
+
+* 2019 年 2 月 13日 - [NuGet 5.0 Preview 3](#summary-whats-new-in-50-preview-3)
+* 2019 年 1 月 23日 - [NuGet 5.0 Preview 2](#summary-whats-new-in-50-preview-2)
+
+## <a name="summary-whats-new-in-nuget-50-preview-3"></a>概要:NuGet 5.0 Preview 3 の新機能新機能
+
+### <a name="issues-fixed-in-this-release"></a>このリリースで修正された問題 
+
+**バグ:**
+
+* nuget.exe/でしょうか。 should list correct msbuild versions - [#7794](https://github.com/NuGet/Home/issues/7794)
+
+* NuGet.targets(498,5): error :パスの一部が見つかりませんでした '/tmp/NuGetScratch - mono - [#7793。](https://github.com/NuGet/Home/issues/7793)
+
+* 復元が不必要にマシン キャッシュ - で参照されるパッケージのすべてのバージョンの内容を列挙[#7639](https://github.com/NuGet/Home/issues/7639)
+
+* MSBuild の自動検出は 16.0 を常に選択インストール VS 2019 プレビュー - 後[#7621](https://github.com/NuGet/Home/issues/7621)
+
+* ソリューションに dotnet リスト パッケージ フレームワークの重複するエントリを出力する[#7607](https://github.com/NuGet/Home/issues/7607)
+
+* 例外「空のパス名は有効な」old IVsPackageInstaller.InstallPackage を呼び出し元がプロジェクトし、パッケージ フォルダーが存在しません。 - [#5936](https://github.com/NuGet/Home/issues/5936)
+
+* msbuild /t:restore minimal verbosity should be more minimal - [#4695](https://github.com/NuGet/Home/issues/4695)
+
+**Dcr**
+
+* パッケージ作成者ビルド アセットの推移的な動作の定義を許可する[#6091](https://github.com/NuGet/Home/issues/6091)
+
+* プロジェクトは、ソリューションの一部でないか、アンロードされますが復元された以前の場合は成功を VS での復元を有効にする[#5820](https://github.com/NuGet/Home/issues/5820)
+
 
 ## <a name="summary-whats-new-in-50-preview-2"></a>概要:5.0 Preview 2 の新機能新機能
 
 ### <a name="issues-fixed-in-this-release"></a>このリリースで修正された問題
 
-#### <a name="bugs"></a>バグ:
+**バグ:**
 
 * VS 16.0 の NuGet UI には、色の問題のため、読み取り不可能なタブ[#7735](https://github.com/NuGet/Home/issues/7735)
 
@@ -60,7 +92,7 @@ ms.locfileid: "55084938"
 
 * dotnet 復元が失敗するため、無効になっているマシン ワイド フィード - [#5410](https://github.com/NuGet/Home/issues/5410)
 
-#### <a name="dcrs"></a>DCR
+**Dcr**
 
 * (変更) - TFM を使用して .NET 4.7.2 を必要とする NuGet 5.0 アセンブリ[#7510](https://github.com/NuGet/Home/issues/7510)
 
@@ -76,21 +108,12 @@ ms.locfileid: "55084938"
 
 [このリリース 5.0.0-preview2 で修正されたすべての問題の一覧](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.2")
 
+### <a name="known-issues"></a>既知の問題
 
-## <a name="known-issues"></a>既知の問題
+#### <a name="dotnet-nuget-push---interactive-gives-an-error-on-mac---7519httpsgithubcomnugethomeissues7519"></a>dotnet nuget push --interactive が Mac 上でエラーになる。 - [#7519](https://github.com/NuGet/Home/issues/7519)
+**問題**、`--interactive`引数は dotnet cli を使用して転送されていませんが、エラーが発生`error: Missing value for option 'interactive'` 
+**回避策**などの対話型のオプションを使用して、他のdotnetコマンドを実行`dotnet restore --interactive`および認証します。 そうすると、認証が資格情報プロバイダーによってキャッシュされる可能性があります。 その後、`dotnet nuget push` を実行します。
 
-### <a name="dotnet-nuget-push---interactive-gives-an-error-on-mac---7519httpsgithubcomnugethomeissues7519"></a>dotnet nuget push --interactive が Mac 上でエラーになる。 - [#7519](https://github.com/NuGet/Home/issues/7519)
-
-#### <a name="issue"></a>懸案事項
-`--interactive` 引数が dotnet CLI によって転送されていないため、エラー `error: Missing value for option 'interactive'` が発生します
-
-#### <a name="workaround"></a>回避策
-`dotnet restore --interactive` のように、対話型のオプションを使ってその他の任意の dotnet コマンドを実行し、認証します。 そうすると、認証が資格情報プロバイダーによってキャッシュされる可能性があります。 その後、`dotnet nuget push` を実行します。
-
-### <a name="packages-in-fallbackfolders-installed-by-net-core-sdk-are-custom-installed-and-fail-signature-validation---7414httpsgithubcomnugethomeissues7414"></a>.NET Core SDK によってインストールされる FallbackFolders 内のパッケージがカスタム インストールされ、署名の検証に失敗する。 - [#7414](https://github.com/NuGet/Home/issues/7414)
-
-#### <a name="issue"></a>懸案事項
-dotnet.exe 2.x を使って netcoreapp 1.x と netcoreapp 2.x をマルチターゲットにするプロジェクトを復元すると、そのフォールバック フォルダーがファイル フィードとして扱われます。 つまり、復元するときに、NuGet ではフォールバック フォルダーからパッケージを選択し、それをグローバル パッケージ フォルダーにインストールしようと試み、通常の署名の検証を行って、失敗します。
-
-#### <a name="workaround"></a>回避策
-`RestoreAdditionalProjectSources` に何も設定しないことで、フォールバック フォルダーの使用を無効にします。 `<RestoreAdditionalProjectSources/>` これは慎重に使う必要があります。フォールバック フォルダーから復元されていたはずの多くのパッケージが、NuGet.org からダウンロードされることになるためです。
+#### <a name="packages-in-fallbackfolders-installed-by-net-core-sdk-are-custom-installed-and-fail-signature-validation---7414httpsgithubcomnugethomeissues7414"></a>.NET Core SDK によってインストールされる FallbackFolders 内のパッケージがカスタム インストールされ、署名の検証に失敗する。 - [#7414](https://github.com/NuGet/Home/issues/7414)
+**問題**dotnet.exe を使用するときにそのマルチ ターゲット netcoreapp プロジェクトを復元する 2.x 1.x と netcoreapp 2.x、フォールバックのフォルダーはフィード ファイルとして扱われます。 つまり、復元するときに、NuGet ではフォールバック フォルダーからパッケージを選択し、それをグローバル パッケージ フォルダーにインストールしようと試み、通常の署名の検証を行って、失敗します。
+**回避策**フォールバック フォルダーの使用状況を無効に設定して、 `RestoreAdditionalProjectSources` nothing にします。 `<RestoreAdditionalProjectSources/>` これは慎重に使う必要があります。フォールバック フォルダーから復元されていたはずの多くのパッケージが、NuGet.org からダウンロードされることになるためです。
