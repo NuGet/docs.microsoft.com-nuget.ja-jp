@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 290055a306306e944695d3a6ac970819882ee0c6
-ms.sourcegitcommit: 046717af2eba9ff6f619a0533844dee56a600d1c
+ms.openlocfilehash: f15639c883241c328b5fc0a4bf5617540b52b7ee
+ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55648271"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56145684"
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet に関してよく寄せられる質問
 
@@ -241,11 +241,9 @@ NuGet クライアントで nuget.org をパッケージ リポジトリとし�
 
 **`https://api.nuget.org/v3/index.json`**
 
-より古いクライアントでは、引き続き v2 プロトコルを使用して nuget.org に到達できます。ただし、v2 プロトコルを使用した場合、NuGet クライアント 3.0 以降でサービスの動作が遅くなり、信頼性が低下します。
+より古いクライアントでは、引き続き V2 プロトコルを使用して nuget.org に到達できます。ただし、V2 プロトコルを使用した場合、NuGet クライアント 3.0 以降でサービスの動作が遅くなり、信頼性が低下します。
 
-`https://www.nuget.org/api/v2/` (非推奨!!!)**注:** "www."  は重要です。
-
-さらに、*NuGet.exe List* は v2 プロトコルでのみ機能します。
+`https://www.nuget.org/api/v2` (非推奨!!!)**注:** 最高クラスの信頼性のためには "www." を使用してください。
 
 ## <a name="nugetorg-account-management"></a>nuget.org のアカウント管理
 
