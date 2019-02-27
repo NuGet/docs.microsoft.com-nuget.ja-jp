@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 08/16/2018
 ms.topic: conceptual
 ms.reviewer: kraigb
-ms.openlocfilehash: 6184fe8e987e0637cb912999f2e3fa3a3dc9b4ba
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 003139abac7808dbdaef4aa66119e09772db2b4f
+ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546936"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56852534"
 ---
 # <a name="toolsjson-for-discovering-nugetexe-versions"></a>nuget.exe のバージョンを検出するための tools.json
 
@@ -45,14 +45,14 @@ nuget.exe | オブジェクトの配列 | 可
 
 名前     | 種類   | 必須 | メモ
 -------- | ------ | -------- | -----
-version  | string | 可      | SemVer 2.0.0 文字列
+version  | string | 可      | A SemVer 2.0.0 string
 url      | string | 可      | このバージョンの nuget.exe をダウンロードするための絶対 URL
 ステージ    | string | 可      | 列挙型の文字列
-アップロード | string | 可      | バージョンを利用可能であった場合のおおよそのタイムスタンプ
+アップロード | string | 可      | バージョンを利用可能であった場合のおおよその ISO 8601 のタイムスタンプ
 
-配列内の項目は SemVer 2.0.0 の順序を降順で並べ替えられます。 この保証は、最新バージョンのクライアント上の負担を軽減します。 
+配列内の項目は SemVer 2.0.0 の順序を降順で並べ替えられます。 この保証は最新のバージョン番号に関心がクライアントの負荷を軽減するためのものです。 ただし、リストが順に並べ替えられていないことをこのわけです。 たとえば、下のメジャー バージョンは、以上のメジャー バージョンより後の日付でサービスが場合、このサービスのバージョンは、一覧の上部にあるは表示されません。 リリースされた最新バージョンの場合*タイムスタンプ*、単に、配列の並べ替え、`uploaded`文字列。 なので、`uploaded`タイムスタンプが、 [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html)形式を辞書式順序の並べ替え (単純な文字列の並べ替えなど) を使用して古い順に並べ替えできます。
 
-`stage`プロパティ vettect このバージョンのツールを示します。 
+`stage`プロパティは、ツールのこのバージョンは、審査に合格した方法を示します。 
 
 段階              | 説明
 ------------------ | ------
@@ -60,7 +60,7 @@ EarlyAccessPreview | まだ表示されない、[ダウンロード web ペー�
 リリース済み           | まだ広く使用されている使用量のことをお勧めしますのダウンロード サイトで利用可能
 ReleasedAndBlessed | ダウンロード サイトで使用可能な従量課金のためお勧め
 
-リストを持つ最初のバージョンを最新の 1 つの簡単な方法、推奨されるバージョンは、 `stage` @property`ReleasedAndBlessed`します。
+リストを持つ最初のバージョンを最新の 1 つの簡単な方法、推奨されるバージョンは、 `stage` @property`ReleasedAndBlessed`します。 これが機能のバージョンは SemVer 2.0.0 の順序で並べ替えられます。
 
 `NuGet.CommandLine`で nuget.org でパッケージがのみ更新通常`ReleasedAndBlessed`バージョン。
 

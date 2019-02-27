@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: b980c1084fe8e31573053a4dcf38bbfa6146e6de
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 6407cd2ea5e5e7a9c9e2be679764a8a0d5dd9260
+ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549774"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56852469"
 ---
 # <a name="package-versioning"></a>パッケージのバージョン管理
 
@@ -29,8 +29,8 @@ ms.locfileid: "43549774"
 
 特定のバージョン番号が、 *Major.Minor.Patch [-サフィックス]* コンポーネントは次の意味。
 
-- *主要な*: 重大な変更
-- *マイナー*: 下位互換性がありますが、新機能
+- *主要な*:互換性に影響する変更
+- *マイナー*: 新機能、ただし下位互換性あり
 - *パッチ*: 下位互換性のバグ修正のみ
 - *-サフィックス*(省略可能): ハイフンが続けてリリース前のバージョンを示す文字列 (以下、[セマンティック バージョン管理または SemVer 1.0 規則](http://semver.org/spec/v1.0.0.html))。
 
@@ -50,7 +50,7 @@ ms.locfileid: "43549774"
 
 ただし、通常、パッケージの開発者に、認識されている名前付け規則。
 
-- `-alpha`: アルファ リリース、通常処理中や実験に使用します。
+- `-alpha`:進行中の作業や実験に使用される通常アルファ リリース。
 - `-beta`: ベータ リリース。一般的に、次に計画されているリリースの機能をすべて利用できますが、既知のバグが含まれている可能性があります。
 - `-rc`: リリース候補。一般的に、重大なバグが現れない限り、最終版 (安定版) となる可能性があるリリース。
 
@@ -187,9 +187,6 @@ PackageReference 形式を使用して、NuGet もサポートしています、
 ```xml
 <!-- Accepts any version 6.1 and above. -->
 <dependency id="ExamplePackage" version="6.1" />
-
-<!-- Accepts any 6.x.y version. -->
-<dependency id="ExamplePackage" version="6.*" />
 
 <!-- Accepts any version above, but not including 4.1.3. Could be
      used to guarantee a dependency with a specific bug fix. -->
