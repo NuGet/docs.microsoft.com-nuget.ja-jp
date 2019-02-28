@@ -73,7 +73,7 @@
 ### [Uninstall-Package](tools/ps-ref-uninstall-package.md)
 ### [Update-Package](tools/ps-ref-update-package.md)
 ## [dotnet コマンド](tools/dotnet-Commands.md)
-# 参照
+# 関連項目
 ## [.nuspec](reference/nuspec.md)
 ## [プロジェクト ファイルのパッケージ参照](consume-packages/package-references-in-project-files.md)
 ## [packages.config の PackageReference への移行](reference/migrate-packages-config-to-package-reference.md)
@@ -87,6 +87,7 @@
 ## [NuGet クライアント SDK](reference/nuget-client-sdk.md)
 ## [署名付きパッケージ](reference/signed-packages-reference.md)
 ## [NuGet.org 上の組織](reference/organizations-on-nuget-org.md)
+## [licenses.nuget.org](reference/licenses.nuget.org.md)
 ## [エラーと警告](reference/Errors-and-Warnings.md)
 ### [NU1000](reference/errors-and-warnings/NU1000.md)
 ### [NU1001](reference/errors-and-warnings/NU1001.md)
