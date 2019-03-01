@@ -6,21 +6,21 @@ ms.author: karann
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: bd36ae311da1ec824726c5d73670b1232a3f89e0
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: bd19bc402ff9d66d7e2baa4f326d75f0ed444f30
+ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549587"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56852573"
 ---
 # <a name="publishing-packages"></a>パッケージを公開する
 
 パッケージを作成し、`.nupkg` ファイルを入手している場合は、このプロセスにより、他の開発者がパッケージを簡単に利用できるようにすることができます。公開または非公開のいずれかを選択できます。
 
 - 公開パッケージの場合、この記事で説明するように、[nuget.org](https://www.nuget.org/packages/manage/upload) 経由で世界中の開発者が利用できます (NuGet 4.1.0 以降が必要です)。
-- 非公開パッケージの場合、ファイル共有、プライベート NuGet サーバー、 [Visual Studio Team Services Package Management](https://www.visualstudio.com/docs/package/nuget/publish)、あるいは myget、ProGet、Nexus Repository、Artifactory のようなサードパーティ リポジトリで保存することで、チームや組織だけが利用できます。 詳細については、「[Hosting Packages Overview](../hosting-packages/overview.md)」 (パッケージ ホストの概要) を参照してください。
+- 非公開パッケージは、特定のチームまたは組織だけが利用できます。このようにするには、パッケージをファイル共有、プライベート NuGet サーバー、[Azure Artifacts](https://www.visualstudio.com/docs/package/nuget/publish)、またはサードパーティのリポジトリ (たとえば myget、ProGet、Nexus Repository、Artifactory) でホストします。 詳細については、「[Hosting Packages Overview](../hosting-packages/overview.md)」 (パッケージ ホストの概要) を参照してください。
 
-この記事では、nuget.org に公開する方法を取り上げます。Visual Studio Team Services に公開する方法については、「[Package Management](https://www.visualstudio.com/docs/package/nuget/publish)」(パッケージ管理) をご覧ください。
+この記事では、nuget.org に公開する方法を取り上げます。Azure Artifacts に公開する方法については、「[Package Management](https://www.visualstudio.com/docs/package/nuget/publish)」(パッケージ管理) をご覧ください。
 
 ## <a name="publish-to-nugetorg"></a>nuget.org に公開する
 
@@ -28,7 +28,7 @@ Nuget.org の場合、Microsoft アカウントでサインインする必要が
 
 ![NuGet サインインの場所](media/publish_NuGetSignIn.png)
 
-次に、次のセクションで説明するように、nuget.org Web ポータルを使用する方法、コマンド ラインから nuget.org にプッシュする (`nuget.exe` 4.1.0 以降が必要) 方法、または Visual Studio Team Services を介して CI/CD プロセスの一環として発行する方法のいずれかでパッケージをアップロードできます。
+次に、パッケージを nuget.org Web ポータルからアップロードするか、コマンド ラインから nuget.org にプッシュするか (`nuget.exe` 4.1.0 以上が必要です)、CI/CD プロセスの一部として Azure DevOps Services を通して公開します。これらの方法について、以降のセクションで説明します。
 
 ### <a name="web-portal-use-the-upload-package-tab-on-nugetorg"></a>Web ポータル: nuget.org の [パッケージのアップロード] を使用
 
@@ -83,7 +83,7 @@ nuget.org にパッケージをプッシュするには、[nuget.exe v4.1.0 以�
 
 nuget.org にプッシュされたパッケージは、ウィルス チェックなど、いくつかの検証を受けます。 (Nuget.org 上のすべてのパッケージが定期的にスキャンされます。)
 
-である必要があります。 パッケージがすべての検証に合格すると、インデックスが作成され、検索結果に表示されるようになりますが、それには時間がかかることがあります。 インデックスの作成が完了すると、パッケージが正常に公開されたことを示す確認の電子メールが届きます。 パッケージが検証で不合格になった場合、パッケージの詳細ページが更新され、関連するエラーが表示されます。それに関する電子メールも届きます。
+. パッケージがすべての検証に合格すると、インデックスが作成され、検索結果に表示されるようになりますが、それには時間がかかることがあります。 インデックスの作成が完了すると、パッケージが正常に公開されたことを示す確認の電子メールが届きます。 パッケージが検証で不合格になった場合、パッケージの詳細ページが更新され、関連するエラーが表示されます。それに関する電子メールも届きます。
 
 パッケージの検証とインデックスの作成は、通常、15 以内で完了します。 パッケージ公開に予想以上の時間がかかる場合、[status.nuget.org](https://status.nuget.org/) にアクセスし、nuget.org に中断が発生していないか確認してください。 すべてのシステムが動作しているとき、1 時間以内にパッケージが正常に公開されない場合、nuget.org にログインし、パッケージ ページの [Contact Support] リンクからお問い合わせください。
 
@@ -93,9 +93,9 @@ nuget.org にプッシュされたパッケージは、ウィルス チェック
 
 ![パッケージがまだ公開されていないことを示すメッセージ](media/publish_NotYetIndexed.png)
 
-### <a name="visual-studio-team-services-cicd"></a>Visual Studio Team Services (CI/CD)
+### <a name="azure-devops-services-cicd"></a>Azure DevOps Services (CI/CD)
 
-継続的インテグレーション/配置プロセスの一部として Visual Studio Team Services を利用して nuget.org にパッケージをプッシュする場合、NuGet タスクで `nuget.exe` 4.1 以上を使用する必要があります。 詳細は、Microsoft DevOps ブログの「[Using the latest NuGet in your build](https://blogs.msdn.microsoft.com/devops/2017/09/29/using-the-latest-nuget-in-your-build/)」 (ビルドで最新の NuGet を利用する) にあります。
+Azure DevOps Services を使用して、継続的インテグレーション/配置プロセスの一部としてパッケージを nuget.org にプッシュする場合は、`nuget.exe` 4.1 以上を NuGet タスクの中で使用する必要があります。 詳細は、Microsoft DevOps ブログの「[Using the latest NuGet in your build](https://blogs.msdn.microsoft.com/devops/2017/09/29/using-the-latest-nuget-in-your-build/)」 (ビルドで最新の NuGet を利用する) にあります。
 
 ## <a name="managing-package-owners-on-nugetorg"></a>nuget.org でパッケージ所有者を管理する
 

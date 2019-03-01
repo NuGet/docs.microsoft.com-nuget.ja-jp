@@ -16,14 +16,16 @@ keywords: NuGet シンボル パッケージ, NuGet パッケージ デバッグ
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 1fbb243a7b3518307a393b5f371feae1edb7623a
-ms.sourcegitcommit: 5c5f0f0e1f79098e27d9566dd98371f6ee16f8b5
+ms.openlocfilehash: 43f346dc64ebbc59d02b9c7875b04205d8c5d83a
+ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53645660"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56852443"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>シンボル パッケージ (.snupkg) の作成
+
+シンボル パッケージを利用すると、NuGet パッケージのデバッグがしやすくなります。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
@@ -31,22 +33,28 @@ ms.locfileid: "53645660"
 
 ## <a name="creating-a-symbol-package"></a>シンボル パッケージを作成する
 
-snupkg シンボル パッケージは .nuspec ファイルまたは .csproj ファイルから作成できます。 NuGet.exe と dotnet.exe の両方がサポートされます。 ```-Symbols -SymbolPackageFormat snupkg``` のオプションが .nupkg.exe パック コマンドで使用されると、.nupkg ファイルの他に .snupkg ファイルが作成されます。
+snupkg シンボル パッケージを作成するには、dotnet.exe、NuGet.exe、または MSBuild を使用します。 NuGet.exe を使用する場合は、次のコマンドを使用すると .nupkg ファイルに加えて .snupkg ファイルを作成できます。
 
-.snupkg ファイルを作成するコマンドの例
 ```
-dotnet pack MyPackage.csproj --include-symbols -p:SymbolPackageFormat=snupkg
-
 nuget pack MyPackage.nuspec -Symbols -SymbolPackageFormat snupkg
 
 nuget pack MyPackage.csproj -Symbols -SymbolPackageFormat snupkg
-
-msbuild -t:pack MyPackage.csproj -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
 ```
 
-`.snupkgs` は、既定では生成されません。 nuget.exe の場合は `-Symbols` と共に `SymbolPackageFormat` プロパティを、dotnet.exe の場合は `--include-symbols` を、msbuild の場合は `-p:IncludeSymbols` を渡す必要があります。
+dotnet.exe または MSBuild を使用する場合は、次の手順で .nupkg ファイルに加えて .snupkg ファイルを作成します。
 
-SymbolPackageFormat プロパティには、`symbols.nupkg` (既定値) または `snupkg` の 2 つの値のうちどちらかを指定できます。 SymbolPackageFormat が指定されていない場合は `symbols.nupkg` が既定に設定され、レガシ シンボル パッケージが作成されます。
+1. 次に示すプロパティを .csproj ファイルに追加します。
+
+    ```xml
+    <PropertyGroup>
+      <IncludeSymbols>true</IncludeSymbols>
+      <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    </PropertyGroup>
+    ```
+
+1. `dotnet pack MyPackage.csproj` または `msbuild -t:pack MyPackage.csproj` を使用してプロジェクトをパックします。
+
+`SymbolPackageFormat` プロパティには、`symbols.nupkg` (既定値) と `snupkg` の 2 つの値のいずれかを指定できます。 `SymbolPackageFormat` プロパティが指定されていない場合は、既定値である `symbols.nupkg` となり、レガシ シンボル パッケージが作成されます。
 
 > [!Note]
 > 従来の形式 `.symbols.nupkg` は引き続きサポートされますが、これは互換性のみを目的としています ([レガシ シンボル パッケージ](Symbol-Packages.md)に関する記事を参照)。 NuGet.org のシンボル サーバーは、新しいシンボル パッケージ形式 `.snupkg` のみを受け入れます。

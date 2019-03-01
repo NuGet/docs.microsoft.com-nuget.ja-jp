@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: f15639c883241c328b5fc0a4bf5617540b52b7ee
-ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
+ms.openlocfilehash: 03223e949eeeadd7eaa6e392297ba79d28eed2f2
+ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56145684"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56852547"
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet に関してよく寄せられる質問
 
@@ -166,7 +166,7 @@ NuGet では、すべてのパッケージに署名することをお勧めし�
 
 パッケージに対してリストされる依存関係は、パッケージ自体から自動的に生成されるものであり、編集できないことに注意してください。
 
-また、パッケージを [int.nugettest.org](https://int.nugettest.org) にアップロードすることは、パブリック ギャラリーでパッケージを使用できるようにせずに、パッケージをテストして検証する優れた方法です。
+また、パッケージを [int.nugettest.org](https://int.nugettest.org) にアップロードすることは、パブリック ギャラリーでパッケージを使用できるようにせずに、パッケージをテストして検証する優れた方法です。 API エンドポイント: https://apiint.nugettest.org/v3/index.json
 
 **今後発行されるパッケージの名前を予約することはできますか?**
 
@@ -305,7 +305,7 @@ Microsoft ログインを変更しようとすると、次のエラーが表示�
 
 [ログイン ページ](https://www.nuget.org/users/account/LogOn?returnUrl=%2F# "ログイン ページ")で 2 番目の Microsoft アカウントを使ってログインします。 これにより 2 番目の Microsoft アカウントに現在関連付けられている nuget.org アカウントにログインします。 次に、アップロードされたパッケージを表示して、このアカウントでアカウント管理を実行できます。
 
-**この 2 番目の nuget.org アカウントには関心がありませんが、最初の nuget.org アカウントのログインを 2 番目の Microsoft アカウントで変更したいのですが、どうしたらよいですか。**
+**この 2 番目の nuget.org アカウントには関心がありませんが、最初の nuget.org アカウントのログインを 2 番目の Microsoft アカウントで変更したいのですが、どうしたらよいですか?**
 
 2 番目の nuget.org アカウントに関心はないが、メール アドレス `account2@outlook.com` を持つ関連付けられた Microsoft アカウントを再利用したい場合、 
 
