@@ -6,12 +6,12 @@ ms.author: diverdan92
 ms.date: 10/09/2017
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 32f83bede42f7643a9a4fed593643eefea0453c1
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: e8b902c89427333afb7a27ee9de0eeb99a92f391
+ms.sourcegitcommit: 571644118e3c5a2fd818891d305b4b8de8ef21de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981003"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57225876"
 ---
 # <a name="package-id-prefix-reservation"></a>パッケージ ID プレフィックスの予約
 
@@ -31,7 +31,7 @@ ms.locfileid: "50981003"
 
 1. パッケージに送信するたびに[nuget.org](https://www.nuget.org/) ID プレフィックス予約されている人の所有者から発生する場合を除き、予約済み ID のプレフィックスに一致する ID を持つパッケージが拒否されました。
 
-1. 任意のパッケージ ID プレフィックス予約されている人の所有者から予約済み ID のプレフィックスに一致する必要がありますが視覚的および Visual Studio 2017 バージョン 15.4 以降で[nuget.org](https://www.nuget.org/)パッケージがあることを示す予約済み ID のプレフィックス。 これは、所有者の下の既存のパッケージだけでなく、新しいパッケージの送信の場合は true。 **注:** 単一フィードがパッケージのソースとして選択されている場合にのみ、Visual Studio でのインジケーターが表示されます。
+1. 任意のパッケージ ID プレフィックス予約されている人の所有者から予約済み ID のプレフィックスに一致する必要がありますが視覚的および Visual Studio 2017 バージョン 15.4 以降で[nuget.org](https://www.nuget.org/)パッケージがあることを示す予約済み ID のプレフィックス。 これは、所有者の下の既存のパッケージだけでなく、新しいパッケージの送信の場合は true。 **注:** Visual Studio でのインジケーターは、1 つのフィードがパッケージのソースとして選択されている場合にのみ表示されます。
 
 1. 予約済みの ID のプレフィックスに一致するすべての既存のパッケージは*いない*予約済みの所有者によって所有されているプレフィックスは変更されません (、一覧にないことはできませんが、視覚的なインジケーターを持っていないも)。 さらに、これらのパッケージの所有者は、パッケージの新しいバージョンを送信できます。
 
@@ -84,6 +84,8 @@ ID プレフィックスの予約のすべてのアプリケーションをレ�
 1. *いない*あいまいさとコミュニティの混乱が発生する、パッケージ ID プレフィックスを予約しますか?
 
 1. パッケージ ID プレフィックス明確かつ一貫した (特にパッケージの作成者) に一致するパッケージの識別プロパティか?
+
+1. パッケージでライセンスがある (を使用して、[ライセンス](https://docs.microsoft.com/en-us/nuget/reference/nuspec#license)メタデータ要素とは非推奨とされている licenseUrl しない) か?
 
 ## <a name="third-party-feed-provider-scenarios"></a>サード パーティ プロバイダー シナリオのフィード
 

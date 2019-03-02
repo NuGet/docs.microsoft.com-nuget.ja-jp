@@ -5,26 +5,26 @@ author: anangaur
 ms.author: anangaur
 ms.date: 1/25/2019
 ms.topic: conceptual
-ms.openlocfilehash: 57b66b347ac47a3d05907a4bb237002de8981ecc
-ms.sourcegitcommit: 85bf94e0efcfcee1f914650bdc142309ef3e06d9
+ms.openlocfilehash: 4b05dcb9a2960c1e3231e81d4b4c122d3a518753
+ms.sourcegitcommit: 571644118e3c5a2fd818891d305b4b8de8ef21de
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196201"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57225889"
 ---
 # <a name="nuget-50-preview-release-notes"></a>NuGet 5.0 Preview リリース ノート
 
 ## <a name="nuget-50-preview-releases"></a>NuGet 5.0 プレビュー リリース
 
-* 2010 年 2 月 27 日 - [NuGet 5.0 Preview 4](#summary-whats-new-in-50-preview-4)
-* 2019 年 2 月 13日 - [NuGet 5.0 Preview 3](#summary-whats-new-in-50-preview-3)
-* 2019 年 1 月 23日 - [NuGet 5.0 Preview 2](#summary-whats-new-in-50-preview-2)
+* 2019 年 2 月 27日 - [NuGet 5.0 Preview 4](#whats-new-in-nuget-50-preview-4)
+* 2019 年 2 月 13日 - [NuGet 5.0 Preview 3](#whats-new-in-nuget-50-preview-3)
+* 2019 年 1 月 23日 - [NuGet 5.0 Preview 2](#whats-new-in-nuget-50-preview-2)
 
-## <a name="summary-whats-new-in-nuget-50-preview-4"></a>概要:NuGet 5.0 Preview 4 の新機能新機能
+## <a name="whats-new-in-nuget-50-preview-4"></a>NuGet 5.0 Preview 4 の新機能新機能
 
 ### <a name="issues-fixed-in-this-release"></a>このリリースで修正された問題
 
-**バグ:**
+**バグ**
 
 * NuGet.VisualStudio.IVsPackageInstaller - パッケージに含まれないプロジェクトの呼び出しを参照して常に使用 packages.config、PackageReference - に既定値が設定されている場合でも[#7005](https://github.com/NuGet/Home/issues/7005)
 
@@ -48,7 +48,7 @@ ms.locfileid: "57196201"
 
 * ユーザーが特定の msbuild バージョン - 質問されていなかった場合、msbuild の検出パスを優先[#7786](https://github.com/NuGet/Home/issues/7786)
 
-**Dcr:**
+**Dcr**
 
 * limit http request number per source through NuGet.Config - [#4538](https://github.com/NuGet/Home/issues/4538)
 
@@ -61,11 +61,11 @@ ms.locfileid: "57196201"
 * NuGet.* パッケージ - に netstandard2.0 サポートを追加[#6516](https://github.com/NuGet/Home/issues/6516)
 
 
-## <a name="summary-whats-new-in-nuget-50-preview-3"></a>概要:NuGet 5.0 Preview 3 の新機能新機能
+## <a name="whats-new-in-nuget-50-preview-3"></a>NuGet 5.0 Preview 3 の新機能新機能
 
 ### <a name="issues-fixed-in-this-release"></a>このリリースで修正された問題 
 
-**バグ:**
+**バグ**
 
 * nuget.exe/でしょうか。 should list correct msbuild versions - [#7794](https://github.com/NuGet/Home/issues/7794)
 
@@ -81,18 +81,18 @@ ms.locfileid: "57196201"
 
 * msbuild /t:restore minimal verbosity should be more minimal - [#4695](https://github.com/NuGet/Home/issues/4695)
 
-**Dcr:**
+**Dcr**
 
 * パッケージ作成者ビルド アセットの推移的な動作の定義を許可する[#6091](https://github.com/NuGet/Home/issues/6091)
 
 * プロジェクトは、ソリューションの一部でないか、アンロードされますが復元された以前の場合は成功を VS での復元を有効にする[#5820](https://github.com/NuGet/Home/issues/5820)
 
 
-## <a name="summary-whats-new-in-50-preview-2"></a>概要:5.0 Preview 2 の新機能新機能
+## <a name="whats-new-in-nuget-50-preview-2"></a>NuGet 5.0 Preview 2 の新機能新機能
 
 ### <a name="issues-fixed-in-this-release"></a>このリリースで修正された問題
 
-**バグ:**
+**バグ**
 
 * VS 16.0 の NuGet UI には、色の問題のため、読み取り不可能なタブ[#7735](https://github.com/NuGet/Home/issues/7735)
 
@@ -134,7 +134,7 @@ ms.locfileid: "57196201"
 
 * dotnet 復元が失敗するため、無効になっているマシン ワイド フィード - [#5410](https://github.com/NuGet/Home/issues/5410)
 
-**Dcr:**
+**Dcr**
 
 * (変更) - TFM を使用して .NET 4.7.2 を必要とする NuGet 5.0 アセンブリ[#7510](https://github.com/NuGet/Home/issues/7510)
 
