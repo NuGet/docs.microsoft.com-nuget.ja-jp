@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 03223e949eeeadd7eaa6e392297ba79d28eed2f2
-ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
+ms.openlocfilehash: 1c838116f9737b01ea3f9ca17f5d5002f6548044
+ms.sourcegitcommit: 85bf94e0efcfcee1f914650bdc142309ef3e06d9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56852547"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196214"
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet に関してよく寄せられる質問
 
@@ -158,7 +158,7 @@ Visual Studio オートメーション オブジェクト モデルのトップ 
 
 パッケージでライセンス条項が指定されていない場合は、nuget.org パッケージ ページの **[Contact owners]\(所有者に問い合わせる\)** リンクを使用して、パッケージ所有者に直接問い合わせてください。 Microsoft はサードパーティのパッケージ プロバイダーを通じてユーザーに知的財産ライセンスを付与することはありません。また、サードパーティによって提供される情報について責任を負いません。
 
-## <a name="managing-packages-on-nugetorg"></a>nuget.org でのパッケージの管理
+## <a name="managing-packages-on-nugetorg"></a>NuGet.org でのパッケージの管理
 
 **パッケージ メタデータをアップロードしてから編集することはできますか?**
 
@@ -167,6 +167,10 @@ NuGet では、すべてのパッケージに署名することをお勧めし�
 パッケージに対してリストされる依存関係は、パッケージ自体から自動的に生成されるものであり、編集できないことに注意してください。
 
 また、パッケージを [int.nugettest.org](https://int.nugettest.org) にアップロードすることは、パブリック ギャラリーでパッケージを使用できるようにせずに、パッケージをテストして検証する優れた方法です。 API エンドポイント: https://apiint.nugettest.org/v3/index.json
+
+**NuGet.org に発行されたパッケージを削除することはできますか?**
+
+一般に、NuGet.org に発行されたパッケージの削除はサポートしていません。詳細については、[パッケージの削除のポリシー](../policies/deleting-packages)を参照してください。
 
 **今後発行されるパッケージの名前を予約することはできますか?**
 

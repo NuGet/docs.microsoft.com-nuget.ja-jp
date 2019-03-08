@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 901eb09711a6e32740c70829028da66b782870a0
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 833f4a67bc75c5d650e85180b52ecd8f69218f15
+ms.sourcegitcommit: 85bf94e0efcfcee1f914650bdc142309ef3e06d9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548129"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196188"
 ---
 # <a name="deleting-packages"></a>パッケージの削除
 
@@ -23,7 +23,7 @@ nuget.org では、Web サイト上のパッケージ管理ページで実行で
 
 ## <a name="exceptions"></a>例外
 
-著作権侵害や問題を起こす可能性のあるコンテンツなどの例外状況では、パッケージは NuGet チームによって手動で削除することができます。 このプロセスを開始するには、[NuGet ギャラリー](http://www.nuget.org)からサポート リクエストを送信します。
+著作権侵害や問題を起こす可能性のあるコンテンツなどの例外状況では、パッケージは NuGet チームによって手動で削除することができます。 NuGet.org のパッケージ詳細ページで、[不正使用を報告] ボタンを使用してパッケージを報告することができます。 パッケージの所有者は、NuGet.org アカウントにログインし、NuGet.org パッケージ詳細ページの [Contact support]\(サポートへの問い合わせ\) ボタンを使用して NuGet サポートに連絡することができます。
 
 ## <a name="prohibited-use"></a>禁止事項
 
