@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: bd19bc402ff9d66d7e2baa4f326d75f0ed444f30
-ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
+ms.openlocfilehash: 6d183100a8319b517347567f34d276e94eb4e15d
+ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56852573"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58432544"
 ---
 # <a name="publishing-packages"></a>パッケージを公開する
 
@@ -74,7 +74,7 @@ nuget.org にパッケージをプッシュするには、[nuget.exe v4.1.0 以�
 
 #### <a name="publish-signed-packages"></a>署名付きパッケージの公開
 
-署名付きパッケージを送信するには、最初にパッケージの署名に使用する[証明書を登録する](../reference/Signed-Packages-Reference.md#register-certificate-on-nugetorg)必要があります。 
+署名付きパッケージを送信するには、最初にパッケージの署名に使用する[証明書を登録する](../create-packages/Sign-a-Package.md#register-the-certificate-on-nugetorg)必要があります。 
 
 > [!Warning]
 > [署名付きパッケージの要件](../reference/Signed-Packages-Reference.md#signature-requirements-on-nugetorg)を満たしていないパッケージは、nuget.org に拒否されます。
@@ -83,7 +83,7 @@ nuget.org にパッケージをプッシュするには、[nuget.exe v4.1.0 以�
 
 nuget.org にプッシュされたパッケージは、ウィルス チェックなど、いくつかの検証を受けます。 (Nuget.org 上のすべてのパッケージが定期的にスキャンされます。)
 
-. パッケージがすべての検証に合格すると、インデックスが作成され、検索結果に表示されるようになりますが、それには時間がかかることがあります。 インデックスの作成が完了すると、パッケージが正常に公開されたことを示す確認の電子メールが届きます。 パッケージが検証で不合格になった場合、パッケージの詳細ページが更新され、関連するエラーが表示されます。それに関する電子メールも届きます。
+パッケージがすべての検証に合格すると、インデックスが作成され、検索結果に表示されるようになりますが、それには時間がかかることがあります。 インデックスの作成が完了すると、パッケージが正常に公開されたことを示す確認の電子メールが届きます。 パッケージが検証で不合格になった場合、パッケージの詳細ページが更新され、関連するエラーが表示されます。それに関する電子メールも届きます。
 
 パッケージの検証とインデックスの作成は、通常、15 以内で完了します。 パッケージ公開に予想以上の時間がかかる場合、[status.nuget.org](https://status.nuget.org/) にアクセスし、nuget.org に中断が発生していないか確認してください。 すべてのシステムが動作しているとき、1 時間以内にパッケージが正常に公開されない場合、nuget.org にログインし、パッケージ ページの [Contact Support] リンクからお問い合わせください。
 
