@@ -6,16 +6,23 @@ ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 4bee32995884f4c003ebb963d2fd5b2d04363bab
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 72d707cb9bacd8abbac873ee10b2fd00f233d3cc
+ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551625"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58432479"
 ---
-# <a name="nuget-43-rtm-release-notes"></a>NuGet 4.3 RTM リリース ノート
+# <a name="nuget-43-release-notes"></a>NuGet 4.3 リリース ノート
 
 [Visual Studio 2017 15.3 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) には、.NET Standard 2.0/.NET Core 2.0 などの新しいシナリオ用のサポートを追加し、多数の品質修正を含み、パフォーマンスを改善する NuGet 4.3 RTM が付属しています。 このリリースには、セマンティック バージョニング 2.0.0、NuGet の警告とエラーの MSBuild への統合などのサポートのいくつかの機能強化もあります。
+
+## <a name="summary-whats-new-in-430"></a>概要:4.3.0 の新機能
+
+## <a name="summary-whats-new-in-431"></a>概要:4.3.1 の新機能
+
+* セキュリティ修正プログラム: ~/.nuget 内で作成されたファイルに対するアクセス許可の範囲が広すぎる [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
+* セキュリティ修正プログラム: NUPKG ディレクトリより上の NUPKG 内のファイルに相対パスが含まれる場合がある [#7906](https://github.com/NuGet/Home/issues/7906)
 
 ## <a name="known-issues"></a>既知の問題
 
@@ -71,11 +78,11 @@ Visual Studio では、ターゲット フレームワーク バージョンを�
 
 - NuGet の復元のパフォーマンスの向上: コマンドラインからの復元と VS でのよりスマートな NoOp の実装 - [#5080](https://github.com/NuGet/Home/issues/5080)
 
-- NET Core 2.0: VS/Dotnet CLI で既存の NuGet 機能を使用開始する必要がある: FallBack フォルダー - [#4939](https://github.com/NuGet/Home/issues/4939)
+- .NET Core 2.0: VS/Dotnet CLI で既存の NuGet 機能を使用開始する必要がある: FallBack フォルダー - [#4939](https://github.com/NuGet/Home/issues/4939)
 
-- NET Core 2.0: 特定の復元の警告をユーザーが無視 (またはエラーを昇格) できるようにする - [#4898](https://github.com/NuGet/Home/issues/4898)
+- .NET Core 2.0: 特定の復元の警告をユーザーが無視 (またはエラーを昇格) できるようにする - [#4898](https://github.com/NuGet/Home/issues/4898)
 
-- NET Core 2.0: CLI のローカライズ アセンブリ - [#4896](https://github.com/NuGet/Home/issues/4896)
+- .NET Core 2.0: CLI のローカライズ アセンブリ - [#4896](https://github.com/NuGet/Home/issues/4896)
 
 - NET Core 2.0: アセット ファイルへのすべての警告/エラーの登録 (PackageTargetFallback を含む) - [#4895](https://github.com/NuGet/Home/issues/4895)
 

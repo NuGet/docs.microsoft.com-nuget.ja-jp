@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: d6925df63daf3096455a8205d6aeb07b4475f715
-ms.sourcegitcommit: 5c5f0f0e1f79098e27d9566dd98371f6ee16f8b5
+ms.openlocfilehash: 150fc61e51fe10622fe6b369b60dfc61a9ac916f
+ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53645634"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58432453"
 ---
 # <a name="building-pre-release-packages"></a>プレリリース パッケージのビルド
 
@@ -56,7 +56,7 @@ ms.locfileid: "53645634"
 
 ## <a name="semantic-versioning"></a>セマンティック バージョン管理
 
-「[Semantic Versioning or SemVer convention](http://semver.org/spec/v1.0.0.html)」 (セマンティック バージョン管理または SemVer 規則) では、バージョン番号の文字列を活用し、基礎となっているコードの意味を伝える方法が説明されています。
+「[Semantic Versioning or SemVer convention](http://semver.org/spec/v1.0.0.html)」 (セマンティック バージョニングまたは SemVer 規則) では、バージョン番号の文字列を活用し、基礎となっているコードの意味を伝える方法が説明されています。
 
 この規則では、各バージョンが 3 つの部分、`Major.Minor.Patch` から構成されています。それぞれ次のような意味があります。
 

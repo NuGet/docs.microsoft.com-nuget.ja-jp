@@ -5,16 +5,26 @@ author: anangaur
 ms.author: anangaur
 ms.date: 12/4/2017
 ms.topic: conceptual
-ms.openlocfilehash: 01ecd8c7de1a0f713766e3c413d889038522bac7
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 321aedb471bc6f86e9c03878093b199267e31195
+ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548297"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58432505"
 ---
-# <a name="nuget-45-rtm-release-notes"></a>NuGet 4.5 RTM リリース ノート
+# <a name="nuget-45-release-notes"></a>NuGet 4.5 リリース ノート
 
 [Visual Studio 2017 15.5 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) には、[NuGet 4.5 RTM](https://dist.nuget.org/win-x86-commandline/v4.5.0/nuget.exe) が付属しています。
+
+## <a name="summary-whats-new-in-450"></a>概要:4.5.0 の新機能
+
+## <a name="summary-whats-new-in-452"></a>概要:4.5.2 の新機能
+
+* セキュリティ修正プログラム: ~/.nuget 内で作成されたファイルに対するアクセス許可の範囲が広すぎる [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
+
+## <a name="summary-whats-new-in-453"></a>概要:4.5.3 の新機能
+
+* セキュリティ修正プログラム: NUPKG ディレクトリより上の NUPKG 内のファイルに相対パスが含まれる場合がある [#7906](https://github.com/NuGet/Home/issues/7906)
 
 ## <a name="known-issues"></a>既知の問題
 
@@ -62,7 +72,7 @@ NuGet 4.4 RTM で修正された問題については、[NuGet 4.4 RTM のリリ
 
 ### <a name="bugs"></a>バグ
 
-- 15.5p1 での[回帰]: Portable0.0 がスキップされる - [#6105](https://github.com/NuGet/Home/issues/6105)
+- [回帰] 15.5p1: Portable0.0 がスキップされる - [#6105](https://github.com/NuGet/Home/issues/6105)
 - 復元後パッケージのアセットが見つからない - [#5995](https://github.com/NuGet/Home/issues/5995)
 - スペースを含む URI でプラグイン資格情報プロバイダーが動作しない - [#5982](https://github.com/NuGet/Home/issues/5982)
 - パッケージの復元に失敗した場合、最小の詳細がオンであっても、エラーは出力に印字される必要がある - [#5658](https://github.com/NuGet/Home/issues/5658)

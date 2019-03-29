@@ -5,22 +5,30 @@ author: karann-msft
 ms.author: karann
 ms.date: 5/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4ecbdc5475837b1aa1e723a94c2c6c3e8460f9ef
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: f1397e2f42fd65c3a883c864bd430ba5892c12b2
+ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549429"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58432527"
 ---
-# <a name="nuget-47-rtm-release-notes"></a>NuGet 4.7 RTM リリース ノート
+# <a name="nuget-47-release-notes"></a>NuGet 4.7 リリース ノート
 
 [Visual Studio 2017 15.7 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) には、[NuGet 4.7.0](https://dist.nuget.org/win-x86-commandline/v4.7.0/nuget.exe) が付属しています。
 
-## <a name="summary-whats-new-in-this-release"></a>概要: このリリースの新機能
+## <a name="summary-whats-new-in-470"></a>概要:4.7.0 の新機能
 
 * パッケージの署名が拡張され、[リポジトリの署名付きパッケージ](https://github.com/NuGet/Home/wiki/Repository-Signatures)が有効になりました。
 
 * Visual Studio Version 15.7 では、[packages.config 形式を使用する既存のプロジェクトを移行して、代わりに PackageReference を使用する](https://docs.microsoft.com/en-us/nuget/reference/migrate-packages-config-to-package-reference)機能が導入されました。
+
+## <a name="summary-whats-new-in-472"></a>概要:4.7.2 の新機能
+
+* セキュリティ修正プログラム: ~/.nuget 内で作成されたファイルに対するアクセス許可の範囲が広すぎる [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
+
+## <a name="summary-whats-new-in-473"></a>概要:4.7.3 の新機能
+
+* セキュリティ修正プログラム: NUPKG ディレクトリより上の NUPKG 内のファイルに相対パスが含まれる場合がある [#7906](https://github.com/NuGet/Home/issues/7906)
 
 ## <a name="known-issues"></a>既知の問題
 
@@ -58,7 +66,7 @@ ms.locfileid: "43549429"
 * lockFile.GetLibrary では大文字と小文字が区別される - [#6500](https://github.com/NuGet/Home/issues/6500)
 * インストール/更新の復元コードと復元コードのパスが一致しない - [#3471](https://github.com/NuGet/Home/issues/3471)
 * ソリューション PackageManager バージョン ComboBox で、キーボードを使用して区切りを選択できる - [#2606](https://github.com/NuGet/Home/issues/2606)
-* ソース `https://www.myget.org/F/<id>` に対してサービス インデックスを読み込めない ---> System.Net.Http.HttpRequestException: 応答の状態コードは成功を示していません: 403 (禁止) - [#2530](https://github.com/NuGet/Home/issues/2530)
+* ソースのサービス インデックスを読み込めない `https://www.myget.org/F/<id>` ---> System.Net.Http.HttpRequestException:応答状態コードが成功を示さない: 403 (禁止) - [#2530](https://github.com/NuGet/Home/issues/2530)
 
 ### <a name="dcrs"></a>DCR
 

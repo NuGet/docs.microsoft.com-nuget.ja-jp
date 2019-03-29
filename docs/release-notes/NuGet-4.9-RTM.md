@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: aa9bf87504477506dbb1e9ac10d5c1d5841c224f
-ms.sourcegitcommit: 885973352d31808e3ddbb45da6d6e54d1e4fca9d
+ms.openlocfilehash: e0dea74fe179c0dce4996f3e498185bb3a491856
+ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56224945"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58432492"
 ---
 # <a name="nuget-49-release-notes"></a>NuGet 4.9 リリース ノート
 
@@ -139,6 +139,12 @@ NuGet 配布の種類:
 * 埋め込みライセンス ファイルを使うとシンボル .snupkg パッケージのビルド中にエラーが発生する - [#7591](https://github.com/NuGet/Home/issues/7591)
 
 [この 4.9.3 リリースで修正されたすべての問題一覧](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.3")
+
+## <a name="summary-whats-new-in-494"></a>概要:4.9.4 の新機能
+
+* セキュリティ修正プログラム: ~/.nuget 内で作成されたファイルに対するアクセス許可の範囲が広すぎる [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
+
+
 ## <a name="known-issues"></a>既知の問題
 
 ### <a name="dotnet-nuget-push---interactive-gives-an-error-on-mac---7519httpsgithubcomnugethomeissues7519"></a>dotnet nuget push --interactive が Mac 上でエラーになる。 - [#7519](https://github.com/NuGet/Home/issues/7519)

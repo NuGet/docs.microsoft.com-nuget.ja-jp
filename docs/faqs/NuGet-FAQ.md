@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1c838116f9737b01ea3f9ca17f5d5002f6548044
-ms.sourcegitcommit: 85bf94e0efcfcee1f914650bdc142309ef3e06d9
+ms.openlocfilehash: 3b6257287c1f8c6345765e0a081bac11b34e05cb
+ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196214"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58432583"
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet に関してよく寄せられる質問
 
@@ -346,8 +346,8 @@ nuget.org でアカウントが作成されると、そのアカウントに関�
 ### <a name="unable-to-use-microsoft-login-how-do-i-recover-my-nugetorg-account"></a>Microsoft ログインを使用できません。nuget.org アカウントを復旧するにはどうすればよいですか?
 
 [サインイン アシスタンス](#which-microsoft-account-is-linked-to-my-nugetorg-account)を使用しようとして、nuget.org アカウントに関連付けられている Microsoft アカウントへのアクセス権がなかった場合は、次の手順に従って、新しい Microsoft アカウントを nuget.org アカウントにリンクしてください。
-1. **必要条件**:(既存のどの nuget.org アカウントにも関連付けられていない) Microsoft アカウントへのアクセス権が必要です。 nuget.org アカウントをお持ちでない場合は、[作成](https://signup.live.com)できます。
-2. [パスワード ログインを復旧する手順](#how-to-recover-nugetorg-password-login)に従います (パスワード ログインでこの手順を省略した場合)。
+1. **必要条件**:既存のどの nuget.org アカウントにも関連付けられていない Microsoft アカウントへのアクセス権が必要です。 nuget.org アカウントをお持ちでない場合は、[作成](https://signup.live.com)できます。
+2. nuget.org アカウントのユーザー名とパスワードを忘れてしまった場合は、[パスワード ログインを復旧する手順](#how-to-recover-nugetorg-password-login)に従います。
 3. ユーザー名/パスワード ログインを使用して、[nuget.org にログイン](https://www.nuget.org/users/account/LogOnNuGetAccount)します。
 4. ログインすると、次のようなポップアップ ダイアログが表示されます。 これは、パスワードの終了ダイアログ ボックスです。
 5. **注**: 指定された Microsoft アカウントでログインするという指示は無視してください。 これで nuget.org アカウントを他の任意の Microsoft のログインにリンクできます。

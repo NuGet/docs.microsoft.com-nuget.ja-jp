@@ -5,14 +5,14 @@ author: karann-msft
 ms.author: karann
 ms.date: 5/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: cf15c4f6a2e3e9f6ce7b6acb2304648041043685
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: f85042b8fe1511934d6a3ac7de34da92c575f6e0
+ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324826"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58432519"
 ---
-# <a name="nuget-48-rtm-release-notes"></a>NuGet 4.8 RTM リリース ノート
+# <a name="nuget-48-release-notes"></a>NuGet 4.8 リリース ノート
 
 [Visual Studio 2017 15.8 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) には、NuGet 4.8 機能が付属しています。
 
@@ -22,11 +22,15 @@ ms.locfileid: "54324826"
 * DotNet.exe - [.NET Core SDK 2.1.400](https://www.microsoft.com/net/download/visual-studio-sdks)
 
 
-## <a name="summary-whats-new-in-this-release"></a>概要:このリリースの新機能
+## <a name="summary-whats-new-in-480"></a>概要:4.8.0 の新機能
 * NuGet.exe では、Windows 10 上での長いファイル名がサポートされるようになりました。[#6937](https://github.com/NuGet/Home/issues/6937)
 * クロス プラットフォームを含め、MsBuild、DotNet.exe、NuGet.exe、および Visual Studio 全体で、認証プラグインが機能するようになりました。 最初の世代の認証プラグインは、MsBuild、DotNet.exe ではサポートされていませんでした。 メモ:VS 2017 15.9 プレビューのビルドには、VSTS 認証プラグインが組み込まれています。 [#6486](https://github.com/NuGet/Home/issues/6486)
 * MsBuild の SDK リゾルバーは、NuGet の一部としてビルドされ、VS 対応の NuGet ツールと共にインストールを行います。 これにより、複数のバージョンでの同期の取得を防止します。[#6799](https://github.com/NuGet/Home/issues/6799)
 * PackageReference では、DevelopmentDependency メタデータがサポートされるようになりました。[#4125](https://github.com/NuGet/Home/issues/4125)
+
+## <a name="summary-whats-new-in-482"></a>概要:4.8.2 の新機能
+
+* セキュリティ修正プログラム: ~/.nuget 内で作成されたファイルに対するアクセス許可の範囲が広すぎる [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
 
 ## <a name="known-issues"></a>既知の問題
 ### <a name="installing-signed-packages-on-a-ci-machine-or-in-an-offline-environment-takes-longer-than-usual"></a>CI マシン上またはオフライン環境に署名済みパッケージをインストールすると、通常よりも長い時間がかかる。

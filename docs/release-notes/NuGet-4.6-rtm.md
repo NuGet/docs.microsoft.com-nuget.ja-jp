@@ -5,22 +5,30 @@ author: anangaur
 ms.author: anangaur
 ms.date: 3/7/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3c71d05144aa2b92b916d4ebf319c5a4e321581f
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: eacd29d4c9340a0f015fcdf6c5b9dd41bf781419
+ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549845"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58432557"
 ---
-# <a name="nuget-46-rtm-release-notes"></a>NuGet 4.6 RTM リリース ノート
+# <a name="nuget-46-release-notes"></a>NuGet 4.6 リリース ノート
 
 [Visual Studio 2017 15.6 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) には、[NuGet 4.6.0](https://dist.nuget.org/win-x86-commandline/v4.6.0/nuget.exe) が付属しています。
 
-## <a name="summary-whats-new-in-this-release"></a>概要: このリリースの新機能
+## <a name="summary-whats-new-in-460"></a>概要:4.6.0 の新機能
 
 * [パッケージの署名](../create-packages/sign-a-package.md)のサポートが追加されました。
 * Visual Studio 2017 と nuget.exe では、[署名済みパッケージ](../reference/signed-packages-reference.md)について、パッケージをインストール、復元する前にパッケージの整合性を検証できるようになりました。
 * 連続する復元のパフォーマンスが向上しました。
+
+## <a name="summary-whats-new-in-463"></a>概要:4.6.3 の新機能
+
+* セキュリティ修正プログラム: ~/.nuget 内で作成されたファイルに対するアクセス許可の範囲が広すぎる [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
+
+## <a name="summary-whats-new-in-464"></a>概要:4.6.4 の新機能
+
+* セキュリティ修正プログラム: NUPKG ディレクトリより上の NUPKG 内のファイルに相対パスが含まれる場合がある [#7906](https://github.com/NuGet/Home/issues/7906)
 
 ## <a name="known-issues"></a>既知の問題
 

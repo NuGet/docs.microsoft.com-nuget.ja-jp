@@ -6,16 +6,26 @@ ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 9ea11ad5476b02940b171fdc69ac0bf56598418d
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 3be24a86cc92c4e6d07fcae1dc625a150f28d7b4
+ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548415"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58432570"
 ---
-# <a name="nuget-44-rtm-release-notes"></a>NuGet 4.4 RTM リリース ノート
+# <a name="nuget-44-release-notes"></a>NuGet 4.4 リリース ノート
 
 [Visual Studio 2017 15.4 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) には、NuGet 4.4 RTM が付属しています。
+
+## <a name="summary-whats-new-in-440"></a>概要:4.4.0 の新機能
+
+## <a name="summary-whats-new-in-442"></a>概要:4.4.2 の新機能
+
+* セキュリティ修正プログラム: ~/.nuget 内で作成されたファイルに対するアクセス許可の範囲が広すぎる [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
+
+## <a name="summary-whats-new-in-443"></a>概要:4.4.3 の新機能
+
+* セキュリティ修正プログラム: NUPKG ディレクトリより上の NUPKG 内のファイルに相対パスが含まれる場合がある [#7906](https://github.com/NuGet/Home/issues/7906)
 
 ## <a name="known-issues"></a>既知の問題
 
@@ -73,7 +83,7 @@ Visual Studio では、ターゲット フレームワーク バージョンを�
 
 - MSBuild パック ターゲットには、それ自体の前にユーザー ターゲットを実行するためのパブリック フックを含める必要があります - [#5143](https://github.com/NuGet/Home/issues/5143)
 
-- 機能: nuget install に dependencyVersion スイッチを追加します - [#1806](https://github.com/NuGet/Home/issues/1806)
+- 機能:nuget install に dependencyVersion スイッチを追加します - [#1806](https://github.com/NuGet/Home/issues/1806)
 
 - uap10.0.TODO.0 は .NET Standard 2.0 for NuGet にマップする必要があります - [#5684](https://github.com/NuGet/Home/issues/5684)
 
@@ -165,7 +175,7 @@ Visual Studio では、ターゲット フレームワーク バージョンを�
 
 - [警告とエラー] NoWarn が P2P 参照を介して推移的にフローしません - [#5501](https://github.com/NuGet/Home/issues/5501)
 
-- ライトウェイト ソリューション ロード: PM UI、PMC、および IV 用の Common Core - [#5057](https://github.com/NuGet/Home/issues/5057)
+- ライトウェイト ソリューション ロード: PM UI、PMC、および IV 用の共通コア - - [#5057](https://github.com/NuGet/Home/issues/5057)
 
 - ライトウェイト ソリューション ロード: サポート - PMC - [#5053](https://github.com/NuGet/Home/issues/5053)
 
