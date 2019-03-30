@@ -10,12 +10,12 @@ f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-ms.openlocfilehash: 1de6ddeca6295c621a90409807af198bc3c7a068
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: 422faf99e58e058d86db774a8f3c1c576b3dc393
+ms.sourcegitcommit: 2af17c8bb452a538977794bf559cdd78d58f2790
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981185"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58637624"
 ---
 # <a name="nuget-package-manager-ui"></a>NuGet パッケージ マネージャー UI
 
@@ -127,7 +127,7 @@ Visual Studio のパッケージの取得元のソースを変更するには、
 1. パッケージ ソースを変更するには、選択しでの編集を行う、**名前**と**ソース**ボックス、および選択**Update**します。
 1. パッケージ ソースを無効にするには、一覧内の名前の左側にあるボックスをオフにします。
 1. パッケージ ソースを削除することを選択し、、 **X**ボタンをクリックします。
-1. 下矢印ボタンをパッケージ ソースの優先順位を変更およびを使用します。 Visual Studio は、プロジェクトのパッケージを復元するときに、優先順位でこれらのソースを検索します。 詳細については、次を参照してください。[パッケージの復元](../consume-packages/package-restore.md)します。
+1. 使用し、下矢印ボタンは変わりませんパッケージ ソースの優先順位。 Visual Studio は、パッケージ ソースの順序を無視し、要求に応答する最初のソースからパッケージを使用します。 詳細については、次を参照してください。[パッケージの復元](../consume-packages/package-restore.md)します。
 
 > [!Tip]
 > コンピューター レベルまたはユーザー レベルで表示する場合がありますパッケージ ソースを削除した後再表示され場合、`NuGet.Config`ファイル。 参照してください[NuGet の構成の動作を](../consume-packages/configuring-nuget-behavior.md)これらのファイルの場所、ファイルを手動で編集するかを使用して、ソースを削除、 [nuget ソース コマンド](../tools/nuget-exe-CLI-reference.md)します。

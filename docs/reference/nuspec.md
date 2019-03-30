@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: a8be66f5871df260581b6baca8eb7959279d66cd
-ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
+ms.openlocfilehash: 21678cc36fd9bf1ed49143bee3f35208640fc8a7
+ms.sourcegitcommit: 2af17c8bb452a538977794bf559cdd78d58f2790
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56852586"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58637650"
 ---
 # <a name="nuspec-reference"></a>.nuspec リファレンス
 
@@ -84,13 +84,13 @@ UI 画面用のパッケージの長い説明。
 
 パッケージのライセンスの URL。通常、UI 画面および nuget.org に表示されます。
 #### <a name="license"></a>ライセンス
-SPDX ライセンス式、または UI 表示や nuget.org によく表示されるパッケージ内でのライセンス ファイルのパスを指定します。BSD-2-句または MIT などの一般的なライセンスの下でパッケージをライセンスする場合は、関連付けられている SPDX ライセンス識別子を使用します。<br>例: `<license type="expression">MIT</license>`
+パッケージ内のライセンス ファイルに対する SPDX ライセンス式またはパスであり、UI 表示や nuget.org でよく示されます。BSD-2-句または MIT などの一般的なライセンスの下でパッケージをライセンスする場合は、関連付けられている SPDX ライセンス識別子を使用します。<br>例: `<license type="expression">MIT</license>`
 
-完全な一覧を次に示します[SPDX ライセンス識別子](https://spdx.org/licenses/)します。 NuGet.org は OSI のみを受け入れるか、承認 FSF ライセンスを使用する場合のライセンスの種類を示す。
+[SPDX ライセンス識別子](https://spdx.org/licenses/)の完全な一覧はこちらをご覧ください。 ライセンス タイプ式を使用する場合、NuGet.org では OSI または FSF で承認されたライセンスのみが受け付けられます。
 
 複合のライセンスを使用して、指定するには、パッケージは、複数の一般的なライセンス下でライセンスが場合、 [SPDX 式構文のバージョン 2.0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60)します。<br>例: `<license type="expression">BSD-2-Clause OR MIT</license>`
 
-SPDX 識別子が割り当てられていないライセンスを使用している、またはカスタムのライセンスは、ファイルをパッケージ化することができます (だけ`.txt.`または`.md`) ライセンスのテキストを使用します。 例:
+SPDX 識別子が割り当てられていないライセンスを使用している、またはカスタムのライセンスは、ファイルをパッケージ化することができます (だけ`.txt`または`.md`) ライセンスのテキストを使用します。 例:
 ```xml
 <package>
   <metadata>

@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 5d0d60cbcf6516d24efeb04f8262902da69d92d1
-ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
+ms.openlocfilehash: bb15b4decef104f1aefe37fd18f3358181a848af
+ms.sourcegitcommit: 2af17c8bb452a538977794bf559cdd78d58f2790
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56145658"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58637663"
 ---
 # <a name="nuget-api"></a>NuGet API
 
@@ -49,17 +49,18 @@ NuGet V3 API は、公式の NuGet クライアントのバージョン 2.x で�
 
 **サービス インデックス**のさまざまなリソースについて説明します。 現在サポートされているリソースのセットは次のとおりです。
 
-リソース名                                                          | 必須 | 説明
----------------------------------------------------------------------- | -------- | -----------
-[`PackagePublish`](package-publish-resource.md)                        | 可      | プッシュし削除 (または一覧から削除する) パッケージ。
-[`SearchQueryService`](search-query-service-resource.md)               | 可      | フィルター処理し、キーワードでパッケージを検索します。
-[`RegistrationsBaseUrl`](registration-base-url-resource.md)            | 可      | パッケージのメタデータを取得します。
-[`PackageBaseAddress`](package-base-address-resource.md)               | 可      | パッケージ (.nupkg) のコンテンツを取得します。
-[`SearchAutocompleteService`](search-autocomplete-service-resource.md) | Ｘ       | 部分文字列では、パッケージ Id とバージョンを検出します。
-[`ReportAbuseUriTemplate`](report-abuse-resource.md)                   | Ｘ       | 「不正使用を報告」の web ページにアクセスする URL を作成します。
-[`RepositorySignatures`](repository-signatures-resource.md)            | Ｘ       | リポジトリに署名するために使用される証明書を取得します。
-[`Catalog`](catalog-resource.md)                                       | Ｘ       | パッケージのすべてのイベントの完全なレコードです。
-[`SymbolPackagePublish`](symbol-package-publish-resource.md)           | Ｘ       | シンボル パッケージをプッシュします。
+リソース名                                                        | 必須 | 説明
+-------------------------------------------------------------------- | -------- | -----------
+[カタログ](catalog-resource.md)                                       | Ｘ       | パッケージのすべてのイベントの完全なレコードです。
+[PackageBaseAddress](package-base-address-resource.md)               | 可      | パッケージ (.nupkg) のコンテンツを取得します。
+[PackageDetailsUriTemplate](package-details-template-resource.md)    | Ｘ       | パッケージの詳細の web ページにアクセスする URL を作成します。
+[PackagePublish](package-publish-resource.md)                        | 可      | プッシュし削除 (または一覧から削除する) パッケージ。
+[RegistrationsBaseUrl](registration-base-url-resource.md)            | 可      | パッケージのメタデータを取得します。
+[ReportAbuseUriTemplate](report-abuse-resource.md)                   | Ｘ       | レポートの不正使用の web ページにアクセスする URL を作成します。
+[RepositorySignatures](repository-signatures-resource.md)            | Ｘ       | リポジトリに署名するために使用される証明書を取得します。
+[SearchAutocompleteService](search-autocomplete-service-resource.md) | Ｘ       | 部分文字列では、パッケージ Id とバージョンを検出します。
+[SearchQueryService](search-query-service-resource.md)               | 可      | フィルター処理し、キーワードでパッケージを検索します。
+[SymbolPackagePublish](symbol-package-publish-resource.md)           | Ｘ       | シンボル パッケージをプッシュします。
 
 一般に、API リソースによって返されるすべての非バイナリ データは、JSON を使用してシリアル化されます。 サービス インデックス内の各リソースによって返される応答のスキーマは、そのリソースを個別に定義されます。 各リソースの詳細については、上記のトピックを参照してください。
 
@@ -123,7 +124,9 @@ Del | リソースを一覧から、または削除します。
 X-NuGet-ApiKey           | プッシュと削除に必要なを参照してください[`PackagePublish`リソース](package-publish-resource.md)
 X-NuGet-Client-Version   | **非推奨とされます**に置き換え、 `X-NuGet-Protocol-Version`
 X-NuGet-Protocol-Version | 場合によっては nuget.org でのみ必要なを参照してください[nuget.org プロトコル](NuGet-Protocols.md)
-X-NuGet-Session-Id       | *省略可能な*します。 NuGet クライアント v4.7 + は、同じ NuGet クライアント セッションの一部である HTTP 要求を識別します。 `PackageReference`復元操作がありますが、オートコンプリートなどの他のシナリオの 1 つのセッション id と`packages.config`復元がいくつか別のセッション id のコードのファクタリングする方法が原因である可能性があります。
+X-NuGet-Session-Id       | *省略可能な*します。 NuGet クライアント v4.7 + は、同じ NuGet クライアント セッションの一部である HTTP 要求を識別します。
+
+`X-NuGet-Session-Id`で単一の復元に関連するすべての操作の 1 つの値を持つ`PackageReference`します。 オートコンプリートなどの他のシナリオと`packages.config`コードのファクタリングする方法のため ID の復元がいくつかの異なるセッションである可能性があります。
 
 ## <a name="authentication"></a>認証
 
