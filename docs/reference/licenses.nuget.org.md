@@ -1,8 +1,19 @@
+---
+title: licenses.nuget.org
+author: agr
+ms.date: 02/22/2019
+ms.openlocfilehash: 4a40cc1f7d333e8d35a721f3eed2e6b9365faf7b
+ms.sourcegitcommit: 8793f528a11bd8e8fb229cd12e9abba50d61e104
+ms.translationtype: MT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58921560"
+---
 # <a name="licensesnugetorg"></a>licenses.nuget.org
 
 ## <a name="rationale"></a>理由
 
-導入に伴い、[ライセンス式](nuspec.md#license)が個別のライセンスの識別子、例外識別子、またはライセンスの式の参照のテキストを提供する信頼性の高いサービスが、要件が登場しました。
+導入に伴い、[ライセンス式](nuspec.md#license)、個別のライセンスの識別子、例外識別子、またはライセンスの式の参照のテキストを提供する信頼性の高いサービスが、要件が登場しました。
 このサービスに対する追加の要件は安定した古いクライアントの下位互換性を提供する安全に使用できるように、rot のリンクを受けやすくない URL スキーマです。
 
 Licenses.nuget.org では、そのロールが満たされます。 Nuget.org では、これを使用して、ライセンス式を使用して、ライセンスの指定したパッケージのライセンス text のリファレンスを提供します。 `nuget pack` または他のパッキング[クライアント ツール](https://docs.microsoft.com/en-us/nuget/install-nuget-client-tools)設定、 [ `licenseUrl` ](nuspec.md#licenseurl)後方互換性をサポートしない古いバージョンのクライアントで licenses.nuget.org を指す要素、 `license`要素。
@@ -21,15 +32,16 @@ HTTPS プロトコルを使用して、要求が特定の方法で構築する�
 
 | ライセンスの式 | 使用する URL |
 |:---|:---|
-MIT                                                | https://licenses.nuget.org/MIT
-(MIT)                                              | https://licenses.nuget.org/(MIT)
-(LGPL 2.0-専用と FLTK 例外または Apache-2.0+) | https://licenses.nuget.org/(LGPL-2.0-only%20WITH%20FLTK-exception%20OR%20Apache-2.0+)
+| MIT                                                | <https://licenses.nuget.org/MIT> |
+| (MIT)                                              | <https://licenses.nuget.org/(MIT)> |
+| (LGPL 2.0-専用と FLTK 例外または Apache-2.0+) | <https://licenses.nuget.org/(LGPL-2.0-only%20WITH%20FLTK-exception%20OR%20Apache-2.0+)> |
 
 サービスでは、ライセンスの識別子と nuget.org で受け入れられるライセンス例外識別子のみをサポートします。サポートされていないライセンス識別子またはライセンス例外識別子が含まれている、またはライセンス式の構文に準拠しないが、すべてのライセンス式は無効と見なされます。
 
 #### <a name="response"></a>応答
 
 Licenses.nuget.org はステータス コード HTTP 200 とライセンスの式の説明を含む web ページの有効なライセンス式が含まれる要求に応答します。
+
 * ライセンスの式を指定する場合は、そのライセンス参照テキストを含む web ページが返されます 1 つのライセンスの識別子を含む
 * 指定した場合のライセンスがライセンスの複合式、個別のライセンスまたはライセンス例外参照へのリンクを持つライセンス式を含む web ページが返されます。
 
@@ -43,8 +55,8 @@ HTTP 404 応答でライセンスが無効な式の結果が含まれている�
 
 | ライセンスの例外の識別子 | 使用する URL |
 |:---|:---|
-FLTK 例外            | https://licenses.nuget.org/FLTK-exception
-openvpn-openssl-exception | https://licenses.nuget.org/openvpn-openssl-exception
+|FLTK 例外            | <https://licenses.nuget.org/FLTK-exception> |
+|openvpn-openssl-exception | <https://licenses.nuget.org/openvpn-openssl-exception> |
 
 #### <a name="response"></a>応答
 
