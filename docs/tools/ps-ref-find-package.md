@@ -14,7 +14,7 @@ ms.locfileid: "43550979"
 ---
 # <a name="find-package-package-manager-console-in-visual-studio"></a>Find-package (Visual Studio パッケージ マネージャー コンソール)
 
-*バージョン 3.0 以降。このトピックでは、内のコマンドを説明します、 [NuGet パッケージ マネージャー コンソール](package-manager-console.md)Windows 上の Visual Studio でします。汎用の Find-package の PowerShell コマンドでは、次を参照してください。、 [PowerShell PackageManagement 参照](/powershell/module/packagemanagement/?view=powershell-6)します。*
+*バージョン 3.0 以降。このトピックでは、内のコマンドを説明します、 [NuGet パッケージ マネージャー コンソール](package-manager-console.md)Windows 上の Visual Studio でします。汎用の Find-package の PowerShell コマンドでは、、 [PowerShell PackageManagement 参照](/powershell/module/packagemanagement/?view=powershell-6)を参照してください。*
 
 パッケージ ソースから指定された ID またはキーワードを含むリモート パッケージのセットを取得します。
 

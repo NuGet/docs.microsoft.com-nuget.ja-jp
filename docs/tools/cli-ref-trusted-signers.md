@@ -17,7 +17,7 @@ ms.locfileid: "54324709"
 
 **適用対象:** 消費をパッケージ化&bullet;**サポートされているバージョン。** 4.9.1+
 
-取得または信頼できる署名者を NuGet の構成に設定します。 追加の使用状況は、次を参照してください。 [NuGet の動作を構成する](../consume-packages/configuring-nuget-behavior.md)します。 詳細についてを参照するくださいと同様の nuget.config スキーマの外観に、 [NuGet 構成ファイル リファレンス](../reference/nuget-config-file.md)します。
+取得または信頼できる署名者を NuGet の構成に設定します。 追加の使用状況は、[NuGet の動作を構成する](../consume-packages/configuring-nuget-behavior.md)を参照してください。 詳細についてを参照するくださいと同様の nuget.config スキーマの外観に、 [NuGet 構成ファイル リファレンス](../reference/nuget-config-file.md)します。
 
 ## <a name="usage"></a>使用法
 

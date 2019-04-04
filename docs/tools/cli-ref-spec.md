@@ -16,7 +16,7 @@ ms.locfileid: "43546450"
 
 **適用対象:** パッケージの作成&bullet;**サポートされているバージョン:** すべて
 
-生成、`.nuspec`新しいパッケージのファイル。 プロジェクト ファイルと同じフォルダーで実行された場合 (`.csproj`、 `.vbproj`、 `.fsproj`)、`spec`をトークン化された作成`.nuspec`ファイル。 詳細については、次を参照してください。[パッケージを作成する](../create-packages/creating-a-package.md)します。
+生成、`.nuspec`新しいパッケージのファイル。 プロジェクト ファイルと同じフォルダーで実行された場合 (`.csproj`、 `.vbproj`、 `.fsproj`)、`spec`をトークン化された作成`.nuspec`ファイル。 詳細については、[パッケージを作成する](../create-packages/creating-a-package.md)を参照してください。
 
 ## <a name="usage"></a>使用法
 

@@ -44,7 +44,7 @@ RegistrationsBaseUrl/3.6.0      | SemVer 2.0.0 パッケージが含まれてい
 ### <a name="registrationsbaseurl360"></a>RegistrationsBaseUrl/3.6.0
 
 これらの登録を使用して圧縮`Content-Encoding: gzip`します。 SemVer 2.0.0 パッケージは**に含まれる**このハイブにします。
-SemVer 2.0.0 の詳細については、次を参照してください。 [nuget.org の SemVer 2.0.0 サポート](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29)します。
+SemVer 2.0.0 の詳細については、[nuget.org の SemVer 2.0.0 サポート](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29)を参照してください。
 
 ## <a name="base-url"></a>[基本 URL]
 

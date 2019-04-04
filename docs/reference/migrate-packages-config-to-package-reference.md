@@ -28,7 +28,7 @@ ms.locfileid: "43546687"
 
 * NuGet PackageReference は Visual Studio 2015 で使用でき、以前ではありません。 移行されたプロジェクトは、Visual Studio 2017 でのみ開くことができます。
 * 移行は、C++、ASP.NET プロジェクトを現在ご利用いただけません。
-* いくつかのパッケージは、PackageReference と完全に互換性がない可能性があります。 詳細については、次を参照してください。[互換性の問題をパッケージ化](#package-compatibility-issues)します。
+* いくつかのパッケージは、PackageReference と完全に互換性がない可能性があります。 詳細については、[互換性の問題をパッケージ化](#package-compatibility-issues)を参照してください。
 
 ### <a name="known-issues"></a>既知の問題
 

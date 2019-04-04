@@ -86,7 +86,7 @@ ms.locfileid: "43551229"
 
 ### <a name="using-api-keys"></a>API キーを使用します。
 
-パッケージをプッシュする、`nuget push`または`dotnet nuget push`CLI コマンド、これらのコマンドで必要な API キーを取得する必要があります。 詳細については、次を参照してください。[パッケージを発行する](../quickstart/create-and-publish-a-package-using-visual-studio.md#publish-the-package)します。
+パッケージをプッシュする、`nuget push`または`dotnet nuget push`CLI コマンド、これらのコマンドで必要な API キーを取得する必要があります。 詳細については、[パッケージを発行する](../quickstart/create-and-publish-a-package-using-visual-studio.md#publish-the-package)を参照してください。
 
 新しい API キーを作成するときに、適切な組織でを選択、**パッケージ所有者**ドロップダウンします。 作成する任意の API キーは、選択した組織にのみ適用されます。
 

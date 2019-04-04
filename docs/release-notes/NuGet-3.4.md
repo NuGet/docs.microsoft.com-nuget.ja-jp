@@ -64,6 +64,6 @@ NuGet 3.4 では、Visual Studio 2015 Update 2 と Visual Studio 15 Preview リ�
 * **問題:** NuGet v2 プロトコル リダイレクトが壊れています。
 要求を代替ホストにリダイレクトするカスタム NuGet リポジトリが、リダイレクト要求を行いません。
 * **回避策:** この問題を回避するには、リダイレクトされたサーバーの場所を指す設定でパッケージ リポジトリ URI を構成します。
-詳細については、次を参照してください。 [GitHub プル要求 #387](https://github.com/NuGet/NuGet.Client/pull/387)します。
+詳細については、[GitHub プル要求 #387](https://github.com/NuGet/NuGet.Client/pull/387)を参照してください。
 
 GitHub の問題一覧上の問題を追跡するために引き続き。 [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)

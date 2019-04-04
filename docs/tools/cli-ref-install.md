@@ -54,7 +54,7 @@ nuget install <packageID | configFilePath> [options]
 | OutputDirectory | パッケージがインストールされているフォルダーを指定します。 フォルダーが指定されていない場合は、現在のフォルダーが使用されます。 |
 | PackageSaveMode | パッケージのインストール後に保存するファイルの種類を指定します: のいずれかの`nuspec`、 `nupkg`、または`nuspec;nupkg`します。 |
 | プレリリース版 | インストールするプレリリース パッケージを使用できます。 このフラグを使用してパッケージを復元するときに必要ありません`packages.config`します。 |
-| RequireConsent | ダウンロードして、パッケージをインストールする前にパッケージの復元が有効になっていることを確認します。 詳細については、次を参照してください。[パッケージの復元](../consume-packages/package-restore.md)します。 |
+| RequireConsent | ダウンロードして、パッケージをインストールする前にパッケージの復元が有効になっていることを確認します。 詳細については、[パッケージの復元](../consume-packages/package-restore.md)を参照してください。 |
 | SolutionDirectory | パッケージを復元する対象のソリューションのルート フォルダーを指定します。 |
 | ソース | パッケージ ソースの一覧を使用する (Url) として指定します。 コマンドを省略すると、構成ファイルで提供されるソースを使用して、参照してください[NuGet の構成の動作を](../consume-packages/configuring-nuget-behavior.md)します。 |
 | 詳細度 | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細*します。 |

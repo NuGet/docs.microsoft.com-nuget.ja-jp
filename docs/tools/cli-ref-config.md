@@ -16,7 +16,7 @@ ms.locfileid: "43546479"
 
 **適用対象:** すべて&bullet;**サポートされているバージョン**: すべて
 
-取得または NuGet の構成値を設定します。 追加の使用状況は、次を参照してください。 [NuGet の動作を構成する](../consume-packages/configuring-nuget-behavior.md)します。 詳細については、使用可能なキー名を参照してください、 [NuGet 構成ファイル リファレンス](../reference/nuget-config-file.md)します。
+取得または NuGet の構成値を設定します。 追加の使用状況は、[NuGet の動作を構成する](../consume-packages/configuring-nuget-behavior.md)を参照してください。 詳細については、使用可能なキー名を参照してください、 [NuGet 構成ファイル リファレンス](../reference/nuget-config-file.md)します。
 
 ## <a name="usage"></a>使用法
 
@@ -27,7 +27,7 @@ nuget config -AsPath <name> [options]
 
 場所`<name>`と`<value>`構成で設定するキー/値ペアを指定します。 必要に応じて、多くのペアを指定できます。 値を削除するには、名前を指定し、`=`記号が、値はありません。
 
-使用可能なキー名では、次を参照してください。、 [NuGet 構成ファイル リファレンス](../reference/nuget-config-file.md)します。
+使用可能なキー名では、、 [NuGet 構成ファイル リファレンス](../reference/nuget-config-file.md)を参照してください。
 
 NuGet 3.4 以降で`<value>`使える[環境変数](cli-ref-environment-variables.md)します。
 

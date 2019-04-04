@@ -24,7 +24,7 @@ Visual Studio 向け NuGet 資格情報プロバイダーをインストール�
 > [!Note]
 > Visual Studio 向け NuGet 資格情報プロバイダーを選択し、通常 Visual Studio 拡張機能としてインストールする必要がありますが必要になります[Visual Studio 2017](http://aka.ms/vs/15/release/vs_enterprise.exe)以降。
 >
-> Visual Studio 向け NuGet 資格情報プロバイダーは、(dotnet 復元または nuget.exe) ではなく Visual Studio でのみ動作します。 Nuget.exe 資格情報プロバイダーは、次を参照してください。 [nuget.exe 資格情報プロバイダー](nuget-exe-Credential-providers.md)します。
+> Visual Studio 向け NuGet 資格情報プロバイダーは、(dotnet 復元または nuget.exe) ではなく Visual Studio でのみ動作します。 Nuget.exe 資格情報プロバイダーは、[nuget.exe 資格情報プロバイダー](nuget-exe-Credential-providers.md)を参照してください。
 > 資格情報プロバイダーでは、dotnet と msbuild を参照してください[NuGet クロス プラットフォームのプラグイン](nuget-cross-platform-authentication-plugin.md)
 
 ## <a name="available-nuget-credential-providers-for-visual-studio"></a>Visual Studio 用の利用可能な NuGet 資格情報プロバイダー

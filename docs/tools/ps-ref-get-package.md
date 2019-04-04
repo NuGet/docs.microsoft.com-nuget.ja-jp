@@ -14,7 +14,7 @@ ms.locfileid: "43551443"
 ---
 # <a name="get-package-package-manager-console-in-visual-studio"></a>Get-Package (Visual Studio パッケージ マネージャー コンソール)
 
-*このトピックでは、内のコマンドを説明します、 [NuGet パッケージ マネージャー コンソール](package-manager-console.md)Windows 上の Visual Studio でします。汎用の Get-package の PowerShell コマンドでは、次を参照してください。、 [PowerShell PackageManagement 参照](/powershell/module/packagemanagement/?view=powershell-6)します。*
+*このトピックでは、内のコマンドを説明します、 [NuGet パッケージ マネージャー コンソール](package-manager-console.md)Windows 上の Visual Studio でします。汎用の Get-package の PowerShell コマンドでは、、 [PowerShell PackageManagement 参照](/powershell/module/packagemanagement/?view=powershell-6)を参照してください。*
 
 ローカル リポジトリにインストールされているパッケージの一覧を取得、- ListAvailable スイッチと共に使用する場合は、パッケージ ソースから使用可能なパッケージを一覧表示または更新スイッチを使用すると、利用可能な更新を一覧表示されます。
 

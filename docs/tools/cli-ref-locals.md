@@ -16,7 +16,7 @@ ms.locfileid: "43545029"
 
 **適用対象:** 消費をパッケージ化&bullet;**サポートされているバージョン:** 3.3 +
 
-クリアまたはローカルの NuGet リソースを一覧表示など、 *http キャッシュ*、*グローバル パッケージ*フォルダー、および一時フォルダーです。 `locals`コマンドがそれらの場所の一覧を表示することもできます。 詳細については、次を参照してください。[グローバル パッケージとキャッシュ フォルダーの管理](../consume-packages/managing-the-global-packages-and-cache-folders.md)します。
+クリアまたはローカルの NuGet リソースを一覧表示など、 *http キャッシュ*、*グローバル パッケージ*フォルダー、および一時フォルダーです。 `locals`コマンドがそれらの場所の一覧を表示することもできます。 詳細については、[グローバル パッケージとキャッシュ フォルダーの管理](../consume-packages/managing-the-global-packages-and-cache-folders.md)を参照してください。
 
 ## <a name="usage"></a>使用法
 
@@ -47,4 +47,4 @@ nuget locals all -list
 nuget locals http-cache -clear
 ```
 
-その他の例では、次を参照してください。[グローバル パッケージとキャッシュ フォルダーの管理](../consume-packages/managing-the-global-packages-and-cache-folders.md)します。
+その他の例では、[グローバル パッケージとキャッシュ フォルダーの管理](../consume-packages/managing-the-global-packages-and-cache-folders.md)を参照してください。

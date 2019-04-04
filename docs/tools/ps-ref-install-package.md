@@ -14,7 +14,7 @@ ms.locfileid: "43546027"
 ---
 # <a name="install-package-package-manager-console-in-visual-studio"></a>Install-Package (Visual Studio パッケージ マネージャー コンソール)
 
-*このトピックでは、内のコマンドを説明します、 [NuGet パッケージ マネージャー コンソール](package-manager-console.md)Windows 上の Visual Studio でします。一般的な PowerShell のインストール パッケージ コマンドは、次を参照してください。、 [PowerShell PackageManagement 参照](/powershell/module/packagemanagement/?view=powershell-6)します。*
+*このトピックでは、内のコマンドを説明します、 [NuGet パッケージ マネージャー コンソール](package-manager-console.md)Windows 上の Visual Studio でします。一般的な PowerShell のインストール パッケージ コマンドは、、 [PowerShell PackageManagement 参照](/powershell/module/packagemanagement/?view=powershell-6)を参照してください。*
 
 プロジェクトにパッケージとその依存関係をインストールします。
 

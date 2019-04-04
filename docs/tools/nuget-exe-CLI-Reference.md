@@ -25,7 +25,7 @@ NuGet コマンド ライン インターフェイス (CLI)、 `nuget.exe`、イ
 [!INCLUDE [install-cli](../includes/install-cli.md)]
 
 > [!Tip]
-> NuGet CLI で使用できるように、パッケージ マネージャー コンソール内で Visual Studio で、次を参照してください。[コンソールで nuget.exe CLI を使用して](package-manager-console.md#using-the-nugetexe-cli-in-the-console)します。
+> NuGet CLI で使用できるように、パッケージ マネージャー コンソール内で Visual Studio で、[コンソールで nuget.exe CLI を使用して](package-manager-console.md#using-the-nugetexe-cli-in-the-console)を参照してください。
 
 ## <a name="availability"></a>可用性
 
