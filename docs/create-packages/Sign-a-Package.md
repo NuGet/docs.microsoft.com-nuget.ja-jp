@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: e8955f9d46bab235c8755d5654814a4291d542d6
-ms.sourcegitcommit: 673e580ae749544a4a071b4efe7d42fd2bb6d209
+ms.openlocfilehash: 8ff92e5a3ab2d5c13ee02a9e49709866e2ac0e87
+ms.sourcegitcommit: 8793f528a11bd8e8fb229cd12e9abba50d61e104
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52977564"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58921573"
 ---
 # <a name="signing-nuget-packages"></a>NuGet パッケージの署名
 
@@ -29,7 +29,7 @@ ms.locfileid: "52977564"
 
   ![証明書のエクスポート ウィザード](../reference/media/CertificateExportWizard.png)
 
-* 証明書は、[Export-Certificate の PowerShell コマンド](/powershell/module/pkiclient/export-certificate.md)を使用してもエクスポートできます。
+* 証明書は、[Export-Certificate の PowerShell コマンド](/powershell/module/pkiclient/export-certificate)を使用してもエクスポートできます。
 
 ## <a name="sign-the-package"></a>パッケージに署名する
 
@@ -39,8 +39,11 @@ ms.locfileid: "52977564"
 [nuget sign](../tools/cli-ref-sign.md) を使用してパッケージに署名するには、次を使用します。
 
 ```cli
-nuget sign MyPackage.nupkg -CertificateFilePath <PathToTheCertificate> -Timestamper <TimestampServiceURL>
+nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper <TimestampServiceURL>
 ```
+
+> [!Tip]
+> 証明書プロバイダーから、上記の省略可能な引数 `Timestamper` に使用できるタイムスタンプ サーバーの URL が提供されることがよくあります。 プロバイダーのドキュメントを参照するか、そのサービスの URL のサポートに問い合わせてください。
 
 * 証明書には、証明書ストアで入手できるものを使用するか、ファイルの証明書を使用できます。 [nuget の sign](../tools/cli-ref-sign.md) の CLI リファレンスを参照してください。
 * 署名証明書が期限切れになったときに署名の有効な状態を維持するには、署名済みパッケージにタイムスタンプが含まれている必要があります。 そうでない場合は、署名操作で[警告](../reference/errors-and-warnings/NU3002.md)が生成されます。
@@ -56,7 +59,7 @@ nuget sign MyPackage.nupkg -CertificateFilePath <PathToTheCertificate> -Timestam
 1. 前にエクスポートした証明書ファイルを参照し選択します。
   ![登録済みの証明書](../reference/media/registered-certs.png)
 
-**注:**
+**メモ**
 * 1 人のユーザーが複数の証明書を送信でき、複数のユーザーが同じ証明書を登録できます。
 * ユーザーが証明書を登録した場合、以降送信されるすべてのパッケージはそのうちの 1 つの証明書で署名される**必要があります**。 「[NuGet.org でパッケージの署名要件を管理する](#manage-signing-requirements-for-your-package-on-nugetorg)」を参照してください。
 * ユーザーはそのアカウントから登録済みの証明書を削除することもできます。 証明書を一度削除すると、その証明書を使用して署名された新しいパッケージの送信時に失敗します。 既存のパッケージには影響はありません。
@@ -67,7 +70,7 @@ nuget sign MyPackage.nupkg -CertificateFilePath <PathToTheCertificate> -Timestam
 
 ## <a name="create-a-test-certificate"></a>テスト証明書を作成する
 
-テスト目的には、自己発行した証明書を使用できます。 自己発行の証明書を作成するには、[New-SelfSignedCertificate PowerShell コマンド](/powershell/module/pkiclient/new-selfsignedcertificate.md)を使用します。
+テスト目的には、自己発行した証明書を使用できます。 自己発行の証明書を作成するには、[New-SelfSignedCertificate PowerShell コマンド](/powershell/module/pkiclient/new-selfsignedcertificate)を使用します。
 
 ```ps
 New-SelfSignedCertificate -Subject "CN=NuGet Test Developer, OU=Use for testing purposes ONLY" `
@@ -89,8 +92,8 @@ New-SelfSignedCertificate -Subject "CN=NuGet Test Developer, OU=Use for testing 
 ## <a name="manage-signing-requirements-for-your-package-on-nugetorg"></a>NuGet.org でパッケージの署名要件を管理する
 1. NuGet.org に[サインイン](https://www.nuget.org/users/account/LogOn?returnUrl=%2F)します。
 
-1. [`Manage Packages`] に移動します。 
-   ![パッケージの署名者を構成する](../reference/media/configure-package-signers.png)
+1. `Manage Packages` 
+   ![パッケージの署名者の構成](../reference/media/configure-package-signers.png)に移動します。
 
 * ご自分がパッケージの唯一の所有者である場合、ご自分で署名する必要があります。つまり、登録済みの任意の証明書を使用してパッケージに署名し、NuGet.org に公開します。
 
