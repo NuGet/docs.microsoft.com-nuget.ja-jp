@@ -8,12 +8,12 @@ description: リポジトリのリソースの署名は、クライアントが�
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 81d32a7011268e45136e00cdb7345a95070aae06
-ms.sourcegitcommit: be9c51b4b095aea40ef41bbea7e12ef0a194ee74
+ms.openlocfilehash: ea318446c41a0d85d3fbf959dd38c929a0d0e9a1
+ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53248443"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59509023"
 ---
 # <a name="repository-signatures"></a>リポジトリの署名
 
@@ -28,7 +28,8 @@ ms.locfileid: "53248443"
 @type の値                | メモ
 -------------------------- | -----
 RepositorySignatures/4.7.0 | 最初のリリース
-RepositorySignatures/4.9.0 | により、有効にします。 `allRepositorySigned`
+RepositorySignatures/4.9.0 | NuGet v4.9 + クライアントでサポートされています。
+RepositorySignatures/5.0.0 | により、有効にする`allRepositorySigned`します。 NuGet v5.0 + クライアントでサポートされています。
 
 ## <a name="base-url"></a>[基本 URL]
 
@@ -59,13 +60,13 @@ RepositorySignatures/4.9.0 | により、有効にします。 `allRepositorySig
 
 名前                | 種類             | 必須 | メモ
 ------------------- | ---------------- | -------- | -----
-allRepositorySigned | boolean          | 可      | 必要があります`false`4.7.0 のリソース
+allRepositorySigned | boolean          | 可      | 必要があります`false`4.7.0 と 4.9.0 リソース
 signingCertificates | オブジェクトの配列 | 可      | 
 
 `allRepositorySigned`パッケージ ソースの一部のパッケージ リポジトリの署名がない場合、ブール値が false に設定します。 ソースで説明されている署名証明書のいずれかによって生成されるリポジトリ シグネチャをいる必要があります、ブール値が true で入手できるすべてのパッケージに設定されている場合`signingCertificates`します。
 
 > [!Warning]
-> `allRepositorySigned`ブール、4.7.0 で false である必要がありますリソース。 NuGet v4.7 と v4.8 クライアントがソースからパッケージをインストールことはできません`allRepositorySigned`を true に設定します。
+> `allRepositorySigned`ブール 4.7.0 と 4.9.0 リソースに対して false である必要があります。 NuGet v4.7、v4.8、v4.9 クライアントがソースからパッケージをインストールできません`allRepositorySigned`を true に設定します。
 
 内の 1 つまたは複数の署名証明書が必要があります、`signingCertificates`配列の場合、`allRepositorySigned`ブール値の設定を true にします。 配列が空の場合と`allRepositorySigned`に設定が true の場合、元のすべてのパッケージが無効と見なされるもクライアント ポリシーをパッケージの使用を許可可能性がありますがします。 この配列内の各要素は、次のプロパティを持つ JSON オブジェクトです。
 
