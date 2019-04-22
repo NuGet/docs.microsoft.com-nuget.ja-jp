@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/10/2018
 ms.topic: overview
-ms.openlocfilehash: d688aecaa73cecbfee184e3b13801ed22326a852
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: 87f7494ea97a4fa65be04b2692d7b894938c3fe5
+ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580325"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59509127"
 ---
 # <a name="an-introduction-to-nuget"></a>NuGet の概要
 
@@ -82,7 +82,7 @@ NuGet がこのサービスを実行する方法について詳しくは、[依�
 
 その場合に開発者が関係する NuGet の主要な役割は明らかに、プロジェクトに代わってその参照リストを維持し、参照されているパッケージを効率的に復元 (および更新) する手段を提供することです。 このリストは、次の 2 つの*パッケージ管理形式*のいずれかで保持されます。
 
-- [`packages.config`](reference/packages-config.md): *(NuGet 1.0 以降)* プロジェクト内のすべての依存関係のフラット リストを保持する XML ファイルです。インストールされている他のパッケージの依存関係も含みます。 インストールまたは復元されたパッケージは、`packages` フォルダーに保管されます。
+- [`packages.config`](reference/packages-config.md):*(NuGet 1.0 以降)* プロジェクト内のすべての依存関係のフラット リストを保持する XML ファイルです。インストールされている他のパッケージの依存関係も含みます。 インストールまたは復元されたパッケージは、`packages` フォルダーに保管されます。
 
 - [PackageReference](consume-packages/package-references-in-project-files.md) (または "プロジェクト ファイルでのパッケージ参照") | *(NuGet 4.0 以降)* プロジェクトの最上位の依存関係のリストがプロジェクト ファイル内に直接保持されるので、個別のファイルは必要ありません。 関連するファイル `obj/project.assets.json` は、プロジェクトがすべての下位レベルの依存関係と共に使用するパッケージの依存関係の全体グラフを管理するために、動的に作成されます。 PackageReference は常に、.NET Core プロジェクトで使用されます。
 

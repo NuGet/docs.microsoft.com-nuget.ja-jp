@@ -6,24 +6,24 @@ ms.author: karann
 ms.date: 10/25/2017
 ms.topic: reference
 ms.openlocfilehash: d7c943c1f13edf782dabe4afee9d19a1a42bd42a
-ms.sourcegitcommit: 9f94e00428d83aef4a7a87db679129eff7720c59
+ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58911089"
 ---
 # <a name="nugetconfig-reference"></a>nuget.config reference
 
 NuGet の動作は、「[Configuring NuGet Behavior](../consume-packages/configuring-nuget-behavior.md)」(NuGet 動作の構成) に記載の各種 `NuGet.Config` ファイルでの設定によって制御されます。
 
-`nuget.config` 最上位を含む XML ファイルは、`<configuration>`ノードで、このトピックで説明するセクションの要素が含まれています。 各セクションには、0 個以上の項目が含まれています。 「[examples config file](#example-config-file)」 (構成ファイルの例) を参照してください。 名前の設定には大文字と小文字の区別があり、値には[環境変数](#using-environment-variables)を使用することができます。
+`nuget.config` は、最上位の `<configuration>` ノードを含む XML ファイルであり、このトピックで説明するセクション要素が含まれます。 各セクションには、0 個以上の項目が含まれています。 「[examples config file](#example-config-file)」 (構成ファイルの例) を参照してください。 名前の設定には大文字と小文字の区別があり、値には[環境変数](#using-environment-variables)を使用することができます。
 
 このトピックの内容:
 
 - [config セクション](#config-section)
 - [bindingRedirects セクション](#bindingredirects-section)
 - [packageRestore セクション](#packagerestore-section)
-- [ソリューション セクション](#solution-section)
+- [solution セクション](#solution-section)
 - [パッケージ ソース セクション](#package-source-sections):
   - [packageSources](#packagesources)
   - [packageSourceCredentials](#packagesourcecredentials)
@@ -221,7 +221,7 @@ NuGet の動作は、「[Configuring NuGet Behavior](../consume-packages/configu
 
 ### <a name="activepackagesource"></a>activePackageSource
 
-*(2.x のみ。 3.x 以降のでは非推奨)*
+*(2.x のみ。3.x 以降では非推奨とされます)*
 
 現在アクティブなソースを識別し、すべてのソースの集計を示します。
 

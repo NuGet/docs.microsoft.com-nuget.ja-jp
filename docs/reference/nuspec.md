@@ -10,7 +10,7 @@ ms.openlocfilehash: ebb1dd929042a1fcd269d0ac50154ae6b8234be2
 ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59509102"
 ---
 # <a name="nuspec-reference"></a>.nuspec リファレンス
@@ -84,13 +84,11 @@ UI 画面用のパッケージの長い説明。
 
 パッケージのライセンスの URL。通常、UI 画面および nuget.org に表示されます。
 #### <a name="license"></a>ライセンス
-パッケージ内のライセンス ファイルに対する SPDX ライセンス式またはパスであり、UI 表示や nuget.org でよく示されます。BSD-2-句または MIT などの一般的なライセンスの下でパッケージをライセンスする場合は、関連付けられている SPDX ライセンス識別子を使用します。<br>例えば:
-`<license type="expression">MIT</license>`
+パッケージ内のライセンス ファイルに対する SPDX ライセンス式またはパスであり、UI 表示や nuget.org でよく示されます。BSD-2-句または MIT などの一般的なライセンスの下でパッケージをライセンスする場合は、関連付けられている SPDX ライセンス識別子を使用します。<br>例: `<license type="expression">MIT</license>`
 
 [SPDX ライセンス識別子](https://spdx.org/licenses/)の完全な一覧はこちらをご覧ください。 ライセンス タイプ式を使用する場合、NuGet.org では OSI または FSF で承認されたライセンスのみが受け付けられます。
 
-複合のライセンスを使用して、指定するには、パッケージは、複数の一般的なライセンス下でライセンスが場合、 [SPDX 式構文のバージョン 2.0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60)します。<br>例えば:
-`<license type="expression">BSD-2-Clause OR MIT</license>`
+複合のライセンスを使用して、指定するには、パッケージは、複数の一般的なライセンス下でライセンスが場合、 [SPDX 式構文のバージョン 2.0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60)します。<br>例: `<license type="expression">BSD-2-Clause OR MIT</license>`
 
 SPDX 識別子が割り当てられていないライセンスを使用している、またはカスタムのライセンスは、ファイルをパッケージ化することができます (だけ`.txt`または`.md`) ライセンスのテキストを使用します。 例えば:
 ```xml
@@ -161,7 +159,7 @@ nuget.exe および Visual Studio パッケージ マネージャーで強制す
 #### <a name="frameworkassemblies"></a>frameworkAssemblies
 *(1.2 以降)* このパッケージで必要な .NET Framework アセンブリ参照を示す 0 個以上の `<frameworkAssembly>` 要素のコレクション。パッケージを使うプロジェクトに参照が確実に追加されるようにします。 各 frameworkAssembly は、*assemblyName* 属性と *targetFramework* 属性を持っています。 [フレームワーク アセンブリ参照 GAC の指定](#specifying-framework-assembly-references-gac)に関する後の説明をご覧ください。 |
 #### <a name="references"></a>参照
-*(1.5 以降)* パッケージの `lib` フォルダー内のアセンブリのうちプロジェクト参照として追加するものを指定する、0 個以上の `<reference>` 要素のコレクション。 各参照は、*file* 属性を持っています。 `<references>` 含めることもできます、`<group>`を持つ要素を*targetFramework*属性を含む、`<reference>`要素。 省略すると、`lib` のすべての参照が含まれます。 [明示的なアセンブリ参照の指定](#specifying-explicit-assembly-references)に関する後の説明をご覧ください。
+*(1.5 以降)* パッケージの `lib` フォルダー内のアセンブリのうちプロジェクト参照として追加するものを指定する、0 個以上の `<reference>` 要素のコレクション。 各参照は、*file* 属性を持っています。 `<references>` は `<group>` 要素を含むこともでき、その *targetFramework* 属性に `<reference>` 要素を含めることができます。 省略すると、`lib` のすべての参照が含まれます。 [明示的なアセンブリ参照の指定](#specifying-explicit-assembly-references)に関する後の説明をご覧ください。
 #### <a name="contentfiles"></a>contentFiles
 *(3.3 以降)* 使用する側のプロジェクトに含めるコンテンツ ファイルを示す `<files>` 要素のコレクション。 これらのファイルは、プロジェクト システム内でのファイルの使用方法が記述されている属性のセットで指定されます。 [パッケージに含めるファイルの指定](#specifying-files-to-include-in-the-package)に関する後の説明をご覧ください。
 #### <a name="files"></a>ファイル 
@@ -192,13 +190,13 @@ nuget pack MyProject.csproj
 
 | トークン | 値のソース | [値]
 | --- | --- | ---
-| **$id $** | プロジェクト ファイル | プロジェクト ファイルの AssemblyName (タイトル) |
-| **$version $** | AssemblyInfo | ある場合は AssemblyInformationalVersion、ない場合は AssemblyVersion |
-| **$author $** | AssemblyInfo | AssemblyCompany |
-| **$title $** | AssemblyInfo | AssemblyTitle |
+| **$id$** | プロジェクト ファイル | プロジェクト ファイルの AssemblyName (タイトル) |
+| **$version$** | AssemblyInfo | ある場合は AssemblyInformationalVersion、ない場合は AssemblyVersion |
+| **$author$** | AssemblyInfo | AssemblyCompany |
+| **$title$** | AssemblyInfo | AssemblyTitle |
 | **$description$** | AssemblyInfo | AssemblyDescription |
-| **$copyright $** | AssemblyInfo | AssemblyCopyright |
-| **$configuration $** | アセンブリ DLL | アセンブリのビルドに使われる構成。既定値は Debug。 Release 構成を使ってパッケージを作成するには、常にコマンド ラインで `-properties Configuration=Release` を使うことに注意してください。 |
+| **$copyright$** | AssemblyInfo | AssemblyCopyright |
+| **$configuration$** | アセンブリ DLL | アセンブリのビルドに使われる構成。既定値は Debug。 Release 構成を使ってパッケージを作成するには、常にコマンド ラインで `-properties Configuration=Release` を使うことに注意してください。 |
 
 [アセンブリ ファイル](#including-assembly-files)および[コンテンツ ファイル](#including-content-files)を含めるときは、トークンを使ってパスを解決することもできます。 トークンの名前は MSBuild のプロパティと同じであり、現在のビルド構成に基づいて含めるファイルを選ぶことができます。 たとえば、`.nuspec` ファイルで次のトークンを使うものとします。
 
@@ -368,7 +366,7 @@ nuget pack MyProject.csproj
 > [!Important]
 > プロジェクトにパッケージをインストールするとき、NuGet はパッケージの DLL にアセンブリ参照を自動的に追加します。ただし、指定されている `.resources.dll` は、ローカライズされたサテライト アセンブリであると見なされるため "*除外*" されます。 そのため、避けなければ不可欠なパッケージ コードが含まれてしまうファイルには `.resources.dll` を使わないようにします。
 
-この自動動作をバイパスして、パッケージに含めるファイルを明示的に制御するには、`<files>` 要素を `<package>` の子要素 (および `<metadata>` の兄弟要素) として配置し、各ファイルを個別の `<file>` 要素で示します。 例えば:
+この自動動作をバイパスして、パッケージに含めるファイルを明示的に制御するには、`<files>` 要素を `<package>` の子要素 (および `<metadata>` の兄弟要素) として配置し、各ファイルを個別の `<file>` 要素で示します。 例:
 
 ```xml
 <files>
@@ -414,7 +412,7 @@ NuGet 2.x 以前および `packages.config` を使っているプロジェクト
     Packaged result:
         lib\net40\library.dll
 
-**ワイルドカードを使用して Dll のセット**
+**ワイルドカードを使った DLL のセット**
 
     Source files:
         bin\release\libraryA.dll
@@ -427,7 +425,7 @@ NuGet 2.x 以前および `packages.config` を使っているプロジェクト
         lib\libraryA.dll
         lib\libraryB.dll
 
-**異なるフレームワークの Dll**
+**異なるフレームワークの DLL**
 
     Source files:
         lib\net40\library.dll
@@ -511,7 +509,7 @@ NuGet 2.x 以前および `packages.config` を使っているプロジェクト
     Packaged result:
         content\style.css
 
-**コンテンツのファイル名にドットを持つフォルダーにコピー**
+**名前のドットでフォルダーにコピーされるコンテンツ ファイル**
 
 この場合、NuGet は `target` の拡張子が `src` の拡張子と一致しないものと判断し、`target` での名前のその部分をフォルダーとして扱います。
 
@@ -524,7 +522,7 @@ NuGet 2.x 以前および `packages.config` を使っているプロジェクト
     Packaged result:
         content\images\package.icons\picture.png
 
-**コンテンツのファイル拡張子のないです。**
+**拡張子のないコンテンツ ファイル**
 
 拡張子のないファイルを含めるには、ワイルドカード `*` または `**` を使います。
 
@@ -552,7 +550,7 @@ NuGet 2.x 以前および `packages.config` を使っているプロジェクト
     Packaged result:
         content\css\cool\style.css
 
-**パッケージ内のコンテンツ ファイルの名前を変更します。**
+**パッケージ内のコンテンツ ファイルの名前の変更**
 
     Source file:
         ie\css\style.css
@@ -581,7 +579,7 @@ NuGet 2.x 以前および `packages.config` を使っているプロジェクト
 
 ### <a name="using-the-contentfiles-element-for-content-files"></a>コンテンツ ファイルに対する contentFiles 要素の使用
 
-*NuGet 4.0 以降と PackageReference*
+*NuGet 4.0 以降で、PackageReference を使用している場合*
 
 既定では、パッケージはコンテンツを `contentFiles` フォルダーに配置し (下記参照)、`nuget pack` は既定の属性を使ってそのフォルダーにすべてのファイルを格納します。 この場合は、`contentFiles` ノードを `.nuspec` に含める必要はまったくありません。
 
@@ -593,9 +591,9 @@ NuGet 2.x 以前および `packages.config` を使っているプロジェクト
 | --- | --- |
 | **include** | (必須) 含める 1 つまたは複数のファイルの場所。`exclude` 属性によって指定される除外の対象になります。 絶対パスを指定しない限り、パスは `.nuspec` ファイルが基準になります。 ワイルドカード文字 `*` を使うことができ、2 個のワイルドカード `**` は再帰的なフォルダー検索を意味します。 |
 | **exclude** | `src` の場所から除外するファイルまたはファイル パターンをセミコロンで区切ったリスト。 ワイルドカード文字 `*` を使うことができ、2 個のワイルドカード `**` は再帰的なフォルダー検索を意味します。 |
-| **ビルド アクション** | MSBuild のコンテンツ項目に割り当てるビルド アクション。`Content`、`None`、`Embedded Resource`、`Compile` などです。既定値は、`Compile` です。 |
+| **buildAction** | MSBuild のコンテンツ項目に割り当てるビルド アクション。`Content`、`None`、`Embedded Resource`、`Compile` などです。既定値は、`Compile` です。 |
 | **copyToOutput** | 出力フォルダーをビルドするコンテンツ項目をコピー (またはパブリッシュ) するかどうかを示すブール値。 既定値は false です。 |
-| **フラット化 (flatten)** | コンテンツ項目をビルド出力の単一フォルダーにコピーするか (true)、それともパッケージのフォルダー構造を保持するか (false) を示すブール値。 このフラグは、copyToOutput が true に設定されている場合のみ機能します。 既定値は false です。 |
+| **flatten** | コンテンツ項目をビルド出力の単一フォルダーにコピーするか (true)、それともパッケージのフォルダー構造を保持するか (false) を示すブール値。 このフラグは、copyToOutput が true に設定されている場合のみ機能します。 既定値は false です。 |
 
 パッケージをインストールするとき、NuGet は `<contentFiles>` の子要素を上から下に順番に適用します。 複数のエントリが同じファイルに一致する場合は、すべてのエントリが適用されます。 同じ属性に対して競合がある場合は、最上位のエントリが下位のエントリをオーバーライドします。
 
@@ -605,8 +603,8 @@ NuGet 2.x 以前および `packages.config` を使っているプロジェクト
 
     /contentFiles/{codeLanguage}/{TxM}/{any?}
 
-- `codeLanguages` あります`cs`、 `vb`、 `fs`、 `any`、またはの小文字表現を指定 `$(ProjectLanguage)`
-- `TxM` NuGet をサポートする任意の有効なターゲット フレームワーク モニカー (を参照してください[ターゲット フレームワーク](../reference/target-frameworks.md))。
+- `codeLanguages` には、`cs`、`vb`、`fs`、`any`、または指定された `$(ProjectLanguage)` に相当する小文字表現を指定できます。
+- `TxM` は、NuGet がサポートする任意の有効なターゲット フレームワーク モニカーです (「[ターゲット フレームワーク](../reference/target-frameworks.md)」を参照)。
 - この構文の末尾に、任意のフォルダー構造を追加できます。
 
 例えば:
@@ -649,7 +647,7 @@ NuGet 2.x 以前および `packages.config` を使っているプロジェクト
 
 ## <a name="example-nuspec-files"></a>Nuspec ファイルの例
 
-**単純な`.nuspec`依存関係またはファイルを指定しません。**
+**依存関係またはファイルを指定しない単純な `.nuspec`**
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -666,7 +664,7 @@ NuGet 2.x 以前および `packages.config` を使っているプロジェクト
 </package>
 ```
 
-**A`.nuspec`依存関係を持つ**
+**依存関係を含む `.nuspec`**
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -683,7 +681,7 @@ NuGet 2.x 以前および `packages.config` を使っているプロジェクト
 </package>
 ```
 
-**A`.nuspec`ファイル**
+**ファイルを含む `.nuspec`**
 
 ```xml
 <?xml version="1.0"?>
@@ -701,7 +699,7 @@ NuGet 2.x 以前および `packages.config` を使っているプロジェクト
 </package>
 ```
 
-**A`.nuspec`フレームワーク アセンブリを含む**
+**フレームワーク アセンブリを含む `.nuspec`**
 
 ```xml
 <?xml version="1.0"?>
@@ -727,7 +725,7 @@ NuGet 2.x 以前および `packages.config` を使っているプロジェクト
 
 この例では、指定したプロジェクト ターゲットに次のものがインストールされます。
 
-- .NET4]-&GT; [ `System.Web`、 `System.Net`
-- .Client Profile]-> [NET4 `System.Net`
+- .NET4 -> `System.Web`、`System.Net`
+- .NET4 Client Profile -> `System.Net`
 - Silverlight 3 -> `System.Json`
 - WindowsPhone -> `Microsoft.Devices.Sensors`
