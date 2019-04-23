@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: adf97196f50f2a55d6b8ceed93d53ff12b67657b
-ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
+ms.openlocfilehash: 9964186dcbfedfbf2415a57102f8f019a1eef23a
+ms.sourcegitcommit: 6b71926f062ecddb8729ef8567baf67fd269642a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56145632"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59931996"
 ---
 # <a name="restore-command-nuget-cli"></a>restore (NuGet CLI) コマンド
 
@@ -37,7 +37,7 @@ nuget restore <projectPath> [options]
 | DisableParallelProcessing | 並列で複数のパッケージの復元を無効にします。 |
 | FallbackSource | *(3.2 以降)* プライマリで、パッケージが見つからない場合に、フォールバックとして使用するパッケージ ソースの一覧または既定のソース。 |
 | ForceEnglishOutput | *(3.5 以降)* インバリアントの英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
-| ヘルプ | ヘルプのコマンドの情報を表示します。 |
+| Help | ヘルプのコマンドの情報を表示します。 |
 | MSBuildPath | *(4.0 以降)* よりも優先、コマンドで使用する MSBuild のパスを示す`-MSBuildVersion`します。 |
 | MSBuildVersion | *(3.2 以降)* このコマンドで使用する MSBuild のバージョンを指定します。 サポートされている値とは、4、12、14、15.1、15.3、15.4、15.5、15.6、15.7、15.8、15.9 です。 パスに MSBuild が取得される、既定でそれ以外の場合、既定値 MSBuild の最上位のインストールされているバージョンです。 |
 | NoCache | NuGet がキャッシュされたパッケージを使用するを防ぎます。 参照してください[グローバル パッケージとキャッシュ フォルダーの管理](../consume-packages/managing-the-global-packages-and-cache-folders.md)します。 |
@@ -47,7 +47,7 @@ nuget restore <projectPath> [options]
 | パッケージファイル | `OutputDirectory` と同じ。 復元するときに必要な`packages.config`ファイル`OutputDirectory`または`SolutionDirectory`使用されます。 |
 | Project2ProjectTimeOut | タイムアウト (秒) プロジェクト間参照を解決します。 |
 | 再帰 | *(4.0 以降)* UWP と .NET Core プロジェクトのすべての参照プロジェクトを復元します。 使用してプロジェクトには適用されません`packages.config`します。 |
-| RequireConsent | ダウンロードして、パッケージをインストールする前にパッケージの復元が有効になっていることを確認します。 詳細については、[パッケージの復元](../consume-packages/package-restore.md)を参照してください。 |
+| RequireConsent | ダウンロードして、パッケージをインストールする前にパッケージの復元が有効になっていることを確認します。 詳細については、次を参照してください。[パッケージの復元](../consume-packages/package-restore.md)します。 |
 | SolutionDirectory | ソリューション フォルダーを指定します。 ソリューションのパッケージを復元するときに無効です。 復元するときに必要な`packages.config`ファイル`PackagesDirectory`または`OutputDirectory`使用されます。 |
 | ソース | (Url) として、復元に使用するパッケージ ソースの一覧を指定します。 コマンドを省略すると、構成ファイルで提供されるソースを使用して、参照してください[NuGet の構成の動作を](../consume-packages/configuring-nuget-behavior.md)します。 |
 | 詳細度 |> の出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細*します。 |
@@ -71,7 +71,7 @@ Restore コマンドでは、次の手順を実行します。
 2. 次の優先順位 (NuGet は、これらのフォルダーが見つからない場合にエラーを提供) を使用して、パッケージ フォルダーを確認します。
 
     - 指定されたフォルダー`-PackagesDirectory`します。
-    - `repositoryPath`の値 `Nuget.Config`
+    - `repositoryPath`値 `Nuget.Config`
     - 指定されたフォルダー `-SolutionDirectory`
     - `$(SolutionDir)\packages`
 

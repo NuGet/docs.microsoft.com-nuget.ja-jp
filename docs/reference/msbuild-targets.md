@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8132595cbfaf553736fbcc81aada283a44d6cdbf
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: 1e89aeb46f2538d46c013561a51a41702b2472d8
+ms.sourcegitcommit: 6b71926f062ecddb8729ef8567baf67fd269642a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324852"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59932100"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>MSBuild ターゲットとしての NuGet の pack と restore
 
@@ -51,9 +51,9 @@ PackageReference 形式を使用して、使用して .NET Standard プロジェ
 | VersionSuffix | PackageVersionSuffix | (なし) | MSBuild の $(VersionSuffix) PackageVersion を設定すると、PackageVersionSuffix は上書きされます |
 | Authors | Authors | 現在のユーザーのユーザー名 | |
 | 所有者 | N/A | NuSpec にはありません | |
-| タイトル | タイトル | PackageId| |
+| Title | Title | PackageId| |
 | 説明 | 説明 | "パッケージの説明" | |
-| Copyright | Copyright | (なし) | |
+| 著作権 | 著作権 | (なし) | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | False | |
 | ライセンス | PackageLicenseExpression | (なし) | 対応しています `<license type="expression">` |
 | ライセンス | PackageLicenseFile | (なし) | `<license type="file">` に相当します。 明示的に参照先のライセンス ファイルをパックする必要があります。 |
@@ -77,7 +77,7 @@ PackageReference 形式を使用して、使用して .NET Standard プロジェ
 - PackageId
 - Authors
 - 説明
-- Copyright
+- 著作権
 - PackageRequireLicenseAcceptance
 - DevelopmentDependency
 - PackageLicenseExpression
@@ -207,7 +207,7 @@ PackageReference 形式を使用して、使用して .NET Standard プロジェ
 
 [ライセンスの式と NuGet.org で受け入れられるライセンスについて](nuspec.md#license)します。
 
-ライセンス ファイルをパックするときに、PackageLicenseFile プロパティを使用して、パッケージのルートを基準とした、パッケージのパスを指定する必要があります。 さらに、ファイルをパッケージに含まれるかどうかを確認する必要があります。 例:
+ライセンス ファイルをパックするときに、PackageLicenseFile プロパティを使用して、パッケージのルートを基準とした、パッケージのパスを指定する必要があります。 さらに、ファイルをパッケージに含まれるかどうかを確認する必要があります。 例えば:
 
 ```xml
 <PropertyGroup>
@@ -322,7 +322,7 @@ Nuspec ファイルをパックする csproj ファイルの例を示します�
 
 1. すべてのプロジェクト間参照を読み取ります
 1. プロジェクトのプロパティを読み取って、中間フォルダーとターゲット フレームワークを検出します
-1. MSBuild データを NuGet.Build.Tasks.dll に渡します
+1. MSBuild データを nuget.build.tasks.dll に渡します
 1. restore を実行します
 1. パッケージをダウンロードします
 1. アセット ファイル、ターゲット、およびプロパティを出力します
@@ -341,9 +341,14 @@ Nuspec ファイルをパックする csproj ファイルの例を示します�
 | RestoreConfigFile | 適用する `Nuget.Config` ファイルのパス。 |
 | RestoreNoCache | True の場合は、キャッシュされたパッケージを使用して回避できます。 参照してください[グローバル パッケージとキャッシュ フォルダーの管理](../consume-packages/managing-the-global-packages-and-cache-folders.md)します。 |
 | RestoreIgnoreFailedSources | true の場合、失敗した、または不足しているパッケージ ソースを無視します。 |
+| RestoreFallbackFolders | フォールバックのフォルダーは、フォルダーが使用されるユーザー パッケージと同じ方法で使用されます。 |
+| RestoreAdditionalProjectSources | 復元中に使用するソースを追加します。 |
+| RestoreAdditionalProjectFallbackFolders | 復元中に使用するフォールバック フォルダーを追加します。 |
+| RestoreAdditionalProjectFallbackFoldersExcludes | 指定されたフォールバック フォルダーは除外されます。 `RestoreAdditionalProjectFallbackFolders` |
 | RestoreTaskAssemblyFile | `NuGet.Build.Tasks.dll` のパス。 |
 | RestoreGraphProjectInput | 復元するプロジェクトのセミコロン区切りの一覧。絶対パスを指定する必要があります。 |
-| RestoreOutputPath | 出力フォルダー。既定値は `obj` フォルダーです。 |
+| RestoreUseSkipNonexistentTargets  | プロジェクトが MSBuild を使用して収集されるかどうかを判断します経由で収集されるタイミング、`SkipNonexistentTargets`最適化します。 設定しない場合、既定値は`true`します。 結果は、プロジェクトのターゲットをインポートできない場合の高速動作です。 |
+| MSBuildProjectExtensionsPath | 既定では、出力フォルダー`BaseIntermediateOutputPath`と`obj`フォルダー。 |
 
 #### <a name="examples"></a>使用例
 
@@ -370,6 +375,23 @@ restore で、次のファイルがビルドの `obj` フォルダーに作成�
 | `project.assets.json` | すべてのパッケージ参照の依存関係グラフが含まれています。 |
 | `{projectName}.projectFileExtension.nuget.g.props` | パッケージに含まれる MSBuild プロパティへの参照 |
 | `{projectName}.projectFileExtension.nuget.g.targets` | パッケージに含まれる MSBuild ターゲットへの参照 |
+
+### <a name="restoring-and-building-with-one-msbuild-command"></a>復元して、1 つの MSBuild コマンドを使用してビルド
+
+NuGet では、MSBuild ターゲットおよびプロパティがダウンするパッケージを復元できます、という事実が原因は、復元とビルドの評価が異なるグローバル プロパティで実行されます。
+これは、次の必要がある、多くの場合、不適切な予測できない動作を意味します。
+
+```cli
+msbuild -t:restore,build
+```
+
+ 代わりに推奨される方法は次のとおりです。
+
+```cli
+msbuild -t:build -restore
+```
+
+ような他のターゲットに同じロジックが適用されます`build`します。
 
 ### <a name="packagetargetfallback"></a>PackageTargetFallback
 
