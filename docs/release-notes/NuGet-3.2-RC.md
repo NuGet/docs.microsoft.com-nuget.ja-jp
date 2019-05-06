@@ -7,7 +7,7 @@ ms.date: 11/11/2016
 ms.topic: conceptual
 ms.openlocfilehash: eafdedc3ad022a6794dbeb390de87d7f317e28f1
 ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 09/04/2018
 ms.locfileid: "43551499"
@@ -47,7 +47,7 @@ NuGet 3.2 リリース候補がリリースされた機能強化と修正、3.1.
 
 * プッシュ コマンドは、パッケージのソース - に対して put コマンドの前に GET を不要になったは[1237](https://github.com/NuGet/Home/issues/1237)
 * 一覧のコマンドは、バージョン番号を不要になった繰り返されます[1185](https://github.com/NuGet/Home/issues/1185)
-* パック-ビルド引数を持つようになりました正しく c# 6.0 のサポート[1107](https://github.com/NuGet/Home/issues/1107)
+* パック-ビルド引数を持つようになりました正しく C# 6.0 のサポート[1107](https://github.com/NuGet/Home/issues/1107)
 * F# プロジェクトをパックしようとしています修正された問題は、Visual Studio 2015 - で構築された[1048。](https://github.com/NuGet/Home/issues/1048)
 * パッケージが既に存在 - ときに、ここでは機能を復元する[1040](https://github.com/NuGet/Home/issues/1040)
 * 強化されたエラー メッセージ`packages.config`ファイル形式が正しくありません - [1034](https://github.com/NuGet/Home/issues/1034)
