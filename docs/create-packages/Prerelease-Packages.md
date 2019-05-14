@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 150fc61e51fe10622fe6b369b60dfc61a9ac916f
-ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
+ms.openlocfilehash: 696f51905198defdbfd475ba7d010ac3e27ac557
+ms.sourcegitcommit: 3fc93f7a64be040699fe12125977dd25a7948470
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58432453"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64877939"
 ---
 # <a name="building-pre-release-packages"></a>プレリリース パッケージのビルド
 
@@ -22,7 +22,7 @@ ms.locfileid: "58432453"
 
 ソフトウェア リリース ライフサイクルをサポートするために、NuGet 1.6 以降では、プレリリース パッケージを配信できます。バージョン番号には、`-alpha`、`-beta`、`-rc` のようなセマンティック バージョン管理サフィックスが含まれます。 詳細については、「[Package versioning](../reference/package-versioning.md#pre-release-versions)」(パッケージのバージョン管理) を参照してください。
 
-このようなバージョンは 2 つの方法で指定できます。
+このようなバージョンは次の 3 つの方法で指定できます。
 
 - `.nuspec` ファイル: `version` 要素にセマンティック バージョン サフィックスを含めます:
 
@@ -30,7 +30,15 @@ ms.locfileid: "58432453"
     <version>1.0.1-alpha</version>
     ```
 
-- アセンブリ属性: Visual Studio プロジェクト (`.csproj` または `.vbproj`) からパッケージをビルドするとき、`AssemblyInformationalVersionAttribute` を使用してバージョンを指定します:
+- `.csproj` ファイル: `PackageVersion` 要素にセマンティック バージョン サフィックスを含めます:
+
+    ```xml
+    <PropertyGroup>
+        <PackageVersion>1.0.1-alpha</PackageVersion>
+    </PropertyGroup>
+    ```
+
+- アセンブリ属性: `AssemblyInformationalVersionAttribute` を使用してバージョンを指定します:
 
     ```cs
     [assembly: AssemblyInformationalVersion("1.0.1-beta")]
