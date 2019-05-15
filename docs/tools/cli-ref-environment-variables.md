@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: ac1bf2b65ab6ec4e8cf864810181fc661236262a
-ms.sourcegitcommit: 6b71926f062ecddb8729ef8567baf67fd269642a
+ms.openlocfilehash: 9f26f75a70a996cad158fd125e86d98e10c3dac1
+ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59931983"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610642"
 ---
 # <a name="nuget-cli-environment-variables"></a>NuGet CLI 環境変数
 
@@ -33,7 +33,7 @@ NuGet CLI では、MSBuild を使用して、プロジェクト ファイルを�
 | NUGET_HTTP_CACHE_PATH | パスを*http キャッシュ*フォルダーの説明に従って[グローバル パッケージとキャッシュ フォルダーの管理](../consume-packages/managing-the-global-packages-and-cache-folders.md)します。 | 絶対パスとして指定します。 |
 | NUGET_PERSIST_DG | 配布グループのファイル (MSBuild から収集されたデータ) を永続化する場合を示すフラグします。 | として指定された*true*または*false* (既定)、NUGET_PERSIST_DG_PATH が設定されていない場合は、一時ディレクトリ (現在の環境の一時ディレクトリの NuGetScratch フォルダー) に格納されます。 |
 | NUGET_PERSIST_DG_PATH | 配布グループのファイルを保持するパス。 | 絶対パスとして指定すると、このオプションは、場合にのみ使用*NUGET_PERSIST_DG*設定が true に設定します。 |
-| NUGET_RESTORE_MSBUILD_ARGS | 追加の MSBuild 引数を設定します。 | |
+| NUGET_RESTORE_MSBUILD_ARGS | 追加の MSBuild 引数を設定します。 | どの msbuild.exe に渡すことと同じ引数を渡します。 値のバーに、コマンドラインから Foo プロジェクトのプロパティを設定する例となります/p:Foo バーを = |
 | NUGET_RESTORE_MSBUILD_VERBOSITY | MSBuild ログの詳細を設定します。 | 既定値は*quiet* ("/v q:")。 使用可能な値*q [uiet]*、 *m [inimal]*、 *n [ormal]*、 *d [etailed]*、および*diag [nostic]* します。 |
 | NUGET_SHOW_STACK | ユーザーに (スタック トレースを含む) 完全な例外を表示するかどうかを判断します。 | として指定された*true*または*false* (既定値)。 |
 | NUGET_XMLDOC_MODE | アセンブリの XML ドキュメント ファイルの抽出を処理する方法を決定します。 | サポートされているモードは*スキップ*(XML ドキュメント ファイルを展開しないでください、)*圧縮*(zip アーカイブとして XML ドキュメント ファイルを保存) または*none* (既定値、正規表現として XML ドキュメント ファイルを扱うファイルの場合)。 |

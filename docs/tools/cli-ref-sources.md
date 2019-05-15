@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 7ef856f783c8e11cdb40edb0d1c1458730d87262
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 94134b87f83e057d5d11a2722d9067fb76cc8e21
+ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548109"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610622"
 ---
 # <a name="sources-command-nuget-cli"></a>ソースのコマンド (NuGet CLI)
 
@@ -26,7 +26,7 @@ ms.locfileid: "43548109"
 nuget sources <operation> -Name <name> -Source <source>
 ```
 
-場所`<operation>`の 1 つです*を一覧表示、追加、削除、有効にする、無効化、* または*更新*、 `<name>` 、ソースの名前を指定および`<source>`はソースの URL です。
+場所`<operation>`の 1 つです*を一覧表示、追加、削除、有効にする、無効化、* または*更新*、 `<name>` 、ソースの名前を指定および`<source>`はソースの URL です。 一度に 1 つのソースを操作できます。
 
 ## <a name="options"></a>オプション
 
@@ -40,7 +40,7 @@ nuget sources <operation> -Name <name> -Source <source>
 | [Password] | ソースと認証のパスワードを指定します。 |
 | StorePasswordInClearText | 暗号化された形式を格納する既定の動作ではなく暗号化されていないテキストでパスワードを保存することを示します。 |
 | UserName | ソースと認証のユーザー名を指定します。 |
-| 詳細度 | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細*します。 |
+| Verbosity | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細*します。 |
 
 > [!Note]
 > 必ず、nuget.exe が後でパッケージ ソースへのアクセスに使用されるため、同じユーザー コンテキストでのソースのパスワードを追加してください。 パスワードは、構成ファイルで暗号化して保存してが暗号化されたために、同じユーザー コンテキストで解除のみできます。 そのため、たとえば使用する場合、ビルド サーバー、ビルド サーバーのタスクを実行する同じ Windows ユーザーがパスワードを暗号化する必要があります NuGet パッケージを復元します。
@@ -54,7 +54,7 @@ nuget sources Add -Name "MyServer" -Source \\myserver\packages
 
 nuget sources Disable -Name "MyServer"
 
-nuget source Enable -Name "nuget.org"
+nuget sources Enable -Name "nuget.org"
 
 nuget sources add -name foo.bar -source C:\NuGet\local -username foo -password bar -StorePasswordInClearText -configfile %AppData%\NuGet\my.config
 ```

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 04/02/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5e48ff19ea5c4908d7eb0a3cb19a31b738e348eb
-ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
+ms.openlocfilehash: 7e719a3bb5069c461820c6f884487af1eb04bf86
+ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58921586"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610657"
 ---
 # <a name="nuget-50-release-notes"></a>NuGet 5.0 のリリース ノート
 
@@ -19,6 +19,7 @@ NuGet 配布の種類:
 | NuGet のバージョン | 利用可能な Visual Studio バージョン| 利用可能な .NET SDK|
 |:---|:---|:---|
 | [**5.0.0**](https://nuget.org/downloads) | [Visual Studio 2019 バージョン 16.0](https://visualstudio.microsoft.com/downloads/) | [2.1.602](https://dotnet.microsoft.com/download/dotnet-core/2.1)<sup>1</sup>, [2.2.202](https://dotnet.microsoft.com/download/dotnet-core/2.2)<sup>2</sup> |
+| [**5.0.2**](https://nuget.org/downloads) | [Visual Studio 2019 バージョン 16.0.4](https://visualstudio.microsoft.com/downloads/) | [2.1.60X](https://dotnet.microsoft.com/download/dotnet-core/2.1)<sup>1</sup>, [2.2.20X](https://dotnet.microsoft.com/download/dotnet-core/2.2)<sup>2</sup> |
 
 <sup>1</sup>.NET Core ワークロードと共に Visual Studio 2019 のインストール 
 
@@ -153,6 +154,13 @@ NuGet 配布の種類:
 * PackageReference (一致する Packages.Config 機能) - の EmbedInteropTypes を有効にする[#2365](https://github.com/NuGet/Home/issues/2365)
 
 **[このリリースでは、5.0 RTM で修正されたすべての問題の一覧](https://github.com/NuGet/Home/milestone/84?closed=1)**
+
+## <a name="summary-whats-new-in-502"></a>概要:新機能については 5.0.2
+
+* セキュリティ (dotnet.exe または mono.exe を使用して実行時) の正しいアクセス許可を持つ、obj フォルダーを作成する必要があります[#7908](https://github.com/NuGet/Home/issues/7908)
+
+* カスタム nuget.config で mono/MacOS で nuget.exe の復元が失敗し、 `PackageSignatureValidity: False` [#8011](https://github.com/NuGet/Home/issues/8011)
+
 
 ## <a name="known-issues"></a>既知の問題
 
