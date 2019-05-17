@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 696f51905198defdbfd475ba7d010ac3e27ac557
-ms.sourcegitcommit: 3fc93f7a64be040699fe12125977dd25a7948470
+ms.openlocfilehash: 845f0ea84bcb92fedf9e5f4fb2b1deee1462a004
+ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64877939"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610498"
 ---
 # <a name="building-pre-release-packages"></a>プレリリース パッケージのビルド
 
@@ -22,15 +22,9 @@ ms.locfileid: "64877939"
 
 ソフトウェア リリース ライフサイクルをサポートするために、NuGet 1.6 以降では、プレリリース パッケージを配信できます。バージョン番号には、`-alpha`、`-beta`、`-rc` のようなセマンティック バージョン管理サフィックスが含まれます。 詳細については、「[Package versioning](../reference/package-versioning.md#pre-release-versions)」(パッケージのバージョン管理) を参照してください。
 
-このようなバージョンは次の 3 つの方法で指定できます。
+次の方法のいずれかを使って、このようなバージョンを指定できます。
 
-- `.nuspec` ファイル: `version` 要素にセマンティック バージョン サフィックスを含めます:
-
-    ```xml
-    <version>1.0.1-alpha</version>
-    ```
-
-- `.csproj` ファイル: `PackageVersion` 要素にセマンティック バージョン サフィックスを含めます:
+- **プロジェクトで [`PackageReference`](../consume-packages/package-references-in-project-files.md) を使う場合**: `.csproj` ファイルの [`PackageVersion`](/dotnet/core/tools/csproj.md#packageversion) 要素にセマンティック バージョン サフィックスを含めます。
 
     ```xml
     <PropertyGroup>
@@ -38,13 +32,11 @@ ms.locfileid: "64877939"
     </PropertyGroup>
     ```
 
-- アセンブリ属性: `AssemblyInformationalVersionAttribute` を使用してバージョンを指定します:
+- **プロジェクトに [`packages.config`](../reference/packages-config.md) ファイルがある場合**: [`.nuspec`](../reference/nuspec.md) ファイルの [`version`](../reference/nuspec.md#version) 要素にセマンティック バージョン サフィックスを含めます。
 
-    ```cs
-    [assembly: AssemblyInformationalVersion("1.0.1-beta")]
+    ```xml
+    <version>1.0.1-alpha</version>
     ```
-
-    NuGet は、セマンティック バージョン管理に対応していない `AssemblyVersion` 属性に指定されている値ではなく、この値を選択します。
 
 安定版バージョンをリリースする用意ができたら、サフィックスを削除します。このパッケージはあらゆるプレリリース版に優先します。 繰り返しになりますが、「[Package versioning](../reference/package-versioning.md#pre-release-versions)」(パッケージのバージョン管理) を参照してください。
 

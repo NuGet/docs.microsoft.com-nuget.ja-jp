@@ -16,12 +16,12 @@ keywords: NuGet シンボル パッケージ, NuGet パッケージ デバッグ
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 43f346dc64ebbc59d02b9c7875b04205d8c5d83a
-ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
+ms.openlocfilehash: 18d54e28d77f2bdcfea70ff9ae9def05278cb26c
+ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56852443"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610563"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>シンボル パッケージ (.snupkg) の作成
 
@@ -54,7 +54,7 @@ dotnet.exe または MSBuild を使用する場合は、次の手順で .nupkg �
 
 1. `dotnet pack MyPackage.csproj` または `msbuild -t:pack MyPackage.csproj` を使用してプロジェクトをパックします。
 
-`SymbolPackageFormat` プロパティには、`symbols.nupkg` (既定値) と `snupkg` の 2 つの値のいずれかを指定できます。 `SymbolPackageFormat` プロパティが指定されていない場合は、既定値である `symbols.nupkg` となり、レガシ シンボル パッケージが作成されます。
+[`SymbolPackageFormat`](/dotnet/core/tools/csproj.md#symbolpackageformat) プロパティには、`symbols.nupkg` (既定値) または `snupkg` の 2 つの値のいずれかを指定できます。 [`SymbolPackageFormat`](/dotnet/core/tools/csproj.md#symbolpackageformat) プロパティが指定されていない場合は、レガシ シンボル パッケージが作成されます。
 
 > [!Note]
 > 従来の形式 `.symbols.nupkg` は引き続きサポートされますが、これは互換性のみを目的としています ([レガシ シンボル パッケージ](Symbol-Packages.md)に関する記事を参照)。 NuGet.org のシンボル サーバーは、新しいシンボル パッケージ形式 `.snupkg` のみを受け入れます。
@@ -80,6 +80,9 @@ dotnet.exe または MSBuild を使用する場合は、次の手順で .nupkg �
     ```
 
 NuGet では、両方のパッケージが nuget.org に公開されます。最初に `MyPackage.nupkg` が、次に `MyPackage.snupkg` が公開されます。
+
+> [!Note]
+> シンボル パッケージが公開されていない場合は、NuGet.org のソースを `https://api.nuget.org/v3/index.json` として構成したことを確認します。 シンボル パッケージの公開は、[NuGet V3 API](../api/overview.md#versioning) によってのみサポートされています。
 
 ## <a name="nugetorg-symbol-server"></a>NuGet.org のシンボル サーバー
 
@@ -118,6 +121,6 @@ nuget.org でサポートされているシンボル パッケージには、次
 4) 作成者が nupkg と snupkg のビルドにカスタムの nuspec を使用した場合、snupkg には 2) で説明したものと同じフォルダ階層とファイルが含まれます。
 5) ```authors``` と ```owners``` のフィールドは snupkg の nuspec から除外されます。
 
-## <a name="see-also"></a>参照
+## <a name="see-also"></a>関連項目
 
 [NuGet パッケージのデバッグとシンボルの改善](https://github.com/NuGet/Home/wiki/NuGet-Package-Debugging-&-Symbols-Improvements)

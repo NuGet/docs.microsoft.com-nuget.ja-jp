@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: db02089bec3d2b8c001518fa0542375dc5418eb8
-ms.sourcegitcommit: c825eb7e222d4a551431643f5b5617ae868ebe0a
+ms.openlocfilehash: f0d9667b752caf7831278ac3fd63cfd67f7d34a4
+ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51944068"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610586"
 ---
 # <a name="creating-nuget-packages"></a>NuGet パッケージの作成
 
@@ -166,7 +166,7 @@ NuGet パッケージは `.nupkg` 拡張子で名前が変更されている ZIP
 この手法の長所は、パッケージに含めるファイルをマニフェストに指定する必要がないことです (このトピックの後半で説明します)。 パッケージに入るまさにそのフォルダー構造をビルド プロセスで生成させることができます。また、その他の方法ではプロジェクトに含まれないことがある他のファイルを簡単に含めることができます。
 
 - ターゲット プロジェクトに挿入する必要があるコンテンツとソース コード。
-- PowerShell スクリプト (NuGet 2.x で使用されるパッケージには、NuGet 3.x 以降ではサポートされていないインストール スクリプトも含めることができます)。
+- Powershell スクリプト
 - プロジェクトの既存の構成とソース コード ファイルへの変換。
 
 フォルダー規則は次のとおりです。
@@ -250,9 +250,9 @@ nuget spec [<package-name>]
 
 **パッケージ識別子のベスト プラクティス:**
 
-- **一意性**: この識別子は、nuget.org 全体で、あるいはパッケージをホストするギャラリー全体で一意になる必要があります。 識別子を決める前に、該当するギャラリーを検索し、その名前が既に使用されていないか確認してください。 競合を避けるために、`Contoso.` のように、識別子の最初の部分に会社の名前を使用することが適しているパターンです。
-- **名前空間のような名前**: .NET の名前空間に似たパターンに従います。ハイフンの代わりにドット表記を使います。 たとえば、`Contoso-Utility-UsefulStuff` や `Contoso_Utility_UsefulStuff` ではなく `Contoso.Utility.UsefulStuff` を使用します。 パッケージ識別子がコードで使用される名前空間と一致すれば、利用者にとっても便利です。
-- **サンプル パッケージ**: 別のパッケージの使用方法を示すサンプル コードのパッケージを生成する場合、`Contoso.Utility.UsefulStuff.Sample` のように、識別子のサフィックスとして `.Sample` を付けます。 (サンプル パッケージは、もちろん、他のパッケージに依存します。)サンプル パッケージを作成するとき、前述のように、規則ベースの作業ディレクトリを使用します。 `content` フォルダーで、`\Samples\Contoso.Utility.UsefulStuff.Sample` のように、`\Samples\<identifier>` という名前のフォルダーにサンプル コードを配置します。
+- **一意性**:この識別子は、nuget.org 全体で、あるいはパッケージをホストするギャラリー全体で一意になる必要があります。 識別子を決める前に、該当するギャラリーを検索し、その名前が既に使用されていないか確認してください。 競合を避けるために、`Contoso.` のように、識別子の最初の部分に会社の名前を使用することが適しているパターンです。
+- **名前空間のような名前**:.NET の名前空間に似たパターンに従います。ハイフンの代わりにドット表記を使います。 たとえば、`Contoso-Utility-UsefulStuff` や `Contoso_Utility_UsefulStuff` ではなく `Contoso.Utility.UsefulStuff` を使用します。 パッケージ識別子がコードで使用される名前空間と一致すれば、利用者にとっても便利です。
+- **サンプル パッケージ**:別のパッケージの使用方法を示すサンプル コードのパッケージを生成する場合、`Contoso.Utility.UsefulStuff.Sample` のように、識別子にサフィックスとして `.Sample` を付けます。 (サンプル パッケージは、もちろん、他のパッケージに依存します。)サンプル パッケージを作成するとき、前述のように、規則ベースの作業ディレクトリを使用します。 `content` フォルダーで、`\Samples\Contoso.Utility.UsefulStuff.Sample` のように、`\Samples\<identifier>` という名前のフォルダーにサンプル コードを配置します。
 
 **パッケージ バージョンのベスト プラクティス:**
 
@@ -261,9 +261,9 @@ nuget spec [<package-name>]
 
 > バージョン管理の理解には、次の一連のブログ投稿が役立ちます。
 >
-> - [Part 1: Taking on DLL Hell](http://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html) (パート 1: DLL 地獄)
-> - [Part 2: The core algorithm](http://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html) (パート 2: コア アルゴリズム)
-> - [Part 3: Unification via Binding Redirects](http://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html) (パート 3: バインド リダイレクトによる統合)
+> - [第 1 部: DLL 地獄](http://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html)
+> - [第 2 部: コア アルゴリズム](http://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html)
+> - [第 3 部:バインド リダイレクトによる統合](http://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)
 
 ## <a name="setting-a-package-type"></a>パッケージの種類の設定
 
@@ -277,7 +277,7 @@ NuGet 3.5+ では、パッケージに特定の*パッケージの種類*の印�
 
 パッケージの種類は `.nuspec` ファイルで設定されます。 下位互換性を維持するには、種類 `Dependency` を明示的に設定*しない*で、NuGet に依存するのが最適な方法です。NuGet は、種類が指定されない場合、この種類を想定します。
 
-- `.nuspec`: `<metadata>` 要素の下の `packageTypes\packageType` ノード内のパッケージの種類を示します。
+- `.nuspec`:`<metadata>` 要素の下の `packageTypes\packageType` ノード内のパッケージの種類を示します。
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -357,7 +357,7 @@ NuGet 3.5+ では、パッケージに特定の*パッケージの種類*の印�
 
 NuGet で `\build` ファイルを使用してパッケージをインストールすると、`.targets` ファイルと `.props` ファイルを指す MSBuild `<Import>` 要素がプロジェクト ファイルに追加されます。 (`.props` はプロジェクト ファイルの一番上に、`.targets` は一番下に追加されます。)別個の条件付き MSBuild `<Import>` 要素が、各ターゲット フレームワークに追加されます。
 
-相互フレームワーク ターゲットの MSBuild `.props` および `.targets` ファイルは、`\buildCrossTargeting` フォルダーに配置できます。 パッケージ インストール時に、NuGet は対応する `<Import>` 要素を条件付きのプロジェクト ファイルに追加します。その際、ターゲット フレームワークは設定されません (MSBuild プロパティ `$(TargetFramework)` は必ず空になっています)。
+相互フレームワーク ターゲットの MSBuild `.props` および `.targets` ファイルは、`\buildMultiTargeting` フォルダーに配置できます。 パッケージ インストール時に、NuGet は対応する `<Import>` 要素を条件付きのプロジェクト ファイルに追加します。その際、ターゲット フレームワークは設定されません (MSBuild プロパティ `$(TargetFramework)` は必ず空になっています)。
 
 NuGet 3.x を使用する場合、ターゲットはプロジェクトに追加されませんが、`project.lock.json` を通じて使用できます。
 
@@ -413,7 +413,7 @@ NuGet では、修正が必要なエラーが `.nuspec` ファイルで見つか
 
 Visual Studio プロジェクトの共通オプションには以下のようなものがあります。
 
-- **参照されるプロジェクト**: プロジェクトが他のプロジェクトを参照する場合、参照されるプロジェクトをパッケージの一部あるいは依存関係として追加できます。`-IncludeReferencedProjects` オプションを使用します。
+- **参照されるプロジェクト**:プロジェクトが他のプロジェクトを参照する場合、参照されるプロジェクトをパッケージの一部あるいは依存関係として追加できます。`-IncludeReferencedProjects` オプションを使用します。
 
     ```cli
     nuget pack MyProject.csproj -IncludeReferencedProjects
@@ -423,7 +423,7 @@ Visual Studio プロジェクトの共通オプションには以下のような
 
     参照されるプロジェクトにそれ自体の `.nuspec` ファイルが含まれる場合、NuGet では、その参照されるプロジェクトが依存関係として追加されます。  そのプロジェクトを個別にパッケージ化し、公開する必要があります。
 
-- **ビルド構成**: 既定では、NuGet では、プロジェクト ファイルに設定されている既定のビルド構成が使用されます。一般的には、*デバッグ*です。 *リリース*など、別のビルド構成からファイルをパッケージ化するには、構成と共に `-properties` オプションを使用します。
+- **ビルド構成**:既定では、NuGet では、プロジェクト ファイルに設定されている既定のビルド構成が使用されます。一般的には、"*デバッグ*" です。 *リリース*など、別のビルド構成からファイルをパッケージ化するには、構成と共に `-properties` オプションを使用します。
 
     ```cli
     nuget pack MyProject.csproj -properties Configuration=Release
