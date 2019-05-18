@@ -99,9 +99,9 @@ PackageReference スタイル (既存の csproj または SDK スタイルのプ
 | [値] | 説明 |
 | --- | ---
 | compile | `lib` フォルダーの内容と、プロジェクトをフォルダー内のアセンブリに対してコンパイルできるかどうかのコントロール |
-| ランタイム | `lib` と `runtimes` フォルダーの内容と、これらのアセンブリがコピーされて出力ディレクトリをビルドするかどうかのコントロール |
+| runtime | `lib` と `runtimes` フォルダーの内容と、これらのアセンブリがコピーされて出力ディレクトリをビルドするかどうかのコントロール |
 | contentFiles | `contentfiles` フォルダーの内容 |
-| ビルド | `build` フォルダーの props と targets |
+| build | `build` フォルダーの props と targets |
 | analyzers | .NET アナライザー |
 | native | `native` フォルダーの内容 |
 | none | 上記のいずれも該当しない。 |
