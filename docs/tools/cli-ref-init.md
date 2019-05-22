@@ -37,7 +37,7 @@ nuget init <source> <destination> [options]
 | Expand | パッケージのソースに追加される各パッケージ内のすべてのファイルを追加します。同じ`-Expand`で、`add`コマンド。 |
 | Help | ヘルプのコマンドの情報を表示します。 |
 | NonInteractive | ユーザー入力や確認のプロンプトを抑制します。 |
-| Verbosity | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細*します。 |
+| Verbosity | 出力に表示される詳細データの量を指定します。*normal*、 *quiet*、*detailed* |
 
 参照してください[環境変数](cli-ref-environment-variables.md)
 
