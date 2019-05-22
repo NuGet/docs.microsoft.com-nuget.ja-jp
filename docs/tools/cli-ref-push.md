@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 4a9460944e2c232e2a72195434a491d26eee3559
-ms.sourcegitcommit: 3fc93f7a64be040699fe12125977dd25a7948470
+ms.openlocfilehash: bce04864224a66019a52cdfff8355f68dc424204
+ms.sourcegitcommit: 69b5eb1494a1745a4b1a7f320a91255d5d8356a9
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64877956"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65975000"
 ---
 # <a name="push-command-nuget-cli"></a>プッシュ コマンド (NuGet CLI)
 
@@ -43,6 +43,7 @@ nuget push <packagePath> [options]
 | NonInteractive | ユーザー入力や確認のプロンプトを抑制します。 |
 | シンボルなし | *(3.5 以降)* シンボル パッケージが存在する場合にプッシュされませんシンボル サーバーにします。 |
 | ソース | サーバー URL を指定します。 NuGet では、UNC またはローカル フォルダーのソースを識別し、単純に HTTP を使用してプッシュではなく、ファイルの存在をコピーします。  また、NuGet 3.4.2 以降、これは、必須パラメーターしない限り、`NuGet.Config`ファイルを指定します、 *DefaultPushSource*値 (を参照してください[NuGet の構成の動作を](../consume-packages/configuring-nuget-behavior.md))。 |
+| SkipDuplicate | パッケージとバージョンが既に存在する場合は、スキップし、存在する場合、次のパッケージのプッシュ、続行します。 |
 | SymbolSource | *(3.5 以降)* シンボル サーバーの URL を指定します nuget.org にプッシュするときに nuget.smbsrc.net が使用されます。 |
 | SymbolApiKey | *(3.5 以降)* で指定された URL の API キーを指定します`-SymbolSource`します。 |
 | Timeout | サーバーにプッシュするための秒単位のタイムアウトを指定します。 既定では 300 秒 (5 分) です。 |
@@ -68,4 +69,7 @@ nuget push foo.nupkg 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a -Source https://api.nu
 nuget push foo.nupkg 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a
 
 nuget push foo.nupkg 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a -src https://customsource/
+
+:: In the example below -SkipDuplicate will skip pushing the package if package "Foo" version "5.0.2" already exists on NuGet.org
+nuget push Foo.5.0.2.nupkg 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a -src https://api.nuget.org/v3/index.json -SkipDuplicate
 ```
