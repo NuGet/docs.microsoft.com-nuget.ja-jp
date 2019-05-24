@@ -33,12 +33,12 @@ nuget list [search terms] [options]
 | AllVersions | パッケージのすべてのバージョンを一覧表示します。 既定では、最新のバージョンのパッケージのみが表示されます。 |
 | ConfigFile | 適用する NuGet 構成ファイル。 指定しない場合、 `%AppData%\NuGet\NuGet.Config` (Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac/linux) を使用します。|
 | ForceEnglishOutput | *(3.5 以降)* インバリアントの英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
-| ヘルプ | ヘルプのコマンドの情報を表示します。 |
+| Help | ヘルプのコマンドの情報を表示します。 |
 | IncludeDelisted | *(3.2 以降)* 一覧から削除されたパッケージが表示されます。 |
 | NonInteractive | ユーザー入力や確認のプロンプトを抑制します。 |
-| プレリリース版 | 一覧には、プレリリース パッケージが含まれています。 |
-| ソース | 検索するパッケージ ソースの一覧を指定します。 |
-| 詳細度 | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細*します。 |
+| PreRelease | 一覧には、プレリリース パッケージが含まれています。 |
+| Source | 検索するパッケージ ソースの一覧を指定します。 |
+| Verbosity | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細*します。 |
 
 参照してください[環境変数](cli-ref-environment-variables.md)
 
