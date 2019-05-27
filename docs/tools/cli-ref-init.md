@@ -7,7 +7,7 @@ ms.date: 01/18/2018
 ms.topic: reference
 ms.openlocfilehash: 4441dc3cc35a96736b51867c196313fc9ccfdac2
 ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 09/04/2018
 ms.locfileid: "43551411"
@@ -37,7 +37,7 @@ nuget init <source> <destination> [options]
 | Expand | パッケージのソースに追加される各パッケージ内のすべてのファイルを追加します。同じ`-Expand`で、`add`コマンド。 |
 | Help | ヘルプのコマンドの情報を表示します。 |
 | NonInteractive | ユーザー入力や確認のプロンプトを抑制します。 |
-| Verbosity | 出力に表示される詳細データの量を指定します。*normal*、 *quiet*、*detailed* |
+| Verbosity | 出力に表示される詳細データの量を指定します:*通常*、 *静か*、*詳細* |
 
 参照してください[環境変数](cli-ref-environment-variables.md)
 

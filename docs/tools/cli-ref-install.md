@@ -7,7 +7,7 @@ ms.date: 01/18/2018
 ms.topic: reference
 ms.openlocfilehash: 8261cdb83af72d9d9379124f4c446c7cd2a50299
 ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 09/04/2018
 ms.locfileid: "43549137"
@@ -47,17 +47,17 @@ nuget install <packageID | configFilePath> [options]
 | ExcludeVersion | パッケージ名のみとバージョン番号ではないという名前のフォルダーにパッケージをインストールします。 |
 | FallbackSource | *(3.2 以降)* プライマリで、パッケージが見つからない場合に、フォールバックとして使用するパッケージ ソースの一覧または既定のソース。 |
 | ForceEnglishOutput | *(3.5 以降)* インバリアントの英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
-| フレームワーク | *(4.4 以降)* ターゲット フレームワークの依存関係を選択するために使用します。 'に指定されていない場合の既定値です。 |
-| ヘルプ | ヘルプのコマンドの情報を表示します。 |
+| Framework | *(4.4 以降)* ターゲット フレームワークの依存関係を選択するために使用します。 'に指定されていない場合の既定値です。 |
+| Help | ヘルプのコマンドの情報を表示します。 |
 | NoCache | NuGet がキャッシュされたパッケージを使用するを防ぎます。 参照してください[グローバル パッケージとキャッシュ フォルダーの管理](../consume-packages/managing-the-global-packages-and-cache-folders.md)します。 |
 | NonInteractive | ユーザー入力や確認のプロンプトを抑制します。 |
 | OutputDirectory | パッケージがインストールされているフォルダーを指定します。 フォルダーが指定されていない場合は、現在のフォルダーが使用されます。 |
 | PackageSaveMode | パッケージのインストール後に保存するファイルの種類を指定します: のいずれかの`nuspec`、 `nupkg`、または`nuspec;nupkg`します。 |
-| プレリリース版 | インストールするプレリリース パッケージを使用できます。 このフラグを使用してパッケージを復元するときに必要ありません`packages.config`します。 |
+| PreRelease | インストールするプレリリース パッケージを使用できます。 このフラグを使用してパッケージを復元するときに必要ありません`packages.config`します。 |
 | RequireConsent | ダウンロードして、パッケージをインストールする前にパッケージの復元が有効になっていることを確認します。 詳細については、[パッケージの復元](../consume-packages/package-restore.md)を参照してください。 |
 | SolutionDirectory | パッケージを復元する対象のソリューションのルート フォルダーを指定します。 |
-| ソース | パッケージ ソースの一覧を使用する (Url) として指定します。 コマンドを省略すると、構成ファイルで提供されるソースを使用して、参照してください[NuGet の構成の動作を](../consume-packages/configuring-nuget-behavior.md)します。 |
-| 詳細度 | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細*します。 |
+| Source | パッケージ ソースの一覧を使用する (Url) として指定します。 コマンドを省略すると、構成ファイルで提供されるソースを使用して、参照してください[NuGet の構成の動作を](../consume-packages/configuring-nuget-behavior.md)します。 |
+| Verbosity | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細*します。 |
 | Version | インストールするパッケージのバージョンを指定します。 |
 
 参照してください[環境変数](cli-ref-environment-variables.md)
