@@ -41,8 +41,8 @@ nuget push <packagePath> [options]
 | ForceEnglishOutput | *(3.5 以降)* インバリアントの英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
 | Help | ヘルプのコマンドの情報を表示します。 |
 | NonInteractive | ユーザー入力や確認のプロンプトを抑制します。 |
-| シンボルなし | *(3.5 以降)* シンボル パッケージが存在する場合にプッシュされませんシンボル サーバーにします。 |
-| ソース | サーバー URL を指定します。 NuGet では、UNC またはローカル フォルダーのソースを識別し、単純に HTTP を使用してプッシュではなく、ファイルの存在をコピーします。  また、NuGet 3.4.2 以降、これは、必須パラメーターしない限り、`NuGet.Config`ファイルを指定します、 *DefaultPushSource*値 (を参照してください[NuGet の構成の動作を](../consume-packages/configuring-nuget-behavior.md))。 |
+| NoSymbols | *(3.5 以降)* シンボル パッケージが存在する場合にプッシュされませんシンボル サーバーにします。 |
+| Source | サーバー URL を指定します。 NuGet では、UNC またはローカル フォルダーのソースを識別し、単純に HTTP を使用してプッシュではなく、ファイルの存在をコピーします。  また、NuGet 3.4.2 以降、これは、必須パラメーターしない限り、`NuGet.Config`ファイルを指定します、 *DefaultPushSource*値 (を参照してください[NuGet の構成の動作を](../consume-packages/configuring-nuget-behavior.md))。 |
 | SkipDuplicate | パッケージとバージョンが既に存在する場合は、スキップし、存在する場合、次のパッケージのプッシュ、続行します。 |
 | SymbolSource | *(3.5 以降)* シンボル サーバーの URL を指定します nuget.org にプッシュするときに nuget.smbsrc.net が使用されます。 |
 | SymbolApiKey | *(3.5 以降)* で指定された URL の API キーを指定します`-SymbolSource`します。 |
