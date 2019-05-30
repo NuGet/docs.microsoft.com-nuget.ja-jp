@@ -1,4 +1,15 @@
+---
+ms.openlocfilehash: 1f65939493cf423a76c024607264acee6c7e9050
+ms.sourcegitcommit: ef08f376688f0191a8d3d873b6a4386afd799373
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66271548"
+---
 #### <a name="windows"></a>Windows
+
+> [!Note]
+> NuGet.exe 5.0 以降には、実行するために .NET Framework 4.7.2 以降が必要です。
 
 1. [nuget.org/downloads](https://nuget.org/downloads) にアクセスして、NuGet 3.3 以降を選択します (2.8.6 は Mono と互換性がありません)。 常に最新バージョンが推奨され、パッケージを nuget.org に公開するには 4.1.0 以降が必要です。
 1. 各ダウンロードは、直接 `nuget.exe` ファイルです。 ブラウザーで任意のフォルダーにファイルを保存します。 ファイルがインストーラーで*ない*場合、ブラウザーから直接実行しても何も表示されません。
