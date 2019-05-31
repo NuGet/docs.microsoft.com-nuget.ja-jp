@@ -44,13 +44,13 @@ nuget restore <projectPath> [options]
 | NonInteractive | ユーザー入力や確認のプロンプトを抑制します。 |
 | OutputDirectory | パッケージがインストールされているフォルダーを指定します。 フォルダーが指定されていない場合は、現在のフォルダーが使用されます。 復元するときに必要な`packages.config`ファイル`PackagesDirectory`または`SolutionDirectory`使用されます。|
 | PackageSaveMode | パッケージのインストール後に保存するファイルの種類を指定します: のいずれかの`nuspec`、 `nupkg`、または`nuspec;nupkg`します。 |
-| パッケージファイル | `OutputDirectory` と同じ。 復元するときに必要な`packages.config`ファイル`OutputDirectory`または`SolutionDirectory`使用されます。 |
+| PackagesDirectory | `OutputDirectory` と同じ。 復元するときに必要な`packages.config`ファイル`OutputDirectory`または`SolutionDirectory`使用されます。 |
 | Project2ProjectTimeOut | タイムアウト (秒) プロジェクト間参照を解決します。 |
-| 再帰 | *(4.0 以降)* UWP と .NET Core プロジェクトのすべての参照プロジェクトを復元します。 使用してプロジェクトには適用されません`packages.config`します。 |
+| Recursive | *(4.0 以降)* UWP と .NET Core プロジェクトのすべての参照プロジェクトを復元します。 使用してプロジェクトには適用されません`packages.config`します。 |
 | RequireConsent | ダウンロードして、パッケージをインストールする前にパッケージの復元が有効になっていることを確認します。 詳細については、次を参照してください。[パッケージの復元](../consume-packages/package-restore.md)します。 |
 | SolutionDirectory | ソリューション フォルダーを指定します。 ソリューションのパッケージを復元するときに無効です。 復元するときに必要な`packages.config`ファイル`PackagesDirectory`または`OutputDirectory`使用されます。 |
-| ソース | (Url) として、復元に使用するパッケージ ソースの一覧を指定します。 コマンドを省略すると、構成ファイルで提供されるソースを使用して、参照してください[NuGet の構成の動作を](../consume-packages/configuring-nuget-behavior.md)します。 |
-| 詳細度 |> の出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細*します。 |
+| Source | (Url) として、復元に使用するパッケージ ソースの一覧を指定します。 コマンドを省略すると、構成ファイルで提供されるソースを使用して、参照してください[NuGet の構成の動作を](../consume-packages/configuring-nuget-behavior.md)します。 |
+| Verbosity |> の出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細*します。 |
 
 参照してください[環境変数](cli-ref-environment-variables.md)
 
