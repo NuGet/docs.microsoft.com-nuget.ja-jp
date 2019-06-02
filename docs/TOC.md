@@ -45,7 +45,7 @@
 ### [help or ?](tools/cli-ref-help.md)
 ### [init](tools/cli-ref-init.md)
 ### [install](tools/cli-ref-install.md)
-### [リスト](tools/cli-ref-list.md)
+### [list](tools/cli-ref-list.md)
 ### [locals](tools/cli-ref-locals.md)
 ### [mirror](tools/cli-ref-mirror.md)
 ### [pack](tools/cli-ref-pack.md)
