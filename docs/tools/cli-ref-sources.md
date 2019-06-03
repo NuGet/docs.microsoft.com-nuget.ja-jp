@@ -1,6 +1,6 @@
 ---
-title: NuGet CLI コマンドをソースします。
-description: ソースのコマンドを nuget.exe への参照
+title: source コマンド (NuGet CLI)
+description: Nuget.exe の source コマンドリファレンス
 author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
@@ -12,7 +12,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 05/14/2019
 ms.locfileid: "65610622"
 ---
-# <a name="sources-command-nuget-cli"></a>ソースのコマンド (NuGet CLI)
+# <a name="sources-command-nuget-cli"></a>source コマンド (NuGet CLI)
 
 **適用対象:** パッケージの使用、公開&bullet;**サポートされているバージョン:** すべて
 
