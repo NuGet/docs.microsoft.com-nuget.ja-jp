@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: db968189e892723c8fd080cb01a7222696c9d3f3
-ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
+ms.openlocfilehash: 963d1d59ea7e65e3d75bc7105b8864e3e4045938
+ms.sourcegitcommit: ef08f376688f0191a8d3d873b6a4386afd799373
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610566"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266337"
 ---
 # <a name="configuring-nuget-behavior"></a>NuGet の動作を構成する
 
@@ -20,13 +20,13 @@ NuGet の動作は、1 つ以上の `NuGet.Config` (XML) ファイルの設定�
 
 | スコープ | NuGet.Config ファイルの場所 | 説明 |
 | --- | --- | --- |
-| Project | 現在のフォルダー (プロジェクト フォルダーとも呼ばれる) またはドライブのルートまでの任意のフォルダー。| プロジェクト フォルダーにある場合は、設定はそのプロジェクトのみに適用されます。 複数のプロジェクト サブフォルダーを含む親フォルダーにある場合は、設定はそれらのサブフォルダーのすべてのプロジェクトに適用されます。 |
+| ソリューション | 現在のフォルダー (ソリューション フォルダーとも呼ばれる) またはドライブのルートまでの任意のフォルダー。| ソリューション フォルダーでは、設定はサブフォルダー内のすべてのプロジェクトに適用されます。 構成ファイルをプロジェクト フォルダーに置いた場合、そのプロジェクトには影響しないことに注意してください。 |
 | ユーザー | Windows: `%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.config/NuGet/NuGet.Config` または `~/.nuget/NuGet/NuGet.Config` (OS のディストリビューションによって異なります) | 設定はすべての操作に適用されますが、プロジェクト レベルの設定によってオーバーライドされます。 |
 | コンピューター | Windows: `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux: `$XDG_DATA_HOME`。 `$XDG_DATA_HOME` が null または空の場合は、`~/.local/share` または `/usr/local/share` が使用されます (OS 配布によって異なります)  | 設定はそのコンピューターでのすべての操作に適用されますが、ユーザー レベルまたはプロジェクト レベルの設定によってオーバーライドされます。 |
 
 以前のバージョンの NuGet に関する注意事項:
 - NuGet 3.3 以前では、ソリューション全体の設定用に `.nuget` フォルダーが使われていました。 このファイルは、NuGet 3.4 以降では使用されません。
-- NuGet 2.6 から 3.x では、Windows でのコンピューター レベルの構成ファイルは %ProgramData%\NuGet\Config[\\{IDE}[\\{Version}[\\{SKU}]]]\NuGet.Config にありました。*{IDE}* には *VisualStudio* を使用でき、*{Version}* は Visual Studio のバージョン (*14.0* など)、*{SKU}* は *Community*、*Pro*、または *Enterprise* です。 設定を NuGet 4.0 以降に移行するには、単に構成ファイルを %ProgramFiles(x86)%\NuGet\Config にコピーします。Linux の以前の場所は /etc/opt、Mac の以前の場所は /Library/Application Support でした。
+- NuGet 2.6 から 3.x では、Windows でのコンピューター レベルの構成ファイルは %ProgramData%\NuGet\Config[\\{IDE}[\\{Version}[\\{SKU}]]]\NuGet.Config にありました。 *{IDE}* には *VisualStudio* を使用でき、 *{Version}* は Visual Studio のバージョン (*14.0* など)、 *{SKU}* は *Community*、*Pro*、または *Enterprise* です。 設定を NuGet 4.0 以降に移行するには、単に構成ファイルを %ProgramFiles(x86)%\NuGet\Config にコピーします。Linux の以前の場所は /etc/opt、Mac の以前の場所は /Library/Application Support でした。
 
 ## <a name="changing-config-settings"></a>構成設定の変更
 
@@ -129,7 +129,7 @@ NuGet はこれらのファイルで設定を探すので、適用は次のよ�
          Source
        tmp
 
-その場合、次の場所にそれぞれ指定された内容の `NuGet.Config` ファイルが 4 つ存在します  (コンピューター レベルのファイルはこの例には含まれませんが、ユーザー レベルのファイルと同じように動作します)。
+その場合、次の場所にそれぞれ指定された内容の `NuGet.Config` ファイルが 4 つ存在します (コンピューター レベルのファイルはこの例には含まれませんが、ユーザー レベルのファイルと同じように動作します)。
 
 ファイル A. ユーザーレベルのファイル (Windows では `%appdata%\NuGet\NuGet.Config`、Mac/Linux では `~/.config/NuGet/NuGet.Config`):
 
