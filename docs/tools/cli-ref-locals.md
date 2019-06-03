@@ -33,10 +33,10 @@ nuget locals <folder> [options]
 | Clear | 指定したフォルダーをクリアします。 |
 | ConfigFile | 適用する NuGet 構成ファイル。 指定しない場合、 `%AppData%\NuGet\NuGet.Config` (Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac/linux) を使用します。|
 | ForceEnglishOutput | *(3.5 以降)* インバリアントの英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
-| ヘルプ | ヘルプのコマンドの情報を表示します。 |
-| リスト | 指定したフォルダーの場所またはを使用すると、すべてのフォルダーの場所を一覧表示*すべて*します。 |
+| Help | ヘルプのコマンドの情報を表示します。 |
+| List | 指定したフォルダーの場所またはを使用すると、すべてのフォルダーの場所を一覧表示*すべて*します。 |
 | NonInteractive | ユーザー入力や確認のプロンプトを抑制します。 |
-| 詳細度 | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細*します。 |
+| Verbosity | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細*します。 |
 
 参照してください[環境変数](cli-ref-environment-variables.md)
 
