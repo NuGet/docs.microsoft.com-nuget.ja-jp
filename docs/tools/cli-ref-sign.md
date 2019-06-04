@@ -1,5 +1,5 @@
 ---
-title: 記号の NuGet CLI コマンド
+title: sign コマンド (NuGet CLI)
 description: Nuget.exe のサインオン コマンドのリファレンス
 author: dtivel
 ms.author: dtivel
