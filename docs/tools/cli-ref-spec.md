@@ -33,9 +33,9 @@ nuget spec [<packageID>] [options]
 | AssemblyPath | メタデータに使用するアセンブリへのパスを指定します。 |
 | Force | 既存のすべての上書き`.nuspec`ファイル。 |
 | ForceEnglishOutput | *(3.5 以降)* インバリアントの英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
-| ヘルプ | ヘルプのコマンドの情報を表示します。 |
+| Help | ヘルプのコマンドの情報を表示します。 |
 | NonInteractive | ユーザー入力や確認のプロンプトを抑制します。 |
-| 詳細度 | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細*します。 |
+| Verbosity | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細*します。 |
 
 参照してください[環境変数](cli-ref-environment-variables.md)
 
