@@ -12,7 +12,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 09/04/2018
 ms.locfileid: "43546479"
 ---
-# <a name="config-command-nuget-cli"></a>構成コマンド (NuGet CLI)
+# <a name="config-command-nuget-cli"></a>configコマンド (NuGet CLI)
 
 **適用対象:** すべて&bullet;**サポートされているバージョン**: すべて
 
