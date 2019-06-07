@@ -42,13 +42,13 @@ nuget sign <package(s)> [options]
 | ConfigFile | 適用する NuGet 構成ファイル。 指定しない場合、 `%AppData%\NuGet\NuGet.Config` (Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac/linux) を使用します。|
 | ForceEnglishOutput | インバリアントの英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
 | HashAlgorithm | パッケージの署名に使用するハッシュ アルゴリズム。 既定値は SHA256 です。 |
-| ヘルプ | ヘルプのコマンドの情報を表示します。 |
+| Help | ヘルプのコマンドの情報を表示します。 |
 | NonInteractive | ユーザー入力や確認のプロンプトを抑制します。 |
 | OutputDirectory | 署名付きパッケージを保存するディレクトリを指定します。 既定では、元のパッケージは署名付きパッケージによって上書きされます。 |
-| 上書き | スイッチを示すかどうかは、現在の署名を上書きする必要があります。 既定では、パッケージが既に署名する場合に、コマンドが失敗します。 |
+| NonInteractive | スイッチを示すかどうかは、現在の署名を上書きする必要があります。 既定では、パッケージが既に署名する場合に、コマンドが失敗します。 |
 | Timestamper | RFC 3161 タイム スタンプ サーバーの URL。 |
 | TimestampHashAlgorithm | RFC 3161 タイム スタンプ サーバーで使用されるハッシュ アルゴリズム。 既定値は SHA256 です。 |
-| 詳細度 | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細*します。 |
+| Verbosity | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細*します。 |
 
 ## <a name="examples"></a>使用例
 
