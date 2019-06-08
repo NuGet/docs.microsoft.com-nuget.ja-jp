@@ -12,7 +12,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 09/04/2018
 ms.locfileid: "43549802"
 ---
-# <a name="list-command-nuget-cli"></a>(NuGet CLI) の一覧表示コマンド
+# <a name="list-command-nuget-cli"></a>list コマンド(NuGet CLI)
 
 **適用対象:** パッケージの使用、公開&bullet;**サポートされているバージョン:** すべて
 
