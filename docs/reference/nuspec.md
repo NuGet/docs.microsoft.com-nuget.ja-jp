@@ -3,15 +3,15 @@ title: NuGet の .nuspec ファイル リファレンス
 description: .nuspec ファイルには、パッケージを作成するとき、およびパッケージのコンシューマーに情報を提供するために使われる、パッケージのメタデータが含まれています。
 author: karann-msft
 ms.author: karann
-ms.date: 08/29/2017
+ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: ebb1dd929042a1fcd269d0ac50154ae6b8234be2
-ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
+ms.openlocfilehash: 6c545ddeddb0c5909f57e879912eaeed744e42d5
+ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59509102"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812933"
 ---
 # <a name="nuspec-reference"></a>.nuspec リファレンス
 
@@ -27,6 +27,16 @@ ms.locfileid: "59509102"
 - [アセンブリ ファイルを含める](#including-assembly-files)
 - [コンテンツ ファイルを含める](#including-content-files)
 - [Nuspec ファイルの例](#example-nuspec-files)
+
+## <a name="project-type-compatibility"></a>プロジェクトの型の互換性
+
+- 使用して、`.nuspec`で`nuget.exe pack`の非 SDK スタイル プロジェクトを使用して`packages.config`します。
+
+- A`.nuspec`ファイルが SDK スタイル プロジェクトのパッケージを作成する必要はありません (.NET Core と .NET Standard プロジェクトを使用して、 [SDK 属性](/dotnet/core/tools/csproj#additions))。 (なお、`.nuspec`パッケージを作成する場合に生成されます)。
+
+   使用してパッケージを作成する場合は`dotnet.exe pack`または`msbuild pack target`、ことをお勧めする[すべてのプロパティを含める](../reference/msbuild-targets.md#pack-target)通常含まれて、`.nuspec`プロジェクト ファイル内のファイルを代わりにします。 ただし、代わりにできます[を使用して、`.nuspec`パックを使用してファイル`dotnet.exe`または`msbuild pack target`](../reference/msbuild-targets.md#packing-using-a-nuspec)します。
+
+- 移行されたプロジェクト`packages.config`に[PackageReference](../consume-packages/package-references-in-project-files.md)、`.nuspec`ファイルがパッケージを作成する必要はありません。 代わりに、 [msbuild パック](../reference/migrate-packages-config-to-package-reference.md#create-a-package-after-migration)します。
 
 ## <a name="general-form-and-schema"></a>一般的な形式とスキーマ
 
@@ -51,7 +61,7 @@ ms.locfileid: "59509102"
 </package>
 ```
 
-スキーマの視覚的な表現をはっきり表示したい場合は、Visual Studio のデザイン モードでスキーマ ファイルを開き、**[XML スキーマ エクスプローラー]** リンクをクリックします。 または、コードとしてファイルを開き、エディター内を右クリックして、**[XML スキーマ エクスプローラーで表示]** を選びます。 どちらの方法でも次のように表示されます (ほとんどを展開した場合)。
+スキーマの視覚的な表現をはっきり表示したい場合は、Visual Studio のデザイン モードでスキーマ ファイルを開き、 **[XML スキーマ エクスプローラー]** リンクをクリックします。 または、コードとしてファイルを開き、エディター内を右クリックして、 **[XML スキーマ エクスプローラーで表示]** を選びます。 どちらの方法でも次のように表示されます (ほとんどを展開した場合)。
 
 ![Visual Studio のスキーマ エクスプローラーで開いた nuspec.xsd](media/SchemaExplorer.png)
 
@@ -90,7 +100,7 @@ UI 画面用のパッケージの長い説明。
 
 複合のライセンスを使用して、指定するには、パッケージは、複数の一般的なライセンス下でライセンスが場合、 [SPDX 式構文のバージョン 2.0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60)します。<br>例: `<license type="expression">BSD-2-Clause OR MIT</license>`
 
-SPDX 識別子が割り当てられていないライセンスを使用している、またはカスタムのライセンスは、ファイルをパッケージ化することができます (だけ`.txt`または`.md`) ライセンスのテキストを使用します。 例えば:
+SPDX 識別子が割り当てられていないライセンスを使用している、またはカスタムのライセンスは、ファイルをパッケージ化することができます (だけ`.txt`または`.md`) ライセンスのテキストを使用します。 例:
 ```xml
 <package>
   <metadata>
@@ -145,7 +155,7 @@ UI 画面用のパッケージの短い説明。 省略すると、`description`
 #### <a name="serviceable"></a>処理できます。 
 *(3.3 以降)* NuGet 内部でのみ使われます。
 #### <a name="repository"></a>リポジトリ
-4 つの省略可能な属性で構成される、リポジトリ メタデータ:*型*と*url* *(4.0 以降)*、および*ブランチ*と*コミット* *(4.6 以降)* します。 これらの属性を取得する可能性がありますが、組み込まれているリポジトリへの .nupkg をマップできます。 個々 の分岐またはパッケージの構築コミットとして説明されています。 バージョン管理のソフトウェアを直接呼び出すことができる公開されている url があります。 これは、コンピューターのように html ページをことがいません。 プロジェクトのページへのリンクを使用して、`projectUrl`フィールドに、代わりにします。
+4 つの省略可能な属性で構成される、リポジトリ メタデータ:*型*と*url* *(4.0 以降)* 、および*ブランチ*と*コミット* *(4.6 以降)* します。 これらの属性を取得する可能性がありますが、組み込まれているリポジトリへの .nupkg をマップできます。 個々 の分岐またはパッケージの構築コミットとして説明されています。 バージョン管理のソフトウェアを直接呼び出すことができる公開されている url があります。 これは、コンピューターのように html ページをことがいません。 プロジェクトのページへのリンクを使用して、`projectUrl`フィールドに、代わりにします。
 
 #### <a name="minclientversion"></a>minClientVersion
 nuget.exe および Visual Studio パッケージ マネージャーで強制する、このパッケージをインストールできる NuGet クライアントの最小バージョンを指定します。 これは、NuGet クライアントの特定のバージョンで追加された `.nuspec` ファイルの特定の機能にパッケージが依存しているときに、常に使われます。 たとえば、`developmentDependency` 属性を使っているパッケージでは、`minClientVersion` に "2.8" を指定する必要があります。 同様に、`contentFiles` 要素 (次のセクションを参照) を使っているパッケージでは、`minClientVersion` を "3.3" に設定する必要があります。 また、バージョン 2.5 より前の NuGet クライアントはこのフラグを認識しないので、`minClientVersion` の値が何であっても、"*常に*" パッケージをインストールしないことにも注意してください。
@@ -188,7 +198,7 @@ nuget pack MyProject.csproj
 
 例外である `$configuration$` を除き、コマンド ラインの同じトークンに割り当てられている値より、プロジェクトの値の方が優先的に使われます。
 
-| トークン | 値のソース | [値]
+| トークン | 値のソース | 値
 | --- | --- | ---
 | **$id$** | プロジェクト ファイル | プロジェクト ファイルの AssemblyName (タイトル) |
 | **$version$** | AssemblyInfo | ある場合は AssemblyInformationalVersion、ない場合は AssemblyVersion |
@@ -230,7 +240,7 @@ nuget pack MyProject.csproj
 | contentFiles | Content |
 | ランタイム | Runtime、Resources、FrameworkAssemblies |
 | compile | lib |
-| ビルド | build (MSBuild のプロパティとターゲット) |
+| build | build (MSBuild のプロパティとターゲット) |
 | native | native |
 | none | フォルダーなし |
 | all | すべてのフォルダー |
@@ -626,23 +636,29 @@ NuGet 2.x 以前および `packages.config` を使っているプロジェクト
 #### <a name="example-contentfiles-section"></a>contentFiles セクションの例
 
 ```xml
-<contentFiles>
-    <!-- Embed image resources -->
-    <files include="any/any/images/dnf.png" buildAction="EmbeddedResource" />
-    <files include="any/any/images/ui.png" buildAction="EmbeddedResource" />
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        ...
+        <contentFiles>
+            <!-- Embed image resources -->
+            <files include="any/any/images/dnf.png" buildAction="EmbeddedResource" />
+            <files include="any/any/images/ui.png" buildAction="EmbeddedResource" />
 
-    <!-- Embed all image resources under contentFiles/cs/ -->
-    <files include="cs/**/*.png" buildAction="EmbeddedResource" />
+            <!-- Embed all image resources under contentFiles/cs/ -->
+            <files include="cs/**/*.png" buildAction="EmbeddedResource" />
 
-    <!-- Copy config.xml to the root of the output folder -->
-    <files include="cs/uap/config/config.xml" buildAction="None" copyToOutput="true" flatten="true" />
+            <!-- Copy config.xml to the root of the output folder -->
+            <files include="cs/uap/config/config.xml" buildAction="None" copyToOutput="true" flatten="true" />
 
-    <!-- Copy run.cmd to the output folder and keep the directory structure -->
-    <files include="cs/commands/run.cmd" buildAction="None" copyToOutput="true" flatten="false" />
+            <!-- Copy run.cmd to the output folder and keep the directory structure -->
+            <files include="cs/commands/run.cmd" buildAction="None" copyToOutput="true" flatten="false" />
 
-    <!-- Include everything in the scripts folder except exe files -->
-    <files include="cs/net45/scripts/*" exclude="**/*.exe"  buildAction="None" copyToOutput="true" />
-</contentFiles>
+            <!-- Include everything in the scripts folder except exe files -->
+            <files include="cs/net45/scripts/*" exclude="**/*.exe"  buildAction="None" copyToOutput="true" />
+        </contentFiles>
+        </metadata>
+</package>
 ```
 
 ## <a name="example-nuspec-files"></a>Nuspec ファイルの例

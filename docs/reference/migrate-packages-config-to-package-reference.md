@@ -3,14 +3,14 @@ title: Package.config から PackageReference 形式への移行
 description: NuGet 4.0 + と VS2017 および .NET Core 2.0 でサポートされている PackageReference に package.config 管理形式からプロジェクトを移行する方法の詳細について
 author: karann-msft
 ms.author: karann
-ms.date: 03/27/2018
+ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 05a82e48c7083a19c50a05fa1df74ebfff8030d1
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 09d132aeaf00d2a1d095b9638b455cc23de91f2c
+ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546687"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812878"
 ---
 # <a name="migrate-from-packagesconfig-to-packagereference"></a>Packages.config から PackageReference に移行します。
 
@@ -18,17 +18,17 @@ ms.locfileid: "43546687"
 
 ## <a name="benefits-of-using-packagereference"></a>PackageReference を使用する利点
 
-* **1 か所ですべてのプロジェクトの依存関係を管理**: プロジェクト間参照とアセンブリの参照では、同様の NuGet パッケージの参照 (を使用して、`PackageReference`ノード) を別々 のではなく、プロジェクト ファイル内で直接管理されますpackages.config ファイル。
-* **最上位レベルの依存関係の表示をすっきり**: PackageReference、packages.config とは異なり、プロジェクトに直接インストールする NuGet パッケージのみを一覧表示します。 その結果、NuGet パッケージ マネージャー UI とプロジェクト ファイルは、下位レベルの依存関係を持つ乱雑はありません。
-* **パフォーマンスの向上**: PackageReference を使用して、パッケージが管理で、*グローバル パッケージ*フォルダー (上の説明に従って[グローバル パッケージとキャッシュ フォルダーの管理](../consume-packages/managing-the-global-packages-and-cache-folders.md)なく、`packages`ソリューション内のフォルダー。 その結果、PackageReference は高速に実行し、少ないディスク領域を使用します。
-* **依存関係とコンテンツのフロー制御を細かく**: MSBuild の既存の機能を使用することにより[条件付きで NuGet パッケージを参照](../consume-packages/Package-References-in-Project-Files.md#adding-a-packagereference-condition)ターゲット フレームワークごとにパッケージ参照を選択し、構成では、プラットフォーム、またはその他のピボットします。
-* **PackageReference は開発**: を参照してください[PackageReference の GitHub 問題](https://aka.ms/nuget-pr-improvements)します。 packages.config は、アクティブな開発ではなくなりました。
+* **1 か所ですべてのプロジェクトの依存関係を管理**:プロジェクト間参照とアセンブリの参照では、同様の NuGet パッケージの参照 (を使用して、`PackageReference`ノード)、別個の packages.config ファイルを使用するのではなく、プロジェクト ファイル内で直接管理されます。
+* **最上位レベルの依存関係の表示をすっきり**:Packages.config とは異なり PackageReference には、直接プロジェクトにインストールされている NuGet パッケージのみが一覧表示します。 その結果、NuGet パッケージ マネージャー UI とプロジェクト ファイルは、下位レベルの依存関係を持つ乱雑はありません。
+* **パフォーマンスの向上**:パッケージを管理する PackageReference を使用する場合、*グローバル パッケージ*フォルダー (上の説明に従って[グローバル パッケージとキャッシュ フォルダーの管理](../consume-packages/managing-the-global-packages-and-cache-folders.md)なく、`packages`フォルダー内で、ソリューションです。 その結果、PackageReference は高速に実行し、少ないディスク領域を使用します。
+* **依存関係とコンテンツのフロー制御を細かく**:MSBuild の既存の機能を使用することにより[条件付きで NuGet パッケージを参照](../consume-packages/Package-References-in-Project-Files.md#adding-a-packagereference-condition)ターゲット フレームワーク、構成、プラットフォーム、またはその他のピボットごとにパッケージ参照を選択します。
+* **PackageReference は開発**:参照してください[PackageReference の GitHub 問題](https://aka.ms/nuget-pr-improvements)します。 packages.config は、アクティブな開発ではなくなりました。
 
 ### <a name="limitations"></a>制限事項
 
 * NuGet PackageReference は Visual Studio 2015 で使用でき、以前ではありません。 移行されたプロジェクトは、Visual Studio 2017 でのみ開くことができます。
 * 移行は、C++、ASP.NET プロジェクトを現在ご利用いただけません。
-* いくつかのパッケージは、PackageReference と完全に互換性がない可能性があります。 詳細については、[互換性の問題をパッケージ化](#package-compatibility-issues)を参照してください。
+* いくつかのパッケージは、PackageReference と完全に互換性がない可能性があります。 詳細については、次を参照してください。[互換性の問題をパッケージ化](#package-compatibility-issues)します。
 
 ### <a name="known-issues"></a>既知の問題
 
@@ -55,7 +55,7 @@ ms.locfileid: "43546687"
 
 1. 使用してプロジェクトを含むソリューションを開く`packages.config`します。
 
-1. **ソリューション エクスプ ローラー**を右クリックし、**参照**ノードまたは`packages.config`ファイルおよび選択**packages.config の PackageReference に移行しています.**.
+1. **ソリューション エクスプ ローラー**を右クリックし、**参照**ノードまたは`packages.config`ファイルおよび選択**packages.config の PackageReference に移行しています.** .
 
 1. Migrator は、プロジェクトの NuGet パッケージ参照を分析し、分類にしようとしています**最上位レベルの依存関係**(直接インストールされている NuGet パッケージ) および**推移的依存関係**。(最上位のパッケージの依存関係としてインストールされたパッケージ)。
 
@@ -87,6 +87,10 @@ ms.locfileid: "43546687"
    ```ps
    update-package -reinstall
    ```
+
+## <a name="create-a-package-after-migration"></a>移行後にパッケージを作成します。
+
+参照を追加することをお勧め、移行が完了すると、 [nuget.build.tasks.pack](https://www.nuget.org/packages/nuget.build.tasks.pack) nuget パッケージ化、および使用して[msbuild パック](../reference/msbuild-targets.md#pack-target)パッケージを作成します。 一部のシナリオで使用できますが`dotnet.exe pack`の代わりに`msbuild pack`をお勧めしません。
 
 ## <a name="package-compatibility-issues"></a>パッケージの互換性の問題
 
