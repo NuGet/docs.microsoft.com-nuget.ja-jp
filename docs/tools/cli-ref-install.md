@@ -1,5 +1,5 @@
 ---
-title: NuGet CLI のインストール コマンド
+title: NuGet CLI install コマンド
 description: Nuget.exe install コマンドのリファレンス
 author: karann-msft
 ms.author: karann
@@ -12,7 +12,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 09/04/2018
 ms.locfileid: "43549137"
 ---
-# <a name="install-command-nuget-cli"></a>Install コマンド (NuGet CLI)
+# <a name="install-command-nuget-cli"></a>install コマンド (NuGet CLI)
 
 **適用対象:** 消費をパッケージ化&bullet;**サポートされているバージョン:** すべて
 
