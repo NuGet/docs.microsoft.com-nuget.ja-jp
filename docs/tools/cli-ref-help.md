@@ -12,7 +12,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 09/04/2018
 ms.locfileid: "43546564"
 ---
-# <a name="help-or--command-nuget-cli"></a>help or ? (NuGet CLI) コマンド
+# <a name="help-or--command-nuget-cli"></a>help or ? コマンド (NuGet CLI)
 
 **適用対象:** すべて&bullet;**サポートされているバージョン**: すべて
 
@@ -34,13 +34,13 @@ nuget ? [command] [options]
 
 | オプション | 説明 |
 | --- | --- |
-| すべて | すべての利用可能なコマンドは詳細なヘルプを印刷します。特定のコマンドを指定した場合は無視されます。 |
+| All | すべての利用可能なコマンドは詳細なヘルプを印刷します。特定のコマンドを指定した場合は無視されます。 |
 | ConfigFile | 適用する NuGet 構成ファイル。 指定しない場合、 `%AppData%\NuGet\NuGet.Config` (Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac/linux) を使用します。|
 | ForceEnglishOutput | *(3.5 以降)* インバリアントの英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
-| ヘルプ | ヘルプ、ヘルプ コマンド自体の情報を表示します。 |
+| Help | ヘルプ、ヘルプ コマンド自体の情報を表示します。 |
 | Markdown | Markdown 形式で使用する場合に詳細なヘルプを印刷`-All`します。 それ以外の場合は無視されます。 |
 | NonInteractive | ユーザー入力や確認のプロンプトを抑制します。 |
-| 詳細度 | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細*します。 |
+| Verbosity | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細*します。 |
 
 参照してください[環境変数](cli-ref-environment-variables.md)
 
