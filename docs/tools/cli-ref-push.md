@@ -12,7 +12,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 05/21/2019
 ms.locfileid: "65975000"
 ---
-# <a name="push-command-nuget-cli"></a>プッシュ コマンド (NuGet CLI)
+# <a name="push-command-nuget-cli"></a>push コマンド (NuGet CLI)
 
 **適用されます:** パッケージ公開&bullet;**サポートされているバージョン:** すべて; nuget.org に必要な 4.1.0 以降
 

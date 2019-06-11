@@ -7,12 +7,12 @@ ms.date: 01/18/2018
 ms.topic: reference
 ms.openlocfilehash: 376b69186ad22d4d94a1df51146b833a1f6f9bd9
 ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 09/04/2018
 ms.locfileid: "43546479"
 ---
-# <a name="config-command-nuget-cli"></a>構成コマンド (NuGet CLI)
+# <a name="config-command-nuget-cli"></a>configコマンド (NuGet CLI)
 
 **適用対象:** すべて&bullet;**サポートされているバージョン**: すべて
 

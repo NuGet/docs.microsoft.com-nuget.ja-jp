@@ -12,7 +12,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 04/22/2019
 ms.locfileid: "59931996"
 ---
-# <a name="restore-command-nuget-cli"></a>restore コマンド (NuGet CLI) 
+# <a name="restore-command-nuget-cli"></a>restore コマンド (NuGet CLI)
 
 **適用対象:** 消費をパッケージ化&bullet;**サポートされているバージョン。** 2.7+
 
