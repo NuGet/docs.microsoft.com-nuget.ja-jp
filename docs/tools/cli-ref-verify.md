@@ -13,7 +13,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 09/04/2018
 ms.locfileid: "43545214"
 ---
-# <a name="verify-command-nuget-cli"></a>コマンド (NuGet CLI) を確認します。
+# <a name="verify-command-nuget-cli"></a>verify コマンド (NuGet CLI)
 
 **適用対象:** 消費をパッケージ化&bullet;**サポートされているバージョン:** 4.6 以降
 
@@ -49,8 +49,8 @@ nuget verify <-All|-Signatures> <package(s)> [options]
 | --- | --- |
 | ConfigFile | 適用する NuGet 構成ファイル。 指定しない場合、 `%AppData%\NuGet\NuGet.Config` (Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac/linux) を使用します。|
 | ForceEnglishOutput | インバリアントの英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
-| ヘルプ | ヘルプのコマンドの情報を表示します。 |
-| 詳細度 | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細*します。 |
+| Help | ヘルプのコマンドの情報を表示します。 |
+| Verbosity | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細*します。 |
 
 ## <a name="examples"></a>使用例
 
