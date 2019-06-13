@@ -3,14 +3,14 @@ title: dotnet CLI を使用した NuGet パッケージの作成と公開
 description: .NET Core CLI (dotnet) を使用した NuGet パッケージの作成と公開に関するチュートリアル。
 author: karann-msft
 ms.author: karann
-ms.date: 01/24/2018
+ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: 3e459999eea45c5ae705a7e07c1a0fbb2e0cd1a1
-ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
+ms.openlocfilehash: 6aa5c7bcb2a46e5f8dcf8f2c04a91eafe9ca03b6
+ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56145619"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812996"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>クイック スタート: パッケージの作成と公開 (dotnet CLI)
 
