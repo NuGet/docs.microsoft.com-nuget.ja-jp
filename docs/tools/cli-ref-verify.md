@@ -1,6 +1,6 @@
 ---
-title: NuGet CLI コマンドを確認します。
-description: Nuget.exe への参照は、コマンドを確認します。
+title: NuGet CLI verify コマンド
+description: Nuget.exe の verify コマンドのリファレンス
 author: dtivel
 ms.author: dtivel
 ms.date: 03/06/2018
