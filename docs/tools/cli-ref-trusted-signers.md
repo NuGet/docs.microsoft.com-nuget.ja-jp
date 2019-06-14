@@ -1,6 +1,6 @@
 ---
-title: 信頼された署名の NuGet CLI コマンド
-description: Nuget.exe の信頼された署名コマンドのリファレンス
+title: NuGet CLI trusted-signers コマンド
+description: Nuget.exe の trusted-signers コマンドのリファレンス
 author: patbel
 ms.author: patbel
 ms.date: 11/12/2018
@@ -13,7 +13,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 01/16/2019
 ms.locfileid: "54324709"
 ---
-# <a name="trusted-signers-command-nuget-cli"></a>信頼された署名コマンド (NuGet CLI)
+# <a name="trusted-signers-command-nuget-cli"></a>trusted-signers コマンド (NuGet CLI)
 
 **適用対象:** 消費をパッケージ化&bullet;**サポートされているバージョン。** 4.9.1+
 
@@ -67,10 +67,10 @@ nuget trusted-signers add <package(s)> -Name <name> [options]
 
 | オプション | 説明 |
 | --- | --- |
-| 作成者 | パッケージの作成者の署名が信頼があることを指定します。 |
-| リポジトリ | リポジトリの署名またはパッケージの副署名する必要がありますが信頼できることを指定します。 |
+| Author | パッケージの作成者の署名が信頼があることを指定します。 |
+| Repository | リポジトリの署名またはパッケージの副署名する必要がありますが信頼できることを指定します。 |
 | AllowUntrustedRoot | 信頼されていないルートにチェーンを信頼できる署名者の証明書を許可するかどうかを指定します。 |
-| 所有者 | さらに、リポジトリの信頼を制限する信頼された所有者のセミコロンで区切られたリスト。 使用する場合にのみ有効です、`-Repository`オプション。 |
+| Owners | さらに、リポジトリの信頼を制限する信頼された所有者のセミコロンで区切られたリスト。 使用する場合にのみ有効です、`-Repository`オプション。 |
 
 両方を提供する`-Author`と`-Repository`と同時にはサポートされていません。
 
@@ -86,7 +86,7 @@ _注_:このオプションは、信頼されているリポジトリをのみ�
 | --- | --- |
 | ServiceIndex | 信頼できるリポジトリの V3 サービス インデックスを指定します。 このリポジトリは、リポジトリのリソースの署名をサポートする必要があります。 コマンドが同じパッケージのソースを探して指定しない場合、`-Name`し、そこからサービス インデックスを取得します。 |
 | AllowUntrustedRoot | 信頼されていないルートにチェーンを信頼できる署名者の証明書を許可するかどうかを指定します。 |
-| 所有者 | さらに、リポジトリの信頼を制限する信頼された所有者のセミコロンで区切られたリスト。 |
+| Owners | さらに、リポジトリの信頼を制限する信頼された所有者のセミコロンで区切られたリスト。 |
 
 ## <a name="options-for-add-based-on-the-certificate-information"></a>証明書情報に基づいて追加のオプション
 
@@ -118,8 +118,8 @@ _注_:このジェスチャは現在の証明書の一覧を削除し、リポ�
 | --- | --- |
 | ConfigFile | 適用する NuGet 構成ファイル。 指定しない場合、 `%AppData%\NuGet\NuGet.Config` (Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac/linux) を使用します。|
 | ForceEnglishOutput | インバリアントの英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
-| ヘルプ | ヘルプのコマンドの情報を表示します。 |
-| 詳細度 | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細*します。 |
+| Help | ヘルプのコマンドの情報を表示します。 |
+| Verbosity | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細*します。 |
 
 ## <a name="examples"></a>使用例
 
