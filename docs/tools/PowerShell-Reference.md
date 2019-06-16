@@ -46,13 +46,13 @@ Get-Help <command> -full
 
 すべてのパッケージ マネージャー コンソール コマンドは、次をサポート[一般的な PowerShell パラメーター](http://go.microsoft.com/fwlink/?LinkID=113216):
 
-- デバッグ
+- Debug
 - ErrorAction
 - ErrorVariable
 - OutBuffer
 - OutVariable
 - PipelineVariable
-- 詳細
+- Verbose
 - WarningAction
 - WarningVariable
 
