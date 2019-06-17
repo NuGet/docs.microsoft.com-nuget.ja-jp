@@ -7,7 +7,7 @@ ms.date: 10/02/2017
 ms.topic: reference
 ms.openlocfilehash: 45c8be9956ceaab844bdcd89f1b96adc256f805c
 ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 09/04/2018
 ms.locfileid: "43546665"
@@ -33,7 +33,7 @@ ms.locfileid: "43546665"
 | --- | --- | --- |
 | [Add-BindingRedirect](ps-ref-add-bindingredirect.md) | プロジェクトの出力パス内のすべてのアセンブリを調べ、バインド リダイレクトを追加、`app.config`または`web.config`必要な場所。 | すべて |
 | [Get-Project](ps-ref-get-project.md) | 既定値または指定されたプロジェクトについての情報を表示します。 | 3.0+ |
-| [Open-PackagePage](ps-ref-open-packagepage.md) | プロジェクト、ライセンス、またはレポートの指定したパッケージの URL の不正使用の既定のブラウザーを起動します。 | 3.0 + で非推奨とされます。 |
+| [Open-PackagePage](ps-ref-open-packagepage.md) | プロジェクト、ライセンス、またはレポートの指定したパッケージの URL の不正使用の既定のブラウザーを起動します。 | 3\.0 + で非推奨とされます。 |
 | [Register-TabExpansion](ps-ref-register-tabexpansion.md) | 一般的に使用されるパラメーターの値は、カスタマイズされた展開を作成することができます、コマンドのパラメーターにタブ拡張を登録します。 | すべて |
 | [Sync-Package](ps-ref-sync-package.md) | バージョンには、パッケージがインストールされている get では、プロジェクトを指定し、ソリューション内のプロジェクトの他のバージョンが同期します。 | 3.0+ |
 | [Uninstall-Package](ps-ref-uninstall-package.md) | 必要に応じてその依存関係を削除する、プロジェクトからパッケージを削除します。 | すべて |
