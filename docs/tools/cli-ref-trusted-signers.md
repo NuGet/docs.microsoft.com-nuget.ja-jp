@@ -1,6 +1,6 @@
 ---
-title: 信頼された署名の NuGet CLI コマンド
-description: Nuget.exe の信頼された署名コマンドのリファレンス
+title: NuGet CLI trusted-signers コマンド
+description: Nuget.exe の trusted-signers コマンドのリファレンス
 author: patbel
 ms.author: patbel
 ms.date: 11/12/2018
@@ -8,12 +8,12 @@ ms.topic: reference
 ms.reviewer: rmpablos
 ms.openlocfilehash: ee4ffaa7e250cdbf313476fd794a8d87c80b69f9
 ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/16/2019
 ms.locfileid: "54324709"
 ---
-# <a name="trusted-signers-command-nuget-cli"></a>信頼された署名コマンド (NuGet CLI)
+# <a name="trusted-signers-command-nuget-cli"></a>trusted-signers コマンド (NuGet CLI)
 
 **適用対象:** 消費をパッケージ化&bullet;**サポートされているバージョン。** 4.9.1+
 
