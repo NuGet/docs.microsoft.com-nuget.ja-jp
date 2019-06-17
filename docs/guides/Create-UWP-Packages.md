@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/21/2017
 ms.topic: tutorial
-ms.openlocfilehash: 16e19be0356bc1d2734ade5cd593ca3ef05bbe5a
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: a4c609b3390748099d85a73f7d168ebe4de2676a
+ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546422"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812949"
 ---
 # <a name="create-uwp-packages"></a>UWP パッケージを作成する
 
@@ -26,23 +26,23 @@ ms.locfileid: "43546422"
 
 ## <a name="create-a-uwp-windows-runtime-component"></a>UWP Windows ランタイム コンポーネントを作成する
 
-1. Visual Studio で、**[ファイル]、[新規]、[プロジェクト]** の順に選択し、**[Visual C++]、[Windows]、[ユニバーサル]** ノードの順に展開して **[Windows ランタイム コンポーネント (ユニバーサル Windows)]** テンプレートを選択し、名前を ImageEnhancer に変更して [OK] をクリックします。 プロンプトが表示されたら、ターゲット バージョンと最小バージョンの既定値を受け入れます。
+1. Visual Studio で、 **[ファイル]、[新規]、[プロジェクト]** の順に選択し、 **[Visual C++]、[Windows]、[ユニバーサル]** ノードの順に展開して **[Windows ランタイム コンポーネント (ユニバーサル Windows)]** テンプレートを選択し、名前を ImageEnhancer に変更して [OK] をクリックします。 プロンプトが表示されたら、ターゲット バージョンと最小バージョンの既定値を受け入れます。
 
     ![新しい UWP Windows ランタイム コンポーネント プロジェクトの作成](media/UWP-NewProject.png)
 
-1. ソリューション エクスプローラーでプロジェクトを右クリックし、**[追加]、[新しい項目]** の順に選択して **[Visual C++]、[XAML]** ノードの順にクリックし、**[テンプレート コントロール]** を選択して名前を AwesomeImageControl.cpp に変更してから **[追加]** をクリックします。
+1. ソリューション エクスプローラーでプロジェクトを右クリックし、 **[追加]、[新しい項目]** の順に選択して **[Visual C++]、[XAML]** ノードの順にクリックし、 **[テンプレート コントロール]** を選択して名前を AwesomeImageControl.cpp に変更してから **[追加]** をクリックします。
 
     ![プロジェクトへの新しい XAML テンプレート コントロール項目の追加](media/UWP-NewXAMLControl.png)
 
-1. ソリューション エクスプローラーでプロジェクトを右クリックして、**[プロパティ]** を選択します。 [プロパティ] ページで、**[構成プロパティ]、[C/C++]** の順に展開して、**[出力ファイル]** をクリックします。 次のように、右側のペインで、**[XML ドキュメント ファイルの生成]** の値を [はい] に変更します。
+1. ソリューション エクスプローラーでプロジェクトを右クリックして、 **[プロパティ]** を選択します。 [プロパティ] ページで、 **[構成プロパティ]、[C/C++]** の順に展開して、 **[出力ファイル]** をクリックします。 次のように、右側のペインで、 **[XML ドキュメント ファイルの生成]** の値を [はい] に変更します。
 
     ![[XML ドキュメント ファイルの生成] を [はい] に設定する](media/UWP-GenerateXMLDocFiles.png)
 
-1. ここで*ソリューション*を右クリックし、**[バッチ ビルド]** を選択して、以下に示すようにダイアログの 3 つのデバッグ ボックスをオンにします。 これで、ビルドの実行時に、Windows でサポートされるターゲット システムごとに完全な成果物セットが生成されるようになります。
+1. ここで*ソリューション*を右クリックし、 **[バッチ ビルド]** を選択して、以下に示すようにダイアログの 3 つのデバッグ ボックスをオンにします。 これで、ビルドの実行時に、Windows でサポートされるターゲット システムごとに完全な成果物セットが生成されるようになります。
 
     ![[バッチ ビルド]](media/UWP-BatchBuild.png)
 
-1. [バッチ ビルド] ダイアログで、**[ビルド]** をクリックしてプロジェクトを検証し、NuGet パッケージで必要になる出力ファイルを作成します。
+1. [バッチ ビルド] ダイアログで、 **[ビルド]** をクリックしてプロジェクトを検証し、NuGet パッケージで必要になる出力ファイルを作成します。
 
 > [!Note]
 > このチュートリアルでは、パッケージのデバッグ成果物を使用します。 非デバッグ パッケージの場合は、代わりに [バッチ ビルド] ダイアログでリリース オプションをオンにして、以下の手順で結果として得られる Release フォルダーを参照します。
@@ -138,6 +138,9 @@ Windows ランタイム コンポーネントには、一般公開されるす�
         <file src="..\ARM\Debug\ImageEnhancer\ImageEnhancer.dll" target="runtimes\win10-arm\native"/>
         <file src="..\ARM\Debug\ImageEnhancer\ImageEnhancer.pri" target="runtimes\win10-arm\native"/>
 
+        <file src="..\ARM64\Debug\ImageEnhancer\ImageEnhancer.dll" target="runtimes\win10-arm64\native"/>
+        <file src="..\ARM64\Debug\ImageEnhancer\ImageEnhancer.pri" target="runtimes\win10-arm64\native"/>
+
         <file src="..\x64\Debug\ImageEnhancer\ImageEnhancer.dll" target="runtimes\win10-x64\native"/>
         <file src="..\x64\Debug\ImageEnhancer\ImageEnhancer.pri" target="runtimes\win10-x64\native"/>
 
@@ -150,7 +153,7 @@ Windows ランタイム コンポーネントには、一般公開されるす�
 
 ### <a name="adding-targets"></a>.targets の追加
 
-次は、NuGet パッケージを使用する可能性のある C++ および JavaScript プロジェクトで、必要なアセンブリと winmd ファイルを識別するための .targets ファイルが必要になります  (C# および Visual Basic プロジェクトでは、これは自動的に行われます)。下のテキストを `ImageEnhancer.targets` にコピーして、このファイルを作成し、`.nuspec` ファイルと同じフォルダーに保存します。 _注_: この `.targets` ファイルはパッケージ ID (`.nupspec` ファイルの `<Id>` 要素など) と同じ名前にする必要があります。
+次は、NuGet パッケージを使用する可能性のある C++ および JavaScript プロジェクトで、必要なアセンブリと winmd ファイルを識別するための .targets ファイルが必要になります (C# および Visual Basic プロジェクトでは、これは自動的に行われます)。下のテキストを `ImageEnhancer.targets` にコピーして、このファイルを作成し、`.nuspec` ファイルと同じフォルダーに保存します。 _注_:この `.targets` ファイルはパッケージ ID (例: `.nupspec` ファイルの `<Id>` 要素) と同じ名前にする必要があります。
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -216,6 +219,8 @@ Windows ランタイム コンポーネントには、一般公開されるす�
     <!-- DLLs and resources -->
     <file src="..\ARM\Debug\ImageEnhancer\ImageEnhancer.dll" target="runtimes\win10-arm\native"/>
     <file src="..\ARM\Debug\ImageEnhancer\ImageEnhancer.pri" target="runtimes\win10-arm\native"/>
+    <file src="..\ARM64\Debug\ImageEnhancer\ImageEnhancer.dll" target="runtimes\win10-arm64\native"/>
+    <file src="..\ARM64\Debug\ImageEnhancer\ImageEnhancer.pri" target="runtimes\win10-arm64\native"/>     
     <file src="..\x64\Debug\ImageEnhancer\ImageEnhancer.dll" target="runtimes\win10-x64\native"/>
     <file src="..\x64\Debug\ImageEnhancer\ImageEnhancer.pri" target="runtimes\win10-x64\native"/>
     <file src="..\Debug\ImageEnhancer\ImageEnhancer.dll" target="runtimes\win10-x86\native"/>

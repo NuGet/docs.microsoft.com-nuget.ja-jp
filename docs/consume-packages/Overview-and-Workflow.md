@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/22/2018
 ms.topic: conceptual
-ms.openlocfilehash: 506a093ff4d62c10c896246f746e6765f64f33f4
-ms.sourcegitcommit: a801052aa728a3a137225ca3ef3ff89f2d1c6b76
+ms.openlocfilehash: 556683e5a24c57a6c32d8b4e368bfdccd4d19b48
+ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54403165"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812864"
 ---
 # <a name="package-consumption-workflow"></a>パッケージ利用のワークフロー
 
@@ -22,7 +22,7 @@ nuget.org と組織が確立する可能性のあるプライベート パッケ
 
 詳細については、「[プロジェクトの NuGet パッケージの検索と評価](../consume-packages/finding-and-choosing-packages.md)」および「[Different ways to install a NuGet package](ways-to-install-a-package.md)」(NuGet パッケージをインストールするためのさまざまな方法) を参照してください。
 
-NuGet は、インストールされている各パッケージの ID とバージョン番号を記憶し、プロジェクトの種類と使用している NuGet のバージョンに応じて、[`packages.config`](../reference/packages-config.md) またはプロジェクト ファイル ([PackageReference](../consume-packages/package-references-in-project-files.md) を使用) のいずれかに記録します。 PackageReference は [パッケージ マネージャーの UI オプション](../tools/package-manager-ui.md)を利用して Visual Studio で構成できますが、NuGet 4.0 以降では、PackageReference をお勧めします。 いずれの場合も、適切なファイルでいつでもプロジェクトの依存関係の完全なリストを確認することができます。
+NuGet では、インストールされている各パッケージの ID とバージョン番号が記憶されます。これは、プロジェクトの種類と使用している NuGet のバージョンに応じて、プロジェクト ファイル ([PackageReference](../consume-packages/package-references-in-project-files.md) を使用) または [`packages.config`](../reference/packages-config.md) のいずれかに記録されます。 PackageReference は [パッケージ マネージャーの UI オプション](../tools/package-manager-ui.md)を利用して Visual Studio で構成できますが、NuGet 4.0 以降では、PackageReference をお勧めします。 いずれの場合も、適切なファイルでいつでもプロジェクトの依存関係の完全なリストを確認することができます。
 
 > [!Tip]
 > ソフトウェアで使用する予定の各パッケージのライセンスを常に確認することをお勧めます。 nuget.org には、各パッケージの説明ページの右側に **[ライセンス情報]** リンクが表示されます。 パッケージでライセンス条項が指定されていない場合は、パッケージ ページの **[Contact owners]\(所有者に問い合わせる\)** リンクを使用して、パッケージ所有者に直接問い合わせてください。 Microsoft はサードパーティのパッケージ プロバイダーを通じてユーザーに知的財産ライセンスを付与することはありません。また、サードパーティによって提供される情報について責任を負いません。

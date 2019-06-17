@@ -3,25 +3,31 @@ title: NuGet パッケージの作成方法
 description: NuGet パッケージを設計し、作成する過程を詳しく説明します。ファイルやバージョン管理など、重要な決定ポイントが含まれます。
 author: karann-msft
 ms.author: karann
-ms.date: 12/12/2017
+ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: f0d9667b752caf7831278ac3fd63cfd67f7d34a4
-ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
+ms.openlocfilehash: 5e362673acfab4b31c8a2e02a521afd8b19d2754
+ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610586"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812923"
 ---
 # <a name="creating-nuget-packages"></a>NuGet パッケージの作成
 
-パッケージやそれに含まれるコードに関係なく、`nuget.exe` を使用してその機能をコンポーネントにパッケージ化し、数を問わず他の開発者と共有できます。 `nuget.exe` をインストールする方法については、「[Install NuGet CLI](../install-nuget-client-tools.md#nugetexe-cli)」 (NuGet CLI のインストール) を参照してください。 Visual Studio では、`nuget.exe` が自動的に含まれることはありません。
+パッケージの動作やそれに含まれているコードに関係なく、CLI ツールのいずれか (`nuget.exe` または `dotnet.exe`) を使用して、他の開発者が何人でも共有して使用できるコンポーネントにその機能をパッケージ化できます。 NuGet CLI ツールをインストールするには、「[NuGet クライアント ツールのインストール](../install-nuget-client-tools.md)」をご覧ください。 Visual Studio に CLI ツールが自動的に含まれることはないことにご注意ください。
+
+- SDK スタイルの形式 ([SDK 属性](/dotnet/core/tools/csproj#additions)) を使用する .NET Core と .NET Standard プロジェクト、および他の SDK スタイルのあらゆるプロジェクトに対して、NuGet ではプロジェクト ファイルにある情報が直接使われ、パッケージが作成されます。 詳細については、「[Create .NET Standard Packages with Visual Studio 2017](../quickstart/create-and-publish-a-package-using-visual-studio.md)」 (Visual Studio 2017 で .NET Standard パッケージを作成する) と「[NuGet pack and restore as MSBuild targets](../reference/msbuild-targets.md)」 (MSBuild ターゲットとしての NuGet pack および restore) を参照してください。
+
+- 非 SDK スタイルのプロジェクトの場合は、この記事で説明されている手順に従ってパッケージを作成してください。
+
+- `packages.config` から [PackageReference](../consume-packages/package-references-in-project-files.md) に移行されたプロジェクトの場合は、[msbuild -t:pack](../reference/migrate-packages-config-to-package-reference.md#create-a-package-after-migration) をご使用ください。
 
 技術的には、NuGet パッケージは `.nupkg` 拡張子で名前が変更された ZIP ファイルに過ぎません。コンテンツは特定の規則に一致します。 このトピックでは、そのような規則に一致するパッケージの作成過程について説明します。 焦点を絞ったチュートリアルが必要であれば、「[Create and Publish a Package Quickstart](../quickstart/create-and-publish-a-package.md)」 (クイックスタート: パッケージの作成と公開) を参照してください。
 
 パッケージ化は、コンパイルされたコード (アセンブリ)、シンボル、パッケージとして届けるその他のファイルで始まります (「[Overview and workflow](overview-and-workflow.md)」 (概要とワークフロー) を参照してください)。 このプロセスは、パッケージに入るファイルのコンパイル (またはコンパイル以外の方法による生成) とは関係ありません。ただし、パッケージ ファイルの情報を引き出し、コンパイル済みアセンブリとパッケージの同期を維持することはできます。
 
 > [!Note]
-> このトピックは、Visual Studio 2017 と NuGet 4.0+ を使用する .NET Core プロジェクト以外のプロジェクト タイプに適用されます。 .NET Core プロジェクトの場合、NuGet は、プロジェクト ファイルの情報を直接使用します。 詳細については、「[Create .NET Standard Packages with Visual Studio 2017](../guides/create-net-standard-packages-vs2017.md)」 (Visual Studio 2017 で .NET Standard パッケージを作成する) と「[NuGet pack and restore as MSBuild targets](../reference/msbuild-targets.md)」 (MSBuild ターゲットとしての NuGet pack および restore) を参照してください。
+> このトピックは、非 SDK スタイルのプロジェクト、つまり通常は、Visual Studio 2017 と NuGet 4.0+ を使った .NET Core および .NET Standard プロジェクト以外のプロジェクトを対象としています。
 
 ## <a name="deciding-which-assemblies-to-package"></a>パッケージ化するアセンブリを決定する
 
@@ -50,7 +56,7 @@ ms.locfileid: "65610586"
 必須プロパティ:
 
 - パッケージの識別子。パッケージをホストするギャラリー全体で一意にする必要があります。
-- *Major.Minor.Patch[-Suffix]* という形式の特別なバージョン番号。*-Suffix* で[プレリリース版](prerelease-packages.md)を識別します。
+- *Major.Minor.Patch[-Suffix]* という形式の特別なバージョン番号。 *-Suffix* で[プレリリース版](prerelease-packages.md)を識別します。
 - ホスト (nuget.org など) に表示されるパッケージ タイトル。
 - 作成者と所有者の情報。
 - パッケージの詳しい説明。

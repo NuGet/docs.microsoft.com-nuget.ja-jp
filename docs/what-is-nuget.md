@@ -3,14 +3,14 @@ title: NuGet とは何か。またどのような働きをするのか
 description: NuGet とは何で、どのような働きをするのかについて、総合的に紹介します
 author: karann-msft
 ms.author: karann
-ms.date: 01/10/2018
+ms.date: 05/24/2019
 ms.topic: overview
-ms.openlocfilehash: 87f7494ea97a4fa65be04b2692d7b894938c3fe5
-ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
+ms.openlocfilehash: 4ab87f072bdace9dd18cecc4100de52b3547136d
+ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59509127"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66813012"
 ---
 # <a name="an-introduction-to-nuget"></a>NuGet の概要
 
@@ -45,8 +45,8 @@ NuGet では、パブリック ホストの nuget.org に加えてプライベ�
 
 | ツール | プラットフォーム | 該当シナリオ | 説明 |
 | --- | --- | --- | --- |
-| [nuget.exe CLI](tools/nuget-exe-cli-reference.md) | すべて | 作成、利用 | NuGet のすべての機能を提供します。パッケージ作成者のみに適用されるコマンド、利用者のみに適用されるもの、両方に適用されるものがあります。 たとえば、パッケージ作成者は `nuget pack` コマンドを使用して、さまざまなアセンブリと関連ファイルからパッケージを作成し、パッケージ利用者は `nuget install` を使用して、パッケージをプロジェクトフォルダーに格納します。また、`nuget config` は、NuGet の構成変数を設定するためにすべてのユーザーによって使用されます。 プラットフォームに依存しないツールである NuGet CLI は、Visual Studio プロジェクトと対話しません。 |
-| [dotnet CLI](tools/dotnet-Commands.md) | すべて | 作成、利用 | 特定の NuGet CLI 機能を、.NET Core ツール チェーン内に直接提供します。 NuGet CLI と同様、dotnet CLI も Visual Studio プロジェクトと対話しません。 |
+| [dotnet CLI](tools/dotnet-Commands.md) | すべて | 作成、利用 | .NET Core と .NET Standard ライブラリ、および .NET Framework を対象とする SDK スタイルのプロジェクト (「[SDK 属性](/dotnet/core/tools/csproj#additions)」を参照) のための CLI ツール。 特定の NuGet CLI 機能を、.NET Core ツール チェーン内に直接提供します。 NuGet CLI と同様、dotnet CLI も Visual Studio プロジェクトと対話しません。 |
+| [nuget.exe CLI](tools/nuget-exe-cli-reference.md) | すべて | 作成、利用 | .NET Framework ライブラリと、.NET Standard ライブラリを対象とする非 SDK スタイルのプロジェクトのための CLI ツール。 NuGet のすべての機能を提供します。パッケージ作成者のみに適用されるコマンド、利用者のみに適用されるもの、両方に適用されるものがあります。 たとえば、パッケージ作成者は `nuget pack` コマンドを使用して、さまざまなアセンブリと関連ファイルからパッケージを作成し、パッケージ利用者は `nuget install` を使用して、パッケージをプロジェクトフォルダーに格納します。また、`nuget config` は、NuGet の構成変数を設定するためにすべてのユーザーによって使用されます。 プラットフォームに依存しないツールである NuGet CLI は、Visual Studio プロジェクトと対話しません。 |
 | [パッケージ マネージャー コンソール](tools/package-manager-console.md) | Windows の Visual Studio | 利用 | Visual Studio プロジェクトでパッケージをインストールして管理するための [PowerShell コマンド](tools/Powershell-Reference.md)を提供します。 |
 | [パッケージ マネージャー UI](tools/package-manager-ui.md) | Windows の Visual Studio | 利用 | Visual Studio プロジェクトでパッケージをインストールして管理するための使いやすい UI を提供します。 |
 | [NuGet 管理 UI](/visualstudio/mac/nuget-walkthrough) | Visual Studio for Mac | 利用 | Visual Studio for Mac プロジェクトでパッケージをインストールして管理するための使いやすい UI を提供します。 |
@@ -72,7 +72,7 @@ NuGet がこのサービスを実行する方法について詳しくは、[依�
 
 プロジェクトは開発者のコンピューター、ソース管理リポジトリ、ビルド サーバーなどの間を簡単に移動するので、プロジェクトに直接バインドされた NuGet パッケージからバイナリ アセンブリを維持するのは極めて困難です。 プロジェクトの各コピーが必要以上に肥大化する (それにより、ソース管理リポジトリ内の領域を浪費する) だけでなく、 パッケージのバイナリを新しいバージョンに更新する処理も、プロジェクトのすべてのコピーについて行う必要があるため、非常に困難になります。
 
-代わりに、NuGet は、最上位と下位の依存関係を含めて、プロジェクトが依存する、単純なパッケージの参照リストを保持します。 つまり、どこかのホストからプロジェクトにパッケージをインストールすると常に、NuGet によってパッケージの識別子とバージョン番号がこの参照リストに記録されます  (もちろん、パッケージをアンインストールするとリストから削除されます)。その後、「[パッケージの復元](consume-packages/package-restore.md)」で説明しているように、NuGet は、参照されているすべてのパッケージを復元する手段を提供します。
+代わりに、NuGet は、最上位と下位の依存関係を含めて、プロジェクトが依存する、単純なパッケージの参照リストを保持します。 つまり、どこかのホストからプロジェクトにパッケージをインストールすると常に、NuGet によってパッケージの識別子とバージョン番号がこの参照リストに記録されます (もちろん、パッケージをアンインストールするとリストから削除されます)。その後、「[パッケージの復元](consume-packages/package-restore.md)」で説明しているように、NuGet は、参照されているすべてのパッケージを復元する手段を提供します。
 
 ![NuGet の参照リストはパッケージのインストール時に作成され、別の場所にパッケージを復元するために使うことができる](media/nuget-restore.png)
 
@@ -82,9 +82,9 @@ NuGet がこのサービスを実行する方法について詳しくは、[依�
 
 その場合に開発者が関係する NuGet の主要な役割は明らかに、プロジェクトに代わってその参照リストを維持し、参照されているパッケージを効率的に復元 (および更新) する手段を提供することです。 このリストは、次の 2 つの*パッケージ管理形式*のいずれかで保持されます。
 
-- [`packages.config`](reference/packages-config.md):*(NuGet 1.0 以降)* プロジェクト内のすべての依存関係のフラット リストを保持する XML ファイルです。インストールされている他のパッケージの依存関係も含みます。 インストールまたは復元されたパッケージは、`packages` フォルダーに保管されます。
-
 - [PackageReference](consume-packages/package-references-in-project-files.md) (または "プロジェクト ファイルでのパッケージ参照") | *(NuGet 4.0 以降)* プロジェクトの最上位の依存関係のリストがプロジェクト ファイル内に直接保持されるので、個別のファイルは必要ありません。 関連するファイル `obj/project.assets.json` は、プロジェクトがすべての下位レベルの依存関係と共に使用するパッケージの依存関係の全体グラフを管理するために、動的に作成されます。 PackageReference は常に、.NET Core プロジェクトで使用されます。
+
+- [`packages.config`](reference/packages-config.md): *(NuGet 1.0 以降)* プロジェクト内のすべての依存関係のフラット リストを保持する XML ファイルです。インストールされている他のパッケージの依存関係も含みます。 インストールまたは復元されたパッケージは、`packages` フォルダーに保管されます。
 
 指定されたプロジェクトでどのパッケージ管理形式が採用されるかは、プロジェクトの種類と、NuGet (および Visual Studio) の使用可能なバージョンによって異なります。 使用されている形式を確認するには、最初のパッケージをインストールした後で、プロジェクトのルートにある `packages.config` を調べるだけで済みます。 そのファイルが見つからない場合は、プロジェクト ファイルで直接 \<PackageReference\> 要素を調べます。
 
@@ -103,7 +103,7 @@ NuGet がこのサービスを実行する方法について詳しくは、[依�
 
 これらの処理を効率的に実行するため、NuGet はバックグラウンドでいくつかの最適化を行います。 注目すべき点は、NuGet ではパッケージ キャッシュとグローバル パッケージ フォルダーを管理して、インストールおよび再インストールを省略することです。 キャッシュは、コンピューターに既にインストールされているパッケージのダウンロードを回避します。 グローバル パッケージ フォルダーは、インストールされている同じパッケージを複数のプロジェクトで共有できるようにし、それによりコンピューター上の NuGet のフット プリント全体を減らします。 また、キャッシュおよびグローバル パッケージ フォルダーは、ビルド サーバーなどのように多数のパッケージを頻繁に復元する場合は非常に役立ちます。 これらのメカニズムの詳細については、「[Managing the global packages and cache folders](consume-packages/managing-the-global-packages-and-cache-folders.md)」 (グローバル パッケージおよびキャッシュ フォルダーを管理する) をご覧ください。
 
-個々のプロジェクトでは、NuGet は依存関係グラフ全体を管理します。これにも、同じパッケージの異なるバージョンへの複数の参照の解決が含まれます。 プロジェクトが 1 つ以上のパッケージに依存関係を持ち、それらのパッケージ自体にも同じような依存関係があることは、ごく一般的なことです。 nuget.org の最も便利なユーティリティ パッケージのいくつかは、他の多くのパッケージで使用されています。 依存関係グラフ全体では、同じパッケージの異なるバージョンに対する 10 個の異なる参照が簡単にできてしまいます。 そのパッケージの複数のバージョンがアプリケーション自体に組み込まれるのを回避するために、NuGet は、すべての利用者が使用できる 1 つのバージョンを選別します  (詳細については、「[依存関係の解決](consume-packages/dependency-resolution.md)」を参照してください)。
+個々のプロジェクトでは、NuGet は依存関係グラフ全体を管理します。これにも、同じパッケージの異なるバージョンへの複数の参照の解決が含まれます。 プロジェクトが 1 つ以上のパッケージに依存関係を持ち、それらのパッケージ自体にも同じような依存関係があることは、ごく一般的なことです。 nuget.org の最も便利なユーティリティ パッケージのいくつかは、他の多くのパッケージで使用されています。 依存関係グラフ全体では、同じパッケージの異なるバージョンに対する 10 個の異なる参照が簡単にできてしまいます。 そのパッケージの複数のバージョンがアプリケーション自体に組み込まれるのを回避するために、NuGet は、すべての利用者が使用できる 1 つのバージョンを選別します (詳細については、「[依存関係の解決](consume-packages/dependency-resolution.md)」を参照してください)。
 
 さらに、NuGet は、パッケージの構成方法 ([ローカライズ](create-packages/creating-localized-packages.md)と[デバッグ シンボル](create-packages/symbol-packages.md)を含みます) およびパッケージの参照方法 ([バージョン参照](reference/package-versioning.md#version-ranges-and-wildcards)と[プレリリース バージョン](create-packages/prerelease-packages.md)を含みます) に関するすべての仕様を保持しています。NuGet は、そのサービスとプログラムで連携する各種の API を提供し、Visual Studio 拡張機能およびプロジェクト テンプレートを作成する開発者用のサポートも提供します。
 

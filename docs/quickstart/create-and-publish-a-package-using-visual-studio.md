@@ -3,14 +3,14 @@ title: Windows の Visual Studio を使用した .NET Standard パッケージ�
 description: Windows の Visual Studio 2017 を使用した、.NET Standard NuGet パッケージの作成と公開に関するチュートリアルです。
 author: karann-msft
 ms.author: karann
-ms.date: 05/18/2018
+ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: faea00372bd387aee1502e388ad1ea88de07b95d
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: d30e89473b5f00895136b75a90d8d95b7645a100
+ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453521"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812981"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>クイック スタート: Visual Studio を使用した NuGet パッケージの作成と公開 (.NET Standard、Windows のみ)
 
@@ -23,9 +23,11 @@ Windows の Visual Studio で .NET Standard クラス ライブラリから NuGe
 
 1. [visualstudio.com](https://www.visualstudio.com/) から Visual Studio 2017 の任意のエディションと、.NET 関連の任意のワークロードをインストールします。 Visual Studio 2017 では、.NET ワークロードをインストールする際、NuGet 機能は自動的に含まれません。
 
-1. `nuget.exe` CLI をインストールします。[nuget.org](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe)からその `.exe`ファイルをダウンロードし、適切なフォルダーに保存して、そのフォルダーを PATH 環境変数に追加してください。
+1. CLI ツールのいずれかをインストールします。
 
-    または、[.NET Core SDK](https://www.microsoft.com/net/download/) をインストールしている場合は、`dotnet` CLI を使用できます。
+   * `dotnet` CLI の場合は、[.NET Core SDK](https://www.microsoft.com/net/download/) をインストールします。 SDK スタイルの形式 (SDK 属性) を使用する .NET Standard プロジェクトには、dotnet CLI が必要です。
+
+   * `nuget.exe` CLI の場合は、[nuget.org](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe) からそれをダウンロードし、`.exe` ファイルを適切なフォルダーに保存して、そのフォルダーを PATH 環境変数に追加します。 nuget.exe CLI は、非 SDK スタイルの形式の .NET Standard ライブラリに使用されます。
 
 1. まだ持っていない場合は、[nuget.org で無料アカウントを登録](https://www.nuget.org/users/account/LogOn?returnUrl=%2F)します。 新しいアカウントを作成すると、確認メールが送信されます。 パッケージをアップロードするには、その前にアカウントを確認する必要があります。
 
@@ -33,9 +35,9 @@ Windows の Visual Studio で .NET Standard クラス ライブラリから NuGe
 
 パッケージ化するコードに既存の .NET Standard クラス ライブラリ プロジェクトを使用することも、次の手順に従って単純なプロジェクトを作成することもできます。
 
-1. Visual Studio で、**[ファイル]、[新規]、[プロジェクト]** の順に選択し、**[Visual C#]、[.NET Standard]** ノードの順に展開して "クラス ライブラリ (.NET Standard)" テンプレートを選択し、プロジェクトに AppLogger という名前を付け、**[OK]** をクリックします。
+1. Visual Studio で、 **[ファイル]、[新規]、[プロジェクト]** の順に選択し、 **[Visual C#]、[.NET Standard]** ノードの順に展開して "クラス ライブラリ (.NET Standard)" テンプレートを選択し、プロジェクトに AppLogger という名前を付け、 **[OK]** をクリックします。
 
-1. 作成されたプロジェクト ファイルを右クリックし、**[ビルド]** を選択して、プロジェクトが正しく作成されたことを確認します。 DLL は、デバッグ フォルダー (または代わりにその構成をビルドした場合はリリース フォルダー) 内にあります。
+1. 作成されたプロジェクト ファイルを右クリックし、 **[ビルド]** を選択して、プロジェクトが正しく作成されたことを確認します。 DLL は、デバッグ フォルダー (または代わりにその構成をビルドした場合はリリース フォルダー) 内にあります。
 
 実際の NuGet パッケージ内ではもちろん、多くの便利な機能を実装し、他のユーザーはそれを使用してアプリケーションをビルドできます。 しかし、このチュートリアルでは、パッケージを作成するには、テンプレートのクラス ライブラリで十分なため、追加のコードを記述することはありません。 それでも、パッケージの一部の機能コードが必要な場合は、次のように使用します。
 
@@ -57,7 +59,7 @@ namespace AppLogger
 
 ## <a name="configure-package-properties"></a>パッケージのプロパティを構成する
 
-1. **[プロジェクト]、[プロパティ]** メニュー コマンドの順に選択し、**[パッケージ]** タブを選択します(**[パッケージ]** タブは .NET Standard クラス ライブラリ プロジェクトの場合にのみに表示されます。 .NET Framework をターゲットにする場合は代わりに「[Create and publish a .NET Framework package](create-and-publish-a-package-using-visual-studio-net-framework.md)」 (.NET Framework パッケージの作成と公開) を参照してください)。 .NET Standard プロジェクトに対して表示されないときは、場合によっては、Visual Studio 2017 を最新リリースに更新する必要があります。)
+1. **[プロジェクト]、[プロパティ]** メニュー コマンドの順に選択し、 **[パッケージ]** タブを選択します( **[パッケージ]** タブは .NET Standard クラス ライブラリ プロジェクトの場合にのみに表示されます。 .NET Framework をターゲットにする場合は代わりに「[Create and publish a .NET Framework package](create-and-publish-a-package-using-visual-studio-net-framework.md)」 (.NET Framework パッケージの作成と公開) を参照してください)。 .NET Standard プロジェクトに対して表示されないときは、場合によっては、Visual Studio 2017 を最新リリースに更新する必要があります。)
 
     ![Visual Studio プロジェクト内の NuGet パッケージのプロパティ](media/qs_create-vs-01-package-properties.png)
 
@@ -71,13 +73,13 @@ namespace AppLogger
     >
     > 既に存在する名前のパッケージを公開しようとすると、エラーが表示されます。
 
-1. 省略可能: プロジェクト ファイルで直接プロパティを表示するには、ソリューション エクスプローラーでプロジェクトを右クリックし、**[Edit AppLogger.csproj]\(AppLogger.csproj の編集\)** を選択します。
+1. 省略可能: プロジェクト ファイルで直接プロパティを表示するには、ソリューション エクスプローラーでプロジェクトを右クリックし、 **[Edit AppLogger.csproj]\(AppLogger.csproj の編集\)** を選択します。
 
 ## <a name="run-the-pack-command"></a>pack コマンドを実行する
 
 1. 構成を **[リリース]** に設定します。
 
-1. **ソリューション エクスプローラー**で、プロジェクトを右クリックし、**[パック]** コマンドを選択します。
+1. **ソリューション エクスプローラー**で、プロジェクトを右クリックし、 **[パック]** コマンドを選択します。
 
     ![Visual Studio プロジェクトのコンテキスト メニューの NuGet パック コマンド](media/qs_create-vs-02-pack-command.png)
 
@@ -112,7 +114,13 @@ msbuild -t:pack -p:Configuration=Release
 
 [!INCLUDE [publish-api-key](includes/publish-api-key.md)]
 
-### <a name="publish-with-nuget-push"></a>nuget push を使用して公開する
+### <a name="publish-with-dotnet-nuget-push-dotnet-cli"></a>dotnet nuget push を使用して公開する (dotnet CLI)
+
+この手順は、`nuget.exe`の使用に代わる方法です。
+
+[!INCLUDE [publish-dotnet](includes/publish-dotnet.md)]
+
+### <a name="publish-with-nuget-push-nugetexe-cli"></a>nuget push を使用して公開する (nuget.exe CLI)
 
 この手順は、`dotnet.exe`の使用に代わる方法です。
 
@@ -134,12 +142,6 @@ msbuild -t:pack -p:Configuration=Release
     ```
 
 [nuget push](../tools/cli-ref-push.md)に関するページを参照してください。
-
-### <a name="publish-with-dotnet-nuget-push"></a>dotnet nuget push を使用して公開する
-
-この手順は、`nuget.exe`の使用に代わる方法です。
-
-[!INCLUDE [publish-dotnet](includes/publish-dotnet.md)]
 
 ### <a name="publish-errors"></a>公開エラー
 

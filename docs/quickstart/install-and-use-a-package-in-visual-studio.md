@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: 15268ae33d56042a765420e5076dac49db6cce04
-ms.sourcegitcommit: 1591bb230e106b94162a87dd1d86fe427366730a
+ms.openlocfilehash: 8cfb7bd31c37847d83ffe31f11ba61eadc717eb8
+ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52671176"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812899"
 ---
 # <a name="quickstart-install-and-use-a-package-in-visual-studio"></a>クイック スタート: Visual Studio でパッケージをインストールして使用する
 
@@ -19,7 +19,7 @@ NuGet パッケージには、他の開発者がお客様のプロジェクト�
 インストール後、`using <namespace>` でコード内のパッケージを参照します。\<namespace\> は、使用しているパッケージに固有です。 参照が行われたら、その API からパッケージを呼び出すことができます。
 
 > [!Tip]
-> **nuget.org を開始する**: nuget.org を参照するのは、.NET 開発者が自身のアプリケーションで再利用可能なコンポーネントを検索するための一般的な方法です。 この記事で説明するように、nuget.org を直接検索することも、Visual Studio 内でパッケージを見つけてインストールすることもできます。
+> **nuget.org を開始する**:nuget.org を参照するのは、.NET 開発者が自身のアプリケーションで再利用可能なコンポーネントを検索するための一般的な方法です。 この記事で説明するように、nuget.org を直接検索することも、Visual Studio 内でパッケージを見つけてインストールすることもできます。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
@@ -28,11 +28,13 @@ NuGet パッケージには、他の開発者がお客様のプロジェクト�
 
 [visualstudio.com](https://www.visualstudio.com/) から無料の 2017 Community Edition をインストールできます。Professional Edition または Enterprise Edition を使用することもできます。
 
+Visual Studio for Mac を使用している場合は、「[プロジェクトに NuGet パッケージを含める](/visualstudio/mac/nuget-walkthrough)」をご覧ください。
+
 ## <a name="create-a-project"></a>プロジェクトを作成する
 
 NuGet パッケージは任意の .NET プロジェクトにインストールできます。ただし、パッケージが同じターゲット フレームワークをプロジェクトとしてサポートしていることが条件です。
 
-このチュートリアルでは、単純なユニバーサル Windows (UWP) アプリを使用します。 **[ファイル]、[新しいプロジェクト]** の順に使用し、**[Windows ユニバーサル]、[空白のアプリ (ユニバーサル Windows)]** の順に選択して、Visual Studio でプロジェクトを作成します。 プロンプトが表示されたら、ターゲット バージョンと最小バージョンの既定値を受け入れます。
+このチュートリアルでは、単純なユニバーサル Windows (UWP) アプリを使用します。 **[ファイル]、[新しいプロジェクト]** の順に使用し、 **[Windows ユニバーサル]、[空白のアプリ (ユニバーサル Windows)]** の順に選択して、Visual Studio でプロジェクトを作成します。 プロンプトが表示されたら、ターゲット バージョンと最小バージョンの既定値を受け入れます。
 
 ## <a name="add-the-newtonsoftjson-nuget-package"></a>Newtonsoft.Json NuGet パッケージを追加する
 
@@ -40,27 +42,27 @@ NuGet パッケージは任意の .NET プロジェクトにインストール�
 
 ### <a name="package-manager-ui"></a>パッケージ マネージャー UI
 
-1. ソリューション エクスプローラーで **[参照]** を右クリックし、**[NuGet パッケージの管理]** をクリックします。
+1. ソリューション エクスプローラーで **[参照]** を右クリックし、 **[NuGet パッケージの管理]** をクリックします。
 
     ![プロジェクト参照の NuGet パッケージ管理コマンド](media/QS_Use-02-ManageNuGetPackages.png)
 
-1. **[パッケージ ソース]** として "nuget.org" を選択し、**[参照]** タブを選択し、「**Newtonsoft.Json**」を検索し、一覧からそのパッケージを選択し、**[インストール]** を選択します。
+1. **[パッケージ ソース]** として "nuget.org" を選択し、 **[参照]** タブを選択し、「**Newtonsoft.Json**」を検索し、一覧からそのパッケージを選択し、 **[インストール]** を選択します。
 
     ![Newtonsoft.Json パッケージを見つけます](media/QS_Use-03-NewtonsoftJson.png)
 
 1. ラインセンス プロンプトに同意します。
 
-1. (Visual Studio 2017) パッケージ管理形式を選択するように求められたら、**[プロジェクト ファイルの PackageReference]** を選択します。
+1. (Visual Studio 2017) パッケージ管理形式を選択するように求められたら、 **[プロジェクト ファイルの PackageReference]** を選択します。
 
     ![パッケージ管理形式の選択](media/QS_Use-03b-SelectFormat.png)
 
-1. 変更の確認を求められた場合、**[OK]** を選択します。
+1. 変更の確認を求められた場合、 **[OK]** を選択します。
 
 ### <a name="package-manager-console"></a>パッケージ マネージャー コンソール
 
 1. **[ツール]、[NuGet パッケージ マネージャー]、[パッケージ マネージャー コンソール]** メニュー コマンドの順に選択します。
 
-1. コンソールが開いたら、**[既定のプロジェクト]** ドロップダウン リストに、パッケージをインストールするプロジェクトが表示されていることを確認します。 ソリューション内に単一のプロジェクトがあれば、それは既に選択されています。
+1. コンソールが開いたら、 **[既定のプロジェクト]** ドロップダウン リストに、パッケージをインストールするプロジェクトが表示されていることを確認します。 ソリューション内に単一のプロジェクトがあれば、それは既に選択されています。
 
     ![Newtonsoft.Json パッケージを見つけます](media/QS_Use-08-Console1.png)
 
@@ -110,7 +112,7 @@ NuGet パッケージは任意の .NET プロジェクトにインストール�
     using Newtonsoft.Json;
     ```
 
-1. アプリをビルドして実行します。F5 キーを押すか、**[デバッグ]、[デバッグの開始]** を選択してください。
+1. アプリをビルドして実行します。F5 キーを押すか、 **[デバッグ]、[デバッグの開始]** を選択してください。
 
     ![UWP アプリの最初の出力](media/QS_Use-06-AppStart.png)
 
