@@ -1,5 +1,5 @@
 ---
-title: NuGet CLI verify コマンド
+title: NuGet CLI verify コマンド
 description: Nuget.exe の verify コマンドのリファレンス
 author: dtivel
 ms.author: dtivel
