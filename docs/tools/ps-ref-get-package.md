@@ -32,11 +32,11 @@ Get-Package -Source <string> [-ListAvailable] [-Updates] [-ProjectName <string>]
 
 | パラメーター | 説明 |
 | --- | --- |
-| ソース | パッケージの URL またはフォルダーのパス。 ローカル フォルダー パスには、absolute、または現在のフォルダーの相対パスを指定できます。 省略した場合、`Get-Package`現在選択されているパッケージ ソースを検索します。 -ListAvailable で使用する場合は、nuget.org に既定値です。 |
+| Source | パッケージの URL またはフォルダーのパス。 ローカル フォルダー パスには、absolute、または現在のフォルダーの相対パスを指定できます。 省略した場合、`Get-Package`現在選択されているパッケージ ソースを検索します。 -ListAvailable で使用する場合は、nuget.org に既定値です。 |
 | ListAvailable | 既定では nuget.org をパッケージ ソースから使用可能なパッケージを一覧表示します。-PageSize や最初が指定されていない場合、既定値は 50 のパッケージを示します。 |
-| 更新 | パッケージ、パッケージ ソースから使用可能な更新プログラムを一覧表示します。 |
+| Updates | パッケージ、パッケージ ソースから使用可能な更新プログラムを一覧表示します。 |
 | ProjectName | インストールされているパッケージの取得元のプロジェクトです。 省略した場合は、ソリューション全体のプロジェクトをインストールされている返します。 |
-| フィルター | パッケージ ID、説明、およびタグに適用して、パッケージの一覧を絞り込むために使用されるフィルター文字列。 |
+| Filter | パッケージ ID、説明、およびタグに適用して、パッケージの一覧を絞り込むために使用されるフィルター文字列。 |
 | First | リストの先頭から返されるパッケージの数。 指定しない場合、既定値は 50 です。 |
 | Skip | 最初の省略&lt;int&gt;表示された一覧からパッケージ。  |
 | AllVersions | 最新バージョンのみではなく、各パッケージの使用可能なすべてのバージョンが表示されます。 |
@@ -47,7 +47,7 @@ Get-Package -Source <string> [-ListAvailable] [-Updates] [-ProjectName <string>]
 
 ## <a name="common-parameters"></a>共通パラメーター
 
-`Get-Package` 次のサポート[一般的な PowerShell パラメーター](http://go.microsoft.com/fwlink/?LinkID=113216): デバッグ、エラー アクション、ErrorVariable、OutBuffer、OutVariable、PipelineVariable、Verbose、WarningAction、WarningVariable、します。
+`Get-Package` 次のサポート[一般的な PowerShell パラメーター](http://go.microsoft.com/fwlink/?LinkID=113216): Debug、Error Action、ErrorVariable、OutBuffer、OutVariable、PipelineVariable、Verbose、WarningAction、WarningVariable、します。
 
 ## <a name="examples"></a>使用例
 
