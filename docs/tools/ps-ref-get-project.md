@@ -35,7 +35,7 @@ Get-Project [[-Name] <string>] [-All] [<CommonParameters>]
 
 ## <a name="common-parameters"></a>共通パラメーター
 
-`Get-Project` 次のサポート[一般的な PowerShell パラメーター](http://go.microsoft.com/fwlink/?LinkID=113216): デバッグ、エラー アクション、ErrorVariable、OutBuffer、OutVariable、PipelineVariable、Verbose、WarningAction、WarningVariable、します。
+`Get-Project` 次のサポート[一般的な PowerShell パラメーター](http://go.microsoft.com/fwlink/?LinkID=113216): Debug、Error Action、ErrorVariable、OutBuffer、OutVariable、PipelineVariable、Verbose、WarningAction、WarningVariable、します。
 
 ## <a name="examples"></a>使用例
 
