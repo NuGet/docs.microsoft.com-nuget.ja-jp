@@ -28,14 +28,14 @@ Get-Project [[-Name] <string>] [-All] [<CommonParameters>]
 
 | パラメーター | 説明 |
 | --- | --- |
-| Name | 既定では、パッケージ マネージャー コンソールで選択されている既定のプロジェクトを表示するには、プロジェクトに指定します。 -Name スイッチが自体の省略可能です。 |
+| Name | 既定では、パッケージ マネージャー コンソールで選択されている既定のプロジェクトを表示するには、プロジェクトに指定します。 -Name スイッチ自体は省略可能です。
 | All | このソリューションですべてのプロジェクトの情報を表示します。プロジェクトの順序は決定論的ではありません。 |
 
 これらのパラメーターには、パイプラインの入力またはワイルドカード文字がそのまま使用します。
 
 ## <a name="common-parameters"></a>共通パラメーター
 
-`Get-Project` 次のサポート[一般的な PowerShell パラメーター](http://go.microsoft.com/fwlink/?LinkID=113216): Debug、Error Action、ErrorVariable、OutBuffer、OutVariable、PipelineVariable、Verbose、WarningAction、WarningVariable、します。
+`Get-Project` は次の[一般的な PowerShell パラメーター](http://go.microsoft.com/fwlink/?LinkID=113216) をサポートしています: Debug、Error Action、ErrorVariable、OutBuffer、OutVariable、PipelineVariable、Verbose、WarningAction、WarningVariable
 
 ## <a name="examples"></a>使用例
 
