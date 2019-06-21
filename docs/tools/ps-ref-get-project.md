@@ -7,7 +7,7 @@ ms.date: 12/07/2017
 ms.topic: reference
 ms.openlocfilehash: 849261711fafcadbab38bf6fe99340c4b79e1e21
 ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 09/04/2018
 ms.locfileid: "43550438"
@@ -29,13 +29,13 @@ Get-Project [[-Name] <string>] [-All] [<CommonParameters>]
 | パラメーター | 説明 |
 | --- | --- |
 | 名前 | 既定では、パッケージ マネージャー コンソールで選択されている既定のプロジェクトを表示するには、プロジェクトに指定します。 -Name スイッチが自体の省略可能です。 |
-| すべて | このソリューションですべてのプロジェクトの情報を表示します。プロジェクトの順序は決定論的ではありません。 |
+| All | このソリューションですべてのプロジェクトの情報を表示します。プロジェクトの順序は決定論的ではありません。 |
 
 これらのパラメーターには、パイプラインの入力またはワイルドカード文字がそのまま使用します。
 
 ## <a name="common-parameters"></a>共通パラメーター
 
-`Get-Project` 次のサポート[一般的な PowerShell パラメーター](http://go.microsoft.com/fwlink/?LinkID=113216): デバッグ、エラー アクション、ErrorVariable、OutBuffer、OutVariable、PipelineVariable、Verbose、WarningAction、WarningVariable、します。
+`Get-Project` は次の[一般的な PowerShell パラメーター](http://go.microsoft.com/fwlink/?LinkID=113216) をサポートしています: Debug、Error Action、ErrorVariable、OutBuffer、OutVariable、PipelineVariable、Verbose、WarningAction、WarningVariable
 
 ## <a name="examples"></a>使用例
 
