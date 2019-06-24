@@ -7,7 +7,7 @@ ms.date: 06/01/2017
 ms.topic: reference
 ms.openlocfilehash: e7ddf9ad97cbb4ec9cfc8b01f366511239f41416
 ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 09/04/2018
 ms.locfileid: "43546027"
@@ -36,7 +36,7 @@ Install-Package Microsoft.AspNet.MVC -Version 5.0.0.
 
 | パラメーター | 説明 |
 | --- | --- |
-| ID | (必須)インストールするパッケージの識別子。 (*3.0 +*) 識別子は、パスまたは URL の`packages.config`ファイルまたは`.nupkg`ファイル。 -Id スイッチ自体は省略可能です。 |
+| ID | (必須)インストールするパッケージの識別子。 (*3.0 +* ) 識別子は、パスまたは URL の`packages.config`ファイルまたは`.nupkg`ファイル。 -Id スイッチ自体は省略可能です。 |
 | IgnoreDependencies | このパッケージのみとその依存関係のないをインストールします。 |
 | ProjectName | 既定では、既定のプロジェクト、パッケージをインストールするプロジェクトです。 |
 | source | 検索するパッケージ ソースの URL またはフォルダーのパス。 ローカル フォルダー パスには、absolute、または現在のフォルダーの相対パスを指定できます。 省略した場合、`Install-Package`現在選択されているパッケージ ソースを検索します。 |
