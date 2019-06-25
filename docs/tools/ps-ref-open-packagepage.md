@@ -31,8 +31,8 @@ Open-PackagePage [-Id] <string> [-Version] [-Source] [-License] [-ReportAbuse]
 | --- | --- |
 | ID | 目的のパッケージのパッケージ ID。 -Id スイッチ自体は省略可能です。 |
 | Version | 既定では、最新バージョンのパッケージのバージョン。 |
-| ソース | パッケージ ソースで既定のソースのドロップダウン リストで選択したソースになります。 |
-| ライセンス | パッケージのライセンス URL をブラウザーが開きます。 -ライセンスも - ReportAbuse が指定されて、パッケージのプロジェクトの URL をブラウザーが開きます。 |
+| Source | パッケージ ソースで既定のソースのドロップダウン リストで選択したソースになります。 |
+| License | パッケージのライセンス URL をブラウザーが開きます。 -ライセンスも - ReportAbuse が指定されて、パッケージのプロジェクトの URL をブラウザーが開きます。 |
 | ReportAbuse | パッケージのレポートの URL の不正使用にブラウザーを開きます。 -ライセンスも - ReportAbuse が指定されて、パッケージのプロジェクトの URL をブラウザーが開きます。 |
 | PassThru | URL を表示します。-whatif を使用すると、ブラウザーを開いてを抑制します。 |
 
@@ -40,7 +40,7 @@ Open-PackagePage [-Id] <string> [-Version] [-Source] [-License] [-ReportAbuse]
 
 ## <a name="common-parameters"></a>共通パラメーター
 
-`Open-PackagePage` 次のサポート[一般的な PowerShell パラメーター](http://go.microsoft.com/fwlink/?LinkID=113216): デバッグ、エラー アクション、ErrorVariable、OutBuffer、OutVariable、PipelineVariable、Verbose、WarningAction、WarningVariable、します。
+`Open-PackagePage` 次のサポート[一般的な PowerShell パラメーター](http://go.microsoft.com/fwlink/?LinkID=113216): Debug、Error Action、ErrorVariable、OutBuffer、OutVariable、PipelineVariable、Verbose、WarningAction、WarningVariable、します。
 
 ## <a name="examples"></a>使用例
 
