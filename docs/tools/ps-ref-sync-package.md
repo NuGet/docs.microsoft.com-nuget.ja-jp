@@ -7,7 +7,7 @@ ms.date: 12/07/2017
 ms.topic: reference
 ms.openlocfilehash: 8119664b1bafe9238b12b1819cc46dc1ee7bdd00
 ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 09/04/2018
 ms.locfileid: "43547995"
