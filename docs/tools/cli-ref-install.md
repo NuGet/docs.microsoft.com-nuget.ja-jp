@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 8261cdb83af72d9d9379124f4c446c7cd2a50299
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: HT
+ms.openlocfilehash: 8088c6dcb7d453650950c219e1cc4dd047a64417
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549137"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67425995"
 ---
 # <a name="install-command-nuget-cli"></a>install コマンド (NuGet CLI)
 
@@ -21,7 +21,7 @@ ms.locfileid: "43549137"
 > [!Tip]
 > プロジェクトのコンテキスト外で直接パッケージをダウンロードするには、パッケージのページを参照してください。 [nuget.org](https://www.nuget.org)を選択し、**ダウンロード**リンク。
 
-ソースが指定されていない場合、グローバル構成ファイルに一覧表示`%appdata%\NuGet\NuGet.Config`(Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac/linux) 使用されます。 参照してください[NuGet の構成の動作を](../consume-packages/configuring-nuget-behavior.md)詳細。
+ソースが指定されていない場合、グローバル構成ファイルに一覧表示`%appdata%\NuGet\NuGet.Config`(Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac/linux) 使用されます。 参照してください[一般的な NuGet 構成](../consume-packages/configuring-nuget-behavior.md)詳細。
 
 特定のパッケージが指定されていない場合`install`プロジェクトの一覧にあるすべてのパッケージをインストール`packages.config`ようなファイル[ `restore`](cli-ref-restore.md)します。
 
@@ -54,10 +54,10 @@ nuget install <packageID | configFilePath> [options]
 | OutputDirectory | パッケージがインストールされているフォルダーを指定します。 フォルダーが指定されていない場合は、現在のフォルダーが使用されます。 |
 | PackageSaveMode | パッケージのインストール後に保存するファイルの種類を指定します: のいずれかの`nuspec`、 `nupkg`、または`nuspec;nupkg`します。 |
 | PreRelease | インストールするプレリリース パッケージを使用できます。 このフラグを使用してパッケージを復元するときに必要ありません`packages.config`します。 |
-| RequireConsent | ダウンロードして、パッケージをインストールする前にパッケージの復元が有効になっていることを確認します。 詳細については、[パッケージの復元](../consume-packages/package-restore.md)を参照してください。 |
+| RequireConsent | ダウンロードして、パッケージをインストールする前にパッケージの復元が有効になっていることを確認します。 詳細については、次を参照してください。[パッケージの復元](../consume-packages/package-restore.md)します。 |
 | SolutionDirectory | パッケージを復元する対象のソリューションのルート フォルダーを指定します。 |
-| Source | パッケージ ソースの一覧を使用する (Url) として指定します。 コマンドを省略すると、構成ファイルで提供されるソースを使用して、参照してください[NuGet の構成の動作を](../consume-packages/configuring-nuget-behavior.md)します。 |
-| Verbosity | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細*します。 |
+| Source | パッケージ ソースの一覧を使用する (Url) として指定します。 コマンドを省略すると、構成ファイルで提供されるソースを使用して、参照してください[一般的な NuGet 構成](../consume-packages/configuring-nuget-behavior.md)します。 |
+| Verbosity | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細* |
 | Version | インストールするパッケージのバージョンを指定します。 |
 
 参照してください[環境変数](cli-ref-environment-variables.md)

@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: ad66d8e0ffda13aaef744104c213863b0e111e0e
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 6e81055796e20186c5769d2ec39849e6c551ff87
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547522"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426722"
 ---
 # <a name="push-and-delete"></a>プッシュし、削除
 
@@ -48,7 +48,7 @@ nuget.org には、次の API を使用して新しいパッケージをプッ�
 
 名前           | イン     | 型   | 必須 | メモ
 -------------- | ------ | ------ | -------- | -----
-X-NuGet-ApiKey | Header | string | 可      | たとえば、`X-NuGet-ApiKey: {USER_API_KEY}`
+X-NuGet-ApiKey | Header | string | 可      | 例、`X-NuGet-ApiKey: {USER_API_KEY}`
 
 API キーは、ユーザーがパッケージ ソースから取得し、クライアントに構成されている不透明な文字列です。 特定の文字列形式が必須でありませんが、API キーの長さは、適切な HTTP ヘッダーの値のサイズを超えない必要があります。
 
@@ -72,7 +72,7 @@ API キーは、ユーザーがパッケージ ソースから取得し、クラ
 
 ## <a name="delete-a-package"></a>パッケージを削除します。
 
-nuget.org にパッケージの削除要求の解釈を「非公開」。 つまり、パッケージは、パッケージの既存のコンシューマーを引き続き使用できますが、パッケージで検索結果で、または web インターフェイスが表示されなくなります。 この方法の詳細については、次を参照してください。、[パッケージの削除](../policies/deleting-packages.md)ポリシー。 その他のサーバーの実装のハード削除としてこのシグナルの解釈、論理的な削除、または一覧から削除することができます。 たとえば、 [NuGet.Server](https://www.nuget.org/packages/NuGet.Server) (古い V2 API のみをサポートしているサーバー実装) は、一覧からの削除、または構成オプションに基づくハード delete のいずれかとしてこの要求の処理をサポートしています。
+nuget.org にパッケージの削除要求の解釈を「非公開」。 つまり、パッケージは、パッケージの既存のコンシューマーを引き続き使用できますが、パッケージで検索結果で、または web インターフェイスが表示されなくなります。 この方法の詳細については、次を参照してください。、[パッケージの削除](../nuget-org/policies/deleting-packages.md)ポリシー。 その他のサーバーの実装のハード削除としてこのシグナルの解釈、論理的な削除、または一覧から削除することができます。 たとえば、 [NuGet.Server](https://www.nuget.org/packages/NuGet.Server) (古い V2 API のみをサポートしているサーバー実装) は、一覧からの削除、または構成オプションに基づくハード delete のいずれかとしてこの要求の処理をサポートしています。
 
     DELETE https://www.nuget.org/api/v2/package/{ID}/{VERSION}
 

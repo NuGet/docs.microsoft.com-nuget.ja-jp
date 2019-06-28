@@ -1,24 +1,26 @@
 ---
-title: NuGet パッケージ マネージャー コンソールのガイド
+title: インストールして、Visual Studio で PowerShell を使用して NuGet パッケージの管理
 description: Visual Studio で NuGet パッケージ マネージャー コンソールを使用してパッケージを操作するための手順です。
 author: karann-msft
 ms.author: karann
-ms.date: 01/23/2018
+ms.date: 06/24/2019
 ms.topic: conceptual
 f1_keywords:
 - vs.nuget.packagemanager.console
-ms.openlocfilehash: 88979c67ea7f073f2ea5a02c445186642f77f210
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 11ec25598d3110ba84dec5044642e205e13346af
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546879"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426220"
 ---
-# <a name="package-manager-console"></a>パッケージ マネージャー コンソール
+# <a name="install-and-manage-packages-using-powershell-in-visual-studio"></a>インストールし、Visual Studio で PowerShell を使用してパッケージの管理
 
-NuGet パッケージ マネージャー コンソールは、Windows 2012 以降のバージョンの Visual Studio に組み込まれています。 (違います Visual Studio for Mac または Visual Studio のコードに含まれています。)
+NuGet パッケージ マネージャー コンソールを使用できます。 [NuGet PowerShell コマンド](../tools/powershell-reference.md)見つけるには、インストール、アンインストール、および NuGet パッケージを更新します。 コンソールを使用することは、パッケージ マネージャー UI が操作を実行する方法を提供しない場合に必要があります。 使用する`nuget.exe`コンソールで、CLI コマンドを参照してください[コンソールで nuget.exe CLI を使用して](#using-the-nugetexe-cli-in-the-console)します。
 
-コンソールを使用できます。 [NuGet PowerShell コマンド](../tools/powershell-reference.md)見つけるには、インストール、アンインストール、および NuGet パッケージを更新します。 コンソールを使用することは、パッケージ マネージャー UI が操作を実行する方法を提供しない場合に必要があります。 使用する`nuget.exe`コマンド コンソールを参照してください[コンソールで nuget.exe CLI を使用して](#using-the-nugetexe-cli-in-the-console)します。
+コンソールは、Windows 上の Visual Studio に組み込まれています。 これは Visual Studio for Mac または Visual Studio Code に含まれません。
+
+## <a name="find-and-install-a-package"></a>検索して、パッケージをインストールします。
 
 などの検索とインストール パッケージは、次の 3 つの簡単なステップで行われます。
 
@@ -74,7 +76,7 @@ Install-Package Elmah -ProjectName UtilitiesLib
 
 参照してください[Install-package](../tools/ps-ref-install-package.md)します。
 
-説明に従って、同じ手順を実行、コンソールでパッケージをインストールする[パッケージがインストールされているときに起こる](../consume-packages/ways-to-install-a-package.md#what-happens-when-a-package-is-installed)、次の項目を追加。
+説明に従って、同じ手順を実行、コンソールでパッケージをインストールする[パッケージがインストールされているときに起こる](../concepts/package-installation-process.md)、次の項目を追加。
 
 - コンソールには、暗黙的な契約書には、そのウィンドウで該当するライセンス条項が表示されます。 条項に同意しない場合は、すぐに、パッケージをアンインストールする必要があります。
 - パッケージへの参照はプロジェクト ファイルに追加されに表示されます**ソリューション エクスプ ローラー**下、**参照**ノード、プロジェクト ファイル内の変更を直接表示するプロジェクトを保存する必要があります。
@@ -139,7 +141,7 @@ Find-Package jquery -AllVersions -ExactMatch
 
 ## <a name="availability-of-the-console"></a>コンソールの可用性
 
-Visual Studio 2017、NuGet、NuGet パッケージ マネージャーが自動的にインストールを選択します。NET に関連するワークロードです。チェックして個別にインストールもできる、**個々 のコンポーネント > コード ツール > NuGet パッケージ マネージャー** Visual Studio 2017 インストーラーでオプションです。
+Visual Studio 2017 以降、NuGet、NuGet パッケージ マネージャーが自動的にインストールを選択します。NET に関連するワークロードです。チェックして個別にインストールもできる、**個々 のコンポーネント > コード ツール > NuGet パッケージ マネージャー** Visual Studio インストーラーでオプションです。
 
 また、NuGet パッケージ マネージャー Visual Studio 2015 以前のバージョンでは不足しているが場合、確認**ツール > 拡張機能と更新しています.** して NuGet パッケージ マネージャー拡張機能を検索します。 直接、拡張機能をダウンロードするには Visual Studio の拡張機能インストーラーを使用する場合は、 [ https://dist.nuget.org/index.html](https://dist.nuget.org/index.html)します。
 

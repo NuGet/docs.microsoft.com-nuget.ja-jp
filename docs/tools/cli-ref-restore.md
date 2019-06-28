@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 9964186dcbfedfbf2415a57102f8f019a1eef23a
-ms.sourcegitcommit: 6b71926f062ecddb8729ef8567baf67fd269642a
-ms.translationtype: HT
+ms.openlocfilehash: 3d7a4188de4fb6f812ca19e7f9e302a5a133c58b
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59931996"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67425973"
 ---
 # <a name="restore-command-nuget-cli"></a>restore コマンド (NuGet CLI)
 
@@ -50,7 +50,7 @@ nuget restore <projectPath> [options]
 | RequireConsent | ダウンロードして、パッケージをインストールする前にパッケージの復元が有効になっていることを確認します。 詳細については、次を参照してください。[パッケージの復元](../consume-packages/package-restore.md)します。 |
 | SolutionDirectory | ソリューション フォルダーを指定します。 ソリューションのパッケージを復元するときに無効です。 復元するときに必要な`packages.config`ファイル`PackagesDirectory`または`OutputDirectory`使用されます。 |
 | Source | (Url) として、復元に使用するパッケージ ソースの一覧を指定します。 コマンドを省略すると、構成ファイルで提供されるソースを使用して、参照してください[NuGet の構成の動作を](../consume-packages/configuring-nuget-behavior.md)します。 |
-| Verbosity |> の出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細*します。 |
+| Verbosity | 出力に表示される詳細データの量を指定します:*通常*、 *静か*、*詳細* |
 
 参照してください[環境変数](cli-ref-environment-variables.md)
 

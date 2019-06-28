@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 740defc34077793b81fb35db73a2eee393ae3bac
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 2f0f93e0cee78ea03cbd53194cdc2a10871fd7e1
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547155"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426762"
 ---
 # <a name="package-content"></a>パッケージのコンテンツ
 
@@ -58,7 +58,7 @@ LOWER_ID | URL    | string  | 可      | パッケージ ID、小文字
 
 パッケージ ソースに 1 つまたは複数のバージョンがある場合は、200 ステータス コードが返されます。 応答本文では、次のプロパティを持つ JSON オブジェクトです。
 
-名前     | 種類             | 必須 | メモ
+Name     | 種類             | 必須 | メモ
 -------- | ---------------- | -------- | -----
 バージョン | 文字列の配列 | 可      | パッケージに使用できる Id
 
@@ -114,10 +114,10 @@ Newtonsoft.Json 9.0.1 の .nupkg をあるバイナリ ストリーム。
 
 ### <a name="request-parameters"></a>要求パラメーター
 
-名前          | イン     | 型    | 必須 | メモ
-------------- | ------ | ------- | -------- | -----
-LOWER_ID      | URL    | string  | 可      | パッケージ ID、小文字
-LOWER_VERSION | URL    | 整数 | 可      | パッケージのバージョンが正規化され、小文字
+名前          | イン     | 型   | 必須 | メモ
+------------- | ------ | ------ | -------- | -----
+LOWER_ID      | URL    | string | 可      | パッケージ ID、小文字
+LOWER_VERSION | URL    | string | 可      | パッケージのバージョンが正規化され、小文字
 
 両方`LOWER_ID`と`LOWER_VERSION`によって実装される規則を使用しては小文字です。NET の[ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant)メソッド。
 

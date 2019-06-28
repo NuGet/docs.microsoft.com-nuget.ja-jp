@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: bce04864224a66019a52cdfff8355f68dc424204
-ms.sourcegitcommit: 69b5eb1494a1745a4b1a7f320a91255d5d8356a9
+ms.openlocfilehash: b4f73e2b816d8a93e123d6de83ad0a15fbb24d18
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65975000"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67425926"
 ---
 # <a name="push-command-nuget-cli"></a>push コマンド (NuGet CLI)
 
@@ -21,7 +21,7 @@ ms.locfileid: "65975000"
 
 パッケージ ソースに、パッケージをプッシュして発行します。
 
-NuGet の既定の構成が読み込むことによって取得`%AppData%\NuGet\NuGet.Config`(Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac/linux) が、読み込み、`Nuget.Config`または`.nuget\Nuget.Config`ドライブのルートから開始し、現在のディレクトリで終わるファイル (を参照してください[構成NuGet の動作を](../consume-packages/configuring-nuget-behavior.md))
+NuGet の既定の構成が読み込むことによって取得`%AppData%\NuGet\NuGet.Config`(Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac/linux) が、読み込み、`Nuget.Config`または`.nuget\Nuget.Config`ドライブのルートから開始し、現在のディレクトリで終わるファイル (を参照してください[一般的な NuGet構成](../consume-packages/configuring-nuget-behavior.md))
 
 ## <a name="usage"></a>使用法
 
@@ -43,11 +43,11 @@ nuget push <packagePath> [options]
 | NonInteractive | ユーザー入力や確認のプロンプトを抑制します。 |
 | NoSymbols | *(3.5 以降)* シンボル パッケージが存在する場合にプッシュされませんシンボル サーバーにします。 |
 | Source | サーバー URL を指定します。 NuGet では、UNC またはローカル フォルダーのソースを識別し、単純に HTTP を使用してプッシュではなく、ファイルの存在をコピーします。  また、NuGet 3.4.2 以降、これは、必須パラメーターしない限り、`NuGet.Config`ファイルを指定します、 *DefaultPushSource*値 (を参照してください[NuGet の構成の動作を](../consume-packages/configuring-nuget-behavior.md))。 |
-| SkipDuplicate | パッケージとバージョンが既に存在する場合は、スキップし、存在する場合、次のパッケージのプッシュ、続行します。 |
+| SkipDuplicate | *(5.1 以降)* パッケージとバージョンが既に存在する場合、スキップし、存在する場合、プッシュでは、次のパッケージを続行します。 |
 | SymbolSource | *(3.5 以降)* シンボル サーバーの URL を指定します nuget.org にプッシュするときに nuget.smbsrc.net が使用されます。 |
 | SymbolApiKey | *(3.5 以降)* で指定された URL の API キーを指定します`-SymbolSource`します。 |
 | Timeout | サーバーにプッシュするための秒単位のタイムアウトを指定します。 既定では 300 秒 (5 分) です。 |
-| Verbosity | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細*します。 |
+| Verbosity | 出力に表示される詳細データの量を指定します:*通常*、 *静か*、*詳細* |
 
 参照してください[環境変数](cli-ref-environment-variables.md)
 

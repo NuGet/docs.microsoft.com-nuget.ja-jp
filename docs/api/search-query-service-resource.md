@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: cfcb52ba7689f1b392c782b4ad42ba820a76c8bf
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: d462b289c39c2dd1418304dabcad47d0d4217f82
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981133"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426729"
 ---
 # <a name="search"></a>検索
 
@@ -97,9 +97,9 @@ projectUrl     | string                     | Ｘ       |
 タグ           | 文字列または文字列の配列 | Ｘ       | 
 タイトル          | string                     | Ｘ       | 
 totalDownloads | 整数                    | Ｘ       | ダウンロードの合計でこの値を推測できなければ、`versions`配列
-検証済み       | boolean                    | Ｘ       | パッケージは、かどうかを示すブール値を JSON[検証](../reference/id-prefix-reservation.md)
+検証済み       | boolean                    | Ｘ       | パッケージは、かどうかを示すブール値を JSON[検証](../nuget-org/id-prefix-reservation.md)
 
-Nuget.org には、検証済みのパッケージとは、予約済み ID のプレフィックスに一致するパッケージ ID があり、いずれかの予約済みのプレフィックスの所有者が所有する 1 つです。 詳細については、、 [ID プレフィックスの予約に関するドキュメント](../reference/id-prefix-reservation.md)を参照してください。
+Nuget.org には、検証済みのパッケージとは、予約済み ID のプレフィックスに一致するパッケージ ID があり、いずれかの予約済みのプレフィックスの所有者が所有する 1 つです。 詳細については、次を参照してください。、 [ID プレフィックスの予約に関するドキュメント](../reference/id-prefix-reservation.md)します。
 
 検索結果のオブジェクトに含まれるメタデータは、最新バージョンのパッケージから取得されます。 内の各項目、`versions`配列は、次のプロパティを持つ JSON オブジェクト。
 

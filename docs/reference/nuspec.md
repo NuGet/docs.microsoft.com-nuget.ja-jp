@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 6c545ddeddb0c5909f57e879912eaeed744e42d5
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: e4c57c0580fe9018703291c08d60e559f95183dc
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812933"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426204"
 ---
 # <a name="nuspec-reference"></a>.nuspec リファレンス
 
@@ -85,7 +85,7 @@ UI 画面用のパッケージの長い説明。
 #### <a name="title"></a>タイトル
 人が読みやすいパッケージのタイトル。通常、nuget.org と、Visual Studio のパッケージ マネージャーの UI 画面で使用されます。 指定しないと、パッケージ ID が使われます。 
 #### <a name="owners"></a>owners
-コンマで区切って指定したパッケージ作成者の一覧。nuget.org でのプロファイル名です。多くの場合は `authors` と同じ一覧であり、nuget.org にパッケージをアップロードするときは無視されます。「[nuget.org でパッケージ所有者を管理する](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg)」をご覧ください。 
+コンマで区切って指定したパッケージ作成者の一覧。nuget.org でのプロファイル名です。多くの場合は `authors` と同じ一覧であり、nuget.org にパッケージをアップロードするときは無視されます。「[nuget.org でパッケージ所有者を管理する](../nuget-org/publish-a-package.md#managing-package-owners-on-nugetorg)」をご覧ください。 
 #### <a name="projecturl"></a>projectUrl
 パッケージのホーム ページの URL。多くの場合、UI 画面と nuget.org に表示されます。 
 #### <a name="licenseurl"></a>licenseUrl
@@ -300,7 +300,7 @@ nuget pack MyProject.csproj
 
 ## <a name="explicit-assembly-references"></a>明示的なアセンブリ参照
 
-`<references>` 要素は、パッケージを使うときにターゲット プロジェクトが参照する必要のあるアセンブリを明示的に指定します。 この要素がある場合、NuGet は一覧で指定されているアセンブリのみへの参照を追加します。パッケージの `lib` フォルダーに含まれる他のアセンブリに対する参照は追加されません。
+`<references>`要素を使用してプロジェクトによって使用されます`packages.config`パッケージを使用する場合、ターゲット プロジェクトが参照するアセンブリを明示的に指定します。 明示的な参照は、通常、設計時のみのアセンブリに使われます。 詳細については、のページをご覧ください。[プロジェクトによって参照されるアセンブリを選択する](../create-packages/select-assemblies-referenced-by-projects.md)詳細についてはします。
 
 たとえば、次の `<references>` 要素は、パッケージに他のアセンブリがある場合でも、`xunit.dll` と `xunit.extensions.dll` に対する参照だけを追加するよう NuGet に指示します。
 
@@ -310,10 +310,6 @@ nuget pack MyProject.csproj
     <reference file="xunit.extensions.dll" />
 </references>
 ```
-
-明示的な参照は、通常、設計時のみのアセンブリに使われます。 たとえば、[コード コントラクト](/dotnet/framework/debug-trace-profile/code-contracts)を使うときは、Visual Studio がコントラクト アセンブリを検出できるように、コントラクト アセンブリはそれが拡張するランタイム アセンブリの隣に存在する必要がありますが、プロジェクトでコントラクト アセンブリを参照したり、プロジェクトの `bin` フォルダーにコントラクト アセンブリをコピーしたりする必要はありません。
-
-同様に、明示的な参照は XUnit などの単体テスト フレームワークに使うことができ、その場合、ツール アセンブリはランタイム アセンブリの隣に存在する必要がありますが、プロジェクト参照として含まれる必要はありません。
 
 ### <a name="reference-groups"></a>[参照グループ]
 
