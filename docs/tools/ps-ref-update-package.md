@@ -41,9 +41,9 @@ Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
 | ProjectName | プロジェクトを更新するパッケージを含む、すべてのプロジェクトに既定の名前。 |
 | Version | アップグレードは、既定では、最新バージョンを使用するバージョンです。 NuGet 3.0 以降でバージョン値は 1 つのことがあります*最低、最高、HighestMinor*、または*HighestPatch* (Safe に相当)。 |
 | Safe | 現在インストールされているパッケージと同じメジャーおよびマイナーのバージョンでのみのバージョンにアップグレードするよう制約します。 |
-| ソース | 検索するパッケージ ソースの URL またはフォルダーのパス。 ローカル フォルダー パスには、absolute、または現在のフォルダーの相対パスを指定できます。 省略した場合、`Update-Package`現在選択されているパッケージ ソースを検索します。 |
+| Source | 検索するパッケージ ソースの URL またはフォルダーのパス。 ローカル フォルダー パスには、absolute、または現在のフォルダーの相対パスを指定できます。 省略した場合、`Update-Package`現在選択されているパッケージ ソースを検索します。 |
 | IncludePrerelease | プレリリース パッケージ更新プログラムにはが含まれています。 |
-| 再インストール | Resintalls パッケージは、現在インストールされているバージョンを使用します。 「[パッケージの再インストールと更新](../consume-packages/reinstalling-and-updating-packages.md)」をご覧ください。 |
+| Reinstall | Resintalls パッケージは、現在インストールされているバージョンを使用します。 「[パッケージの再インストールと更新](../consume-packages/reinstalling-and-updating-packages.md)」をご覧ください。 |
 | FileConflictAction | 上書きするか、プロジェクトによって参照されている既存のファイルを無視するように求められる場合に実行するアクション。 指定できる値は*上書き、Ignore、None、OverwriteAll*、および*ignoreall です*(3.0 以降)。 |
 | DependencyVersion | 次のいずれかの値を使用する依存関係パッケージのバージョン:<br/><ul><li>*最も低い*(既定値): 最小バージョン</li><li>*HighestPatch*: 最高レベルの最も大きなを最低軽微な修正プログラムのバージョン</li><li>*HighestMinor*: 主要な最小のバージョン、マイナー、最高の最高の修正プログラム</li><li>*最も高い*(パラメーターなしの更新プログラム パッケージの既定): 最上位のバージョン</li></ul>使用して、既定値を設定することができます、 [ `dependencyVersion` ](../reference/nuget-config-file.md#config-section)での設定、`Nuget.Config`ファイル。 |
 | ToHighestPatch | 現在インストールされているパッケージのマイナー バージョンと同じバージョンへのアップグレードを制約します。 |
@@ -54,7 +54,7 @@ Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
 
 ### <a name="common-parameters"></a>共通パラメーター
 
-`Update-Package` 次のサポート[一般的な PowerShell パラメーター](http://go.microsoft.com/fwlink/?LinkID=113216): デバッグ、エラー アクション、ErrorVariable、OutBuffer、OutVariable、PipelineVariable、Verbose、WarningAction、WarningVariable、します。
+`Update-Package` 次のサポート[一般的な PowerShell パラメーター](http://go.microsoft.com/fwlink/?LinkID=113216): Debug、Error Action、ErrorVariable、OutBuffer、OutVariable、PipelineVariable、Verbose、WarningAction、WarningVariable、します。
 
 ### <a name="examples"></a>使用例
 
