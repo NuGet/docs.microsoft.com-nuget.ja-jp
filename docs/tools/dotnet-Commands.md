@@ -22,8 +22,8 @@ ms.locfileid: "67496480"
 
 ## <a name="package-consumption"></a>パッケージの使用
 
-- [**dotnet パッケージの追加**](/dotnet/core/tools/dotnet-add-package):プロジェクト ファイルにパッケージ参照を追加し、実行`dotnet restore`パッケージをインストールします。
-- [**パッケージを削除して dotnet**](/dotnet/core/tools/dotnet-remove-package):プロジェクト ファイルからパッケージ参照を削除します。
+- [**dotnet add package**](/dotnet/core/tools/dotnet-add-package):プロジェクト ファイルにパッケージ参照を追加し、実行`dotnet restore`パッケージをインストールします。
+- [**dotnet remove package**](/dotnet/core/tools/dotnet-remove-package):プロジェクト ファイルからパッケージ参照を削除します。
 - [**dotnet restore**](/dotnet/core/tools/dotnet-restore?tabs=netcore2x):依存関係とプロジェクトのツールを復元します。 同じコードを実行する時点では NuGet 4.0 では、この`nuget restore`します。
 - [**dotnet nuget locals**](/dotnet/core/tools/dotnet-nuget-locals):場所を一覧表示、*グローバル パッケージ*、 *http キャッシュ*、および*temp*フォルダーとそれらのフォルダーの内容をクリアします。
 - [**dotnet new nugetconfig**](/dotnet/core/tools/dotnet-new):作成、 [ `nuget.config` ](../reference/nuget-config-file.md) NuGet の動作を構成するファイル。
