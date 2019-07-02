@@ -18,7 +18,7 @@ ms.locfileid: "67496480"
 
 これらのコマンドを使用してパッケージを使用する例については、次を参照してください。[をインストールし、dotnet CLI を使用してパッケージを管理](../consume-packages/install-use-packages-dotnet-cli.md)。 これらのコマンドを使用してパッケージを作成する例については、次を参照してください。[作成 dotnet CLI を使用してパッケージを発行および](../quickstart/create-and-publish-a-package-using-the-dotnet-cli.md)します。
 
-完全なコマンドのリファレンスで`dotnet`CLI を参照してください[.NET Core コマンド ライン インターフェイス (CLI) ツール](/dotnet/core/tools/?tabs=netcore2x)します。
+`dotnet`CLIの完全なコマンドリファレンスについては、[.NET Core コマンド ライン インターフェイス (CLI) ツール](/dotnet/core/tools/?tabs=netcore2x)を参照してください。
 
 ## <a name="package-consumption"></a>パッケージの使用
 
