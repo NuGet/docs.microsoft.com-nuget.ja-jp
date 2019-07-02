@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 34c205e7dac60c7abfb6323b4dc45bf4f074d46a
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 8e4fb376e471a207333d241aeb414da7d5c3571e
+ms.sourcegitcommit: 2a9d149bc6f5ff76b0b657324820bd0429cddeef
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426784"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67496538"
 ---
 # <a name="catalog"></a>Catalog
 
@@ -194,7 +194,8 @@ version                 | string                     | 可      | カタログ �
 ----------------------- | -------------------------- | -------- | -----
 作成者                 | string                     | Ｘ       |
 created                 | string                     | Ｘ       | パッケージが最初に作成されたときのタイムスタンプ。 フォールバック プロパティ:`published`します。
-dependencyGroups        | オブジェクトの配列           | Ｘ       | 同じ形式、[パッケージ メタデータ リソース](registration-base-url-resource.md#package-dependency-group)
+dependencyGroups        | オブジェクトの配列           | Ｘ       | ターゲット フレームワークによって、パッケージの依存関係がグループ化 ([パッケージ メタデータ リソースと同じ形式](registration-base-url-resource.md#package-dependency-group))
+非推奨             | object                     | Ｘ       | パッケージに関連付けられている非推奨 ([パッケージ メタデータ リソースと同じ形式](registration-base-url-resource.md#package-deprecation))
 説明             | string                     | Ｘ       |
 iconUrl                 | string                     | Ｘ       |
 isPrerelease            | boolean                    | Ｘ       | パッケージのバージョンがプレリリースかどうか。 検出できる`version`します。
