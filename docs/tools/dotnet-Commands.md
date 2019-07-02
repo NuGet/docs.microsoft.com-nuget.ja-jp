@@ -16,7 +16,7 @@ ms.locfileid: "67426004"
 
 `dotnet`コマンド ライン インターフェイス (CLI)、Windows、Mac OS X、Linux で実行され、インストール、復元、およびパッケージを公開するなどの重要なコマンドのいくつか提供されます。 Dotnet はニーズを満たしている場合は、使用する必要はありません`nuget.exe`します。
 
-これらのコマンドを使用してパッケージを使用する例については、[dotnet CLIを使用してパッケージをインストールおよび管理](../consume-packages/install-use-packages-dotnet-cli.md)を参照してください。 これらのコマンドを使用してパッケージを作成する例については、[パッケージの作成と公開 (dotnet CLI)](../quickstart/create-and-publish-a-package-using-the-dotnet-cli.md)を参照してください。
+これらのコマンドを使用してパッケージを使用する例については、[dotnet CLIを使用したパッケージのインストールおよび管理](../consume-packages/install-use-packages-dotnet-cli.md)を参照してください。 これらのコマンドを使用してパッケージを作成する例については、[パッケージの作成と公開 (dotnet CLI)](../quickstart/create-and-publish-a-package-using-the-dotnet-cli.md)を参照してください。
 
 `dotnet`CLIの完全なコマンドリファレンスについては、[.NET Core コマンド ライン インターフェイス (CLI) ツール](/dotnet/core/tools/?tabs=netcore2x)を参照してください。
 
