@@ -50,24 +50,24 @@ PackageReference 形式を使用して、使用して .NET Standard プロジェ
 | VersionPrefix | PackageVersionPrefix | (なし) | PackageVersion を設定すると、PackageVersionPrefix は上書きされます |
 | VersionSuffix | PackageVersionSuffix | (なし) | MSBuild の $(VersionSuffix) PackageVersion を設定すると、PackageVersionSuffix は上書きされます |
 | Authors | Authors | 現在のユーザーのユーザー名 | |
-| 所有者 | N/A | NuSpec にはありません | |
+| Owners | N/A | NuSpec にはありません | |
 | Title | Title | PackageId| |
-| 説明 | 説明 | "パッケージの説明" | |
-| 著作権 | 著作権 | (なし) | |
+| Description | Description | "パッケージの説明" | |
+| Copyright | Copyright | (なし) | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | False | |
-| ライセンス | PackageLicenseExpression | (なし) | 対応しています `<license type="expression">` |
-| ライセンス | PackageLicenseFile | (なし) | `<license type="file">` に相当します。 明示的に参照先のライセンス ファイルをパックする必要があります。 |
+| license | PackageLicenseExpression | (なし) | 対応しています `<license type="expression">` |
+| license | PackageLicenseFile | (なし) | `<license type="file">` に相当します。 明示的に参照先のライセンス ファイルをパックする必要があります。 |
 | LicenseUrl | PackageLicenseUrl | (なし) | `licenseUrl` PackageLicenseExpression または PackageLicenseFile プロパティを使用して、非推奨とされています。 |
 | ProjectUrl | PackageProjectUrl | (なし) | |
 | IconUrl | PackageIconUrl | (なし) | |
 | Tags | PackageTags | (なし) | 複数のタグはセミコロン (;) で区切られます。 |
 | ReleaseNotes | PackageReleaseNotes | (なし) | |
-| リポジトリの Url/ | RepositoryUrl | (なし) | リポジトリの URL を複製するか、ソース コードを取得するために使用します。 例: *https://github.com/NuGet/NuGet.Client.git* |
-| リポジトリの種類/ | RepositoryType | (なし) | リポジトリの種類。 例: *git*、 *tfs*します。 |
-| リポジトリとブランチ | RepositoryBranch | (なし) | 省略可能なリポジトリのブランチの情報。 *RepositoryUrl*にインクルードするには、このプロパティも指定する必要があります。 例:*マスター* (NuGet 4.7.0+) |
-| コミットあたりのリポジトリ | RepositoryCommit | (なし) | 省略可能なリポジトリのコミットまたは変更セットをパッケージ ソースを示すためには、に対して構築されました。 *RepositoryUrl*にインクルードするには、このプロパティも指定する必要があります。 例:*0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0+) |
+| Repository/Url | RepositoryUrl | (なし) | リポジトリの URL を複製するか、ソース コードを取得するために使用します。 例: *https://github.com/NuGet/NuGet.Client.git* |
+| Repository/Type | RepositoryType | (なし) | リポジトリの種類。 例: *git*、 *tfs*します。 |
+| Repository/Branch | RepositoryBranch | (なし) | 省略可能なリポジトリのブランチの情報。 *RepositoryUrl*にインクルードするには、このプロパティも指定する必要があります。 例:*マスター* (NuGet 4.7.0+) |
+| Repository/Commit | RepositoryCommit | (なし) | 省略可能なリポジトリのコミットまたは変更セットをパッケージ ソースを示すためには、に対して構築されました。 *RepositoryUrl*にインクルードするには、このプロパティも指定する必要があります。 例:*0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0+) |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
-| まとめ | サポートなし | | |
+| Summary | サポートなし | | |
 
 ### <a name="pack-target-inputs"></a>pack ターゲットの入力
 
