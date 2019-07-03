@@ -7,7 +7,7 @@ ms.date: 03/23/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1e89aeb46f2538d46c013561a51a41702b2472d8
 ms.sourcegitcommit: 6b71926f062ecddb8729ef8567baf67fd269642a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/22/2019
 ms.locfileid: "59932100"
@@ -18,7 +18,7 @@ ms.locfileid: "59932100"
 
 NuGet 4.0 以降では、PackageReference 形式を使用することにより、すべてのマニフェスト メタデータを、個別の `.nuspec` ファイルを使用せずにプロジェクト ファイルに直接保存できます。
 
-MSBuild 15.1 以降では、NuGet は以下のように `pack` および `restore` ターゲットを使用する MSBuild の最上級のメンバーです。 これらのターゲットを使用すると、他の MSBuild タスクやターゲットの場合と同様に NuGet を使用できます  (NuGet 3.x 以前の場合は、代わりに NuGet CLI の [pack](../tools/cli-ref-pack.md) および [restore](../tools/cli-ref-restore.md) コマンドを使用します)。
+MSBuild 15.1 以降では、NuGet は以下のように `pack` および `restore` ターゲットを使用する MSBuild の最上級のメンバーです。 これらのターゲットを使用すると、他の MSBuild タスクやターゲットの場合と同様に NuGet を使用できます (NuGet 3.x 以前の場合は、代わりに NuGet CLI の [pack](../tools/cli-ref-pack.md) および [restore](../tools/cli-ref-restore.md) コマンドを使用します)。
 
 ## <a name="target-build-order"></a>ターゲットのビルド順序
 
@@ -52,11 +52,11 @@ PackageReference 形式を使用して、使用して .NET Standard プロジェ
 | Authors | Authors | 現在のユーザーのユーザー名 | |
 | Owners | N/A | NuSpec にはありません | |
 | Title | Title | PackageId| |
-| Description | Description | "パッケージの説明" | |
-| Copyright | Copyright | (なし) | |
+| 説明 | 説明 | "パッケージの説明" | |
+| 著作権 | 著作権 | (なし) | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | False | |
-| license | PackageLicenseExpression | (なし) | 対応しています `<license type="expression">` |
-| license | PackageLicenseFile | (なし) | `<license type="file">` に相当します。 明示的に参照先のライセンス ファイルをパックする必要があります。 |
+| ライセンス | PackageLicenseExpression | (なし) | 対応しています `<license type="expression">` |
+| ライセンス | PackageLicenseFile | (なし) | `<license type="file">` に相当します。 明示的に参照先のライセンス ファイルをパックする必要があります。 |
 | LicenseUrl | PackageLicenseUrl | (なし) | `licenseUrl` PackageLicenseExpression または PackageLicenseFile プロパティを使用して、非推奨とされています。 |
 | ProjectUrl | PackageProjectUrl | (なし) | |
 | IconUrl | PackageIconUrl | (なし) | |
