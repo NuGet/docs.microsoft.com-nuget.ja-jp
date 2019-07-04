@@ -71,8 +71,8 @@ HTTP メソッドのみをカタログ リソースのサポートで検出さ�
 --------------- | ---------------- | -------- | -----
 commitId        | string           | 可      | 最新のコミットに関連付けられている一意の ID
 commitTimeStamp | string           | 可      | 最新のコミットのタイムスタンプ
-count           | 整数          | 可      | インデックス内のページの数
-項目           | オブジェクトの配列 | 可      | 各オブジェクト、ページを表す、オブジェクトの配列
+count           | integer          | 可      | インデックス内のページの数
+items           | オブジェクトの配列 | 可      | 各オブジェクト、ページを表す、オブジェクトの配列
 
 内の各要素、`items`配列は、各ページに関するいくつかの最小限の情報を持つオブジェクト。 これらのページ オブジェクトでは、カタログ リーフ (アイテム) は含まれません。 この配列内の要素の順序が定義されていません。 使用したメモリ内のクライアントからページの順序を指定できます、`commitTimeStamp`プロパティ。
 
@@ -89,7 +89,7 @@ count           | 整数          | 可      | インデックス内のページ
 @id             | string  | 可      | フェッチのカタログ ページの URL
 commitId        | string  | 可      | このページで最新のコミットに関連付けられている一意の ID
 commitTimeStamp | string  | 可      | このページで最新のコミットのタイムスタンプ
-count           | 整数 | 可      | カタログ ページ内の項目の数
+count           | integer | 可      | カタログ ページ内の項目の数
 
 異なり、[パッケージ メタデータ リソース](registration-base-url-resource.md)インラインのケースでは、いくつかのインデックスにまま、カタログ リーフ インデックスにインライン展開されないし、ページを使用して常にフェッチする必要があります`@id`URL。
 
@@ -113,9 +113,9 @@ count           | 整数 | 可      | カタログ ページ内の項目の数
 --------------- | ---------------- | -------- | -----
 commitId        | string           | 可      | このページで最新のコミットに関連付けられている一意の ID
 commitTimeStamp | string           | 可      | このページで最新のコミットのタイムスタンプ
-count           | 整数          | 可      | ページ内の項目の数
-項目           | オブジェクトの配列 | 可      | このページでカタログ アイテム
-親 (parent)          | string           | 可      | カタログ インデックスへの URL
+count           | integer          | 可      | ページ内の項目の数
+items           | オブジェクトの配列 | 可      | このページでカタログ アイテム
+parent          | string           | 可      | カタログ インデックスへの URL
 
 内の各要素、`items`配列は、カタログ項目に関するいくつかの最小限の情報を持つオブジェクト。 これらの項目オブジェクトでは、すべてのカタログ項目のデータは含まれません。 ページの項目の順序`items`配列が定義されていません。 メモリを使用して、クライアントによって項目の順序を指定できます、`commitTimeStamp`プロパティ。
 
@@ -164,8 +164,8 @@ nuget:version   | string  | 可      | このリーフに関連するパッケ�
 @type                   | 文字列または文字列の配列 | 可      | カタログ アイテムの種類
 catalog:commitId        | string                     | 可      | このカタログ アイテムに関連付けられたコミット ID
 catalog:commitTimeStamp | string                     | 可      | このカタログ アイテムのコミット タイムスタンプ
-ID                      | string                     | 可      | カタログ アイテムのパッケージ ID
-公開               | string                     | 可      | パッケージのカタログ アイテムの発行日
+id                      | string                     | 可      | カタログ アイテムのパッケージ ID
+published               | string                     | 可      | パッケージのカタログ アイテムの発行日
 version                 | string                     | 可      | カタログ アイテムのパッケージのバージョン
 
 ### <a name="item-types"></a>項目の種類
@@ -192,26 +192,26 @@ version                 | string                     | 可      | カタログ �
 
 名前                    | 種類                       | 必須 | メモ
 ----------------------- | -------------------------- | -------- | -----
-作成者                 | string                     | Ｘ       |
+authors                 | string                     | Ｘ       |
 created                 | string                     | Ｘ       | パッケージが最初に作成されたときのタイムスタンプ。 フォールバック プロパティ:`published`します。
 dependencyGroups        | オブジェクトの配列           | Ｘ       | ターゲット フレームワークによって、パッケージの依存関係がグループ化 ([パッケージ メタデータ リソースと同じ形式](registration-base-url-resource.md#package-dependency-group))
-非推奨             | object                     | Ｘ       | パッケージに関連付けられている非推奨 ([パッケージ メタデータ リソースと同じ形式](registration-base-url-resource.md#package-deprecation))
-説明             | string                     | Ｘ       |
+deprecation             | object                     | Ｘ       | パッケージに関連付けられている非推奨 ([パッケージ メタデータ リソースと同じ形式](registration-base-url-resource.md#package-deprecation))
+description             | string                     | Ｘ       |
 iconUrl                 | string                     | Ｘ       |
 isPrerelease            | boolean                    | Ｘ       | パッケージのバージョンがプレリリースかどうか。 検出できる`version`します。
 language                | string                     | Ｘ       |
 licenseUrl              | string                     | Ｘ       |
-一覧                  | boolean                    | Ｘ       | パッケージを表示するかどうか
+listed                  | boolean                    | Ｘ       | パッケージを表示するかどうか
 minClientVersion        | string                     | Ｘ       |
 packageHash             | string                     | 可      | 使用してエンコード、パッケージのハッシュ[標準の base 64](https://tools.ietf.org/html/rfc4648#section-4)
 packageHashAlgorithm    | string                     | 可      |
-packageSize             | 整数                    | 可      | (バイト単位) パッケージの .nupkg のサイズ
+packageSize             | integer                    | 可      | (バイト単位) パッケージの .nupkg のサイズ
 projectUrl              | string                     | Ｘ       |
 releaseNotes            | string                     | Ｘ       |
 requireLicenseAgreement | boolean                    | Ｘ       | 想定`false`除外されている場合
-概要                 | string                     | Ｘ       |
-タグ                    | 文字列の配列           | Ｘ       |
-タイトル                   | string                     | Ｘ       |
+summary                 | string                     | Ｘ       |
+tags                    | 文字列の配列           | Ｘ       |
+title                   | string                     | Ｘ       |
 verbatimVersion         | string                     | Ｘ       | バージョン文字列が、.nuspec で見つかった最初
 
 パッケージ`version`プロパティでは、完全なバージョン文字列を正規化後。 意味 SemVer 2.0.0 ビルド データは含まれていますここでします。
