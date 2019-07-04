@@ -53,7 +53,7 @@ PackageReference 形式を使用して、使用して .NET Standard プロジェ
 | Owners | N/A | NuSpec にはありません | |
 | Title | Title | PackageId| |
 | Description | Description | "パッケージの説明" | |
-| 著作権 | 著作権 | (なし) | |
+| Copyright | Copyright | (なし) | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | False | |
 | license | PackageLicenseExpression | (なし) | 対応しています `<license type="expression">` |
 | license | PackageLicenseFile | (なし) | `<license type="file">` に相当します。 明示的に参照先のライセンス ファイルをパックする必要があります。 |
@@ -333,7 +333,7 @@ Nuspec ファイルをパックする csproj ファイルの例を示します�
 
 追加の restore 設定を、プロジェクト ファイルの MSBuild プロパティで指定することができます。 また、`-p:` スイッチを使用して、コマンド ラインから値を設定することもできます (次の例を参照してください)。
 
-| プロパティ | 説明 |
+| プロパティ | Description |
 |--------|--------|
 | RestoreSources | パッケージ ソースのセミコロン区切りの一覧。 |
 | RestorePackagesPath | ユーザー パッケージ フォルダーのパス。 |
@@ -370,7 +370,7 @@ msbuild -t:restore -p:RestoreConfigFile=<path>
 
 restore で、次のファイルがビルドの `obj` フォルダーに作成されます。
 
-| ファイル | 説明 |
+| ファイル | Description |
 |--------|--------|
 | `project.assets.json` | すべてのパッケージ参照の依存関係グラフが含まれています。 |
 | `{projectName}.projectFileExtension.nuget.g.props` | パッケージに含まれる MSBuild プロパティへの参照 |
