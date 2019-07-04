@@ -60,7 +60,7 @@ LOWER_ID | URL    | string  | 可      | パッケージ ID、小文字
 
 Name     | 種類             | 必須 | メモ
 -------- | ---------------- | -------- | -----
-バージョン | 文字列の配列 | 可      | パッケージに使用できる Id
+versions | 文字列の配列 | 可      | パッケージに使用できる Id
 
 内の文字列、`versions`配列はすべて小文字、 [NuGet バージョン文字列を正規化](../reference/package-versioning.md#normalized-version-numbers)します。 バージョン文字列では、SemVer 2.0.0 ビルド メタデータは含まれません。
 
