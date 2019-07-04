@@ -52,11 +52,11 @@ PackageReference 形式を使用して、使用して .NET Standard プロジェ
 | Authors | Authors | 現在のユーザーのユーザー名 | |
 | Owners | N/A | NuSpec にはありません | |
 | Title | Title | PackageId| |
-| 説明 | 説明 | "パッケージの説明" | |
+| Description | Description | "パッケージの説明" | |
 | 著作権 | 著作権 | (なし) | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | False | |
-| ライセンス | PackageLicenseExpression | (なし) | 対応しています `<license type="expression">` |
-| ライセンス | PackageLicenseFile | (なし) | `<license type="file">` に相当します。 明示的に参照先のライセンス ファイルをパックする必要があります。 |
+| license | PackageLicenseExpression | (なし) | 対応しています `<license type="expression">` |
+| license | PackageLicenseFile | (なし) | `<license type="file">` に相当します。 明示的に参照先のライセンス ファイルをパックする必要があります。 |
 | LicenseUrl | PackageLicenseUrl | (なし) | `licenseUrl` PackageLicenseExpression または PackageLicenseFile プロパティを使用して、非推奨とされています。 |
 | ProjectUrl | PackageProjectUrl | (なし) | |
 | IconUrl | PackageIconUrl | (なし) | |
