@@ -76,8 +76,8 @@ PackageReference 形式を使用して、使用して .NET Standard プロジェ
 - PackageVersion
 - PackageId
 - Authors
-- 説明
-- 著作権
+- Description
+- Copyright
 - PackageRequireLicenseAcceptance
 - DevelopmentDependency
 - PackageLicenseExpression
