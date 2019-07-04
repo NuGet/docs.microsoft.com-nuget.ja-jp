@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 8ff92e5a3ab2d5c13ee02a9e49709866e2ac0e87
-ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
+ms.openlocfilehash: abdd06642ccc652527a1a005eda2689ce97df74c
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58921573"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426807"
 ---
 # <a name="signing-nuget-packages"></a>NuGet パッケージの署名
 
@@ -66,7 +66,7 @@ nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper 
 
 ## <a name="publish-the-package"></a>パッケージを公開する
 
-これで NuGet.org にパッケージを公開する準備ができました。「[パッケージを公開する](Publish-a-package.md)」を参照してください。
+これで NuGet.org にパッケージを公開する準備ができました。「[パッケージを公開する](../nuget-org/Publish-a-package.md)」を参照してください。
 
 ## <a name="create-a-test-certificate"></a>テスト証明書を作成する
 
@@ -103,5 +103,5 @@ New-SelfSignedCertificate -Subject "CN=NuGet Test Developer, OU=Use for testing 
 
 ## <a name="related-articles"></a>関連記事
 
-- [署名付きパッケージのインストール](../consume-packages/installing-signed-packages.md)
+- [パッケージ信頼境界を管理する](../consume-packages/installing-signed-packages.md)
 - [署名済みパッケージの参照](../reference/Signed-Packages-Reference.md)

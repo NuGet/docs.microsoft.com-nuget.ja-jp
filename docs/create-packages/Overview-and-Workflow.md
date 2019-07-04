@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/26/2017
 ms.topic: conceptual
-ms.openlocfilehash: 6b41b23df115c45e830404afcf9defa23615bd7c
-ms.sourcegitcommit: ce97dded7715f217ec44f6c8368ab0df19c38342
+ms.openlocfilehash: a285650034c99026e34fcda398ca7ced4855e40a
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52615757"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67425716"
 ---
 # <a name="package-creation-workflow"></a>パッケージ作成ワークフロー
 
@@ -41,6 +41,6 @@ ms.locfileid: "52615757"
 - 「[Native Packages](../create-packages/native-packages.md)」 (ネイティブ パッケージ) では、C++ コンシューマー用のパッケージの作成プロセスが説明されています。
 - 「[Signing Packages](../create-packages/sign-a-package.md)」(パッケージの署名) では、パッケージにデジタル署名を追加するプロセスが説明されています。
 
-nuget.org にパッケージを発行する準備ができたら、「[Publish a package](../create-packages/publish-a-package.md)」 (パッケージの発行) の簡単なプロセスに従います。
+nuget.org にパッケージを発行する準備ができたら、「[Publish a package](../nuget-org/publish-a-package.md)」 (パッケージの発行) の簡単なプロセスに従います。
 
 nuget.org ではなくプライベート フィードを使用する場合は、[パッケージのホスティングの概要](../hosting-packages/overview.md)に関するページを参照してください。
