@@ -48,9 +48,9 @@ Search API では、指定した検索クエリに一致するパッケージの
 名前        | イン     | 型    | 必須 | メモ
 ----------- | ------ | ------- | -------- | -----
 q           | URL    | string  | Ｘ       | パッケージをフィルターするために使用する検索用語
-スキップ        | URL    | 整数 | Ｘ       | 改ページをスキップする結果の数
-Take        | URL    | 整数 | Ｘ       | 結果を返すには、改ページの数
-プレリリース版  | URL    | boolean | Ｘ       | `true` または`false`含めるかどうかを決定する[プレリリース パッケージ](../create-packages/prerelease-packages.md)
+skip        | URL    | integer | Ｘ       | 改ページをスキップする結果の数
+take        | URL    | integer | Ｘ       | 結果を返すには、改ページの数
+prerelease  | URL    | boolean | Ｘ       | `true` または`false`含めるかどうかを決定する[プレリリース パッケージ](../create-packages/prerelease-packages.md)
 semVerLevel | URL    | string  | Ｘ       | SemVer 1.0.0 バージョン文字列 
 
 検索クエリ`q`サーバー実装で定義されている方法で解析されます。 nuget.org で基本的なフィルター処理をサポートする、[さまざまなフィールド](../consume-packages/finding-and-choosing-packages.md#search-syntax)します。 ない場合は`q`skip と take によって課される境界内のすべてのパッケージを返す必要がある提供されます。 これにより、Visual Studio の NuGet のエクスペリエンスで、[参照] タブ。
@@ -73,8 +73,8 @@ semVerLevel | URL    | string  | Ｘ       | SemVer 1.0.0 バージョン文字�
 
 名前      | 種類             | 必須 | メモ
 --------- | ---------------- | -------- | -----
-totalHits | 整数          | 可      | 無視すると、一致の合計数`skip`と `take`
-[データ]      | オブジェクトの配列 | 可      | 要求に一致する検索結果
+totalHits | integer          | 可      | 無視すると、一致の合計数`skip`と `take`
+data      | オブジェクトの配列 | 可      | 要求に一致する検索結果
 
 ### <a name="search-result"></a>検索結果
 
@@ -83,21 +83,21 @@ totalHits | 整数          | 可      | 無視すると、一致の合計数`sk
 
 名前           | 種類                       | 必須 | メモ
 -------------- | -------------------------- | -------- | -----
-ID             | string                     | 可      | 一致するパッケージの ID
+id             | string                     | 可      | 一致するパッケージの ID
 version        | string                     | 可      | (ビルド メタデータを含む可能性があります)、パッケージの完全な SemVer 2.0.0 バージョン文字列
-説明    | string                     | Ｘ       | 
-バージョン       | オブジェクトの配列           | 可      | すべての一致するパッケージのバージョン、`prerelease`パラメーター
-作成者        | 文字列または文字列の配列 | Ｘ       | 
+description    | string                     | Ｘ       | 
+versions       | オブジェクトの配列           | 可      | すべての一致するパッケージのバージョン、`prerelease`パラメーター
+authors        | 文字列または文字列の配列 | Ｘ       | 
 iconUrl        | string                     | Ｘ       | 
 licenseUrl     | string                     | Ｘ       | 
 owners         | 文字列または文字列の配列 | Ｘ       | 
 projectUrl     | string                     | Ｘ       | 
-登録   | string                     | Ｘ       | 絶対 URL、関連付けられている[登録インデックス](registration-base-url-resource.md#registration-index)
-概要        | string                     | Ｘ       | 
-タグ           | 文字列または文字列の配列 | Ｘ       | 
-タイトル          | string                     | Ｘ       | 
-totalDownloads | 整数                    | Ｘ       | ダウンロードの合計でこの値を推測できなければ、`versions`配列
-検証済み       | boolean                    | Ｘ       | パッケージは、かどうかを示すブール値を JSON[検証](../nuget-org/id-prefix-reservation.md)
+registration   | string                     | Ｘ       | 絶対 URL、関連付けられている[登録インデックス](registration-base-url-resource.md#registration-index)
+summary        | string                     | Ｘ       | 
+tags           | 文字列または文字列の配列 | Ｘ       | 
+title          | string                     | Ｘ       | 
+totalDownloads | integer                    | Ｘ       | ダウンロードの合計でこの値を推測できなければ、`versions`配列
+verified       | boolean                    | Ｘ       | パッケージは、かどうかを示すブール値を JSON[検証](../nuget-org/id-prefix-reservation.md)
 
 Nuget.org には、検証済みのパッケージとは、予約済み ID のプレフィックスに一致するパッケージ ID があり、いずれかの予約済みのプレフィックスの所有者が所有する 1 つです。 詳細については、次を参照してください。、 [ID プレフィックスの予約に関するドキュメント](../reference/id-prefix-reservation.md)します。
 
@@ -107,7 +107,7 @@ Nuget.org には、検証済みのパッケージとは、予約済み ID のプ
 --------- | ------- | -------- | -----
 @id       | string  | 可      | 絶対 URL、関連付けられている[登録リーフ](registration-base-url-resource.md#registration-leaf)
 version   | string  | 可      | (ビルド メタデータを含む可能性があります)、パッケージの完全な SemVer 2.0.0 バージョン文字列
-ダウンロード | 整数 | 可      | この特定のパッケージ バージョンのダウンロード数
+downloads | integer | 可      | この特定のパッケージ バージョンのダウンロード数
 
 ### <a name="sample-request"></a>要求のサンプル
 
