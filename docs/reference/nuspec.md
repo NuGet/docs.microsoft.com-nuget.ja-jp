@@ -238,7 +238,7 @@ nuget pack MyProject.csproj
 | 包含/除外タグ | ターゲットの影響を受けるフォルダー |
 | --- | --- |
 | contentFiles | Content |
-| ランタイム | Runtime、Resources、FrameworkAssemblies |
+| runtime | Runtime、Resources、FrameworkAssemblies |
 | compile | lib |
 | build | build (MSBuild のプロパティとターゲット) |
 | native | native |
