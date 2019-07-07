@@ -73,8 +73,8 @@ signingCertificates | オブジェクトの配列 | 可      |
 名前         | 種類   | 必須 | メモ
 ------------ | ------ | -------- | -----
 contentUrl   | string | 可      | DER でエンコードされた公開証明書への絶対 URL
-指紋 | object | 可      |
-件名      | string | 可      | 証明書からサブジェクト識別名
+fingerprints | object | 可      |
+subject      | string | 可      | 証明書からサブジェクト識別名
 issuer       | string | 可      | 証明書の発行者の識別名
 notBefore    | string | 可      | 証明書の有効期間の開始タイムスタンプ
 notAfter     | string | 可      | 証明書の有効期間の終了のタイムスタンプ
