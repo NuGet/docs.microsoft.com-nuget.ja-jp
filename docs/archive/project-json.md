@@ -71,12 +71,12 @@ ms.locfileid: "43547785"
 | 包含/除外タグ | ターゲットの影響を受けるフォルダー |
 | --- | --- |
 | contentFiles | Content  |
-| ランタイム | Runtime、Resources、FrameworkAssemblies  |
+| runtime | Runtime、Resources、FrameworkAssemblies  |
 | compile | lib |
-| ビルド | build (MSBuild のプロパティとターゲット) |
+| build | build (MSBuild のプロパティとターゲット) |
 | native | native |
 | none | フォルダーなし |
-| すべて | すべてのフォルダー |
+| all | すべてのフォルダー |
 
 `exclude` で指定されているタグの方が、`include` で指定されているタグより優先されます。 たとえば、`include="runtime, compile" exclude="compile"` は `include="runtime"` と同じです。
 
