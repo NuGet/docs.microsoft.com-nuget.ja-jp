@@ -8,7 +8,7 @@ ms.topic: reference
 ms.reviewer: kraigb
 ms.openlocfilehash: fdc3ad8aa239a42d8a4c169a757715e856bdcb41
 ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "58911050"
