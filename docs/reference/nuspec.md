@@ -228,7 +228,7 @@ nuget pack MyProject.csproj
 
 `<metadata>` 内の `<dependencies>` 要素は、最上位のパッケージが依存している他のパッケージを示す `<dependency>` 要素をいくつでも含むことができます。 各 `<dependency>` の属性は次にとおりです。
 
-| 属性 | 説明 |
+| 属性 | description |
 | --- | --- |
 | `id` | (必須) "EntityFramework" や "NUnit" などの依存関係のパッケージ ID。これはパッケージ ページに表示されるパッケージ nuget.org の名前となります。 |
 | `version` | (必須) 依存関係として許容されるバージョンの範囲。 厳密な構文については、「[Package versioning](../reference/package-versioning.md#version-ranges-and-wildcards)」(パッケージのバージョン管理) をご覧ください。 |
@@ -348,7 +348,7 @@ nuget pack MyProject.csproj
 
 `<frameworkAssemblies>` 要素には 0 個以上の `<frameworkAssembly>` 要素を含めることができ、それぞれで次の属性を指定します。
 
-| 属性 | 説明 |
+| 属性 | description |
 | --- | --- |
 | **assemblyName** | (必須) 完全修飾アセンブリ名。 |
 | **targetFramework** | (省略可能) この参照を適用するターゲット フレームワークを指定します。 省略した場合は、参照がすべてのフレームワークに適用されることを示します。 正確なフレームワーク識別子については、「[ターゲット フレームワーク](../reference/target-frameworks.md)」をご覧ください。 |
@@ -388,7 +388,7 @@ NuGet 2.x 以前および `packages.config` を使っているプロジェクト
 
 各 `<file>` 要素では、次の属性を指定します。
 
-| 属性 | 説明 |
+| 属性 | description |
 | --- | --- |
 | **src** | 含める 1 つまたは複数のファイルの場所。`exclude` 属性によって指定される除外の対象になります。 絶対パスを指定しない限り、パスは `.nuspec` ファイルが基準になります。 ワイルドカード文字 `*` を使うことができ、2 個のワイルドカード `**` は再帰的なフォルダー検索を意味します。 |
 | **target** | ソース ファイルが格納されるパッケージ内のフォルダーへの相対パス。`lib`、`content`、`build`、または `tools` で始まっている必要があります。 [規則に基づく作業ディレクトリからの .nuspec の作成](../create-packages/creating-a-package.md#from-a-convention-based-working-directory)に関するページをご覧ください。 |
@@ -593,7 +593,7 @@ NuGet 2.x 以前および `packages.config` を使っているプロジェクト
 
 これらのファイルは、プロジェクト システム内でのファイルの使用方法が記述されている属性のセットで指定されます。
 
-| 属性 | 説明 |
+| 属性 | description |
 | --- | --- |
 | **include** | (必須) 含める 1 つまたは複数のファイルの場所。`exclude` 属性によって指定される除外の対象になります。 絶対パスを指定しない限り、パスは `.nuspec` ファイルが基準になります。 ワイルドカード文字 `*` を使うことができ、2 個のワイルドカード `**` は再帰的なフォルダー検索を意味します。 |
 | **exclude** | `src` の場所から除外するファイルまたはファイル パターンをセミコロンで区切ったリスト。 ワイルドカード文字 `*` を使うことができ、2 個のワイルドカード `**` は再帰的なフォルダー検索を意味します。 |

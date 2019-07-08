@@ -116,7 +116,7 @@ ms.locfileid: "43547785"
     }
  ```
 
-`frameworks` セクションでは、1 つのエントリのみが許可されます  (例外は、非推奨の DNX ツール チェーンでビルドされた ASP.NET プロジェクトの `project.json` ファイルで、これは複数のターゲットを許可します。)
+`frameworks` セクションでは、1 つのエントリのみが許可されます (例外は、非推奨の DNX ツール チェーンでビルドされた ASP.NET プロジェクトの `project.json` ファイルで、これは複数のターゲットを許可します。)
 
 ## <a name="runtimes"></a>Runtimes
 

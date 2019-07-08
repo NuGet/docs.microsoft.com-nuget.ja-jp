@@ -7,7 +7,7 @@ ms.date: 01/18/2018
 ms.topic: reference
 ms.openlocfilehash: d3a322e16c4ba212a856e9bf4d2eaab2872c31b6
 ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 09/04/2018
 ms.locfileid: "43550207"
@@ -19,7 +19,7 @@ ms.locfileid: "43550207"
 パッケージをターゲットのリポジトリを指定したソース リポジトリからその依存関係をミラー化します。
 
 > [!NOTE]
-> このコマンドは、NuGet のバージョン 3.2 の前に有効にするには[ https://nuget.codeplex.com/releases](https://nuget.codeplex.com/releases)ダウンロード、最新の安定版リリースを選択`NuGet.ServerExtensions.dll`と`Nuget-Signed.exe`と、ローカル ディスクと名前の変更を`Nuget-Signed.exe`に`nuget.exe`。
+> このコマンドは、NuGet のバージョン 3.2 の前に有効にするには[ https://nuget.codeplex.com/releases](https://nuget.codeplex.com/releases)ダウンロード、最新の安定版リリースを選択`NuGet.ServerExtensions.dll` と`Nuget-Signed.exe` と、ローカル ディスクと名前の変更を`Nuget-Signed.exe` に`nuget.exe` 。
 
 ## <a name="usage"></a>使用法
 
