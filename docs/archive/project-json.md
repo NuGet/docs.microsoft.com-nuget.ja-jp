@@ -106,7 +106,7 @@ ms.locfileid: "43547785"
 }
 ```
 
-## <a name="frameworks"></a>フレームワーク
+## <a name="frameworks"></a>Frameworks
 
 プロジェクトを実行するフレームワーク (`net45`、`netcoreapp`、`netstandard` など) をリストします。
 
