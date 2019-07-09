@@ -227,7 +227,7 @@ Other        | この一覧にないの理由により、パッケージが非�
 count  | integer          | 可      | 登録の数、ページのままになります
 items  | オブジェクトの配列 | 可      | 登録のリーフとその関連メタデータの配列
 lower  | string           | 可      | (包括) のページで、最小 SemVer 2.0.0 バージョン
-parent (parent) | string           | 可      | 登録のインデックスへの URL
+parent | string           | 可      | 登録のインデックスへの URL
 upper  | string           | 可      | (包括) のページの最上位の SemVer 2.0.0 バージョン
 
 登録のリーフ オブジェクトの形状は、登録のインデックスと同じ[上](#registration-leaf-object-in-a-page)します。
