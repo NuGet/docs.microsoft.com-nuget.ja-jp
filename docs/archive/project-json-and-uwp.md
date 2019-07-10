@@ -67,7 +67,7 @@ NuGet パッケージには `.targets` および `.props` ファイルを含め�
 
 MSBuild はこれら 2 つのファイルを検索することを認識しており、プロジェクトのビルド プロセスの開始および終了が近づいたときにこれらのファイルを自動的にインポートします。 これは NuGet 2.x とよく似たビヘイビアーを提供しますが、*この場合、ターゲット/プロパティ ファイルの順序が保証されない*という 1 つの大きな違いがあります。 ただし、MSBuild では、`<Target>` 定義の `BeforeTargets` および `AfterTargets` 属性を使用してターゲットの順序を指定する方法が提供されます (「[Target 要素 (MSBuild)](/visualstudio/msbuild/target-element-msbuild)」を参照)。
 
-## <a name="lib-and-ref"></a>Lib and Ref
+## <a name="lib-and-ref"></a>Lib および Ref
 
 NuGet v3 では、`lib` フォルダーのビヘイビアーに大幅な変更はありません。 ただし、すべてのアセンブリは TxM にちなんだ名前の付いたサブフォルダー内にある必要があり、`lib` フォルダーの直下に配置できなくなりました。 TxM は、パッケージ内の指定された資産の動作対象として想定されるプラットフォームの名前です。 論理的には、ターゲット フレームワーク モニカー (TFM) を拡張したものです。たとえば、`net45`、`net46`、`netcore50`、および `dnxcore50` はすべて TxM の例です (「[Target Frameworks](../reference/target-frameworks.md)」 (ターゲット フレームワーク) を参照)。 TxM は、フレームワーク (TFM) と他のプラットフォーム固有のセキュリティ、外部からのアクセスを表す場合があります。 たとえば、UWP TxM (`uap10.0`) は、.NET のセキュリティ、外部からのアクセスと、UWP アプリケーションの Windows のセキュリティ、外部からのアクセスを表します。
 
