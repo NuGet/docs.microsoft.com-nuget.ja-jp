@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: c547ae1d46079d040d7c3aa4c7678e70cd199dce
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 4b365488c8dd0e081449552b06451e7b40b5223b
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548014"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426614"
 ---
 # <a name="managing-the-global-packages-cache-and-temp-folders"></a>グローバル パッケージ、キャッシュ、および一時フォルダーを管理する
 
@@ -30,7 +30,7 @@ NuGet では、パッケージのインストール、更新、または復元�
 
 パッケージの取得を求められたら、NuGet は最初に "*グローバル パッケージ*" フォルダー内を調べます。 パッケージの正確なバージョンがここになかった場合、NuGet は HTTP 以外のすべてのパッケージ ソースを確認します。 それでもパッケージが見つからない場合、`--no-cache` を付加した `dotnet.exe` コマンドまたは `-NoCache` を付加した `nuget.exe` コマンドを指定していないかぎり、NuGet は "*HTTP キャッシュ*" でパッケージを探します。 パッケージがキャッシュになかった場合、またはキャッシュが使用されていない場合、NuGet は HTTP 経由でパッケージを取得します。
 
-詳細については、[パッケージをインストールする場合のしくみ](ways-to-install-a-package.md#what-happens-when-a-package-is-installed)に関するページをご覧ください。
+詳細については、「[パッケージ インストールのしくみ](../concepts/package-installation-process.md)」を参照してください。
 
 ## <a name="viewing-folder-locations"></a>フォルダーの場所を表示する
 
@@ -100,7 +100,7 @@ nuget locals all -clear
 
 現在 Visual Studio で開いているプロジェクトで使用されているパッケージはすべて、"*グローバル パッケージ*" フォルダーからクリアされません。
 
-Visual Studio 2017 で、**[ツール]、[NuGet パッケージ マネージャー]、[パッケージ マネージャー設定]** メニュー コマンドを使用して、**[すべての NuGet キャッシュをクリア]** を選択します。 キャッシュの管理は現在、パッケージ マネージャー コンソール経由では利用できません。 Visual Studio 2015 では、代わりに CLI コマンドを使用します。
+Visual Studio 2017 以降、 **[ツール]、[NuGet パッケージ マネージャー]、[パッケージ マネージャー設定]** メニュー コマンドを使用して、 **[すべての NuGet キャッシュをクリア]** を選択します。 キャッシュの管理は現在、パッケージ マネージャー コンソール経由では利用できません。 Visual Studio 2015 では、代わりに CLI コマンドを使用します。
 
 ![キャッシュをクリアするための NuGet オプション コマンド](media/options-clear-caches.png)
 
@@ -108,14 +108,14 @@ Visual Studio 2017 で、**[ツール]、[NuGet パッケージ マネージャ�
 
 以下のエラーは、`nuget locals` または `dotnet nuget locals`を使用した場合に発生する可能性があります。
 
-- "*Error: The process cannot access the file <package> because it is being used by another process*/(エラー: 別のプロセスで使用されているため、プロセスはファイルにアクセスできません/)" または "*ローカル リソースをクリアできませんでした。1 つ以上のファイルを削除できません。*"
+- *エラー: 別のプロセスで使用されているため、<package>プロセスはファイルにアクセスできません*または*ローカル リソースをクリアできませんでした。1 つ以上のファイルを削除できません*
 
     フォルダーにある 1 つまたは複数のファイルが、別のプロセスで使用中です。たとえば、"*グローバル パッケージ*" フォルダー内のパッケージを参照する Visual Studio プロジェクトが開いています。 それらのプロセスを閉じて、もう一度やり直してください。
 
-- "*Error: Access to the path <path> is denied*/(エラー: パスへのアクセスが拒否されます/)" または "*The directory is not empty*/(ディレクトリが空ではありません/)"
+- *エラー: パスへのアクセスが<path>拒否されます*または*ディレクトリが空ではありません*
 
     キャッシュのファイルを削除するためのアクセス許可がありません。 可能であれば、フォルダーのアクセス許可を変更して、もう一度やり直してください。 それができない場合は、システム管理者に問い合わせてください。
 
-- "*エラー: 指定されたパスかファイル名、またはその両方が長すぎます。完全修飾ファイル名は 260 文字未満で指定し、ディレクトリ名は 248 文字未満で指定してください。*"
+- *エラー: 指定されたパスかファイル名、またはその両方が長すぎます。完全修飾ファイル名は 260 文字未満で指定し、ディレクトリ名は 248 文字未満で指定してください。* "
 
     フォルダー名を短くして、もう一度やり直してください。

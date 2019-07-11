@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5e362673acfab4b31c8a2e02a521afd8b19d2754
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: e3a40a521a3b16d9757ef1bbf2511a1537d8bddb
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812923"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67425814"
 ---
 # <a name="creating-nuget-packages"></a>NuGet パッケージの作成
 
 パッケージの動作やそれに含まれているコードに関係なく、CLI ツールのいずれか (`nuget.exe` または `dotnet.exe`) を使用して、他の開発者が何人でも共有して使用できるコンポーネントにその機能をパッケージ化できます。 NuGet CLI ツールをインストールするには、「[NuGet クライアント ツールのインストール](../install-nuget-client-tools.md)」をご覧ください。 Visual Studio に CLI ツールが自動的に含まれることはないことにご注意ください。
 
-- SDK スタイルの形式 ([SDK 属性](/dotnet/core/tools/csproj#additions)) を使用する .NET Core と .NET Standard プロジェクト、および他の SDK スタイルのあらゆるプロジェクトに対して、NuGet ではプロジェクト ファイルにある情報が直接使われ、パッケージが作成されます。 詳細については、「[Create .NET Standard Packages with Visual Studio 2017](../quickstart/create-and-publish-a-package-using-visual-studio.md)」 (Visual Studio 2017 で .NET Standard パッケージを作成する) と「[NuGet pack and restore as MSBuild targets](../reference/msbuild-targets.md)」 (MSBuild ターゲットとしての NuGet pack および restore) を参照してください。
+- SDK スタイルの形式 ([SDK 属性](/dotnet/core/tools/csproj#additions)) を使用する .NET Core と .NET Standard プロジェクト、および他の SDK スタイルのあらゆるプロジェクトに対して、NuGet ではプロジェクト ファイルにある情報が直接使われ、パッケージが作成されます。 詳細については、[Visual Studio での .NET Standard パッケージの作成](../quickstart/create-and-publish-a-package-using-visual-studio.md)に関するページと「[MSBuild ターゲットとしての NuGet の pack と restore](../reference/msbuild-targets.md)」を参照してください。
 
 - 非 SDK スタイルのプロジェクトの場合は、この記事で説明されている手順に従ってパッケージを作成してください。
 
@@ -27,7 +27,7 @@ ms.locfileid: "66812923"
 パッケージ化は、コンパイルされたコード (アセンブリ)、シンボル、パッケージとして届けるその他のファイルで始まります (「[Overview and workflow](overview-and-workflow.md)」 (概要とワークフロー) を参照してください)。 このプロセスは、パッケージに入るファイルのコンパイル (またはコンパイル以外の方法による生成) とは関係ありません。ただし、パッケージ ファイルの情報を引き出し、コンパイル済みアセンブリとパッケージの同期を維持することはできます。
 
 > [!Note]
-> このトピックは、非 SDK スタイルのプロジェクト、つまり通常は、Visual Studio 2017 と NuGet 4.0+ を使った .NET Core および .NET Standard プロジェクト以外のプロジェクトを対象としています。
+> このトピックは、非 SDK スタイルのプロジェクト、つまり通常は、Visual Studio 2017 以降のバージョンと NuGet 4.0 以降を使った .NET Core および .NET Standard プロジェクト以外のプロジェクトを対象としています。
 
 ## <a name="deciding-which-assemblies-to-package"></a>パッケージ化するアセンブリを決定する
 
@@ -408,7 +408,7 @@ nuget pack <project-name>.csproj
 
 NuGet では、修正が必要なエラーが `.nuspec` ファイルで見つかった場合、それが示されます。マニフェストのプレースホルダー値を変更し忘れたなどです。
 
-`nuget pack` が成功すると、`.nupkg` ファイルが生成されます。「[パッケージの公開](../create-packages/publish-a-package.md)」に説明があるように、このファイルを適切なギャラリーに公開できます。
+`nuget pack` が成功すると、`.nupkg` ファイルが生成されます。「[パッケージの公開](../nuget-org/publish-a-package.md)」に説明があるように、このファイルを適切なギャラリーに公開できます。
 
 > [!Tip]
 > 作成後のパッケージを調べる便利な方法は、[パッケージ エクスプローラー](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer) ツールでそれを開くことです。 パッケージの内容とそのマニフェストがグラフィック表示されます。 生成された `.nupkg` ファイルの名前を `.zip` ファイルに変更し、その内容を直接調べることもできます。
@@ -445,7 +445,7 @@ Visual Studio プロジェクトの共通オプションには以下のような
 
 パッケージを公開する前に、通常、パッケージをプロジェクトにインストールするプロセスをテストします。 このテストにより、必要なファイルがすべて、プロジェクト内の適切な場所に入ります。
 
-インストールは Visual Studio またはコマンド ラインで手動テストできます。通常の[パッケージ インストール手順](../consume-packages/ways-to-install-a-package.md)を利用します。
+インストールは Visual Studio またはコマンド ラインで手動テストできます。通常の[パッケージ インストール手順](../consume-packages/overview-and-workflow.md#ways-to-install-a-nuget-package)を利用します。
 
 自動テストの基本プロセスは次のようになります。
 
@@ -456,7 +456,7 @@ Visual Studio プロジェクトの共通オプションには以下のような
 
 ## <a name="next-steps"></a>次の手順
 
-`.nupkg` ファイルとなるパッケージを作成したら、「[パッケージの公開](../create-packages/publish-a-package.md)」の説明にあるように、選択したギャラリーにパッケージを公開できます。
+`.nupkg` ファイルとなるパッケージを作成したら、「[パッケージの公開](../nuget-org/publish-a-package.md)」の説明にあるように、選択したギャラリーにパッケージを公開できます。
 
 パッケージの機能を拡張したり、次のトピックで説明するように、その他の方法で他のシナリオをサポートしたりすると便利な場合があります。
 
