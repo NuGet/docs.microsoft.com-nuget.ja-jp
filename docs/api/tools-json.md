@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.reviewer: kraigb
 ms.openlocfilehash: 003139abac7808dbdaef4aa66119e09772db2b4f
 ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/26/2019
 ms.locfileid: "56852534"
