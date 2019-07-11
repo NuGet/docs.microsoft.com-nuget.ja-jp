@@ -13,7 +13,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 09/04/2018
 ms.locfileid: "43547274"
 ---
-# <a name="nugetorg-protocols"></a>nuget.org protocols
+# <a name="nugetorg-protocols"></a>nuget.org プロトコル
 
 Nuget.org をやり取りするには、クライアントは特定のプロトコルに従う必要があります。 これらのプロトコル、進化、ために、クライアントは、特定 nuget.org の Api を呼び出すときに使用するプロトコルのバージョンを識別する必要があります。 これにより、古いクライアントの互換性に影響しない方法で変更を導入する nuget.org ができます。
 
