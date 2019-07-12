@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 8119664b1bafe9238b12b1819cc46dc1ee7bdd00
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: HT
+ms.openlocfilehash: de0b612e1335cafdcd6a0b802d54f2182d27ad22
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547995"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842247"
 ---
 # <a name="sync-package-package-manager-console-in-visual-studio"></a>Sync-Package (Visual Studio パッケージ マネージャー コンソール)
 
-*バージョン 3.0 以降。内でのみ使用可能な[NuGet パッケージ マネージャー コンソール](package-manager-console.md)Windows 上の Visual Studio でします。*
+*バージョン 3.0 以降。内でのみ使用可能な[パッケージ マネージャー コンソール](package-manager-console.md)Windows 上の Visual Studio でします。*
 
 指定した (または既定値) からインストールされているパッケージのバージョンを取得しますはプロジェクトし、ソリューション内のプロジェクトの他のバージョンを同期します。
 
@@ -44,7 +44,7 @@ Sync-Package [-Id] <string> [-IgnoreDependencies] [-ProjectName <string>] [[-Ver
 
 ## <a name="common-parameters"></a>共通パラメーター
 
-`Sync-Package` 次のサポート[一般的な PowerShell パラメーター](http://go.microsoft.com/fwlink/?LinkID=113216): Debug、Error Action、ErrorVariable、OutBuffer、OutVariable、PipelineVariable、Verbose、WarningAction、WarningVariable、します。
+`Sync-Package` 次のサポート[一般的な PowerShell パラメーター](http://go.microsoft.com/fwlink/?LinkID=113216):デバッグ、エラー アクション、ErrorVariable、OutBuffer、OutVariable、PipelineVariable、Verbose、WarningAction、および WarningVariable します。
 
 ## <a name="examples"></a>使用例
 

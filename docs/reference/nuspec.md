@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: e4c57c0580fe9018703291c08d60e559f95183dc
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: fd6ecab05a392a2a0b4ddf1ac15eb108f2653703
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426204"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842409"
 ---
 # <a name="nuspec-reference"></a>.nuspec リファレンス
 
@@ -32,7 +32,7 @@ ms.locfileid: "67426204"
 
 - 使用して、`.nuspec`で`nuget.exe pack`の非 SDK スタイル プロジェクトを使用して`packages.config`します。
 
-- A`.nuspec`ファイルが SDK スタイル プロジェクトのパッケージを作成する必要はありません (.NET Core と .NET Standard プロジェクトを使用して、 [SDK 属性](/dotnet/core/tools/csproj#additions))。 (なお、`.nuspec`パッケージを作成する場合に生成されます)。
+- A`.nuspec`ファイルは、のパッケージを作成する必要はありません[SDK スタイル プロジェクト](../resources/check-project-format.md)(通常は .NET Core と .NET Standard は、プロジェクトを使用して、 [SDK 属性](/dotnet/core/tools/csproj#additions))。 (なお、`.nuspec`パッケージを作成する場合に生成されます)。
 
    使用してパッケージを作成する場合は`dotnet.exe pack`または`msbuild pack target`、ことをお勧めする[すべてのプロパティを含める](../reference/msbuild-targets.md#pack-target)通常含まれて、`.nuspec`プロジェクト ファイル内のファイルを代わりにします。 ただし、代わりにできます[を使用して、`.nuspec`パックを使用してファイル`dotnet.exe`または`msbuild pack target`](../reference/msbuild-targets.md#packing-using-a-nuspec)します。
 
@@ -72,7 +72,7 @@ ms.locfileid: "67426204"
 これらの要素は、`<metadata>` 要素内で指定する必要があります。
 
 #### <a name="id"></a>id 
-パッケージの識別子。大文字と小文字が区別されます。nuget.org 全体で、またはパッケージが存在するギャラリー全体で、一意である必要があります。 ID は、スペースまたは URL で無効な文字を含んでいてはならず、一般に .NET 名前空間の規則に従います。 ガイダンスについては、[一意のパッケージ識別子の選択](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number)に関するページをご覧ください。
+パッケージの識別子。大文字と小文字が区別されます。nuget.org 全体で、またはパッケージが存在するギャラリー全体で、一意である必要があります。 ID は、スペースまたは URL で無効な文字を含んでいてはならず、一般に .NET 名前空間の規則に従います。 ガイダンスについては、[一意のパッケージ識別子の選択](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number)に関するページをご覧ください。
 #### <a name="version"></a>version
 パッケージのバージョン。*major.minor.patch* のパターンに従います。 「[Package versioning](../reference/package-versioning.md#pre-release-versions)」(パッケージのバージョン管理) で説明されているように、バージョン番号にはプレリリースのサフィックスを含めることができます。 
 #### <a name="description"></a>description
@@ -82,25 +82,32 @@ UI 画面用のパッケージの長い説明。
 
 ### <a name="optional-metadata-elements"></a>メタデータの省略可能な要素
 
-#### <a name="title"></a>title
-人が読みやすいパッケージのタイトル。通常、nuget.org と、Visual Studio のパッケージ マネージャーの UI 画面で使用されます。 指定しないと、パッケージ ID が使われます。 
 #### <a name="owners"></a>owners
 コンマで区切って指定したパッケージ作成者の一覧。nuget.org でのプロファイル名です。多くの場合は `authors` と同じ一覧であり、nuget.org にパッケージをアップロードするときは無視されます。「[nuget.org でパッケージ所有者を管理する](../nuget-org/publish-a-package.md#managing-package-owners-on-nugetorg)」をご覧ください。 
+
 #### <a name="projecturl"></a>projectUrl
 パッケージのホーム ページの URL。多くの場合、UI 画面と nuget.org に表示されます。 
+
 #### <a name="licenseurl"></a>licenseUrl
 > [!Important]
 > licenseUrl は非推奨とされています。 ライセンスを使用してください。
 
-パッケージのライセンスの URL。通常、UI 画面および nuget.org に表示されます。
+多くの場合、nuget.org のような Ui で示すように、パッケージのライセンスの URL。
+
 #### <a name="license"></a>license
-パッケージ内のライセンス ファイルに対する SPDX ライセンス式またはパスであり、UI 表示や nuget.org でよく示されます。BSD-2-句または MIT などの一般的なライセンスの下でパッケージをライセンスする場合は、関連付けられている SPDX ライセンス識別子を使用します。<br>例: `<license type="expression">MIT</license>`
+SPDX ライセンス式または多くの場合、nuget.org のような Ui で示すように、パッケージ内のライセンス ファイルへのパス。MIT や BSD-2-句などの一般的なライセンスでは、パッケージのライセンスをしている場合は、関連付けられている使用[SPDX ライセンス識別子](https://spdx.org/licenses/)します。 例えば:
 
-[SPDX ライセンス識別子](https://spdx.org/licenses/)の完全な一覧はこちらをご覧ください。 ライセンス タイプ式を使用する場合、NuGet.org では OSI または FSF で承認されたライセンスのみが受け付けられます。
+`<license type="expression">MIT</license>`
 
-複合のライセンスを使用して、指定するには、パッケージは、複数の一般的なライセンス下でライセンスが場合、 [SPDX 式構文のバージョン 2.0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60)します。<br>例: `<license type="expression">BSD-2-Clause OR MIT</license>`
+> [!Note]
+> NuGet.org には、オープン ソース イニシアチブまたは無料の Software Foundation によって承認されているライセンス式のみ指定できます。
 
-SPDX 識別子が割り当てられていないライセンスを使用している、またはカスタムのライセンスは、ファイルをパッケージ化することができます (だけ`.txt`または`.md`) ライセンスのテキストを使用します。 例:
+複合のライセンスを使用して、指定するには、パッケージは、複数の一般的なライセンス下でライセンスが場合、 [SPDX 式構文のバージョン 2.0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60)します。 例えば:
+
+`<license type="expression">BSD-2-Clause OR MIT</license>`
+
+パッケージ化してライセンスの式でサポートされていないカスタム ライセンスを使用する場合、`.txt`または`.md`ライセンスのテキストを含むファイル。 例えば:
+
 ```xml
 <package>
   <metadata>
@@ -140,30 +147,41 @@ UI 表示でパッケージのアイコンとして使われる、背景が透�
 
 #### <a name="requirelicenseacceptance"></a>requireLicenseAcceptance
 パッケージをインストールする前にクライアントがユーザーに対してパッケージのライセンスへの同意を求めるプロンプトを表示する必要があるかどうかを示すブール値。
+
 #### <a name="developmentdependency"></a>developmentDependency
 *(2.8 以降)* 開発専用の依存関係としてパッケージをマークするかどうかを指定するブール値。指定すると、そのパッケージは他のパッケージに依存関係として含まれなくなります。 Packagereference (NuGet 4.8 以降) の場合、コンパイルからコンパイル アセットを除外することをこのフラグも意味します。 参照してください[DevelopmentDependency PackageReference のサポート](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference)
+
 #### <a name="summary"></a>summary
 UI 画面用のパッケージの短い説明。 省略すると、`description` を切り詰めたバージョンが使われます。
+
 #### <a name="releasenotes"></a>releaseNotes
 *(1.5 以降)* このリリースのパッケージで行われた変更の説明。Visual Studio パッケージ マネージャーの **[更新]** タブなどの UI で、パッケージの説明の代わりによく使われます。
+
 #### <a name="copyright"></a>copyright
 *(1.5 以降)* パッケージの著作権の詳細。
+
 #### <a name="language"></a>language
 パッケージのロケール ID。 「[ローカライズされたパッケージの作成](../create-packages/creating-localized-packages.md)」をご覧ください。
+
 #### <a name="tags"></a>tags
 パッケージについて説明し、検索やフィルターでパッケージを見つけやすくするタグやキーワードを、スペースで区切って列記したリスト。 
+
 #### <a name="serviceable"></a>処理できます。 
 *(3.3 以降)* NuGet 内部でのみ使われます。
+
 #### <a name="repository"></a>repository
 4 つの省略可能な属性で構成される、リポジトリ メタデータ:*型*と*url* *(4.0 以降)* 、および*ブランチ*と*コミット* *(4.6 以降)* します。 これらの属性を取得する可能性がありますが、組み込まれているリポジトリへの .nupkg をマップできます。 個々 の分岐またはパッケージの構築コミットとして説明されています。 バージョン管理のソフトウェアを直接呼び出すことができる公開されている url があります。 これは、コンピューターのように html ページをことがいません。 プロジェクトのページへのリンクを使用して、`projectUrl`フィールドに、代わりにします。
 
 #### <a name="minclientversion"></a>minClientVersion
 nuget.exe および Visual Studio パッケージ マネージャーで強制する、このパッケージをインストールできる NuGet クライアントの最小バージョンを指定します。 これは、NuGet クライアントの特定のバージョンで追加された `.nuspec` ファイルの特定の機能にパッケージが依存しているときに、常に使われます。 たとえば、`developmentDependency` 属性を使っているパッケージでは、`minClientVersion` に "2.8" を指定する必要があります。 同様に、`contentFiles` 要素 (次のセクションを参照) を使っているパッケージでは、`minClientVersion` を "3.3" に設定する必要があります。 また、バージョン 2.5 より前の NuGet クライアントはこのフラグを認識しないので、`minClientVersion` の値が何であっても、"*常に*" パッケージをインストールしないことにも注意してください。
 
+#### <a name="title"></a>title
+一部の UI のために使用できるパッケージのわかりやすいタイトルを表示します。 (nuget.org と Visual Studio でパッケージ マネージャーは非表示タイトル)
+
 #### <a name="collection-elements"></a>コレクション要素
 
 #### <a name="packagetypes"></a>PackageTypes
-*(3.5 以降)* 従来の依存関係パッケージ以外の場合に、パッケージの種類を指定する 0 個以上の `<packageType>` 要素のコレクション。 各 packageType は、*name* 属性と *version* 属性を持っています。 「[Setting a package type](../create-packages/creating-a-package.md#setting-a-package-type)」(パッケージの種類の設定) をご覧ください。
+*(3.5 以降)* 従来の依存関係パッケージ以外の場合に、パッケージの種類を指定する 0 個以上の `<packageType>` 要素のコレクション。 各 packageType は、*name* 属性と *version* 属性を持っています。 「[Setting a package type](../create-packages/set-package-type.md)」(パッケージの種類の設定) をご覧ください。
 #### <a name="dependencies"></a>dependencies
 パッケージの依存関係を指定する 0 個以上の `<dependency>` 要素のコレクション。 各 dependency は、*id*、*version*、*include* (3.x 以降)、*exclude* (3.x 以降) の各属性を持っています。 後の「[依存関係](#dependencies-element)」をご覧ください。
 #### <a name="frameworkassemblies"></a>frameworkAssemblies

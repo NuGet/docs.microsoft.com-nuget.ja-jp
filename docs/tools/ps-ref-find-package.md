@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 6/1/2017
 ms.topic: reference
-ms.openlocfilehash: c6797e3778c7095a9abfc6cd87e2337313988c20
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: HT
+ms.openlocfilehash: fee0ad0496f27d0796eddf177edc235bcb10da70
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43550979"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842519"
 ---
 # <a name="find-package-package-manager-console-in-visual-studio"></a>Find-package (Visual Studio パッケージ マネージャー コンソール)
 
-*バージョン 3.0 以降。このトピックでは、内のコマンドを説明します、 [NuGet パッケージ マネージャー コンソール](package-manager-console.md)Windows 上の Visual Studio でします。汎用の Find-package の PowerShell コマンドでは、、 [PowerShell PackageManagement 参照](/powershell/module/packagemanagement/?view=powershell-6)を参照してください。*
+*バージョン 3.0 以降。このトピックでは、内のコマンドを説明します、[パッケージ マネージャー コンソール](package-manager-console.md)Windows 上の Visual Studio でします。汎用の Find-package の PowerShell コマンドでは、次を参照してください。、 [PowerShell PackageManagement 参照](/powershell/module/packagemanagement/?view=powershell-6)します。*
 
 パッケージ ソースから指定された ID またはキーワードを含むリモート パッケージのセットを取得します。
 
@@ -42,7 +42,7 @@ Find-Package [-Id] <keywords> -Source <string> [-AllVersions] [-First [<int>]]
 
 ## <a name="common-parameters"></a>共通パラメーター
 
-`Find-Package` 次のサポート[一般的な PowerShell パラメーター](http://go.microsoft.com/fwlink/?LinkID=113216): Debug、Error Action、ErrorVariable、OutBuffer、OutVariable、PipelineVariable、Verbose、WarningAction、WarningVariable、します。
+`Find-Package` 次のサポート[一般的な PowerShell パラメーター](http://go.microsoft.com/fwlink/?LinkID=113216):デバッグ、エラー アクション、ErrorVariable、OutBuffer、OutVariable、PipelineVariable、Verbose、WarningAction、および WarningVariable します。
 
 ## <a name="examples"></a>使用例
 

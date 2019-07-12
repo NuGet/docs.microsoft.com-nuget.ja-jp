@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 9db24b2dd6ced0869ac84b25f9796ded5df10f86
-ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
-ms.translationtype: HT
+ms.openlocfilehash: c3a01b7747be96f02f7b93b3bf66f5d1783ceed7
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56145645"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842553"
 ---
 # <a name="pack-command-nuget-cli"></a>pack コマンド (NuGet CLI)
 
@@ -50,8 +50,9 @@ nuget pack <nuspecPath | projectPath> [options] [-Properties ...]
 | Properties | その他のオプションの後に、コマンドラインの最後は表示されます。 は、プロジェクト ファイル内の値をオーバーライドするプロパティの一覧を指定します参照してください[MSBuild プロジェクトの共通プロパティ](/visualstudio/msbuild/common-msbuild-project-properties)プロパティ名。 プロパティの引数をここでは、トークンのリスト = 値のペアをセミコロンで区切った、出現するたび`$token$`で、`.nuspec`ファイルが指定した値と置き換えられます。 値は引用符で囲まれた文字列を指定できます。 「構成」プロパティの既定値は"Debug"に注意してください。 リリース構成を変更するには、使用`-Properties Configuration=Release`します。 |
 | Suffix | *(3.4.4+)* 内部的に生成されたバージョン番号、ビルドまたはその他のプレリリース版の識別子を追加するために通常使用するサフィックスを追加します。 たとえばを使用して`-suffix nightly`などの数字のバージョンでパッケージを作成`1.2.3-nightly`です。 サフィックスは、警告、エラー、およびさまざまなバージョンの NuGet、NuGet パッケージ マネージャーの潜在的な非互換性を回避するために文字で始まる必要があります。 |
 | Symbols | ソースとシンボル パッケージに含まれることを指定します。 使用すると、`.nuspec`正規の NuGet パッケージ ファイルが作成されますファイル、および対応するシンボル パッケージ。 既定で作成、[レガシ シンボル パッケージ](../create-packages/Symbol-Packages.md)します。 シンボル パッケージに推奨される新しい形式は .snupkg です。 「[シンボル パッケージ (.snupkg) の作成](../create-packages/Symbol-Packages-snupkg.md)」を参照してください。 |
+| SymbolPackageFormat | シンボル パッケージの形式を指定します: *symbols.nupkg* (レガシ) または*snupkg* (推奨)。 既定で作成、[レガシ シンボル パッケージ](../create-packages/Symbol-Packages.md)します。 「[シンボル パッケージ (.snupkg) の作成](../create-packages/Symbol-Packages-snupkg.md)」を参照してください。 |
 | Tool | プロジェクトの出力ファイルが配置されることを指定します、`tool`フォルダー。 |
-| Verbosity | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細*します。 |
+| Verbosity | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細* |
 | Version | バージョン番号をオーバーライド、`.nuspec`ファイル。 |
 
 参照してください[環境変数](cli-ref-environment-variables.md)

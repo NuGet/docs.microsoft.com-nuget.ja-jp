@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/02/2017
 ms.topic: reference
-ms.openlocfilehash: 977e06d36962366abd69f1c7f21ef33eca4e5029
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 425ba736eba4609ebd6b5185ae3f1f976ab07a67
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426126"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842563"
 ---
 # <a name="powershell-reference"></a>PowerShell 参照
 
-パッケージ マネージャー コンソールでは、以下に示す特定のコマンドを使用して、NuGet と対話する Windows 上の Visual Studio 内での PowerShell インターフェイスを提供します。 (コンソールは Visual Studio for mac で現在使用できません)コンソールの使用にガイドについては、次を参照してください。[をインストールし、PowerShell を使用してパッケージを管理](../tools/package-manager-console.md)トピック。
+パッケージ マネージャー コンソールでは、以下に示す特定のコマンドを使用して、NuGet と対話する Windows 上の Visual Studio 内での PowerShell インターフェイスを提供します。 (コンソールは Visual Studio for mac で現在使用できません)コンソールの使用にガイドについては、次を参照してください。[インストール パッケージ マネージャー コンソールを使用してパッケージの管理と](../tools/package-manager-console.md)トピック。
 
 > [!Tip]
 > すべての PowerShell コマンドは、パッケージの使用にのみ関連します。 作成とパッケージは、他のパッケージのコンシューマーをすることもできますを除くパッケージを公開する PowerShell コマンドが関係ありません。
