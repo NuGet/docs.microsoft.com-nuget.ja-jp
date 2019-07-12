@@ -14,4 +14,5 @@
 # 関連項目
 ## [NuGet API](../api/overview.md)
 ## [licenses.nuget.org](licenses.nuget.org.md)
+# リソース
 ## [FAQ](nuget-org-faq.md)
