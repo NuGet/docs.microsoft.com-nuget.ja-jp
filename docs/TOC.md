@@ -15,7 +15,7 @@
 ### [Visual Studio for Mac](/visualstudio/mac/nuget-walkthrough?toc=/nuget/toc.json)
 ### [dotnet CLI](consume-packages/install-use-packages-dotnet-cli.md)
 ### [nuget.exe CLI](consume-packages/install-use-packages-nuget-cli.md)
-### [PowerShell](tools/package-manager-console.md)
+### [パッケージ マネージャー コンソール (PowerShell)](tools/package-manager-console.md)
 ## NuGet を構成する
 ### パッケージの復元オプション
 #### [復元オプション](consume-packages/package-restore.md)
@@ -31,21 +31,23 @@
 ### [packages.config](reference/packages-config.md)
 # パッケージの作成
 ## [概要とワークフロー](create-packages/overview-and-workflow.md)
-## [パッケージを作成する - nuget.exe CLI](create-packages/creating-a-package.md)
+## [パッケージの作成](create-packages/creating-a-package.md)
 ## [MSBuild を使用してパッケージを作成する](reference/msbuild-targets.md)
 ## [複数のターゲット フレームワークのサポート](create-packages/supporting-multiple-target-frameworks.md)
 ## [プレリリース パッケージをビルドする](create-packages/prerelease-packages.md)
 ## [シンボル パッケージを作成する](create-packages/symbol-packages-snupkg.md)
 ## 高度なタスク
 ### [ソース コードと config ファイルを変更する](create-packages/source-and-config-file-transformations.md)
-### [ローカライズされたパッケージを作成する](create-packages/creating-localized-packages.md)
 ### [プロジェクトによって参照されるアセンブリを選択する](create-packages/select-assemblies-referenced-by-projects.md)
+### [パッケージの種類の設定](create-packages/set-package-type.md)
+### [ローカライズされたパッケージを作成する](create-packages/creating-localized-packages.md)
 ## 特定のコンテンツのガイド
 ### [UWP パッケージを作成する](guides/create-uwp-packages.md)
 ### [ネイティブ パッケージを作成する](create-packages/native-packages.md)
 ### [NuGet パッケージとして UI コントロールを作成する](guides/create-UI-controls.md)
 ### [NuGet パッケージとしてアナライザーを作成する](reference/analyzers-conventions.md)
 ### [Visual Studio 2015 で Xamarin 用パッケージを作成する](guides/create-packages-for-xamarin.md)
+### [COM 相互運用アセンブリを含むパッケージを作成する](create-packages/author-packages-with-COM-interop-assemblies.md)
 ## パッケージに署名する
 ### [パッケージに署名する](create-packages/sign-a-package.md)
 ### [署名付きパッケージの署名と要件](reference/signed-packages-reference.md)
@@ -335,4 +337,5 @@
 #### [NuGet 1.2](release-notes/NuGet-1.2.md)
 #### [NuGet 1.1](release-notes/NuGet-1.1.md)
 ## [よく寄せられる質問](faqs/nuget-faq.md)
+## [プロジェクトの形式](resources/check-project-format.md)
 # [NuGet.org](nuget-org/overview-nuget-org.md)
