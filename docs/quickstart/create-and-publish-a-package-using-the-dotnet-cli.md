@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: 051fcc355fb78c0ab208125c2295b6316236fd46
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 4e96d9969c8b4570ee69501d6529986f891ea4dc
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426357"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842602"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>クイック スタート: パッケージの作成と公開 (dotnet CLI)
 
@@ -18,7 +18,7 @@ ms.locfileid: "67426357"
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-1. `dotnet` CLI を含む [.NET Core SDK](https://www.microsoft.com/net/download/) をインストールします。
+1. `dotnet` CLI を含む [.NET Core SDK](https://www.microsoft.com/net/download/) をインストールします。 Visual Studio 2017 以降、dotnet CLI は .NET Core 関連のワークロードで自動的にインストールされます。
 
 1. まだ持っていない場合は、[nuget.org で無料アカウントを登録](https://www.nuget.org/users/account/LogOn?returnUrl=%2F)します。 新しいアカウントを作成すると、確認メールが送信されます。 パッケージをアップロードするには、その前にアカウントを確認する必要があります。
 

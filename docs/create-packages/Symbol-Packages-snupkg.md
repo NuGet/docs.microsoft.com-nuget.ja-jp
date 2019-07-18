@@ -16,12 +16,12 @@ keywords: NuGet シンボル パッケージ, NuGet パッケージ デバッグ
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 0d82cf8614b88247bc3a3ba3019c11bf1b5e2593
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 9f9cdd188cf2ec678bc9047604e618f1af9124ae
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426802"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842465"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>シンボル パッケージ (.snupkg) の作成
 
@@ -54,7 +54,7 @@ dotnet.exe または MSBuild を使用する場合は、次の手順で .nupkg �
 
 1. `dotnet pack MyPackage.csproj` または `msbuild -t:pack MyPackage.csproj` を使用してプロジェクトをパックします。
 
-[`SymbolPackageFormat`](/dotnet/core/tools/csproj.md#symbolpackageformat) プロパティには、`symbols.nupkg` (既定値) または `snupkg` の 2 つの値のいずれかを指定できます。 [`SymbolPackageFormat`](/dotnet/core/tools/csproj.md#symbolpackageformat) プロパティが指定されていない場合は、レガシ シンボル パッケージが作成されます。
+[`SymbolPackageFormat`](/dotnet/core/tools/csproj#symbolpackageformat) プロパティには、`symbols.nupkg` (既定値) または `snupkg` の 2 つの値のいずれかを指定できます。 [`SymbolPackageFormat`](/dotnet/core/tools/csproj#symbolpackageformat) プロパティが指定されていない場合は、レガシ シンボル パッケージが作成されます。
 
 > [!Note]
 > 従来の形式 `.symbols.nupkg` は引き続きサポートされますが、これは互換性のみを目的としています ([レガシ シンボル パッケージ](Symbol-Packages.md)に関する記事を参照)。 NuGet.org のシンボル サーバーは、新しいシンボル パッケージ形式 `.snupkg` のみを受け入れます。

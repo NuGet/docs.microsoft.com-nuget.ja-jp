@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: tutorial
-ms.openlocfilehash: d737b70febd1e18aa8a39cc73a9a9cf333f758c6
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 81f78de02d9b6510f195e04c78436e38f9b7353d
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426838"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842416"
 ---
 # <a name="create-packages-for-xamarin-with-visual-studio-2015"></a>Visual Studio 2015 での Xamarin 用パッケージの作成
 
@@ -111,7 +111,7 @@ namespace Plugin.LoggingLibrary.Abstractions
     ```
 
 1. このファイルの名前を `LoggingLibrary.nuspec` に変更して、エディターで開きます。
-1. 以下の内容と一致するようにファイルを更新して、YOUR_NAME を適切な値に置き換えます。 具体的には、`<id>` 値を nuget.org で固有のものにする必要があります (「[パッケージの作成](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number)」で説明されている名前付け規則に関する記述を参照)。 また、作成者と説明のタグを更新する必要があることに注意してください。そうしないと、パッキングの手順でエラーが発生します。
+1. 以下の内容と一致するようにファイルを更新して、YOUR_NAME を適切な値に置き換えます。 具体的には、`<id>` 値を nuget.org で固有のものにする必要があります (「[パッケージの作成](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number)」で説明されている名前付け規則に関する記述を参照)。 また、作成者と説明のタグを更新する必要があることに注意してください。そうしないと、パッキングの手順でエラーが発生します。
 
     ```xml
     <?xml version="1.0"?>
@@ -268,5 +268,5 @@ nuget pack LoggingLibrary.nuspec
 - [シンボル パッケージ](../create-packages/symbol-packages.md)
 - [パッケージのバージョン管理](../reference/package-versioning.md)
 - [複数の .NET Framework バージョンのサポート](../create-packages/supporting-multiple-target-frameworks.md)
-- [パッケージに MSBuild プロパティとターゲットを含める](../create-packages/creating-a-package.md#including-msbuild-props-and-targets-in-a-package)
+- [パッケージに MSBuild プロパティとターゲットを含める](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)
 - [ローカライズされたパッケージを作成する](../create-packages/creating-localized-packages.md)

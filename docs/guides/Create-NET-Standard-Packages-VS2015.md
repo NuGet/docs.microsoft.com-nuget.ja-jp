@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 02/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: af0c42853a9e407557a010ff2793406499b4b2ef
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 1198a781543e581f55740cc0ae5a212d3f8a8b61
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426881"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842451"
 ---
 # <a name="create-net-standard-and-net-framework-packages-with-visual-studio-2015"></a>Visual Studio 2015 での NET Standard および NET Framework パッケージの作成
 
@@ -68,7 +68,7 @@ ms.locfileid: "67426881"
     nuget spec
     ```
 
-1. `AppLogger.nuspec` をエディターで開き、以下の内容と一致するように更新して、YOUR_NAME を適切な値に置き換えます。 具体的には、`<id>` 値を nuget.org で固有のものにする必要があります (「[パッケージの作成](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number)」で説明されている名前付け規則を参照)。 また、作成者と説明のタグを更新する必要があることに注意してください。そうしないと、パッキングの手順でエラーが発生します。
+1. `AppLogger.nuspec` をエディターで開き、以下の内容と一致するように更新して、YOUR_NAME を適切な値に置き換えます。 具体的には、`<id>` 値を nuget.org で固有のものにする必要があります (「[パッケージの作成](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number)」で説明されている名前付け規則を参照)。 また、作成者と説明のタグを更新する必要があることに注意してください。そうしないと、パッキングの手順でエラーが発生します。
 
     ```xml
     <?xml version="1.0"?>
@@ -167,7 +167,7 @@ nuget pack AppLogger.nuspec
 
 - [.nuspec リファレンス](../reference/nuspec.md)
 - [複数の .NET Framework バージョンのサポート](../create-packages/supporting-multiple-target-frameworks.md)
-- [パッケージに MSBuild プロパティとターゲットを含める](../create-packages/creating-a-package.md#including-msbuild-props-and-targets-in-a-package)
+- [パッケージに MSBuild プロパティとターゲットを含める](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)
 - [ローカライズされたパッケージを作成する](../create-packages/creating-localized-packages.md)
 - [シンボル パッケージ](../create-packages/symbol-packages.md)
 - [パッケージのバージョン管理](../reference/package-versioning.md)

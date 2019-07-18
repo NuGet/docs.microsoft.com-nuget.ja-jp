@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: 1060d98278fed89ac63ee17c1896ae8bdce72a9e
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 0d637c441cf9f36e8e3e04e47b524b2defecae52
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426162"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67841664"
 ---
 # <a name="quickstart-install-and-use-a-package-using-the-dotnet-cli"></a>クイック スタート: dotnet CLI を使用してパッケージをインストールし使用する
 
@@ -23,7 +23,7 @@ NuGet パッケージには、他の開発者がお客様のプロジェクト�
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-- [.NET Core SDK](https://www.microsoft.com/net/download/)。これは、`dotnet`コマンド ライン ツールを提供します。
+- [.NET Core SDK](https://www.microsoft.com/net/download/)。これは、`dotnet`コマンド ライン ツールを提供します。 Visual Studio 2017 以降、dotnet CLI は .NET Core 関連のワークロードで自動的にインストールされます。
 
 ## <a name="create-a-project"></a>プロジェクトを作成する
 
