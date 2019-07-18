@@ -6,18 +6,18 @@ ms.author: patbel
 ms.date: 11/12/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: ee4ffaa7e250cdbf313476fd794a8d87c80b69f9
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
-ms.translationtype: HT
+ms.openlocfilehash: c22c7f0a6b6878bec4f8396e02e2d97998170455
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324709"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67425978"
 ---
 # <a name="trusted-signers-command-nuget-cli"></a>trusted-signers コマンド (NuGet CLI)
 
 **適用対象:** 消費をパッケージ化&bullet;**サポートされているバージョン。** 4.9.1+
 
-取得または信頼できる署名者を NuGet の構成に設定します。 追加の使用状況は、[NuGet の動作を構成する](../consume-packages/configuring-nuget-behavior.md)を参照してください。 詳細についてを参照するくださいと同様の nuget.config スキーマの外観に、 [NuGet 構成ファイル リファレンス](../reference/nuget-config-file.md)します。
+取得または信頼できる署名者を NuGet の構成に設定します。 追加の使用状況は、次を参照してください。[一般的な NuGet 構成](../consume-packages/configuring-nuget-behavior.md)します。 詳細についてを参照するくださいと同様の nuget.config スキーマの外観に、 [NuGet 構成ファイル リファレンス](../reference/nuget-config-file.md)します。
 
 ## <a name="usage"></a>使用法
 
@@ -67,10 +67,10 @@ nuget trusted-signers add <package(s)> -Name <name> [options]
 
 | オプション | 説明 |
 | --- | --- |
-| 作成者 | パッケージの作成者の署名が信頼があることを指定します。 |
-| リポジトリ | リポジトリの署名またはパッケージの副署名する必要がありますが信頼できることを指定します。 |
+| Author | パッケージの作成者の署名が信頼があることを指定します。 |
+| Repository | リポジトリの署名またはパッケージの副署名する必要がありますが信頼できることを指定します。 |
 | AllowUntrustedRoot | 信頼されていないルートにチェーンを信頼できる署名者の証明書を許可するかどうかを指定します。 |
-| 所有者 | さらに、リポジトリの信頼を制限する信頼された所有者のセミコロンで区切られたリスト。 使用する場合にのみ有効です、`-Repository`オプション。 |
+| Owners | さらに、リポジトリの信頼を制限する信頼された所有者のセミコロンで区切られたリスト。 使用する場合にのみ有効です、`-Repository`オプション。 |
 
 両方を提供する`-Author`と`-Repository`と同時にはサポートされていません。
 
@@ -86,7 +86,7 @@ _注_:このオプションは、信頼されているリポジトリをのみ�
 | --- | --- |
 | ServiceIndex | 信頼できるリポジトリの V3 サービス インデックスを指定します。 このリポジトリは、リポジトリのリソースの署名をサポートする必要があります。 コマンドが同じパッケージのソースを探して指定しない場合、`-Name`し、そこからサービス インデックスを取得します。 |
 | AllowUntrustedRoot | 信頼されていないルートにチェーンを信頼できる署名者の証明書を許可するかどうかを指定します。 |
-| 所有者 | さらに、リポジトリの信頼を制限する信頼された所有者のセミコロンで区切られたリスト。 |
+| Owners | さらに、リポジトリの信頼を制限する信頼された所有者のセミコロンで区切られたリスト。 |
 
 ## <a name="options-for-add-based-on-the-certificate-information"></a>証明書情報に基づいて追加のオプション
 
@@ -118,8 +118,8 @@ _注_:このジェスチャは現在の証明書の一覧を削除し、リポ�
 | --- | --- |
 | ConfigFile | 適用する NuGet 構成ファイル。 指定しない場合、 `%AppData%\NuGet\NuGet.Config` (Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac/linux) を使用します。|
 | ForceEnglishOutput | インバリアントの英語ベースのカルチャを使用して実行する nuget.exe を強制します。 |
-| ヘルプ | ヘルプのコマンドの情報を表示します。 |
-| 詳細度 | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細*します。 |
+| Help | ヘルプのコマンドの情報を表示します。 |
+| Verbosity | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細* |
 
 ## <a name="examples"></a>使用例
 

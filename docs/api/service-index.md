@@ -8,7 +8,7 @@ ms.topic: reference
 ms.reviewer: kraigb
 ms.openlocfilehash: 1dcfb87690b728280b494d4434f9c1d7ee7a7e74
 ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/16/2019
 ms.locfileid: "54324722"
@@ -43,7 +43,7 @@ nuget.org のサービスのインデックス位置にある`https://api.nuget.
 ------------- | ------ | -------- | -----
 @id           | string | 可      | リソースへの URL
 @type         | string | 可      | リソースの種類を表す文字列定数
-コメント       | string | Ｘ       | リソースの人間の判読できる説明
+comment       | string | Ｘ       | リソースの人間の判読できる説明
 
 `@id`は URL を絶対である必要があるあり、いずれかをする必要がありますが、HTTP または HTTPS スキーマです。
 

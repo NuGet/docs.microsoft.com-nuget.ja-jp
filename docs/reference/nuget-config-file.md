@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: reference
-ms.openlocfilehash: d7c943c1f13edf782dabe4afee9d19a1a42bd42a
-ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
+ms.openlocfilehash: 2eceb6e94a353cb29b83aea114c6cea2acbac266
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58911089"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426145"
 ---
 # <a name="nugetconfig-reference"></a>nuget.config reference
 
-NuGet の動作は、「[Configuring NuGet Behavior](../consume-packages/configuring-nuget-behavior.md)」(NuGet 動作の構成) に記載の各種 `NuGet.Config` ファイルでの設定によって制御されます。
+NuGet の動作が異なる設定によって制御される`NuGet.Config`ファイル」の説明に従って[一般的な NuGet 構成](../consume-packages/configuring-nuget-behavior.md)します。
 
 `nuget.config` は、最上位の `<configuration>` ノードを含む XML ファイルであり、このトピックで説明するセクション要素が含まれます。 各セクションには、0 個以上の項目が含まれています。 「[examples config file](#example-config-file)」 (構成ファイルの例) を参照してください。 名前の設定には大文字と小文字の区別があり、値には[環境変数](#using-environment-variables)を使用することができます。
 
@@ -45,7 +45,7 @@ NuGet の動作は、「[Configuring NuGet Behavior](../consume-packages/configu
 
 `dependencyVersion` `repositoryPath`を使用してプロジェクトにのみ適用`packages.config`します。 `globalPackagesFolder` PackageReference 形式を使用してプロジェクトにのみ適用されます。
 
-| キー | [値] |
+| キー | 値 |
 | --- | --- |
 | dependencyVersion (`packages.config` のみ) | `-DependencyVersion` スイッチが直接指定されない場合の、パッケージのインストール、復元、および更新における既定の `DependencyVersion` 値です。 この値は、NuGet パッケージ マネージャー UI でも使用されます。 値は `Lowest`、`HighestPatch`、`HighestMinor`、`Highest` となります。 |
 | globalPackagesFolder (プロジェクトは PackageReference をのみを使用して) | 既定のグローバル パッケージ フォルダーの場所です。 既定値は、`%userprofile%\.nuget\packages` (Windows) または `~/.nuget/packages` (Mac/Linux) です。 相対パスは、プロジェクト固有の `nuget.config` ファイルで使用できます。 この設定は、優先 NUGET_PACKAGES 環境変数によってオーバーライドされます。 |
@@ -70,9 +70,9 @@ NuGet の動作は、「[Configuring NuGet Behavior](../consume-packages/configu
 
 パッケージのインストール時に、NuGet で自動バインド リダイレクトを実行するかどうかを構成します。
 
-| キー | [値] |
+| キー | 値 |
 | --- | --- |
-| スキップ | 自動バインド リダイレクトを省略するかどうかを示すブール値です。 既定値は false です。 |
+| skip | 自動バインド リダイレクトを省略するかどうかを示すブール値です。 既定値は false です。 |
 
 **例**:
 
@@ -86,10 +86,10 @@ NuGet の動作は、「[Configuring NuGet Behavior](../consume-packages/configu
 
 ビルド時のパッケージの復元を制御します。
 
-| キー | [値] |
+| キー | 値 |
 | --- | --- |
 | enabled | NuGet で自動復元を実行できるかどうかを示すブール値です。 構成ファイル内にこのキーを設定するのでなく、`True` の値で `EnableNuGetPackageRestore` 環境変数を設定することもできます。 |
-| 自動 | ビルド中に欠落しているパッケージの確認を NuGet で行う必要があるかどうかを示すブール値です。 |
+| automatic | ビルド中に欠落しているパッケージの確認を NuGet で行う必要があるかどうかを示すブール値です。 |
 
 **例**:
 
@@ -104,7 +104,7 @@ NuGet の動作は、「[Configuring NuGet Behavior](../consume-packages/configu
 
 ソリューションの `packages` フォルダーをソース管理に含めるかどうかを制御します。 このセクションは、ソリューション フォルダー内の `nuget.config` ファイルでのみ機能します。
 
-| キー | [値] |
+| キー | 値 |
 | --- | --- |
 | disableSourceControlIntegration | ソース管理を使用する場合に、パッケージ フォルダーを無視するかどうかを示すブール値です。 既定値は false です。 |
 
@@ -128,7 +128,7 @@ NuGet の動作は、「[Configuring NuGet Behavior](../consume-packages/configu
 
 すべての既知のパッケージ ソースの一覧を表示します。 PackageReference 形式を使用して任意のプロジェクトと復元操作中に、順序は無視されます。 NuGet のインストール ソースの順序を尊重する操作や更新操作を使用するプロジェクトで`packages.config`します。
 
-| キー | [値] |
+| キー | 値 |
 | --- | --- |
 | (パッケージ ソースに割り当てる名前) | パッケージ ソースのパスまたは URL です。 |
 
@@ -146,10 +146,10 @@ NuGet の動作は、「[Configuring NuGet Behavior](../consume-packages/configu
 
 通常、`-username` スイッチおよび `-password` スイッチと `nuget sources` によって指定される、ソースのユーザー名とパスワードを格納します。 `-storepasswordincleartext` オプションが使用されていない場合、既定ではパスワードが暗号化されます。
 
-| キー | [値] |
+| キー | 値 |
 | --- | --- |
 | username | プレーン テキストで表されるソースのユーザー名です。 |
-| パスワード | ソースの暗号されたパスワードです。 |
+| password | ソースの暗号されたパスワードです。 |
 | cleartextpassword | ソースの暗号化されていないパスワードです。 |
 
 **例:**
@@ -188,7 +188,7 @@ NuGet の動作は、「[Configuring NuGet Behavior](../consume-packages/configu
 
 [`nuget setapikey` コマンド](../tools/cli-ref-setapikey.md)で設定される、API キー認証を使用するソースのキーを格納します。
 
-| キー | [値] |
+| キー | 値 |
 | --- | --- |
 | (ソース URL) | 暗号化された API キー。 |
 
@@ -204,7 +204,7 @@ NuGet の動作は、「[Configuring NuGet Behavior](../consume-packages/configu
 
 現在無効になっているソースを識別します。 空の場合もあります。
 
-| キー | [値] |
+| キー | 値 |
 | --- | --- |
 | (ソースの名前) | ソースが無効になっているかどうかを示すブール値です。 |
 
@@ -225,7 +225,7 @@ NuGet の動作は、「[Configuring NuGet Behavior](../consume-packages/configu
 
 現在アクティブなソースを識別し、すべてのソースの集計を示します。
 
-| キー | [値] |
+| キー | 値 |
 | --- | --- |
 | (ソースの名前) または `All` | キーがソースの名前である場合は、ソースのパスまたは URL が値となります。 `All` の場合は、値を `(Aggregate source)` にして、無効になっていないすべてのパッケージ ソースを結合する必要があります。 |
 

@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: b85b586e76e424442dc0ba3acfecbee1e8755345
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: 3be8d1dad6552db2fc04b2f324145ac7ce86acb2
+ms.sourcegitcommit: b9a134a6e10d7d8502613f389f7d5f9b9e206ec8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453469"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67467770"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>パッケージの復元エラーのトラブルシューティング
 
-この記事では、パッケージを復元するときの一般的なエラーと、それを解決する手順に重点を置いて説明しています。 パッケージの復元の詳細については、[パッケージの復元](../consume-packages/package-restore.md#enabling-and-disabling-package-restore)に関するセクションを参照してください。
+この記事では、パッケージを復元するときの一般的なエラーと、それを解決する手順に重点を置いて説明しています。 パッケージの復元の詳細については、[パッケージの復元](../consume-packages/package-restore.md#enable-and-disable-package-restore)に関するセクションを参照してください。
 
 この記事の手順で問題が解決しない場合は、シナリオをより詳しく検討できるように、[GitHub で問題を報告してください](https://github.com/NuGet/docs.microsoft.com-nuget/issues)。 このページに [このページは役に立ちましたか] コントロールが表示されている場合でも使用しないでください。このコントロールでは、お客様に詳細情報を確認することができません。
 
@@ -54,7 +54,7 @@ Use NuGet Package Restore to download them. The missing file is {name}.
 パッケージを復元するには、次のいずれかの方法を使用します。
 
 - プロジェクト ファイルを移動した場合、ファイルを直接編集し、パッケージ参照を更新します。
-- Visual Studio で、**[ツール] > [NuGet パッケージ マネージャー] > [パッケージ マネージャー設定]** メニュー コマンドを選択し、**[パッケージの復元]** の両方のオプションをオンにして、**[OK]** を選択します。 ソリューションをもう一度ビルドします。
+- Visual Studio で、 **[ツール] > [NuGet パッケージ マネージャー] > [パッケージ マネージャー設定]** メニュー コマンドを選択し、 **[パッケージの復元]** の両方のオプションをオンにして、 **[OK]** を選択します。 ソリューションをもう一度ビルドします。
 - .NET Core プロジェクトの場合は、`dotnet restore` または `dotnet build` (自動的に復元が実行されます) を実行します。
 - コマンド ラインで `nuget restore` を実行します (ただし、`dotnet restore` を使用する `dotnet` で作成されたプロジェクトは例外です)。
 - PackageReference 形式を使用するプロジェクトのコマンド ラインで、`msbuild -t:restore` を実行します。

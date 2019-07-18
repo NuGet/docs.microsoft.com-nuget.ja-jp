@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/23/2018
 ms.topic: reference
-ms.openlocfilehash: 2743dde63487124c706f2b1521ef2c6c3b28339d
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: a257dbbd9d56b5989e050ed4096d096cd1036184
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548079"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426019"
 ---
 # <a name="nuget-cli-reference"></a>NuGet CLI リファレンス
 
@@ -20,12 +20,14 @@ NuGet コマンド ライン インターフェイス (CLI)、 `nuget.exe`、イ
 
 このドキュメントでは、NuGet CLI の最新バージョンが反映されます。 使用している任意のバージョンに対して正確な詳細については、次のように実行します。`nuget help`の目的のコマンド。
 
+基本的なコマンドを使用する方法については、 `nuget.exe` CLI を参照してください[インストール nuget.exe CLI を使用してパッケージを使用して](../consume-packages/install-use-packages-nuget-cli.md)します。
+
 ## <a name="installing-nugetexe"></a>Nuget.exe をインストールします。
 
 [!INCLUDE [install-cli](../includes/install-cli.md)]
 
 > [!Tip]
-> NuGet CLI で使用できるように、パッケージ マネージャー コンソール内で Visual Studio で、[コンソールで nuget.exe CLI を使用して](package-manager-console.md#using-the-nugetexe-cli-in-the-console)を参照してください。
+> NuGet CLI で使用できるように、パッケージ マネージャー コンソール内で Visual Studio で、次を参照してください。[コンソールで nuget.exe CLI を使用して](package-manager-console.md#using-the-nugetexe-cli-in-the-console)します。
 
 ## <a name="availability"></a>可用性
 
@@ -57,7 +59,7 @@ NuGet コマンド ライン インターフェイス (CLI)、 `nuget.exe`、イ
 | [init](cli-ref-init.md) | 作成 | 3.3+ | 階層構造を使用して、パッケージ ソースには、フォルダーからパッケージを追加します。 |
 | [install](cli-ref-install.md) | 利用 | すべて | インストール パッケージを現在プロジェクトしますが、プロジェクトを変更したりしないファイルを参照します。 |
 | [list](cli-ref-list.md) | おそらく発行の消費量 | すべて | 特定のソースからパッケージを表示します。 |
-| [mirror](cli-ref-mirror.md) | 置換 | 3.2 + で非推奨とされます。 | パッケージをターゲットのリポジトリにソースからその依存関係をミラー化します。 |
+| [mirror](cli-ref-mirror.md) | 置換 | 3\.2 + で非推奨とされます。 | パッケージをターゲットのリポジトリにソースからその依存関係をミラー化します。 |
 | [sources](cli-ref-sources.md) | 使用量、発行 | すべて | 構成ファイルでパッケージ ソースを管理します。 |
 | [update](cli-ref-update.md) | 利用 | すべて | プロジェクトのパッケージを最新のバージョンに更新します。 Mono で実行されているときに、サポートされていません。 |
 

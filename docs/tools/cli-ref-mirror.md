@@ -7,7 +7,7 @@ ms.date: 01/18/2018
 ms.topic: reference
 ms.openlocfilehash: d3a322e16c4ba212a856e9bf4d2eaab2872c31b6
 ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 09/04/2018
 ms.locfileid: "43550207"
@@ -19,7 +19,7 @@ ms.locfileid: "43550207"
 パッケージをターゲットのリポジトリを指定したソース リポジトリからその依存関係をミラー化します。
 
 > [!NOTE]
-> このコマンドは、NuGet のバージョン 3.2 の前に有効にするには[ https://nuget.codeplex.com/releases](https://nuget.codeplex.com/releases)ダウンロード、最新の安定版リリースを選択`NuGet.ServerExtensions.dll`と`Nuget-Signed.exe`と、ローカル ディスクと名前の変更を`Nuget-Signed.exe`に`nuget.exe`。
+> このコマンドは、NuGet のバージョン 3.2 の前に有効にするには[ https://nuget.codeplex.com/releases](https://nuget.codeplex.com/releases)ダウンロード、最新の安定版リリースを選択`NuGet.ServerExtensions.dll` と`Nuget-Signed.exe` と、ローカル ディスクと名前の変更を`Nuget-Signed.exe` に`nuget.exe` 。
 
 ## <a name="usage"></a>使用法
 
@@ -38,11 +38,11 @@ nuget mirror <packageID | configFilePath> <listUrlTarget> <publishUrlTarget> [op
 | オプション | 説明 |
 | --- | --- |
 | ApiKey | ターゲットのリポジトリの API キー。 かどうか、存在していない、構成ファイルで指定された 1 つが使用されます (`%AppData%\NuGet\NuGet.Config` (Windows) または`~/.nuget/NuGet/NuGet.Config`(Mac/linux))。 |
-| ヘルプ | ヘルプのコマンドの情報を表示します。 |
+| Help | ヘルプのコマンドの情報を表示します。 |
 | NoCache | NuGet がキャッシュされたパッケージを使用するを防ぎます。 参照してください[グローバル パッケージとキャッシュ フォルダーの管理](../consume-packages/managing-the-global-packages-and-cache-folders.md)します。 |
 | Noop | ログに記録内容が行いますが、アクションは行われませんプッシュ操作の成功を前提としています。 |
-| プレリリース版 | ミラーリングの操作では、プレリリース パッケージが含まれています。 |
-| ソース | ミラー化するパッケージ ソースの一覧。 定義されているソースが指定されていない場合が指定されていない場合、nuget.org を既定値、構成ファイルが使用されます (ApiKey 上記を参照してください)。 |
+| PreRelease | ミラーリングの操作では、プレリリース パッケージが含まれています。 |
+| Source | ミラー化するパッケージ ソースの一覧。 定義されているソースが指定されていない場合が指定されていない場合、nuget.org を既定値、構成ファイルが使用されます (ApiKey 上記を参照してください)。 |
 | Timeout | サーバーにプッシュするための秒単位のタイムアウトを指定します。 既定では 300 秒 (5 分) です。 |
 | Version | インストールするパッケージのバージョン。 指定しない場合、最新のバージョンがミラー化します。 |
 

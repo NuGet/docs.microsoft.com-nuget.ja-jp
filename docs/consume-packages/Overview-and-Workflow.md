@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/22/2018
 ms.topic: conceptual
-ms.openlocfilehash: 556683e5a24c57a6c32d8b4e368bfdccd4d19b48
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: eeae62a09a9f405d27cd113ff586393f6305ba47
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812864"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426708"
 ---
 # <a name="package-consumption-workflow"></a>パッケージ利用のワークフロー
 
@@ -20,9 +20,9 @@ nuget.org と組織が確立する可能性のあるプライベート パッケ
 
 \* _Visual Studio および `dotnet.exe` のみ。`nuget install` コマンドは、プロジェクト ファイルまたは `packages.config` ファイルを変更しません。エントリは、手動で管理する必要があります。_
 
-詳細については、「[プロジェクトの NuGet パッケージの検索と評価](../consume-packages/finding-and-choosing-packages.md)」および「[Different ways to install a NuGet package](ways-to-install-a-package.md)」(NuGet パッケージをインストールするためのさまざまな方法) を参照してください。
+詳細については、「[プロジェクトの NuGet パッケージの検索と評価](../consume-packages/finding-and-choosing-packages.md)」および「[パッケージ インストールのしくみ](../concepts/package-installation-process.md)」を参照してください。
 
-NuGet では、インストールされている各パッケージの ID とバージョン番号が記憶されます。これは、プロジェクトの種類と使用している NuGet のバージョンに応じて、プロジェクト ファイル ([PackageReference](../consume-packages/package-references-in-project-files.md) を使用) または [`packages.config`](../reference/packages-config.md) のいずれかに記録されます。 PackageReference は [パッケージ マネージャーの UI オプション](../tools/package-manager-ui.md)を利用して Visual Studio で構成できますが、NuGet 4.0 以降では、PackageReference をお勧めします。 いずれの場合も、適切なファイルでいつでもプロジェクトの依存関係の完全なリストを確認することができます。
+NuGet では、インストールされている各パッケージの ID とバージョン番号が記憶されます。これは、プロジェクトの種類と使用している NuGet のバージョンに応じて、プロジェクト ファイル ([PackageReference](../consume-packages/package-references-in-project-files.md) を使用) または [`packages.config`](../reference/packages-config.md) のいずれかに記録されます。 PackageReference は[パッケージ マネージャーの UI](../tools/package-manager-ui.md) を利用して Visual Studio で構成できますが、NuGet 4.0 以降では、PackageReference をお勧めします。 いずれの場合も、適切なファイルでいつでもプロジェクトの依存関係の完全なリストを確認することができます。
 
 > [!Tip]
 > ソフトウェアで使用する予定の各パッケージのライセンスを常に確認することをお勧めます。 nuget.org には、各パッケージの説明ページの右側に **[ライセンス情報]** リンクが表示されます。 パッケージでライセンス条項が指定されていない場合は、パッケージ ページの **[Contact owners]\(所有者に問い合わせる\)** リンクを使用して、パッケージ所有者に直接問い合わせてください。 Microsoft はサードパーティのパッケージ プロバイダーを通じてユーザーに知的財産ライセンスを付与することはありません。また、サードパーティによって提供される情報について責任を負いません。
@@ -41,4 +41,13 @@ NuGet では、インストールされている各パッケージの ID とバ�
 
 最後に、NuGet の動作は `Nuget.Config` ファイルによって駆動されます。 「[Configuring NuGet Behavior](../consume-packages/configuring-nuget-behavior.md)」 (NuGet の動作の構成) で説明されているように、複数のファイルを使用して、さまざまなレベルの特定の設定を一元化することができます。
 
-それでは NuGet パッケージでの生産性の高いコーディングをお楽しみください。
+## <a name="ways-to-install-a-nuget-package"></a>NuGet パッケージのインストール方法
+
+NuGet パッケージは、次の表にあるメソッドのいずれかを使用して、ダウンロードされ、インストールされます。
+
+| ツール | 説明 |
+| --- | --- |
+| [dotnet.exe CLI](install-use-packages-dotnet-cli.md) | (すべてのプラットフォーム) .NET Core と .NET Standard ライブラリ、および .NET Framework を対象とする SDK スタイルのプロジェクト (「[SDK 属性](/dotnet/core/tools/csproj#additions)」を参照) のための CLI ツール。 \<package_name\> によって指定されたパッケージを取得し、参照をプロジェクト ファイルに追加します。 また、依存関係も取得してインストールします。 |
+| Visual Studio | (Windows および Mac) 用意された UI を使用して、指定したパッケージ ソースからパッケージとその依存関係を参照して選択し、プロジェクトにインストールできます。 インストールされたプロジェクトへの参照をプロジェクト ファイルに追加します。<ul><li>[Visual Studio を使用してパッケージをインストールして管理する](../tools/package-manager-ui.md)</li><li>[プロジェクトに NuGet パッケージを含める (Mac)](/visualstudio/mac/nuget-walkthrough)</li></ul> |
+| [Visual Studio の PowerShell](../tools/package-manager-console.md) | (Windows のみ) 選択したソースから、\<package_name\> で指定したパッケージを取得して、ソリューションで指定されたプロジェクトにインストールし、参照をプロジェクト ファイルに追加します。 また、依存関係も取得してインストールします。 |
+| [nuget.exe CLI](install-use-packages-dotnet-cli.md) | (すべてのプラットフォーム) .NET Framework ライブラリと、.NET Standard ライブラリを対象とする非 SDK スタイルのプロジェクトのための CLI ツール。 \<package_name\> で指定したパッケージを取得して、その内容を現在のディレクトリのフォルダーに展開します。`packages.config` ファイルでリストされたすべてのパッケージを取得することもできます。 また、依存関係を取得してインストールしますが、プロジェクト ファイルまたは `packages.config` は変更されません。 |

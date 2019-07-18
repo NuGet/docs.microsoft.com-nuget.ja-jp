@@ -7,7 +7,7 @@ ms.date: 03/23/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1e89aeb46f2538d46c013561a51a41702b2472d8
 ms.sourcegitcommit: 6b71926f062ecddb8729ef8567baf67fd269642a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/22/2019
 ms.locfileid: "59932100"
@@ -18,7 +18,7 @@ ms.locfileid: "59932100"
 
 NuGet 4.0 以降では、PackageReference 形式を使用することにより、すべてのマニフェスト メタデータを、個別の `.nuspec` ファイルを使用せずにプロジェクト ファイルに直接保存できます。
 
-MSBuild 15.1 以降では、NuGet は以下のように `pack` および `restore` ターゲットを使用する MSBuild の最上級のメンバーです。 これらのターゲットを使用すると、他の MSBuild タスクやターゲットの場合と同様に NuGet を使用できます  (NuGet 3.x 以前の場合は、代わりに NuGet CLI の [pack](../tools/cli-ref-pack.md) および [restore](../tools/cli-ref-restore.md) コマンドを使用します)。
+MSBuild 15.1 以降では、NuGet は以下のように `pack` および `restore` ターゲットを使用する MSBuild の最上級のメンバーです。 これらのターゲットを使用すると、他の MSBuild タスクやターゲットの場合と同様に NuGet を使用できます (NuGet 3.x 以前の場合は、代わりに NuGet CLI の [pack](../tools/cli-ref-pack.md) および [restore](../tools/cli-ref-restore.md) コマンドを使用します)。
 
 ## <a name="target-build-order"></a>ターゲットのビルド順序
 
@@ -50,24 +50,24 @@ PackageReference 形式を使用して、使用して .NET Standard プロジェ
 | VersionPrefix | PackageVersionPrefix | (なし) | PackageVersion を設定すると、PackageVersionPrefix は上書きされます |
 | VersionSuffix | PackageVersionSuffix | (なし) | MSBuild の $(VersionSuffix) PackageVersion を設定すると、PackageVersionSuffix は上書きされます |
 | Authors | Authors | 現在のユーザーのユーザー名 | |
-| 所有者 | N/A | NuSpec にはありません | |
+| Owners | N/A | NuSpec にはありません | |
 | Title | Title | PackageId| |
-| 説明 | 説明 | "パッケージの説明" | |
-| 著作権 | 著作権 | (なし) | |
+| Description | Description | "パッケージの説明" | |
+| Copyright | Copyright | (なし) | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | False | |
-| ライセンス | PackageLicenseExpression | (なし) | 対応しています `<license type="expression">` |
-| ライセンス | PackageLicenseFile | (なし) | `<license type="file">` に相当します。 明示的に参照先のライセンス ファイルをパックする必要があります。 |
+| license | PackageLicenseExpression | (なし) | 対応しています `<license type="expression">` |
+| license | PackageLicenseFile | (なし) | `<license type="file">` に相当します。 明示的に参照先のライセンス ファイルをパックする必要があります。 |
 | LicenseUrl | PackageLicenseUrl | (なし) | `licenseUrl` PackageLicenseExpression または PackageLicenseFile プロパティを使用して、非推奨とされています。 |
 | ProjectUrl | PackageProjectUrl | (なし) | |
 | IconUrl | PackageIconUrl | (なし) | |
 | Tags | PackageTags | (なし) | 複数のタグはセミコロン (;) で区切られます。 |
 | ReleaseNotes | PackageReleaseNotes | (なし) | |
-| リポジトリの Url/ | RepositoryUrl | (なし) | リポジトリの URL を複製するか、ソース コードを取得するために使用します。 例: *https://github.com/NuGet/NuGet.Client.git* |
-| リポジトリの種類/ | RepositoryType | (なし) | リポジトリの種類。 例: *git*、 *tfs*します。 |
-| リポジトリとブランチ | RepositoryBranch | (なし) | 省略可能なリポジトリのブランチの情報。 *RepositoryUrl*にインクルードするには、このプロパティも指定する必要があります。 例:*マスター* (NuGet 4.7.0+) |
-| コミットあたりのリポジトリ | RepositoryCommit | (なし) | 省略可能なリポジトリのコミットまたは変更セットをパッケージ ソースを示すためには、に対して構築されました。 *RepositoryUrl*にインクルードするには、このプロパティも指定する必要があります。 例:*0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0+) |
+| Repository/Url | RepositoryUrl | (なし) | リポジトリの URL を複製するか、ソース コードを取得するために使用します。 例: *https://github.com/NuGet/NuGet.Client.git* |
+| Repository/Type | RepositoryType | (なし) | リポジトリの種類。 例: *git*、 *tfs*します。 |
+| Repository/Branch | RepositoryBranch | (なし) | 省略可能なリポジトリのブランチの情報。 *RepositoryUrl*にインクルードするには、このプロパティも指定する必要があります。 例:*マスター* (NuGet 4.7.0+) |
+| Repository/Commit | RepositoryCommit | (なし) | 省略可能なリポジトリのコミットまたは変更セットをパッケージ ソースを示すためには、に対して構築されました。 *RepositoryUrl*にインクルードするには、このプロパティも指定する必要があります。 例:*0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0+) |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
-| まとめ | サポートなし | | |
+| Summary | サポートなし | | |
 
 ### <a name="pack-target-inputs"></a>pack ターゲットの入力
 
@@ -76,8 +76,8 @@ PackageReference 形式を使用して、使用して .NET Standard プロジェ
 - PackageVersion
 - PackageId
 - Authors
-- 説明
-- 著作権
+- Description
+- Copyright
 - PackageRequireLicenseAcceptance
 - DevelopmentDependency
 - PackageLicenseExpression
@@ -333,7 +333,7 @@ Nuspec ファイルをパックする csproj ファイルの例を示します�
 
 追加の restore 設定を、プロジェクト ファイルの MSBuild プロパティで指定することができます。 また、`-p:` スイッチを使用して、コマンド ラインから値を設定することもできます (次の例を参照してください)。
 
-| プロパティ | 説明 |
+| プロパティ | Description |
 |--------|--------|
 | RestoreSources | パッケージ ソースのセミコロン区切りの一覧。 |
 | RestorePackagesPath | ユーザー パッケージ フォルダーのパス。 |
@@ -370,7 +370,7 @@ msbuild -t:restore -p:RestoreConfigFile=<path>
 
 restore で、次のファイルがビルドの `obj` フォルダーに作成されます。
 
-| ファイル | 説明 |
+| ファイル | Description |
 |--------|--------|
 | `project.assets.json` | すべてのパッケージ参照の依存関係グラフが含まれています。 |
 | `{projectName}.projectFileExtension.nuget.g.props` | パッケージに含まれる MSBuild プロパティへの参照 |

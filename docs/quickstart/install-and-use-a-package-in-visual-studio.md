@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: 8cfb7bd31c37847d83ffe31f11ba61eadc717eb8
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: 014b316ea03b45584406c313d46b96ad36340124
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812899"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426228"
 ---
 # <a name="quickstart-install-and-use-a-package-in-visual-studio"></a>クイック スタート: Visual Studio でパッケージをインストールして使用する
 
@@ -123,6 +123,6 @@ NuGet パッケージは任意の .NET プロジェクトにインストール�
 ## <a name="related-articles"></a>関連記事
 
 - [パッケージ使用の概要とワークフロー](../consume-packages/overview-and-workflow.md)
+- [Visual Studio を使用してパッケージをインストールして管理する](../tools/package-manager-ui.md)
 - [パッケージの検索と選択](../consume-packages/finding-and-choosing-packages.md)
-- [パッケージをインストールする方法](../consume-packages/ways-to-install-a-package.md)
-- [NuGet の動作を構成する](../consume-packages/configuring-nuget-behavior.md)
+- [一般的な NuGet 構成](../consume-packages/configuring-nuget-behavior.md)

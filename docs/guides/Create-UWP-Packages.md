@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/21/2017
 ms.topic: tutorial
-ms.openlocfilehash: a4c609b3390748099d85a73f7d168ebe4de2676a
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: 52f2057f7d1012b75bba9e8730eacffd99adacfa
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812949"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426864"
 ---
 # <a name="create-uwp-packages"></a>UWP パッケージを作成する
 
@@ -248,7 +248,7 @@ nuget pack ImageEnhancer.nuspec
 > [!Tip]
 > `.nupkg` ファイルは、異なる拡張子が付いた単なる .zip ファイルです。 したがって、`.nupkg` を `.zip` に変えてパッケージの内容を調べることもできますが、パッケージを nuget.org にアップロードする前に必ず、拡張子を復元してください。
 
-パッケージを他の開発者が使用できるようにする場合は、「[パッケージの公開](../create-packages/publish-a-package.md)」の手順に従ってください。
+パッケージを他の開発者が使用できるようにする場合は、「[パッケージの公開](../nuget-org/publish-a-package.md)」の手順に従ってください。
 
 ## <a name="related-topics"></a>関連トピック
 

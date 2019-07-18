@@ -7,12 +7,12 @@ ms.date: 02/12/2018
 ms.topic: overview
 layout: HubPage
 hide_bc: true
-ms.openlocfilehash: 35eef5125c40689da0f888992ea8376bb9eb096b
-ms.sourcegitcommit: a801052aa728a3a137225ca3ef3ff89f2d1c6b76
+ms.openlocfilehash: 399e4f80afb3e3d6278618055dde38a87184e3ff
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54403152"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426642"
 ---
 <div id="main" class="v2">
 <div class="container">
@@ -81,7 +81,7 @@ ms.locfileid: "54403152"
                             </a>
                         </li>
                         <li>
-                            <a href="create-packages/overview-and-workflow.md">
+                            <a href="create-packages/creating-a-package.md">
                             <div class="cardSize">
                                 <div class="cardPadding">
                                     <div class="card">
@@ -148,7 +148,7 @@ ms.locfileid: "54403152"
                     <a href="#tools-all"></a>
                     <ul id="tools-all" class="cardsC">
                         <li>
-                            <a href="tools/nuget-exe-cli-reference.md">
+                            <a href="install-nuget-client-tools.md">
                             <div class="cardSize">
                                 <div class="cardPadding">
                                     <div class="card">
@@ -159,7 +159,7 @@ ms.locfileid: "54403152"
                                         </div>
                                         <div class="cardText">
                                             <h3>ツール</h3>
-                                            <p>nuget.exe コマンドライン ツール、Visual Studio のパッケージ マネージャー UI およびパッケージ マネージャー コンソールに関する完全なガイドです。</p>
+                                            <p>NuGet を使用するためのツールとその取得方法に関する情報。</p>
                                         </div>
                                     </div>
                                 </div>
@@ -177,7 +177,7 @@ ms.locfileid: "54403152"
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                            <h3>参照</h3>
+                                            <h3>関連項目</h3>
                                             <p>NuGet で使用される成果物と形式、サポートされるフレームワーク、エラーと警告に関する詳細です。</p>
                                         </div>
                                     </div>

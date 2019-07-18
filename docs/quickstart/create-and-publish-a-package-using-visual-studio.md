@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: d30e89473b5f00895136b75a90d8d95b7645a100
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: c75785d361f25564c8a59d7a2d85924c570a7b9a
+ms.sourcegitcommit: b9a134a6e10d7d8502613f389f7d5f9b9e206ec8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812981"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67467811"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>クイック スタート: Visual Studio を使用した NuGet パッケージの作成と公開 (.NET Standard、Windows のみ)
 
@@ -29,7 +29,7 @@ Windows の Visual Studio で .NET Standard クラス ライブラリから NuGe
 
    * `nuget.exe` CLI の場合は、[nuget.org](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe) からそれをダウンロードし、`.exe` ファイルを適切なフォルダーに保存して、そのフォルダーを PATH 環境変数に追加します。 nuget.exe CLI は、非 SDK スタイルの形式の .NET Standard ライブラリに使用されます。
 
-1. まだ持っていない場合は、[nuget.org で無料アカウントを登録](https://www.nuget.org/users/account/LogOn?returnUrl=%2F)します。 新しいアカウントを作成すると、確認メールが送信されます。 パッケージをアップロードするには、その前にアカウントを確認する必要があります。
+1. まだ持っていない場合は、[nuget.org で無料アカウントを登録](https://docs.microsoft.com/en-us/nuget/nuget-org/individual-accounts#add-a-new-individual-account)します。 新しいアカウントを作成すると、確認メールが送信されます。 パッケージをアップロードするには、その前にアカウントを確認する必要があります。
 
 ## <a name="create-a-class-library-project"></a>クラス ライブラリ プロジェクトを作成する
 
@@ -174,7 +174,7 @@ msbuild -t:pack -p:Configuration=Release
 ## <a name="related-topics"></a>関連トピック
 
 - [パッケージの作成](../create-packages/creating-a-package.md)
-- [パッケージの公開](../create-packages/publish-a-package.md)
+- [パッケージの公開](../nuget-org/publish-a-package.md)
 - [プレリリース パッケージ](../create-packages/Prerelease-Packages.md)
 - [複数のターゲット フレームワークのサポート](../create-packages/supporting-multiple-target-frameworks.md)
 - [パッケージのバージョン管理](../reference/package-versioning.md)

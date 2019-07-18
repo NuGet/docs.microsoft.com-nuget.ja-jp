@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 6c545ddeddb0c5909f57e879912eaeed744e42d5
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: fd6ecab05a392a2a0b4ddf1ac15eb108f2653703
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812933"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842409"
 ---
 # <a name="nuspec-reference"></a>.nuspec リファレンス
 
@@ -32,7 +32,7 @@ ms.locfileid: "66812933"
 
 - 使用して、`.nuspec`で`nuget.exe pack`の非 SDK スタイル プロジェクトを使用して`packages.config`します。
 
-- A`.nuspec`ファイルが SDK スタイル プロジェクトのパッケージを作成する必要はありません (.NET Core と .NET Standard プロジェクトを使用して、 [SDK 属性](/dotnet/core/tools/csproj#additions))。 (なお、`.nuspec`パッケージを作成する場合に生成されます)。
+- A`.nuspec`ファイルは、のパッケージを作成する必要はありません[SDK スタイル プロジェクト](../resources/check-project-format.md)(通常は .NET Core と .NET Standard は、プロジェクトを使用して、 [SDK 属性](/dotnet/core/tools/csproj#additions))。 (なお、`.nuspec`パッケージを作成する場合に生成されます)。
 
    使用してパッケージを作成する場合は`dotnet.exe pack`または`msbuild pack target`、ことをお勧めする[すべてのプロパティを含める](../reference/msbuild-targets.md#pack-target)通常含まれて、`.nuspec`プロジェクト ファイル内のファイルを代わりにします。 ただし、代わりにできます[を使用して、`.nuspec`パックを使用してファイル`dotnet.exe`または`msbuild pack target`](../reference/msbuild-targets.md#packing-using-a-nuspec)します。
 
@@ -71,36 +71,43 @@ ms.locfileid: "66812933"
 
 これらの要素は、`<metadata>` 要素内で指定する必要があります。
 
-#### <a name="id"></a>ID 
-パッケージの識別子。大文字と小文字が区別されます。nuget.org 全体で、またはパッケージが存在するギャラリー全体で、一意である必要があります。 ID は、スペースまたは URL で無効な文字を含んでいてはならず、一般に .NET 名前空間の規則に従います。 ガイダンスについては、[一意のパッケージ識別子の選択](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number)に関するページをご覧ください。
+#### <a name="id"></a>id 
+パッケージの識別子。大文字と小文字が区別されます。nuget.org 全体で、またはパッケージが存在するギャラリー全体で、一意である必要があります。 ID は、スペースまたは URL で無効な文字を含んでいてはならず、一般に .NET 名前空間の規則に従います。 ガイダンスについては、[一意のパッケージ識別子の選択](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number)に関するページをご覧ください。
 #### <a name="version"></a>version
 パッケージのバージョン。*major.minor.patch* のパターンに従います。 「[Package versioning](../reference/package-versioning.md#pre-release-versions)」(パッケージのバージョン管理) で説明されているように、バージョン番号にはプレリリースのサフィックスを含めることができます。 
-#### <a name="description"></a>説明
+#### <a name="description"></a>description
 UI 画面用のパッケージの長い説明。 
-#### <a name="authors"></a>作成者
+#### <a name="authors"></a>authors
 パッケージ作成者の一覧。コンマで区切られています。nuget.org のプロファイル名と一致します。これらは nuget.org の NuGet ギャラリーに表示され、同じ作成者によるパッケージの相互参照に使用されます。 
 
 ### <a name="optional-metadata-elements"></a>メタデータの省略可能な要素
 
-#### <a name="title"></a>タイトル
-人が読みやすいパッケージのタイトル。通常、nuget.org と、Visual Studio のパッケージ マネージャーの UI 画面で使用されます。 指定しないと、パッケージ ID が使われます。 
 #### <a name="owners"></a>owners
-コンマで区切って指定したパッケージ作成者の一覧。nuget.org でのプロファイル名です。多くの場合は `authors` と同じ一覧であり、nuget.org にパッケージをアップロードするときは無視されます。「[nuget.org でパッケージ所有者を管理する](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg)」をご覧ください。 
+コンマで区切って指定したパッケージ作成者の一覧。nuget.org でのプロファイル名です。多くの場合は `authors` と同じ一覧であり、nuget.org にパッケージをアップロードするときは無視されます。「[nuget.org でパッケージ所有者を管理する](../nuget-org/publish-a-package.md#managing-package-owners-on-nugetorg)」をご覧ください。 
+
 #### <a name="projecturl"></a>projectUrl
 パッケージのホーム ページの URL。多くの場合、UI 画面と nuget.org に表示されます。 
+
 #### <a name="licenseurl"></a>licenseUrl
 > [!Important]
 > licenseUrl は非推奨とされています。 ライセンスを使用してください。
 
-パッケージのライセンスの URL。通常、UI 画面および nuget.org に表示されます。
-#### <a name="license"></a>ライセンス
-パッケージ内のライセンス ファイルに対する SPDX ライセンス式またはパスであり、UI 表示や nuget.org でよく示されます。BSD-2-句または MIT などの一般的なライセンスの下でパッケージをライセンスする場合は、関連付けられている SPDX ライセンス識別子を使用します。<br>例: `<license type="expression">MIT</license>`
+多くの場合、nuget.org のような Ui で示すように、パッケージのライセンスの URL。
 
-[SPDX ライセンス識別子](https://spdx.org/licenses/)の完全な一覧はこちらをご覧ください。 ライセンス タイプ式を使用する場合、NuGet.org では OSI または FSF で承認されたライセンスのみが受け付けられます。
+#### <a name="license"></a>license
+SPDX ライセンス式または多くの場合、nuget.org のような Ui で示すように、パッケージ内のライセンス ファイルへのパス。MIT や BSD-2-句などの一般的なライセンスでは、パッケージのライセンスをしている場合は、関連付けられている使用[SPDX ライセンス識別子](https://spdx.org/licenses/)します。 例えば:
 
-複合のライセンスを使用して、指定するには、パッケージは、複数の一般的なライセンス下でライセンスが場合、 [SPDX 式構文のバージョン 2.0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60)します。<br>例: `<license type="expression">BSD-2-Clause OR MIT</license>`
+`<license type="expression">MIT</license>`
 
-SPDX 識別子が割り当てられていないライセンスを使用している、またはカスタムのライセンスは、ファイルをパッケージ化することができます (だけ`.txt`または`.md`) ライセンスのテキストを使用します。 例:
+> [!Note]
+> NuGet.org には、オープン ソース イニシアチブまたは無料の Software Foundation によって承認されているライセンス式のみ指定できます。
+
+複合のライセンスを使用して、指定するには、パッケージは、複数の一般的なライセンス下でライセンスが場合、 [SPDX 式構文のバージョン 2.0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60)します。 例えば:
+
+`<license type="expression">BSD-2-Clause OR MIT</license>`
+
+パッケージ化してライセンスの式でサポートされていないカスタム ライセンスを使用する場合、`.txt`または`.md`ライセンスのテキストを含むファイル。 例えば:
+
 ```xml
 <package>
   <metadata>
@@ -140,39 +147,50 @@ UI 表示でパッケージのアイコンとして使われる、背景が透�
 
 #### <a name="requirelicenseacceptance"></a>requireLicenseAcceptance
 パッケージをインストールする前にクライアントがユーザーに対してパッケージのライセンスへの同意を求めるプロンプトを表示する必要があるかどうかを示すブール値。
+
 #### <a name="developmentdependency"></a>developmentDependency
 *(2.8 以降)* 開発専用の依存関係としてパッケージをマークするかどうかを指定するブール値。指定すると、そのパッケージは他のパッケージに依存関係として含まれなくなります。 Packagereference (NuGet 4.8 以降) の場合、コンパイルからコンパイル アセットを除外することをこのフラグも意味します。 参照してください[DevelopmentDependency PackageReference のサポート](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference)
-#### <a name="summary"></a>概要
+
+#### <a name="summary"></a>summary
 UI 画面用のパッケージの短い説明。 省略すると、`description` を切り詰めたバージョンが使われます。
+
 #### <a name="releasenotes"></a>releaseNotes
 *(1.5 以降)* このリリースのパッケージで行われた変更の説明。Visual Studio パッケージ マネージャーの **[更新]** タブなどの UI で、パッケージの説明の代わりによく使われます。
-#### <a name="copyright"></a>著作権
+
+#### <a name="copyright"></a>copyright
 *(1.5 以降)* パッケージの著作権の詳細。
+
 #### <a name="language"></a>language
 パッケージのロケール ID。 「[ローカライズされたパッケージの作成](../create-packages/creating-localized-packages.md)」をご覧ください。
-#### <a name="tags"></a>タグ
+
+#### <a name="tags"></a>tags
 パッケージについて説明し、検索やフィルターでパッケージを見つけやすくするタグやキーワードを、スペースで区切って列記したリスト。 
+
 #### <a name="serviceable"></a>処理できます。 
 *(3.3 以降)* NuGet 内部でのみ使われます。
-#### <a name="repository"></a>リポジトリ
+
+#### <a name="repository"></a>repository
 4 つの省略可能な属性で構成される、リポジトリ メタデータ:*型*と*url* *(4.0 以降)* 、および*ブランチ*と*コミット* *(4.6 以降)* します。 これらの属性を取得する可能性がありますが、組み込まれているリポジトリへの .nupkg をマップできます。 個々 の分岐またはパッケージの構築コミットとして説明されています。 バージョン管理のソフトウェアを直接呼び出すことができる公開されている url があります。 これは、コンピューターのように html ページをことがいません。 プロジェクトのページへのリンクを使用して、`projectUrl`フィールドに、代わりにします。
 
 #### <a name="minclientversion"></a>minClientVersion
 nuget.exe および Visual Studio パッケージ マネージャーで強制する、このパッケージをインストールできる NuGet クライアントの最小バージョンを指定します。 これは、NuGet クライアントの特定のバージョンで追加された `.nuspec` ファイルの特定の機能にパッケージが依存しているときに、常に使われます。 たとえば、`developmentDependency` 属性を使っているパッケージでは、`minClientVersion` に "2.8" を指定する必要があります。 同様に、`contentFiles` 要素 (次のセクションを参照) を使っているパッケージでは、`minClientVersion` を "3.3" に設定する必要があります。 また、バージョン 2.5 より前の NuGet クライアントはこのフラグを認識しないので、`minClientVersion` の値が何であっても、"*常に*" パッケージをインストールしないことにも注意してください。
 
+#### <a name="title"></a>title
+一部の UI のために使用できるパッケージのわかりやすいタイトルを表示します。 (nuget.org と Visual Studio でパッケージ マネージャーは非表示タイトル)
+
 #### <a name="collection-elements"></a>コレクション要素
 
 #### <a name="packagetypes"></a>PackageTypes
-*(3.5 以降)* 従来の依存関係パッケージ以外の場合に、パッケージの種類を指定する 0 個以上の `<packageType>` 要素のコレクション。 各 packageType は、*name* 属性と *version* 属性を持っています。 「[Setting a package type](../create-packages/creating-a-package.md#setting-a-package-type)」(パッケージの種類の設定) をご覧ください。
-#### <a name="dependencies"></a>依存関係
+*(3.5 以降)* 従来の依存関係パッケージ以外の場合に、パッケージの種類を指定する 0 個以上の `<packageType>` 要素のコレクション。 各 packageType は、*name* 属性と *version* 属性を持っています。 「[Setting a package type](../create-packages/set-package-type.md)」(パッケージの種類の設定) をご覧ください。
+#### <a name="dependencies"></a>dependencies
 パッケージの依存関係を指定する 0 個以上の `<dependency>` 要素のコレクション。 各 dependency は、*id*、*version*、*include* (3.x 以降)、*exclude* (3.x 以降) の各属性を持っています。 後の「[依存関係](#dependencies-element)」をご覧ください。
 #### <a name="frameworkassemblies"></a>frameworkAssemblies
 *(1.2 以降)* このパッケージで必要な .NET Framework アセンブリ参照を示す 0 個以上の `<frameworkAssembly>` 要素のコレクション。パッケージを使うプロジェクトに参照が確実に追加されるようにします。 各 frameworkAssembly は、*assemblyName* 属性と *targetFramework* 属性を持っています。 [フレームワーク アセンブリ参照 GAC の指定](#specifying-framework-assembly-references-gac)に関する後の説明をご覧ください。 |
-#### <a name="references"></a>参照
+#### <a name="references"></a>references
 *(1.5 以降)* パッケージの `lib` フォルダー内のアセンブリのうちプロジェクト参照として追加するものを指定する、0 個以上の `<reference>` 要素のコレクション。 各参照は、*file* 属性を持っています。 `<references>` は `<group>` 要素を含むこともでき、その *targetFramework* 属性に `<reference>` 要素を含めることができます。 省略すると、`lib` のすべての参照が含まれます。 [明示的なアセンブリ参照の指定](#specifying-explicit-assembly-references)に関する後の説明をご覧ください。
 #### <a name="contentfiles"></a>contentFiles
 *(3.3 以降)* 使用する側のプロジェクトに含めるコンテンツ ファイルを示す `<files>` 要素のコレクション。 これらのファイルは、プロジェクト システム内でのファイルの使用方法が記述されている属性のセットで指定されます。 [パッケージに含めるファイルの指定](#specifying-files-to-include-in-the-package)に関する後の説明をご覧ください。
-#### <a name="files"></a>ファイル 
+#### <a name="files"></a>files 
 `<package>`ノードを含めることができます、`<files>`ノードを兄弟として`<metadata>`、および`<contentFiles>`下の子`<metadata>`パッケージに含めるアセンブリとコンテンツ ファイルを指定します。 詳しくは、このトピックで後述する「[アセンブリ ファイルを含める](#including-assembly-files)」と「[コンテンツ ファイルを含める](#including-content-files)」をご覧ください。
 
 ## <a name="replacement-tokens"></a>置換トークン
@@ -228,7 +246,7 @@ nuget pack MyProject.csproj
 
 `<metadata>` 内の `<dependencies>` 要素は、最上位のパッケージが依存している他のパッケージを示す `<dependency>` 要素をいくつでも含むことができます。 各 `<dependency>` の属性は次にとおりです。
 
-| 属性 | 説明 |
+| 属性 | description |
 | --- | --- |
 | `id` | (必須) "EntityFramework" や "NUnit" などの依存関係のパッケージ ID。これはパッケージ ページに表示されるパッケージ nuget.org の名前となります。 |
 | `version` | (必須) 依存関係として許容されるバージョンの範囲。 厳密な構文については、「[Package versioning](../reference/package-versioning.md#version-ranges-and-wildcards)」(パッケージのバージョン管理) をご覧ください。 |
@@ -238,7 +256,7 @@ nuget pack MyProject.csproj
 | 包含/除外タグ | ターゲットの影響を受けるフォルダー |
 | --- | --- |
 | contentFiles | Content |
-| ランタイム | Runtime、Resources、FrameworkAssemblies |
+| runtime | Runtime、Resources、FrameworkAssemblies |
 | compile | lib |
 | build | build (MSBuild のプロパティとターゲット) |
 | native | native |
@@ -300,7 +318,7 @@ nuget pack MyProject.csproj
 
 ## <a name="explicit-assembly-references"></a>明示的なアセンブリ参照
 
-`<references>` 要素は、パッケージを使うときにターゲット プロジェクトが参照する必要のあるアセンブリを明示的に指定します。 この要素がある場合、NuGet は一覧で指定されているアセンブリのみへの参照を追加します。パッケージの `lib` フォルダーに含まれる他のアセンブリに対する参照は追加されません。
+`<references>`要素を使用してプロジェクトによって使用されます`packages.config`パッケージを使用する場合、ターゲット プロジェクトが参照するアセンブリを明示的に指定します。 明示的な参照は、通常、設計時のみのアセンブリに使われます。 詳細については、のページをご覧ください。[プロジェクトによって参照されるアセンブリを選択する](../create-packages/select-assemblies-referenced-by-projects.md)詳細についてはします。
 
 たとえば、次の `<references>` 要素は、パッケージに他のアセンブリがある場合でも、`xunit.dll` と `xunit.extensions.dll` に対する参照だけを追加するよう NuGet に指示します。
 
@@ -310,10 +328,6 @@ nuget pack MyProject.csproj
     <reference file="xunit.extensions.dll" />
 </references>
 ```
-
-明示的な参照は、通常、設計時のみのアセンブリに使われます。 たとえば、[コード コントラクト](/dotnet/framework/debug-trace-profile/code-contracts)を使うときは、Visual Studio がコントラクト アセンブリを検出できるように、コントラクト アセンブリはそれが拡張するランタイム アセンブリの隣に存在する必要がありますが、プロジェクトでコントラクト アセンブリを参照したり、プロジェクトの `bin` フォルダーにコントラクト アセンブリをコピーしたりする必要はありません。
-
-同様に、明示的な参照は XUnit などの単体テスト フレームワークに使うことができ、その場合、ツール アセンブリはランタイム アセンブリの隣に存在する必要がありますが、プロジェクト参照として含まれる必要はありません。
 
 ### <a name="reference-groups"></a>[参照グループ]
 
@@ -352,7 +366,7 @@ nuget pack MyProject.csproj
 
 `<frameworkAssemblies>` 要素には 0 個以上の `<frameworkAssembly>` 要素を含めることができ、それぞれで次の属性を指定します。
 
-| 属性 | 説明 |
+| 属性 | description |
 | --- | --- |
 | **assemblyName** | (必須) 完全修飾アセンブリ名。 |
 | **targetFramework** | (省略可能) この参照を適用するターゲット フレームワークを指定します。 省略した場合は、参照がすべてのフレームワークに適用されることを示します。 正確なフレームワーク識別子については、「[ターゲット フレームワーク](../reference/target-frameworks.md)」をご覧ください。 |
@@ -392,7 +406,7 @@ NuGet 2.x 以前および `packages.config` を使っているプロジェクト
 
 各 `<file>` 要素では、次の属性を指定します。
 
-| 属性 | 説明 |
+| 属性 | description |
 | --- | --- |
 | **src** | 含める 1 つまたは複数のファイルの場所。`exclude` 属性によって指定される除外の対象になります。 絶対パスを指定しない限り、パスは `.nuspec` ファイルが基準になります。 ワイルドカード文字 `*` を使うことができ、2 個のワイルドカード `**` は再帰的なフォルダー検索を意味します。 |
 | **target** | ソース ファイルが格納されるパッケージ内のフォルダーへの相対パス。`lib`、`content`、`build`、または `tools` で始まっている必要があります。 [規則に基づく作業ディレクトリからの .nuspec の作成](../create-packages/creating-a-package.md#from-a-convention-based-working-directory)に関するページをご覧ください。 |
@@ -597,7 +611,7 @@ NuGet 2.x 以前および `packages.config` を使っているプロジェクト
 
 これらのファイルは、プロジェクト システム内でのファイルの使用方法が記述されている属性のセットで指定されます。
 
-| 属性 | 説明 |
+| 属性 | description |
 | --- | --- |
 | **include** | (必須) 含める 1 つまたは複数のファイルの場所。`exclude` 属性によって指定される除外の対象になります。 絶対パスを指定しない限り、パスは `.nuspec` ファイルが基準になります。 ワイルドカード文字 `*` を使うことができ、2 個のワイルドカード `**` は再帰的なフォルダー検索を意味します。 |
 | **exclude** | `src` の場所から除外するファイルまたはファイル パターンをセミコロンで区切ったリスト。 ワイルドカード文字 `*` を使うことができ、2 個のワイルドカード `**` は再帰的なフォルダー検索を意味します。 |

@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: dec7db04c5cf239863b9c00e9f5bc0dde42c7e47
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: a5f318ddfb2bb8498ab3e608f8036be05dcb0706
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551658"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842536"
 ---
 # <a name="add-bindingredirect-package-manager-console-in-visual-studio"></a>Add-BindingRedirect (Package Manager Console in Visual Studio)
 
-*内でのみ使用可能な[NuGet パッケージ マネージャー コンソール](package-manager-console.md)Windows 上の Visual Studio でします。*
+*内でのみ使用可能な[パッケージ マネージャー コンソール](package-manager-console.md)Windows 上の Visual Studio でします。*
 
 プロジェクトの出力パス内のすべてのアセンブリを調べ、必要に応じて、アプリケーションまたは web 構成ファイルにバインド リダイレクトを追加します。 このコマンドは、パッケージをインストールすると自動的に実行されます。
 
@@ -35,6 +35,7 @@ Add-BindingRedirect [-ProjectName] <string> [<CommonParameters>]
 これらのパラメーターには、パイプラインの入力またはワイルドカード文字がそのまま使用します。
 
 ## <a name="common-parameters"></a>共通パラメーター
+
 
 `Add-BindingRedirect` 次のサポート[一般的な PowerShell パラメーター](http://go.microsoft.com/fwlink/?LinkID=113216): Debug、Error Action、ErrorVariable、OutBuffer、OutVariable、PipelineVariable、Verbose、WarningAction、WarningVariable
 

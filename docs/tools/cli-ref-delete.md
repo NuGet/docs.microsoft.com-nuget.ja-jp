@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 11eea6e806d7bfe364587db9c7ef8374da1819f9
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 3ea2dc3e87d0a626704fe5623d39eaf5bd3f3446
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548511"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426108"
 ---
 # <a name="delete-command-nuget-cli"></a>delete コマンド (NuGet CLI)
 
 **適用対象:** パッケージの発行&bullet;**サポートされているバージョン:** すべて
 
-パッケージ ソースからパッケージを一覧から、または削除します。 Nuget.org には、delete コマンドの[パッケージを一覧から](../policies/deleting-packages.md)します。
+パッケージ ソースからパッケージを一覧から、または削除します。 Nuget.org には、delete コマンドの[パッケージを一覧から](../nuget-org/policies/deleting-packages.md)します。
 
 ## <a name="usage"></a>使用法
 
@@ -36,7 +36,7 @@ nuget delete <packageID> <packageVersion> [options]
 | Help | ヘルプのコマンドの情報を表示します。 |
 | NonInteractive | ユーザー入力や確認のプロンプトを抑制します。 |
 | Source | サーバー URL を指定します。 Nuget.org の URL は`https://api.nuget.org/v3/index.json`します。 たとえば、プライベート フィードを置き換えて、ホスト名 *%hostname%/api/v3*します。 |
-| Verbosity | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細*します。 |
+| Verbosity | 出力に表示される詳細データの量を指定します:*通常*、 *静か*、*詳細* |
 
 参照してください[環境変数](cli-ref-environment-variables.md)
 

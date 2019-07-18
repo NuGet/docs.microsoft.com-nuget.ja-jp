@@ -1,18 +1,18 @@
 ---
-title: NuGet の動作を構成する
+title: 一般的な NuGet 構成
 description: NuGet.Config ファイルは、グローバルとプロジェクト単位の両方で NuGet の動作を制御し、変更するには nuget config コマンドを使います。
 author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: 963d1d59ea7e65e3d75bc7105b8864e3e4045938
-ms.sourcegitcommit: ef08f376688f0191a8d3d873b6a4386afd799373
+ms.openlocfilehash: 57b7f29b533a8e6d7db2710c7e42a239f50199a1
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266337"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426659"
 ---
-# <a name="configuring-nuget-behavior"></a>NuGet の動作を構成する
+# <a name="common-nuget-configurations"></a>一般的な NuGet 構成
 
 NuGet の動作は、1 つ以上の `NuGet.Config` (XML) ファイルの設定を総合して決まります。ファイルは、プロジェクト レベル、ユーザー レベル、およびコンピューター全体レベルで作成できます。 具体的には、グローバル `NuGetDefaults.Config` ファイルでパッケージ ソースも構成されます。 設定は、CLI、パッケージ マネージャー コンソール、パッケージ マネージャー UI で発行されるすべてのコマンドに適用されます。
 

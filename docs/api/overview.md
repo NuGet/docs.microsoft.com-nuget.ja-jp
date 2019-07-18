@@ -8,7 +8,7 @@ ms.topic: reference
 ms.reviewer: kraigb
 ms.openlocfilehash: bb15b4decef104f1aefe37fd18f3358181a848af
 ms.sourcegitcommit: 2af17c8bb452a538977794bf559cdd78d58f2790
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 03/29/2019
 ms.locfileid: "58637663"
@@ -51,7 +51,7 @@ NuGet V3 API は、公式の NuGet クライアントのバージョン 2.x で�
 
 リソース名                                                        | 必須 | 説明
 -------------------------------------------------------------------- | -------- | -----------
-[カタログ](catalog-resource.md)                                       | Ｘ       | パッケージのすべてのイベントの完全なレコードです。
+[Catalog](catalog-resource.md)                                       | Ｘ       | パッケージのすべてのイベントの完全なレコードです。
 [PackageBaseAddress](package-base-address-resource.md)               | 可      | パッケージ (.nupkg) のコンテンツを取得します。
 [PackageDetailsUriTemplate](package-details-template-resource.md)    | Ｘ       | パッケージの詳細の web ページにアクセスする URL を作成します。
 [PackagePublish](package-publish-resource.md)                        | 可      | プッシュし削除 (または一覧から削除する) パッケージ。
@@ -91,7 +91,7 @@ API によって返されるすべてのタイムスタンプは UTC または�
 動詞   | 使用
 ------ | -----------
 GET    | 通常のデータの取得、読み取り専用操作を実行します。
-HEAD、   | 対応する応答ヘッダーをフェッチ`GET`要求。
+HEAD   | 対応する応答ヘッダーをフェッチ`GET`要求。
 PUT    | リソースが存在しないか、存在する場合は更新を作成します。 一部のリソースは更新をサポートしていません。
 Del | リソースを一覧から、または削除します。
 

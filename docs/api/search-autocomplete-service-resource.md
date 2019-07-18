@@ -8,7 +8,7 @@ ms.topic: reference
 ms.reviewer: kraigb
 ms.openlocfilehash: fdc3ad8aa239a42d8a4c169a757715e856bdcb41
 ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "58911050"
@@ -48,9 +48,9 @@ HTTP メソッドの登録のリソースのサポートで検出されたすべ
 名前        | イン     | 型    | 必須 | メモ
 ----------- | ------ | ------- | -------- | -----
 q           | URL    | string  | Ｘ       | パッケージ Id と比較する文字列
-スキップ        | URL    | 整数 | Ｘ       | 改ページをスキップする結果の数
-Take        | URL    | 整数 | Ｘ       | 結果を返すには、改ページの数
-プレリリース版  | URL    | boolean | Ｘ       | `true` または`false`含めるかどうかを決定する[プレリリース パッケージ](../create-packages/prerelease-packages.md)
+skip        | URL    | integer | Ｘ       | 改ページをスキップする結果の数
+take        | URL    | integer | Ｘ       | 結果を返すには、改ページの数
+prerelease  | URL    | boolean | Ｘ       | `true` または`false`含めるかどうかを決定する[プレリリース パッケージ](../create-packages/prerelease-packages.md)
 semVerLevel | URL    | string  | Ｘ       | SemVer 1.0.0 バージョン文字列 
 
 オートコンプリート クエリ`q`サーバー実装で定義されている方法で解析されます。 nuget.org では、キャメル ケースと記号の文字で、元のパッケージ ID トークンは、ページの分割によって生成された ID の断片のプレフィックスにクエリをサポートします。
@@ -74,7 +74,7 @@ semVerLevel | URL    | string  | Ｘ       | SemVer 1.0.0 バージョン文字�
 名前      | 種類             | 必須 | メモ
 --------- | ---------------- | -------- | -----
 totalHits | 整数          | 可      | 無視すると、一致の合計数`skip`と `take`
-[データ]      | 文字列の配列 | 可      | 要求によって、パッケージ Id が一致します。
+data      | 文字列の配列 | 可      | 要求によって、パッケージ Id が一致します。
 
 ### <a name="sample-request"></a>要求のサンプル
 
@@ -96,8 +96,8 @@ totalHits | 整数          | 可      | 無視すると、一致の合計数`sk
 
 名前        | イン     | 型    | 必須 | メモ
 ----------- | ------ | ------- | -------- | -----
-ID          | URL    | string  | 可      | バージョンをフェッチするパッケージ ID
-プレリリース版  | URL    | boolean | Ｘ       | `true` または`false`含めるかどうかを決定する[プレリリース パッケージ](../create-packages/prerelease-packages.md)
+id          | URL    | string  | 可      | バージョンをフェッチするパッケージ ID
+prerelease  | URL    | boolean | Ｘ       | `true` または`false`含めるかどうかを決定する[プレリリース パッケージ](../create-packages/prerelease-packages.md)
 semVerLevel | URL    | string  | Ｘ       | A SemVer 2.0.0 version string 
 
 場合`prerelease`が提供されていない場合、プレリリース パッケージが除外されます。
@@ -112,7 +112,7 @@ semVerLevel | URL    | string  | Ｘ       | A SemVer 2.0.0 version string
 
 名前      | 種類             | 必須 | メモ
 --------- | ---------------- | -------- | -----
-[データ]      | 文字列の配列 | 可      | 要求に一致するパッケージのバージョン
+data      | 文字列の配列 | 可      | 要求に一致するパッケージのバージョン
 
 パッケージのバージョンを`data`配列は SemVer 2.0.0 ビルド メタデータを含めることができます (例: `1.0.0+metadata`) 場合、`semVerLevel=2.0.0`クエリ文字列で提供されます。
 

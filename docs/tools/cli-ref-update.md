@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: ded9b571324d810c2f0e1a46ea76375a28940406
-ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
-ms.translationtype: HT
+ms.openlocfilehash: a242d02a54fd86899cbe274ab63538b53307c1bb
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56145606"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67425916"
 ---
 # <a name="update-command-nuget-cli"></a>update コマンド (NuGet CLI)
 
@@ -48,8 +48,8 @@ nuget update <configPath> [options]
 | RepositoryPath | パッケージがインストールされているローカル フォルダーを指定します。 |
 | Safe | のみを更新する同じメジャーおよびマイナーのバージョン内で使用可能な最上位バージョンにインストールされているパッケージはインストールされているを指定します。 |
 | self | Nuget.exe を最新のバージョンに更新します。その他のすべての引数は無視されます。 |
-| Source | (Url) として、更新に使用するパッケージ ソースの一覧を指定します。 コマンドを省略すると、構成ファイルで提供されるソースを使用して、参照してください[NuGet の構成の動作を](../consume-packages/configuring-nuget-behavior.md)します。 |
-| Verbosity | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細*します。 |
+| Source | (Url) として、更新に使用するパッケージ ソースの一覧を指定します。 コマンドを省略すると、構成ファイルで提供されるソースを使用して、参照してください[一般的な NuGet 構成](../consume-packages/configuring-nuget-behavior.md)します。 |
+| Verbosity | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細* |
 | Version | 1 つのパッケージ ID と共に使用すると、更新するパッケージのバージョンを指定します。 |
 
 参照してください[環境変数](cli-ref-environment-variables.md)

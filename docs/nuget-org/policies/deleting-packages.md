@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
 ms.openlocfilehash: 833f4a67bc75c5d650e85180b52ecd8f69218f15
-ms.sourcegitcommit: 85bf94e0efcfcee1f914650bdc142309ef3e06d9
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196188"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426977"
 ---
 # <a name="deleting-packages"></a>パッケージの削除
 

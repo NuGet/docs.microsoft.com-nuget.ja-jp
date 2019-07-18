@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: tutorial
-ms.openlocfilehash: c43f4e80d456214ca354e136db6419a95fc797a0
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: d737b70febd1e18aa8a39cc73a9a9cf333f758c6
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551909"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426838"
 ---
 # <a name="create-packages-for-xamarin-with-visual-studio-2015"></a>Visual Studio 2015 での Xamarin 用パッケージの作成
 
@@ -18,7 +18,7 @@ Xamarin 用 パッケージには、実行時のオペレーティング シス�
 
 このチュートリアルでは、Visual Studio 2015 を使用して、iOS、Android、および Windows 上のモバイル プロジェクトで使用できるクロスプラットフォームの NuGet パッケージを作成します。
 
-1. [前提条件](#prerequisites)
+1. [必須コンポーネント](#prerequisites)
 1. [プロジェクトの構造体および抽象化コードを作成する](#create-the-project-structure-and-abstraction-code)
 1. [プラットフォーム固有のコードを記述する](#write-your-platform-specific-code)
 1. [.nuspec ファイルを作成して更新する](#create-and-update-the-nuspec-file)
@@ -36,7 +36,7 @@ Xamarin 用 パッケージには、実行時のオペレーティング シス�
 ## <a name="create-the-project-structure-and-abstraction-code"></a>プロジェクトの構造体および抽象化コードを作成する
 
 1. Visual Studio 用の [Plugin For Xamarin テンプレート拡張機能](https://marketplace.visualstudio.com/items?itemName=vs-publisher-473885.PluginForXamarinTemplates)をダウンロードして実行します。 これらのテンプレートを使用することで、このチュートリアルで必要なプロジェクトの構造体を簡単に作成できます。
-1. Visual Studio で、**[ファイル]、[新規]、[プロジェクト]** の順に選択し、`Plugin` を検索して **[Plugin for Xamarin]** テンプレートを選択し、名前を LoggingLibrary に変更してから [OK] をクリックします。
+1. Visual Studio で、 **[ファイル]、[新規]、[プロジェクト]** の順に選択し、`Plugin` を検索して **[Plugin for Xamarin]** テンプレートを選択し、名前を LoggingLibrary に変更してから [OK] をクリックします。
 
     ![Visual Studio の新しい空のアプリ (Xamarin.Forms ポータブル) プロジェクト](media/CrossPlatform-NewProject.png)
 
@@ -95,9 +95,9 @@ namespace Plugin.LoggingLibrary.Abstractions
     ```
 
 1. サポートする各プラットフォームのプロジェクトでこの実装を繰り返します。
-1. iOS プロジェクトを右クリックし、**[プロパティ]** を選択して **[ビルド]** タブをクリックし、**[出力パス]** および **[XML ドキュメント ファイル]** の設定から "\iPhone" を削除します。 この操作は、このチュートリアルの後半での利便性のためだけに行います。 完了したら、ファイルを保存します。
-1. ソリューションを右クリックし、**[構成マネージャー]** を選択して、PCL とサポートする各プラットフォームの **[ビルド]** ボックスをオンにします。
-1. ソリューションを右クリックし、**[ソリューションのビルド]** を選択して作業内容を確認し、次にパッケージ化する成果物を生成します。 欠落している参照に関するエラーが発生した場合は、ソリューションを右クリックし、**[NuGet パッケージの復元]** を選択して依存関係をインストールしてからリビルドします。
+1. iOS プロジェクトを右クリックし、 **[プロパティ]** を選択して **[ビルド]** タブをクリックし、 **[出力パス]** および **[XML ドキュメント ファイル]** の設定から "\iPhone" を削除します。 この操作は、このチュートリアルの後半での利便性のためだけに行います。 完了したら、ファイルを保存します。
+1. ソリューションを右クリックし、 **[構成マネージャー]** を選択して、PCL とサポートする各プラットフォームの **[ビルド]** ボックスをオンにします。
+1. ソリューションを右クリックし、 **[ソリューションのビルド]** を選択して作業内容を確認し、次にパッケージ化する成果物を生成します。 欠落している参照に関するエラーが発生した場合は、ソリューションを右クリックし、 **[NuGet パッケージの復元]** を選択して依存関係をインストールしてからリビルドします。
 
 > [!Note]
 > iOS 用にビルドするには、「[Xamarin.iOS for Visual Studio の概要](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/introduction_to_xamarin_ios_for_visual_studio/)」の説明に従って、ネットワーク接続された Mac を Visual Studio に接続する必要があります。 使用可能な Mac がない場合は、構成マネージャーで iOS プロジェクトをクリアします (上記の手順 3)。
@@ -162,7 +162,7 @@ namespace Plugin.LoggingLibrary.Abstractions
 ```
 
 > [!Note]
-> DLL および XML ファイルの名前を短くするには、指定されたプロジェクトを右クリックし、**[ライブラリ]** タブを選択してアセンブリ名を変更します。
+> DLL および XML ファイルの名前を短くするには、指定されたプロジェクトを右クリックし、 **[ライブラリ]** タブを選択してアセンブリ名を変更します。
 
 ### <a name="add-dependencies"></a>依存関係を追加する
 
@@ -260,7 +260,7 @@ nuget pack LoggingLibrary.nuspec
 > [!Tip]
 > `.nupkg` ファイルは、異なる拡張子が付いた単なる .zip ファイルです。 したがって、`.nupkg` を `.zip` に変えてパッケージの内容を調べることもできますが、パッケージを nuget.org にアップロードする前に必ず、拡張子を復元してください。
 
-パッケージを他の開発者が使用できるようにする場合は、「[パッケージの公開](../create-packages/publish-a-package.md)」の手順に従ってください。
+パッケージを他の開発者が使用できるようにする場合は、「[パッケージの公開](../nuget-org/publish-a-package.md)」の手順に従ってください。
 
 ## <a name="related-topics"></a>関連トピック
 

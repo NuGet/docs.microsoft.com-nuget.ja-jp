@@ -1,16 +1,16 @@
 ---
 title: Windows の Visual Studio を使用した .NET Framework パッケージの作成と公開
-description: Windows の Visual Studio 2017 を使用した、.NET Framework NuGet パッケージの作成と公開に関するチュートリアルです。
+description: Windows の Visual Studio を使用した、.NET Framework NuGet パッケージの作成と公開に関するチュートリアルです。
 author: karann-msft
 ms.author: karann
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: 68593211da1a34649c7050753a5db0f3a03cb41b
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: efdaa0128d47f948c86c3cc83d6a332410cbf99f
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549629"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426338"
 ---
 # <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>クイック スタート: Visual Studio を使用したパッケージの作成と公開 (.NET Framework、Windows)
 
@@ -31,9 +31,9 @@ ms.locfileid: "43549629"
 
 パッケージ化するコードに既存の .NET Framework クラス ライブラリ プロジェクトを使用することも、次の手順に従って単純なプロジェクトを作成することもできます。
 
-1. Visual Studio で、**[ファイル]、[新規]、[プロジェクト]** の順に選択し、**[Visual C#]** ノードを選択し、"クラス ライブラリ (.NET Framework)" テンプレートを選択し、プロジェクトに AppLogger という名前を付け、**[OK]** をクリックします。
+1. Visual Studio で、 **[ファイル]、[新規]、[プロジェクト]** の順に選択し、 **[Visual C#]** ノードを選択し、"クラス ライブラリ (.NET Framework)" テンプレートを選択し、プロジェクトに AppLogger という名前を付け、 **[OK]** をクリックします。
 
-1. 作成されたプロジェクト ファイルを右クリックし、**[ビルド]** を選択して、プロジェクトが正しく作成されたことを確認します。 DLL は、デバッグ フォルダー (または代わりにその構成をビルドした場合はリリース フォルダー) 内にあります。
+1. 作成されたプロジェクト ファイルを右クリックし、 **[ビルド]** を選択して、プロジェクトが正しく作成されたことを確認します。 DLL は、デバッグ フォルダー (または代わりにその構成をビルドした場合はリリース フォルダー) 内にあります。
 
 実際の NuGet パッケージ内ではもちろん、多くの便利な機能を実装し、他のユーザーはそれを使用してアプリケーションをビルドできます。 また、目的のターゲット フレームワークに設定することもできます。 例については、[UWP](../guides/create-uwp-packages.md) と [Xamarin](../guides/create-packages-for-xamarin.md) のガイドを参照してください。
 
@@ -61,7 +61,7 @@ namespace AppLogger
 
 NuGet パッケージには、パッケージ識別子、バージョン番号、説明などの関連するメタデータを含むマニフェスト (`.nuspec` ファイル) が含まれています。 これらの一部は、プロジェクトのプロパティから直接引き出すことができるので、プロジェクトとマニフェストの両方で個別に更新する必要はありません。 このセクションでは、適用可能なプロパティを設定する場所について説明します。
 
-1. **[プロジェクト]、[プロパティ]** メニュー コマンドの順に選択し、**[アプリケーション]** タブを選択します。
+1. **[プロジェクト]、[プロパティ]** メニュー コマンドの順に選択し、 **[アプリケーション]** タブを選択します。
 
 1. **[アセンブリ名]** フィールドで、パッケージに一意の識別子を付けます。
 
@@ -70,7 +70,7 @@ NuGet パッケージには、パッケージ識別子、バージョン番号�
     >
     > 既に存在する名前のパッケージを公開しようとすると、エラーが表示されます。
 
-1. **[アセンブリ情報]** ボタンを選択すると、マニフェストに含める他のプロパティを入力するためのダイアログ ボックスが表示されます ([.nuspec ファイル リファレンスの置換トークン](../reference/nuspec.md#replacement-tokens)に関するセクションを参照してください)。 最もよく使用されるフィールドは、**[タイトル]**、**[説明]**、**[会社名]**、**[著作権]**、**[アセンブリ バージョン]** です。 これらのプロパティは、最終的に nuget.org のようなホスト上でパッケージと共に表示されるので、わかりやすい値を設定してください。
+1. **[アセンブリ情報]** ボタンを選択すると、マニフェストに含める他のプロパティを入力するためのダイアログ ボックスが表示されます ([.nuspec ファイル リファレンスの置換トークン](../reference/nuspec.md#replacement-tokens)に関するセクションを参照してください)。 最もよく使用されるフィールドは、 **[タイトル]** 、 **[説明]** 、 **[会社名]** 、 **[著作権]** 、 **[アセンブリ バージョン]** です。 これらのプロパティは、最終的に nuget.org のようなホスト上でパッケージと共に表示されるので、わかりやすい値を設定してください。
 
     ![Visual Studio の .NET Framework プロジェクトのアセンブリ情報](media/qs_create-vs-01b-project-properties.png)
 
@@ -119,7 +119,7 @@ DLL を入手し、プロジェクトのプロパティを設定したら、`nug
     - projectUrl
     - iconUrl
     - releaseNotes
-    - タグ
+    - tags
 
 1. 公開用にビルドされたパッケージの場合は、**Tags** プロパティに特に注意してください。これらのタグは nuget.org などのソースで他のユーザーがパッケージを検索して、パッケージの動作を理解する場合に役立ちます。
 
@@ -175,7 +175,7 @@ DLL を入手し、プロジェクトのプロパティを設定したら、`nug
 ## <a name="related-topics"></a>関連トピック
 
 - [パッケージの作成](../create-packages/creating-a-package.md)
-- [パッケージの公開](../create-packages/publish-a-package.md)
+- [パッケージの公開](../nuget-org/publish-a-package.md)
 - [プレリリース パッケージ](../create-packages/Prerelease-Packages.md)
 - [複数のターゲット フレームワークのサポート](../create-packages/supporting-multiple-target-frameworks.md)
 - [パッケージのバージョン管理](../reference/package-versioning.md)

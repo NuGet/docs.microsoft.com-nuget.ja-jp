@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: 4b593cc215ad68629e5a93d1f17c90e53c0b4f4f
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: 1060d98278fed89ac63ee17c1896ae8bdce72a9e
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324631"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426162"
 ---
 # <a name="quickstart-install-and-use-a-package-using-the-dotnet-cli"></a>クイック スタート: dotnet CLI を使用してパッケージをインストールし使用する
 
@@ -103,7 +103,7 @@ NuGet パッケージは、ある種類の .NET プロジェクトにインス�
 
 ## <a name="related-articles"></a>関連記事
 
+- [dotnet CLI を使用してパッケージをインストールし使用する](../consume-packages/install-use-packages-dotnet-cli.md)
 - [パッケージ使用の概要とワークフロー](../consume-packages/overview-and-workflow.md)
 - [パッケージの検索と選択](../consume-packages/finding-and-choosing-packages.md)
-- [パッケージをインストールする方法](../consume-packages/ways-to-install-a-package.md)
-- [NuGet の動作を構成する](../consume-packages/configuring-nuget-behavior.md)
+- [一般的な NuGet 構成](../consume-packages/configuring-nuget-behavior.md)

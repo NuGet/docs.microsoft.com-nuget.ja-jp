@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
 ms.openlocfilehash: a2f1fed578f1635296892ab925219f0f27883c02
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43550373"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426937"
 ---
 # <a name="resolving-disputes-over-nuget-package-names"></a>NuGet パッケージ名に関する争いを解決する
 

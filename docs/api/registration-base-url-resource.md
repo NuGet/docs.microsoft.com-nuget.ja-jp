@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 19a1f48164f65f1ff805e036e55abb110247aa72
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: 0b35e2bbdde63f7f7a5298bd035c180389cd345d
+ms.sourcegitcommit: 2a9d149bc6f5ff76b0b657324820bd0429cddeef
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324865"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67496499"
 ---
 # <a name="package-metadata"></a>パッケージ メタデータ
 
@@ -44,7 +44,7 @@ RegistrationsBaseUrl/3.6.0      | SemVer 2.0.0 パッケージが含まれてい
 ### <a name="registrationsbaseurl360"></a>RegistrationsBaseUrl/3.6.0
 
 これらの登録を使用して圧縮`Content-Encoding: gzip`します。 SemVer 2.0.0 パッケージは**に含まれる**このハイブにします。
-SemVer 2.0.0 の詳細については、[nuget.org の SemVer 2.0.0 サポート](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29)を参照してください。
+SemVer 2.0.0 の詳細については、次を参照してください。 [nuget.org の SemVer 2.0.0 サポート](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29)します。
 
 ## <a name="base-url"></a>[基本 URL]
 
@@ -88,8 +88,8 @@ LOWER_ID | URL    | string  | 可      | パッケージ ID は、小文字
 
 名前  | 種類             | 必須 | メモ
 ----- | ---------------- | -------- | -----
-count | 整数          | 可      | インデックス内の登録ページの数
-項目 | オブジェクトの配列 | 可      | 登録ページの配列
+count | integer          | 可      | インデックス内の登録ページの数
+items | オブジェクトの配列 | 可      | 登録ページの配列
 
 インデックス オブジェクトの内の各項目`items`配列は、登録ページを表す JSON オブジェクト。
 
@@ -100,11 +100,11 @@ count | 整数          | 可      | インデックス内の登録ページの�
 名前   | 種類             | 必須 | メモ
 ------ | ---------------- | -------- | -----
 @id    | string           | 可      | 登録ページ URL
-count  | 整数          | 可      | 登録の数、ページのままになります
-項目  | オブジェクトの配列 | Ｘ       | 登録のリーフとその関連メタデータの配列
-低い  | string           | 可      | (包括) のページで、最小 SemVer 2.0.0 バージョン
-親 | string           | Ｘ       | 登録のインデックスへの URL
-上限  | string           | 可      | (包括) のページの最上位の SemVer 2.0.0 バージョン
+count  | integer          | 可      | 登録の数、ページのままになります
+items  | オブジェクトの配列 | Ｘ       | 登録のリーフとその関連メタデータの配列
+lower  | string           | 可      | (包括) のページで、最小 SemVer 2.0.0 バージョン
+parent | string           | Ｘ       | 登録のインデックスへの URL
+upper  | string           | 可      | (包括) のページの最上位の SemVer 2.0.0 バージョン
 
 `lower`と`upper`ページ オブジェクトの境界は、特定のページのバージョンのメタデータが必要な場合に便利です。
 これらの境界は、必要な唯一の登録ページを取り出そう使用できます。 バージョン文字列に準拠して[NuGet のバージョンのルール](../reference/package-versioning.md)します。 バージョン文字列を正規化して、ビルド メタデータが含まれていません。 使用して NuGet エコシステムのすべてのバージョンでは、バージョン文字列の比較が実装されると[SemVer 2.0.0's バージョンの優先順位規則](http://semver.org/spec/v2.0.0.html#spec-item-11)します。
@@ -136,21 +136,22 @@ packageContent | string | 可      | パッケージ コンテンツ (.nupkg) �
 名前                     | 種類                       | 必須 | メモ
 ------------------------ | -------------------------- | -------- | -----
 @id                      | string                     | 可      | このオブジェクトを生成するために使用されるドキュメントの URL
-作成者                  | 文字列または文字列の配列 | Ｘ       | 
+authors                  | 文字列または文字列の配列 | Ｘ       | 
 dependencyGroups         | オブジェクトの配列           | Ｘ       | ターゲット フレームワーク別にグループ化、パッケージの依存関係
-説明              | string                     | Ｘ       | 
+deprecation              | object                     | Ｘ       | パッケージに関連付けられている非推奨
+description              | string                     | Ｘ       | 
 iconUrl                  | string                     | Ｘ       | 
-ID                       | string                     | 可      | パッケージの ID
+id                       | string                     | 可      | パッケージの ID
 licenseUrl               | string                     | Ｘ       |
 licenseExpression        | string                     | Ｘ       | 
-一覧                   | boolean                    | Ｘ       | 存在しない場合に表示されていると見なす必要があります。
+listed                   | boolean                    | Ｘ       | 存在しない場合に表示されていると見なす必要があります。
 minClientVersion         | string                     | Ｘ       | 
 projectUrl               | string                     | Ｘ       | 
-公開                | string                     | Ｘ       | パッケージが公開された場合の ISO 8601 のタイムスタンプを含む文字列
+published                | string                     | Ｘ       | パッケージが公開された場合の ISO 8601 のタイムスタンプを含む文字列
 requireLicenseAcceptance | boolean                    | Ｘ       | 
-概要                  | string                     | Ｘ       | 
-タグ                     | 文字列または文字列の配列  | Ｘ       | 
-タイトル                    | string                     | Ｘ       | 
+summary                  | string                     | Ｘ       | 
+tags                     | 文字列または文字列の配列  | Ｘ       | 
+title                    | string                     | Ｘ       | 
 version                  | string                     | 可      | 正規化した後、完全なバージョン文字列
 
 パッケージ`version`プロパティでは、完全なバージョン文字列を正規化後。 意味 SemVer 2.0.0 ビルド データは含まれていますここでします。
@@ -166,7 +167,7 @@ version                  | string                     | 可      | 正規化し�
 名前            | 種類             | 必須 | メモ
 --------------- | ---------------- | -------- | -----
 targetFramework | string           | Ｘ       | これらの依存関係に適用されるターゲット フレームワーク
-依存関係    | オブジェクトの配列 | Ｘ       |
+dependencies    | オブジェクトの配列 | Ｘ       |
 
 `targetFramework`文字列の NuGet の .NET ライブラリによって実装される形式は[NuGet.Frameworks](https://www.nuget.org/packages/NuGet.Frameworks/)します。 ない場合は`targetFramework`を指定すると、すべてのターゲット フレームワークに依存関係グループが適用されます。
 
@@ -180,9 +181,29 @@ targetFramework | string           | Ｘ       | これらの依存関係に適�
 ------------ | ------ | -------- | -----
 ID           | string | 可      | パッケージの依存関係の ID
 range        | object | Ｘ       | 許可されている[バージョン範囲](../reference/package-versioning.md#version-ranges-and-wildcards)依存関係の
-登録 | string | Ｘ       | この依存関係の登録のインデックスへの URL
+registration | string | Ｘ       | この依存関係の登録のインデックスへの URL
 
 場合、`range`プロパティを除外または空の文字列バージョン範囲に、クライアントはデフォルト`(, )`します。 つまり、任意のバージョンの依存関係が許可されます。
+
+#### <a name="package-deprecation"></a>パッケージの廃止
+
+各パッケージの非推奨では、次のプロパティがあります。
+
+Name             | 種類             | 必須 | メモ
+---------------- | ---------------- | -------- | -----
+reasons          | 文字列の配列 | 可      | パッケージがなぜ非推奨とされた理由
+message          | string           | Ｘ       | この非推奨に関する追加情報
+alternatePackage | object           | Ｘ       | 代わりに使用する必要があるパッケージの依存関係
+
+`reasons`プロパティは、少なくとも 1 つの文字列を含める必要がありますから次の表に、文字列のみが含まれる必要があります。
+
+理由       | 説明             
+------------ | -----------
+Legacy       | パッケージは保持しません。
+CriticalBugs | パッケージが使用量には適さないようにするためのバグ
+Other        | この一覧にないの理由により、パッケージが非推奨とされます。
+
+場合、`reasons`プロパティがない既知のセットから文字列を含む、無視するか。 大文字と小文字の文字列は、その`legacy`する必要がありますと同様に扱わ`Legacy`。 文字列が任意の順序で配置できますので、配列の順序付けの制限はありません。 さらに、プロパティには、既知のセットからなく文字列のみが含まれている場合にする必要があります扱いは、"Other"文字列のみ含まれています。
 
 ### <a name="sample-request"></a>要求のサンプル
 
@@ -203,11 +224,11 @@ range        | object | Ｘ       | 許可されている[バージョン範囲]
 名前   | 種類             | 必須 | メモ
 ------ | ---------------- | -------- | -----
 @id    | string           | 可      | 登録ページ URL
-count  | 整数          | 可      | 登録の数、ページのままになります
-項目  | オブジェクトの配列 | 可      | 登録のリーフとその関連メタデータの配列
-低い  | string           | 可      | (包括) のページで、最小 SemVer 2.0.0 バージョン
-親 | string           | 可      | 登録のインデックスへの URL
-上限  | string           | 可      | (包括) のページの最上位の SemVer 2.0.0 バージョン
+count  | integer          | 可      | 登録の数、ページのままになります
+items  | オブジェクトの配列 | 可      | 登録のリーフとその関連メタデータの配列
+lower  | string           | 可      | (包括) のページで、最小 SemVer 2.0.0 バージョン
+parent | string           | 可      | 登録のインデックスへの URL
+upper  | string           | 可      | (包括) のページの最上位の SemVer 2.0.0 バージョン
 
 登録のリーフ オブジェクトの形状は、登録のインデックスと同じ[上](#registration-leaf-object-in-a-page)します。
 
@@ -231,10 +252,10 @@ count  | 整数          | 可      | 登録の数、ページのままになり
 -------------- | ------- | -------- | -----
 @id            | string  | 可      | 登録のリーフの URL
 catalogEntry   | string  | Ｘ       | これらのリーフを生成したカタログ エントリへの URL
-一覧         | boolean | Ｘ       | 存在しない場合に表示されていると見なす必要があります。
+listed         | boolean | Ｘ       | 存在しない場合に表示されていると見なす必要があります。
 packageContent | string  | Ｘ       | パッケージ コンテンツ (.nupkg) への URL
-公開      | string  | Ｘ       | パッケージが公開された場合の ISO 8601 のタイムスタンプを含む文字列
-登録   | string  | Ｘ       | 登録のインデックスへの URL
+published      | string  | Ｘ       | パッケージが公開された場合の ISO 8601 のタイムスタンプを含む文字列
+registration   | string  | Ｘ       | 登録のインデックスへの URL
 
 > [!Note]
 > Nuget.org で、`published`値が、パッケージが一覧表示されている場合の 1900 年に設定します。

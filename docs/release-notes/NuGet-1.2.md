@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: b47f73c1c225540226d3780e17053427b8ea4a8a
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 5d10d6bf27614980a144c30c3af6f9892a109061
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545688"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426190"
 ---
 # <a name="nuget-12-release-notes"></a>NuGet 1.2 リリース ノート
 
@@ -54,7 +54,7 @@ NuGet 1.2 は、2011 年 3 月 30 日にリリースされました。
 
 ### <a name="nugetexe-now-is-able-to-store-api-key-credentials"></a>nuget.exe はこれで API キーの資格情報を格納することが
 
-Nuget.exe コマンドライン ツールを使用する場合は、API キーを格納するようになりました SetApiKey コマンドを使用できます。 これにより、パッケージをプッシュするたびに、これを指定する必要はありません。 Nuget.exe を使用して、API キーを保存の詳細については[パッケージを公開する方法のドキュメントを読む](../create-packages/publish-a-package.md)します。
+Nuget.exe コマンドライン ツールを使用する場合は、API キーを格納するようになりました SetApiKey コマンドを使用できます。 これにより、パッケージをプッシュするたびに、これを指定する必要はありません。 Nuget.exe を使用して、API キーを保存の詳細については[パッケージを公開する方法のドキュメントを読む](../nuget-org/publish-a-package.md)します。
 
 ### <a name="package-explorer"></a>パッケージ エクスプ ローラー
 NuGet 1.2 をサポートするパッケージ エクスプ ローラーが更新されました。 詳細については、チェック アウト、[パッケージ エクスプ ローラーのリリース ノート](http://nuget.codeplex.com/wikipage?title=New%20features%20in%20NuGet%20Package%20Explorer%201.0)します。
@@ -65,6 +65,6 @@ NuGet 1.2 をサポートするパッケージ エクスプ ローラーが更�
 
 ## <a name="known-issues"></a>既知の問題
 
-* **1.2 パッケージの非互換性の**: パッケージは、コマンド ライン ツールの最新バージョンで構築された、nuget.exe (1.2 >) は、NuGet VS アドイン (1.1) などの以前のバージョンでは機能しません。 互換性のないスキーマについて何かを示すエラー メッセージに実行する場合にこのエラーが発生しています。 NuGet を最新バージョンに更新してください。
-* **NuGet.Server の非互換性**: フィード、NuGet.Server プロジェクトを使用して内部の NuGet をホストしている場合は、最新バージョンの NuGet.Server でそのプロジェクトを更新する必要があります。
-* **署名の不一致エラー**: 署名の不一致に関するメッセージが、アップグレード中にエラーを実行する場合、最初に NuGet をアンインストールし、インストールする必要があります。 これが記載されています、[既知の問題ページ](../release-notes/known-issues.md)の詳細を提供します。 のみ、問題は、Visual Studio 2010 SP1 を実行しているに影響し、インストールが正しく署名されていない NuGet 1.0 のバージョンします。 このバージョンのみしました CodePlex web サイトから使用可能な短時間のため、この問題は多数のユーザーに影響しません。
+* **1.2 パッケージの非互換性の**:コマンド ライン ツールの最新バージョンでビルドされたパッケージ、nuget.exe (1.2 >) は NuGet VS アドイン (1.1) などの以前のバージョンでは機能しません。 互換性のないスキーマについて何かを示すエラー メッセージに実行する場合にこのエラーが発生しています。 NuGet を最新バージョンに更新してください。
+* **NuGet.Server の非互換性**:フィード、NuGet.Server プロジェクトを使用して内部の NuGet をホストしている場合は、最新バージョンの NuGet.Server でそのプロジェクトを更新する必要があります。
+* **署名の不一致エラー**:署名の不一致に関するメッセージが、アップグレード中にエラーを実行する場合は、最初に NuGet をアンインストールし、インストールする必要があります。 これが記載されています、[既知の問題ページ](../release-notes/known-issues.md)の詳細を提供します。 のみ、問題は、Visual Studio 2010 SP1 を実行しているに影響し、インストールが正しく署名されていない NuGet 1.0 のバージョンします。 このバージョンのみしました CodePlex web サイトから使用可能な短時間のため、この問題は多数のユーザーに影響しません。
