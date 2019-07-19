@@ -1,60 +1,60 @@
 ---
-title: 署名付きパッケージ
-description: NuGet パッケージへの署名の要件。
+title: 署名済みパッケージ
+description: NuGet パッケージの署名の要件。
 author: rido-min
 ms.author: rmpablos
 ms.date: 05/18/2018
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 952256a24246543ecd4c37285cd001622aa2bc46
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: e02b2a241008b1b7096f20b351173fd3df7ed172
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426172"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317512"
 ---
 # <a name="signed-packages"></a>署名付きパッケージ
 
-*NuGet 4.6.0+ と Visual Studio 2017 バージョン 15.6 以降*
+*NuGet 4.6.0 + および Visual Studio 2017 バージョン15.6 以降*
 
-NuGet パッケージには、改ざんされたコンテンツに対する保護を提供するデジタル署名を含めることができます。 この署名は、パッケージの実際の配信元にも完全性の認証情報を追加する X.509 証明書から生成されます。
+NuGet パッケージには、改ざんされたコンテンツからの保護を提供するデジタル署名を含めることができます。 この署名は、x.509 証明書から生成されます。この証明書は、パッケージの実際の配信元に対しても信頼性のある校正を加えます。
 
-署名付きパッケージは、最も強力なエンド ツー エンドの検証を提供します。 NuGet の署名の 2 つの異なる種類あります。
-- **署名の作成**です。 作成者の署名は、作成者からいたとしても、パッケージを署名後に、パッケージが変更されていないことを保証どのリポジトリやトランスポートのパッケージを配信するメソッド。 さらに、パッケージの作成者署名は、署名証明書を事前に登録する必要があるために、nuget.org 発行パイプラインに、追加の認証メカニズムを提供します。 詳細については、次を参照してください。[証明書を登録](#signature-requirements-on-nugetorg)します。
-- **リポジトリの署名**します。 リポジトリの署名は、整合性の保証を提供します**すべて**場合でも、元のリポジトリがあった場所とは異なる場所から取得したこれらのパッケージは署名されたか、作成者かどうかをリポジトリにパッケージ化。署名されています。   
+署名付きパッケージは、最も強力なエンドツーエンドの検証を提供します。 NuGet 署名には、次の2種類があります。
+- **署名を作成**します。 作成者の署名では、パッケージが署名された後にパッケージが変更されていないことが保証されます。これは、どのリポジトリまたはパッケージが配信されたかに関係なく行われます。 また、署名証明書を事前に登録する必要があるため、作成者に署名されたパッケージには、nuget.org 公開パイプラインに対する追加の認証メカニズムが用意されています。 詳細については、「[証明書の登録](#signature-requirements-on-nugetorg)」を参照してください。
+- **リポジトリの署名**。 リポジトリ署名は、署名された元のリポジトリとは別の場所からパッケージが取得された場合でも、リポジトリ内の**すべて**のパッケージに対して、署名が作成されたかどうかにかかわらず、整合性の保証を提供します。   
 
-作成者の署名付きパッケージの作成の詳細については、次を参照してください。[パッケージの署名](../create-packages/Sign-a-package.md)と[記号の nuget コマンド](../tools/cli-ref-sign.md)します。
+作成者が署名したパッケージの作成の詳細については、「[パッケージに署名](../create-packages/Sign-a-package.md)する」および「 [nuget sign コマンド](../reference/cli-reference/cli-ref-sign.md)」を参照してください。
 
 > [!Important]
-> Windows で nuget.exe を使用する場合にのみ、パッケージの署名はサポートされて現在します。 Windows で nuget.exe または Visual Studio を使用する場合にのみ、署名済みパッケージの検証は現在サポートされています。
+> パッケージの署名は、現在 Windows で nuget.exe を使用している場合にのみサポートされます。 署名付きパッケージの検証は、現在、Windows で nuget.exe または Visual Studio を使用している場合にのみサポートされます。
 
 ## <a name="certificate-requirements"></a>証明書の要件
 
-署名証明書は、特殊な種類の有効な証明書は、コード パッケージに署名が必要です、`id-kp-codeSigning`目的 [[RFC 5280 セクション 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)]。 さらに、証明書には、RSA 公開キーの長さ 2048 ビット以上が必要です。
+パッケージの署名にはコード署名証明書が必要です。これは、 `id-kp-codeSigning` [[RFC 5280 section 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)] の目的で有効な特別な種類の証明書です。 また、証明書の RSA 公開キーの長さは2048ビット以上である必要があります。
 
 ## <a name="timestamp-requirements"></a>タイムスタンプの要件
 
-署名済みパッケージには、パッケージの署名証明書の有効期間を超えて署名検証するために、RFC 3161 タイムスタンプを含める必要があります。 タイムスタンプの署名に使用される証明書が有効である必要があります、`id-kp-timeStamping`目的 [[RFC 5280 セクション 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)]。 さらに、証明書には、RSA 公開キーの長さ 2048 ビット以上が必要です。
+署名されたパッケージには、パッケージ署名証明書の有効期間を超えて署名が有効であることを確認するために、RFC 3161 タイムスタンプを含める必要があります。 タイムスタンプの署名に使用する証明書は、 `id-kp-timeStamping` [[RFC 5280 section 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)] の目的で有効である必要があります。 また、証明書の RSA 公開キーの長さは2048ビット以上である必要があります。
 
-技術的な詳細が記載されて、[パッケージの署名の技術的な仕様](https://github.com/NuGet/Home/wiki/Package-Signatures-Technical-Details)(GitHub)。
+技術的な詳細については、「[パッケージ署名技術仕様](https://github.com/NuGet/Home/wiki/Package-Signatures-Technical-Details)(GitHub)」を参照してください。
 
-## <a name="signature-requirements-on-nugetorg"></a>NuGet.org で署名の要件
+## <a name="signature-requirements-on-nugetorg"></a>NuGet.org の署名の要件
 
-nuget.org では、署名付きパッケージを受け入れるための追加の要件があります。
+nuget.org には、署名付きパッケージを受け入れるための追加の要件があります。
 
 - プライマリ署名は、作成者の署名である必要があります。
-- プライマリ署名には、1 つの有効なタイムスタンプが必要です。
-- 作成者の署名とそのタイムスタンプの署名の両方の X.509 証明書:
-  - 2048 ビット RSA 公開キーが必要以上。
-  - Nuget.org でパッケージの検証の時に現在の UTC 時刻ごとの有効期間内である必要があります。
-  - Windows 上の既定で信頼されている信頼されたルート証明機関にチェーンする必要があります。 自己発行された証明書で署名されたパッケージは拒否されます。
-  - 目的は、有効なはある必要があります。 
-    - 署名証明書の作成者は、コード署名に対して有効である必要があります。
-    - タイムスタンプ証明書は、タイムスタンプの有効なである必要があります。
-  - 署名時に失効いない必要があります。 (この可能性がありますできません knowable 送信時に、nuget.org の失効状態を定期的に再チェックするため)。
+- プライマリ署名には、有効なタイムスタンプが1つ含まれている必要があります。
+- X.509 証明書は、作成者の署名とタイムスタンプの署名の両方に使用されます。
+  - RSA 公開キー2048ビット以上である必要があります。
+  - Nuget.org でのパッケージの検証時に、現在の UTC 時刻ごとに有効期間内である必要があります。
+  - は、Windows で既定で信頼されている信頼されたルート証明機関にチェーンする必要があります。 自己発行の証明書で署名されたパッケージは拒否されます。
+  - 次の目的で有効である必要があります。 
+    - 作成者の署名証明書は、コード署名に対して有効である必要があります。
+    - タイムスタンプの証明書は有効である必要があります。
+  - 署名時に取り消すことはできません。 (これは送信時に knowable されない場合があるため、nuget.org は定期的に失効状態を検査します)。
   
   
 ## <a name="related-articles"></a>関連記事
 
 - [NuGet パッケージの署名](../create-packages/Sign-a-Package.md)
-- [信頼境界のパッケージを管理します。](../consume-packages/installing-signed-packages.md)
+- [パッケージ信頼境界を管理する](../consume-packages/installing-signed-packages.md)

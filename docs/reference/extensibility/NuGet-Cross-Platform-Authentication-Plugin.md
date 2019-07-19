@@ -1,74 +1,74 @@
 ---
 title: NuGet のクロス プラットフォーム認証プラグイン
-description: NuGet.exe、dotnet.exe、msbuild.exe および Visual Studio の NuGet がプラットフォームの認証プラグインをクロスします。
+description: Nuget.exe、dotnet、msbuild.exe、および Visual Studio 用の NuGet クロスプラットフォーム認証プラグイン
 author: nkolev92
 ms.author: nikolev
 ms.date: 07/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: b76fab1028ec9a4172d2390083fbf9adb4290a6c
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: a716737343ea826d28da6de46c32ca73aef590bd
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453508"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317278"
 ---
 # <a name="nuget-cross-platform-authentication-plugin"></a>NuGet のクロス プラットフォーム認証プラグイン
 
-バージョン 4.8 以降、クライアント (NuGet.exe を Visual Studio、dotnet.exe、MSBuild.exe) は、上に構築された認証プラグインを使用できるすべての NuGet で、[クロス プラットフォーム プラグイン NuGet](NuGet-Cross-Platform-Plugins.md)モデル。
+バージョン4.8 以降では、すべての NuGet クライアント (Nuget.exe、Visual Studio、dotnet、および Msbuild.exe) は、 [nuget クロスプラットフォームプラグイン](NuGet-Cross-Platform-Plugins.md)モデル上に構築された認証プラグインを使用できます。
 
-## <a name="authentication-in-dotnetexe"></a>Dotnet.exe の認証
+## <a name="authentication-in-dotnetexe"></a>Dotnet での認証
 
-Visual Studio と NuGet.exe は、対話型の既定では。 NuGet.exe にはようにするためのスイッチが含まれています[非対話型](../../tools/nuget-exe-CLI-Reference.md)します。
-さらに、NuGet.exe および Visual Studio のプラグインは、ユーザーに入力を求めます。
-Dotnet.exe のない入力を求めると、既定値は非対話型です。
+既定では、Visual Studio と Nuget.exe は対話型です。 Nuget.exe には、対話型になら[ない](../nuget-exe-CLI-Reference.md)ようにするスイッチが含まれています。
+さらに、Nuget.exe および Visual Studio プラグインによって、ユーザーに入力を求めるプロンプトが表示されます。
+Dotnet では、プロンプトは表示されず、既定値は非対話型です。
 
-Dotnet.exe での認証メカニズムでは、デバイスのフローです。 ときに、復元またはパッケージの操作は、操作がブロックと指示する方法を完全な認証ことが、コマンドラインでユーザーに対話的に実行を追加します。
-ユーザーが認証を完了すると、操作を続行します。
+Dotnet の認証メカニズムはデバイスフローです。 復元またはパッケージの追加操作を対話的に実行すると、認証を完了するための操作ブロックとユーザーへの指示がコマンドラインに表示されます。
+ユーザーが認証を完了すると、操作は続行されます。
 
-操作を対話型にするために、1 つ渡す必要があります`--interactive`します。
-現在のみ明示的な`dotnet restore`と`dotnet add package`コマンドは、対話型のスイッチをサポートします。
-対話型のスイッチがない`dotnet build`と`dotnet publish`します。
+操作を対話形式にするには、 `--interactive`1 つを渡す必要があります。
+現時点では、 `dotnet restore`明示`dotnet add package`的なコマンドとコマンドのみが対話型スイッチをサポートしています。
+`dotnet build` と`dotnet publish`には対話型スイッチがありません。
 
 ## <a name="authentication-in-msbuild"></a>MSBuild での認証
 
-Dotnet.exe と同様に、MSBuild.exe が既定で非対話型 MSBuild.exe の認証メカニズムはデバイスのフローです。
-一時停止し、認証を待つ復元できるように、復元を呼び出す`msbuild -t:restore -p:NuGetInteractive="true"`します。
+Dotnet と同様に、Msbuild.exe は既定で非対話型になります。 Msbuild.exe の認証メカニズムはデバイスフローです。
+復元を一時停止して認証を待機させるには、 `msbuild -t:restore -p:NuGetInteractive="true"`を使用して restore を呼び出します。
 
-## <a name="creating-a-cross-platform-authentication-plugin"></a>クロス プラットフォーム認証プラグインを作成します。
+## <a name="creating-a-cross-platform-authentication-plugin"></a>クロスプラットフォーム認証プラグインを作成する
 
-実装のサンプルが記載[Microsoft 資格情報プロバイダー プラグイン](https://github.com/Microsoft/artifacts-credprovider)します。
+サンプルの実装については、「 [Microsoft Credential Provider plugin](https://github.com/Microsoft/artifacts-credprovider)」を参照してください。
 
-プラグインは、NuGet クライアント ツールによって設定されたセキュリティ要件に準拠していることが非常に重要です。
-最低限必要な認証プラグインを使用するプラグイン バージョンは*2.0.0*します。
-NuGet はサポートされている操作の信頼性情報と、プラグインとクエリのハンドシェイクを実行します。
-クロス プラットフォームのプラグインの NuGet を参照してください[プロトコル メッセージ](NuGet-Cross-Platform-Plugins.md#protocol-messages-index)特定のメッセージの詳細についてはします。
+プラグインは、NuGet クライアントツールによって設定されたセキュリティ要件に準拠していることが非常に重要です。
+プラグインを認証プラグインとして使用するために必要な最小バージョンは*2.0.0*です。
+NuGet は、サポートされている操作要求に対して、プラグインとクエリを使用してハンドシェイクを実行します。
+特定のメッセージの詳細については、NuGet クロスプラットフォームプラグイン[プロトコルメッセージ](NuGet-Cross-Platform-Plugins.md#protocol-messages-index)を参照してください。
 
-NuGet はログ レベルを設定し、該当する場合、プラグインにプロキシ情報を提供します。
-NuGet へのログ記録コンソールはのみ許容可能な NuGet がプラグインにログ レベルを設定後します。
+NuGet はログレベルを設定し、必要に応じてプロキシ情報をプラグインに提供します。
+Nuget コンソールへのログ記録は、NuGet がログレベルをプラグインに設定した後でのみ許容されます。
 
-- .NET framework プラグインの認証の動作
+- .NET Framework プラグインの認証動作
 
-.NET framework、プラグインは、ダイアログ ボックスの形式での入力をユーザーに求めるが許可されます。
+.NET Framework では、プラグインは、ダイアログの形式でユーザーに入力を求めることができます。
 
-- .NET core プラグインの認証の動作
+- .NET Core プラグインの認証動作
 
-.NET Core では、ダイアログを表示することはできません。 プラグインは、認証にデバイスのフローを使用する必要があります。
-プラグインは、ユーザーに指示を NuGet にログ メッセージを送信できます。
-ログ レベルが、プラグインを設定した後のログ記録が使用できることに注意してください。
-NuGet では、コマンドラインから対話型の入力は実行されません。
+.NET Core では、ダイアログを表示できません。 プラグインは、デバイスフローを使用して認証する必要があります。
+プラグインは、ユーザーへの指示と共にログメッセージを NuGet に送信できます。
+ログレベルがプラグインに設定されている場合は、ログ記録が使用可能であることに注意してください。
+NuGet は、コマンドラインから対話型の入力を受け取りません。
 
-クライアントが取得の認証資格情報を使ってプラグインを呼び出すと、プラグインは対話機能のスイッチに準拠しているし、ダイアログのスイッチを尊重する必要があります。 
+クライアントが Get 認証資格情報を使用してプラグインを呼び出す場合、プラグインは対話スイッチに準拠し、ダイアログスイッチを尊重する必要があります。 
 
-次の表では、すべての組み合わせに対して、プラグインの動作方法を示します。
+次の表は、すべての組み合わせに対してプラグインがどのように動作するかをまとめたものです。
 
-| IsNonInteractive | CanShowDialog | プラグインの動作 |
+| IsNonInteractive 型 | CanShowDialog | プラグインの動作 |
 | ---------------- | ------------- | --------------- |
-| true | true | IsNonInteractive スイッチは、ダイアログのスイッチよりも優先されます。 ダイアログ ボックスをポップアップ表示には、プラグインすることはできません。 この組み合わせは .NET Framework のプラグインの有効なのみ |
-| true | False | IsNonInteractive スイッチは、ダイアログのスイッチよりも優先されます。 ブロックには、プラグインすることはできません。 この組み合わせは、.NET コア プラグインの有効なのみ |
-| False | true | プラグインは、ダイアログ ボックスを表示する必要があります。 この組み合わせは .NET Framework のプラグインの有効なのみ |
-| False | False | プラグインする必要があります/ことに、ダイアログを表示されません。 プラグインは、命令メッセージ ロガーを使用してログに記録して認証するデバイスのフローを使用してください。 この組み合わせは、.NET コア プラグインの有効なのみ |
+| true | true | IsNonInteractive スイッチは、ダイアログスイッチよりも優先されます。 プラグインは、ダイアログをポップすることが許可されていません。 この組み合わせは .NET Framework プラグインに対してのみ有効です。 |
+| true | False | IsNonInteractive スイッチは、ダイアログスイッチよりも優先されます。 プラグインをブロックすることはできません。 この組み合わせは、.NET Core プラグインに対してのみ有効です。 |
+| False | true | プラグインにダイアログが表示されます。 この組み合わせは .NET Framework プラグインに対してのみ有効です。 |
+| False | False | プラグインは、ダイアログを表示しないようにする必要があります。 プラグインは、logger 経由で命令メッセージをログに記録することによって、デバイスフローを使用して認証する必要があります。 この組み合わせは、.NET Core プラグインに対してのみ有効です。 |
 
-プラグインを記述する前に、次の仕様を参照してください。
+プラグインを作成する前に、次の仕様を参照してください。
 
-- [NuGet パッケージのダウンロードのプラグイン](https://github.com/NuGet/Home/wiki/NuGet-Package-Download-Plugin)
-- [フォーム認証のプラグイン相互の NuGet](https://github.com/NuGet/Home/wiki/NuGet-cross-plat-authentication-plugin)
+- [NuGet パッケージのダウンロードプラグイン](https://github.com/NuGet/Home/wiki/NuGet-Package-Download-Plugin)
+- [NuGet のクロスプラットフォーム認証プラグイン](https://github.com/NuGet/Home/wiki/NuGet-cross-plat-authentication-plugin)

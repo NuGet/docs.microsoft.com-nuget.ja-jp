@@ -1,133 +1,133 @@
 ---
 title: NuGet API の概要
-description: NuGet API には、パッケージをダウンロード、メタデータをフェッチ、新しいパッケージなどの発行に使用できる HTTP エンドポイントのセットです。
+description: NuGet API は、パッケージのダウンロード、メタデータのフェッチ、新しいパッケージの発行などに使用できる一連の HTTP エンドポイントです。
 author: joelverhagen
 ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: bb15b4decef104f1aefe37fd18f3358181a848af
-ms.sourcegitcommit: 2af17c8bb452a538977794bf559cdd78d58f2790
-ms.translationtype: HT
+ms.openlocfilehash: e8e8fdeee4f0765e2409aea261db8217744ae2c7
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58637663"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68316998"
 ---
 # <a name="nuget-api"></a>NuGet API
 
-NuGet API には、パッケージをダウンロード、メタデータをフェッチ、新しいパッケージを発行および公式の NuGet クライアントで使用できるその他のほとんどの操作を実行するために使用する HTTP エンドポイントのセットです。
+NuGet API は、パッケージのダウンロード、メタデータのフェッチ、新しいパッケージの発行、および公式の NuGet クライアントで利用可能なその他のほとんどの操作を実行するために使用できる一連の HTTP エンドポイントです。
 
-この API は NuGet の操作を実行します。 Visual Studio、nuget.exe、および .NET CLI、NuGet クライアントによって使用[ `dotnet restore` ](/dotnet/core/tools/dotnet-restore?tabs=netcore2x)、Visual Studio の UI での検索と[ `nuget.exe push`](../tools/cli-ref-push.md)します。
+この API は、visual studio、nuget.exe、および .net CLI の nuget クライアントによって[`dotnet restore`](/dotnet/core/tools/dotnet-restore?tabs=netcore2x)、などの nuget 操作 (visual studio UI での検索、および[`nuget.exe push`](../reference/cli-reference/cli-ref-push.md)の検索) を実行するために使用されます。
 
-場合によっては、nuget.org が他のパッケージ ソースが適用されていない追加の要件に注意してください。 これらの違いが説明されている、 [nuget.org プロトコル](nuget-protocols.md)します。
+注 nuget.org には、他のパッケージソースによって適用されない追加の要件がある場合があります。 これらの違いについては、 [Nuget.org プロトコル](nuget-protocols.md)によって説明されています。
 
-単純な列挙型と利用可能な nuget.exe のバージョンのダウンロードでは、次を参照してください。、 [tools.json](tools-json.md)エンドポイント。
+使用可能な nuget.exe バージョンの簡単な列挙とダウンロードについては、「[ツールの json](tools-json.md)エンドポイント」を参照してください。
 
 ## <a name="service-index"></a>サービス インデックス
 
-API のエントリ ポイントは、既知の場所に JSON ドキュメントです。 このドキュメントと呼ばれる、**サービス インデックス**します。 Nuget.org のサービス インデックスの場所は`https://api.nuget.org/v3/index.json`します。
+API のエントリポイントは、既知の場所にある JSON ドキュメントです。 このドキュメントは、**サービスインデックス**と呼ばれています。 Nuget.org のサービスインデックスの場所は`https://api.nuget.org/v3/index.json`です。
 
-この JSON ドキュメントの一覧を含む*リソース*をさまざまな機能を提供し、さまざまなユース ケースを処理します。
+この JSON ドキュメントには、さまざまな機能を提供し、さまざまなユースケースを満たす*リソース*の一覧が含まれています。
 
-API をサポートしているクライアントでは、それぞれのパッケージ ソースに接続する手段として 1 つ以上のこれらのサービス インデックス URL を受け入れる必要があります。
+API をサポートするクライアントは、それぞれのパッケージソースに接続する手段として、これらのサービスインデックスの URL の1つ以上を受け入れる必要があります。
 
-サービス インデックスの詳細については、[、API リファレンス](service-index.md)を参照してください。
+サービスインデックスの詳細については、 [API リファレンス](service-index.md)を参照してください。
 
 ## <a name="versioning"></a>バージョン管理
 
-API は、NuGet の HTTP プロトコルのバージョン 3 です。 このプロトコルは、"V3 API"とも呼ばれます。 これらのリファレンス ドキュメントは単に"API です"とプロトコルのこのバージョンを参照してください。
+API は、NuGet の HTTP プロトコルのバージョン3です。 このプロトコルは、"V3 API" と呼ばれることもあります。 これらのリファレンスドキュメントでは、このバージョンのプロトコルを単に "API" と呼びます。
 
-サービス インデックス スキーマのバージョンが付いて、`version`サービス インデックスのプロパティ。 API のバージョン文字列でのメジャー バージョン番号を持つことが定められて`3`します。 サービス インデックス スキーマには、互換性に影響しない変更が行われるため、バージョン文字列のマイナー バージョンが高くなります。
+サービスインデックスのスキーマバージョンは、サービスインデックス`version`のプロパティによって示されます。 API は、バージョン文字列のメジャーバージョン番号がであること`3`を指定します。 サービスインデックススキーマに重大でない変更が加えられると、バージョン文字列のマイナーバージョンが増加します。
 
-古いクライアント (nuget.exe など 2.x) V3 API をサポートしていないしかここで説明されていない古い V2 API をサポートします。
+古いクライアント (nuget.exe 2.x など) は V3 API をサポートしていないため、ここでは説明されていない古い V2 API のみをサポートしています。
 
-NuGet V3 API は、公式の NuGet クライアントのバージョン 2.x で実装されている OData ベースのプロトコルが、V2 API の後継となっているよう名前です。 V3 API は、公式の NuGet クライアントのバージョンが 3.0 で初めてサポートされましたし、まだ最新の主要なプロトコルのバージョンでサポートされていて、NuGet クライアント、4.0 にします。 
+NuGet V3 API は、V2 API の後継であるため、このような名前が付けられています。これは、公式の NuGet クライアントの2.x バージョンによって実装された OData ベースのプロトコルでした。 V3 API は、公式の NuGet クライアントの3.0 バージョンで最初にサポートされていましたが、NuGet クライアント、4.0、およびでサポートされている最新のメジャープロトコルバージョンです。 
 
-改行しないプロトコルの変更には、最初のリリースから、api が加えします。
+API は最初にリリースされた後、API に対して互換性のないプロトコルの変更が行われました。
 
 ## <a name="resources-and-schema"></a>リソースとスキーマ
 
-**サービス インデックス**のさまざまなリソースについて説明します。 現在サポートされているリソースのセットは次のとおりです。
+**サービスインデックス**には、さまざまなリソースが記述されています。 現在サポートされているリソースのセットは次のとおりです。
 
 リソース名                                                        | 必須 | 説明
 -------------------------------------------------------------------- | -------- | -----------
-[Catalog](catalog-resource.md)                                       | Ｘ       | パッケージのすべてのイベントの完全なレコードです。
-[PackageBaseAddress](package-base-address-resource.md)               | 可      | パッケージ (.nupkg) のコンテンツを取得します。
-[PackageDetailsUriTemplate](package-details-template-resource.md)    | Ｘ       | パッケージの詳細の web ページにアクセスする URL を作成します。
-[PackagePublish](package-publish-resource.md)                        | 可      | プッシュし削除 (または一覧から削除する) パッケージ。
-[RegistrationsBaseUrl](registration-base-url-resource.md)            | 可      | パッケージのメタデータを取得します。
-[ReportAbuseUriTemplate](report-abuse-resource.md)                   | Ｘ       | レポートの不正使用の web ページにアクセスする URL を作成します。
-[RepositorySignatures](repository-signatures-resource.md)            | Ｘ       | リポジトリに署名するために使用される証明書を取得します。
-[SearchAutocompleteService](search-autocomplete-service-resource.md) | Ｘ       | 部分文字列では、パッケージ Id とバージョンを検出します。
-[SearchQueryService](search-query-service-resource.md)               | 可      | フィルター処理し、キーワードでパッケージを検索します。
-[SymbolPackagePublish](symbol-package-publish-resource.md)           | Ｘ       | シンボル パッケージをプッシュします。
+[Catalog](catalog-resource.md)                                       | Ｘ       | すべてのパッケージイベントの完全な記録。
+[PackageBaseAddress](package-base-address-resource.md)               | 可      | パッケージコンテンツ (. nupkg) を取得します。
+[PackageDetailsUriTemplate](package-details-template-resource.md)    | Ｘ       | パッケージの詳細 web ページにアクセスするための URL を作成します。
+[PackagePublish](package-publish-resource.md)                        | 可      | パッケージのプッシュおよび削除 (または一覧から削除) を行います。
+[RegistrationsBaseUrl](registration-base-url-resource.md)            | 可      | パッケージメタデータを取得します。
+[ReportAbuseUriTemplate](report-abuse-resource.md)                   | Ｘ       | 不正使用の web ページにアクセスするための URL を作成します。
+[RepositorySignatures](repository-signatures-resource.md)            | Ｘ       | リポジトリの署名に使用される証明書を取得します。
+[SearchAutocompleteService](search-autocomplete-service-resource.md) | Ｘ       | パッケージ Id とバージョンを部分文字列で検出します。
+[SearchQueryService](search-query-service-resource.md)               | 可      | キーワードを使用してパッケージをフィルター処理し、検索します。
+[シンボル Packagepublish](symbol-package-publish-resource.md)           | Ｘ       | シンボルパッケージをプッシュします。
 
-一般に、API リソースによって返されるすべての非バイナリ データは、JSON を使用してシリアル化されます。 サービス インデックス内の各リソースによって返される応答のスキーマは、そのリソースを個別に定義されます。 各リソースの詳細については、上記のトピックを参照してください。
+一般に、API リソースによって返されるすべての非バイナリデータは、JSON を使用してシリアル化されます。 サービスインデックスの各リソースによって返される応答スキーマは、そのリソースに対して個別に定義されます。 各リソースの詳細については、上記のトピックを参照してください。
 
-今後、プロトコルの進化に伴って、新しいプロパティは、JSON の応答に追加可能性があります。 将来のあるクライアントは、実装を想定しないでください、応答スキーマは最終的であり、余分なデータを含めることはできません。 実装に対応していないすべてのプロパティを無視する必要があります。
+今後、プロトコルが進化するにつれて、新しいプロパティが JSON 応答に追加される可能性があります。 クライアントを将来の証明として使用する場合、実装では、応答スキーマが最終的なものであり、追加のデータを含めることができないと想定しないでください。 実装で認識されないすべてのプロパティを無視する必要があります。
 
 > [!Note]
-> ときに、ソースを実装しません`SearchAutocompleteService`オートコンプリートの動作が正常に無効にする必要があります。 ときに`ReportAbuseUriTemplate`は実装されていません、nuget.org には、公式の NuGet クライアント フォールバック URL の不正使用を報告する (によって追跡される[NuGet ホーム/#4924](https://github.com/NuGet/Home/issues/4924))。 その他のクライアントは、単にユーザーにレポートの URL の不正使用を表示しないように選択できます。
+> 変換元が実装`SearchAutocompleteService`していない場合は、オートコンプリート動作を正常に無効にする必要があります。 が`ReportAbuseUriTemplate`実装されていない場合、公式の nuget クライアントは nuget にフォールバックします ( [nuget/Home # 4924](https://github.com/NuGet/Home/issues/4924)によって追跡されます)。 他のクライアントは、ユーザーにレポートの不正利用の URL を表示しないように選択できます。
 
-### <a name="undocumented-resources-on-nugetorg"></a>Nuget.org 上のドキュメントに未記載のリソース
+### <a name="undocumented-resources-on-nugetorg"></a>Nuget.org のドキュメントに記載されるリソース
 
-Nuget.org V3 サービス インデックスでは、上記に記載されていない一部のリソースを持っています。 いないリソースを文書化するためのいくつかの理由があります。
+Nuget.org の V3 サービスインデックスには、上に記載されていないいくつかのリソースがあります。 リソースをドキュメント化しない理由はいくつかあります。
 
-最初に、nuget.org の実装の詳細として使用されるリソースについて記載はありません。`SearchGalleryQueryService`はこのカテゴリに分類されます。 [NuGetGallery](https://github.com/NuGet/NuGetGallery)一部 V2 を委任するこのリソースを使用して、データベースを使用する代わりに検索のインデックスにクエリを (OData)。 このリソースは、スケーラビリティ上の理由から導入され、外部使用のためのものではありません。
+まず、nuget.org の実装の詳細として使用されるリソースについては説明しません。は`SearchGalleryQueryService` 、このカテゴリに分類されます。 [NuGetGallery](https://github.com/NuGet/NuGetGallery)は、このリソースを使用して、データベースを使用するのではなく、一部の V2 (OData) クエリを検索インデックスに委任します。 このリソースは、スケーラビリティ上の理由から導入されたものであり、外部で使用するためのものではありません。
 
-次に、公式のクライアントの RTM バージョンで出荷されていないリソースについて記載はありません。
-`PackageDisplayMetadataUriTemplate` `PackageVersionDisplayMetadataUriTemplate`このカテゴリに分類されます。
+2つ目の方法として、公式クライアントの RTM バージョンには同梱されていないリソースについては説明しません。
+`PackageDisplayMetadataUriTemplate`と`PackageVersionDisplayMetadataUriTemplate`はこのカテゴリに分類されます。
 
-第 3 に、緊密にあるリソースを文書化していない V2 プロトコルを組み合わせて自体は意図的に文書化します。 `LegacyGallery`リソースは、このカテゴリに分類されます。 このリソースは、対応する V2 ソース URL を指す V3 サービス インデックスを使用します。 このリソースのサポート、`nuget.exe list`します。
+Thirdly、V2 プロトコルと密接に関連付けられているリソースについては説明しません。このリソース自体は意図的に文書化されていません。 リソース`LegacyGallery`はこのカテゴリに分類されます。 このリソースにより、V3 サービスインデックスは、対応する V2 ソース URL を指すことができます。 このリソースは、 `nuget.exe list`をサポートしています。
 
-リソースがここでは、説明されていない場合*強く*に依存関係を実行しないことをお勧めします。 削除するか、予期しない方法で実装を中断することがこれらの文書化されていないリソースの動作を変更しました可能性があります。
+リソースがここに記載されていない場合は、依存関係を取得しないことを*強く*お勧めします。 このようなドキュメントに記載されていないリソースの動作を削除したり、変更したりすると、予期しない方法で実装が中断される可能性があります。
 
 ## <a name="timestamps"></a>タイムスタンプ
 
-API によって返されるすべてのタイムスタンプは UTC またはを使用して指定されて[ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html)表現。 
+API によって返されるすべてのタイムスタンプは UTC であるか、 [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html)表現を使用して指定されます。 
 
 ## <a name="http-methods"></a>HTTP メソッド
 
-動詞   | 使用
+Verb   | 使用
 ------ | -----------
-GET    | 通常のデータの取得、読み取り専用操作を実行します。
-HEAD   | 対応する応答ヘッダーをフェッチ`GET`要求。
-PUT    | リソースが存在しないか、存在する場合は更新を作成します。 一部のリソースは更新をサポートしていません。
-Del | リソースを一覧から、または削除します。
+GET    | 読み取り専用の操作を実行します。通常はデータを取得します。
+HEAD、   | 対応する`GET`要求の応答ヘッダーをフェッチします。
+PUT    | 存在しないリソースを作成します。存在する場合は、リソースを更新します。 一部のリソースでは、更新プログラムがサポートされない場合があります。
+Del | リソースを削除または一覧から削除します。
 
 ## <a name="http-status-codes"></a>HTTP 状態コード
 
 コード | 説明
 ---- | -----
-200  | 成功した場合、応答本文があるとします。
-201  | 成功して、リソースが作成されました。
-202  | 成功すると、要求が受け入れられたがいくつかの作業可能性がありますが不完全で完了して非同期的にできます。
-204  | 成功した場合、応答本文はありません。
-301  | 永続的にリダイレクトします。
+200  | 成功し、応答の本文があります。
+201  | 成功し、リソースが作成されました。
+202  | 成功、要求は受け入れられましたが、一部の作業はまだ完了しておらず、非同期的に完了している可能性があります。
+204  | 成功しましたが、応答本文がありません。
+301  | 永続的なリダイレクト。
 302  | 一時的なリダイレクト。
-400  | URL または要求本文にパラメーターが無効です。
-401  | 指定された資格情報を使用することはできません。
-403  | アクションでは、指定された資格情報を指定することはできません。
-404  | 要求されたリソースが存在しません。
-409  | 要求が既存のリソースと競合します。
-500  | サービスには、予期しないエラーが発生します。
-503  | サービスは一時的にご利用いただけません。
+400  | URL または要求本文内のパラメーターが無効です。
+401  | 指定された資格情報が無効です。
+403  | 指定された資格情報を指定した場合、アクションは許可されません。
+404  | 要求されたリソースは存在しません。
+409  | 要求が既存のリソースと競合しています。
+500  | サービスで予期しないエラーが発生しました。
+503  | サービスは一時的に使用できません。
 
-すべて`GET`API エンドポイントに対して行われた要求は、HTTP リダイレクト (301 または 302) を返す可能性があります。 クライアントが監視することでこのようなリダイレクトを適切に処理する必要があります、`Location`ヘッダーと、後続の発行`GET`します。 特定のエンドポイントのに関するドキュメントがないを明示的に呼び出すリダイレクトを使用することがあります。
+API エンドポイントに対して行われた要求は、HTTPリダイレクト(301または302)を返す場合があります。`GET` クライアントは、 `Location`ヘッダーを観察し、後続`GET`のを発行することで、このようなリダイレクトを適切に処理する必要があります。 特定のエンドポイントに関するドキュメントでは、リダイレクトが使用される場所を明示的に呼び出すことはありません。
 
-500 レベルの状態コードの場合、クライアントは、妥当な再試行メカニズムを実装できます。 公式 NuGet クライアント再試行 3 回 500 レベルの状態コードまたは TCP/DNS エラーが発生するとします。
+500レベルのステータスコードの場合、クライアントは適切な再試行メカニズムを実装できます。 正式な NuGet クライアントは、500レベルの状態コードまたは TCP/DNS エラーが発生すると、3回再試行します。
 
 ## <a name="http-request-headers"></a>HTTP 要求ヘッダー
 
 名前                     | 説明
 ------------------------ | -----------
-X-NuGet-ApiKey           | プッシュと削除に必要なを参照してください[`PackagePublish`リソース](package-publish-resource.md)
-X-NuGet-Client-Version   | **非推奨とされます**に置き換え、 `X-NuGet-Protocol-Version`
-X-NuGet-Protocol-Version | 場合によっては nuget.org でのみ必要なを参照してください[nuget.org プロトコル](NuGet-Protocols.md)
-X-NuGet-Session-Id       | *省略可能な*します。 NuGet クライアント v4.7 + は、同じ NuGet クライアント セッションの一部である HTTP 要求を識別します。
+X-NuGet-ApiKey           | プッシュと削除には必須です。「リソース」を参照してください。 [ `PackagePublish`](package-publish-resource.md)
+X-NuGet-Client-Version   | **非推奨**と置き換え`X-NuGet-Protocol-Version`
+X-NuGet-Protocol-Version | Nuget.org のみで必要な場合は、「 [nuget.org プロトコル](NuGet-Protocols.md)」を参照してください。
+X-NuGet-Session-Id       | *省略可能*。 NuGet クライアント v1.0 + 同じ NuGet クライアントセッションの一部である HTTP 要求を識別します。
 
-`X-NuGet-Session-Id`で単一の復元に関連するすべての操作の 1 つの値を持つ`PackageReference`します。 オートコンプリートなどの他のシナリオと`packages.config`コードのファクタリングする方法のため ID の復元がいくつかの異なるセッションである可能性があります。
+`X-NuGet-Session-Id` で`PackageReference`は、の1回の復元に関連するすべての操作に対して1つの値が使用されます。 オートコンプリートや`packages.config`復元などの他のシナリオでは、コードがどのように考慮されるかによって、複数の異なるセッション ID が存在する可能性があります。
 
 ## <a name="authentication"></a>認証
 
-認証は、パッケージ ソースの実装を定義するまでままです。 Nuget.org のみの場合、`PackagePublish`リソースには、特殊な API キー ヘッダーを使用して認証が必要です。 参照してください[`PackagePublish`リソース](package-publish-resource.md)詳細についてはします。
+認証は、を定義するために、パッケージソースの実装に残されます。 Nuget.org では、 `PackagePublish`リソースのみが特別な API キーヘッダーによる認証を必要とします。 詳細については、「 [ `PackagePublish`リソース](package-publish-resource.md)」を参照してください。
