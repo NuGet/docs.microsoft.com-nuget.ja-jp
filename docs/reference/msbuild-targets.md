@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: acf80a9f919a56c9a9f21a9c8850dc5c1c67df33
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: b450a5bfa3dcf70056c99a951f51a78845ef8438
+ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317205"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68342446"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>MSBuild ターゲットとしての NuGet の pack と restore
 
@@ -226,7 +226,9 @@ PackageReference 形式を使用する .NET Standard プロジェクトでは`ms
 
 ### <a name="packing-using-a-nuspec"></a>.nuspec を使用したパック
 
-ファイルを`.nuspec`使用してプロジェクトをパックすると、SDK プロジェクトファイルをインポート`NuGet.Build.Tasks.Pack.targets`して、パックタスクを実行できるようになります。 Nuspec ファイルをパックする前に、プロジェクトを復元する必要があります。 Nuspec をパッキングする場合、プロジェクトファイルのターゲットフレームワークは無関係であり、使用されません。 次の 3 つの MSBuild プロパティが `.nuspec` を使用したパックと関係があります。
+通常は`.nuspec`ファイル内の[すべてのプロパティ](../reference/msbuild-targets.md#pack-target)をプロジェクトファイルに含めることをお勧めしますが、プロジェクトをパックするためにファイルを`.nuspec`使用することもできます。 を使用`PackageReference`する SDK スタイル以外のプロジェクトでは、をインポート`NuGet.Build.Tasks.Pack.targets`して、パックタスクを実行できるようにする必要があります。 Nuspec ファイルをパックする前に、プロジェクトを復元する必要があります。 (SDK スタイルのプロジェクトには、既定でパックターゲットが含まれています)。
+
+Nuspec をパッキングする場合、プロジェクトファイルのターゲットフレームワークは無関係であり、使用されません。 次の 3 つの MSBuild プロパティが `.nuspec` を使用したパックと関係があります。
 
 1. `NuspecFile`: パックに使用する `.nuspec` ファイルの相対パスまたは絶対パス。
 1. `NuspecProperties`: キー=値ペアのセミコロン区切りの一覧。 MSBuild コマンドラインの解析方法に従い、複数のプロパティは `-p:NuspecProperties=\"key1=value1;key2=value2\"` のように指定する必要があります。  
@@ -244,9 +246,9 @@ MSBuild を使用してプロジェクトをパックする場合は、次のよ
 msbuild -t:pack <path to .csproj file> -p:NuspecFile=<path to nuspec file> -p:NuspecProperties=<> -p:NuspecBasePath=<Base path> 
 ```
 
-Dotnet または msbuild を使用して nuspec をパッキングすると、既定でプロジェクトのビルドも実行されることに注意してください。 これを回避するには```--no-build``` 、プロパティを dotnet に渡します。これはプロジェクトファイル```<NoBuild>true</NoBuild> ```の設定に相当し、プロジェクトファイル```<IncludeBuildOutput>false</IncludeBuildOutput> ```の設定と同じです。
+Dotnet または msbuild を使用して nuspec をパッキングすると、既定でプロジェクトのビルドも実行されることに注意してください。 これを回避するには```--no-build``` 、プロパティを dotnet に渡します。これは、プロジェクト```<NoBuild>true</NoBuild> ```ファイルの設定と共に、プロジェクト```<IncludeBuildOutput>false</IncludeBuildOutput> ```ファイル内の設定に相当します。
 
-Nuspec ファイルをパックするための .csproj ファイルの例を次に示します。
+Nuspec ファイルをパックする .csproj ファイルの例を次に示し*ます。*
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
