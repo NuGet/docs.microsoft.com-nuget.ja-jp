@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/26/2017
 ms.topic: conceptual
-ms.openlocfilehash: a285650034c99026e34fcda398ca7ced4855e40a
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 58ad05cb854c8f7233d90d03c1b320f8797ca2ab
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67425716"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842400"
 ---
 # <a name="package-creation-workflow"></a>パッケージ作成ワークフロー
 
@@ -21,9 +21,7 @@ ms.locfileid: "67425716"
 > [!Note]
 > 他の開発者が使用するパッケージを作成する場合は、他の開発者が自分の作業に依存していることを理解することが重要です。 したがって、パッケージの作成と発行は、バグの修正とその他の更新を行うことへのコミットメントも意味します。また、容易に保持できるように、少なくともパッケージをオープン ソースとして使用できるようにすることへのコミットメントも意味します。
 
-いずれにせよ、パッケージの作成は、パッケージ化するアセンブリと他のファイルを決定することから始まります。 次に、マニフェスト ファイル (`.nuspec` ファイルと呼ばれる) を作成し、パッケージの ID、バージョン番号、著作権情報、MSBuild のプロパティとターゲットなどと共にパッケージの内容を記述します。
-
-適切なフォルダーに必要なファイルをすべて準備し、適切な `.nuspec` ファイルを作成したら、次は、`nuget pack` コマンド (または [MSBuild パック ターゲット](../reference/msbuild-targets.md)) を使用して、`.nupkg` ファイルにすべてまとめます。 これで、ホストが他の開発者に使用できるようにするどのパッケージでも配置できます。
+どのような場合でも、パッケージの作成は、その識別子、バージョン番号、ライセンス、著作権情報、およびその他の必要なコンテンツを決定することから始まります。 完了したら、"pack" コマンドを使ってそれらすべてを 1 つの `.nupkg` ファイルにまとめることができます。 このファイルは、nuget.org などの NuGet フィードに公開することができます。
 
 > [!Tip]
 > `.nupkg` 拡張子を持つ NuGet パッケージは単なる ZIP ファイルです。 パッケージの内容を簡単に確認するには、拡張子を `.zip` に変更し、その内容を通常どおり展開します。 念のため、ホストへのアップロードを試行する前に拡張子を `.nupkg` に戻してください。

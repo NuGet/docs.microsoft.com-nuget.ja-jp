@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3be8d1dad6552db2fc04b2f324145ac7ce86acb2
-ms.sourcegitcommit: b9a134a6e10d7d8502613f389f7d5f9b9e206ec8
+ms.openlocfilehash: 287237cf4041870c562a6a7f48f233d8fdc8ef33
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67467770"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842381"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>パッケージの復元エラーのトラブルシューティング
 
-この記事では、パッケージを復元するときの一般的なエラーと、それを解決する手順に重点を置いて説明しています。 パッケージの復元の詳細については、[パッケージの復元](../consume-packages/package-restore.md#enable-and-disable-package-restore)に関するセクションを参照してください。
+この記事では、パッケージを復元するときの一般的なエラーと、それを解決する手順に重点を置いて説明しています。 パッケージの復元の詳細については、[パッケージの復元](../consume-packages/package-restore.md#enable-and-disable-package-restore-visual-studio)に関するセクションを参照してください。
 
 この記事の手順で問題が解決しない場合は、シナリオをより詳しく検討できるように、[GitHub で問題を報告してください](https://github.com/NuGet/docs.microsoft.com-nuget/issues)。 このページに [このページは役に立ちましたか] コントロールが表示されている場合でも使用しないでください。このコントロールでは、お客様に詳細情報を確認することができません。
 
@@ -29,7 +29,7 @@ Visual Studio を使用している場合は、まず次のようにパッケー
 
 ![[ツール]/[オプション] で NuGet パッケージの復元を有効にする](../consume-packages/media/restore-01-autorestoreoptions.png)
 
-これらの設定は `NuGet.config` ファイルで変更することもできます。[同意](#consent)に関するセクションを参照してください。
+これらの設定は `NuGet.config` ファイルで変更することもできます。[同意](#consent)に関するセクションを参照してください。 ご自身のプロジェクトが、MSBuild に統合されたパッケージの復元を使用する以前のプロジェクトであった場合は、パッケージの自動復元に[移行](package-restore.md#migrate-to-automatic-package-restore-visual-studio)することが必要になる場合があります。
 
 <a name="missing"></a>
 
@@ -54,10 +54,10 @@ Use NuGet Package Restore to download them. The missing file is {name}.
 パッケージを復元するには、次のいずれかの方法を使用します。
 
 - プロジェクト ファイルを移動した場合、ファイルを直接編集し、パッケージ参照を更新します。
-- Visual Studio で、 **[ツール] > [NuGet パッケージ マネージャー] > [パッケージ マネージャー設定]** メニュー コマンドを選択し、 **[パッケージの復元]** の両方のオプションをオンにして、 **[OK]** を選択します。 ソリューションをもう一度ビルドします。
-- .NET Core プロジェクトの場合は、`dotnet restore` または `dotnet build` (自動的に復元が実行されます) を実行します。
-- コマンド ラインで `nuget restore` を実行します (ただし、`dotnet restore` を使用する `dotnet` で作成されたプロジェクトは例外です)。
-- PackageReference 形式を使用するプロジェクトのコマンド ラインで、`msbuild -t:restore` を実行します。
+- (Visual Studio) **[ツール] > [NuGet パッケージ マネージャー] > [パッケージ マネージャー設定]** メニュー コマンドを選択し、 **[パッケージの復元]** の下にあるオプションを両方オンにして、 **[OK]** を選択します。 ソリューションをもう一度ビルドします。
+- (dotnet CLI) コマンド ラインで、使用するプロジェクトが格納されているフォルダーに切り替えてから、`dotnet restore` または `dotnet build` (復元を自動的に実行) を実行します。
+- (nuget.exe CLI) コマンド ラインで、使用するプロジェクトが格納されているフォルダーに切り替えてから、`nuget restore` を実行します (`dotnet` CLI を使って作成したプロジェクトの場合は、`dotnet restore` を使用する)。
+- (PackageReference に移行されたプロジェクト) コマンド ラインで、`msbuild -t:restore` を実行します。
 
 復元に成功したら、"*グローバル パッケージ*" フォルダーにパッケージが表示されます。 PackageReference を使用するプロジェクトの場合、復元によって `obj/project.assets.json` ファイルが再び作成されます。`packages.config` を使用するプロジェクトの場合、プロジェクトの `packages` フォルダーにパッケージが表示されます。 この場合、プロジェクトを正常にビルドできるようになります。 ビルドできない場合は、フォローを受けられるように [GitHub で問題を報告してください](https://github.com/NuGet/docs.microsoft.com-nuget/issues)。
 

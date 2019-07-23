@@ -5,18 +5,18 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: e60bca8fe2f80b044e466db2a100d6c6d167edb7
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: a7177b956930835693921163e634321548c22462
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427377"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842366"
 ---
 # <a name="manage-packages-using-the-nugetexe-cli"></a>nuget.exe CLI を使用してパッケージを管理する
 
 CLI ツールを使用すると、プロジェクトやソリューションで NuGet パッケージを簡単に更新し、復元できます。 このツールからは、Windows のすべての NuGet 機能が提供され、Mono で実行される場合の Mac と Linux のほとんどの機能も提供されます。
 
-nuget.exe CLI は、.NET Framework プロジェクトと非 SDK スタイルのプロジェクト (.NET Standard ライブラリを対象とするものなど) 用です。 `PackageReference` に移行された非 SDK スタイルのプロジェクトを使用している場合、代わりに dotnet CLI を使用してください。 NuGet CLI には、パッケージ参照のために [packages.config](../reference/packages-config.md) ファイルが必要になります。
+nuget.exe CLI は、.NET Framework プロジェクトと非 SDK スタイルのプロジェクト (例: .NET Standard ライブラリを対象とする非 SDK スタイルのプロジェクト) 用です。 `PackageReference` に移行された非 SDK スタイルのプロジェクトを使用している場合、代わりに dotnet CLI を使用してください。 NuGet CLI には、パッケージ参照のために [packages.config](../reference/packages-config.md) ファイルが必要になります。
 
 > [!NOTE]
 > ほとんどのシナリオでは、PackageReference に `packages.config` を使用する [非 SDK スタイルのプロジェクトを移行する](../reference/migrate-packages-config-to-package-reference.md)ことをお勧めします。そうすることで、`nuget.exe` CLI の代わりに dotnet CLI を使用できます。 C++ プロジェクトと ASP.NET プロジェクトについては、現在のところ、移行を利用できません。
@@ -113,6 +113,8 @@ nuget update
 [restore](../tools/cli-ref-restore.md) コマンドを使用すると、*packages* フォルダーにないすべてのパッケージがダウンロードされ、インストールされます。
 
 `restore` ではパッケージがディスクに追加されるだけで、プロジェクトの依存関係は変更されません。 プロジェクトの依存関係を復元するには、`packages.config` を変更し、`restore` コマンドを使用します。
+
+他の `dotnet` CLI コマンドと同様に、最初にコマンド ラインが開かれ、使用するプロジェクト ファイルが含まれているディレクトリに切り替えられます。
 
 `restore` を使用してパッケージを復元するには:
 

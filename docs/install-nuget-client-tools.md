@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/20/2019
 ms.topic: quickstart
-ms.openlocfilehash: 6e3011493b7b89bc43cd9a267aea7fd32d668cec
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: a4a3f5509792e56c09d18b3da98588d17f4756ee
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426572"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67841938"
 ---
 # <a name="install-nuget-client-tools"></a>NuGet クライアント ツールのインストール
 
@@ -20,8 +20,8 @@ ms.locfileid: "67426572"
 
 | ツール&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 説明 | ダウンロード&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
 |:------------- |:-------------|:-----|
-| [dotnet.exe](#dotnetexe-cli) | .NET Core と .NET Standard ライブラリ、および .NET Framework を対象とするものなどの SDK スタイルのプロジェクト (「[SDK 属性](/dotnet/core/tools/csproj#additions)」を参照) のための CLI ツール。 .NET Core SDK 含まれており、すべてのプラットフォームで NuGet のコア機能を提供します。 | [.NET Core SDK](https://www.microsoft.com/net/download/) |
-| [nuget.exe](#nugetexe-cli) | .NET Framework ライブラリと、.NET Standard ライブラリを対象とする非 SDK スタイルのプロジェクトのための CLI ツール。 Windows のすべての NuGet 機能と、Mono で実行される場合の Mac および Linux の ほとんどの機能を提供します。 | [nuget.exe](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe) |
+| [dotnet.exe](#dotnetexe-cli) | .NET Core と .NET Standard ライブラリ、および任意の [SDK スタイルのプロジェクト](resources/check-project-format.md) (.NET Framework を対象とするものなど) のための CLI ツール。 .NET Core SDK 含まれており、すべてのプラットフォームで NuGet のコア機能を提供します。 (Visual Studio 2017 以降、dotnet CLI は .NET Core に関連するすべてのワークロードで自動的にインストールされます。)| [.NET Core SDK](https://www.microsoft.com/net/download/) |
+| [nuget.exe](#nugetexe-cli) | .NET Framework ライブラリと、.NET Standard ライブラリを対象とする[非 SDK スタイルのプロジェクト](resources/check-project-format.md)のための CLI ツール。 Windows のすべての NuGet 機能と、Mono で実行される場合の Mac および Linux の ほとんどの機能を提供します。 | [nuget.exe](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe) |
 | [Visual Studio](#visual-studio) | Windows 上で、パッケージ マネージャー UI およびパッケージ マネージャー コンソール (.NET 関連のワークロードに含まれます) を介して NuGet 機能を提供します。 Mac 上で、UI 経由で特定の機能を提供します。 Visual Studio Code で、拡張機能によって NuGet 機能が提供されます。 | [Visual Studio 2017](https://www.visualstudio.com/downloads/) |
 
 さらに、[MSBuild CLI](reference/msbuild-targets.md) は、パッケージを復元および作成する機能を提供します。これはおもにビルド サーバーで有用です。 MSBuild は、NuGet を使用するための汎用ツールではありません。
@@ -31,7 +31,7 @@ ms.locfileid: "67426572"
 `dotnet.exe` と `nuget.exe` の 2 つの NuGet CLI ツールがあります。 比較については、「[機能の可用性](#feature-availability)」をご覧ください。
 
 * .NET Core または .NET Standard を対象とするには、dotnet CLI をご使用ください。 SDK スタイルのプロジェクト形式 ([SDK 属性](/dotnet/core/tools/csproj#additions)が使用されます) の場合、dotnet CLI が必要です。
-* .NET Framework (非 SDK スタイルのプロジェクトのみ) を対象とするには、`nuget.exe CLI` を使用します。 プロジェクトを `packages.config` に移行する場合は、dotnet CLI を使用します。
+* .NET Framework (非 SDK スタイルのプロジェクトのみ) を対象とするには、`nuget.exe CLI` を使用します。 プロジェクトを `packages.config` から PackageReference に移行する場合は、dotnet CLI を使用します。
 
 ### <a name="dotnetexe-cli"></a>dotnet.exe CLI
 
@@ -39,7 +39,7 @@ ms.locfileid: "67426572"
 
 インストール:
 
-- 開発者用コンピューターに [.NET Core SDK](https://aka.ms/dotnetcoregs) をインストールします。
+- 開発者用コンピューターに [.NET Core SDK](https://aka.ms/dotnetcoregs) をインストールします。 Visual Studio 2017 以降、dotnet CLI は .NET Core 関連のワークロードで自動的にインストールされます。
 - ビルド サーバーの場合は、「[継続的インテグレーション (CI) で .NET Core SDK とツールを使用する](/dotnet/core/tools/using-ci-with-cli)」の手順に従ってください。
 
 dotnet CLI で基本的なコマンドを使用する方法を学習するには、[dotnet CLI を使用したパッケージのインストールと使用](consume-packages/install-use-packages-dotnet-cli.md)に関するページを参照してください。
@@ -48,14 +48,14 @@ dotnet CLI で基本的なコマンドを使用する方法を学習するには
 
 `nuget.exe` CLI (`nuget.exe`) は、すべての NuGet 機能を提供する Windows 用のコマンド ライン ユーティリティです。[Mono](http://www.mono-project.com/docs/getting-started/install/) を使用して Mac OSX および Linux でも実行できますが、いくつかの制限があります。
 
+`nuget.exe` CLI で基本的なコマンドを使用する方法を学習するには、[nuget.exe CLI を使用したパッケージのインストールと使用](consume-packages/install-use-packages-nuget-cli.md)に関するページを参照してください。
+
 インストール:
 
 [!INCLUDE [install-cli](includes/install-cli.md)]
 
 > [!Tip]
 > Windows で既存の nuget.exe を最新バージョンに更新するには、`nuget update -self` を使用します。
-
-`nuget.exe` CLI で基本的なコマンドを使用する方法を学習するには、[nuget.exe CLI を使用したパッケージのインストールと使用](consume-packages/install-use-packages-nuget-cli.md)に関するページを参照してください。
 
 > [!Note]
 > 最新の推奨される NuGet CLI はいつでも、`https://dist.nuget.org/win-x86-commandline/latest/nuget.exe` で入手できます。 古い継続的インテグレーション システムとの互換性を維持するために、以前の URL (`https://nuget.org/nuget.exe`) では現在、[非推奨の 2.8.6 CLI ツール](https://github.com/NuGet/NuGetGallery/issues/5381)が提供されています。
@@ -103,7 +103,7 @@ dotnet CLI で基本的なコマンドを使用する方法を学習するには
 ### <a name="related-topics"></a>関連トピック
 
 - [Visual Studio を使用してパッケージをインストールして管理する](tools/package-manager-ui.md)
-- [PowerShell を使用してパッケージをインストールして管理する](tools/package-manager-console.md)
+- [パッケージ マネージャー コンソールを使用してパッケージをインストールして管理する](tools/package-manager-console.md)
 - [dotnet CLI を使用してパッケージをインストールして管理する](consume-packages/install-use-packages-dotnet-cli.md)
 - [nuget.exe CLI を使用してパッケージをインストールして管理する](consume-packages/install-use-packages-nuget-cli.md)
 - [パッケージ マネージャー コンソール PowerShell のリファレンス](tools/powershell-reference.md)
