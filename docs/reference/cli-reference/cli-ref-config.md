@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 51c4c9937483e7f8a57356515c06a60c0f9e6f62
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 384e708187a747221de103720cc51af07acf713e
+ms.sourcegitcommit: f9e39ff9ca19ba4a26e52b8a5e01e18eb0de5387
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327849"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68433315"
 ---
 # <a name="config-command-nuget-cli"></a>configコマンド (NuGet CLI)
 
@@ -36,7 +36,7 @@ NuGet 3.4 以降では`<value>` 、は[環境変数](cli-ref-environment-variabl
 | オプション | 説明 |
 | --- | --- |
 | AsPath | 構成値をパスとして返します。 `-Set`が使用されている場合は無視されます。 |
-| ConfigFile | 変更する NuGet 構成ファイル。 指定されて`%AppData%\NuGet\NuGet.Config`いない場合は`~/.nuget/NuGet/NuGet.Config` 、(Windows) または (Mac/Linux) が使用されます。|
+| ConfigFile | 変更する NuGet 構成ファイル。 指定しない場合、既定のファイル (Windows`%AppData%\NuGet\NuGet.Config` ) また`~/.config/NuGet/NuGet.Config`は (Mac/Linux) または`~/.nuget/NuGet/NuGet.Config` (OS の配布によって異なる) が使用されます。|
 | ForceEnglishOutput | *(3.5 +)* 不変の英語ベースのカルチャを使用して nuget.exe を強制的に実行します。 |
 | Help | ヘルプのコマンドの情報を表示します。 |
 | NonInteractive | ユーザーの入力または確認のプロンプトを表示しません。 |

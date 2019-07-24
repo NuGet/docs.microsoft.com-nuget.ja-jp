@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: cd9e223a4ee93552b67e7357afa2ccb4e6fdb432
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 5b9be55b593890127d8fe0ad1a9357b89527a09a
+ms.sourcegitcommit: f9e39ff9ca19ba4a26e52b8a5e01e18eb0de5387
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317248"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68433371"
 ---
 # <a name="nuspec-reference"></a>.nuspec リファレンス
 
@@ -170,7 +170,19 @@ UI 画面用のパッケージの短い説明。 省略すると、`description`
 *(3.3 以降)* NuGet 内部でのみ使われます。
 
 #### <a name="repository"></a>repository
-リポジトリメタデータ。4つの省略可能な属性で構成されます。*種類*と*url* *(4.0 以降)* 、*分岐*と*コミット* *(4.6 +)* です。 これらの属性を使用すると、作成したリポジトリに. nupkg をマップすることができます。これにより、パッケージを構築した個々の分岐またはコミットとして詳細な情報が得られる可能性があります。 これは、バージョン管理ソフトウェアによって直接呼び出すことができる、一般公開されている url である必要があります。 これはコンピューター用の html ページである必要はありません。 [プロジェクトへのリンク] ページで`projectUrl`は、代わりにフィールドを使用します。
+リポジトリメタデータ。4つの省略可能`type`な属性で構成されて`branch`い`commit`ます: and `url` *(4.0 +)* 、and *(4.6 +)* 。 これらの属性を使用すると`.nupkg` 、を構築したリポジトリにをマップすることができます。これにより、パッケージを構築した個々のブランチ名またはコミット sha-1 ハッシュが詳細に表示されます。 これは、バージョン管理ソフトウェアによって直接呼び出すことができる、一般公開されている url である必要があります。 これはコンピューター用の html ページである必要はありません。 [プロジェクトへのリンク] ページで`projectUrl`は、代わりにフィールドを使用します。
+
+例えば:
+```xml
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2016/06/nuspec.xsd">
+    <metadata>
+        ...
+        <repository type="git" url="https://github.com/NuGet/NuGet.Client.git" branch="dev" commit="e1c65e4524cd70ee6e22abe33e6cb6ec73938cb3" />
+        ...
+    </metadata>
+</package>
+```
 
 #### <a name="minclientversion"></a>minClientVersion
 nuget.exe および Visual Studio パッケージ マネージャーで強制する、このパッケージをインストールできる NuGet クライアントの最小バージョンを指定します。 これは、NuGet クライアントの特定のバージョンで追加された `.nuspec` ファイルの特定の機能にパッケージが依存しているときに、常に使われます。 たとえば、`developmentDependency` 属性を使っているパッケージでは、`minClientVersion` に "2.8" を指定する必要があります。 同様に、`contentFiles` 要素 (次のセクションを参照) を使っているパッケージでは、`minClientVersion` を "3.3" に設定する必要があります。 また、バージョン 2.5 より前の NuGet クライアントはこのフラグを認識しないので、`minClientVersion` の値が何であっても、"*常に*" パッケージをインストールしないことにも注意してください。
