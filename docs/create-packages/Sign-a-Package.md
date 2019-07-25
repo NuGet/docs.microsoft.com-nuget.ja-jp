@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: abdd06642ccc652527a1a005eda2689ce97df74c
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 85a862852761b68db882abdc1ca0e84d83d95f07
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426807"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317638"
 ---
 # <a name="signing-nuget-packages"></a>NuGet パッケージの署名
 
@@ -36,7 +36,7 @@ ms.locfileid: "67426807"
 > [!note]
 > nuget.exe 4.6.0 以降が必要です。
 
-[nuget sign](../tools/cli-ref-sign.md) を使用してパッケージに署名するには、次を使用します。
+[nuget sign](../reference/cli-reference/cli-ref-sign.md) を使用してパッケージに署名するには、次を使用します。
 
 ```cli
 nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper <TimestampServiceURL>
@@ -45,9 +45,9 @@ nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper 
 > [!Tip]
 > 証明書プロバイダーから、上記の省略可能な引数 `Timestamper` に使用できるタイムスタンプ サーバーの URL が提供されることがよくあります。 プロバイダーのドキュメントを参照するか、そのサービスの URL のサポートに問い合わせてください。
 
-* 証明書には、証明書ストアで入手できるものを使用するか、ファイルの証明書を使用できます。 [nuget の sign](../tools/cli-ref-sign.md) の CLI リファレンスを参照してください。
+* 証明書には、証明書ストアで入手できるものを使用するか、ファイルの証明書を使用できます。 [nuget の sign](../reference/cli-reference/cli-ref-sign.md) の CLI リファレンスを参照してください。
 * 署名証明書が期限切れになったときに署名の有効な状態を維持するには、署名済みパッケージにタイムスタンプが含まれている必要があります。 そうでない場合は、署名操作で[警告](../reference/errors-and-warnings/NU3002.md)が生成されます。
-* 特定のパッケージの署名の詳細を表示するには、[nuget verify](../tools/cli-ref-verify.md) を使用します。
+* 特定のパッケージの署名の詳細を表示するには、[nuget verify](../reference/cli-reference/cli-ref-verify.md) を使用します。
 
 ## <a name="register-the-certificate-on-nugetorg"></a>NuGet.org に証明書を登録する
 

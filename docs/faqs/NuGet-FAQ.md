@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 20a55c6ba89478e70d8e6837aaebc1b7b7754a93
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 9094d6b4a2dbd6ea1899b4470624948ce7c21f43
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842433"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317620"
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet に関してよく寄せられる質問
 
@@ -36,9 +36,9 @@ UI とコマンド ライン ツールの両方に関するすべての情報は
 
 **別の Visual Studio 製品では NuGet はどのようにサポートされますか?**
 
-- Windows の Visual Studio では、[パッケージ マネージャー UI](../tools/package-manager-ui.md) と[パッケージ マネージャー コンソール](../tools/package-manager-console.md)がサポートされます。
+- Windows の Visual Studio では、[パッケージ マネージャー UI](../consume-packages/install-use-packages-visual-studio.md) と[パッケージ マネージャー コンソール](../consume-packages/install-use-packages-powershell.md)がサポートされます。
 - 「[プロジェクトに NuGet パッケージを含める](/visualstudio/mac/nuget-walkthrough)」で説明されているように、Visual Studio for Mac には NuGet 機能が組み込まれています。
-- Visual Studio Code (すべてのプラットフォーム) には、直接 NuGet は統合されていません。 [NuGet CLI](../tools/nuget-exe-cli-reference.md) または [dotnet CLI](../tools/dotnet-commands.md) を使用してください。
+- Visual Studio Code (すべてのプラットフォーム) には、直接 NuGet は統合されていません。 [NuGet CLI](../reference/nuget-exe-cli-reference.md) または [dotnet CLI](../reference/dotnet-commands.md) を使用してください。
 - Azure DevOps には、[NuGet パッケージを復元するためのビルド ステップ](/vsts/build-release/tasks/package/nuget)があります。 [Azure DevOps でプライベート NuGet パッケージ フィードをホストする](https://docs.microsoft.com/azure/devops/artifacts/nuget/publish)こともできます。
 
 **インストールされている NuGet ツールの正確なバージョンはどのように確認すればよいですか?**
@@ -59,13 +59,13 @@ NuGet では、Windows、Web、クラウド、SharePoint、Wix などのさま�
 
 **Visual Studio テンプレートの一部であるパッケージはどのように更新すればよいですか?**
 
-パッケージ マネージャー UI の **[更新]** タブに移動して、 **[すべて更新]** を選択するか、パッケージ マネージャー コンソールで [`Update-Package` コマンド](../tools/ps-ref-update-package.md)を使用します。
+パッケージ マネージャー UI の **[更新]** タブに移動して、 **[すべて更新]** を選択するか、パッケージ マネージャー コンソールで [`Update-Package` コマンド](../reference/ps-reference/ps-ref-update-package.md)を使用します。
 
 テンプレート自体を更新するには、テンプレート リポジトリを手動で更新する必要があります。 これについては、[Xavier Decoster のブログ](http://www.xavierdecoster.com/update-project-template-to-latest-nuget-packages)を参照してください。 最新バージョンのすべての依存関係が相互に互換性がない場合、手動で更新するとテンプレートが壊れる可能性があるため、これは自身の責任で行うことに注意してください。
 
 **Visual Studio 外部で NuGet を使用できますか?**
 
-はい。NuGet はコマンド ラインから直接動作します。 [インストール ガイド](../install-nuget-client-tools.md)と [CLI 参照](../tools/nuget-exe-cli-reference.md)に関するページを参照してください。
+はい。NuGet はコマンド ラインから直接動作します。 [インストール ガイド](../install-nuget-client-tools.md)と [CLI 参照](../reference/nuget-exe-cli-reference.md)に関するページを参照してください。
 
 ## <a name="nuget-command-line"></a>NuGet コマンド ライン
 

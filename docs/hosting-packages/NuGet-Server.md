@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: e99d42744ec860976ae098be94e747ec4bc9a7c6
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 734f0a609f243c7bdb218a53ed664de68c707dd7
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551957"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317653"
 ---
 # <a name="nugetserver"></a>NuGet.Server
 
@@ -26,13 +26,13 @@ NuGet.Server についてさらに質問がある場合は、[https://github.com
 
 ## <a name="create-and-deploy-an-aspnet-web-application-with-nugetserver"></a>NuGet.Server を使用して ASP.NET Web アプリケーションを作成して配置する
 
-1. Visual Studio で、**[ファイル] > [新規] > [プロジェクト]** を選択し、「ASP.NET」を検索し、C# 用に **[ASP.NET Web アプリケーション (.NET Framework)]** テンプレートを選択し、**[フレームワーク]** を [.NET Framework 4.6] に設定します。
+1. Visual Studio で、 **[ファイル] > [新規] > [プロジェクト]** を選択し、「ASP.NET」を検索し、C# 用に **[ASP.NET Web アプリケーション (.NET Framework)]** テンプレートを選択し、 **[フレームワーク]** を [.NET Framework 4.6] に設定します。
 
     ![新しいプロジェクトのターゲット フレームワークを設定する](media/Hosting_01-NuGet.Server-Set4.6.png)
 
 1. アプリケーションに NuGet.Server *以外*の適切な名前を付けて [OK] を選択し、次のダイアログで**空**のテンプレートを選択して **[OK]** を選択します。
 
-1. プロジェクトを右クリックし、**[NuGet パッケージの管理]** を選択します。
+1. プロジェクトを右クリックし、 **[NuGet パッケージの管理]** を選択します。
 
 1. .NET Framework 4.6 を対象にしている場合は、パッケージ マネージャー UI で **[参照]** タブを選択し、最新バージョンの NuGet.Server パッケージを検索してインストールします (また、`Install-Package NuGet.Server` を使用して、パッケージ マネージャー コンソールからインストールすることもできます。)メッセージに従って、ライセンス条項に同意します。
 
@@ -43,11 +43,11 @@ NuGet.Server についてさらに質問がある場合は、[https://github.com
     > [!Important]
     > NuGet.Server パッケージでファイルの変更が完了した後は、`web.config` をよく確認してください。 NuGet.Server で既存の要素を上書きすることはできません。代わりに重複する要素が作成されます。 このような重複があると、後でプロジェクトを実行しようとしたときに "内部サーバー エラー" が発生します。 たとえば、NuGet.Server をインストールする前に `web.config` に `<compilation debug="true" targetFramework="4.5.2" />` を含めると、パッケージによって上書きされませんが 2 つ目の `<compilation debug="true" targetFramework="4.6" />` が挿入されます。 この場合は、以前の Framework バージョンの要素を削除してください。
 
-1. アプリケーションをサーバーに公開するときに、パッケージをフィードで使用できるようにするには、Visual Studio の `Packages` フォルダーに各 `.nupkg` ファイルを追加して、それぞれの **[ビルド アクション]** を **[コンテンツ]** に、**[出力ディレクトリにコピー]** を **[常にコピーする]** に設定します。
+1. アプリケーションをサーバーに公開するときに、パッケージをフィードで使用できるようにするには、Visual Studio の `Packages` フォルダーに各 `.nupkg` ファイルを追加して、それぞれの **[ビルド アクション]** を **[コンテンツ]** に、 **[出力ディレクトリにコピー]** を **[常にコピーする]** に設定します。
 
     ![プロジェクト内の [Packages] フォルダーにパッケージをコピーする](media/Hosting_03-NuGet.Server-Package-Folder.png)
 
-1. Visual Studio のローカルでサイトを実行します (**[デバッグ] > [デバッグなしで開始]** を使用するか Ctrl キーを押しながら F5 キーを押します)。 ホーム ページには、パッケージ フィードの URL が次のように表示されます。 エラーが表示される場合は、手順 5 で説明したような重複する要素がないか `web.config` をよく確認します。
+1. Visual Studio のローカルでサイトを実行します ( **[デバッグ] > [デバッグなしで開始]** を使用するか Ctrl キーを押しながら F5 キーを押します)。 ホーム ページには、パッケージ フィードの URL が次のように表示されます。 エラーが表示される場合は、手順 5 で説明したような重複する要素がないか `web.config` をよく確認します。
 
     ![NuGet.Server を使用したアプリケーションの既定のホーム ページ](media/Hosting_04-NuGet.Server-FeedHomePage.png)
 
@@ -76,7 +76,7 @@ NuGet.Server についてさらに質問がある場合は、[https://github.com
 
 ## <a name="adding-packages-to-the-feed-externally"></a>パッケージを外部からフィードに追加する
 
-`web.config` で API キーの値を設定した場合、NuGet.Server サイトが実行されているときに、[nuget push](../tools/cli-ref-push.md) を使用してパッケージを追加できます。
+`web.config` で API キーの値を設定した場合、NuGet.Server サイトが実行されているときに、[nuget push](../reference/cli-reference/cli-ref-push.md) を使用してパッケージを追加できます。
 
 NuGet.Server パッケージをインストールした後、`web.config` に空の `appSetting/apiKey` 値が含まれます。
 
@@ -104,7 +104,7 @@ NuGet.Server パッケージをインストールした後、`web.config` に空
 
 ## <a name="removing-packages-from-the-feed"></a>フィードからパッケージを削除する
 
-NuGet.Server で、API キーをコメントに追加して [nuget delete](../tools/cli-ref-delete.md) コマンドを実行すると、リポジトリからパッケージを削除できます。
+NuGet.Server で、API キーをコメントに追加して [nuget delete](../reference/cli-reference/cli-ref-delete.md) コマンドを実行すると、リポジトリからパッケージを削除できます。
 
 代わりにパッケージをリストから削除する (パッケージの復元のために使用できる状態のままにする) ように動作を変更する場合は、`web.config` の `enableDelisting` キーを true に変更します。
 

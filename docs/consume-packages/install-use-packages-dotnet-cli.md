@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: 64f3a1978cd336064a77c9f3872357e65c37fc10
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: a796c7a7537c3052259c7cf3f17d60981a495442
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842355"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317717"
 ---
 # <a name="install-and-manage-packages-using-the-dotnet-cli"></a>dotnet CLI を使用してパッケージをインストールして管理する
 
@@ -18,7 +18,7 @@ CLI ツールを使用すると、プロジェクトやソリューションで 
 
 dotnet CLI は .NET Core や .NET Standard のプロジェクト (SDK スタイルのプロジェクト タイプ) で使用され、また、その他の SDK スタイル プロジェクト (.NET Framework を対象とする SDK スタイルのプロジェクト) で使用されます。 詳細については、「[SDK 属性](/dotnet/core/tools/csproj#additions)」を参照してください。
 
-この記事では、最も一般的ないくつかの dotnet CLI コマンドの基本的な使用方法を説明します。 これらのコマンドの多くでは、コマンドにプロジェクト ファイルが指定されていない限り、CLI ツールは現在のディレクトリでプロジェクト ファイルを探します (プロジェクト ファイルはオプションのスイッチです)。 コマンドと使用できる引数の完全一覧については、[.NET Core コマンドライン インターフェイス (CLI) ツール](../tools/dotnet-commands.md)に関するページを参照してください。
+この記事では、最も一般的ないくつかの dotnet CLI コマンドの基本的な使用方法を説明します。 これらのコマンドの多くでは、コマンドにプロジェクト ファイルが指定されていない限り、CLI ツールは現在のディレクトリでプロジェクト ファイルを探します (プロジェクト ファイルはオプションのスイッチです)。 コマンドと使用できる引数の完全一覧については、[.NET Core コマンドライン インターフェイス (CLI) ツール](../reference/dotnet-commands.md)に関するページを参照してください。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 

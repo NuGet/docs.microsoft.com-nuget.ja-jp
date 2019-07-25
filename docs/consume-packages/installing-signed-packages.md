@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8da57dc295ea78f2eb183226fc9b2f4a37e3f5db
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 7b92d07d19a2e9073ecc38ed37b4ee2491080443
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426631"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317766"
 ---
 # <a name="manage-package-trust-boundaries"></a>パッケージ信頼境界を管理する
 
@@ -24,7 +24,7 @@ ms.locfileid: "67426631"
 > [!Note]
 > NuGet 4.9.0 以降および Visual Studio バージョン 15.9 以降が Windows で必要です。
 
-NuGet クライアントがパッケージの署名を検証する方法を構成するには、[nuget.config](../reference/nuget-config-file.md) ファイルで [`nuget config`](../tools/cli-ref-config.md) コマンドを使用し、`signatureValidationMode` を `require` に設定します。
+NuGet クライアントがパッケージの署名を検証する方法を構成するには、[nuget.config](../reference/nuget-config-file.md) ファイルで [`nuget config`](../reference/cli-reference/cli-ref-config.md) コマンドを使用し、`signatureValidationMode` を `require` に設定します。
 
 ```cmd
 nuget.exe config -set signatureValidationMode=require
@@ -40,7 +40,7 @@ nuget.exe config -set signatureValidationMode=require
 
 ### <a name="trust-package-author"></a>パッケージの作成者を信頼する
 
-作成者の署名に基づいてパッケージを信頼するには、nuget.config で [`trusted-signers`](../tools/cli-ref-trusted-signers.md) コマンドを使用し `author` プロパティを設定します。
+作成者の署名に基づいてパッケージを信頼するには、nuget.config で [`trusted-signers`](../reference/cli-reference/cli-ref-trusted-signers.md) コマンドを使用し `author` プロパティを設定します。
 
 ```cmd
 nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE40881FF5F0AD3E58965DA20A9F571EF1651A56933748E1BF1C99E537C4E039 -FingerprintAlgorithm SHA256
@@ -55,7 +55,7 @@ nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE408
 ```
 
 >[!TIP]
->`nuget.exe` の [verify コマンド](../tools/cli-ref-verify.md)を使用して、証明書のフィンガープリントの `SHA256` 値を取得します。
+>`nuget.exe` の [verify コマンド](../reference/cli-reference/cli-ref-verify.md)を使用して、証明書のフィンガープリントの `SHA256` 値を取得します。
 
 
 ### <a name="trust-all-packages-from-a-repository"></a>リポジトリのパッケージをすべて信頼する
@@ -95,7 +95,7 @@ nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE408
 
 ### <a name="sync-repository-certificates"></a>リポジトリの証明書を同期する
 
-パッケージ リポジトリでは、使用する証明書をその[サービス インデックス](../api/service-index.md)で宣言する必要があります。 証明書の有効期限が切れるときなどに、実質的にこれらの証明書はリポジトリで更新されます。 これが発生した場合、特定のポリシーを使用するクライアントは、新しく追加された証明書を含めるために構成を更新する必要があります。 リポジトリに関連付けられている信頼されている署名者は、`nuget.exe` [trusted-signers sync コマンド](../tools/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-)を使用して簡単にアップグレードできます。
+パッケージ リポジトリでは、使用する証明書をその[サービス インデックス](../api/service-index.md)で宣言する必要があります。 証明書の有効期限が切れるときなどに、実質的にこれらの証明書はリポジトリで更新されます。 これが発生した場合、特定のポリシーを使用するクライアントは、新しく追加された証明書を含めるために構成を更新する必要があります。 リポジトリに関連付けられている信頼されている署名者は、`nuget.exe` [trusted-signers sync コマンド](../reference/cli-reference/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-)を使用して簡単にアップグレードできます。
 
 ### <a name="schema-reference"></a>スキーマ リファレンス
 

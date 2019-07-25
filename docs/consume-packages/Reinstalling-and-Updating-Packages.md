@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: conceptual
-ms.openlocfilehash: 9b2a7b299a0cb944ad9045684e14cc7b83e1cff4
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 32b01e6066cf60f7a0942508e640fdd5658b4444
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426668"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68316973"
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>パッケージを再インストールし更新する方法
 
@@ -61,7 +61,7 @@ ms.locfileid: "67426668"
 
 ## <a name="using-update-package"></a>Update-Package の使用
 
-以下の「[考慮事項](#considerations)」を意識しながら、Visual Studio パッケージ マネージャー コンソール ( **[ツール]**  >  **[NuGet パッケージ マネージャー]**  >  **[パッケージ マネージャー コンソール]** ) の [[Update-Package コマンド]](../Tools/ps-ref-update-package.md) を使用して、すべてのパッケージを簡単に再インストールできます。
+以下の「[考慮事項](#considerations)」を意識しながら、Visual Studio パッケージ マネージャー コンソール ( **[ツール]**  >  **[NuGet パッケージ マネージャー]**  >  **[パッケージ マネージャー コンソール]** ) の [[Update-Package コマンド]](../reference/ps-reference/ps-ref-update-package.md) を使用して、すべてのパッケージを簡単に再インストールできます。
 
 ```ps
 Update-Package -Id <package_name> –reinstall
@@ -97,7 +97,7 @@ Update-Package
 
 [PackageReference](../Consume-Packages/Package-References-in-Project-Files.md)を使用してプロジェクトまたはソリューションのパッケージを更新する場合、パッケージは常に最新バージョンに更新されます (リリース前のパッケージは除きます)。 プロジェクトで `packages.config` を使用している場合、必要に応じて、以下の「[アップグレード バージョンを制限する](#constraining-upgrade-versions)」で説明するとおり、更新バージョンを制限できます。
 
-完全なコマンドについては、「[Update-Package](../Tools/ps-ref-update-package.md)」を参照してください。
+完全なコマンドについては、「[Update-Package](../reference/ps-reference/ps-ref-update-package.md)」を参照してください。
 
 ### <a name="considerations"></a>注意事項
 

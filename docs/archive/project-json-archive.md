@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: d43f002b740b669de13f5872844ac0df97fc8fdc
-ms.sourcegitcommit: b9a134a6e10d7d8502613f389f7d5f9b9e206ec8
+ms.openlocfilehash: 8d732e87f01c55bde87da0a2e382fd6d509886a3
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67467784"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317012"
 ---
 # <a name="projectjson-archive"></a>project.json のアーカイブ
 
@@ -142,7 +142,7 @@ PackageReference の動作は、`project.json` にも適用されます。 nuget
 
 ### <a name="package-manager-options-control"></a>パッケージ マネージャーのオプションの制御
 
-*もともとは「[パッケージ マネージャー UI リファレンス](../tools/package-manager-ui.md)」内。*
+*もともとは「[パッケージ マネージャー UI リファレンス](../consume-packages/install-use-packages-visual-studio.md)」内。*
 
 `project.json` 管理形式を使用するプロジェクトでは、 **[プレビュー ウィンドウを表示する]** オプションのみが表示されます。
 

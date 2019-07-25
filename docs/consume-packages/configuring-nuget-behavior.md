@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: 57b7f29b533a8e6d7db2710c7e42a239f50199a1
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 5309d94fafea9cdfc3699d443393be5d381dd145
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426659"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317730"
 ---
 # <a name="common-nuget-configurations"></a>一般的な NuGet 構成
 
@@ -32,7 +32,7 @@ NuGet の動作は、1 つ以上の `NuGet.Config` (XML) ファイルの設定�
 
 `NuGet.Config` ファイルは、[NuGet の構成設定](../reference/nuget-config-file.md)に関するトピックで説明されているように、キーと値のペアを含む単純な XML テキスト ファイルです。
 
-設定は、NuGet CLI の [config コマンド](../tools/cli-ref-config.md)を使って管理します。
+設定は、NuGet CLI の [config コマンド](../reference/cli-reference/cli-ref-config.md)を使って管理します。
 - 既定では、変更はユーザー レベルの構成ファイルに対して行われます。
 - 別のファイルの設定を変更するには、`-configFile` スイッチを使います。 その場合は、任意のファイル名を使うことができます。
 - キーは常に大文字と小文字が区別されます。

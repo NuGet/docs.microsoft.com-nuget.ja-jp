@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/25/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: f05c3a7a51bdc0760097422004cfc4339bf9ee2c
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 737b13be70de9aaa7dec7904d4c2a4ec494ef7b3
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426608"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317546"
 ---
 # <a name="hosting-your-own-nuget-feeds"></a>独自の NuGet フィードをホスティングする
 
@@ -38,4 +38,4 @@ ms.locfileid: "67426608"
 - [Nexus](http://www.sonatype.org/nexus/) (Sonatype)
 - [TeamCity](https://www.jetbrains.com/teamcity/) (JetBrains)
 
-パッケージがどのようにホストされているかに関係なく、`NuGet.Config` で利用可能なソースの一覧にパッケージを追加して、アクセスします。 これは、「[パッケージ ソース](../tools/package-manager-ui.md#package-sources)」に示されているように Visual Studio で、またはコマンド ラインから [`nuget sources`](../tools/cli-ref-sources.md) を使用して実行できます。 ソースへのパスは、ローカル フォルダーのパス名、ネットワーク名、または URL にすることができます。
+パッケージがどのようにホストされているかに関係なく、`NuGet.Config` で利用可能なソースの一覧にパッケージを追加して、アクセスします。 これは、「[パッケージ ソース](../consume-packages/install-use-packages-visual-studio.md#package-sources)」に示されているように Visual Studio で、またはコマンド ラインから [`nuget sources`](../reference/cli-reference/cli-ref-sources.md) を使用して実行できます。 ソースへのパスは、ローカル フォルダーのパス名、ネットワーク名、または URL にすることができます。
