@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: e85d8cc3fd9492118bd8f34cfd05f20a9724c281
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 0df2b0ebcf438fba99291558f1cf929dcb32618b
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842341"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68316987"
 ---
 # <a name="package-restore-options"></a>パッケージの復元オプション
 
@@ -41,7 +41,7 @@ ms.locfileid: "67842341"
 
 - **dotnet CLI**:コマンド ラインで、使用するプロジェクトが含まれているフォルダーに切り替えてから、[dotnet restore](/dotnet/core/tools/dotnet-restore?tabs=netcore2x) コマンドを使用して、[PackageReference](../consume-packages/package-references-in-project-files.md) でプロジェクト ファイルに記載されているパッケージを復元します。 .NET Core 2.0 以降では、復元は `dotnet build` コマンドと `dotnet run` コマンドで自動的に行われます。  
 
-- **nuget.exe CLI**:コマンド ラインで、使用するプロジェクトが含まれているフォルダーに切り替えてから、[nuget restore](../tools/cli-ref-restore.md) コマンドを使用して、プロジェクトやソリューション ファイル、または　`packages.config` に記載されているパッケージを復元します。 
+- **nuget.exe CLI**:コマンド ラインで、使用するプロジェクトが含まれているフォルダーに切り替えてから、[nuget restore](../reference/cli-reference/cli-ref-restore.md) コマンドを使用して、プロジェクトやソリューション ファイル、または　`packages.config` に記載されているパッケージを復元します。 
 
 - **MSBuild**:[msbuild -t:restore](../reference/msbuild-targets.md#restore-target) コマンドを使用して、PackageReference を使用するプロジェクト ファイルに一覧表示されているパッケージを復元します。 このコマンドは、Visual Studio 2017 以降のバージョン含まれる NuGet 4.x+ と MSBuild 15.1+ でのみ利用できます。 `nuget restore` と `dotnet restore` の両方で、該当するプロジェクトにこのコマンドが使用されます。
 
