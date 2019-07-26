@@ -276,6 +276,7 @@
 ## リリース ノート
 ### [既知の問題](release-notes/known-issues.md)
 ### NuGet 5.x
+#### [NuGet 5.2 RTM](release-notes/NuGet-5.2-RTM.md)
 #### [NuGet 5.1 RTM](release-notes/NuGet-5.1-RTM.md)
 #### [NuGet 5.0 RTM](release-notes/NuGet-5.0-RTM.md)
 ### NuGet 4.x
