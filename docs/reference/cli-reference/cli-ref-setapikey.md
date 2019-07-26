@@ -34,7 +34,9 @@ nuget setapikey <key> -Source <url> [options]
 | ForceEnglishOutput | *(3.5 +)* 不変の英語ベースのカルチャを使用して nuget.exe を強制的に実行します。 |
 | Help | ヘルプのコマンドの情報を表示します。 |
 | NonInteractive | ユーザーの入力または確認のプロンプトを表示しません。 |
-| Verbosity | 出力に表示される詳細データの量を指定します: *normal*、*quiet*、*detailed* |
+
+| Verbosity | 出力に表示される詳細データの量を指定します:*normal*、*quiet*、*detailed* |
+
 
 「[環境変数](cli-ref-environment-variables.md)」も参照してください。
 
