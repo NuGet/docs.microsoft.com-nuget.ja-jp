@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8cd7529c4a1ecf659abde03fb1632e26431aebf3
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 3af29e2f9b09ba5bd82779f9aacf314bd8933436
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426746"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317024"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>プロジェクトの NuGet パッケージの検索と評価
 
@@ -40,7 +40,7 @@ NuGet でパッケージがプロジェクトにインストールされるの�
 
 幸いにも、以下の別の 2 つの方法でサポートされているフレームワークを判別できます。
 
-1. NuGet パッケージ マネージャー コンソールで [`Install-Package`](../tools/ps-ref-install-package.md) コマンドを使用して、プロジェクトにパッケージをインストールしてみます。 パッケージに互換性がない場合は、このコマンドでパッケージのサポートされているフレームワークが表示されます。
+1. NuGet パッケージ マネージャー コンソールで [`Install-Package`](../reference/ps-reference/ps-ref-install-package.md) コマンドを使用して、プロジェクトにパッケージをインストールしてみます。 パッケージに互換性がない場合は、このコマンドでパッケージのサポートされているフレームワークが表示されます。
 
 1. **[情報]** の下にある **[手動でダウンロード]** リンクを使用して、nuget.org のページからパッケージをダウンロードします。 拡張子を `.nupkg` から `.zip` に変更し、ファイルを開き、その `lib` フォルダーの内容を調べます。 そこに、サポートされている各フレームワークのサブフォルダーが表示されます。各サブフォルダーには、ターゲット フレームワーク モニカー (TFM。「[ターゲット フレームワーク](../reference/target-frameworks.md)」を参照) を使用して名前が付けられます。 `lib` の下にサブフォルダーがなく、DLL が 1 つだけの場合は、プロジェクトにパッケージをインストールしてみて、その互換性を検出する必要があります。
 
@@ -58,9 +58,9 @@ Visual Studio の場合、また、NuGet CLI および dotnet CLI ツールを�
 
     ![Visual Studio の [プレリリースを含める] チェックボックス](media/Prerelease_02-CheckPrerelease.png)
 
-- **パッケージ マネージャー コンソール**: `Find-Package`、`Get-Package`、`Install-Package`、`Sync-Package`、`Update-Package` コマンドで `-IncludePrerelease` スイッチを使用します。 「[PowerShell Reference](../tools/powershell-reference.md)」 (PowerShell リファレンス) を参照してください。
+- **パッケージ マネージャー コンソール**: `Find-Package`、`Get-Package`、`Install-Package`、`Sync-Package`、`Update-Package` コマンドで `-IncludePrerelease` スイッチを使用します。 「[PowerShell Reference](../reference/powershell-reference.md)」 (PowerShell リファレンス) を参照してください。
 
-- **nuget.exe CLI**: `install`、`update`、`delete`、`mirror` コマンドで `-prerelease` スイッチを使用します。 「[NuGet CLI reference](../tools/nuget-exe-cli-reference.md)」(NuGet CLI リファレンス) を参照してください。
+- **nuget.exe CLI**: `install`、`update`、`delete`、`mirror` コマンドで `-prerelease` スイッチを使用します。 「[NuGet CLI reference](../reference/nuget-exe-cli-reference.md)」(NuGet CLI リファレンス) を参照してください。
 
 - **dotnet.exe CLI**: `-v` 引数を使用して、正確なプレリリース バージョンを指定します。 「[dotnet add package](/dotnet/core/tools/dotnet-add-package)」を参照してください。
 

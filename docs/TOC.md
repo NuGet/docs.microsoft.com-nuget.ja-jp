@@ -31,12 +31,14 @@
 ### [packages.config](reference/packages-config.md)
 # パッケージの作成
 ## [概要とワークフロー](create-packages/overview-and-workflow.md)
-## [パッケージの作成](create-packages/creating-a-package.md)
+## [パッケージの作成 (dotnet CLI)](create-packages/creating-a-package-dotnet-cli.md)
+## [パッケージの作成 (nuget.exe CLI)](create-packages/creating-a-package.md)
 ## [MSBuild を使用してパッケージを作成する](reference/msbuild-targets.md)
-## [複数のターゲット フレームワークのサポート](create-packages/supporting-multiple-target-frameworks.md)
+## [プロジェクト ファイルで複数のターゲット フレームワークをサポートする](create-packages/multiple-target-frameworks-project-file.md)
 ## [プレリリース パッケージをビルドする](create-packages/prerelease-packages.md)
 ## [シンボル パッケージを作成する](create-packages/symbol-packages-snupkg.md)
 ## 高度なタスク
+### [複数のターゲット フレームワークのサポート](create-packages/supporting-multiple-target-frameworks.md)
 ### [ソース コードと config ファイルを変更する](create-packages/source-and-config-file-transformations.md)
 ### [プロジェクトによって参照されるアセンブリを選択する](create-packages/select-assemblies-referenced-by-projects.md)
 ### [パッケージの種類の設定](create-packages/set-package-type.md)
@@ -101,7 +103,7 @@
 ### [Sync-Package](reference/ps-reference/ps-ref-sync-package.md)
 ### [Uninstall-Package](reference/ps-reference/ps-ref-uninstall-package.md)
 ### [Update-Package](reference/ps-reference/ps-ref-update-package.md)
-## NuGet API
+## NuGet サーバー API
 ### [概要](api/overview.md)
 ### リソース
 #### [オートコンプリート](api/search-autocomplete-service-resource.md)
@@ -273,7 +275,10 @@
 ### [NuGet.org のポリシー](nuget-org/policies/data-requests.md)
 ## リリース ノート
 ### [既知の問題](release-notes/known-issues.md)
-### [NuGet 5.0 RTM](release-notes/NuGet-5.0-RTM.md)
+### NuGet 5.x
+#### [NuGet 5.2 RTM](release-notes/NuGet-5.2-RTM.md)
+#### [NuGet 5.1 RTM](release-notes/NuGet-5.1-RTM.md)
+#### [NuGet 5.0 RTM](release-notes/NuGet-5.0-RTM.md)
 ### NuGet 4.x
 #### [NuGet 4.9 RTM](release-notes/NuGet-4.9-RTM.md)
 #### [NuGet 4.8 RTM](release-notes/NuGet-4.8-RTM.md)

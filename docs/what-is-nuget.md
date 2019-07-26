@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: overview
-ms.openlocfilehash: 087bb043ba4b388b9de6d94cd838915a2e7247f4
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: e11eed5c614a7634fa578ebc84c3ab2068522fe2
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426142"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842199"
 ---
 # <a name="an-introduction-to-nuget"></a>NuGet の概要
 
@@ -45,8 +45,8 @@ NuGet では、パブリック ホストの nuget.org に加えてプライベ�
 
 | ツール | プラットフォーム | 該当シナリオ | 説明 |
 | --- | --- | --- | --- |
-| [dotnet CLI](consume-packages/install-use-packages-dotnet-cli.md) | すべて | 作成、利用 | .NET Core と .NET Standard ライブラリ、および .NET Framework を対象とする SDK スタイルのプロジェクト (「[SDK 属性](/dotnet/core/tools/csproj#additions)」を参照) のための CLI ツール。 特定の NuGet CLI 機能を、.NET Core ツール チェーン内に直接提供します。 NuGet CLI と同様、dotnet CLI も Visual Studio プロジェクトと対話しません。 |
-| [nuget.exe CLI](consume-packages/install-use-packages-nuget-cli.md) | すべて | 作成、利用 | .NET Framework ライブラリと、.NET Standard ライブラリを対象とする非 SDK スタイルのプロジェクトのための CLI ツール。 NuGet のすべての機能を提供します。パッケージ作成者のみに適用されるコマンド、利用者のみに適用されるもの、両方に適用されるものがあります。 たとえば、パッケージ作成者は `nuget pack` コマンドを使用して、さまざまなアセンブリと関連ファイルからパッケージを作成し、パッケージ利用者は `nuget install` を使用して、パッケージをプロジェクトフォルダーに格納します。また、`nuget config` は、NuGet の構成変数を設定するためにすべてのユーザーによって使用されます。 プラットフォームに依存しないツールである NuGet CLI は、Visual Studio プロジェクトと対話しません。 |
+| [dotnet CLI](consume-packages/install-use-packages-dotnet-cli.md) | すべて | 作成、利用 | .NET Core と .NET Standard ライブラリ、および .NET Framework を対象とする [SDK スタイルのプロジェクト](resources/check-project-format.md)のプロジェクトのための CLI ツール。 特定の NuGet CLI 機能を、.NET Core ツール チェーン内に直接提供します。 NuGet CLI と同様、dotnet CLI も Visual Studio プロジェクトと対話しません。 |
+| [nuget.exe CLI](consume-packages/install-use-packages-nuget-cli.md) | すべて | 作成、利用 | .NET Framework ライブラリと、.NET Standard ライブラリを対象とする[非 SDK スタイルのプロジェクト](resources/check-project-format.md)のための CLI ツール。 NuGet のすべての機能を提供します。パッケージ作成者のみに適用されるコマンド、利用者のみに適用されるもの、両方に適用されるものがあります。 たとえば、パッケージ作成者は `nuget pack` コマンドを使用して、さまざまなアセンブリと関連ファイルからパッケージを作成し、パッケージ利用者は `nuget install` を使用して、パッケージをプロジェクトフォルダーに格納します。また、`nuget config` は、NuGet の構成変数を設定するためにすべてのユーザーによって使用されます。 プラットフォームに依存しないツールである NuGet CLI は、Visual Studio プロジェクトと対話しません。 |
 | [パッケージ マネージャー コンソール](tools/package-manager-console.md) | Windows の Visual Studio | 利用 | Visual Studio プロジェクトでパッケージをインストールして管理するための [PowerShell コマンド](tools/Powershell-Reference.md)を提供します。 |
 | [パッケージ マネージャー UI](tools/package-manager-ui.md) | Windows の Visual Studio | 利用 | Visual Studio プロジェクトでパッケージをインストールして管理するための使いやすい UI を提供します。 |
 | [NuGet 管理 UI](/visualstudio/mac/nuget-walkthrough) | Visual Studio for Mac | 利用 | Visual Studio for Mac プロジェクトでパッケージをインストールして管理するための使いやすい UI を提供します。 |

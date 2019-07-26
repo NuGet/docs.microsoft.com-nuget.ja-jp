@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: efdaa0128d47f948c86c3cc83d6a332410cbf99f
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: bf561d36a06bf42c029eb96ff1b7930abffa4c0a
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426338"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842047"
 ---
 # <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>クイック スタート: Visual Studio を使用したパッケージの作成と公開 (.NET Framework、Windows)
 
@@ -145,7 +145,7 @@ DLL を入手し、プロジェクトのプロパティを設定したら、`nug
 
 ### <a name="publish-with-nuget-push"></a>nuget push を使用して公開する
 
-1. `.nupkg` ファイルを含むフォルダーに変更します。
+1. コマンド ラインを開き、`.nupkg` ファイルを含むフォルダーに変更します。
 
 1. 次のコマンドでパッケージ名を指定し、キーを API キーに置き換えて、コマンドを実行します。
 

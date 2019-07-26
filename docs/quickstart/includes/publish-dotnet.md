@@ -1,6 +1,14 @@
+---
+ms.openlocfilehash: bb39e1056ea97ecf1ac70d7fd8e79e65dc04655c
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842142"
+---
 1. `.nupkg` ファイルを含むフォルダーに変更します。
 
-1. 次のコマンドでパッケージ名を指定し、キーを API キーに置き換えて、コマンドを実行します。
+1. 使用するパッケージ名 (一意のパッケージ ID) を指定し、キーの値を使用する API キーに置き換えて、次のコマンドを実行します。
 
     ```cli
     dotnet nuget push AppLogger.1.0.0.nupkg -k qz2jga8pl3dvn2akksyquwcs9ygggg4exypy3bhxy6w6x6 -s https://api.nuget.org/v3/index.json

@@ -1,21 +1,21 @@
 ---
-title: NuGet API の概要
-description: NuGet API は、パッケージのダウンロード、メタデータのフェッチ、新しいパッケージの発行などに使用できる一連の HTTP エンドポイントです。
+title: NuGet サーバー API の概要
+description: NuGet サーバー API は、パッケージのダウンロード、メタデータのフェッチ、新しいパッケージの発行などに使用できる HTTP エンドポイントのセットです。
 author: joelverhagen
 ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: e8e8fdeee4f0765e2409aea261db8217744ae2c7
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: aacf56a5dc5af9abf6f60d42bc7fd530a128d0d8
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68316998"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419834"
 ---
-# <a name="nuget-api"></a>NuGet API
+# <a name="nuget-server-api"></a>NuGet サーバー API
 
-NuGet API は、パッケージのダウンロード、メタデータのフェッチ、新しいパッケージの発行、および公式の NuGet クライアントで利用可能なその他のほとんどの操作を実行するために使用できる一連の HTTP エンドポイントです。
+NuGet サーバー API は、パッケージのダウンロード、メタデータのフェッチ、新しいパッケージの発行、および公式の NuGet クライアントで利用可能なその他のほとんどの操作を実行するために使用できる一連の HTTP エンドポイントです。
 
 この API は、visual studio、nuget.exe、および .net CLI の nuget クライアントによって[`dotnet restore`](/dotnet/core/tools/dotnet-restore?tabs=netcore2x)、などの nuget 操作 (visual studio UI での検索、および[`nuget.exe push`](../reference/cli-reference/cli-ref-push.md)の検索) を実行するために使用されます。
 
