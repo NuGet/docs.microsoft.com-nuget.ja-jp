@@ -1,5 +1,5 @@
 ---
-title: sign コマンド (NuGet CLI)
+title: NuGet CLI sign コマンド
 description: Nuget.exe sign コマンドのリファレンス
 author: dtivel
 ms.author: dtivel
@@ -48,7 +48,7 @@ nuget sign <package(s)> [options]
 | NonInteractive | 現在の署名を上書きするかどうかを示すには、を切り替えます。 既定では、パッケージに既に署名がある場合、コマンドは失敗します。 |
 | Timestamper | RFC 3161 タイムスタンプサーバーの URL。 |
 | TimestampHashAlgorithm | RFC 3161 タイムスタンプサーバーによって使用されるハッシュアルゴリズム。 既定値は SHA256 です。 |
-| Verbosity | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細* |
+| Verbosity | 出力に表示される詳細データの量を指定します:*normal*、*quiet*、*detailed* |
 
 ## <a name="examples"></a>使用例
 
