@@ -29,15 +29,15 @@ nuget verify <-All|-Signatures> <package(s)> [options]
 
 ここ`<package(s)>` で`.nupkg` 、は1つ以上のファイルです。
 
-## <a name="nuget-verify--all"></a>nuget 検証-すべて
+## <a name="nuget-verify--all"></a>nuget verify -All
 
 パッケージに対して可能なすべての検証を実行することを指定します。
 
-## <a name="nuget-verify--signatures"></a>nuget の検証-署名
+## <a name="nuget-verify--signatures"></a>nuget verify -Signatures
 
 パッケージ署名の検証を実行する必要があることを指定します。
 
-## <a name="options-for-verify--signatures"></a>"確認-署名" のオプション
+## <a name="options-for-verify--signatures"></a>"verify -Signatures" のオプション
 
 | オプション | 説明 |
 | --- | --- |
@@ -50,7 +50,7 @@ nuget verify <-All|-Signatures> <package(s)> [options]
 | ConfigFile | 適用する NuGet 構成ファイル。 指定されて`%AppData%\NuGet\NuGet.Config`いない場合は`~/.nuget/NuGet/NuGet.Config` 、(Windows) または (Mac/Linux) が使用されます。|
 | ForceEnglishOutput | 不変の英語ベースのカルチャを使用して nuget.exe を強制的に実行します。 |
 | Help | ヘルプのコマンドの情報を表示します。 |
-| Verbosity | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細* |
+| Verbosity | 出力に表示される詳細データの量を指定します:*normal*、*quiet*、*detailed* |
 
 ## <a name="examples"></a>使用例
 
