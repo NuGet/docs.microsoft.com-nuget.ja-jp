@@ -1,5 +1,5 @@
 ---
-title: NuGet CLI パックコマンド
+title: NuGet CLI pack コマンド
 description: Nuget.exe pack コマンドのリファレンス
 author: karann-msft
 ms.author: karann
