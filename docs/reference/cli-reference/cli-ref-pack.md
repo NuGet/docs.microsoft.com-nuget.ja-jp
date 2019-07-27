@@ -51,7 +51,7 @@ nuget pack <nuspecPath | projectPath> [options] [-Properties ...]
 | Suffix | *(3.4.4 +)* 内部で生成されたバージョン番号にサフィックスを追加します。通常は、ビルドまたはその他のプレリリース識別子を追加するために使用されます。 たとえば、を使用`-suffix nightly`すると、のような`1.2.3-nightly`バージョン番号のパッケージが作成されます。 サフィックスは、警告、エラー、およびさまざまなバージョンの NuGet と NuGet パッケージマネージャーとの互換性がない可能性を回避するために、英字で始める必要があります。 |
 | Symbols | パッケージにソースとシンボルが含まれていることを指定します。 `.nuspec`ファイルと共に使用すると、通常の NuGet パッケージファイルと対応するシンボルパッケージが作成されます。 既定では、[レガシシンボルパッケージ](../../create-packages/Symbol-Packages.md)が作成されます。 シンボル パッケージに推奨される新しい形式は .snupkg です。 「[シンボル パッケージ (.snupkg) の作成](../../create-packages/Symbol-Packages-snupkg.md)」を参照してください。 |
 | Tool | プロジェクトの出力ファイルを`tool`フォルダーに配置するように指定します。 |
-| Verbosity | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細* |
+| Verbosity | 出力に表示される詳細データの量を指定します:*normal*、*quiet*、*detailed* |
 | Version | `.nuspec`ファイルのバージョン番号をオーバーライドします。 |
 
 「[環境変数](cli-ref-environment-variables.md)」も参照してください。
