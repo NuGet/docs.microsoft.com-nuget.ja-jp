@@ -50,7 +50,7 @@ nuget verify <-All|-Signatures> <package(s)> [options]
 | ConfigFile | 適用する NuGet 構成ファイル。 指定されて`%AppData%\NuGet\NuGet.Config`いない場合は`~/.nuget/NuGet/NuGet.Config` 、(Windows) または (Mac/Linux) が使用されます。|
 | ForceEnglishOutput | 不変の英語ベースのカルチャを使用して nuget.exe を強制的に実行します。 |
 | Help | ヘルプのコマンドの情報を表示します。 |
-| Verbosity | 出力に表示される詳細データの量を指定します:*normal*、*quiet*、*detailed* |
+| Verbosity | 出力に表示される詳細データの量を指定します: *normal*、*quiet*、*detailed* |
 
 ## <a name="examples"></a>使用例
 
