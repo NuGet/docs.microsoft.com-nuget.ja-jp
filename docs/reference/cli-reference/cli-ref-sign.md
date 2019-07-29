@@ -1,5 +1,5 @@
 ---
-title: sign コマンド (NuGet CLI)
+title: NuGet CLI sign コマンド
 description: Nuget.exe sign コマンドのリファレンス
 author: dtivel
 ms.author: dtivel
@@ -13,7 +13,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 07/18/2019
 ms.locfileid: "68327589"
 ---
-# <a name="sign-command-nuget-cli"></a>sign コマンド (NuGet CLI)
+# <a name="sign-command-nuget-cli"></a>NuGet CLI sign コマンド
 
 **適用対象:** パッケージ作成&bullet;で**サポートされているバージョン:** 4.6 +
 

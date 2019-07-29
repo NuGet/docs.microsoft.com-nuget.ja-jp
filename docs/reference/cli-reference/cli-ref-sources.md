@@ -12,7 +12,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 07/18/2019
 ms.locfileid: "68327599"
 ---
-# <a name="sources-command-nuget-cli"></a>source コマンド (NuGet CLI)
+# <a name="sources-command-nuget-cli"></a>NuGet CLI source コマンド
 
 **適用対象:** パッケージの使用、 &bullet; **サポートされるバージョン**の発行: すべて
 

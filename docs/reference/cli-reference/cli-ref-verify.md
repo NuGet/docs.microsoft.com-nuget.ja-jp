@@ -29,11 +29,11 @@ nuget verify <-All|-Signatures> <package(s)> [options]
 
 ここ`<package(s)>` で`.nupkg` 、は1つ以上のファイルです。
 
-## <a name="nuget-verify--all"></a>nuget 検証-すべて
+## <a name="nuget-verify--all"></a>nuget verify -All
 
 パッケージに対して可能なすべての検証を実行することを指定します。
 
-## <a name="nuget-verify--signatures"></a>nuget の検証-署名
+## <a name="nuget-verify--signatures"></a>nuget verify -Signatures
 
 パッケージ署名の検証を実行する必要があることを指定します。
 
