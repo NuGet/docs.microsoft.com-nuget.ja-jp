@@ -40,7 +40,7 @@ nuget ? [command] [options]
 | Help | ヘルプコマンド自体のヘルプ情報を表示します。 |
 | Markdown | で`-All`使用する場合は、markdown 形式の詳細なヘルプを印刷します。 それ以外の場合は無視されます。 |
 | NonInteractive | ユーザーの入力または確認のプロンプトを表示しません。 |
-| Verbosity | 出力に表示される詳細データの量を指定します:*normal*、*quiet*、*detailed* |
+| Verbosity | 出力に表示される詳細データの量を指定します: *normal*、*quiet*、*detailed* |
 
 「[環境変数](cli-ref-environment-variables.md)」も参照してください。
 

@@ -1,5 +1,5 @@
 ---
-title: source コマンド (NuGet CLI)
+title: NuGet CLI source コマンド
 description: Nuget.exe の source コマンドリファレンス
 author: karann-msft
 ms.author: karann
@@ -40,7 +40,7 @@ nuget sources <operation> -Name <name> -Source <source>
 | Password | ソースでの認証に使用するパスワードを指定します。 |
 | StorePasswordInClearText | 暗号化されたフォームを格納する既定の動作ではなく、暗号化されていないテキストにパスワードを格納することを示します。 |
 | UserName | ソースでの認証に使用するユーザー名を指定します。 |
-| Verbosity | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細* |
+| Verbosity | 出力に表示される詳細データの量を指定します:*normal*、*quiet*、*detailed* |
 
 > [!Note]
 > Nuget を後で使用してパッケージソースにアクセスするのと同じユーザーコンテキストで、ソースのパスワードを追加してください。 パスワードは暗号化されて構成ファイルに格納され、暗号化されたときと同じユーザーコンテキストでのみ暗号化を解除できます。 たとえば、ビルドサーバーを使用して NuGet パッケージを復元する場合、ビルドサーバータスクを実行するのと同じ Windows ユーザーでパスワードを暗号化する必要があります。
