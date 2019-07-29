@@ -57,7 +57,7 @@ nuget install <packageID | configFilePath> [options]
 | RequireConsent | パッケージをダウンロードしてインストールする前に、パッケージの復元が有効になっていることを確認します。 詳細については、「[パッケージの復元](../../consume-packages/package-restore.md)」を参照してください。 |
 | SolutionDirectory | パッケージを復元するソリューションのルートフォルダーを指定します。 |
 | Source | 使用するパッケージソースの一覧を Url として指定します。 省略した場合、コマンドは構成ファイルで提供されているソースを使用します。「 [Common NuGet](../../consume-packages/configuring-nuget-behavior.md)configuration」を参照してください。 |
-| Verbosity | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細* |
+| Verbosity | 出力に表示される詳細データの量を指定します:*normal*、*quiet*、*detailed* |
 | Version | インストールするパッケージのバージョンを指定します。 |
 
 「[環境変数](cli-ref-environment-variables.md)」も参照してください。

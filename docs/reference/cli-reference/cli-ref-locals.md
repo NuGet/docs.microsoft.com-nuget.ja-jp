@@ -14,7 +14,7 @@ ms.locfileid: "68327809"
 ---
 # <a name="locals-command-nuget-cli"></a>locals コマンド (NuGet CLI)
 
-**適用対象:** パッケージの使用&bullet;が**サポートされているバージョン:** 3.3+
+**適用対象:** パッケージの使用&bullet;**サポートされているバージョン:** 3.3+
 
 *Http キャッシュ*、*グローバルパッケージ*フォルダー、一時フォルダーなどのローカル NuGet リソースをクリアまたは一覧表示します。 また`locals` 、コマンドを使用して、これらの場所の一覧を表示することもできます。 詳細については、「[グローバルパッケージとキャッシュフォルダーの管理](../../consume-packages/managing-the-global-packages-and-cache-folders.md)」を参照してください。
 

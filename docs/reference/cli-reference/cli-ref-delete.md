@@ -1,5 +1,5 @@
 ---
-title: NuGet CLI の削除コマンド
+title: NuGet CLI の delete コマンド
 description: Nuget.exe delete コマンドのリファレンス
 author: karann-msft
 ms.author: karann
@@ -36,7 +36,7 @@ nuget delete <packageID> <packageVersion> [options]
 | Help | ヘルプのコマンドの情報を表示します。 |
 | NonInteractive | ユーザーの入力または確認のプロンプトを表示しません。 |
 | Source | サーバー URL を指定します。 Nuget.org の URL は`https://api.nuget.org/v3/index.json`です。 プライベートフィードの場合は、ホスト名に置き換えます (例 *% hostname%/api/v3*)。 |
-| Verbosity | 出力に表示される詳細データの量を指定します:*通常*、 *静か*、*詳細* |
+| Verbosity | 出力に表示される詳細データの量を指定します:*normal*、*quiet*、*detailed* |
 
 「[環境変数](cli-ref-environment-variables.md)」も参照してください。
 
