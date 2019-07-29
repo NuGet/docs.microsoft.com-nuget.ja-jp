@@ -1,5 +1,5 @@
 ---
-title: NuGet CLI の追加コマンド
+title: NuGet CLI の add コマンド
 description: Nuget.exe の add コマンドのリファレンス
 author: karann-msft
 ms.author: karann
@@ -12,7 +12,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 07/18/2019
 ms.locfileid: "68327859"
 ---
-# <a name="add-command-nuget-cli"></a>addコマンド (NuGet CLI)
+# <a name="add-command-nuget-cli"></a>add コマンド (NuGet CLI)
 
 **適用対象**: パッケージ発行&bullet;が**サポートされているバージョン**:3.3+
 
@@ -46,7 +46,7 @@ nuget add <packagePath> -Source <sourcePath> [options]
 | ForceEnglishOutput | *(3.5 +)* 不変の英語ベースのカルチャを使用して nuget.exe を強制的に実行します。 |
 | Help | ヘルプのコマンドの情報を表示します。 |
 | NonInteractive | ユーザーの入力または確認のプロンプトを表示しません。 |
-| Verbosity | 出力に表示される詳細データの量を指定します:*通常*、 *静か*、*詳細* |
+| Verbosity | 出力に表示される詳細データの量を指定します:*normal*、*quiet*、*detailed* |
 
 「[環境変数](cli-ref-environment-variables.md)」も参照してください。
 
