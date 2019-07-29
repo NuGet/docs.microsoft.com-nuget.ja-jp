@@ -1,5 +1,5 @@
 ---
-title: NuGet CLI の追加コマンド
+title: NuGet CLI の add コマンド
 description: Nuget.exe の add コマンドのリファレンス
 author: karann-msft
 ms.author: karann
@@ -12,7 +12,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 07/18/2019
 ms.locfileid: "68327859"
 ---
-# <a name="add-command-nuget-cli"></a>addコマンド (NuGet CLI)
+# <a name="add-command-nuget-cli"></a>add コマンド (NuGet CLI)
 
 **適用対象**: パッケージ発行&bullet;が**サポートされているバージョン**:3.3+
 
