@@ -1,5 +1,5 @@
 ---
-title: NuGet CLI の更新コマンド
+title: NuGet CLI update コマンド
 description: Nuget.exe update コマンドのリファレンス
 author: karann-msft
 ms.author: karann
@@ -49,7 +49,7 @@ nuget update <configPath> [options]
 | セーフ | インストールされているパッケージと同じメジャーバージョンとマイナーバージョン内で利用可能な最新バージョンの更新プログラムのみをインストールするように指定します。 |
 | 自身 | Nuget.exe を最新バージョンに更新します。その他のすべての引数は無視されます。 |
 | Source | 更新に使用するパッケージソースの一覧を Url として指定します。 省略した場合、コマンドは構成ファイルで提供されているソースを使用します。「 [Common NuGet](../../consume-packages/configuring-nuget-behavior.md)configuration」を参照してください。 |
-| Verbosity | 出力に表示される詳細データの量を指定します:*通常*、 *quiet*、*詳細* |
+| Verbosity | 出力に表示される詳細データの量を指定します:*normal*、*quiet*、*detailed* |
 | Version | 1つのパッケージ ID と共に使用する場合は、更新するパッケージのバージョンを指定します。 |
 
 「[環境変数](cli-ref-environment-variables.md)」も参照してください。
