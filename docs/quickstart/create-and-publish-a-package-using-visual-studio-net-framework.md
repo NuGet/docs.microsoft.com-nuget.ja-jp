@@ -1,16 +1,16 @@
 ---
-title: Windows の Visual Studio を使用した .NET Framework パッケージの作成と公開
+title: Windows の Visual Studio を使用した .NET Framework NuGet パッケージの作成と公開
 description: Windows の Visual Studio を使用した、.NET Framework NuGet パッケージの作成と公開に関するチュートリアルです。
 author: karann-msft
 ms.author: karann
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: bf561d36a06bf42c029eb96ff1b7930abffa4c0a
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 75160bf2b01f6d4707162e019a6263ddc64a6f5e
+ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842047"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68342513"
 ---
 # <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>クイック スタート: Visual Studio を使用したパッケージの作成と公開 (.NET Framework、Windows)
 
@@ -162,7 +162,7 @@ DLL を入手し、プロジェクトのプロパティを設定したら、`nug
     Your package was pushed.
     ```
 
-[nuget push](../tools/cli-ref-push.md)に関するページを参照してください。
+[nuget push](../reference/cli-reference/cli-ref-push.md)に関するページを参照してください。
 
 ### <a name="publish-errors"></a>公開エラー
 
@@ -172,9 +172,15 @@ DLL を入手し、プロジェクトのプロパティを設定したら、`nug
 
 [!INCLUDE [publish-manage](includes/publish-manage.md)]
 
-## <a name="related-topics"></a>関連トピック
+## <a name="next-steps"></a>次の手順
 
-- [パッケージの作成](../create-packages/creating-a-package.md)
+最初の NuGet パッケージを無事に作成できました。
+
+> [!div class="nextstepaction"]
+> [パッケージの作成](../create-packages/creating-a-package.md)
+
+NuGet が提供するその他の機能を調べるには、下のリンクを選択してください。
+
 - [パッケージの公開](../nuget-org/publish-a-package.md)
 - [プレリリース パッケージ](../create-packages/Prerelease-Packages.md)
 - [複数のターゲット フレームワークのサポート](../create-packages/supporting-multiple-target-frameworks.md)

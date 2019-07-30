@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: e1e31e0534706dab43f8d7b1b0db059cd6f29b80
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: c88b88015bd6d5bae4789765126c0a3dec527e24
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427137"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419859"
 ---
 # <a name="individual-accounts"></a>個人アカウント
 
@@ -45,3 +45,27 @@ NuGet.org アカウントを作成するには、個人の Microsoft アカウ�
 1. **[Register]\(登録\)** ボタンをクリックします。
 
 これで NuGet.org アカウントが作成されました。 [アカウント設定](https://www.nuget.org/account)ページで、アカウントの管理を実行できます。
+
+## <a name="enable-two-factor-authentication-2fa"></a>2 要素認証を有効にする (2FA)
+
+アカウントの保護を強化するには、2 要素認証を有効にします (推奨)。
+
+1. アカウントにログインしたら、プロファイルを開き、 **[ログイン アカウント]** で **[有効にする]** を選択します。
+
+   ![2FA を有効にする](media/nuget-org-register-2fa.png)
+
+   *nuget.org* への次回サインイン時に追加の資格情報の入力を求められることを示すメッセージが表示されます。
+
+2. この時点で認証を完了するには、サインアウトしてからもう一度サインインします。
+
+3. サインインする際に、2 番目の認証形式としてテキストまたは電子メールを選択します。
+
+   Microsoft アカウントに既に関連付けられている電話番号または電子メールを確認します。 アカウントの新しい電話番号または電子メール アドレスを入力する必要がある場合があります。 その場合は、指示に従って必要な情報を入力し、 **[次へ]** をクリックします。
+
+   ![2FA を有効にする](media/nuget-org-sign-in-2fa.png)
+
+4. デバイスまたは電子メールアカウントを確認し、先ほど送信したコードを入力します。
+
+   ![2FA を有効にする](media/nuget-org-enter-code-2fa.png)
+
+5. 追加の指示に従って、2 要素認証を完了します。

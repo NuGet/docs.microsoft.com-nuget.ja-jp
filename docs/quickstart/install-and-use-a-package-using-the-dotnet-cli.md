@@ -1,16 +1,16 @@
 ---
-title: dotnet CLI を使って NuGet パッケージを使用するための入門ガイド
+title: dotnet CLI を使用して NuGet パッケージをインストールし、使用する
 description: .NET Core プロジェクトで NuGet パッケージをインストールし、使用するプロセスを説明したチュートリアル。
 author: karann-msft
 ms.author: karann
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: 0d637c441cf9f36e8e3e04e47b524b2defecae52
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: ee456fd49675db37fee78dc14502a897d84a2b99
+ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67841664"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68342459"
 ---
 # <a name="quickstart-install-and-use-a-package-using-the-dotnet-cli"></a>クイック スタート: dotnet CLI を使用してパッケージをインストールし使用する
 
@@ -101,9 +101,15 @@ NuGet パッケージは、ある種類の .NET プロジェクトにインス�
     }
     ```
 
-## <a name="related-articles"></a>関連記事
+## <a name="next-steps"></a>次の手順
 
-- [dotnet CLI を使用してパッケージをインストールし使用する](../consume-packages/install-use-packages-dotnet-cli.md)
+最初の NuGet パッケージを無事にインストールして使用できました。
+
+> [!div class="nextstepaction"]
+> [dotnet CLI を使用してパッケージをインストールし使用する](../consume-packages/install-use-packages-dotnet-cli.md)
+
+NuGet が提供するその他の機能を調べるには、下のリンクを選択してください。
+
 - [パッケージ使用の概要とワークフロー](../consume-packages/overview-and-workflow.md)
 - [パッケージの検索と選択](../consume-packages/finding-and-choosing-packages.md)
-- [一般的な NuGet 構成](../consume-packages/configuring-nuget-behavior.md)
+- [プロジェクト ファイルのパッケージ参照](../consume-packages/package-references-in-project-files.md)

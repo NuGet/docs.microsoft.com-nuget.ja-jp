@@ -5,23 +5,23 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: a7177b956930835693921163e634321548c22462
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 9eefed6f2c1a362f27c4a5d33d07645d743379fa
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842366"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317743"
 ---
 # <a name="manage-packages-using-the-nugetexe-cli"></a>nuget.exe CLI を使用してパッケージを管理する
 
 CLI ツールを使用すると、プロジェクトやソリューションで NuGet パッケージを簡単に更新し、復元できます。 このツールからは、Windows のすべての NuGet 機能が提供され、Mono で実行される場合の Mac と Linux のほとんどの機能も提供されます。
 
-nuget.exe CLI は、.NET Framework プロジェクトと非 SDK スタイルのプロジェクト (例: .NET Standard ライブラリを対象とする非 SDK スタイルのプロジェクト) 用です。 `PackageReference` に移行された非 SDK スタイルのプロジェクトを使用している場合、代わりに dotnet CLI を使用してください。 NuGet CLI には、パッケージ参照のために [packages.config](../reference/packages-config.md) ファイルが必要になります。
+`nuget.exe` CLI は、.NET Framework プロジェクトと非 SDK スタイルのプロジェクト (例: .NET Standard ライブラリを対象とする非 SDK スタイルのプロジェクト) 用です。 `PackageReference` に移行された非 SDK スタイルのプロジェクトを使用している場合、代わりに `dotnet` CLI を使用してください。 `nuget.exe` CLI には、パッケージ参照のために [packages.config](../reference/packages-config.md) ファイルが必要になります。
 
 > [!NOTE]
-> ほとんどのシナリオでは、PackageReference に `packages.config` を使用する [非 SDK スタイルのプロジェクトを移行する](../reference/migrate-packages-config-to-package-reference.md)ことをお勧めします。そうすることで、`nuget.exe` CLI の代わりに dotnet CLI を使用できます。 C++ プロジェクトと ASP.NET プロジェクトについては、現在のところ、移行を利用できません。
+> ほとんどのシナリオでは、PackageReference に `packages.config` を使用する [非 SDK スタイルのプロジェクトを移行する](../reference/migrate-packages-config-to-package-reference.md)ことをお勧めします。そうすることで、`nuget.exe` CLI の代わりに `dotnet` CLI を使用できます。 C++ プロジェクトと ASP.NET プロジェクトについては、現在のところ、移行を利用できません。
 
-この記事では、最も一般的ないくつかの nuget.exe CLI コマンドの基本的な使用方法を説明します。 これらのコマンドの多くでは、コマンドにプロジェクト ファイルが指定されていない限り、CLI ツールは現在のディレクトリでプロジェクト ファイルを探します。 コマンドと使用できる引数の完全一覧については、「[nuget.exe CLI reference](../tools/nuget-exe-cli-reference.md)」(nuget.exe CLI リファレンス) を参照してください。
+この記事では、最も一般的ないくつかの `nuget.exe` CLI コマンドの基本的な使用方法を説明します。 これらのコマンドの多くでは、コマンドにプロジェクト ファイルが指定されていない限り、CLI ツールは現在のディレクトリでプロジェクト ファイルを探します。 コマンドと使用できる引数の完全一覧については、「[nuget.exe CLI reference](../reference/nuget-exe-cli-reference.md)」(nuget.exe CLI リファレンス) を参照してください。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
@@ -29,7 +29,7 @@ nuget.exe CLI は、.NET Framework プロジェクトと非 SDK スタイルの�
 
 ## <a name="install-a-package"></a>パッケージをインストールします
 
-[install](../tools/cli-ref-install.md) コマンドでは、指定されたパッケージ ソースを利用し、パッケージがダウンロードされ、プロジェクトにインストールされます。既定では、現在のフォルダーにインストールされます。 プロジェクトのルート ディレクトリの *packages* フォルダーに新しいパッケージをインストールします。
+[install](../reference/cli-reference/cli-ref-install.md) コマンドでは、指定されたパッケージ ソースを利用し、パッケージがダウンロードされ、プロジェクトにインストールされます。既定では、現在のフォルダーにインストールされます。 プロジェクトのルート ディレクトリの *packages* フォルダーに新しいパッケージをインストールします。
 
 > [!IMPORTANT]
 > `install` コマンドではプロジェクト ファイルや *packages.config* が変更されることはありません。そのため、パッケージがディスクに追加されるだけであり、プロジェクトの依存関係が変更されないという点で `restore` と似ています。 依存関係を追加するには、Visual Studio でパッケージ マネージャー UI かコンソールを利用してパッケージ復元を追加するか、*packages.config* を変更し、`install` か `restore` を実行します。
@@ -56,7 +56,7 @@ nuget install packages.config -OutputDirectory packages
 
 ## <a name="install-a-specific-version-of-a-package"></a>パッケージの特定のバージョンをインストールする
 
-[install](../tools/cli-ref-install.md) コマンドを使用するとき、バージョンが指定されていない場合、NuGet では最新版のパッケージがインストールされまする 特定のバージョンの NuGet パッケージをインストールすることもできます。
+[install](../reference/cli-reference/cli-ref-install.md) コマンドを使用するとき、バージョンが指定されていない場合、NuGet では最新版のパッケージがインストールされまする 特定のバージョンの NuGet パッケージをインストールすることもできます。
 
 ```cli
 nuget install <packageID | configFilePath> -Version <version>
@@ -78,7 +78,7 @@ nuget install Newtonsoft.Json -Version 12.0.1
 
 ## <a name="list-packages"></a>パッケージを一覧表示する
 
-[list](../tools/cli-ref-list.md) コマンドを使用し、特定のソースからパッケージの一覧を表示できます。 `-Source` オプションを使用し、検索を制限します。
+[list](../reference/cli-reference/cli-ref-list.md) コマンドを使用し、特定のソースからパッケージの一覧を表示できます。 `-Source` オプションを使用し、検索を制限します。
 
 ```cli
 nuget list -Source <source>
@@ -102,7 +102,7 @@ NuGet では、パッケージ バージョンを指定しない限り、`instal
 
 ## <a name="update-all-packages"></a>すべてのパッケージを更新する
 
-すべてのパッケージを更新するには、[update](../tools/cli-ref-update.md) コマンドを使用します。 利用できる最も新しいバージョンに (`packages.config` を使用する) プロジェクトのすべてのパッケージを更新します。 `restore` は `update` を実行する前に実行することをお勧めします。
+すべてのパッケージを更新するには、[update](../reference/cli-reference/cli-ref-update.md) コマンドを使用します。 利用できる最も新しいバージョンに (`packages.config` を使用する) プロジェクトのすべてのパッケージを更新します。 `restore` は `update` を実行する前に実行することをお勧めします。
 
 ```cli
 nuget update
@@ -110,11 +110,11 @@ nuget update
 
 ## <a name="restore-packages"></a>パッケージの復元
 
-[restore](../tools/cli-ref-restore.md) コマンドを使用すると、*packages* フォルダーにないすべてのパッケージがダウンロードされ、インストールされます。
+[restore](../reference/cli-reference/cli-ref-restore.md) コマンドを使用すると、*packages* フォルダーにないすべてのパッケージがダウンロードされ、インストールされます。
 
 `restore` ではパッケージがディスクに追加されるだけで、プロジェクトの依存関係は変更されません。 プロジェクトの依存関係を復元するには、`packages.config` を変更し、`restore` コマンドを使用します。
 
-他の `dotnet` CLI コマンドと同様に、最初にコマンド ラインが開かれ、使用するプロジェクト ファイルが含まれているディレクトリに切り替えられます。
+他の `nuget.exe` CLI コマンドと同様に、最初にコマンド ラインが開かれ、使用するプロジェクト ファイルが含まれているディレクトリに切り替えられます。
 
 `restore` を使用してパッケージを復元するには:
 

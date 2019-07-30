@@ -3,22 +3,22 @@ title: NuGet パッケージの複数バージョン対応
 description: 1 つの NuGet パッケージ内から複数の .NET Framework バージョンに対応するためのさまざま方法の説明。
 author: karann-msft
 ms.author: karann
-ms.date: 09/27/2017
+ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: a755438c1f63d33271f636cb663cc5b51a5aecbc
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: d12b12c4670f5dcb4c1e7e475d77926bd5d3935b
+ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324813"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68342508"
 ---
-# <a name="supporting-multiple-net-framework-versions"></a>複数の .NET Framework バージョンのサポート
+# <a name="support-multiple-net-versions"></a>複数の .NET バージョンをサポートする
 
-*NuGet 4.0+ を使用する .NET Core プロジェクトについては、「[NuGet pack and restore as MSBuild targets](../reference/msbuild-targets.md)」 (MSBuild ターゲットとしての NuGet pack および restore) をご覧ください。複数バージョン対応に関する詳細があります。*
+多くのライブラリは、特定のバージョンの .NET Framework に対応しています。 たとえば、あるバージョンのライブラリは UWP に固有であり、別のバージョンは .NET Framework 4.6 の機能を活用します。 これに対応するために、NuGet では 1 つのパッケージに同じライブラリの複数のバージョンを配置することがサポートされています。
 
-多くのライブラリは、特定のバージョンの .NET Framework に対応しています。 たとえば、あるバージョンのライブラリは UWP に固有であり、別のバージョンは .NET Framework 4.6 の機能を活用します。
+この記事では、パッケージやアセンブリのビルド方法に関係なく、NuGet パッケージのレイアウトについて説明します (つまり、SDK スタイルではない複数の *.csproj* ファイルとカスタムの *.nuspec* ファイルを使用する場合でも、複数をターゲットにした SDK スタイルの *.csproj* を単一ファイルで使用する場合でも、レイアウトは同じです)。 SDK スタイルのプロジェクトの場合、NuGet の [pack ターゲット](../reference/msbuild-targets.md)では、パッケージの整理方法が認識され、適切な lib フォルダーにアセンブリを配置したり、ターゲット フレームワーク (TFM) ごとに依存関係グループを作成する操作が自動化されます。 詳細な手順については、「[プロジェクト ファイル内で複数の .NET Framework バージョンをサポートする](multiple-target-frameworks-project-file.md)」を参照してください。
 
-それに対応するために、NuGet では、「[パッケージを作成する](../create-packages/creating-a-package.md#from-a-convention-based-working-directory)」に説明がある、規則ベースの作業ディレクトリ方法を利用するとき、1 つのパッケージに同じライブラリの複数のバージョンを置くことができます。
+「[パッケージの作成](../create-packages/creating-a-package.md#from-a-convention-based-working-directory)」で説明されている規則ベースの作業ディレクトリを使用する場合は、この記事の説明に従って手動でパッケージをレイアウトする必要があります。 SDK スタイルのプロジェクトでは自動の方法を使用することをお勧めしますが、この記事で説明されているように、パッケージを手動で配置することもできます。
 
 ## <a name="framework-version-folder-structure"></a>フレームワーク バージョンのフォルダー構造
 

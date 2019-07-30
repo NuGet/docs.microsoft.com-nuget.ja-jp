@@ -1,24 +1,24 @@
 ---
-title: NuGet パッケージの作成方法
+title: nuget.exe CLI を使用して NuGet パッケージを作成する
 description: NuGet パッケージを設計し、作成する過程を詳しく説明します。ファイルやバージョン管理など、重要な決定ポイントが含まれます。
 author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1dce8556448131c36680167fdc3605e4378b9178
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 894a39e9e67508234295db128928b09da7f468f0
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842306"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419821"
 ---
-# <a name="create-nuget-packages"></a>NuGet パッケージの作成
+# <a name="create-a-package-using-the-nugetexe-cli"></a>nuget.exe CLI を使用してパッケージを作成する
 
 パッケージの動作やそれに含まれているコードに関係なく、CLI ツールのいずれか (`nuget.exe` または `dotnet.exe`) を使用して、他の開発者が何人でも共有して使用できるコンポーネントにその機能をパッケージ化できます。 NuGet CLI ツールをインストールするには、「[NuGet クライアント ツールのインストール](../install-nuget-client-tools.md)」をご覧ください。 Visual Studio に CLI ツールが自動的に含まれることはないことにご注意ください。
 
-- [SDK スタイルの形式](../resources/check-project-format.md)を使用する .NET Core および .NET Standard プロジェクト、またその他の SDK スタイルのあらゆるプロジェクトに対して、NuGet ではプロジェクト ファイルにある情報を直接使ってパッケージが作成されます。 詳細な手順については、[dotnet CLI での .NET Standard パッケージの作成](../quickstart/create-and-publish-a-package-using-the-dotnet-cli.md)に関するページ、[Visual Studio での .NET Standard パッケージの作成](../quickstart/create-and-publish-a-package-using-visual-studio.md)に関するページ、または「[MSBuild ターゲットとしての NuGet の pack と restore](../reference/msbuild-targets.md)」をご覧ください。
+- 非 SDK スタイルのプロジェクト (通常は .NET Framework プロジェクト) の場合は、この記事で説明されている手順に従ってパッケージを作成してください。 Visual Studio と `nuget.exe` CLI を使用した詳細な手順については、「[.NET Framework パッケージの作成と公開](../quickstart/create-and-publish-a-package-using-visual-studio-net-framework.md)」を参照してください。
 
-- 非 SDK スタイルのプロジェクト (通常は .NET Framework プロジェクト) の場合は、この記事で説明されている手順に従ってパッケージを作成してください。 また、[.NET Framework パッケージの作成と公開](../quickstart/create-and-publish-a-package-using-visual-studio-net-framework.md)に関するページの手順に従って、`nuget.exe` CLI と Visual Studio を使用してパッケージを作成することもできます。
+- [SDK スタイルの形式](../resources/check-project-format.md)を使用する .NET Core および .NET Standard プロジェクト、またその他の SDK スタイルのあらゆるプロジェクトについては、「[Create a NuGet package using the dotnet CLI (dotnet CLI を使用して NuGet パッケージを作成する)](creating-a-package-dotnet-cli.md)」を参照してください。
 
 - `packages.config` から [PackageReference](../consume-packages/package-references-in-project-files.md) に移行されたプロジェクトの場合は、[msbuild -t:pack](../reference/migrate-packages-config-to-package-reference.md#create-a-package-after-migration) をご使用ください。
 
@@ -65,7 +65,7 @@ ms.locfileid: "67842306"
 
 - リリース ノート
 - 著作権情報
-- [Visual Studio のパッケージ マネージャー UI](../tools/package-manager-ui.md) の簡単な説明。
+- [Visual Studio のパッケージ マネージャー UI](../consume-packages/install-use-packages-visual-studio.md) の簡単な説明。
 - ロケール ID
 - [プロジェクトの URL]
 - 式またはファイルとしてライセンス (非推奨とされている `licenseUrl`、[`license` nuspec メタデータ要素を使用する](../reference/nuspec.md#license))
@@ -369,7 +369,7 @@ NuGet では、修正が必要なエラーが `.nuspec` ファイルで見つか
 
 ### <a name="additional-options"></a>追加オプション
 
-`nuget pack` ではさまざまなコマンドライン スイッチを使用できます。ファイルを除外したり、マニフェストのバージョン番号をオーバーライドしたり、出力フォルダーを変更したりできます。 完全な一覧は、[pack コマンドに関するページ](../tools/cli-ref-pack.md)を参照してください。
+`nuget pack` ではさまざまなコマンドライン スイッチを使用できます。ファイルを除外したり、マニフェストのバージョン番号をオーバーライドしたり、出力フォルダーを変更したりできます。 完全な一覧は、[pack コマンドに関するページ](../reference/cli-reference/cli-ref-pack.md)を参照してください。
 
 Visual Studio プロジェクトの共通オプションには以下のようなものがあります。
 
@@ -404,7 +404,7 @@ Visual Studio プロジェクトの共通オプションには以下のような
 自動テストの基本プロセスは次のようになります。
 
 1. `.nupkg` ファイルをローカル フォルダーにコピーします。
-1. `nuget sources add -name <name> -source <path>` コマンドを利用し、パッケージ ソースにフォルダーを追加します ([nuget ソース](../tools/cli-ref-sources.md)を参照してください)。 指定されたコンピューターのいずれかで、このローカル ソースを 1 回設定します。
+1. `nuget sources add -name <name> -source <path>` コマンドを利用し、パッケージ ソースにフォルダーを追加します ([nuget ソース](../reference/cli-reference/cli-ref-sources.md)を参照してください)。 指定されたコンピューターのいずれかで、このローカル ソースを 1 回設定します。
 1. `nuget install <packageID> -source <name>` を利用し、そのソースからパッケージをインストールします。`<name>` は、`nuget sources` に指定されたソースの名前に一致します。 ソースを指定することで、そのソースだけからパッケージがインストールされます。
 1. ファイル システムで、ファイルが正しくインストールされていることを調べます。
 

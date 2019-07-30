@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: fc338ba3810a125f638a937cf14456bf519a24a8
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: b104eb39ddeacd9ca1ea45937cf98ad57531112a
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548475"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317136"
 ---
 # <a name="known-issues-with-nuget"></a>NuGet に関する既知の問題
 
@@ -29,7 +29,7 @@ $PAT = "Your personal access token" $Feed = "Your url" .\nuget.exe sources add -
 
 **回避策:**
 
-[-StorePasswordInClearText](../tools/cli-ref-sources.md) オプションを使用して、クリア テキストにパスワードを格納します。
+[-StorePasswordInClearText](../reference/cli-reference/cli-ref-sources.md) オプションを使用して、クリア テキストにパスワードを格納します。
 
 ## <a name="error-installing-packages-with-nuget-34-341"></a>NuGet 3.4、3.4.1 を使用してパッケージをインストールするときのエラー
 
@@ -75,7 +75,7 @@ install-package log4net
 
 ## <a name="build-failure-after-package-update-in-vs-2012"></a>VS 2012 のパッケージの更新後のビルド エラー
 
-問題: VS 2012 RTM を使用しています。 NuGet パッケージを更新すると、"完全にアンインストールできなかったパッケージがあります" というメッセージを受け取ります。 また、Visual Studio を再起動するように求められます。 VS を再起動すると、通常とは異なるビルド エラーを受け取ります。
+問題:VS 2012 RTM を使用しているとします。 NuGet パッケージを更新すると、次のメッセージが表示されます:"完全にアンインストールできなかったパッケージがあります"。 また、Visual Studio を再起動するように求められます。 VS を再起動すると、通常とは異なるビルド エラーを受け取ります。
 
 この原因は、以前のパッケージに含まれる特定のファイルが、バックグラウンドの MSBuild プロセスでロックされていることです。 VS の再起動後も、バックグラウンドの MSBuild プロセスで、以前のパッケージに含まれるファイルが継続して使用されているため、ビルド エラーが発生します。
 
@@ -105,7 +105,7 @@ Reflector VS アドインをインストールしている場合、パッケー�
     Command execution stopped because the preference variable "ErrorActionPreference" or common parameter
     is set to Stop: Unable to find type
 
-または
+or
 
     System.Management.Automation.CmdletInvocationException: Could not load file or assembly 'Scripts\nuget.psm1' or one of its dependencies. <br />The parameter is incorrect. (Exception from HRESULT: 0x80070057 (E_INVALIDARG)) ---&gt; System.IO.FileLoadException: Could not load file or <br />assembly 'Scripts\nuget.psm1' or one of its dependencies. The parameter is incorrect. (Exception from HRESULT: 0x80070057 (E_INVALIDARG)) <br />---&gt; System.ArgumentException: Illegal characters in path.
        at System.IO.Path.CheckInvalidPathChars(String path)
@@ -134,7 +134,7 @@ Reflector VS アドインをインストールしている場合、パッケー�
 
 解決できるように、アドインの作成者に連絡しました。
 
-<p class="info">更新プログラム: 最新バージョンの Reflector 6.5 を使用すると、コンソールでこの例外が発生しないことを確認しました。</p>
+<p class="info">Update: 最新バージョンの Reflector 6.5 を使用すると、コンソールでこの例外が発生しないことを確認しました。</p>
 
 ## <a name="opening-package-manager-console-fails-with-objectsecurity-exception"></a>ObjectSecurity 例外でパッケージ マネージャー コンソールを開くことができない
 
@@ -151,7 +151,7 @@ Reflector VS アドインをインストールしている場合、パッケー�
 
 ## <a name="the-add-package-library-reference-dialog-throws-an-exception-if-the-solution-contains-installshield-limited-edition-project"></a>ソリューションに InstallShield Limited Edition プロジェクトが含まれている場合、[Add Package Library Reference]\(パッケージ ライブラリ参照の追加\) ダイアログから例外がスローされる
 
-ソリューションに 1 つ以上の InstallShield Limited Edition プロジェクトが含まれている場合、**[Add Package Library Reference]\(パッケージ ライブラリ参照の追加\)** ダイアログを開くと、例外がスローされることがわかっています。 現時点では、InstallShield プロジェクトを削除するかアンロードする以外の回避策がまだありません。
+ソリューションに 1 つ以上の InstallShield Limited Edition プロジェクトが含まれている場合、 **[Add Package Library Reference]\(パッケージ ライブラリ参照の追加\)** ダイアログを開くと、例外がスローされることがわかっています。 現時点では、InstallShield プロジェクトを削除するかアンロードする以外の回避策がまだありません。
 
 ## <a name="uninstall-button-greyed-out-nuget-requires-admin-privileges-to-installuninstall"></a>[アンインストール] ボタンが淡色表示されている場合は NuGet のインストール/アンインストールに管理者特権が必要
 
