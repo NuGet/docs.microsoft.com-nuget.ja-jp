@@ -47,7 +47,7 @@ nuget push <packagePath> [options]
 | SymbolSource | *(3.5 +)* シンボルサーバーの URL を指定します。nuget.smbsrc.net は、nuget.org にプッシュするときに使用されます。 |
 | SymbolApiKey | *(3.5 +)* で`-SymbolSource`指定された URL の API キーを指定します。 |
 | Timeout | サーバーにプッシュするときのタイムアウトを秒単位で指定します。 既定値は300秒 (5 分) です。 |
-| Verbosity | 出力に表示される詳細データの量を指定します:*通常*、 *静か*、*詳細* |
+| Verbosity | 出力に表示される詳細データの量を指定します:*normal*、*quiet*、*detailed* |
 
 「[環境変数](cli-ref-environment-variables.md)」も参照してください。
 
