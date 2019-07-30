@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: a2aed3950b3e19e30d9d026ad1b9bdaef44c9d37
-ms.sourcegitcommit: 1ab750ff17e55c763d646c50e7630138804ce8b8
+ms.openlocfilehash: 178af1975fc4e6fcde8988d773812820f1f1bb84
+ms.sourcegitcommit: f9e39ff9ca19ba4a26e52b8a5e01e18eb0de5387
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56247647"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68433356"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>NuGet でのパッケージ依存関係の解決方法
 
@@ -24,9 +24,10 @@ ms.locfileid: "56247647"
 
 PackageReference 形式を使用してパッケージをプロジェクトにインストールする場合、NuGet は、フラットなパッケージ グラフへの参照を適切なファイルに追加して、競合を未然に解決します。 このプロセスは、"*推移的な復元*" と呼ばれます。 この場合、パッケージの再インストールまたは復元はグラフに列記されているパッケージをダウンロードするプロセスであり、結果としてビルドはいっそう高速で予測可能になります。 また、ワイルドカード (浮動) バージョン (2.8\* など) を利用することもでき、コストがかかってエラーが発生しやすい `nuget update` の呼び出しをクライアント コンピューターやビルド サーバーで回避できます。
 
-ビルド以前に NuGet の復元プロセスを実行すると、最初にメモリ内で依存関係が解決された後、`project.assets.json` という名前のファイルに結果のグラフが書き込まれます。 この資産ファイルは `MSBuildProjectExtensionsPath` (既定でプロジェクトの 'obj' フォルダー) にあります。 その後、MSBuild はこのファイルを読み取り、潜在的な参照が見つかるフォルダーのセットに変換して、メモリ内のプロジェクト ツリーに追加します。
+ビルド以前に NuGet の復元プロセスを実行すると、最初にメモリ内で依存関係が解決された後、`project.assets.json` という名前のファイルに結果のグラフが書き込まれます。 また、[ロック ファイル機能が有効になっている](https://docs.microsoft.com/en-us/nuget/consume-packages/package-references-in-project-files#locking-dependencies)場合、`packages.lock.json` という名前のロック ファイルに解決された依存関係が書き込まれます。
+この資産ファイルは `MSBuildProjectExtensionsPath` (既定でプロジェクトの 'obj' フォルダー) にあります。 その後、MSBuild はこのファイルを読み取り、潜在的な参照が見つかるフォルダーのセットに変換して、メモリ内のプロジェクト ツリーに追加します。
 
-ロック ファイルは一時的なものであり、ソース管理に追加してはなりません。 ロック ファイルは既定で `.gitignore` と `.tfignore` の両方に一覧表示されます。 「[パッケージとソース管理](packages-and-source-control.md)」をご覧ください。
+`project.assets.json` ファイルは一時的なものであるため、ソース管理に追加しないでください。 ロック ファイルは既定で `.gitignore` と `.tfignore` の両方に一覧表示されます。 「[パッケージとソース管理](packages-and-source-control.md)」をご覧ください。
 
 ### <a name="dependency-resolution-rules"></a>依存関係の解決ルール
 
@@ -133,7 +134,7 @@ PackageReference 形式を使用すると、依存関係から最上位のプロ
 
 パッケージの復元操作の間に、"1 つ以上のパッケージは <プロジェクトのターゲット フレームワーク> と互換性がありません" またはパッケージはプロジェクトのターゲット フレームワークと "互換性がありません" という内容のエラーが表示されることがあります。
 
-このエラーは、プロジェクトで参照されているパッケージの 1 つ以上が、プロジェクトのターゲット フレームワークをサポートしていることを示さない場合に発生します。つまり、パッケージの `lib` フォルダーには、プロジェクトと互換性のあるターゲット フレームワーク用の適切な DLL が含まれません  (「[Target frameworks](../reference/target-frameworks.md)」(ターゲット フレームワーク) をご覧ください)。 
+このエラーは、プロジェクトで参照されているパッケージの 1 つ以上が、プロジェクトのターゲット フレームワークをサポートしていることを示さない場合に発生します。つまり、パッケージの `lib` フォルダーには、プロジェクトと互換性のあるターゲット フレームワーク用の適切な DLL が含まれません (「[Target frameworks](../reference/target-frameworks.md)」(ターゲット フレームワーク) をご覧ください)。 
 
 たとえば、プロジェクトのターゲットが `netstandard1.6` で、`lib\net20` フォルダーと `\lib\net45` フォルダーのみに DLL が含まれるパッケージをインストールしようとすると、パッケージおよび場合によっては依存関係について、次のようなメッセージが表示されます。
 

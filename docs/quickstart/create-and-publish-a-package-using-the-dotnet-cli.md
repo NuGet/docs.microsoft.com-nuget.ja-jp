@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: 4e96d9969c8b4570ee69501d6529986f891ea4dc
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 30a77b427fe0a33b41262c5784045e5a6b10852f
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842602"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419992"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>クイック スタート: パッケージの作成と公開 (dotnet CLI)
 
@@ -101,12 +101,18 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 
 [!INCLUDE [publish-manage](includes/publish-manage.md)]
 
-## <a name="related-topics"></a>関連トピック
+## <a name="next-steps"></a>次の手順
 
-- [パッケージの作成](../create-packages/creating-a-package.md)
+無事に、最初の NuGet パッケージを作成できました。
+
+> [!div class="nextstepaction"]
+> [パッケージの作成](../create-packages/creating-a-package-dotnet-cli.md)
+
+NuGet による提供についてさらに詳しく調べるには、下のリンクを選択してください。
+
 - [パッケージの公開](../nuget-org/publish-a-package.md)
 - [プレリリース パッケージ](../create-packages/Prerelease-Packages.md)
-- [複数のターゲット フレームワークのサポート](../create-packages/supporting-multiple-target-frameworks.md)
+- [複数のターゲット フレームワークのサポート](../create-packages/multiple-target-frameworks-project-file.md)
 - [パッケージのバージョン管理](../reference/package-versioning.md)
 - [ローカライズされたパッケージを作成する](../create-packages/creating-localized-packages.md)
 - [シンボル パッケージを作成する](../create-packages/symbol-packages-snupkg.md)

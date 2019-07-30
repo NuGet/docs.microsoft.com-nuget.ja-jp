@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4b365488c8dd0e081449552b06451e7b40b5223b
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: f5d418fd5b6b9bb88958d6b7e9e3034f40485a7d
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426614"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419959"
 ---
 # <a name="managing-the-global-packages-cache-and-temp-folders"></a>グローバル パッケージ、キャッシュ、および一時フォルダーを管理する
 
@@ -18,7 +18,7 @@ NuGet では、パッケージのインストール、更新、または復元�
 
 | name | 説明および場所 (ユーザーごと)|
 | --- | --- |
-| global&#8209;packages | "*グローバル パッケージ*" フォルダーは、ダウンロードされた任意のパッケージが NuGet でインストールされる場所です。 各パッケージは、パッケージ ID とバージョン番号と一致するサブフォルダーに完全に展開されます。 PackageReference 形式を使用するプロジェクトは常に、このフォルダーから直接パッケージを使用します。 `packages.config` を使用する場合、パッケージは "*グローバル パッケージ*" フォルダーにインストールされ、プロジェクトの `packages` フォルダーにコピーされます。<br/><ul><li>Windows: `%userprofile%\.nuget\packages`</li><li>Mac/Linux: `~/.nuget/packages`</li><li>NUGET_PACKAGES 環境変数、`globalPackagesFolder`または `repositoryPath`[構成設定](../reference/nuget-config-file.md#config-section) (それぞれ、PackageReference および `packages.config` を使用している場合)、あるいは `RestorePackagesPath` MSBuild プロパティ (MSBuild のみ) を使用して、オーバーライドします。 環境変数は、構成設定よりも優先されます。</li></ul> |
+| global&#8209;packages | "*グローバル パッケージ*" フォルダーは、ダウンロードされた任意のパッケージが NuGet でインストールされる場所です。 各パッケージは、パッケージ ID とバージョン番号と一致するサブフォルダーに完全に展開されます。 [PackageReference](package-references-in-project-files.md) 形式を使用するプロジェクトでは常に、このフォルダーから直接パッケージを使用します。 [packages.config](../reference/packages-config.md) を使用する場合、パッケージは "*グローバル パッケージ*" フォルダーにインストールされ、プロジェクトの `packages` フォルダーにコピーされます。<br/><ul><li>Windows: `%userprofile%\.nuget\packages`</li><li>Mac/Linux: `~/.nuget/packages`</li><li>NUGET_PACKAGES 環境変数、`globalPackagesFolder`または `repositoryPath`[構成設定](../reference/nuget-config-file.md#config-section) (それぞれ、PackageReference および `packages.config` を使用している場合)、あるいは `RestorePackagesPath` MSBuild プロパティ (MSBuild のみ) を使用して、オーバーライドします。 環境変数は、構成設定よりも優先されます。</li></ul> |
 | http&#8209;cache | Visual Studio パッケージ マネージャー (NuGet 3.x 以降) および `dotnet` ツールでは、ダウンロードしたパッケージのコピーをこのキャッシュに格納し (`.dat` ファイルとして保存)、各パッケージ ソースのサブフォルダーに整理します。 パッケージは展開されず、キャッシュには 30 分の有効期限があります。<br/><ul><li>Windows: `%localappdata%\NuGet\v3-cache`</li><li>Mac/Linux: `~/.local/share/NuGet/v3-cache`</li><li>NUGET_HTTP_CACHE_PATH 環境変数を使用してオーバーライドします。</li></ul> |
 | temp | NuGet が、さまざまな操作中に一時ファイルを格納するフォルダーです。<br/><li>Windows: `%temp%\NuGetScratch`</li><li>Mac/Linux: `/tmp/NuGetScratch`</li></ul> |
 | plugins-cache **4.8+** | NuGet が、操作要求の結果を格納するフォルダーです。<br/><ul><li>Windows: `%localappdata%\NuGet\plugins-cache`</li><li>Mac/Linux: `~/.local/share/NuGet/plugins-cache`</li><li>NUGET_PLUGINS_CACHE_PATH 環境変数を使用してオーバーライドします。</li></ul> |
@@ -34,7 +34,7 @@ NuGet では、パッケージのインストール、更新、または復元�
 
 ## <a name="viewing-folder-locations"></a>フォルダーの場所を表示する
 
-次のように [nuget locals コマンド](../tools/cli-ref-locals.md)を使用して場所を表示できます。
+次のように [nuget locals コマンド](../reference/cli-reference/cli-ref-locals.md)を使用して場所を表示できます。
 
 ```cli
 # Display locals for all folders: global-packages, http cache, temp and plugins cache

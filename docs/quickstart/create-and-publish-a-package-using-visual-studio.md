@@ -1,16 +1,16 @@
 ---
-title: Windows の Visual Studio を使用した .NET Standard パッケージの作成と公開
+title: Windows 上で Visual Studio を使用した .NET Standard NuGet パッケージの作成と公開
 description: Windows の Visual Studio を使用した、.NET Standard NuGet パッケージの作成と公開に関するチュートリアルです。
 author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: quickstart
-ms.openlocfilehash: d9eccfa373a5a283542fd158e76ba74b1872f3d6
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 86e71460094de9b799384db83456a68db57647af
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842148"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419904"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>クイック スタート: Visual Studio を使用した NuGet パッケージの作成と公開 (.NET Standard、Windows のみ)
 
@@ -21,9 +21,9 @@ Windows の Visual Studio で .NET Standard クラス ライブラリから NuGe
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-1. [visualstudio.com](https://www.visualstudio.com/) から Visual Studio 2017 以降の任意のエディションと、.NET 関連の任意のワークロードをインストールします。 Visual Studio 2017 以降では、.NET ワークロードをインストールすると NuGet 機能が自動的に含まれます。
+1. [visualstudio.com](https://www.visualstudio.com/) から Visual Studio 2017 以降の任意のエディションを、.NET Core 関連のワークロードと共にインストールします。
 
-1. `dotnet` CLI をインストールします。
+1. まだインストールされていない場合、`dotnet` CLI をインストールします。
 
    `dotnet` CLI について、Visual Studio 2017 以降、`dotnet` CLI は .NET Core 関連のワークロードと共に自動的にインストールされます。 それ以外の場合は、[.NET Core SDK](https://www.microsoft.com/net/download/) をインストールして `dotnet` CLI を取得します。 [SDK スタイルの形式](../resources/check-project-format.md) (SDK 属性) を使用する .NET Standard プロジェクトには、`dotnet` CLI が必要です。 Visual Studio 2017 以降の既定のクラス ライブラリ テンプレート (この記事で使用するものです) では、SDK 属性が使用されます。
    
@@ -150,7 +150,7 @@ msbuild -t:pack -p:Configuration=Release
     Your package was pushed.
     ```
 
-[nuget push](../tools/cli-ref-push.md)に関するページを参照してください。
+[nuget push](../reference/cli-reference/cli-ref-push.md)に関するページを参照してください。
 
 ### <a name="publish-errors"></a>公開エラー
 
@@ -185,7 +185,7 @@ msbuild -t:pack -p:Configuration=Release
 - [パッケージの作成](../create-packages/creating-a-package.md)
 - [パッケージの公開](../nuget-org/publish-a-package.md)
 - [プレリリース パッケージ](../create-packages/Prerelease-Packages.md)
-- [複数のターゲット フレームワークのサポート](../create-packages/supporting-multiple-target-frameworks.md)
+- [複数のターゲット フレームワークのサポート](../create-packages/multiple-target-frameworks-project-file.md)
 - [パッケージのバージョン管理](../reference/package-versioning.md)
 - [ローカライズされたパッケージを作成する](../create-packages/creating-localized-packages.md)
 - [.NET Standard ライブラリのドキュメント](/dotnet/articles/standard/library)
