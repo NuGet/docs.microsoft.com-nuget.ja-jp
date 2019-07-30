@@ -37,7 +37,7 @@ nuget verify <-All|-Signatures> <package(s)> [options]
 
 パッケージ署名の検証を実行する必要があることを指定します。
 
-## <a name="options-for-verify--signatures"></a>"確認-署名" のオプション
+## <a name="options-for-verify--signatures"></a>"verify -Signatures" のオプション
 
 | オプション | 説明 |
 | --- | --- |
