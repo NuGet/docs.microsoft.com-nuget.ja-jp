@@ -50,7 +50,7 @@ nuget restore <projectPath> [options]
 | RequireConsent | パッケージをダウンロードしてインストールする前に、パッケージの復元が有効になっていることを確認します。 詳細については、「[パッケージの復元](../../consume-packages/package-restore.md)」を参照してください。 |
 | SolutionDirectory | ソリューションフォルダーを指定します。 ソリューションのパッケージを復元するときには無効です。 または`packages.config` `PackagesDirectory` が使用されている場合を除き、ファイルを使用して復元する場合`OutputDirectory`に必要です。 |
 | Source | 復元に使用するパッケージソースの一覧を Url として指定します。 省略した場合、コマンドは構成ファイルで提供されているソースを使用します。「 [NuGet の動作の構成](../../consume-packages/configuring-nuget-behavior.md)」を参照してください。 |
-| Verbosity | 出力に表示される詳細データの量を指定します:*通常*、 *静か*、*詳細* |
+| Verbosity | 出力に表示される詳細データの量を指定します:*normal*、*quiet*、*detailed* |
 
 「[環境変数](cli-ref-environment-variables.md)」も参照してください。
 
