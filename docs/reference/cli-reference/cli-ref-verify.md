@@ -15,7 +15,7 @@ ms.locfileid: "68327499"
 ---
 # <a name="verify-command-nuget-cli"></a>verify コマンド (NuGet CLI)
 
-**適用対象:** パッケージ消費&bullet;が**サポートされているバージョン:** 4.6 +
+**適用対象:** パッケージの使用&bullet;が**サポートされているバージョン:** 4.6 +
 
 パッケージを検証します。
 
