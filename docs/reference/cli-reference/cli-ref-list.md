@@ -38,7 +38,7 @@ nuget list [search terms] [options]
 | NonInteractive | ユーザーの入力または確認のプロンプトを表示しません。 |
 | PreRelease | には、一覧にプレリリースパッケージが含まれています。 |
 | Source | 検索するパッケージソースの一覧を指定します。 |
-| Verbosity | 出力に表示される詳細データの量を指定します:*通常*、 *静か*、*詳細* |
+| Verbosity | 出力に表示される詳細データの量を指定します: *normal*、*quiet*、*detailed* |
 
 「[環境変数](cli-ref-environment-variables.md)」も参照してください。
 
