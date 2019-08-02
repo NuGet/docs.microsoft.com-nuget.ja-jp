@@ -1,5 +1,5 @@
 ---
-title: NuGet CLI 構成コマンド
+title: NuGet CLI config コマンド
 description: Nuget.exe config コマンドのリファレンス
 author: karann-msft
 ms.author: karann
