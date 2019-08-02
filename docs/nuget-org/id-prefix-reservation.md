@@ -6,12 +6,12 @@ ms.author: diverdan92
 ms.date: 10/09/2017
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 94036e3ca7c65e6878f24a5a8514cbb0d8816d9c
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 650f570ec65a665e3d452af732ea22337835d8d9
+ms.sourcegitcommit: cae759ad8518c049575a30ad3bf04fe5d06244fb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427227"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68616805"
 ---
 # <a name="package-id-prefix-reservation"></a>パッケージ ID プレフィックスの予約
 
@@ -76,6 +76,8 @@ ms.locfileid: "67427227"
 ID プレフィックス予約の申請をレビューするとき、[nuget.org](https://www.nuget.org/) のチームは以下の条件に対して申請を評価します。 プレフィックスが予約されるためにすべての条件が満たされる必要はありませんが、条件が満たされていることの十分な証拠 (および説明) がない場合、申請が却下される可能性があります。
 
 1. そのパッケージ ID プレフィックスでは適切かつ明確にパッケージ所有者が示されていますか?
+
+1. パッケージ所有者は、[NuGet.org アカウントの 2FA を有効にしていますか](individual-accounts.md#enable-two-factor-authentication-2fa)?
 
 1. そのパッケージ ID プレフィックスの下で所有者によって既に多数のパッケージが送信されていますか?
 
