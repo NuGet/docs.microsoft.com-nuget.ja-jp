@@ -1,5 +1,5 @@
 ---
-title: NuGet CLI ミラーコマンド
+title: NuGet CLI の mirror コマンド
 description: Nuget.exe mirror コマンドのリファレンス
 author: karann-msft
 ms.author: karann
