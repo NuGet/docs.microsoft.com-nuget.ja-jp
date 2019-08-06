@@ -1,6 +1,6 @@
 ---
-title: NuGet CLI のヘルプコマンド
-description: Nuget.exe ヘルプコマンドのリファレンス
+title: NuGet CLI の help コマンド
+description: Nuget.exe help コマンドのリファレンス
 author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
