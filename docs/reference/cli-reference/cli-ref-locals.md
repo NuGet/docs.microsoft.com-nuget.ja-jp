@@ -1,6 +1,6 @@
 ---
-title: NuGet CLI ローカルコマンド
-description: Nuget.exe ローカルコマンドのリファレンス
+title: NuGet CLI の locals コマンド
+description: Nuget.exe locals コマンドのリファレンス
 author: karann-msft
 ms.author: karann
 ms.date: 03/19/2018
