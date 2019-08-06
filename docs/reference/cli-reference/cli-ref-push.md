@@ -1,5 +1,5 @@
 ---
-title: NuGet CLI プッシュコマンド
+title: NuGet CLI の push コマンド
 description: Nuget.exe push コマンドのリファレンス
 author: karann-msft
 ms.author: karann
