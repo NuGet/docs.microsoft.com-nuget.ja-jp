@@ -1,6 +1,6 @@
 ---
-title: NuGet CLI の復元コマンド
-description: Nuget.exe 復元コマンドのリファレンス
+title: NuGet CLI の restore コマンド
+description: Nuget.exe restore コマンドのリファレンス
 author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
