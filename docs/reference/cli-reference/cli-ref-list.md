@@ -1,5 +1,5 @@
 ---
-title: NuGet CLI リストコマンド
+title: NuGet CLI の list コマンド
 description: Nuget.exe list コマンドのリファレンス
 author: karann-msft
 ms.author: karann
