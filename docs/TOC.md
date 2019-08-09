@@ -18,7 +18,7 @@
 ### [パッケージ マネージャー コンソール (PowerShell)](consume-packages/install-use-packages-powershell.md)
 ## NuGet を構成する
 ### パッケージの復元オプション
-#### [復元オプション](consume-packages/package-restore.md)
+#### [パッケージの復元](consume-packages/package-restore.md)
 #### [トラブルシューティング](consume-packages/package-restore-troubleshooting.md)
 ### [パッケージを再インストールして更新する](consume-packages/reinstalling-and-updating-packages.md)
 ### [グローバル パッケージとキャッシュ フォルダーを管理する](consume-packages/managing-the-global-packages-and-cache-folders.md)
@@ -116,7 +116,7 @@
 #### [シンボル パッケージをプッシュします](api/symbol-package-publish-resource.md)
 #### [URL の不正使用を報告する](api/report-abuse-resource.md)
 #### [リポジトリの署名](api/repository-signatures-resource.md)
-#### [Search](api/search-query-service-resource.md)
+#### [検索](api/search-query-service-resource.md)
 #### [サービス インデックス](api/service-index.md)
 ### [方法: API を使用したすべてのパッケージのクエリ](guides/api/query-for-all-published-packages.md)
 ### [速度の制限](api/rate-limits.md)
@@ -342,6 +342,6 @@
 #### [NuGet 1.3](release-notes/NuGet-1.3.md)
 #### [NuGet 1.2](release-notes/NuGet-1.2.md)
 #### [NuGet 1.1](release-notes/NuGet-1.1.md)
-## [FAQ](faqs/nuget-faq.md)
+## [よく寄せられる質問](faqs/nuget-faq.md)
 ## [プロジェクトの形式](resources/check-project-format.md)
 # [NuGet.org](nuget-org/overview-nuget-org.md)
