@@ -31,7 +31,7 @@ nuget spec [<packageID>] [options]
 | オプション | 説明 |
 | --- | --- |
 | AssemblyPath | メタデータに使用するアセンブリへのパスを指定します。 |
-| 必ず | 既存`.nuspec`のファイルを上書きします。 |
+| Force | 既存`.nuspec`のファイルを上書きします。 |
 | ForceEnglishOutput | *(3.5 +)* 不変の英語ベースのカルチャを使用して nuget.exe を強制的に実行します。 |
 | Help | ヘルプのコマンドの情報を表示します。 |
 | NonInteractive | ユーザーの入力または確認のプロンプトを表示しません。 |
