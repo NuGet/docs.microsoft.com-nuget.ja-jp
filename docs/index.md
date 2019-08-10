@@ -7,12 +7,12 @@ ms.date: 02/12/2018
 ms.topic: hub-page
 layout: HubPage
 hide_bc: true
-ms.openlocfilehash: 8f4fca447d61b6f435399a24ef4151604d43291d
-ms.sourcegitcommit: ba8ad1bd13a4bba3df94374e34e20c425a05af2f
+ms.openlocfilehash: a771fea20db11b573b8e0efc24180e6f54d3e571
+ms.sourcegitcommit: dec3fa44547c6a00d0ae6cbb6c64cdc65660d808
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68833359"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912602"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -52,7 +52,7 @@ ms.locfileid: "68833359"
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3><a href="install-nuget-client-tools.md">作業開始</a></h3>
+                        <h3><a href="install-nuget-client-tools.md">開始するには</a></h3>
                         <p>
                             <a href="quickstart/install-and-use-a-package-using-the-dotnet-cli.md">パッケージをインストールして使用する - dotnet CLI</a>
                         </p>
@@ -131,7 +131,7 @@ ms.locfileid: "68833359"
                             <a href="create-packages/creating-a-package.md">nuget.exe CLI の使用</a>
                         </p>
                         <p>
-                            <a href="create-packages/creating-a-package.md">MSBuild の使用</a>
+                            <a href="create-packages/creating-a-package-msbuild.md">MSBuild の使用</a>
                         </p>
                         <p>
                             <a href="create-packages/multiple-target-frameworks-project-file.md">複数のターゲット フレームワークのサポート</a>
@@ -204,7 +204,7 @@ ms.locfileid: "68833359"
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3><a href="reference/nuspec.md">リファレンス</a></h3>
+                        <h3><a href="reference/nuspec.md">参照</a></h3>
                         <p>
                             <a href="reference/dotnet-commands.md">dotnet CLI</a>
                         </p>
