@@ -25,11 +25,11 @@ Windows、Mac OS X、Linux で実行されるコマンドラインインター�
 - [**dotnet add package**](/dotnet/core/tools/dotnet-add-package):プロジェクト ファイルにパッケージ参照を追加し、実行`dotnet restore`パッケージをインストールします。
 - [**dotnet remove package**](/dotnet/core/tools/dotnet-remove-package):プロジェクト ファイルからパッケージ参照を削除します。
 - [**dotnet restore**](/dotnet/core/tools/dotnet-restore?tabs=netcore2x):プロジェクトの依存関係とツールを復元します。 NuGet 4.0 以降、`nuget restore` と同じコードが実行されます。
-- [**dotnet nuget ローカル**](/dotnet/core/tools/dotnet-nuget-locals):*グローバルパッケージ*、 *http キャッシュ*、および*一時*フォルダーの場所を一覧表示し、それらのフォルダーの内容をクリアします。
+- [**dotnet nuget locals**](/dotnet/core/tools/dotnet-nuget-locals):*グローバルパッケージ*、 *http キャッシュ*、および*一時*フォルダーの場所を一覧表示し、それらのフォルダーの内容をクリアします。
 - [**dotnet new nugetconfig**](/dotnet/core/tools/dotnet-new):NuGet の[`nuget.config`](../reference/nuget-config-file.md)動作を構成するファイルを作成します。
 
 ## <a name="package-creation"></a>パッケージの作成
 
 - [**dotnet pack**](/dotnet/core/tools/dotnet-pack?tabs=netcore2x):NuGet パッケージにコードをパックします。
 - [**dotnet nuget push**](/dotnet/core/tools/dotnet-nuget-push):パッケージを NuGet サーバーに発行します。 Nuget.org、Azure Artifacts、および[サードパーティの nuget サーバー](../hosting-packages/overview.md)に適用されます。
-- [**dotnet nuget の削除**](/dotnet/core/tools/dotnet-nuget-delete):NuGet サーバーからパッケージを削除または一覧から削除します。 Nuget.org、Azure Artifacts、および[サードパーティの nuget サーバー](../hosting-packages/overview.md)に適用されます。
+- [**dotnet nuget delete**](/dotnet/core/tools/dotnet-nuget-delete):NuGet サーバーからパッケージを削除または一覧から削除します。 Nuget.org、Azure Artifacts、および[サードパーティの nuget サーバー](../hosting-packages/overview.md)に適用されます。
