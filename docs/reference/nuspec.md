@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 5b9be55b593890127d8fe0ad1a9357b89527a09a
-ms.sourcegitcommit: f9e39ff9ca19ba4a26e52b8a5e01e18eb0de5387
+ms.openlocfilehash: 9c608c5455bc83874b670b7f2b9a0ceeeafdc8e5
+ms.sourcegitcommit: dec3fa44547c6a00d0ae6cbb6c64cdc65660d808
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68433371"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912579"
 ---
 # <a name="nuspec-reference"></a>.nuspec リファレンス
 
@@ -293,7 +293,8 @@ nuget pack MyProject.csproj
 </dependencies>
 ```
 
-メモ:を使用し`.nuspec`て`nuget spec`プロジェクトからを作成する場合、そのプロジェクトに存在する依存関係は、 `.nuspec`そのファイルに自動的に含まれます。
+> [!Important]
+> を使用し`.nuspec`て`nuget spec`プロジェクトからを作成する場合、そのプロジェクトに存在する依存関係は、結果`.nuspec`のファイルに自動的に含まれません。 代わりに、を`nuget pack myproject.csproj`使用し、生成された*nupkg*ファイル内から*nuspec*ファイルを取得します。 この*nuspec*には、依存関係が含まれています。
 
 ### <a name="dependency-groups"></a>依存関係グループ
 
