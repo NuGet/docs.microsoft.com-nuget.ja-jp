@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 894a39e9e67508234295db128928b09da7f468f0
-ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
+ms.openlocfilehash: f33624cf50248d8a137216ed0d725ed88c0defd2
+ms.sourcegitcommit: ba8ad1bd13a4bba3df94374e34e20c425a05af2f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68419821"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68833376"
 ---
 # <a name="create-a-package-using-the-nugetexe-cli"></a>nuget.exe CLI を使用してパッケージを作成する
 
@@ -138,7 +138,7 @@ ms.locfileid: "68419821"
 </package>
 ```
 
-依存関係の宣言とバージョン番号の指定については、「[パッケージのバージョン管理](../reference/package-versioning.md)」を参照してください。 パッケージで直接、依存関係からアセットを表面化させることもできます。`dependency` 要素で `include` 属性と `exclude` 属性を使用します。 [.nuspec リファレンスの依存関係](../reference/nuspec.md#dependencies)をご覧ください。
+依存関係の宣言とバージョン番号の指定の詳細については、「[packages.config 参照](../reference/packages-config.md)」と「[パッケージのバージョン管理](../reference/package-versioning.md)」を参照してください。 パッケージで直接、依存関係からアセットを表面化させることもできます。`dependency` 要素で `include` 属性と `exclude` 属性を使用します。 [.nuspec リファレンスの依存関係](../reference/nuspec.md#dependencies)をご覧ください。
 
 マニフェストはそれから作成されたパッケージに含まれるため、既存のパッケージを調べることで追加の例をいくつも見つけることができます。 探す場所としては、コンピューターの "*グローバル パッケージ*" フォルダーが適しています。この場所は次のコマンドで返されます。
 

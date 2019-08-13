@@ -1,27 +1,29 @@
 ---
-title: dotnet CLI を使用して NuGet パッケージを作成する
+title: MSBuild を使用して NuGet パッケージを作成する
 description: NuGet パッケージを設計し、作成する過程を詳しく説明します。ファイルやバージョン管理など、重要な決定ポイントが含まれます。
 author: karann-msft
 ms.author: karann
-ms.date: 07/09/2019
+ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8222e1edfa13951d2fda9a2384d93bba38ef4979
+ms.openlocfilehash: a0db6dc95ffa5ad73741ae53a6be9d6f937c1dbf
 ms.sourcegitcommit: ba8ad1bd13a4bba3df94374e34e20c425a05af2f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 08/06/2019
-ms.locfileid: "68833291"
+ms.locfileid: "68833228"
 ---
-# <a name="create-a-nuget-package-using-the-dotnet-cli"></a>dotnet CLI を使用して NuGet パッケージを作成する
+# <a name="create-a-nuget-package-using-msbuild"></a>MSBuild を使用して NuGet パッケージを作成する
 
-パッケージの動作やそれに含まれているコードに関係なく、CLI ツールのいずれか (`nuget.exe` または `dotnet.exe`) を使用して、他の開発者が何人でも共有して使用できるコンポーネントにその機能をパッケージ化できます。 この記事では、dotnet CLI を使用してパッケージを作成する方法について説明します。 `dotnet` CLI をインストールするには、「[NuGet クライアント ツールのインストール](../install-nuget-client-tools.md)」をご覧ください。 Visual Studio 2017 以降では、dotnet CLI は .NET Core ワークロードに含まれています。
+自分のコードで NuGet パッケージを作成する場合、その機能をコンポーネントにパッケージ化し、数を問わず他の開発者と共有し、使用することができます。 この記事では、MSBuild を使用してパッケージを作成する方法について説明します。 MSBuild は、NuGet を含むすべての Visual Studio ワークロードにプレインストールされています。 また、dotnet CLI と [dotnet msbuild](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-msbuild) を使用して MSBuild を使用することもできます。
 
-[SDK スタイルの形式](../resources/check-project-format.md)を使用する .NET Core および .NET Standard プロジェクト、またその他の SDK スタイルのあらゆるプロジェクトに対して、NuGet ではプロジェクト ファイルにある情報を直接使ってパッケージが作成されます。 ステップ バイ ステップのチュートリアルについては、「[.NET Standard パッケージの作成 (dotnet CLI)](../quickstart/create-and-publish-a-package-using-the-dotnet-cli.md)」または「[.NET Standard パッケージの作成 (Visual Studio)](../quickstart/create-and-publish-a-package-using-visual-studio.md)」を参照してください。
+[SDK スタイルの形式](../resources/check-project-format.md)を使用する .NET Core および .NET Standard プロジェクト、またその他の SDK スタイルのあらゆるプロジェクトに対して、NuGet ではプロジェクト ファイルにある情報を直接使ってパッケージが作成されます。  `<PackageReference>` を使用する SDK スタイル以外のプロジェクトの場合、NuGet ではプロジェクト ファイルを使用してパッケージを作成することもできます。
 
-`msbuild -t:pack` は、`dotnet pack` と同等の機能です。 MSBuild を使用してビルドするには、「[NuGet パッケージの作成 (MSBuild)](creating-a-package-msbuild.md)」を参照してください。
+SDK スタイルのプロジェクトには、既定でパック機能を利用できます。 SDK スタイル以外の PackageReference プロジェクトでは、プロジェクトの依存関係に NuGet.Build.Tasks.Pack パッケージを追加する必要があります。 MSBuild パック ターゲットの詳細については、「[MSBuild ターゲットとしての NuGet の pack と restore](../reference/msbuild-targets.md)」を参照してください。
+
+パッケージ (`msbuild -t:pack`) を作成するコマンドは、`dotnet pack` と同等の機能です。
 
 > [!IMPORTANT]
-> このトピックは、[SDK スタイル](../resources/check-project-format.md)のプロジェクト (通常は .NET Core および .NET Standard プロジェクト) に適用されます。
+> このトピックは、[SDK スタイル](../resources/check-project-format.md)のプロジェクト (通常は、.NET Core プロジェクトと .NET Standard プロジェクト)、および PackageReference を使った SDK スタイル以外のプロジェクトを対象としています。
 
 ## <a name="set-properties"></a>プロパティの設定
 
@@ -33,11 +35,11 @@ ms.locfileid: "68833291"
 - `Authors`、作成者と所有者の情報。 指定しない場合は、既定値の `AssemblyName` が使用されます。
 - `Company`、会社名。 指定しない場合は、既定値の `AssemblyName` が使用されます。
 
-Visual Studio では、プロジェクトのプロパティにこれらの値を設定できます (ソリューション エクスプローラー内でプロジェクトを右クリックし、 **[プロパティ]** を選択して、 **[パッケージ]** タブを選択します)。 プロジェクト ファイル (`.csproj`) 内でこれらのプロパティを直接設定することもできます。
+Visual Studio では、プロジェクトのプロパティにこれらの値を設定できます (ソリューション エクスプローラー内でプロジェクトを右クリックし、 **[プロパティ]** を選択して、 **[パッケージ]** タブを選択します)。 プロジェクト ファイル ( *.csproj*) 内でこれらのプロパティを直接設定することもできます。
 
 ```xml
 <PropertyGroup>
-  <PackageId>AppLogger</PackageId>
+  <PackageId>ClassLibDotNetStandard</PackageId>
   <Version>1.0.0</Version>
   <Authors>your_name</Authors>
   <Company>your_company</Company>
@@ -47,13 +49,13 @@ Visual Studio では、プロジェクトのプロパティにこれらの値を
 > [!Important]
 > パッケージには、nuget.org または使用しているパッケージ ソース全体で一意になる識別子を付けてください。
 
-次の例は、これらのプロパティを含む、シンプルかつ完全なプロジェクト ファイルを示しています。 (`dotnet new classlib` コマンドを使用して、新しい既定のプロジェクトを作成できます)。
+次の例は、これらのプロパティを含む、シンプルかつ完全なプロジェクト ファイルを示しています。
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageId>AppLogger</PackageId>
+    <PackageId>ClassLibDotNetStandard</PackageId>
     <Version>1.0.0</Version>
     <Authors>your_name</Authors>
     <Company>your_company</Company>
@@ -72,35 +74,82 @@ Visual Studio では、プロジェクトのプロパティにこれらの値を
 
 [!INCLUDE [choose-package-id](includes/choose-package-id.md)]
 
-## <a name="run-the-pack-command"></a>pack コマンドを実行する
+## <a name="add-the-nugetbuildtaskspack-package"></a>NuGet.Build.Tasks.Pack パッケージを追加する
 
-プロジェクトから NuGet パッケージ (`.nupkg` ファイル) を作成するには、`dotnet pack` コマンドを実行します。このコマンドではプロジェクトのビルドも自動的に行われます。
+SDK スタイル以外のプロジェクトと PackageReference で MSBuild を使用している場合は、プロジェクトに NuGet.Build.Tasks.Pack パッケージを追加します。
 
-```cli
+1. プロジェクト ファイルを開き、以下を `<PropertyGroup>` 要素の後に追加します。
+
+   ```xml
+   <ItemGroup>
+     <!-- ... -->
+     <PackageReference Include="NuGet.Build.Tasks.Pack" Version="5.2.0"/>
+     <!-- ... -->
+   </ItemGroup>
+   ```
+
+2. 開発者コマンド プロンプトを開きます (**検索**ボックスに「**開発者コマンド プロンプト**」と入力します)。
+
+   MSBuild に必要なすべてのパスが構成されるため、通常は **[スタート]** メニューから Visual Studio 用開発者コマンド プロンプトを使用します。
+
+3. プロジェクト ファイルが含まれているフォルダーに切り替え、次のコマンドを入力して、NuGet.Build.Tasks.Pack パッケージをインストールします。
+
+   ```cmd
+   # Uses the project file in the current folder by default
+   msbuild -t:restore
+   ```
+
+   MSBuild の出力にビルドが正常に完了したことが示されていることを確認します。
+
+## <a name="run-the-msbuild--tpack-command"></a>msbuild -t:pack コマンドを実行する
+
+プロジェクトから NuGet パッケージ (`.nupkg` ファイル) を作成するには、`msbuild -t:pack` コマンドを実行します。このコマンドではプロジェクトのビルドも自動的に行われます。
+
+開発者コマンド プロンプトに、次のコマンドを入力します。
+
+```cmd
 # Uses the project file in the current folder by default
-dotnet pack
+msbuild -t:pack
 ```
 
 出力に、`.nupkg` ファイルへのパスが表示されます。
 
 ```output
-Microsoft (R) Build Engine version 15.5.180.51428 for .NET Core
+Microsoft (R) Build Engine version 16.1.76+g14b0a930a7 for .NET Framework
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-  Restore completed in 29.91 ms for D:\proj\AppLoggerNet\AppLogger\AppLogger.csproj.
-  AppLogger -> D:\proj\AppLoggerNet\AppLogger\bin\Debug\netstandard2.0\AppLogger.dll
-  Successfully created package 'D:\proj\AppLoggerNet\AppLogger\bin\Debug\AppLogger.1.0.0.nupkg'.
+Build started 8/5/2019 3:09:15 PM.
+Project "C:\Users\username\source\repos\ClassLib_DotNetStandard\ClassLib_DotNetStandard.csproj" on node 1 (pack target(s)).
+GenerateTargetFrameworkMonikerAttribute:
+Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
+CoreCompile:
+  ...
+CopyFilesToOutputDirectory:
+  Copying file from "C:\Users\username\source\repos\ClassLib_DotNetStandard\obj\Debug\netstandard2.0\ClassLib_DotNetStandard.dll" to "C:\Use
+  rs\username\source\repos\ClassLib_DotNetStandard\bin\Debug\netstandard2.0\ClassLib_DotNetStandard.dll".
+  ClassLib_DotNetStandard -> C:\Users\username\source\repos\ClassLib_DotNetStandard\bin\Debug\netstandard2.0\ClassLib_DotNetStandard.dll
+  Copying file from "C:\Users\username\source\repos\ClassLib_DotNetStandard\obj\Debug\netstandard2.0\ClassLib_DotNetStandard.pdb" to "C:\Use
+  rs\username\source\repos\ClassLib_DotNetStandard\bin\Debug\netstandard2.0\ClassLib_DotNetStandard.pdb".
+GenerateNuspec:
+  Successfully created package 'C:\Users\username\source\repos\ClassLib_DotNetStandard\bin\Debug\AppLogger.1.0.0.nupkg'.
+Done Building Project "C:\Users\username\source\repos\ClassLib_DotNetStandard\ClassLib_DotNetStandard.csproj" (pack target(s)).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:01.21
 ```
 
 ### <a name="automatically-generate-package-on-build"></a>ビルド時に自動的にパッケージを生成する
 
-`dotnet build` の実行時に自動的に `dotnet pack` を実行させるには、プロジェクト ファイルの `<PropertyGroup>` 内に次の行を追加します。
+プロジェクトのビルドまたは復元時に自動的に `msbuild -t:pack` を実行させるには、プロジェクト ファイルの `<PropertyGroup>` 内に次の行を追加します。
 
 ```xml
 <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 ```
 
-ソリューション上で `dotnet pack` を実行した場合、これにより、パック化可能なソリューション内のすべてのプロジェクトがパックされます ([<IsPackable>](/dotnet/core/tools/csproj#nuget-metadata-properties) プロパティは `true` に設定されます)。
+ソリューション上で `msbuild -t:pack` を実行した場合、これにより、パック化可能なソリューション内のすべてのプロジェクトがパックされます ([<IsPackable>](/dotnet/core/tools/csproj#nuget-metadata-properties) プロパティは `true` に設定されます)。
 
 > [!NOTE]
 > パッケージを自動的に生成する場合、パックする時間によってプロジェクトのビルド時間が長くなります。
@@ -120,6 +169,7 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 
 パッケージの機能を拡張したり、次のトピックで説明するように、その他の方法で他のシナリオをサポートしたりすると便利な場合があります。
 
+- [MSBuild ターゲットとしての NuGet の pack と restore](../reference/msbuild-targets.md)
 - [パッケージのバージョン管理](../reference/package-versioning.md)
 - [複数のターゲット フレームワークのサポート](../create-packages/multiple-target-frameworks-project-file.md)
 - [ソース ファイルと構成ファイルの変換](../create-packages/source-and-config-file-transformations.md)

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: 30a77b427fe0a33b41262c5784045e5a6b10852f
-ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
+ms.openlocfilehash: f663b1b2176a5f0ae5bc6d82873193638e0efdaa
+ms.sourcegitcommit: ba8ad1bd13a4bba3df94374e34e20c425a05af2f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68419992"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68833384"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>クイック スタート: パッケージの作成と公開 (dotnet CLI)
 
@@ -26,9 +26,15 @@ ms.locfileid: "68419992"
 
 パッケージ化するコードに既存の .NET クラス ライブラリ プロジェクトを使用することも、次の手順に従って単純なプロジェクトを作成することもできます。
 
-1. `AppLogger`という名前のフォルダーを作成し、そこに変更します。
+1. `AppLogger` という名前のフォルダーを作成します。
 
-1. `dotnet new classlib`を使用してプロジェクトを作成します。プロジェクト名には現在のフォルダーの名前が使用されます。
+1. コマンド プロンプトを開いて、`AppLogger` フォルダーに切り替えます。
+
+1. 「`dotnet new classlib`」と入力します。ここでは、プロジェクトに現在のフォルダーの名前が使用されます。
+
+   これにより、新しいプロジェクトが作成されます。
+
+1. `dotnet run` を使用して、アプリが正しく作成されたことをテストします。
 
 ## <a name="add-package-metadata-to-the-project-file"></a>パッケージのメタデータをプロジェクト ファイルに追加する
 

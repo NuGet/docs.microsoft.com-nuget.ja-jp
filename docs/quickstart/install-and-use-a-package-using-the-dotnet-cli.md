@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: ee456fd49675db37fee78dc14502a897d84a2b99
-ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
+ms.openlocfilehash: 47593cc65ad707b8880d854dc43824b9234fd44a
+ms.sourcegitcommit: ba8ad1bd13a4bba3df94374e34e20c425a05af2f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68342459"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68833303"
 ---
 # <a name="quickstart-install-and-use-a-package-using-the-dotnet-cli"></a>クイック スタート: dotnet CLI を使用してパッケージをインストールし使用する
 
@@ -30,6 +30,8 @@ NuGet パッケージには、他の開発者がお客様のプロジェクト�
 NuGet パッケージは、ある種類の .NET プロジェクトにインストールできます。 このチュートリアルでは、次の手順に従って、単純な .NET Core コンソール プロジェクトを作成します。
 
 1. プロジェクトのフォルダーを作成します。
+
+1. コマンド プロンプトを開いて、新しいフォルダーに切り替えます。
 
 1. 次のコマンドを使用して、プロジェクトを作成します。
 

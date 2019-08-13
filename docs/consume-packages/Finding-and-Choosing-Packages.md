@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3af29e2f9b09ba5bd82779f9aacf314bd8933436
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: cbe6fd964e88b054b9e2c5c8ead71d1f9090d63c
+ms.sourcegitcommit: 5aa49478dc466c67db5c3edda7c6ce8dcd8ae033
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317024"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68817574"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>プロジェクトの NuGet パッケージの検索と評価
 
@@ -82,6 +82,10 @@ NuGet では、Visual Studio の C++ プロジェクトで使用できるネイ�
 
     ![パッケージのリスト ページのダウンロード統計](media/Finding-03-Downloads.png)
 
+- "*GitHub 使用*": パッケージ ページの **[GitHub Usage]\(GitHub 使用\)** セクションには、このパッケージに依存する上位の GitHub リポジトリが一覧表示されます。 一般的に、さまざまな人気 GitHub リポジトリが依存するパッケージが最適です。
+
+    ![GitHub 使用](media/GitHub-Usage.png)
+
 - *バージョン履歴*: パッケージ ページの **[情報]** で最新の更新日を見つけて、 **[バージョン履歴]** を確認します。 適切に保守されているパッケージの場合、最新の更新情報と豊かなバージョン履歴が表示されます。 放置されたパッケージの場合、更新情報は少なく、しばらくの間更新されていないことがほとんどです。
 
     ![パッケージのリスト ページの [バージョン履歴]](media/Finding-04-VersionHistory.png)
@@ -115,6 +119,7 @@ NuGet では、Visual Studio の C++ プロジェクトで使用できるネイ�
 1. これは `<license type="file">license\license.txt</license>` のようなタグを含んでいます。 これは、ライセンス ファイルが `license.txt` と名付けられ、同様にそのフォルダーのルートにある `license` というフォルダー内にあることを意味しています。
 1. `license` フォルダーに移動して `license.txt` ファイルを開きます。
 
+`.nuspec` でライセンスを設定することと同じことを MSBuild で行う方法については、「[ライセンス式またはライセンスファイルのパッキング](/nuget/reference/msbuild-targets#packing-a-license-expression-or-a-license-file)」を参照してください。
 
 ## <a name="search-syntax"></a>検索構文
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: quickstart
-ms.openlocfilehash: 86e71460094de9b799384db83456a68db57647af
-ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
+ms.openlocfilehash: 0fc3b15c6d5ffa93eb6e26660f71cea2286ba77d
+ms.sourcegitcommit: aed04cc04b0902403612de6736a900d41c265afd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68419904"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68821416"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>クイック スタート: Visual Studio を使用した NuGet パッケージの作成と公開 (.NET Standard、Windows のみ)
 
@@ -99,17 +99,24 @@ namespace AppLogger
     ========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
     ```
 
-### <a name="alternate-option-pack-with-msbuild"></a>別のオプション: MSBuild の pack
+### <a name="optional-generate-package-on-build"></a>(オプション) ビルド時にパッケージを生成する
+
+プロジェクトのビルド時に NuGet パッケージを自動的に生成するように、Visual Studio を構成できます。
+
+1. ソリューション エクスプローラーでプロジェクトを右クリックし、 **[プロパティ]** を選択します。
+
+2. **[パッケージ]** タブで、 **[ビルド時に NuGet パッケージを生成]** を選択します。
+
+   ![ビルド時に自動的にパッケージを生成する](media/qs_create-vs-05-generate-on-build.png)
+
+> [!NOTE]
+> パッケージを自動的に生成する場合、パックする時間によってプロジェクトのビルド時間が長くなります。
+
+### <a name="optional-pack-with-msbuild"></a>(オプション) MSBuild を使用したパック
 
 NuGet 4.x 以降と MSBuild 15.1 以降では、**Pack** メニュー コマンドを使用する代わりに、プロジェクトに必要なパッケージ データが含まれている場合に `pack` ターゲットをサポートしています。 コマンド プロンプトを開き、プロジェクト フォルダーに移動し、次のコマンドを実行します (MSBuild に必要なすべてのパスが構成されるため、通常は [スタート] メニューの [Developer Command Prompt for Visual Studio]\(Visual Studio 用開発者コマンド プロンプト\) を使用します)。
 
-```cli
-msbuild -t:pack -p:Configuration=Release
-```
-
-このパッケージは `bin\Release` フォルダーにあります。
-
-`msbuild -t:pack` のその他のオプションについては、「[NuGet pack and restore as MSBuild targets](../reference/msbuild-targets.md#pack-target)」(MSBuild ターゲットとしての NuGet のパックと復元) をご覧ください。
+詳細については、「[Create a package using MSBuild](../create-packages/creating-a-package-msbuild.md)」 (MSBuild を使用してパッケージを作成する) を参照してください。
 
 ## <a name="publish-the-package"></a>パッケージを公開する
 
