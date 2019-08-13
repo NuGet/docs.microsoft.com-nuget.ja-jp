@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 0e12944bdd5d43b8b9e84908be480a5249dd924f
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: cab56cb87f46335f9fdebdbc1649fead16459877
+ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327659"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959730"
 ---
 # <a name="pack-command-nuget-cli"></a>pack コマンド (NuGet CLI)
 
 **適用対象:** パッケージ作成&bullet;で**サポートされているバージョン:** 2.7+
 
-指定された`.nuspec`またはプロジェクトファイルに基づいて NuGet パッケージを作成します。 コマンド`dotnet pack` (「 [dotnet コマンド](../dotnet-Commands.md)」を参照`msbuild -t:pack` ) と (「 [MSBuild ターゲット](../msbuild-targets.md)」を参照) は、代替として使用できます。
+指定された[nuspec](../nuspec.md)またはプロジェクトファイルに基づいて NuGet パッケージを作成します。 コマンド`dotnet pack` (「 [dotnet コマンド](../dotnet-Commands.md)」を参照`msbuild -t:pack` ) と (「 [MSBuild ターゲット](../msbuild-targets.md)」を参照) は、代替として使用できます。
 
 > [!Important]
 > Mono では、プロジェクトファイルからパッケージを作成することはサポートされていません。 また、nuget.exe によって Windows のパス名自体`.nuspec`が変換されないため、ファイル内のローカルではないパスを Unix 形式のパスに調整する必要があります。
@@ -33,7 +33,7 @@ nuget pack <nuspecPath | projectPath> [options] [-Properties ...]
 
 | オプション | 説明 |
 | --- | --- |
-| BasePath | `.nuspec`ファイルで定義されているファイルのベースパスを設定します。 |
+| BasePath | [Nuspec](../nuspec.md)ファイルで定義されているファイルのベースパスを設定します。 |
 | Build | パッケージをビルドする前にプロジェクトをビルドするように指定します。 |
 | Exclude | パッケージの作成時に除外する1つ以上のワイルドカードパターンを指定します。 複数のパターンを指定するには、-Exclude フラグを繰り返します。 次の例を参照してください。 |
 | ExcludeEmptyDirectories | パッケージをビルドするときに空のディレクトリを含めないようにします。 |

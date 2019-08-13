@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 82113d460f7f5ff467b0a0552cc49283de95de25
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 211f24ff67c06da00d6a014e679cc422d493d6d5
+ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327639"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959736"
 ---
 # <a name="restore-command-nuget-cli"></a>restore コマンド (NuGet CLI)
 
-**適用対象:** パッケージ消費&bullet;が**サポートされているバージョン:** 2.7+
+**適用対象:** パッケージの使用&bullet;が**サポートされているバージョン:** 2.7+
 
 フォルダーに`packages`ないパッケージをダウンロードしてインストールします。 NuGet 4.0 + および PackageReference 形式と共に使用すると、 `<project>.nuget.props`必要に応じて`obj`フォルダー内にファイルが生成されます。 (ファイルはソース管理から省略できます)。
 
@@ -35,7 +35,7 @@ nuget restore <projectPath> [options]
 | ConfigFile | 適用する NuGet 構成ファイル。 指定されて`%AppData%\NuGet\NuGet.Config`いない場合は`~/.nuget/NuGet/NuGet.Config` 、(Windows) または (Mac/Linux) が使用されます。|
 | DirectDownload | *(4.0 以降)* バイナリまたはメタデータを使用してキャッシュを設定せずに、パッケージを直接ダウンロードします。 |
 | DisableParallelProcessing | 複数のパッケージの並列復元を無効にします。 |
-| FallbackSource | *(3.2 +)* プライマリまたは既定のソースにパッケージが見つからない場合にフォールバックとして使用するパッケージソースの一覧。 |
+| FallbackSource | *(3.2 +)* プライマリまたは既定のソースにパッケージが見つからない場合にフォールバックとして使用するパッケージソースの一覧。 リストエントリを区切るには、セミコロンを使用します。 |
 | ForceEnglishOutput | *(3.5 +)* 不変の英語ベースのカルチャを使用して nuget.exe を強制的に実行します。 |
 | Help | ヘルプのコマンドの情報を表示します。 |
 | MSBuildPath | *(4.0 以降)* コマンドで使用する MSBuild のパスを指定します。これは`-MSBuildVersion`よりも優先されます。 |
@@ -49,7 +49,7 @@ nuget restore <projectPath> [options]
 | Recursive | *(4.0 以降)* UWP および .NET Core プロジェクトのすべての参照プロジェクトを復元します。 は、を使用`packages.config`するプロジェクトには適用されません。 |
 | RequireConsent | パッケージをダウンロードしてインストールする前に、パッケージの復元が有効になっていることを確認します。 詳細については、「[パッケージの復元](../../consume-packages/package-restore.md)」を参照してください。 |
 | SolutionDirectory | ソリューションフォルダーを指定します。 ソリューションのパッケージを復元するときには無効です。 または`packages.config` `PackagesDirectory` が使用されている場合を除き、ファイルを使用して復元する場合`OutputDirectory`に必要です。 |
-| Source | 復元に使用するパッケージソースの一覧を Url として指定します。 省略した場合、コマンドは構成ファイルで提供されているソースを使用します。「 [NuGet の動作の構成](../../consume-packages/configuring-nuget-behavior.md)」を参照してください。 |
+| Source | 復元に使用するパッケージソースの一覧を Url として指定します。 省略した場合、コマンドは構成ファイルで提供されているソースを使用します。「 [NuGet の動作の構成](../../consume-packages/configuring-nuget-behavior.md)」を参照してください。 リストエントリを区切るには、セミコロンを使用します。 |
 | Verbosity | 出力に表示される詳細データの量を指定します:*normal*、*quiet*、*detailed* |
 
 「[環境変数](cli-ref-environment-variables.md)」も参照してください。

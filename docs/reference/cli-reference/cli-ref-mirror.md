@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 076d7a480e2f07149e4ec7ac58c7ab37040e7a8f
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 81866172bfbf55c42ee96c213c0117f1f986235c
+ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327669"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959710"
 ---
 # <a name="mirror-command-nuget-cli"></a>mirror コマンド (NuGet CLI)
 
@@ -19,7 +19,7 @@ ms.locfileid: "68327669"
 指定されたソースリポジトリからターゲットリポジトリにパッケージとその依存関係をミラー化します。
 
 > [!NOTE]
-> 3\.2 より前のバージョンの NuGet でこのコマンドを有効[https://nuget.codeplex.com/releases](https://nuget.codeplex.com/releases)にするには、にアクセスして`Nuget-Signed.exe` 最新の安定版リリースを選択し、をダウンロードしてローカルディスクにダウンロード`NuGet.ServerExtensions.dll` し、名前をに`nuget.exe` 変更`Nuget-Signed.exe` します。
+> Nuget 2.x で以前にこのコマンドをサポートしていた Nuget.exe と NuGet-Signed (NuGet-Signed を nuget.exe に変更することによって) は、ダウンロードできなくなりました。 このようなコマンドを使用するには、 [NuGetMirror](https://www.nuget.org/packages/NuGetMirror/)を試してください。
 
 ## <a name="usage"></a>使用法
 
