@@ -60,7 +60,7 @@ API は最初にリリースされた後、API に対して互換性のないプ
 [RepositorySignatures](repository-signatures-resource.md)            | Ｘ       | リポジトリの署名に使用される証明書を取得します。
 [SearchAutocompleteService](search-autocomplete-service-resource.md) | Ｘ       | パッケージ Id とバージョンを部分文字列で検出します。
 [SearchQueryService](search-query-service-resource.md)               | 可      | キーワードを使用してパッケージをフィルター処理し、検索します。
-[シンボル Packagepublish](symbol-package-publish-resource.md)           | Ｘ       | シンボルパッケージをプッシュします。
+[SymbolPackagePublish](symbol-package-publish-resource.md)           | Ｘ       | シンボルパッケージをプッシュします。
 
 一般に、API リソースによって返されるすべての非バイナリデータは、JSON を使用してシリアル化されます。 サービスインデックスの各リソースによって返される応答スキーマは、そのリソースに対して個別に定義されます。 各リソースの詳細については、上記のトピックを参照してください。
 
@@ -91,7 +91,7 @@ API によって返されるすべてのタイムスタンプは UTC である�
 Verb   | 使用
 ------ | -----------
 GET    | 読み取り専用の操作を実行します。通常はデータを取得します。
-HEAD、   | 対応する`GET`要求の応答ヘッダーをフェッチします。
+HEAD   | 対応する`GET`要求の応答ヘッダーをフェッチします。
 PUT    | 存在しないリソースを作成します。存在する場合は、リソースを更新します。 一部のリソースでは、更新プログラムがサポートされない場合があります。
 Del | リソースを削除または一覧から削除します。
 
