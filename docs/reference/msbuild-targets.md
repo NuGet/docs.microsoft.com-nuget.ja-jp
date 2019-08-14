@@ -352,7 +352,7 @@ Nuspec ファイルをパックする .csproj ファイルの例を次に示し*
 | RestoreAdditionalProjectFallbackFoldersExcludes | で指定されたフォールバックフォルダーを除外します。`RestoreAdditionalProjectFallbackFolders` |
 | RestoreTaskAssemblyFile | `NuGet.Build.Tasks.dll` のパス。 |
 | RestoreGraphProjectInput | 復元するプロジェクトのセミコロン区切りの一覧。絶対パスを指定する必要があります。 |
-| Restoreentkipnon存在 Enttargets  | MSBuild を使用してプロジェクトが収集されると、 `SkipNonexistentTargets`最適化を使用してプロジェクトを収集するかどうかが決定されます。 設定しない場合、の`true`既定値はになります。 その結果、プロジェクトのターゲットをインポートできない場合のフェールファースト動作になります。 |
+| RestoreUseSkipNonexistentTargets | MSBuild を使用してプロジェクトが収集されると、 `SkipNonexistentTargets`最適化を使用してプロジェクトを収集するかどうかが決定されます。 設定しない場合、の`true`既定値はになります。 その結果、プロジェクトのターゲットをインポートできない場合のフェールファースト動作になります。 |
 | MSBuildProjectExtensionsPath | 出力フォルダー。を既定`BaseIntermediateOutputPath` `obj`として、フォルダーをにします。 |
 
 #### <a name="examples"></a>使用例
