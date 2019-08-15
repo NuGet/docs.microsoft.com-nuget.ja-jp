@@ -3,36 +3,20 @@ title: nuget の .config ファイルのリファレンス
 description: config、bindingRedirects、packageRestore、solution、packageSource の各セクションを含む NuGet.Config ファイル参照。
 author: karann-msft
 ms.author: karann
-ms.date: 10/25/2017
+ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: b03bb8da0191a679671e5898ac70fff2024d52f2
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: a2955617b899bfadab42d1ae98dd20c8fc6ddca9
+ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317220"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69020048"
 ---
 # <a name="nugetconfig-reference"></a>nuget の .config リファレンス
 
 Nuget の動作は、「 `NuGet.Config` [一般的な nuget 構成](../consume-packages/configuring-nuget-behavior.md)」で説明されているように、さまざまなファイルの設定によって制御されます。
 
 `nuget.config` は、最上位の `<configuration>` ノードを含む XML ファイルであり、このトピックで説明するセクション要素が含まれます。 各セクションには、0個以上の項目が含まれています。 「[examples config file](#example-config-file)」 (構成ファイルの例) を参照してください。 名前の設定には大文字と小文字の区別があり、値には[環境変数](#using-environment-variables)を使用することができます。
-
-このトピックの内容:
-
-- [config セクション](#config-section)
-- [bindingRedirects セクション](#bindingredirects-section)
-- [packageRestore セクション](#packagerestore-section)
-- [solution セクション](#solution-section)
-- [パッケージ ソース セクション](#package-source-sections):
-  - [packageSources](#packagesources)
-  - [packageSourceCredentials](#packagesourcecredentials)
-  - [apikeys](#apikeys)
-  - [disabledPackageSources](#disabledpackagesources)
-  - [activePackageSource](#activepackagesource)
-- [trustedSigners 者セクション](#trustedsigners-section)
-- [環境変数の使用](#using-environment-variables)
-- [構成ファイルの例](#example-config-file)
 
 <a name="dependencyVersion"></a>
 <a name="globalPackagesFolder"></a>
@@ -120,7 +104,7 @@ Nuget の動作は、「 `NuGet.Config` [一般的な nuget 構成](../consume-p
 
 `packageSources` 、`packageSourceCredentials`、 、`disabledPackageSources` 、およびは`trustedSigners`すべて連携して、インストール、復元、および更新の各操作中に、NuGet がパッケージリポジトリを操作する方法を構成します。 `activePackageSource` `apikeys`
 
-[ `nuget trusted-signers` ](../reference/cli-reference/cli-ref-trusted-signers.md) [コマンドは`nuget setapikey` ](../reference/cli-reference/cli-ref-setapikey.md)、コマンドを使用`trustedSigners`して管理され、 `apikeys`コマンドを使用して管理される以外は、これらの設定を管理するために一般的に使用されます。 [ `nuget sources` ](../reference/cli-reference/cli-ref-sources.md)
+[ `nuget trusted-signers` ](../reference/cli-reference/cli-ref-trusted-signers.md) `apikeys` [コマンドは`nuget setapikey` ](../reference/cli-reference/cli-ref-setapikey.md)、コマンドを使用`trustedSigners`して管理され、コマンドを使用して管理される以外は、これらの設定を管理するために一般的に使用されます。 [ `nuget sources` ](../reference/cli-reference/cli-ref-sources.md)
 
 ここで、nuget.org のソース URL は `https://api.nuget.org/v3/index.json` となります。
 
@@ -240,6 +224,7 @@ Nuget の動作は、「 `NuGet.Config` [一般的な nuget 構成](../consume-p
     <add key="All" value="(Aggregate source)" />
 </activePackageSource>
 ```
+
 ## <a name="trustedsigners-section"></a>trustedSigners 者セクション
 
 インストールまたは復元中にパッケージを許可するために使用される信頼された署名者を格納します。 ユーザーがに設定`signatureValidationMode`した場合、この一覧を`require`空にすることはできません。 
@@ -268,6 +253,50 @@ Nuget の動作は、「 `NuGet.Config` [一般的な nuget 構成](../consume-p
         <owners>microsoft;aspnet;nuget</owners>
     </repository>
 </trustedSigners>
+```
+
+## <a name="fallbackpackagefolders-section"></a>fallbackPackageFolders セクション
+
+*(3.5 +)* パッケージがフォールバックフォルダーに存在する場合に作業を行う必要がないように、パッケージをプレインストールする方法を提供します。 フォールバックパッケージフォルダーには、グローバルパッケージフォルダーとまったく同じフォルダーとファイル構造があり*ます。 nupkg*は存在し、すべてのファイルが抽出されます。
+
+この構成の参照ロジックは次のとおりです。
+
+- [グローバルパッケージフォルダー] で、パッケージ/バージョンが既にダウンロードされているかどうかを確認します。
+
+- フォールバックフォルダーでパッケージ/バージョンの一致を確認します。
+
+いずれかの参照が成功した場合、ダウンロードは必要ありません。
+
+一致するものが見つからない場合、NuGet はファイルソースを確認し、次に http ソースを確認してから、パッケージをダウンロードします。
+
+| キー | 値 |
+| --- | --- |
+| (フォールバックフォルダーの名前) | フォールバックフォルダーへのパス。 |
+
+**例**:
+
+```xml
+<fallbackPackageFolders>
+   <add key="XYZ Offline Packages" value="C:\somePath\someFolder\"/>
+</fallbackPackageFolders>
+```
+
+## <a name="packagemanagement-section"></a>packageManagement セクション
+
+既定のパッケージ管理形式である*app.config*または PackageReference を設定します。 SDK スタイルのプロジェクトは常に PackageReference を使用します。
+
+| キー | 値 |
+| --- | --- |
+| format | 既定のパッケージ管理形式を示すブール値。 の`1`場合、format は PackageReference です。 の`0`場合、format は*app.config*です。 |
+| 無効 | 最初のパッケージのインストール時に既定のパッケージ形式を選択するようにプロンプトを表示するかどうかを示すブール値。 `False`プロンプトを非表示にします。 |
+
+**例**:
+
+```xml
+<packageManagement>
+   <add key="format" value="1" />
+   <add key="disabled" value="False" />
+</packageManagement>
 ```
 
 ## <a name="using-environment-variables"></a>環境変数の使用
