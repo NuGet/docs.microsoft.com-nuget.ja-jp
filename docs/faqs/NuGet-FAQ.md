@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9094d6b4a2dbd6ea1899b4470624948ce7c21f43
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 27a925c8748cb2085e8c9fe71ef23281cf9fd553
+ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317620"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68860548"
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet に関してよく寄せられる質問
 
@@ -135,7 +135,7 @@ Visual Studio オートメーション オブジェクト モデルのトップ 
 
 **パッケージの復元を無効にするにはどうすればよいですか?**
 
-「[パッケージの復元の有効化と無効化](../consume-packages/package-restore.md#enable-and-disable-package-restore-visual-studio)」を参照してください。
+「[パッケージの復元の有効化と無効化](../consume-packages/package-restore.md#enable-and-disable-package-restore-in-visual-studio)」を参照してください。
 
 **リモートの依存関係があるローカル パッケージをインストールするときに、"依存関係を解決できません" という内容のエラーが表示されるのはなぜですか?**
 

@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: a796c7a7537c3052259c7cf3f17d60981a495442
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: d9e9f0026e4c907351b4b0cd0adced28a4670575
+ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317717"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68860596"
 ---
 # <a name="install-and-manage-packages-using-the-dotnet-cli"></a>dotnet CLI を使用してパッケージをインストールして管理する
 
@@ -94,12 +94,4 @@ NuGet では、パッケージ バージョンを指定しない限り (`-v` ス
 
 ## <a name="restore-packages"></a>パッケージの復元
 
-[dotnet restore](/dotnet/core/tools/dotnet-restore?tabs=netcore2x) コマンドを使用すると、プロジェクト ファイルに一覧表示されているパッケージが復元されます ([PackageReference](../consume-packages/package-references-in-project-files.md) 参照)。 .NET Core 2.0 以降では、復元は、`dotnet build` と `dotnet run` で自動的に実行されます。 NuGet 4.0 以降、`nuget restore` と同じコードが実行されます。
-
-他の `dotnet` CLI コマンドと同様に、最初にコマンド ラインが開かれ、使用するプロジェクト ファイルが含まれているディレクトリに切り替えられます。
-
-`dotnet restore` を使用してパッケージを復元するには:
-
-```cli
-dotnet restore 
-```
+[!INCLUDE [restore-dotnet-cli](includes/restore-dotnet-cli.md)]
