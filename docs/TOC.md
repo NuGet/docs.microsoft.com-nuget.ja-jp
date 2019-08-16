@@ -27,7 +27,7 @@
 ### [一般的な NuGet 構成](consume-packages/configuring-nuget-behavior.md)
 ## プロジェクトでパッケージを参照する
 ### [プロジェクト ファイルのパッケージ参照](consume-packages/package-references-in-project-files.md)
-### [packages.config の PackageReference への移行](reference/migrate-packages-config-to-package-reference.md)
+### [packages.config の PackageReference への移行](consume-packages/migrate-packages-config-to-package-reference.md)
 ### [packages.config](reference/packages-config.md)
 # パッケージの作成
 ## [概要とワークフロー](create-packages/overview-and-workflow.md)
@@ -45,9 +45,9 @@
 ### [ローカライズされたパッケージを作成する](create-packages/creating-localized-packages.md)
 ## 特定のコンテンツのガイド
 ### [UWP パッケージを作成する](guides/create-uwp-packages.md)
-### [ネイティブ パッケージを作成する](create-packages/native-packages.md)
+### [ネイティブ パッケージを作成する](guides/native-packages.md)
 ### [NuGet パッケージとして UI コントロールを作成する](guides/create-UI-controls.md)
-### [NuGet パッケージとしてアナライザーを作成する](reference/analyzers-conventions.md)
+### [NuGet パッケージとしてアナライザーを作成する](guides/analyzers-conventions.md)
 ### [Visual Studio 2015 で Xamarin 用パッケージを作成する](guides/create-packages-for-xamarin.md)
 ### [COM 相互運用アセンブリを含むパッケージを作成する](create-packages/author-packages-with-COM-interop-assemblies.md)
 ## パッケージに署名する
@@ -64,8 +64,8 @@
 ### [ローカル フィード](hosting-packages/local-feeds.md)
 # 概念
 ## [パッケージのインストール プロセス](concepts/package-installation-process.md)
-## [パッケージのバージョン管理](reference/package-versioning.md)
-## [依存関係の解決](consume-packages/dependency-resolution.md)
+## [パッケージのバージョン管理](concepts/package-versioning.md)
+## [依存関係の解決](concepts/dependency-resolution.md)
 # 関連項目
 ## [.nuspec](reference/nuspec.md)
 ## [nuget.config ファイル](reference/nuget-config-file.md)
@@ -342,6 +342,6 @@
 #### [NuGet 1.3](release-notes/NuGet-1.3.md)
 #### [NuGet 1.2](release-notes/NuGet-1.2.md)
 #### [NuGet 1.1](release-notes/NuGet-1.1.md)
-## [よく寄せられる質問](faqs/nuget-faq.md)
+## [よく寄せられる質問](resources/nuget-faq.md)
 ## [プロジェクトの形式](resources/check-project-format.md)
 # [NuGet.org](nuget-org/overview-nuget-org.md)

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: de76cf610e580a36014be9274b9c2c762b1015ac
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 5f1d3ed6a1b20fb07437f1718faafaac0a193773
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317160"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488710"
 ---
 # <a name="nuget-14-release-notes"></a>NuGet 1.4 リリースノート
 
@@ -60,7 +60,7 @@ NuGet 1.4 では、複数のプロジェクトで同時にパッケージをイ�
 既定では、パッケージに`Update-Package`対してコマンドを実行する (または、ダイアログを使用してパッケージを更新する) と、フィードの最新バージョンに更新されます。 すべてのパッケージを更新するための新しいサポートでは、パッケージを特定のバージョン範囲にロックすることが必要になる場合があります。 たとえば、アプリケーションが3.0 以降ではなく、パッケージのバージョン 2. * のみで動作することが事前にわかっている場合があります。 パッケージが誤って3に更新されないようにするため、NuGet 1.4 では、新しい`packages.config` `allowedVersions`属性を使用してファイルを手動で編集することによって、パッケージをアップグレードできるバージョンの範囲を制限するためのサポートが追加されています。
 
 たとえば、次の例では、 `SomePackage`パッケージをバージョン範囲 2.0-3.0 (排他) にロックする方法を示しています。
-属性`allowedVersions`は、[バージョン範囲形式](../reference/package-versioning.md#version-ranges-and-wildcards)を使用して値を受け入れます。
+属性`allowedVersions`は、[バージョン範囲形式](../concepts/package-versioning.md#version-ranges-and-wildcards)を使用して値を受け入れます。
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

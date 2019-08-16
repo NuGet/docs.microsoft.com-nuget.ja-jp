@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 67bc95135f746c4a4685773808756df399cbf01e
-ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
+ms.openlocfilehash: f931ed297a6a1e9e24ce5eb30a8158f59925bb39
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959701"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488684"
 ---
 # <a name="nuspec-reference"></a>.nuspec リファレンス
 
@@ -36,7 +36,7 @@ ms.locfileid: "68959701"
 
    `dotnet.exe pack`または`msbuild pack target`を使用してパッケージを作成する場合は、通常、 `.nuspec`ファイル内の[すべてのプロパティ](../reference/msbuild-targets.md#pack-target)をプロジェクトファイルに含めることをお勧めします。 ただし、代わりに[または`.nuspec` `msbuild pack target`を使用して`dotnet.exe` 、パックするファイルを使用](../reference/msbuild-targets.md#packing-using-a-nuspec)することもできます。
 
-- から`packages.config` [PackageReference に](../consume-packages/package-references-in-project-files.md)移行されたプロジェクトでは、パッケージを作成するためにファイルは必要ありません。`.nuspec` 代わりに、 [msbuild-{0}](../reference/migrate-packages-config-to-package-reference.md#create-a-package-after-migration)を使用します。
+- から`packages.config` [PackageReference に](../consume-packages/package-references-in-project-files.md)移行されたプロジェクトでは、パッケージを作成するためにファイルは必要ありません。`.nuspec` 代わりに、 [msbuild-{0}](../consume-packages/migrate-packages-config-to-package-reference.md#create-a-package-after-migration)を使用します。
 
 ## <a name="general-form-and-schema"></a>一般的な形式とスキーマ
 
@@ -74,7 +74,7 @@ ms.locfileid: "68959701"
 #### <a name="id"></a>id 
 パッケージの識別子。大文字と小文字が区別されます。nuget.org 全体で、またはパッケージが存在するギャラリー全体で、一意である必要があります。 ID は、スペースまたは URL で無効な文字を含んでいてはならず、一般に .NET 名前空間の規則に従います。 ガイダンスについては、[一意のパッケージ識別子の選択](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number)に関するページをご覧ください。
 #### <a name="version"></a>version
-パッケージのバージョン。*major.minor.patch* のパターンに従います。 「[Package versioning](../reference/package-versioning.md#pre-release-versions)」(パッケージのバージョン管理) で説明されているように、バージョン番号にはプレリリースのサフィックスを含めることができます。 
+パッケージのバージョン。*major.minor.patch* のパターンに従います。 「[Package versioning](../concepts/package-versioning.md#pre-release-versions)」(パッケージのバージョン管理) で説明されているように、バージョン番号にはプレリリースのサフィックスを含めることができます。 
 #### <a name="description"></a>description
 UI 画面用のパッケージの長い説明。 
 #### <a name="authors"></a>authors
@@ -281,7 +281,7 @@ nuget pack MyProject.csproj
 | 属性 | description |
 | --- | --- |
 | `id` | (必須) "EntityFramework" や "NUnit" などの依存関係のパッケージ ID。これはパッケージ ページに表示されるパッケージ nuget.org の名前となります。 |
-| `version` | (必須) 依存関係として許容されるバージョンの範囲。 厳密な構文については、「[Package versioning](../reference/package-versioning.md#version-ranges-and-wildcards)」(パッケージのバージョン管理) をご覧ください。 ワイルドカード (浮動) バージョンはサポートされていません。 |
+| `version` | (必須) 依存関係として許容されるバージョンの範囲。 厳密な構文については、「[Package versioning](../concepts/package-versioning.md#version-ranges-and-wildcards)」(パッケージのバージョン管理) をご覧ください。 ワイルドカード (浮動) バージョンはサポートされていません。 |
 | include | 最終的なパッケージに含める依存関係を示す包含/除外タグ (下記参照) のコンマ区切りリスト。 既定値は `all` です。 |
 | exclude | 最終的なパッケージから除外する依存関係を示す包含/除外タグ (下記参照) のコンマ区切りリスト。 既定値は`build,analyzers` 、上書きすることができます。 また、最終的なパッケージでは、上書きすることはできません。 `content/ ContentFiles` `exclude` で指定されているタグの方が、`include` で指定されているタグより優先されます。 たとえば、`include="runtime, compile" exclude="compile"` は `include="runtime"` と同じです。 |
 
