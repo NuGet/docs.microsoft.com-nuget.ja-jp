@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: a0db6dc95ffa5ad73741ae53a6be9d6f937c1dbf
-ms.sourcegitcommit: ba8ad1bd13a4bba3df94374e34e20c425a05af2f
+ms.openlocfilehash: 92b42f0a6133565844d0b6df2cb50770793055ec
+ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68833228"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68860632"
 ---
 # <a name="create-a-nuget-package-using-msbuild"></a>MSBuild を使用して NuGet パッケージを作成する
 
@@ -105,7 +105,7 @@ SDK スタイル以外のプロジェクトと PackageReference で MSBuild を�
 
 プロジェクトから NuGet パッケージ (`.nupkg` ファイル) を作成するには、`msbuild -t:pack` コマンドを実行します。このコマンドではプロジェクトのビルドも自動的に行われます。
 
-開発者コマンド プロンプトに、次のコマンドを入力します。
+Visual Studio 用開発者コマンド プロンプトで次のコマンドを入力します。
 
 ```cmd
 # Uses the project file in the current folder by default

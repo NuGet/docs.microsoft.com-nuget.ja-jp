@@ -1,11 +1,7 @@
 ---
 title: 新しいシンボル パッケージ形式 '.snupkg' を使用して NuGet シンボル パッケージを公開する方法 | Microsoft Docs
-author:
-- cristinamanu
-- kraigb
-ms.author:
-- cristinamanu
-- kraigb
+author: cristinamanu
+ms.author: cristinamanu
 manager: skofman
 ms.date: 10/30/2018
 ms.topic: reference
@@ -16,12 +12,12 @@ keywords: NuGet シンボル パッケージ, NuGet パッケージ デバッグ
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 9f9cdd188cf2ec678bc9047604e618f1af9124ae
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: e62d1872497e0e5e703bf7c49a87249ce9a996c7
+ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842465"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959677"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>シンボル パッケージ (.snupkg) の作成
 
@@ -112,14 +108,17 @@ nuget.org でサポートされているシンボル パッケージには、次
 
 1) .snupkg の ID とバージョンは、対応する .nupkg と同じになります。
 2) .snupkg のファイル構造は DLL や EXE ファイルの nupkg と全く同じですが、区別されています。対応する PDB が同じフォルダ構造に含まれています。 PDB 以外の拡張子のファイルとフォルダーは snupkg から除外されたままになります。
-3) .snupkg の .nuspec ファイルでは次に示すように新しい PackageType も指定されます。 指定される PackageType は 1 つだけです。 
-``` 
-<packageTypes>
-  <packageType name="SymbolsPackage"/>
-</packageTypes>
-```
+3) .snupkg の .nuspec ファイルでは次に示すように新しい PackageType も指定されます。 指定される PackageType は 1 つだけです。
+
+   ```xml
+   <packageTypes>
+      <packageType name="SymbolsPackage"/>
+   </packageTypes>
+   ```
+
 4) 作成者が nupkg と snupkg のビルドにカスタムの nuspec を使用した場合、snupkg には 2) で説明したものと同じフォルダ階層とファイルが含まれます。
 5) ```authors``` と ```owners``` のフィールドは snupkg の nuspec から除外されます。
+6) <license> 要素は使用しないでください。 .snupkg には、対応する .nupk と同じライセンスが適用されます。
 
 ## <a name="see-also"></a>関連項目
 

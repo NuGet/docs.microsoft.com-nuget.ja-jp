@@ -5,16 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: conceptual
-ms.openlocfilehash: 32b01e6066cf60f7a0942508e640fdd5658b4444
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: bc077220e05b14180baac9611fda9234675ad640
+ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68316973"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68860525"
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>パッケージを再インストールし更新する方法
 
 以下の「[パッケージを再インストールするタイミング](#when-to-reinstall-a-package)」で説明しているとおり、Visual Studio のプロジェクトでは、パッケージへの参照が壊れてしまう状況が多々あります。 このような場合、パッケージの同じバージョンをアンインストールして再インストールすると、それらの参照は復元され動作するようになります。 パッケージを更新するということは、単純に更新されたバージョンをインストールすることを意味し、これによってパッケージはしばしば動作する状態に復元されます。
+
+Visual Studio のパッケージ マネージャー コンソールには、パッケージの更新と再インストールを行うための柔軟なオプションが多数用意されています。
 
 パッケージの更新と再インストールは次の順序で行います。
 
@@ -25,7 +27,7 @@ ms.locfileid: "68316973"
 | nuget.exe CLI | `nuget update` コマンド | すべてのパッケージで、パッケージ フォルダーを削除し、`nuget install` を実行します。 1 つのパッケージで、パッケージ フォルダーを削除し、`nuget install <id>` を使用して同じものを再インストールします。 |
 
 > [!NOTE]
-> dotnet CLI では、同等のプロシージャは必要ありません。 同様のシナリオで、[dotnet CLI を使用してパッケージを復元](../consume-packages/install-use-packages-dotnet-cli.md#restore-packages)できます。
+> dotnet CLI では、同等のプロシージャは必要ありません。 同様のシナリオで、[dotnet CLI を使用してパッケージを復元](package-restore.md#restore-using-the-dotnet-cli)できます。
 
 この記事の内容:
 
@@ -61,7 +63,7 @@ ms.locfileid: "68316973"
 
 ## <a name="using-update-package"></a>Update-Package の使用
 
-以下の「[考慮事項](#considerations)」を意識しながら、Visual Studio パッケージ マネージャー コンソール ( **[ツール]**  >  **[NuGet パッケージ マネージャー]**  >  **[パッケージ マネージャー コンソール]** ) の [[Update-Package コマンド]](../reference/ps-reference/ps-ref-update-package.md) を使用して、すべてのパッケージを簡単に再インストールできます。
+以下の「[注意事項](#considerations)」を考慮しながら、Visual Studio パッケージ マネージャー コンソール ( **[ツール]**  >  **[NuGet パッケージ マネージャー]**  >  **[パッケージ マネージャー コンソール]** ) の [[Update-Package コマンド]](../reference/ps-reference/ps-ref-update-package.md) を使用して、すべてのパッケージを簡単に再インストールできます。
 
 ```ps
 Update-Package -Id <package_name> –reinstall

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 16a14a72f8bb2e5d5a56f6c3c277f0988869273d
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 05ece5f36ff7ae5920960c42cfde8b271dc3e712
+ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426693"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69020012"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>プロジェクト ファイルのパッケージ参照 (PackageReference)
 
@@ -105,7 +105,9 @@ PackageReference スタイル (既存の csproj または SDK スタイルのプ
 | compile | `lib` フォルダーの内容と、プロジェクトをフォルダー内のアセンブリに対してコンパイルできるかどうかのコントロール |
 | runtime | `lib` と `runtimes` フォルダーの内容と、これらのアセンブリがコピーされて出力ディレクトリをビルドするかどうかのコントロール |
 | contentFiles | `contentfiles` フォルダーの内容 |
-| build | `build` フォルダーの props と targets |
+| build | `build` フォルダー内の `.props` と `.targets` |
+| buildMultitargeting | `buildMultitargeting` フォルダー内の `.props` と `.targets` (フレームワーク間でのターゲット設定用) |
+| buildTransitive | *(5.0 以降)* `buildTransitive` フォルダー内の `.props` と `.targets` (使用するプロジェクトに推移的にフローするアセット用)。 [機能](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior)に関するページをご覧ください。 |
 | analyzers | .NET アナライザー |
 | native | `native` フォルダーの内容 |
 | none | 上記のいずれも該当しない。 |

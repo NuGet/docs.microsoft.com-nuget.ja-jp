@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: b7870bb6aac39f0865d88efc8c16751fdbecc3a8
-ms.sourcegitcommit: cae759ad8518c049575a30ad3bf04fe5d06244fb
+ms.openlocfilehash: 8c1d8a479747f6f7bce388c1555589543c8824a0
+ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68616779"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69020060"
 ---
 # <a name="support-multiple-net-framework-versions-in-your-project-file"></a>プロジェクト ファイル内で複数の .NET Framework バージョンをサポートする
 
@@ -27,9 +27,13 @@ SDK スタイルのプロジェクトでは、プロジェクト ファイルで
 
    互換性を最大限に高めるために、.NET Standard クラス ライブラリを作成することをお勧めします。
 
-2. *.csproj* ファイルを編集して、ターゲット フレームワークをサポートします。
-
-   たとえば、`<TargetFramework>netstandard2.0</TargetFramework>` を `<TargetFrameworks>netstandard2.0;net45</TargetFrameworks>` に変更します。
+2. *.csproj* ファイルを編集して、ターゲット フレームワークをサポートします。 たとえば、
+   
+   `<TargetFramework>netstandard2.0</TargetFramework>`
+   
+   この行を次のように変更します。
+   
+   `<TargetFrameworks>netstandard2.0;net45</TargetFrameworks>`
 
    XML 要素が単数形から複数形に変更されていることを確認します ("s" を開始タグと終了タグの両方に追加します)。
 

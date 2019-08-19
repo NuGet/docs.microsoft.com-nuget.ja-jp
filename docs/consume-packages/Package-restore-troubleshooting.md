@@ -5,16 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 287237cf4041870c562a6a7f48f233d8fdc8ef33
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: a1f9f1d03e9a6e58466fa92426bd655d5e8ed83d
+ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842381"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68860620"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>パッケージの復元エラーのトラブルシューティング
 
-この記事では、パッケージを復元するときの一般的なエラーと、それを解決する手順に重点を置いて説明しています。 パッケージの復元の詳細については、[パッケージの復元](../consume-packages/package-restore.md#enable-and-disable-package-restore-visual-studio)に関するセクションを参照してください。
+この記事では、パッケージを復元するときの一般的なエラーと、それを解決する手順に重点を置いて説明しています。 
+
+[パッケージの復元] では、プロジェクト ファイル ( *.csproj*) のパッケージ参照か *packages.config* ファイルに一致する正しい状態になるよう、すべてのパッケージの依存関係のインストールを試みます。 (Visual Studio では、参照は **[依存関係] \ [NuGet]** または **[参照]** ノードの下にあるソリューション エクスプローラーに表示されます。)パッケージを復元するために必要な手順に従うには、「[パッケージの復元](../consume-packages/package-restore.md#restore-packages)」をご覧ください。 プロジェクト ファイル ( *.csproj*) のパッケージ参照、または *packages.config* ファイルが正しくない ([パッケージの復元] 後に必要な状態と一致しない) 場合は、パッケージの復元を使う代わりにパッケージをインストールまたは更新する必要があります。
 
 この記事の手順で問題が解決しない場合は、シナリオをより詳しく検討できるように、[GitHub で問題を報告してください](https://github.com/NuGet/docs.microsoft.com-nuget/issues)。 このページに [このページは役に立ちましたか] コントロールが表示されている場合でも使用しないでください。このコントロールでは、お客様に詳細情報を確認することができません。
 
@@ -44,8 +46,8 @@ Use NuGet Package Restore to download them. The missing file is {name}.
 
 このエラーは、ビルドしようとしているプロジェクトに、現在コンピューターまたはプロジェクトにインストールされていない NuGet パッケージへの参照が 1 つ以上含まれている場合に発生します。
 
-- PackageReference 管理形式を使用する場合、このエラーは、「[グローバル パッケージとキャッシュ フォルダーの管理](managing-the-global-packages-and-cache-folders.md)」で説明されているように、パッケージが "*グローバル パッケージ*" フォルダーにインストールされていないことを意味します。
-- `packages.config` を使用する場合、このエラーは、パッケージがソリューション ルートにある `packages` フォルダーにインストールされていないことを意味します。
+- [PackageReference](package-references-in-project-files.md) 管理形式を使用する場合、このエラーは、[グローバル パッケージとキャッシュ フォルダーの管理](managing-the-global-packages-and-cache-folders.md)に関する記事で説明されているように、パッケージが "*グローバル パッケージ*" フォルダーにインストールされていないことを意味します。
+- [packages.config](../reference/packages-config.md) を使用する場合、このエラーは、パッケージがソリューション ルートにある `packages` フォルダーにインストールされていないことを意味します。
 
 このような状況は、ソース管理や別のダウンロードからプロジェクトのソース コードを取得する場合によく発生します。 パッケージは、nuget.org のようなパッケージ フィードから復元できるので、通常はソース管理やダウンロードから除外されます ([パッケージとソース管理](Packages-and-Source-Control.md)に関するページを参照してください)。 パッケージを含めると、リポジトリがいっぱいになったり、.zip ファイルが不必要に大きくなったりします。
 
@@ -54,10 +56,12 @@ Use NuGet Package Restore to download them. The missing file is {name}.
 パッケージを復元するには、次のいずれかの方法を使用します。
 
 - プロジェクト ファイルを移動した場合、ファイルを直接編集し、パッケージ参照を更新します。
-- (Visual Studio) **[ツール] > [NuGet パッケージ マネージャー] > [パッケージ マネージャー設定]** メニュー コマンドを選択し、 **[パッケージの復元]** の下にあるオプションを両方オンにして、 **[OK]** を選択します。 ソリューションをもう一度ビルドします。
-- (dotnet CLI) コマンド ラインで、使用するプロジェクトが格納されているフォルダーに切り替えてから、`dotnet restore` または `dotnet build` (復元を自動的に実行) を実行します。
-- (nuget.exe CLI) コマンド ラインで、使用するプロジェクトが格納されているフォルダーに切り替えてから、`nuget restore` を実行します (`dotnet` CLI を使って作成したプロジェクトの場合は、`dotnet restore` を使用する)。
-- (PackageReference に移行されたプロジェクト) コマンド ラインで、`msbuild -t:restore` を実行します。
+- [Visual Studio](package-restore.md#restore-using-visual-studio) ([自動復元](package-restore.md#restore-packages-automatically-using-visual-studio)または[手動復元](package-restore.md#restore-packages-manually-using-visual-studio))
+- [dotnet CLI](package-restore.md#restore-using-the-dotnet-cli)
+- [nuget.exe CLI](package-restore.md#restore-using-the-nugetexe-cli)
+- [MSBuild](package-restore.md#restore-using-msbuild)
+- [Azure Pipelines](package-restore.md#restore-using-azure-pipelines)
+- [Azure DevOps Server](package-restore.md#restore-using-azure-devops-server)
 
 復元に成功したら、"*グローバル パッケージ*" フォルダーにパッケージが表示されます。 PackageReference を使用するプロジェクトの場合、復元によって `obj/project.assets.json` ファイルが再び作成されます。`packages.config` を使用するプロジェクトの場合、プロジェクトの `packages` フォルダーにパッケージが表示されます。 この場合、プロジェクトを正常にビルドできるようになります。 ビルドできない場合は、フォローを受けられるように [GitHub で問題を報告してください](https://github.com/NuGet/docs.microsoft.com-nuget/issues)。
 
