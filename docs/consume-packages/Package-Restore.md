@@ -3,16 +3,16 @@ title: NuGet パッケージの復元
 description: プロジェクトが依存しているパッケージを NuGet が復元する方法について概要を説明します。復元を無効にする方法や、バージョンを制約する方法についても触れます。
 author: karann-msft
 ms.author: karann
-ms.date: 06/24/2019
+ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 0df2b0ebcf438fba99291558f1cf929dcb32618b
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 5bf75bb724846f652725bfcf636908c34adc174f
+ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68316987"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68860679"
 ---
-# <a name="package-restore-options"></a>パッケージの復元オプション
+# <a name="restore-packages-using-package-restore"></a>[パッケージの復元] を使用したパッケージの復元
 
 開発環境をいっそうクリーンにしてリポジトリのサイズを減らすため、NuGet の**パッケージの復元**では、プロジェクト ファイルか `packages.config` に記載されているすべてのプロジェクトの依存関係をインストールします。 .NET Core 2.0+ の `dotnet build` コマンドと `dotnet run` コマンドでは、パッケージが自動的に復元されます。 Visual Studio では、プロジェクトのビルド時、パッケージを自動的に復元できます。ユーザーは Visual Studio、`nuget restore`、`dotnet restore`、Mono の xbuild を利用し、いつでもパッケージを復元できます。
 
@@ -29,27 +29,58 @@ ms.locfileid: "68316987"
 
 ## <a name="restore-packages"></a>パッケージの復元
 
-パッケージの復元は次のいずれかの方法で開始できます。
+[パッケージの復元] では、プロジェクト ファイル ( *.csproj*) のパッケージ参照か *packages.config* ファイルに一致する正しい状態になるよう、すべてのパッケージの依存関係のインストールを試みます。 (Visual Studio では、参照は **[依存関係] \ [NuGet]** または **[参照]** ノードの下にあるソリューション エクスプローラーに表示されます。)
 
-- **Visual Studio**:Windows の Visual Studio で、次のいずれかの方法を使用します。
+1. プロジェクト ファイルのパッケージ参照が正しい場合は、好みのツールを使用してパッケージを復元します。
 
-    - パッケージを自動的に復元する。 パッケージの復元は、テンプレートからプロジェクトを作成するとき、またはプロジェクトをビルドするときに、「[パッケージ復元の有効化と無効化](#enable-and-disable-package-restore-visual-studio)」に記載されているオプションに基づいて自動的に行われます。 NuGet 4.0+ では、SDK スタイルのプロジェクト (通常は .NET Core または .NET Standard プロジェクト) の変更時にも復元が行われます。
+   - [Visual Studio](#restore-using-visual-studio) ([自動復元](#restore-packages-automatically-using-visual-studio)または[手動復元](#restore-packages-manually-using-visual-studio))
+   - [dotnet CLI](#restore-using-the-dotnet-cli)
+   - [nuget.exe CLI](#restore-using-the-nugetexe-cli)
+   - [MSBuild](#restore-using-msbuild)
+   - [Azure Pipelines](#restore-using-azure-pipelines)
+   - [Azure DevOps Server](#restore-using-azure-devops-server)
 
-    - パッケージを手動で復元する。 手動で復元するには、**ソリューション エクスプローラー**でソリューションを右クリックして、 **[NuGet パッケージの復元]** を選択します。 1 つまたは複数の個別パッケージが正しくインストールされていない場合、 **[ソリューション エクスプローラー]** にエラー アイコンが表示されます。 右クリックして **[NuGet パッケージの管理]** を選択し、 **[パッケージ マネージャー]** を使用し、影響を受けるパッケージをアンインストールし、再インストールします。 詳細については、「[パッケージを再インストールして更新する](../consume-packages/reinstalling-and-updating-packages.md)」を参照してください。
+   プロジェクト ファイル ( *.csproj*) のパッケージ参照、または *packages.config* ファイルが正しくない ([パッケージの復元] 後に必要な状態と一致しない) 場合は、代わりにパッケージをインストールまたは更新する必要があります。
 
-    "このプロジェクトは、このコンピューター上にない NuGet パッケージを参照しています" または "1 つ以上の NuGet パッケージを復元する必要がありますが、同意が与えられていないため、復元できませんでした" というエラーが表示される場合は、[自動復元を有効にしてください](#enable-and-disable-package-restore-visual-studio)。 また、[パッケージの自動復元への移行](#migrate-to-automatic-package-restore-visual-studio)および[パッケージの復元のトラブルシューティング](Package-restore-troubleshooting.md)に関するページもご覧ください。
+   PackageReference を使用するプロジェクトの場合は、復元が正常に完了した後、"*グローバル パッケージ*" フォルダーにパッケージが存在し、`obj/project.assets.json` ファイルが再作成されます。 `packages.config` を使用するプロジェクトの場合は、プロジェクトの `packages` フォルダーにパッケージが生成されます。 この場合、プロジェクトを正常にビルドできるようになります。 
 
-- **dotnet CLI**:コマンド ラインで、使用するプロジェクトが含まれているフォルダーに切り替えてから、[dotnet restore](/dotnet/core/tools/dotnet-restore?tabs=netcore2x) コマンドを使用して、[PackageReference](../consume-packages/package-references-in-project-files.md) でプロジェクト ファイルに記載されているパッケージを復元します。 .NET Core 2.0 以降では、復元は `dotnet build` コマンドと `dotnet run` コマンドで自動的に行われます。  
+2. [パッケージの復元] を実行した後も、パッケージの不足やパッケージに関連するエラー (Visual Studio のソリューション エクスプローラーのエラー アイコンなど) が引き続き発生する場合は、[パッケージの再インストールと更新](../consume-packages/reinstalling-and-updating-packages.md)が必要になることがあります。
 
-- **nuget.exe CLI**:コマンド ラインで、使用するプロジェクトが含まれているフォルダーに切り替えてから、[nuget restore](../reference/cli-reference/cli-ref-restore.md) コマンドを使用して、プロジェクトやソリューション ファイル、または　`packages.config` に記載されているパッケージを復元します。 
+   Visual Studio のパッケージ マネージャー コンソールには、パッケージを再インストールするための柔軟なオプションがいくつか用意されています。 [パッケージ更新の使用](reinstalling-and-updating-packages.md#using-update-package)に関する記事をご覧ください。
 
-- **MSBuild**:[msbuild -t:restore](../reference/msbuild-targets.md#restore-target) コマンドを使用して、PackageReference を使用するプロジェクト ファイルに一覧表示されているパッケージを復元します。 このコマンドは、Visual Studio 2017 以降のバージョン含まれる NuGet 4.x+ と MSBuild 15.1+ でのみ利用できます。 `nuget restore` と `dotnet restore` の両方で、該当するプロジェクトにこのコマンドが使用されます。
+## <a name="restore-using-visual-studio"></a>Visual Studio を使用した復元
 
-- **Azure Pipelines**:Azure Pipelines でビルド定義を作成するとき、定義の中でビルド タスクの前に NuGet [復元](/azure/devops/pipelines/tasks/package/nuget#restore-nuget-packages)または .NET Core [復元](/azure/devops/pipelines/tasks/build/dotnet-core-cli?view=azure-devops)タスクを含めます。 一部のビルド テンプレートには、既定で復元タスクが含まれています。
+Windows の Visual Studio では、次のいずれかを行います。
 
-- **Azure DevOps Server**:Azure DevOps Server と TFS 2013 以降では、TFS 2013 以降のチーム ビルド テンプレートを使用している場合、ビルド時にパッケージが自動的に復元されます。 それより前の TFS バージョンの場合、コマンドラインで復元を実行するビルド ステップを含めたり、任意で、ビルド テンプレートを後続のバージョンに移行したりできます。 詳細については、[Team Foundation ビルドでパッケージ復元を設定する](../consume-packages/team-foundation-build.md)方法に関するページをご覧ください。
+- パッケージを自動的に復元する。または
 
-## <a name="enable-and-disable-package-restore-visual-studio"></a>パッケージ復元の有効化と無効化 (Visual Studio)
+- パッケージを手動で復元する
+
+### <a name="restore-packages-automatically-using-visual-studio"></a>Visual Studio を使用して自動的にパッケージを復元する
+
+パッケージの復元は、テンプレートからプロジェクトを作成するとき、またはプロジェクトをビルドするときに、「[パッケージ復元の有効化と無効化](#enable-and-disable-package-restore-in-visual-studio)」に記載されているオプションに基づいて自動的に行われます。 NuGet 4.0+ では、SDK スタイルのプロジェクト (通常は .NET Core または .NET Standard プロジェクト) の変更時にも復元が行われます。
+
+1. パッケージの自動復元を有効にするには、 **[ツール]**  >  **[オプション]**  >  **[NuGet パッケージ マネージャー]** の順に選択してから、 **[パッケージの復元]** の下で **[Visual Studio でのビルド中に見つからないパッケージを自動的に確認]** を選択します。
+
+   非 SDK スタイルのプロジェクトの場合は、最初に **[見つからないパッケージのダウンロードを NuGet に許可]** を選択して、自動復元オプションを有効にする必要があります。
+
+1. プロジェクトをビルドします。
+
+   1 つまたは複数の個別パッケージが正しくインストールされていない場合、 **[ソリューション エクスプローラー]** にエラー アイコンが表示されます。 右クリックして **[NuGet パッケージの管理]** を選択し、 **[パッケージ マネージャー]** を使用し、影響を受けるパッケージをアンインストールし、再インストールします。 詳細については、「[パッケージを再インストールして更新する](../consume-packages/reinstalling-and-updating-packages.md)」を参照してください。
+
+   "このプロジェクトは、このコンピューター上にない NuGet パッケージを参照しています" または "1 つ以上の NuGet パッケージを復元する必要がありますが、同意が与えられていないため、復元できませんでした" というエラーが表示される場合は、[自動復元を有効にしてください](#enable-and-disable-package-restore-in-visual-studio)。 以前のプロジェクトについては、[パッケージの自動復元への移行](#migrate-to-automatic-package-restore-visual-studio)に関する記事をご覧ください。 [パッケージの復元のトラブルシューティング](Package-restore-troubleshooting.md)に関するページもご覧ください。
+
+### <a name="restore-packages-manually-using-visual-studio"></a>Visual Studio を使用して手動でパッケージを復元する
+
+1. パッケージの復元を有効にするには、 **[ツール]**  >  **[オプション]**  >  **[NuGet パッケージ マネージャー]** の順に選択します。 **[パッケージの復元]** オプションの下で、 **[見つからないパッケージのダウンロードを NuGet に許可]** を選択します。
+
+1. **ソリューション エクスプローラー**で、ソリューションを右クリックして、 **[NuGet パッケージの復元]** を選択します。
+
+   1 つまたは複数の個別パッケージが正しくインストールされていない場合、 **[ソリューション エクスプローラー]** にエラー アイコンが表示されます。 右クリックして **[NuGet パッケージの管理]** を選択した後、 **[パッケージ マネージャー]** を使用して、影響を受けるパッケージのアンインストールと再インストールを行います。 詳細については、「[パッケージを再インストールして更新する](../consume-packages/reinstalling-and-updating-packages.md)」を参照してください。
+
+   "このプロジェクトは、このコンピューター上にない NuGet パッケージを参照しています" または "1 つ以上の NuGet パッケージを復元する必要がありますが、同意が与えられていないため、復元できませんでした" というエラーが表示される場合は、[自動復元を有効にしてください](#enable-and-disable-package-restore-in-visual-studio)。 以前のプロジェクトについては、[パッケージの自動復元への移行](#migrate-to-automatic-package-restore-visual-studio)に関する記事をご覧ください。 [パッケージの復元のトラブルシューティング](Package-restore-troubleshooting.md)に関するページもご覧ください。
+
+### <a name="enable-and-disable-package-restore-in-visual-studio"></a>Visual Studio でパッケージの復元を有効または無効にする
 
 Visual Studio では、パッケージ復元の管理は主に、 **[ツール]** 、 **[オプション]** 、 **[NuGet パッケージ マネージャー]** の順に選択して行います。
 
@@ -88,6 +119,51 @@ Visual Studio では、パッケージ復元の管理は主に、 **[ツール]*
 
 > [!Important]
 > `nuget.config` で直接、`packageRestore` 設定を編集する場合、 **[オプション]** ダイアログ ボックスに現在の値が表示されるように Visual Studio を再起動します。
+
+## <a name="restore-using-the-dotnet-cli"></a>dotnet CLI を使用した復元
+
+[!INCLUDE [restore-dotnet-cli](includes/restore-dotnet-cli.md)]
+
+> [!IMPORTANT]
+> 不足しているパッケージ参照をプロジェクト ファイルに追加するには、[dotnet add package](/dotnet/core/tools/dotnet-add-package?tabs=netcore2x) を使います。これによって `restore` コマンドも実行されます。
+
+## <a name="restore-using-the-nugetexe-cli"></a>nuget.exe CLI を使用した復元
+
+[!INCLUDE [restore-nuget-exe-cli](includes/restore-nuget-exe-cli.md)]
+
+> [!IMPORTANT]
+> `restore` コマンドによってプロジェクト ファイルや *packages.config* が変更されることはありません。依存関係を追加するには、Visual Studio でパッケージ マネージャー UI かコンソールを利用してパッケージ復元を追加するか、*packages.config* を変更し、`install` か `restore` を実行します。
+
+## <a name="restore-using-msbuild"></a>MSBuild を使用した復元
+
+PackageReference を使うプロジェクト ファイルに記載されているパッケージを復元するには、[msbuild -t:restore](../reference/msbuild-targets.md#restore-target) コマンドを使います。 このコマンドは、Visual Studio 2017 以降のバージョン含まれる NuGet 4.x+ と MSBuild 15.1+ でのみ利用できます。 `nuget restore` と `dotnet restore` の両方で、該当するプロジェクトにこのコマンドが使用されます。
+
+1. 開発者コマンド プロンプトを開きます (**検索**ボックスに「**開発者コマンド プロンプト**」と入力します)。
+
+   MSBuild に必要なすべてのパスが構成されるため、通常は **[スタート]** メニューから Visual Studio 用開発者コマンド プロンプトを使用します。
+
+2. プロジェクト ファイルが含まれているフォルダーに切り替え、次のコマンドを入力します。
+
+   ```cmd
+   # Uses the project file in the current folder by default
+   msbuild -t:restore
+   ```
+
+3. 次のコマンドを入力して、プロジェクトをリビルドします。
+
+   ```cmd
+   msbuild
+   ```
+
+   MSBuild の出力にビルドが正常に完了したことが示されていることを確認します。
+
+## <a name="restore-using-azure-pipelines"></a>Azure Pipelines を使用した復元
+
+Azure Pipelines でビルド定義を作成するとき、定義の中でビルド タスクの前に NuGet [復元](/azure/devops/pipelines/tasks/package/nuget#restore-nuget-packages)または .NET Core [復元](/azure/devops/pipelines/tasks/build/dotnet-core-cli?view=azure-devops)タスクを含めます。 一部のビルド テンプレートには、既定で復元タスクが含まれています。
+
+## <a name="restore-using-azure-devops-server"></a>Azure DevOps Server を使用した復元
+
+Azure DevOps Server と TFS 2013 以降では、TFS 2013 以降のチーム ビルド テンプレートを使用している場合、ビルド時にパッケージが自動的に復元されます。 それより前の TFS バージョンの場合、コマンドラインで復元を実行するビルド ステップを含めたり、任意で、ビルド テンプレートを後続のバージョンに移行したりできます。 詳細については、[Team Foundation ビルドでパッケージ復元を設定する](../consume-packages/team-foundation-build.md)方法に関するページをご覧ください。
 
 ## <a name="constrain-package-versions-with-restore"></a>復元でパッケージ バージョンを制約する
 
