@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/26/2017
 ms.topic: conceptual
-ms.openlocfilehash: 58ad05cb854c8f7233d90d03c1b320f8797ca2ab
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: e4b9f6dae3a4be69e523888cc9bd2f212b45829c
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842400"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488845"
 ---
 # <a name="package-creation-workflow"></a>パッケージ作成ワークフロー
 
@@ -35,8 +35,8 @@ ms.locfileid: "67842400"
 - 「[Pre-release Packages](../create-packages/prerelease-packages.md)」 (プレリリース パッケージ) では、アルファ、ベータ、rc パッケージをそれらに関心のあるユーザー向けにリリースする方法が示されています。
 - 「[Source and Config File Transformations](../create-packages/source-and-config-file-transformations.md)」 (ソースと構成ファイルの変換) では、プロジェクトに追加されたファイルでの一方向のトークン置換を実行する方法と、パッケージのアンインストール時に取り消すこともできる設定を使用して `web.config` と `app.config` を変更する方法が説明されています。
 - 「[Symbol Packages](../create-packages/symbol-packages-snupkg.md)」 (シンボル パッケージ) では、コンシューマーがデバッグ時にコードにステップ インできるように、ライブラリでシンボルを提供するためのガイダンスが提供されています。
-- 「[Package versioning](../reference/package-versioning.md)」 (パッケージのバージョン管理) では、依存関係 (自分のパッケージから利用する他のパッケージ) がある場合に使用できる正確なバージョンを特定する方法が説明されています。
-- 「[Native Packages](../create-packages/native-packages.md)」 (ネイティブ パッケージ) では、C++ コンシューマー用のパッケージの作成プロセスが説明されています。
+- 「[Package versioning](../concepts/package-versioning.md)」 (パッケージのバージョン管理) では、依存関係 (自分のパッケージから利用する他のパッケージ) がある場合に使用できる正確なバージョンを特定する方法が説明されています。
+- 「[Native Packages](../guides/native-packages.md)」 (ネイティブ パッケージ) では、C++ コンシューマー用のパッケージの作成プロセスが説明されています。
 - 「[Signing Packages](../create-packages/sign-a-package.md)」(パッケージの署名) では、パッケージにデジタル署名を追加するプロセスが説明されています。
 
 nuget.org にパッケージを発行する準備ができたら、「[Publish a package](../nuget-org/publish-a-package.md)」 (パッケージの発行) の簡単なプロセスに従います。

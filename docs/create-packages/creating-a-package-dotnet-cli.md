@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8222e1edfa13951d2fda9a2384d93bba38ef4979
-ms.sourcegitcommit: ba8ad1bd13a4bba3df94374e34e20c425a05af2f
+ms.openlocfilehash: 40a42be91d3848db3e721a674e3fec4096fccd08
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68833291"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69489019"
 ---
 # <a name="create-a-nuget-package-using-the-dotnet-cli"></a>dotnet CLI を使用して NuGet パッケージを作成する
 
@@ -66,7 +66,7 @@ Visual Studio では、プロジェクトのプロパティにこれらの値を
 > [!NOTE]
 > 公開用にビルドされたパッケージの場合は、**PackageTags**プロパティに特に注意してください。これらのタグは他のユーザーがパッケージを検索して、パッケージの動作を理解するのに役立ちます。
 
-依存関係の宣言とバージョン番号の指定の詳細については、「[プロジェクト ファイルのパッケージ参照 (PackageReference)](../consume-packages/package-references-in-project-files.md)」と「[パッケージのバージョン管理](../reference/package-versioning.md)」を参照してください。 `<IncludeAssets>` および `<ExcludeAssets>` 属性を使用して、パッケージ内で直接、依存関係からアセットを表面化させることもできます。 詳しくは、「[依存関係アセットを制御する](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)」をご覧ください。
+依存関係の宣言とバージョン番号の指定の詳細については、「[プロジェクト ファイルのパッケージ参照 (PackageReference)](../consume-packages/package-references-in-project-files.md)」と「[パッケージのバージョン管理](../concepts/package-versioning.md)」を参照してください。 `<IncludeAssets>` および `<ExcludeAssets>` 属性を使用して、パッケージ内で直接、依存関係からアセットを表面化させることもできます。 詳しくは、「[依存関係アセットを制御する](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)」をご覧ください。
 
 ## <a name="choose-a-unique-package-identifier-and-set-the-version-number"></a>一意のパッケージ識別子を選択してバージョン番号を設定する
 
@@ -120,7 +120,7 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 
 パッケージの機能を拡張したり、次のトピックで説明するように、その他の方法で他のシナリオをサポートしたりすると便利な場合があります。
 
-- [パッケージのバージョン管理](../reference/package-versioning.md)
+- [パッケージのバージョン管理](../concepts/package-versioning.md)
 - [複数のターゲット フレームワークのサポート](../create-packages/multiple-target-frameworks-project-file.md)
 - [ソース ファイルと構成ファイルの変換](../create-packages/source-and-config-file-transformations.md)
 - [ローカリゼーション](../create-packages/creating-localized-packages.md)
@@ -130,5 +130,5 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 
 最後になりますが、次のような種類のパッケージもあります。
 
-- [ネイティブ パッケージ](../create-packages/native-packages.md)
+- [ネイティブ パッケージ](../guides/native-packages.md)
 - [シンボル パッケージ](../create-packages/symbol-packages.md)

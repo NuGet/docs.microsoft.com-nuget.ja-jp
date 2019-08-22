@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 726f983c2522fdb538dfce858fdf2371ec0ce188
-ms.sourcegitcommit: f9e39ff9ca19ba4a26e52b8a5e01e18eb0de5387
+ms.openlocfilehash: a7d07da30daf3f94db99476b88d9abaad1bb8a07
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68433338"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488863"
 ---
 # <a name="building-pre-release-packages"></a>プレリリース パッケージのビルド
 
@@ -20,7 +20,7 @@ ms.locfileid: "68433338"
 
 安定版リリースとは、実稼働環境で使用するだけの信頼性があると見なされるリリースです。 最新の安定版リリースは、パッケージ更新またはパッケージ復元でインストールされるリリースでもあります (「[Reinstalling and updating packages](../consume-packages/reinstalling-and-updating-packages.md)」 (パッケージの再インストールと更新) の説明にある制約に左右されます)。
 
-ソフトウェア リリース ライフサイクルをサポートするために、NuGet 1.6 以降では、プレリリース パッケージを配信できます。バージョン番号には、`-alpha`、`-beta`、`-rc` のようなセマンティック バージョン管理サフィックスが含まれます。 詳細については、「[Package versioning](../reference/package-versioning.md#pre-release-versions)」(パッケージのバージョン管理) を参照してください。
+ソフトウェア リリース ライフサイクルをサポートするために、NuGet 1.6 以降では、プレリリース パッケージを配信できます。バージョン番号には、`-alpha`、`-beta`、`-rc` のようなセマンティック バージョン管理サフィックスが含まれます。 詳細については、「[Package versioning](../concepts/package-versioning.md#pre-release-versions)」(パッケージのバージョン管理) を参照してください。
 
 次の方法のいずれかを使って、このようなバージョンを指定できます。
 
@@ -38,7 +38,7 @@ ms.locfileid: "68433338"
     <version>1.0.1-alpha</version>
     ```
 
-安定版バージョンをリリースする用意ができたら、サフィックスを削除します。このパッケージはあらゆるプレリリース版に優先します。 繰り返しになりますが、「[Package versioning](../reference/package-versioning.md#pre-release-versions)」(パッケージのバージョン管理) を参照してください。
+安定版バージョンをリリースする用意ができたら、サフィックスを削除します。このパッケージはあらゆるプレリリース版に優先します。 繰り返しになりますが、「[Package versioning](../concepts/package-versioning.md#pre-release-versions)」(パッケージのバージョン管理) を参照してください。
 
 ## <a name="installing-and-updating-pre-release-packages"></a>プレリリース パッケージのインストールと更新
 

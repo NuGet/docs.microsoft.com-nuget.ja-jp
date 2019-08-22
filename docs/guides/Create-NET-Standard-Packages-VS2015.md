@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 02/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: 1198a781543e581f55740cc0ae5a212d3f8a8b61
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 11dce27b93c3d09a2d27dc79f8d4fed86df879ba
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842451"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488974"
 ---
 # <a name="create-net-standard-and-net-framework-packages-with-visual-studio-2015"></a>Visual Studio 2015 での NET Standard および NET Framework パッケージの作成
 
@@ -125,7 +125,7 @@ ms.locfileid: "67842451"
 </dependencies>
 ```
 
-*version* 属性の構文は、バージョン 8.0.3 以降が許容されることを示します。 別のバージョンの範囲を指定する場合は、「[パッケージのバージョン管理](../reference/package-versioning.md)」を参照してください。
+*version* 属性の構文は、バージョン 8.0.3 以降が許容されることを示します。 別のバージョンの範囲を指定する場合は、「[パッケージのバージョン管理](../concepts/package-versioning.md)」を参照してください。
 
 ### <a name="adding-a-readme"></a>Readme の追加
 
@@ -170,6 +170,6 @@ nuget pack AppLogger.nuspec
 - [パッケージに MSBuild プロパティとターゲットを含める](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)
 - [ローカライズされたパッケージを作成する](../create-packages/creating-localized-packages.md)
 - [シンボル パッケージ](../create-packages/symbol-packages.md)
-- [パッケージのバージョン管理](../reference/package-versioning.md)
+- [パッケージのバージョン管理](../concepts/package-versioning.md)
 - [.NET Standard ライブラリのドキュメント](/dotnet/articles/standard/library)
 - [.NET Framework から .NET Core への移植](/dotnet/articles/core/porting/index)

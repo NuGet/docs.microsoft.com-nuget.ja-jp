@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3d8745ea30115a2d7f3954d171d92b75a434a55b
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: b151547e40e567b38acc2b0b9ee84c50d85000c9
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67843444"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488481"
 ---
 # <a name="identify-the-project-format"></a>プロジェクトの形式を特定する
 
@@ -23,7 +23,7 @@ NuGet はすべての .NET プロジェクトに対応しています。 ただ�
 | .NET Standard | SDK スタイル | [dotnet CLI](../install-nuget-client-tools.md#dotnetexe-cli) | Visual Studio 2017 より前に作成されたプロジェクトは SDK 形式ではありません。 `nuget.exe` CLI をお使いください。 |
 | .NET Core | SDK スタイル | [dotnet CLI](../install-nuget-client-tools.md#dotnetexe-cli) | Visual Studio 2017 より前に作成されたプロジェクトは SDK 形式ではありません。 `nuget.exe` CLI をお使いください。 |
 | .NET Framework | 非 SDK スタイル | [nuget.exe CLI](../install-nuget-client-tools.md#nugetexe-cli) | 他の方法で作成された .NET Framework プロジェクトは、SDK スタイルのプロジェクトである場合があります。 そのような場合は、代わりに [dotnet CLI](../install-nuget-client-tools.md#dotnetexe-cli) をお使いください。 |
-| [移行した](../reference/migrate-packages-config-to-package-reference.md) .NET プロジェクト | 非 SDK スタイル| パッケージを作成する場合は、[msbuild -t:pack](../reference/migrate-packages-config-to-package-reference.md#create-a-package-after-migration) を使ってパッケージを作成します。 | パッケージを作成する場合は、`msbuild -t:pack` をお勧めします。 それ以外の場合は、[dotnet CLI](../install-nuget-client-tools.md#dotnetexe-cli) をお使いください。 移行されたプロジェクトは、SDK スタイルのプロジェクトではありません。 |
+| [移行した](../consume-packages/migrate-packages-config-to-package-reference.md) .NET プロジェクト | 非 SDK スタイル| パッケージを作成する場合は、[msbuild -t:pack](../consume-packages/migrate-packages-config-to-package-reference.md#create-a-package-after-migration) を使ってパッケージを作成します。 | パッケージを作成する場合は、`msbuild -t:pack` をお勧めします。 それ以外の場合は、[dotnet CLI](../install-nuget-client-tools.md#dotnetexe-cli) をお使いください。 移行されたプロジェクトは、SDK スタイルのプロジェクトではありません。 |
 
 ## <a name="check-the-project-format"></a>プロジェクトの形式を確認する
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/22/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0b3ecb535c07459bff517102b3cf6f4e6dc42195
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: ddd1d163e18ed4ce1e7cbf41ed152acc40c1c423
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317054"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488780"
 ---
 # <a name="package-consumption-workflow"></a>パッケージ利用のワークフロー
 
@@ -29,13 +29,13 @@ NuGet では、インストールされている各パッケージの ID とバ�
 
 パッケージのインストール時に、NuGet は通常、パッケージがそのキャッシュから既に使用可能であるかどうかを確認します。 「[Managing the global packages and cache folders](../consume-packages/managing-the-global-packages-and-cache-folders.md)」 (グローバル パッケージおよびキャッシュ フォルダーを管理する) で説明されているように、コマンド ラインからこのキャッシュを手動でクリアすることができます。
 
-また、NuGet は、パッケージでサポートされるターゲット フレームワークがプロジェクトと互換性があることを確認します。 パッケージに互換性のあるアセンブリが含まれていない場合、NuGet はエラーを示します。 「[互換性のないパッケージのエラーの解決](dependency-resolution.md#resolving-incompatible-package-errors)」を参照してください。
+また、NuGet は、パッケージでサポートされるターゲット フレームワークがプロジェクトと互換性があることを確認します。 パッケージに互換性のあるアセンブリが含まれていない場合、NuGet はエラーを示します。 「[互換性のないパッケージのエラーの解決](../concepts/dependency-resolution.md#resolving-incompatible-package-errors)」を参照してください。
 
 プロジェクト コードをソース リポジトリを追加する場合、通常は NuGet パッケージを含めません。 Visual Studio Team Services などのシステムのビルド エージェントを含む、リポジトリを後で複製するか、そうでない場合はプロジェクトを取得するユーザーは、ビルドを実行する前に必要なパッケージを復元する必要があります。
 
 ![リポジトリの複製およびいずれかの復元コマンドの使用による NuGet パッケージの復元フロー](media/Overview-02-RestoreFlow.png)
 
-「[パッケージの復元](../consume-packages/package-restore.md)」では、プロジェクト ファイルまたは `packages.config` の情報を使用して、すべての依存関係を再インストールします。 「[Dependency Resolution](../consume-packages/dependency-resolution.md)」 (依存関係の解決) で説明されているように、関係するプロセスには違いがあることに注意してください。 また、上図にはパッケージ マネージャー コンソールの復元コマンドは示されていませんが、これはコンソールで作業している場合、既に Visual Studio のコンテキスト内にいるからです。この場合は通常、パッケージは自動で復元され、図に示されているようにソリューション レベルのコマンドが提供されます。
+「[パッケージの復元](../consume-packages/package-restore.md)」では、プロジェクト ファイルまたは `packages.config` の情報を使用して、すべての依存関係を再インストールします。 「[Dependency Resolution](../concepts/dependency-resolution.md)」 (依存関係の解決) で説明されているように、関係するプロセスには違いがあることに注意してください。 また、上図にはパッケージ マネージャー コンソールの復元コマンドは示されていませんが、これはコンソールで作業している場合、既に Visual Studio のコンテキスト内にいるからです。この場合は通常、パッケージは自動で復元され、図に示されているようにソリューション レベルのコマンドが提供されます。
 
 場合によっては、プロジェクトに既に含まれているパッケージの再インストールが必要になります。その場合、依存関係も再インストールされる可能性があります。 これは、`nuget reinstall` コマンド使用するか、NuGet パッケージ マネージャー コンソールを使用して簡単に行うことができます。 詳細については、「[Reinstalling and Updating Packages](../consume-packages/reinstalling-and-updating-packages.md)」 (パッケージの再インストールと更新) を参照してください。
 

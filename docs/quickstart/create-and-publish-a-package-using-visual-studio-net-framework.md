@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: 75160bf2b01f6d4707162e019a6263ddc64a6f5e
-ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
+ms.openlocfilehash: 7bfe041c01114ac61e811497ecc31ebfdad45029
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68342513"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488897"
 ---
 # <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>クイック スタート: Visual Studio を使用したパッケージの作成と公開 (.NET Framework、Windows)
 
@@ -174,15 +174,15 @@ DLL を入手し、プロジェクトのプロパティを設定したら、`nug
 
 ## <a name="next-steps"></a>次の手順
 
-最初の NuGet パッケージを無事に作成できました。
+無事に、最初の NuGet パッケージを作成できました。
 
 > [!div class="nextstepaction"]
 > [パッケージの作成](../create-packages/creating-a-package.md)
 
-NuGet が提供するその他の機能を調べるには、下のリンクを選択してください。
+NuGet による提供についてさらに詳しく調べるには、下のリンクを選択してください。
 
 - [パッケージの公開](../nuget-org/publish-a-package.md)
 - [プレリリース パッケージ](../create-packages/Prerelease-Packages.md)
 - [複数のターゲット フレームワークのサポート](../create-packages/supporting-multiple-target-frameworks.md)
-- [パッケージのバージョン管理](../reference/package-versioning.md)
+- [パッケージのバージョン管理](../concepts/package-versioning.md)
 - [ローカライズされたパッケージを作成する](../create-packages/creating-localized-packages.md)

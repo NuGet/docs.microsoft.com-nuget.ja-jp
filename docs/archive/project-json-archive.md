@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8d732e87f01c55bde87da0a2e382fd6d509886a3
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 87116669c1e685ffd0dbe4142c2f7e357c413497
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317012"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488244"
 ---
 # <a name="projectjson-archive"></a>project.json のアーカイブ
 
@@ -54,19 +54,19 @@ ms.locfileid: "68317012"
 
 ## <a name="dependency-resolution-with-packagereference"></a>PackageReference による依存関係の解決
 
-*"もともとは「[依存関係の解決](../consume-packages/dependency-resolution.md#dependency-resolution-with-packagereference)」内。"*
+*"もともとは「[依存関係の解決](../concepts/dependency-resolution.md#dependency-resolution-with-packagereference)」内。"*
 
 PackageReference の動作は、`project.json` にも適用されます。 nuget restore は、依存関係グラフを、`project.json` と同時に `project.lock.json`にも書き込みます。
 
 ## <a name="managing-dependency-assets"></a>依存関係アセットの管理
 
-*"もともとは「[依存関係の解決](../consume-packages/dependency-resolution.md#managing-dependency-assets)」内。"*
+*"もともとは「[依存関係の解決](../concepts/dependency-resolution.md#managing-dependency-assets)」内。"*
 
 `project.json` 形式を使用すると、依存関係から最上位のプロジェクトへの資産のフローを制御できます。 詳細については、「[project.json](project-json.md)」を参照してください。
 
 ## <a name="excluding-references"></a>参照の除外
 
-*"もともとは「[依存関係の解決](../consume-packages/dependency-resolution.md#excluding-references)」内。"*
+*"もともとは「[依存関係の解決](../concepts/dependency-resolution.md#excluding-references)」内。"*
 
 - `project.json`: パッケージ C の依存関係に `"exclude" : "all"` を追加します。
 
@@ -83,7 +83,7 @@ PackageReference の動作は、`project.json` にも適用されます。 nuget
 
 ## <a name="resolving-incompatible-package-errors"></a>互換性のないパッケージのエラーの解決
 
-*"もともとは「[依存関係の解決](../consume-packages/dependency-resolution.md#resolving-incompatible-package-errors)」内。"*
+*"もともとは「[依存関係の解決](../concepts/dependency-resolution.md#resolving-incompatible-package-errors)」内。"*
 
 エラーを解決するための追加手段:
 
@@ -124,7 +124,7 @@ PackageReference の動作は、`project.json` にも適用されます。 nuget
 
 ### <a name="package-versioning"></a>パッケージのバージョン管理
 
-*"もともとは「[パッケージのバージョン管理](../reference/package-versioning.md)」内。"*
+*"もともとは「[パッケージのバージョン管理](../concepts/package-versioning.md)」内。"*
 
 `project.json`形式を使用する場合、NuGet では、メジャー、マイナー、パッチ、およびプレリリースを示す、番号のサフィックス部分にワイルドカード表記 \*を使用できます。
 

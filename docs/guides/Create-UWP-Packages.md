@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/21/2017
 ms.topic: tutorial
-ms.openlocfilehash: 344c8d764180d0f33c1bce77b721e3657297e74e
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 1683349faacdf5ad47baafeef3457bbb3bb1baa9
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842120"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488986"
 ---
 # <a name="create-uwp-packages"></a>UWP パッケージを作成する
 
@@ -254,7 +254,7 @@ nuget pack ImageEnhancer.nuspec
 
 - [.nuspec 参照](../reference/nuspec.md)
 - [シンボル パッケージ](../create-packages/symbol-packages.md)
-- [パッケージのバージョン管理](../reference/package-versioning.md)
+- [パッケージのバージョン管理](../concepts/package-versioning.md)
 - [複数の .NET Framework バージョンのサポート](../create-packages/supporting-multiple-target-frameworks.md)
 - [パッケージに MSBuild プロパティとターゲットを含める](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)
 - [ローカライズされたパッケージを作成する](../create-packages/creating-localized-packages.md)

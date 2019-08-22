@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: e8949e9964ed19d342df53f08f59bb0f89e5feb0
-ms.sourcegitcommit: 5aa49478dc466c67db5c3edda7c6ce8dcd8ae033
+ms.openlocfilehash: 7ebe3c0f75b8de158879119bce4df26217849251
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68817485"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488967"
 ---
 パッケージ識別子とバージョン番号は、パッケージに含まれる正確なコードを一意に識別するため、プロジェクトの中で最も重要な 2 つの値です。
 
@@ -17,9 +17,9 @@ ms.locfileid: "68817485"
 **パッケージ バージョンのベスト プラクティス:**
 
 - これは厳密には必須ではありませんが、一般的にはプロジェクト (またはアセンブリ) と一致するようにパッケージのバージョンを設定します。 パッケージを単一のアセンブリに限定する場合に、これはシンプルな方法です。 概して、NuGet 自体は依存関係の解決時、パッケージ バージョンを使います。アセンブリ バージョンではありません。
-- 非標準のバージョン スキーマを使用するとき、「[パッケージのバージョン管理](../../reference/package-versioning.md)」で説明するように、NuGet バージョン管理ルールを検討してください。 NuGet は、ほぼ [semver 2 に準拠](../../reference/package-versioning.md#semantic-versioning-200)しています。
+- 非標準のバージョン スキーマを使用するとき、「[パッケージのバージョン管理](../../concepts/package-versioning.md)」で説明するように、NuGet バージョン管理ルールを検討してください。 NuGet は、ほぼ [semver 2 に準拠](../../concepts/package-versioning.md#semantic-versioning-200)しています。
 
-> 依存関係の解決については、「[PackageReference による依存関係の解決](../../consume-packages/dependency-resolution.md#dependency-resolution-with-packagereference)」をご覧ください。 バージョン管理の理解を深めるためにも役立つ可能性がある旧情報については、こちらの一連のブログ投稿を確認してください。
+> 依存関係の解決については、「[PackageReference による依存関係の解決](../../concepts/dependency-resolution.md#dependency-resolution-with-packagereference)」をご覧ください。 バージョン管理の理解を深めるためにも役立つ可能性がある旧情報については、こちらの一連のブログ投稿を確認してください。
 >
 > - [第 1 部: DLL 地獄](http://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html)
 > - [第 2 部: コア アルゴリズム](http://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html)

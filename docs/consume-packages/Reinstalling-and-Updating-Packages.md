@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: conceptual
-ms.openlocfilehash: bc077220e05b14180baac9611fda9234675ad640
-ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
+ms.openlocfilehash: c48980bc3f955a62962ca6e9619ce09f4a94a835
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68860525"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488077"
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>パッケージを再インストールし更新する方法
 
@@ -59,7 +59,7 @@ Visual Studio のパッケージ マネージャー コンソールには、パ�
 </packages>
 ```
 
-いずれの場合も、「[Package versioning](../reference/package-versioning.md#version-ranges-and-wildcards)」(パッケージのバージョン管理) で説明されている表記を使います。
+いずれの場合も、「[Package versioning](../concepts/package-versioning.md#version-ranges-and-wildcards)」(パッケージのバージョン管理) で説明されている表記を使います。
 
 ## <a name="using-update-package"></a>Update-Package の使用
 
