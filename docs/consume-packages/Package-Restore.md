@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5bf75bb724846f652725bfcf636908c34adc174f
-ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
+ms.openlocfilehash: dfe5f2ef4f0ababd81b91073938752aab2bdc01e
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68860679"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488806"
 ---
 # <a name="restore-packages-using-package-restore"></a>[パッケージの復元] を使用したパッケージの復元
 
@@ -181,7 +181,7 @@ NuGet で何らかの方法でパッケージを復元するとき、`packages.c
     <PackageReference Include="Newtonsoft.json" Version="[6, 7)" />
     ```
 
-いずれの場合も、「[Package versioning](../reference/package-versioning.md)」(パッケージのバージョン管理) で説明されている表記を使います。
+いずれの場合も、「[Package versioning](../concepts/package-versioning.md)」(パッケージのバージョン管理) で説明されている表記を使います。
 
 ## <a name="force-restore-from-package-sources"></a>パッケージ ソースから強制的に復元する
 
