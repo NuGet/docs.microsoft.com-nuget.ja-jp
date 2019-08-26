@@ -1,16 +1,16 @@
 ---
-title: Windows 上で Visual Studio を使用した .NET Standard NuGet パッケージの作成と公開
+title: .NET Standard NuGet パッケージの作成と公開 - Windows 上の Visual Studio
 description: Windows の Visual Studio を使用した、.NET Standard NuGet パッケージの作成と公開に関するチュートリアルです。
 author: karann-msft
 ms.author: karann
-ms.date: 07/09/2019
+ms.date: 08/16/2019
 ms.topic: quickstart
-ms.openlocfilehash: 0fc3b15c6d5ffa93eb6e26660f71cea2286ba77d
-ms.sourcegitcommit: aed04cc04b0902403612de6736a900d41c265afd
+ms.openlocfilehash: 9552f6c5291f950430bfb723cb713bf76a79ea66
+ms.sourcegitcommit: 80cf99f40759911324468be1ec815c96aebf376d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68821416"
+ms.lasthandoff: 08/17/2019
+ms.locfileid: "69564593"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>クイック スタート: Visual Studio を使用した NuGet パッケージの作成と公開 (.NET Standard、Windows のみ)
 
@@ -21,14 +21,14 @@ Windows の Visual Studio で .NET Standard クラス ライブラリから NuGe
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-1. [visualstudio.com](https://www.visualstudio.com/) から Visual Studio 2017 以降の任意のエディションを、.NET Core 関連のワークロードと共にインストールします。
+1. [visualstudio.com](https://www.visualstudio.com/) から Visual Studio 2019 の任意のエディションと、.NET Core 関連のワークロードをインストールします。
 
 1. まだインストールされていない場合、`dotnet` CLI をインストールします。
 
-   `dotnet` CLI について、Visual Studio 2017 以降、`dotnet` CLI は .NET Core 関連のワークロードと共に自動的にインストールされます。 それ以外の場合は、[.NET Core SDK](https://www.microsoft.com/net/download/) をインストールして `dotnet` CLI を取得します。 [SDK スタイルの形式](../resources/check-project-format.md) (SDK 属性) を使用する .NET Standard プロジェクトには、`dotnet` CLI が必要です。 Visual Studio 2017 以降の既定のクラス ライブラリ テンプレート (この記事で使用するものです) では、SDK 属性が使用されます。
+   `dotnet` CLI について、Visual Studio 2017 以降、`dotnet` CLI は .NET Core 関連のワークロードと共に自動的にインストールされます。 それ以外の場合は、[.NET Core SDK](https://www.microsoft.com/net/download/) をインストールして `dotnet` CLI を取得します。 [SDK スタイルの形式](../resources/check-project-format.md) (SDK 属性) を使用する .NET Standard プロジェクトには、`dotnet` CLI が必要です。 Visual Studio 2017 以降の既定の .NET Standard クラス ライブラリ テンプレート (この記事で使用するものです) では、SDK 属性が使用されます。
    
    > [!Important]
-   > この記事では、`dotnet` CLI を使用することをお勧めします。 `nuget.exe` CLI を使用してもあらゆる NuGet パッケージを公開できますが、この記事の手順の一部は SDK スタイルのプロジェクトと dotnet CLI に固有のものです。 nuget.exe CLI は、[非 SDK 形式のプロジェクト](../resources/check-project-format.md) (通常は .NET Framework) 用に使用されます。 非 SDK スタイルのプロジェクトを使用している場合は、[.NET Framework パッケージの作成と公開 (Visual Studio)](create-and-publish-a-package-using-visual-studio-net-framework.md) に関するページの手順に従って、パッケージの作成と公開を行ってください。
+   > 非 SDK スタイルのプロジェクトを使用している場合は、代わりに [.NET Framework パッケージの作成と公開 (Visual Studio)](create-and-publish-a-package-using-visual-studio-net-framework.md) に関するページの手順に従って、パッケージの作成と公開を行ってください。 この記事では、`dotnet` CLI を使用することをお勧めします。 `nuget.exe` CLI を使用してもあらゆる NuGet パッケージを公開できますが、この記事の手順の一部は SDK スタイルのプロジェクトと dotnet CLI に固有のものです。 nuget.exe CLI は、[非 SDK 形式のプロジェクト](../resources/check-project-format.md) (通常は .NET Framework) 用に使用されます。
 
 1. まだ持っていない場合は、[nuget.org で無料アカウントを登録](https://docs.microsoft.com/en-us/nuget/nuget-org/individual-accounts#add-a-new-individual-account)します。 新しいアカウントを作成すると、確認メールが送信されます。 パッケージをアップロードするには、その前にアカウントを確認する必要があります。
 
@@ -36,9 +36,12 @@ Windows の Visual Studio で .NET Standard クラス ライブラリから NuGe
 
 パッケージ化するコードに既存の .NET Standard クラス ライブラリ プロジェクトを使用することも、次の手順に従って単純なプロジェクトを作成することもできます。
 
-1. Visual Studio で、 **[ファイル]、[新規]、[プロジェクト]** の順に選択し、 **[Visual C#]、[.NET Standard]** ノードの順に展開して "クラス ライブラリ (.NET Standard)" テンプレートを選択し、プロジェクトに AppLogger という名前を付け、 **[OK]** をクリックします。
+1. Visual Studio で、**[ファイル]、[新規]、[プロジェクト]** の順に選択し、**[Visual C#]、[.NET Standard]** ノードの順に展開して "クラス ライブラリ (.NET Standard)" テンプレートを選択し、プロジェクトに AppLogger という名前を付け、**[OK]** をクリックします。
 
-1. 作成されたプロジェクト ファイルを右クリックし、 **[ビルド]** を選択して、プロジェクトが正しく作成されたことを確認します。 DLL は、デバッグ フォルダー (または代わりにその構成をビルドした場合はリリース フォルダー) 内にあります。
+   > [!Tip]
+   > それ以外を選択する理由がない限り、.NET Standard は最も広い範囲の使用プロジェクトとの互換性を提供するため、NuGet パッケージの優先ターゲットです。
+
+1. 作成されたプロジェクト ファイルを右クリックし、**[ビルド]** を選択して、プロジェクトが正しく作成されたことを確認します。 DLL は、デバッグ フォルダー (または代わりにその構成をビルドした場合はリリース フォルダー) 内にあります。
 
 実際の NuGet パッケージ内ではもちろん、多くの便利な機能を実装し、他のユーザーはそれを使用してアプリケーションをビルドできます。 しかし、このチュートリアルでは、パッケージを作成するには、テンプレートのクラス ライブラリで十分なため、追加のコードを記述することはありません。 それでも、パッケージの一部の機能コードが必要な場合は、次のように使用します。
 
@@ -55,40 +58,37 @@ namespace AppLogger
 }
 ```
 
-> [!Tip]
-> それ以外を選択する理由がない限り、.NET Standard は最も広い範囲の使用プロジェクトとの互換性を提供するため、NuGet パッケージの優先ターゲットです。
-
 ## <a name="configure-package-properties"></a>パッケージのプロパティを構成する
 
-1. ソリューション エクスプローラーでプロジェクトを右クリックし、 **[プロパティ]** メニュー コマンドを選択してから、 **[パッケージ]** タブを選択します。
+1. ソリューション エクスプローラーでプロジェクトを右クリックし、**[プロパティ]** メニュー コマンドを選択してから、**[パッケージ]** タブを選択します。
 
-   **[パッケージ]** タブは、Visual Studio の SDK スタイルのプロジェクト (通常は .NET Standard または .NET Core クラス ライブラリ プロジェクト) に対してのみ表示されます。非 SDK スタイルのプロジェクト (通常は .NET Framework) をターゲットとしている場合は、[プロジェクトを移行](../reference/migrate-packages-config-to-package-reference.md)して `dotnet` CLI を使用するか、[.NET Framework パッケージの作成と公開](create-and-publish-a-package-using-visual-studio-net-framework.md)または [.NET Framework パッケージの作成と公開](create-and-publish-a-package-using-visual-studio-net-framework.md)に関するページの詳細な手順をご覧ください。
+   **[パッケージ]** タブは、Visual Studio の SDK スタイルのプロジェクト (通常は .NET Standard または .NET Core クラス ライブラリ プロジェクト) に対してのみ表示されます。非 SDK スタイルのプロジェクト (通常は .NET Framework) をターゲットとしている場合は、[プロジェクトを移行](../consume-packages/migrate-packages-config-to-package-reference.md)するか、[.NET Framework パッケージの作成と公開](create-and-publish-a-package-using-visual-studio-net-framework.md)に関するページの詳細な手順をご覧ください。
 
     ![Visual Studio プロジェクト内の NuGet パッケージのプロパティ](media/qs_create-vs-01-package-properties.png)
 
     > [!Note]
     > 公開用にビルドされたパッケージの場合は、**Tags**プロパティに特に注意してください。これらのタグは他のユーザーがパッケージを検索して、パッケージの動作を理解するのに役立ちます。
 
-1. パッケージに一意の識別子を付けて、他の必要なプロパティを指定します。 さまざまなプロパティについては、[.nuspec ファイルのリファレンス](../reference/nuspec.md) ページを参照してください。 これらのプロパティはすべて、Visual Studio でプロジェクト用に作成された `.nuspec`マニフェストに保存されます。
+1. パッケージに一意の識別子を付けて、他の必要なプロパティを指定します。 MSBuild プロパティ (SDK スタイルのプロジェクト) から *.nuspec* 内のプロパティへのマッピングについては、「[pack ターゲット](../reference/msbuild-targets.md#pack-target)」ご覧ください。 プロパティの説明については、[.nuspec ファイル リファレンス](../reference/nuspec.md)に関するページをご覧ください。 これらのプロパティはすべて、Visual Studio でプロジェクト用に作成された `.nuspec`マニフェストに保存されます。
 
     > [!Important]
     > パッケージには、nuget.org または使用しているホスト全体で一意の識別子を付ける必要があります。 このチュートリアルでは、以降の公開手順でパッケージを一般公開するので (ただし、誰かが実際に使用する可能性はありません)、名前に "Sample" または "Test" を含めることをお勧めします。
     >
     > 既に存在する名前のパッケージを公開しようとすると、エラーが表示されます。
 
-1. 省略可能: プロジェクト ファイルで直接プロパティを表示するには、ソリューション エクスプローラーでプロジェクトを右クリックし、 **[Edit AppLogger.csproj]\(AppLogger.csproj の編集\)** を選択します。
+1. (省略可能) プロジェクト ファイルで直接プロパティを表示するには、ソリューション エクスプローラーでプロジェクトを右クリックし、**[Edit AppLogger.csproj]\(AppLogger.csproj の編集\)** を選択します。
 
-   このオプションは、Visual Studio 2017 以降で、SDK スタイルの属性を使用するプロジェクトに対してのみ使用できます。 それ以外の場合は、プロジェクトを右クリックして **[プロジェクトのアンロード]** を選択します。 次に、アンロードされたプロジェクトを右クリックし、 **[Edit AppLogger.csproj]\(AppLogger.csproj の編集\)** を選択します。
+   このオプションは、Visual Studio 2017 以降で、SDK スタイルの属性を使用するプロジェクトに対してのみ使用できます。 それ以外の場合は、プロジェクトを右クリックして **[プロジェクトのアンロード]** を選択します。 次に、アンロードされたプロジェクトを右クリックし、**[Edit AppLogger.csproj]\(AppLogger.csproj の編集\)** を選択します。
 
 ## <a name="run-the-pack-command"></a>pack コマンドを実行する
 
 1. 構成を **[リリース]** に設定します。
 
-1. **ソリューション エクスプローラー**で、プロジェクトを右クリックし、 **[パック]** コマンドを選択します。
+1. **ソリューション エクスプローラー**で、プロジェクトを右クリックし、**[パック]** コマンドを選択します。
 
     ![Visual Studio プロジェクトのコンテキスト メニューの NuGet パック コマンド](media/qs_create-vs-02-pack-command.png)
 
-    **[パック]** コマンドが表示されない場合は、プロジェクトがおそらく SDK スタイルのプロジェクトではないため、`nuget.exe` CLI を使用する必要があります。 [プロジェクトを移行](../reference/migrate-packages-config-to-package-reference.md)して `dotnet` CLIを使用するか、代わりに [.NET Framework パッケージの作成と公開](create-and-publish-a-package-using-visual-studio-net-framework.md)に関するページの詳細な手順をご覧ください。
+    **[パック]** コマンドが表示されない場合は、プロジェクトがおそらく SDK スタイルのプロジェクトではないため、`nuget.exe` CLI を使用する必要があります。 [プロジェクトを移行](../consume-packages/migrate-packages-config-to-package-reference.md)して `dotnet` CLIを使用するか、代わりに [.NET Framework パッケージの作成と公開](create-and-publish-a-package-using-visual-studio-net-framework.md)に関するページの詳細な手順をご覧ください。
 
 1. Visual Studio により、プロジェクトがビルドされ、`.nupkg` ファイルが作成されます。 **[出力]** ウィンドウで (次のような) 詳細を確認します。このウィンドウには、パッケージ ファイルへのパスが表示されます。 ビルドされたアセンブリは .NET Standard 2.0 ターゲットに適合するため `bin\Release\netstandard2.0` にもあります。
 
@@ -103,9 +103,9 @@ namespace AppLogger
 
 プロジェクトのビルド時に NuGet パッケージを自動的に生成するように、Visual Studio を構成できます。
 
-1. ソリューション エクスプローラーでプロジェクトを右クリックし、 **[プロパティ]** を選択します。
+1. ソリューション エクスプローラーでプロジェクトを右クリックし、**[プロパティ]** を選択します。
 
-2. **[パッケージ]** タブで、 **[ビルド時に NuGet パッケージを生成]** を選択します。
+2. **[パッケージ]** タブで、**[ビルド時に NuGet パッケージを生成]** を選択します。
 
    ![ビルド時に自動的にパッケージを生成する](media/qs_create-vs-05-generate-on-build.png)
 
@@ -128,7 +128,11 @@ NuGet 4.x 以降と MSBuild 15.1 以降では、**Pack** メニュー コマン�
 
 [!INCLUDE [publish-api-key](includes/publish-api-key.md)]
 
-### <a name="publish-with-dotnet-nuget-push-dotnet-cli"></a>dotnet nuget push を使用して公開する (dotnet CLI)
+### <a name="publish-with-the-dotnet-cli-or-nugetexe-cli"></a>dotnet CLI または nuget.exe CLI を使用して公開する
+
+CLI ツールのタブ (**.NET Core CLI** (dotnet cli) または **NuGet** (nuget.exe CLI)) を選択します。
+
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 `nuget.exe` を使用する代わりに、この手順を使用することをお勧めします。
 
@@ -136,7 +140,7 @@ NuGet 4.x 以降と MSBuild 15.1 以降では、**Pack** メニュー コマン�
 
 [!INCLUDE [publish-dotnet](includes/publish-dotnet.md)]
 
-### <a name="publish-with-nuget-push-nugetexe-cli"></a>nuget push を使用して公開する (nuget.exe CLI)
+# <a name="nugettabnuget"></a>[NuGet](#tab/nuget)
 
 この手順は、`dotnet.exe`の使用に代わる方法です。
 
@@ -158,6 +162,8 @@ NuGet 4.x 以降と MSBuild 15.1 以降では、**Pack** メニュー コマン�
     ```
 
 [nuget push](../reference/cli-reference/cli-ref-push.md)に関するページを参照してください。
+
+---
 
 ### <a name="publish-errors"></a>公開エラー
 
@@ -189,11 +195,11 @@ NuGet 4.x 以降と MSBuild 15.1 以降では、**Pack** メニュー コマン�
 
 ## <a name="related-topics"></a>関連トピック
 
-- [パッケージの作成](../create-packages/creating-a-package.md)
+- [パッケージの作成](../create-packages/creating-a-package-dotnet-cli.md)
 - [パッケージの公開](../nuget-org/publish-a-package.md)
 - [プレリリース パッケージ](../create-packages/Prerelease-Packages.md)
 - [複数のターゲット フレームワークのサポート](../create-packages/multiple-target-frameworks-project-file.md)
-- [パッケージのバージョン管理](../reference/package-versioning.md)
+- [パッケージのバージョン管理](../concepts/package-versioning.md)
 - [ローカライズされたパッケージを作成する](../create-packages/creating-localized-packages.md)
 - [.NET Standard ライブラリのドキュメント](/dotnet/articles/standard/library)
 - [.NET Framework から .NET Core への移植](/dotnet/articles/core/porting/index)

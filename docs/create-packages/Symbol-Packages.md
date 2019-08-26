@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 09/12/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 40f934f3c3fcea62acae66639c22108a93363b8b
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: f7503dd413a976997580aa03da26df0c462ff0e1
+ms.sourcegitcommit: 80cf99f40759911324468be1ec815c96aebf376d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426779"
+ms.lasthandoff: 08/17/2019
+ms.locfileid: "69564554"
 ---
 # <a name="creating-symbol-packages-legacy"></a>シンボル パッケージ (レガシ) の作成
 
@@ -127,7 +127,7 @@ nuget pack MyProject.csproj -Symbols
     ```
 
    > [!Note]
-   > nuget.exe 4.5.0 以上の場合、シンボル パッケージが symbolsource.org に自動的にプッシュされることはありません。次の手順で説明するように、シンボル パッケージを個別にプッシュする必要はありません。
+   > nuget.exe 4.5.0 以上の場合、シンボル パッケージが symbolsource.org に自動的にプッシュされることはありません。前の手順で説明したように、シンボル パッケージを個別にプッシュする必要があります。
    
 その場合、NuGet は、nuget.org にプライマリ パッケージを公開した後、`MyPackage.symbols.nupkg` があればそれを https://nuget.smbsrc.net/ (symbolsource.org のプッシュ URL) に公開します。
 

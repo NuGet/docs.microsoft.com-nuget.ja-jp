@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: a9224ce4e515cf98893a7134077c90a47df1862a
-ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
+ms.openlocfilehash: e4223c25daa1c14c30de1ef063cd0f48df70c8b5
+ms.sourcegitcommit: 80cf99f40759911324468be1ec815c96aebf376d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69020069"
+ms.lasthandoff: 08/17/2019
+ms.locfileid: "69564580"
 ---
 # <a name="create-a-package-using-the-nugetexe-cli"></a>nuget.exe CLI を使用してパッケージを作成する
 
@@ -20,7 +20,7 @@ ms.locfileid: "69020069"
 
 - [SDK スタイルの形式](../resources/check-project-format.md)を使用する .NET Core および .NET Standard プロジェクト、またその他の SDK スタイルのあらゆるプロジェクトについては、「[Create a NuGet package using the dotnet CLI (dotnet CLI を使用して NuGet パッケージを作成する)](creating-a-package-dotnet-cli.md)」を参照してください。
 
-- `packages.config` から [PackageReference](../consume-packages/package-references-in-project-files.md) に移行されたプロジェクトの場合は、[msbuild -t:pack](../reference/migrate-packages-config-to-package-reference.md#create-a-package-after-migration) をご使用ください。
+- `packages.config` から [PackageReference](../consume-packages/package-references-in-project-files.md) に移行されたプロジェクトの場合は、[msbuild -t:pack](../consume-packages/migrate-packages-config-to-package-reference.md#create-a-package-after-migration) をご使用ください。
 
 技術的には、NuGet パッケージは `.nupkg` 拡張子で名前が変更された ZIP ファイルに過ぎません。コンテンツは特定の規則に一致します。 このトピックでは、そのような規則に一致するパッケージの作成過程について説明します。
 
@@ -56,7 +56,7 @@ ms.locfileid: "69020069"
 必須プロパティ:
 
 - パッケージの識別子。パッケージをホストするギャラリー全体で一意にする必要があります。
-- *Major.Minor.Patch[-Suffix]* という形式の特別なバージョン番号。 *-Suffix* で[プレリリース版](prerelease-packages.md)を識別します。
+- *Major.Minor.Patch[-Suffix]* という形式の特別なバージョン番号。*-Suffix* で[プレリリース版](prerelease-packages.md)を識別します。
 - ホスト (nuget.org など) に表示されるパッケージ タイトル。
 - 作成者と所有者の情報。
 - パッケージの詳しい説明。
@@ -138,7 +138,7 @@ ms.locfileid: "69020069"
 </package>
 ```
 
-依存関係の宣言とバージョン番号の指定の詳細については、「[packages.config 参照](../reference/packages-config.md)」と「[パッケージのバージョン管理](../reference/package-versioning.md)」を参照してください。 パッケージで直接、依存関係からアセットを表面化させることもできます。`dependency` 要素で `include` 属性と `exclude` 属性を使用します。 [.nuspec リファレンスの依存関係](../reference/nuspec.md#dependencies)をご覧ください。
+依存関係の宣言とバージョン番号の指定の詳細については、「[packages.config 参照](../reference/packages-config.md)」と「[パッケージのバージョン管理](../concepts/package-versioning.md)」を参照してください。 パッケージで直接、依存関係からアセットを表面化させることもできます。`dependency` 要素で `include` 属性と `exclude` 属性を使用します。 [.nuspec リファレンスの依存関係](../reference/nuspec.md#dependencies)をご覧ください。
 
 マニフェストはそれから作成されたパッケージに含まれるため、既存のパッケージを調べることで追加の例をいくつも見つけることができます。 探す場所としては、コンピューターの "*グローバル パッケージ*" フォルダーが適しています。この場所は次のコマンドで返されます。
 
@@ -184,8 +184,8 @@ NuGet パッケージは `.nupkg` 拡張子で名前が変更されている ZIP
 | ref/{tfm} | 指定したターゲット フレームワーク モニカー (TFM) のアセンブリ (`.dll`) およびシンボル (`.pdb`) ファイル | アセンブリはコンパイル時にのみ参照として追加されます。したがって、プロジェクトの bin フォルダーには何もコピーされません。 |
 | runtimes | アーキテクチャ固有のアセンブリ (`.dll`)、シンボル (`.pdb`)、ネイティブ リソース (`.pri`) ファイル | アセンブリはランタイムでのみ参照として追加されます。その他のファイルはプロジェクト フォルダーにコピーされます。 対応するコンパイル時のアセンブリを指定するために、対応する (TFM) `AnyCPU` 固有のアセンブリが常に `/ref/{tfm}` フォルダーの下にあります。 「[複数のターゲット フレームワークのサポート](supporting-multiple-target-frameworks.md)」を参照してください。 |
 | content | 任意のファイル | コンテンツはプロジェクト ルートにコピーされます。 **コンテンツ** フォルダーは最終的にパッケージを使用するターゲット アプリケーションのルートであると考えてください。 パッケージでアプリケーションの */images* フォルダーに画像が追加されるようにするには、パッケージの *content/images* フォルダーにそれを置きます。 |
-| build | MSBuild の `.targets` ファイルと `.props` ファイル | プロジェクト (NuGet 3.x 以降) に自動的に挿入されます。 |
-| buildMultiTargeting | MSBuild の `.targets` と `.props` ファイル (フレームワーク間でのターゲット設定用) | プロジェクトに自動的に挿入されます。 |
+| build | *(3.x+)* MSBuild の `.targets` ファイルと `.props` ファイル | プロジェクトに自動的に挿入されます。 |
+| buildMultiTargeting | *(4.0+)* MSBuild の `.targets` ファイルと `.props` ファイル (フレームワーク間でのターゲット設定用) | プロジェクトに自動的に挿入されます。 |
 | buildTransitive | *(5.0 以降)* 任意の使用するフォルダーに推移的にフローする MSBuild の `.targets` および `.props` ファイル。 [機能](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior)に関するページをご覧ください。 | プロジェクトに自動的に挿入されます。 |
 | tools | Powershell のスクリプトとプログラムにはパッケージ マネージャー コンソールからアクセスできます。 | `tools` フォルダーはパッケージ マネージャー コンソールだけの `PATH` 環境変数に追加されます (厳密に言うと、プロジェクトのビルド時に MSBuild に設定される `PATH` にでは*ありません*)。 |
 
@@ -226,9 +226,8 @@ nuget spec
 # Use in a folder containing a project file <project-name>.csproj or <project-name>.vbproj
 nuget pack myproject.csproj
 ```
-```
 
-A token is delimited by `$` symbols on both sides of the project property. For example, the `<id>` value in a manifest generated in this way typically appears as follows:
+トークンは、プロジェクト プロパティの両側で `$` 記号によって区切られます。 たとえば、この方法で生成されるマニフェストの `<id>` 値は通常、次のように表示されます。
 
 ```xml
 <id>$id$</id>
@@ -273,7 +272,7 @@ nuget spec [<package-name>]
 **パッケージ バージョンのベスト プラクティス:**
 
 - 必須ではありませんが、一般的に、ライブラリに合わせてパッケージの番号を設定します。 これはパッケージを 1 つのアセンブリに限定すれば簡単なことです。「[パッケージ化するアセンブリを決定する](#decide-which-assemblies-to-package)」を参照してください。 概して、NuGet 自体は依存関係の解決時、パッケージ バージョンを使います。アセンブリ バージョンではありません。
-- 非標準のバージョン スキーマを使用するとき、「[パッケージのバージョン管理](../reference/package-versioning.md)」で説明するように、NuGet バージョン管理ルールを検討してください。
+- 非標準のバージョン スキーマを使用するとき、「[パッケージのバージョン管理](../concepts/package-versioning.md)」で説明するように、NuGet バージョン管理ルールを検討してください。
 
 > バージョン管理の理解には、次の一連のブログ投稿が役立ちます。
 >
@@ -424,7 +423,7 @@ Visual Studio プロジェクトの共通オプションには以下のような
 
 パッケージの機能を拡張したり、次のトピックで説明するように、その他の方法で他のシナリオをサポートしたりすると便利な場合があります。
 
-- [パッケージのバージョン管理](../reference/package-versioning.md)
+- [パッケージのバージョン管理](../concepts/package-versioning.md)
 - [複数のターゲット フレームワークのサポート](../create-packages/supporting-multiple-target-frameworks.md)
 - [ソース ファイルと構成ファイルの変換](../create-packages/source-and-config-file-transformations.md)
 - [ローカリゼーション](../create-packages/creating-localized-packages.md)
@@ -434,5 +433,5 @@ Visual Studio プロジェクトの共通オプションには以下のような
 
 最後になりますが、次のような種類のパッケージもあります。
 
-- [ネイティブ パッケージ](../create-packages/native-packages.md)
+- [ネイティブ パッケージ](../guides/native-packages.md)
 - [シンボル パッケージ](../create-packages/symbol-packages.md)

@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9ef990c16cca62a1fbad25ff1582bfa543135fab
-ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
+ms.openlocfilehash: 7039dd27f2dddebc3c84e5ad35d5efec59547792
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68860576"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488818"
 ---
 # <a name="manage-packages-using-the-nugetexe-cli"></a>nuget.exe CLI を使用してパッケージを管理する
 
@@ -19,7 +19,7 @@ CLI ツールを使用すると、プロジェクトやソリューションで 
 `nuget.exe` CLI は、.NET Framework プロジェクトと非 SDK スタイルのプロジェクト (例: .NET Standard ライブラリを対象とする非 SDK スタイルのプロジェクト) 用です。 `PackageReference` に移行された非 SDK スタイルのプロジェクトを使用している場合、代わりに `dotnet` CLI を使用してください。 `nuget.exe` CLI には、パッケージ参照のために [packages.config](../reference/packages-config.md) ファイルが必要になります。
 
 > [!NOTE]
-> ほとんどのシナリオでは、PackageReference に `packages.config` を使用する [非 SDK スタイルのプロジェクトを移行する](../reference/migrate-packages-config-to-package-reference.md)ことをお勧めします。そうすることで、`nuget.exe` CLI の代わりに `dotnet` CLI を使用できます。 C++ プロジェクトと ASP.NET プロジェクトについては、現在のところ、移行を利用できません。
+> ほとんどのシナリオでは、PackageReference に `packages.config` を使用する [非 SDK スタイルのプロジェクトを移行する](../consume-packages/migrate-packages-config-to-package-reference.md)ことをお勧めします。そうすることで、`nuget.exe` CLI の代わりに `dotnet` CLI を使用できます。 C++ プロジェクトと ASP.NET プロジェクトについては、現在のところ、移行を利用できません。
 
 この記事では、最も一般的ないくつかの `nuget.exe` CLI コマンドの基本的な使用方法を説明します。 これらのコマンドの多くでは、コマンドにプロジェクト ファイルが指定されていない限り、CLI ツールは現在のディレクトリでプロジェクト ファイルを探します。 コマンドと使用できる引数の完全一覧については、「[nuget.exe CLI reference](../reference/nuget-exe-cli-reference.md)」(nuget.exe CLI リファレンス) を参照してください。
 
@@ -111,3 +111,13 @@ nuget update
 ## <a name="restore-packages"></a>パッケージの復元
 
 [!INCLUDE [restore-nuget-exe-cli](includes/restore-nuget-exe-cli.md)]
+
+## <a name="get-the-cli-version"></a>CLI バージョンを取得する
+
+次のコマンドを実行します。
+
+```cli
+nuget help
+```
+
+ヘルプ出力の最初の行は、バージョンを示しています。 上へのスクロールを回避するには、代わりに `nuget help | more` を使用します。

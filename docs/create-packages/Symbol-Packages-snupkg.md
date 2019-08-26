@@ -12,12 +12,12 @@ keywords: NuGet シンボル パッケージ, NuGet パッケージ デバッグ
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: e62d1872497e0e5e703bf7c49a87249ce9a996c7
-ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
+ms.openlocfilehash: 992b3ddd04a1bb34e7aca25dfaa6f7df5485907b
+ms.sourcegitcommit: 80cf99f40759911324468be1ec815c96aebf376d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959677"
+ms.lasthandoff: 08/17/2019
+ms.locfileid: "69564534"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>シンボル パッケージ (.snupkg) の作成
 
@@ -118,7 +118,7 @@ nuget.org でサポートされているシンボル パッケージには、次
 
 4) 作成者が nupkg と snupkg のビルドにカスタムの nuspec を使用した場合、snupkg には 2) で説明したものと同じフォルダ階層とファイルが含まれます。
 5) ```authors``` と ```owners``` のフィールドは snupkg の nuspec から除外されます。
-6) <license> 要素は使用しないでください。 .snupkg には、対応する .nupk と同じライセンスが適用されます。
+6) <license> 要素は使用しないでください。 .snupkg には、対応する .nupkg と同じライセンスが適用されます。
 
 ## <a name="see-also"></a>関連項目
 

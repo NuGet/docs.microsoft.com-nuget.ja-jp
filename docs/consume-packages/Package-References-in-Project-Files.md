@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 05ece5f36ff7ae5920960c42cfde8b271dc3e712
-ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
+ms.openlocfilehash: ae80206117eed639140a0c7977043d8330bc37bb
+ms.sourcegitcommit: 80cf99f40759911324468be1ec815c96aebf376d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69020012"
+ms.lasthandoff: 08/17/2019
+ms.locfileid: "69564565"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>プロジェクト ファイルのパッケージ参照 (PackageReference)
 
@@ -20,7 +20,7 @@ PackageReference の場合、MSBuild 条件を使用し、ターゲット フレ
 
 ## <a name="project-type-support"></a>プロジェクトの種類のサポート
 
-既定では、PackageReference は、Windows 10 Build 15063 (Creators Update) 以降を対象とする .NET Core プロジェクト、.NET Standard プロジェクト、および UWP プロジェクトに使用されます。ただし、C++ UWP プロジェクトは例外です。 .NET Framework プロジェクトは PackageReference をサポートしていますが、現在の既定は `packages.config` です。 PackageReference を使用するには、依存関係を `packages.config` からプロジェクト ファイルに "[移行](../reference/migrate-packages-config-to-package-reference.md)" してから、packages.config を削除します。
+既定では、PackageReference は、Windows 10 Build 15063 (Creators Update) 以降を対象とする .NET Core プロジェクト、.NET Standard プロジェクト、および UWP プロジェクトに使用されます。ただし、C++ UWP プロジェクトは例外です。 .NET Framework プロジェクトは PackageReference をサポートしていますが、現在の既定は `packages.config` です。 PackageReference を使用するには、依存関係を `packages.config` からプロジェクト ファイルに "[移行](../consume-packages/migrate-packages-config-to-package-reference.md)" してから、packages.config を削除します。
 
 完全な .NET Framework を対象とする ASP.NET アプリには、PackageReference の[制限されたサポート](https://github.com/NuGet/Home/issues/5877)しか追加されません。 C++ および JavaScript のプロジェクト タイプはサポートされていません。
 
@@ -48,7 +48,7 @@ PackageReference の場合、MSBuild 条件を使用し、ターゲット フレ
 </ItemGroup>
 ```
 
-上記の例では、3.6.0 は 3.6.0 以上のあらゆるバージョンを意味し、最も下のバージョンが優先されます。詳細は、「[Package versioning](../reference/package-versioning.md#version-ranges-and-wildcards)」 (パッケージ バージョン) にあります。
+上記の例では、3.6.0 は 3.6.0 以上のあらゆるバージョンを意味し、最も下のバージョンが優先されます。詳細は、「[Package versioning](../concepts/package-versioning.md#version-ranges-and-wildcards)」 (パッケージ バージョン) にあります。
 
 ## <a name="using-packagereference-for-a-project-with-no-packagereferences"></a>PackageReference のないプロジェクトに PackageReference を使用する
 詳細:プロジェクトにパッケージをインストールしていない (プロジェクト ファイルに PackageReferences がなく、packages.config ファイルがない) が、プロジェクトを PackageReference スタイルで復元したい場合は、プロジェクト ファイルで Project プロパティ RestoreProjectStyle を PackageReference に設定できます。
@@ -63,7 +63,7 @@ PackageReference スタイル (既存の csproj または SDK スタイルのプ
 
 ## <a name="floating-versions"></a>最新バージョン
 
-[最新バージョン](../consume-packages/dependency-resolution.md#floating-versions)が `PackageReference` でサポートされています。
+[最新バージョン](../concepts/dependency-resolution.md#floating-versions)が `PackageReference` でサポートされています。
 
 ```xml
 <ItemGroup>
@@ -106,7 +106,7 @@ PackageReference スタイル (既存の csproj または SDK スタイルのプ
 | runtime | `lib` と `runtimes` フォルダーの内容と、これらのアセンブリがコピーされて出力ディレクトリをビルドするかどうかのコントロール |
 | contentFiles | `contentfiles` フォルダーの内容 |
 | build | `build` フォルダー内の `.props` と `.targets` |
-| buildMultitargeting | `buildMultitargeting` フォルダー内の `.props` と `.targets` (フレームワーク間でのターゲット設定用) |
+| buildMultitargeting | *(4.0)* `buildMultitargeting` フォルダー内の `.props` と `.targets` (フレームワーク間でのターゲット設定用) |
 | buildTransitive | *(5.0 以降)* `buildTransitive` フォルダー内の `.props` と `.targets` (使用するプロジェクトに推移的にフローするアセット用)。 [機能](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior)に関するページをご覧ください。 |
 | analyzers | .NET アナライザー |
 | native | `native` フォルダーの内容 |
@@ -130,6 +130,9 @@ PackageReference スタイル (既存の csproj または SDK スタイルのプ
 ```
 
 `build` は `PrivateAssets` で含まれないため、targets と props は親プロジェクトに*流れる*ことに注目してください。 たとえば、上記の参照は、AppLogger という名前の NuGet パッケージをビルドするプロジェクトで使用されます。 AppLogger は、AppLogger を使用するプロジェクトと同様に、`Contoso.Utility.UsefulStuff` から targets と props を使用できます。
+
+> [!NOTE]
+> `.nuspec` ファイル内で `developmentDependency` が `true` に設定されている場合、パッケージが開発専用の依存関係としてマークされます。これにより、そのパッケージは他のパッケージに依存関係として含まれなくなります。 PackageReference *(NuGet 4.8 以降)* では、このフラグは、コンパイルからコンパイル時アセットを除外することも意味します。 詳しくは、「[DevelopmentDependency support for PackageReference (PackageReference に対する DevelopmentDependency のサポート)](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference)」をご覧ください。
 
 ## <a name="adding-a-packagereference-condition"></a>PackageReference 条件を追加する
 
@@ -161,7 +164,7 @@ PackageReference スタイル (既存の csproj または SDK スタイルのプ
 ```
 
 ## <a name="locking-dependencies"></a>依存関係のロック
-"*この機能を使用できるのは、NuGet **4.9** 以降で、かつ Visual Studio 2017 **15.9** 以降を使用している場合です。* "
+"*この機能を使用できるのは、NuGet **4.9** 以降で、かつ Visual Studio 2017 **15.9** 以降を使用している場合です。*"
 
 NuGet の復元への入力は、プロジェクト ファイルのパッケージ参照のセット (最上位レベルまたは直接の依存関係) であり、出力は推移的依存関係を含むパッケージのすべての依存関係の完全なクロージャーです。 入力の PackageReference リストが変更されていない場合、NuGet では常に同じパッケージの依存関係の完全なクロージャーを生成しようとします。 ただし、このようにすることができないシナリオがいくつかあります。 次に例を示します。
 
