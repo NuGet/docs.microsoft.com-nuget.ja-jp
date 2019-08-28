@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: f931ed297a6a1e9e24ce5eb30a8158f59925bb39
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: 29c52b6684dff252e9c45bf5365d83b6a3fe5201
+ms.sourcegitcommit: c65e7a889ddf64a8e2ff7bc59ec08edb308e16ca
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488684"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70060248"
 ---
 # <a name="nuspec-reference"></a>.nuspec リファレンス
 
@@ -76,7 +76,7 @@ ms.locfileid: "69488684"
 #### <a name="version"></a>version
 パッケージのバージョン。*major.minor.patch* のパターンに従います。 「[Package versioning](../concepts/package-versioning.md#pre-release-versions)」(パッケージのバージョン管理) で説明されているように、バージョン番号にはプレリリースのサフィックスを含めることができます。 
 #### <a name="description"></a>description
-UI 画面用のパッケージの長い説明。 
+UI 表示用のパッケージの説明。
 #### <a name="authors"></a>authors
 パッケージ作成者の一覧。コンマで区切られています。nuget.org のプロファイル名と一致します。これらは nuget.org の NuGet ギャラリーに表示され、同じ作成者によるパッケージの相互参照に使用されます。 
 
@@ -152,6 +152,9 @@ UI 表示でパッケージのアイコンとして使われる、背景が透�
 *(2.8 以降)* 開発専用の依存関係としてパッケージをマークするかどうかを指定するブール値。指定すると、そのパッケージは他のパッケージに依存関係として含まれなくなります。 PackageReference (NuGet 4.8 以降) では、このフラグは、コンパイル時のアセットをコンパイルから除外することも意味します。 「 [DevelopmentDependency support For PackageReference」を](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference)参照してください。
 
 #### <a name="summary"></a>summary
+> [!Important]
+> `summary`は非推奨とされます。 代わりに、`description` を使用してください。
+
 UI 画面用のパッケージの短い説明。 省略すると、`description` を切り詰めたバージョンが使われます。
 
 #### <a name="releasenotes"></a>releaseNotes
