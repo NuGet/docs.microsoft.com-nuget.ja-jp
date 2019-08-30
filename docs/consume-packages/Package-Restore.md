@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: dfe5f2ef4f0ababd81b91073938752aab2bdc01e
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: 93a94a5468b48179d27b89825cebf2447657c8f2
+ms.sourcegitcommit: 7c9f157ba02d9be543de34ab06813ab1ec10192a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488806"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69999984"
 ---
 # <a name="restore-packages-using-package-restore"></a>[パッケージの復元] を使用したパッケージの復元
 
@@ -44,7 +44,7 @@ ms.locfileid: "69488806"
 
    PackageReference を使用するプロジェクトの場合は、復元が正常に完了した後、"*グローバル パッケージ*" フォルダーにパッケージが存在し、`obj/project.assets.json` ファイルが再作成されます。 `packages.config` を使用するプロジェクトの場合は、プロジェクトの `packages` フォルダーにパッケージが生成されます。 この場合、プロジェクトを正常にビルドできるようになります。 
 
-2. [パッケージの復元] を実行した後も、パッケージの不足やパッケージに関連するエラー (Visual Studio のソリューション エクスプローラーのエラー アイコンなど) が引き続き発生する場合は、[パッケージの再インストールと更新](../consume-packages/reinstalling-and-updating-packages.md)が必要になることがあります。
+2. [パッケージの復元] を実行した後も、パッケージの不足やパッケージに関連するエラー (Visual Studio のソリューション エクスプローラーのエラー アイコンなど) が引き続き発生する場合は、「[パッケージの復元エラーのトラブルシューティング](package-restore-troubleshooting.md)」に記載の手順に従うか、あるいは[パッケージを再インストールおよび更新](../consume-packages/reinstalling-and-updating-packages.md)することが必要になる場合があります。
 
    Visual Studio のパッケージ マネージャー コンソールには、パッケージを再インストールするための柔軟なオプションがいくつか用意されています。 [パッケージ更新の使用](reinstalling-and-updating-packages.md#using-update-package)に関する記事をご覧ください。
 
