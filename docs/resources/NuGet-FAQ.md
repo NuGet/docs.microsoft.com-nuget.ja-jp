@@ -5,14 +5,16 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9b12b1fa27308cf41b58b0c244ea648d3eecdc95
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: 8cc990e0c9eed07c59c8dffb04d104be47051736
+ms.sourcegitcommit: 7c9f157ba02d9be543de34ab06813ab1ec10192a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69520392"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69999938"
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet に関してよく寄せられる質問
+
+NuGet.org アカウントの質問など、NuGet.org に関してよく寄せられる質問については、「[NuGet.org に関してよく寄せられる質問](../nuget-org/nuget-org-faq.md)」を参照してください。
 
 **NuGet を実行するために必要なものは何ですか?**
 
@@ -43,9 +45,9 @@ UI とコマンド ライン ツールの両方に関するすべての情報は
 
 **インストールされている NuGet ツールの正確なバージョンはどのように確認すればよいですか?**
 
-Visual Studio で、**[ヘルプ]、[Microsoft Visual Studio のバージョン情報]** コマンドを使用して、**[NuGet パッケージ マネージャー]** の横に表示されるバージョンを確認します。
+Visual Studio で、 **[ヘルプ]、[Microsoft Visual Studio のバージョン情報]** コマンドを使用して、 **[NuGet パッケージ マネージャー]** の横に表示されるバージョンを確認します。
 
-または、パッケージ マネージャー コンソールを起動 (**[ツール]、[NuGet パッケージ マネージャー]、[パッケージ マネージャー コンソール]** の順に選択) し、「`$host`」と入力して、バージョンを含む NuGet に関する情報を表示します。
+または、パッケージ マネージャー コンソールを起動 ( **[ツール]、[NuGet パッケージ マネージャー]、[パッケージ マネージャー コンソール]** の順に選択) し、「`$host`」と入力して、バージョンを含む NuGet に関する情報を表示します。
 
 **NuGet ではどのようなプログラミング言語がサポートされますか?**
 
@@ -59,7 +61,7 @@ NuGet では、Windows、Web、クラウド、SharePoint、Wix などのさま�
 
 **Visual Studio テンプレートの一部であるパッケージはどのように更新すればよいですか?**
 
-パッケージ マネージャー UI の **[更新]** タブに移動して、**[すべて更新]** を選択するか、パッケージ マネージャー コンソールで [`Update-Package` コマンド](../reference/ps-reference/ps-ref-update-package.md)を使用します。
+パッケージ マネージャー UI の **[更新]** タブに移動して、 **[すべて更新]** を選択するか、パッケージ マネージャー コンソールで [`Update-Package` コマンド](../reference/ps-reference/ps-ref-update-package.md)を使用します。
 
 テンプレート自体を更新するには、テンプレート リポジトリを手動で更新する必要があります。 これについては、[Xavier Decoster のブログ](http://www.xavierdecoster.com/update-project-template-to-latest-nuget-packages)を参照してください。 最新バージョンのすべての依存関係が相互に互換性がない場合、手動で更新するとテンプレートが壊れる可能性があるため、これは自身の責任で行うことに注意してください。
 

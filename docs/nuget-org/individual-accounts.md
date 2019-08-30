@@ -1,18 +1,18 @@
 ---
-title: 個人アカウント
+title: 個人アカウント - NuGet.org
 description: パッケージを公開するには、NuGet.org での個人アカウントが必要です
 author: mikejo5000
 ms.author: mikejo
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: c88b88015bd6d5bae4789765126c0a3dec527e24
-ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
+ms.openlocfilehash: 63c6b5eb5ad635e436b4d53a5f833af35f72d76f
+ms.sourcegitcommit: 7c9f157ba02d9be543de34ab06813ab1ec10192a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68419859"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69999975"
 ---
-# <a name="individual-accounts"></a>個人アカウント
+# <a name="individual-accounts-on-nugetorg"></a>NuGet.org での個人アカウント
 
 NuGet.org でパッケージを公開して管理するには、個人アカウントを作成する必要があります。
 
@@ -69,3 +69,7 @@ NuGet.org アカウントを作成するには、個人の Microsoft アカウ�
    ![2FA を有効にする](media/nuget-org-enter-code-2fa.png)
 
 5. 追加の指示に従って、2 要素認証を完了します。
+
+## <a name="delete-a-nugetorg-account"></a>NuGet.org アカウントを削除する
+
+NuGet.org アカウントの削除など、アカウント関連のその他のタスクについては、「[NuGet.org のアカウント管理](nuget-org-faq.md#nugetorg-account-management)」を参照してください。
