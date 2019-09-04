@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: b898b389ee6c962831ce789a7c304c75e6bd8774
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: be25e9bf72b9115de8ae55f6296195fed3152f10
+ms.sourcegitcommit: ac9a00ccaf90e539a381e92b650074910b21eb0d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488209"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70235115"
 ---
 # <a name="search"></a>検索
 
@@ -111,7 +111,7 @@ downloads | integer | 可      | この特定のパッケージバージョン�
 
 ### <a name="sample-request"></a>要求のサンプル
 
-    GET https://api-v2v3search-0.nuget.org/query?q=NuGet.Versioning&prerelease=false
+    GET https://azuresearch-usnc.nuget.org/query?q=NuGet.Versioning&prerelease=false&semVerLevel=2.0.0
 
 ### <a name="sample-response"></a>応答のサンプル
 
