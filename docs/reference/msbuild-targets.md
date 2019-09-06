@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: d8d1b2ef0185381d16c1bb73035588fe90bcfd14
-ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
+ms.openlocfilehash: a9331ad2ea0482737d84f4ea9a9babf95da8d66f
+ms.sourcegitcommit: d5cc3f01a92c2d69b794343c09aff07ba9e912e5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959693"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70385902"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>MSBuild ターゲットとしての NuGet の pack と restore
 
@@ -60,9 +60,10 @@ PackageReference 形式を使用する .NET Standard プロジェクトでは`ms
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | False | |
 | license | PackageLicenseExpression | (なし) | 対応しています `<license type="expression">` |
 | license | PackageLicenseFile | (なし) | `<license type="file">` に相当します。 明示的に参照先のライセンス ファイルをパックする必要があります。 |
-| LicenseUrl | PackageLicenseUrl | (なし) | `licenseUrl`は非推奨とされます。パッケージ化 Elicenseexpression または "パッケージの表示" プロパティを使用してください。 |
+| LicenseUrl | PackageLicenseUrl | (なし) | `PackageLicenseUrl`非推奨です。パッケージのパッケージを使用して、パッケージのプロパティを |
 | ProjectUrl | PackageProjectUrl | (なし) | |
-| IconUrl | PackageIconUrl | (なし) | |
+| アイコン | PackageIcon | (なし) | 参照されているアイコンイメージファイルを明示的にパックする必要がある場合があります。|
+| IconUrl | PackageIconUrl | (なし) | `PackageIconUrl`非推奨です。 PackageIcon プロパティを使用してください。 |
 | Tags | PackageTags | (なし) | 複数のタグはセミコロン (;) で区切られます。 |
 | ReleaseNotes | PackageReleaseNotes | (なし) | |
 | Repository/Url | RepositoryUrl | (なし) | ソースコードの複製または取得に使用されるリポジトリの URL。 よう *https://github.com/NuGet/NuGet.Client.git* |
@@ -117,7 +118,32 @@ PackageReference 形式を使用する .NET Standard プロジェクトでは`ms
 
 ### <a name="packageiconurl"></a>PackageIconUrl
 
-[NuGet の問題 352](https://github.com/NuGet/Home/issues/352)の変更の一環とし`PackageIconUrl`て、は最終的に`PackageIconUri`に変更され、結果のパッケージのルートに含まれるアイコンファイルへの相対パスにすることができます。
+> [!Important]
+> PackageIconUrl は非推奨とされます。 代わりに[Packageicon](#packing-an-icon-image-file)を使用してください。
+
+### <a name="packing-an-icon-image-file"></a>アイコンイメージファイルのパッキング
+
+アイコンイメージファイルをパッキングする場合は、パッケージのルートに対して相対的なパッケージパスを指定するために PackageIcon プロパティを使用する必要があります。 また、ファイルがパッケージに含まれていることを確認する必要があります。 イメージファイルのサイズは 1 MB に制限されています。 サポートされているファイル形式は、JPEG および PNG です。 64x64 のイメージ解像度をお勧めします。
+
+例えば:
+
+```xml
+<PropertyGroup>
+    ...
+    <PackageIcon>icon.png</PackageIcon>
+    ...
+</PropertyGroup>
+
+<ItemGroup>
+    ...
+    <None Include="images\icon.png" Pack="true" PackagePath="\"/>
+    ...
+</ItemGroup>
+```
+
+[パッケージアイコンのサンプル](https://github.com/NuGet/Samples/tree/master/PackageIconExample)です。
+
+Nuspec に相当するものについては、「 [nuspec reference for icon」を参照](nuspec.md#icon)してください。
 
 ### <a name="output-assemblies"></a>出力アセンブリ
 
@@ -221,6 +247,7 @@ PackageReference 形式を使用する .NET Standard プロジェクトでは`ms
     <None Include="licenses\LICENSE.txt" Pack="true" PackagePath=""/>
 </ItemGroup>
 ```
+
 [ライセンスファイルのサンプル](https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample)。
 
 ### <a name="istool"></a>IsTool
