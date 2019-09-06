@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/24/2018
 ms.topic: quickstart
-ms.openlocfilehash: a2be42aeb322cfd0ab43c9cec6ad1b063cbc3089
-ms.sourcegitcommit: f291ff91561a6b58c2aec41c624d798e00ce41fa
+ms.openlocfilehash: d9937a2b087fd88c1e6fd9f07a513b5047bdcf2e
+ms.sourcegitcommit: ac9a00ccaf90e539a381e92b650074910b21eb0d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68462527"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70235084"
 ---
 # <a name="quickstart-install-and-use-a-package-in-visual-studio-windows-only"></a>クイック スタート: Visual Studio にパッケージをインストールして使用する (Windows のみ)
 
@@ -27,7 +27,7 @@ NuGet パッケージには、他の開発者がお客様のプロジェクト�
 
 [visualstudio.com](https://www.visualstudio.com/) から無料の 2019 Community Edition をインストールするか、Professional または Enterprise Edition を使用できます。
 
-Visual Studio for Mac を使用している場合は、「[プロジェクトに NuGet パッケージを含める](/visualstudio/mac/nuget-walkthrough)」をご覧ください。
+Visual Studio for Mac を使用している場合は、[Visual Studio for Mac でのパッケージのインストールと使用](install-and-use-a-package-in-visual-studio-mac.md)に関するページをご覧ください。
 
 ## <a name="create-a-project"></a>プロジェクトを作成する
 
