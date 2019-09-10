@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: a9331ad2ea0482737d84f4ea9a9babf95da8d66f
-ms.sourcegitcommit: d5cc3f01a92c2d69b794343c09aff07ba9e912e5
+ms.openlocfilehash: 16b8ff532b87a3e3f96029e77dd166eb39294c0b
+ms.sourcegitcommit: 5a741f025e816b684ffe44a81ef7d3fbd2800039
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70385902"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70815351"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>MSBuild ターゲットとしての NuGet の pack と restore
 
@@ -109,6 +109,7 @@ PackageReference 形式を使用する .NET Standard プロジェクトでは`ms
 - NuspecFile
 - NuspecBasePath
 - NuspecProperties
+- Deterministic
 
 ## <a name="pack-scenarios"></a>pack のシナリオ
 
@@ -172,6 +173,18 @@ Nuspec に相当するものについては、「 [nuspec reference for icon」�
 <IncludeAssets>
 <ExcludeAssets>
 <PrivateAssets>
+```
+
+### <a name="deterministic"></a>Deterministic
+
+を使用`MSBuild -t:pack -p:Deterministic=true`すると、パックターゲットの複数の呼び出しで、まったく同じパッケージが生成されます。
+パックコマンドの出力は、マシンのアンビエント状態の影響を受けません。 具体的には、zip エントリは1980-01-01 としてタイムスタンプが付けられます。 完全な決定性を実現するには、アセンブリをそれぞれのコンパイラオプション[決定的](/dotnet/csharp/language-reference/compiler-options/deterministic-compiler-option)でビルドする必要があります。
+次のように決定的なプロパティを指定することをお勧めします。これにより、コンパイラと NuGet の両方でこのプロパティが尊重されます。
+
+```xml
+<PropertyGroup>
+  <Deterministic>true</Deterministic>
+</PropertyGroup>
 ```
 
 ### <a name="including-content-in-a-package"></a>パッケージにコンテンツを含める

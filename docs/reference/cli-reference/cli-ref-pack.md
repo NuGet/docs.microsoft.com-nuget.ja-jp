@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: cab56cb87f46335f9fdebdbc1649fead16459877
-ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
+ms.openlocfilehash: 76829d45ea9821da3b7fdaa2f88d30dbb104fea1
+ms.sourcegitcommit: 5a741f025e816b684ffe44a81ef7d3fbd2800039
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959730"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70815361"
 ---
 # <a name="pack-command-nuget-cli"></a>pack コマンド (NuGet CLI)
 
@@ -35,6 +35,7 @@ nuget pack <nuspecPath | projectPath> [options] [-Properties ...]
 | --- | --- |
 | BasePath | [Nuspec](../nuspec.md)ファイルで定義されているファイルのベースパスを設定します。 |
 | Build | パッケージをビルドする前にプロジェクトをビルドするように指定します。 |
+| Deterministic | コマンドで決定的パッケージを作成するかどうかを指定します。 パックコマンドを複数回呼び出すと、完全に同じバイト単位のパッケージが生成されます。 パックコマンドの出力は、マシンのアンビエント状態の影響を受けません。 具体的には、zip エントリは1980-01-01 としてタイムスタンプが付けられます。 完全な決定性を実現するには、アセンブリをそれぞれのコンパイラオプション[決定的](/dotnet/csharp/language-reference/compiler-options/deterministic-compiler-option)でビルドする必要があります。 |
 | Exclude | パッケージの作成時に除外する1つ以上のワイルドカードパターンを指定します。 複数のパターンを指定するには、-Exclude フラグを繰り返します。 次の例を参照してください。 |
 | ExcludeEmptyDirectories | パッケージをビルドするときに空のディレクトリを含めないようにします。 |
 | ForceEnglishOutput | *(3.5 +)* 不変の英語ベースのカルチャを使用して nuget.exe を強制的に実行します。 |
