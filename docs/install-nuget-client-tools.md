@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/20/2019
 ms.topic: quickstart
-ms.openlocfilehash: d7aa2e4bdb78dcc6747d9775cbdf0d6c41855b96
-ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
+ms.openlocfilehash: 417388872a74b29a469d6a5c17c079a0d1a35dc3
+ms.sourcegitcommit: a0807671386782021acb7588741390e6f07e94e1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68419800"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70384474"
 ---
 # <a name="install-nuget-client-tools"></a>NuGet クライアント ツールのインストール
 
@@ -22,7 +22,7 @@ ms.locfileid: "68419800"
 |:------------- |:-------------|:-----|
 | [dotnet.exe](#dotnetexe-cli) | .NET Core と .NET Standard ライブラリ、および任意の [SDK スタイルのプロジェクト](resources/check-project-format.md) (.NET Framework を対象とするものなど) のための CLI ツール。 .NET Core SDK 含まれており、すべてのプラットフォームで NuGet のコア機能を提供します。 (Visual Studio 2017 以降、dotnet CLI は .NET Core に関連するすべてのワークロードで自動的にインストールされます。)| [.NET Core SDK](https://www.microsoft.com/net/download/) |
 | [nuget.exe](#nugetexe-cli) | .NET Framework ライブラリ、および任意の[非 SDK スタイルのプロジェクト](resources/check-project-format.md) (.NET Standard ライブラリを対象とするものなど) のための CLI ツール。 Windows のすべての NuGet 機能と、Mono で実行される場合の Mac および Linux の ほとんどの機能を提供します。 | [nuget.exe](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe) |
-| [Visual Studio](#visual-studio) | Windows 上で、パッケージ マネージャー UI およびパッケージ マネージャー コンソール (.NET 関連のワークロードに含まれます) を介して NuGet 機能を提供します。 Mac 上で、UI 経由で特定の機能を提供します。 Visual Studio Code で、拡張機能によって NuGet 機能が提供されます。 | [Visual Studio 2017](https://www.visualstudio.com/downloads/) |
+| [Visual Studio](#visual-studio) | Windows 上で、パッケージ マネージャー UI およびパッケージ マネージャー コンソール (.NET 関連のワークロードに含まれます) を介して NuGet 機能を提供します。 Mac 上で、UI 経由で特定の機能を提供します。 Visual Studio Code で、拡張機能によって NuGet 機能が提供されます。 | [Visual Studio](https://www.visualstudio.com/downloads/) |
 
 さらに、[MSBuild CLI](reference/msbuild-targets.md) は、パッケージを復元および作成する機能を提供します。これはおもにビルド サーバーで有用です。 MSBuild は、NuGet を使用するための汎用ツールではありません。
 
@@ -73,7 +73,7 @@ dotnet CLI で基本的なコマンドを使用する方法を学習するには
   - パッケージ マネージャー コンソール コマンドは、Windows 上の Visual Studio 内でのみ機能し、他の PowerShell 環境では機能しません。
   - Visual Studio 2010 以前の場合、"Visual Studio 用 NuGet パッケージ マネージャー" 拡張機能をインストールします。
   - さらに、Visual Studio 2013 および 2015 用の NuGet 拡張機能は、[https://dist.nuget.org/index.html](https://dist.nuget.org/index.html)からダウンロードできます。
-  - リリース予定の NuGet の機能をプレビューしたい場合は、[Visual Studio 2017 Preview](https://www.visualstudio.com/vs/preview/) をインストールします。これは、Visual Studio の安定版リリースと同時に実行できます。 問題を報告したり、プレビューに関するアイデアを共有したりするには、[NuGet GitHub リポジトリ](https://github.com/Nuget/Home/issues)で懸案事項を開きます。
+  - 今後の NuGet の機能をプレビューしたい場合は、[Visual Studio Preview](https://www.visualstudio.com/vs/preview/) をインストールします。これは、Visual Studio の安定版リリースと同時に実行できます。 問題を報告したり、プレビューに関するアイデアを共有したりするには、[NuGet GitHub リポジトリ](https://github.com/Nuget/Home/issues)で懸案事項を開きます。
 
 ## <a name="feature-availability"></a>機能の可用性
 

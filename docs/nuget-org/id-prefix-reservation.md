@@ -1,17 +1,17 @@
 ---
 title: ID プレフィックスの予約
 description: パッケージ ID プレフィックスの予約機能の説明と作成者ガイド。
-author: diverdan92
-ms.author: diverdan92
-ms.date: 10/09/2017
+author: karann-msft
+ms.author: karann
+ms.date: 09/07/2019
 ms.topic: reference
-ms.reviewer: ananguar
-ms.openlocfilehash: 650f570ec65a665e3d452af732ea22337835d8d9
-ms.sourcegitcommit: cae759ad8518c049575a30ad3bf04fe5d06244fb
+ms.reviewer: karann
+ms.openlocfilehash: 630c2b193500ec0b9aa5a7fe4af3ea95ae52aeec
+ms.sourcegitcommit: 5a741f025e816b684ffe44a81ef7d3fbd2800039
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68616805"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70815279"
 ---
 # <a name="package-id-prefix-reservation"></a>パッケージ ID プレフィックスの予約
 
@@ -88,6 +88,8 @@ ID プレフィックス予約の申請をレビューするとき、[nuget.org]
 1. そのパッケージ ID プレフィックスと一致するパッケージの識別プロパティは明確かつ一貫していますか (特にパッケージの作成者)?
 
 1. パッケージにはライセンスがありますか (非推奨になった licenseUrl ではなく、[license](../reference/nuspec.md#license) メタデータ要素を使用)?
+
+1. そのパッケージに (iconUrl メタデータ要素を使用する) アイコンがある場合、[icon](../reference/nuspec.md#icon) メタデータ要素も使用されていますか (これは iconUrl を削除するための要件ではありません)?
 
 ## <a name="third-party-feed-provider-scenarios"></a>サード パーティのフィード プロバイダーのシナリオ
 

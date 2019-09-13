@@ -12,12 +12,12 @@ keywords: NuGet シンボル パッケージ, NuGet パッケージ デバッグ
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 992b3ddd04a1bb34e7aca25dfaa6f7df5485907b
-ms.sourcegitcommit: 80cf99f40759911324468be1ec815c96aebf376d
+ms.openlocfilehash: 109df18bcfd3e6a3fbd3ef3da1707ffada585140
+ms.sourcegitcommit: f4bfdbf62302c95f1f39e81ccf998f8bbc6d56b0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/17/2019
-ms.locfileid: "69564534"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70749028"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>シンボル パッケージ (.snupkg) の作成
 
@@ -29,7 +29,30 @@ ms.locfileid: "69564534"
 
 ## <a name="creating-a-symbol-package"></a>シンボル パッケージを作成する
 
-snupkg シンボル パッケージを作成するには、dotnet.exe、NuGet.exe、または MSBuild を使用します。 NuGet.exe を使用する場合は、次のコマンドを使用すると .nupkg ファイルに加えて .snupkg ファイルを作成できます。
+dotnet.exe または MSBuild を使用する場合は、`IncludeSymbols` プロパティと `SymbolPackageFormat` プロパティを設定し、.nupkg ファイルに加えて .snupkg ファイルを作成します。
+
+* 次のプロパティを .csproj ファイルに追加するか:
+
+   ```xml
+   <PropertyGroup>
+      <IncludeSymbols>true</IncludeSymbols> 
+      <SymbolPackageFormat>snupkg</SymbolPackageFormat> 
+   </PropertyGroup>
+   ```
+
+* または、コマンド ラインで次のプロパティを指定します:
+
+     ```cli
+     dotnet pack MyPackage.csproj -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
+     ```
+
+  or
+
+  ```cli
+  msbuild MyPackage.csproj /t:pack /p:IncludeSymbols=true /p:SymbolPackageFormat=snupkg
+  ```
+
+NuGet.exe を使用する場合は、次のコマンドを使用すると .nupkg ファイルに加えて .snupkg ファイルを作成できます。
 
 ```
 nuget pack MyPackage.nuspec -Symbols -SymbolPackageFormat snupkg
@@ -37,20 +60,7 @@ nuget pack MyPackage.nuspec -Symbols -SymbolPackageFormat snupkg
 nuget pack MyPackage.csproj -Symbols -SymbolPackageFormat snupkg
 ```
 
-dotnet.exe または MSBuild を使用する場合は、次の手順で .nupkg ファイルに加えて .snupkg ファイルを作成します。
-
-1. 次に示すプロパティを .csproj ファイルに追加します。
-
-    ```xml
-    <PropertyGroup>
-      <IncludeSymbols>true</IncludeSymbols>
-      <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    </PropertyGroup>
-    ```
-
-1. `dotnet pack MyPackage.csproj` または `msbuild -t:pack MyPackage.csproj` を使用してプロジェクトをパックします。
-
-[`SymbolPackageFormat`](/dotnet/core/tools/csproj#symbolpackageformat) プロパティには、`symbols.nupkg` (既定値) または `snupkg` の 2 つの値のいずれかを指定できます。 [`SymbolPackageFormat`](/dotnet/core/tools/csproj#symbolpackageformat) プロパティが指定されていない場合は、レガシ シンボル パッケージが作成されます。
+[`SymbolPackageFormat`](/dotnet/core/tools/csproj#symbolpackageformat) プロパティには、`symbols.nupkg` (既定値) または `snupkg` の 2 つの値のいずれかを指定できます。 このプロパティが指定されていない場合は、レガシ シンボル パッケージが作成されます。
 
 > [!Note]
 > 従来の形式 `.symbols.nupkg` は引き続きサポートされますが、これは互換性のみを目的としています ([レガシ シンボル パッケージ](Symbol-Packages.md)に関する記事を参照)。 NuGet.org のシンボル サーバーは、新しいシンボル パッケージ形式 `.snupkg` のみを受け入れます。
@@ -118,8 +128,8 @@ nuget.org でサポートされているシンボル パッケージには、次
 
 4) 作成者が nupkg と snupkg のビルドにカスタムの nuspec を使用した場合、snupkg には 2) で説明したものと同じフォルダ階層とファイルが含まれます。
 5) ```authors``` と ```owners``` のフィールドは snupkg の nuspec から除外されます。
-6) <license> 要素は使用しないでください。 .snupkg には、対応する .nupkg と同じライセンスが適用されます。
+6) ```<license>``` 要素は使用しないでください。 .snupkg には、対応する .nupkg と同じライセンスが適用されます。
 
 ## <a name="see-also"></a>関連項目
 
-[NuGet パッケージのデバッグとシンボルの改善](https://github.com/NuGet/Home/wiki/NuGet-Package-Debugging-&-Symbols-Improvements)
+[NuGet パッケージのデバッグとシンボルの機能強化](https://github.com/NuGet/Home/wiki/NuGet-Package-Debugging-&-Symbols-Improvements)
