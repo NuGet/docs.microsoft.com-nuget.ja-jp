@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 5ec6c0e17a3e8b9a3f156a48685bcaafe42c744b
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: 7aea28d6224a89149aa33be035c82a45db3058f0
+ms.sourcegitcommit: 1eda83ab537c86cc27316e7bc67f95a358766e63
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488220"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71094121"
 ---
 # <a name="package-content"></a>パッケージコンテンツ
 
@@ -58,9 +58,9 @@ LOWER_ID | URL    | string  | 可      | パッケージ ID、小文字
 
 パッケージソースに1つ以上のバージョンがある場合は、200状態コードが返されます。 応答本文は、次のプロパティを持つ JSON オブジェクトです。
 
-名前     | 種類             | 必須 | メモ
+Name     | 種類             | 必須 | メモ
 -------- | ---------------- | -------- | -----
-versions | 文字列の配列 | 可      | 使用可能なパッケージ Id
+versions | 文字列の配列 | 可      | 使用可能なバージョン
 
 `versions`配列内の文字列は、すべて小文字で正規化された[NuGet バージョン文字列](../concepts/package-versioning.md#normalized-version-numbers)です。 バージョン文字列に SemVer 2.0.0 ビルドメタデータが含まれていません。
 
