@@ -12,12 +12,12 @@ keywords: NuGet シンボル パッケージ, NuGet パッケージ デバッグ
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 109df18bcfd3e6a3fbd3ef3da1707ffada585140
-ms.sourcegitcommit: f4bfdbf62302c95f1f39e81ccf998f8bbc6d56b0
+ms.openlocfilehash: 5546881dbf7577eb289a28b35bc2c0e7dc5cac40
+ms.sourcegitcommit: 1eda83ab537c86cc27316e7bc67f95a358766e63
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70749028"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71094102"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>シンボル パッケージ (.snupkg) の作成
 
@@ -92,25 +92,25 @@ NuGet では、両方のパッケージが nuget.org に公開されます。最
 
 ## <a name="nugetorg-symbol-server"></a>NuGet.org のシンボル サーバー
 
-NuGet.org は独自のシンボル サーバー リポジトリをサポートし、新しいシンボル パッケージ形式 `.snupkg` のみを受け入れます。 パッケージ コンシューマーは Visual Studio で自分のシンボル ソースに `https://symbols.nuget.org/download/symbols` を追加することで、nuget.org シンボル サーバーに公開されたシンボルを使用できます。それにより、Visual Studio デバッガーでパッケージ コードに入ることができます。 このプロセスの詳細については、「[Visual Studio デバッガーでのシンボル (.pdb) ファイルとソース ファイルの指定](https://docs.microsoft.com/en-us/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger?view=vs-2017)」を参照してください。
+NuGet.org は独自のシンボル サーバー リポジトリをサポートし、新しいシンボル パッケージ形式 `.snupkg` のみを受け入れます。 パッケージ コンシューマーは Visual Studio で自分のシンボル ソースに `https://symbols.nuget.org/download/symbols` を追加することで、nuget.org シンボル サーバーに公開されたシンボルを使用できます。それにより、Visual Studio デバッガーでパッケージ コードに入ることができます。 このプロセスの詳細については、「[Visual Studio デバッガーでのシンボル (.pdb) ファイルとソース ファイルの指定](/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger.md)」を参照してください。
 
-### <a name="nugetorg-symbol-package-constraints"></a>Nuget.org シンボル パッケージの制約
+### <a name="nugetorg-symbol-package-constraints"></a>NuGet.org シンボル パッケージの制約
 
-nuget.org でサポートされているシンボル パッケージには、次の 2 つの制約があります
+NuGet.org には、シンボル パッケージに対して次の制約があります。
 
-- 次のファイル拡張子のみをシンボル パッケージに追加できます。 ```.pdb,.nuspec,.xml,.psmdcp,.rels,.p7s```
-- nuget シンボル サーバーでは管理対象の[ポータブル PDB](https://github.com/dotnet/corefx/blob/master/src/System.Reflection.Metadata/specs/PortablePdb-Metadata.md) のみが現在サポートされています。
-- PDB と関連付けられている nupkg dll は、Visual studio バージョン 15.9 以上のコンパイラでビルドする必要があります ([pdb 暗号化ハッシュ](https://github.com/dotnet/roslyn/issues/24429)に関する記事を参照)
+- シンボル パッケージでは、次のファイル拡張子のみが許可されます: `.pdb`、`.nuspec`、`.xml`、`.psmdcp`、`.rels`、`.p7s`
+- NuGet.org のシンボル サーバーでは管理対象の[ポータブル PDB](https://github.com/dotnet/corefx/blob/master/src/System.Reflection.Metadata/specs/PortablePdb-Metadata.md) のみがサポートされています。
+- PDB と関連付けられている .nupkg DLL は、Visual Studio バージョン 15.9 以上のコンパイラでビルドする必要があります (「[PDB 暗号化ハッシュ](https://github.com/dotnet/roslyn/issues/24429)」を参照)
 
-それ以外のファイルの種類が .snupkg に含まれていると、nuget.org でのシンボル パッケージの公開は失敗します。
+これらの制約が満たされない場合、NuGet.org に発行されたシンボル パッケージは検証に失敗します。 
 
 ### <a name="symbol-package-validation-and-indexing"></a>シンボル パッケージの検証とインデックスの作成
 
-[NuGet.org](https://www.nuget.org/) にプッシュされたパッケージは、ウイルス チェックなど、いくつかの検証を受けます。
+[NuGet.org](https://www.nuget.org/) に発行されたシンボル パッケージは、マルウェアのスキャンなど、いくつかの検証を受けます。 パッケージが検証チェックに失敗した場合、そのパッケージの詳細ページにエラー メッセージが表示されます。 さらに、パッケージの所有者は、特定された問題の修正方法を示す電子メールを受信します。
 
-パッケージがすべての検証チェックに合格してから、シンボルのインデックスを作成し、NuGet.org シンボル サーバーで使用できるようになるまでには少し時間がかかります。 パッケージが検証チェックで不合格になった場合、.nupkg のパッケージの詳細ページが更新され、関連エラーが表示されます。それに関する電子メールも届きます。
+シンボル パッケージがすべての検証に合格すると、シンボルは NuGet. org のシンボル サーバーによってインデックスが作成されます。 インデックスが作成されると、シンボルは NuGet.org シンボル サーバーから使用できるようになります。
 
-パッケージの検証とインデックスの作成は、通常、15 以内で完了します。 パッケージ公開に予想以上の時間がかかる場合、[status.nuget.org](https://status.nuget.org/) にアクセスし、nuget.org に中断が発生していないか確認してください。 すべてのシステムが動作しているとき、1 時間以内にパッケージが正常に公開されない場合、nuget.org にログインし、パッケージの詳細ページの [Contact Support] リンクからお問い合わせください。
+パッケージの検証とインデックスの作成は、通常、15 以内で完了します。 パッケージ公開に予想以上の時間がかかる場合、[status.nuget.org](https://status.nuget.org/) にアクセスし、NuGet.org に中断が発生していないか確認してください。 すべてのシステムが動作しているとき、1 時間以内にパッケージが正常に公開されない場合、nuget.org にログインし、パッケージの詳細ページの [Contact Support] リンクからお問い合わせください。
 
 ## <a name="symbol-package-structure"></a>シンボル パッケージ構造
 
@@ -132,4 +132,6 @@ nuget.org でサポートされているシンボル パッケージには、次
 
 ## <a name="see-also"></a>関連項目
 
-[NuGet パッケージのデバッグとシンボルの機能強化](https://github.com/NuGet/Home/wiki/NuGet-Package-Debugging-&-Symbols-Improvements)
+ソース リンクを使用して、.NET アセンブリのソース コードのデバッグを有効にすることを検討してください。 詳細については、「[ソース リンクのガイダンス](/dotnet/standard/library-guidance/sourcelink.md)」を参照してください。
+
+シンボル パッケージの詳細については、「[NuGet パッケージのデバッグとシンボルの機能強化](https://github.com/NuGet/Home/wiki/NuGet-Package-Debugging-&-Symbols-Improvements)」の設計仕様を参照してください。
