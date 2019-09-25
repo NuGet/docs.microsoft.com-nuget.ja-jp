@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 09/06/2019
 ms.topic: conceptual
-ms.openlocfilehash: f16bfe5481009f7924a61f03233d288d25ac618f
-ms.sourcegitcommit: f4bfdbf62302c95f1f39e81ccf998f8bbc6d56b0
+ms.openlocfilehash: 96d176beaa6b2f0c4f53488390e585b70c9ba846
+ms.sourcegitcommit: 188ade66b7ac807ba1667c77cfb9325bf89a8a4a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70774087"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71248166"
 ---
 # <a name="nuget-53-release-notes"></a>NuGet 5.3 リリースノート
 
@@ -18,11 +18,11 @@ NuGet 配布の種類:
 
 | NuGet のバージョン | 利用可能な Visual Studio バージョン| 利用可能な .NET SDK|
 |:---|:---|:---|
-| [**5.3.0-preview3**](https://nuget.org/downloads) | [Visual Studio 2019 バージョン 16.3 Preview 3](https://visualstudio.microsoft.com/vs/preview/) | [3.0.100-preview9](https://dotnet.microsoft.com/download/dotnet-core/3.0)<sup>1</sup> |
+| [**以降**](https://nuget.org/downloads) | [Visual Studio 2019 バージョン16.3](https://visualstudio.microsoft.com/downloads/) | [3.0.100](https://dotnet.microsoft.com/download/dotnet-core/3.0)<sup>1</sup> |
 
 <sup>1</sup>.NET Core ワークロードを含む Visual Studio 2019 と共にインストールされます。
 
-## <a name="summary-whats-new-in-53-preview-3"></a>概要:5.3 preview 3 の新機能
+## <a name="summary-whats-new-in-53"></a>概要:5.3 の新機能
 
 * パッケージアイコンは、外部 URL を必要とするのではなく、[パッケージに埋め込むことができ](../reference/msbuild-targets.md#packing-an-icon-image-file)ます。 - [#352](https://github.com/NuGet/Home/issues/352)
 
@@ -32,6 +32,10 @@ NuGet 配布の種類:
 
 **バグ**
 
+* 3.0.100 preview9 SDK で生成された NuGet パッケージは、2.2 SDK ユーザーが使用することはできません...タイムゾーンに応じて[#8603](https://github.com/NuGet/Home/issues/8603)
+
+* 引用符 "パス内の文字が原因で、パスに無効な`nuget restore`文字が含まれる" というエラーが発生する[#8168](https://github.com/NuGet/Home/issues/8168)
+
 * VS: アセンブリが完全に ngen されていません。 [#8513](https://github.com/NuGet/Home/issues/8513)
 
 * メモリ使用量の削減 (イベントからのサブスクリプションの解除)- [#8471](https://github.com/NuGet/Home/issues/8471)
@@ -40,7 +44,7 @@ NuGet 配布の種類:
 
 * NU1403 の改善-すべてのパッケージを検証し、予期される/実際の sha 値を含めます- [#8424](https://github.com/NuGet/Home/issues/8424)
 
-* [#8401](https://github.com/NuGet/Home/issues/8401) NuGetPackageManager 内の複数の列挙型
+* [#8401](https://github.com/NuGet/Home/issues/8401)内の`NuGetPackageManager.PreviewUpdatePackagesAsync`複数の - 列挙型
 
 * PluginProcess の "パブリック > 内部" の変更を元に戻す- [#8390](https://github.com/NuGet/Home/issues/8390)
 
@@ -64,7 +68,7 @@ NuGet 配布の種類:
 
 * VS レイジー [#8156](https://github.com/NuGet/Home/issues/8156)で設定を読み取ります。
 
-* ' Nuget ソースの追加 ' での回帰により、': ' 文字、16進数値0x3A は名前に含めることができません "エラー- [#7948](https://github.com/NuGet/Home/issues/7948)
+* の回帰`Nuget sources add`では、"the ': ' 文字、16進数値 0x3a, を名前に含めることはできません" エラー- [#7948](https://github.com/NuGet/Home/issues/7948)
 
 * NuGet プラグイン資格情報プロバイダー-プロセスウィンドウを非表示にする- [#7511](https://github.com/NuGet/Home/issues/7511)
 
@@ -86,6 +90,4 @@ NuGet 配布の種類:
 
 * -SolutionDirectory オプションと-PackageDirectory オプションを nuget.exe pack- [#7163](https://github.com/NuGet/Home/issues/7163)に追加します。
 
-* NuGet パックを決定的[#6229](https://github.com/NuGet/Home/issues/6229)にできるようにします
-
-**[このリリースで修正されるすべての問題の一覧-5.3 preview 3](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%225.3")**
+**[このリリースで修正されるすべての問題の一覧-5.3](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%225.3")**
