@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 09/06/2019
 ms.topic: conceptual
-ms.openlocfilehash: 96d176beaa6b2f0c4f53488390e585b70c9ba846
-ms.sourcegitcommit: 188ade66b7ac807ba1667c77cfb9325bf89a8a4a
+ms.openlocfilehash: 683ee7d1bef30d0a7414ec1694a9735d79b2ab45
+ms.sourcegitcommit: c529f5944868a0692ca8550b716a73e05df0ccbf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71248166"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71687883"
 ---
 # <a name="nuget-53-release-notes"></a>NuGet 5.3 リリースノート
 
@@ -28,11 +28,13 @@ NuGet 配布の種類:
 
 * パッケージの SHA の追跡と強制によるセキュリティ強化- [#7281](https://github.com/NuGet/Home/issues/7281)
 
+* 廃止されたまたは従来の NuGet パッケージの廃止を有効にする[#2867](https://github.com/NuGet/Home/issues/2867) |  の[ブログ投稿](https://devblogs.microsoft.com/nuget/deprecating-packages-on-nuget-org/) | [Docs](https://docs.microsoft.com/en-us/nuget/nuget-org/deprecate-packages)
+
 ### <a name="issues-fixed-in-this-release"></a>このリリースで修正された問題
 
 **バグ**
 
-* 3.0.100 preview9 SDK で生成された NuGet パッケージは、2.2 SDK ユーザーが使用することはできません...タイムゾーンに応じて[#8603](https://github.com/NuGet/Home/issues/8603)
+* 3\.0.100 preview9 SDK で生成された NuGet パッケージは、2.2 SDK ユーザーが使用することはできません...タイムゾーンに応じて[#8603](https://github.com/NuGet/Home/issues/8603)
 
 * 引用符 "パス内の文字が原因で、パスに無効な`nuget restore`文字が含まれる" というエラーが発生する[#8168](https://github.com/NuGet/Home/issues/8168)
 
