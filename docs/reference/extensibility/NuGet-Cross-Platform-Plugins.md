@@ -5,12 +5,12 @@ author: nkolev92
 ms.author: nikolev
 ms.date: 07/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: 74b80b1791dcb403c90bb3032c009717c11ffe57
-ms.sourcegitcommit: 5a741f025e816b684ffe44a81ef7d3fbd2800039
+ms.openlocfilehash: 00410214500c7f5256be243dd6fca0907ba9b0c4
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70815306"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380494"
 ---
 # <a name="nuget-cross-platform-plugins"></a>NuGet クロスプラットフォームプラグイン
 
@@ -24,10 +24,10 @@ NuGet クライアントとプラグインの間のバージョン付き通信�
 すべての NuGet クライアントツールのシナリオに対応するために、.NET Framework と .NET Core プラグインの両方が必要です。
 次に、プラグインのクライアントとフレームワークの組み合わせについて説明します。
 
-| クライアント ツール  | Framework |
+| クライアント ツール  | フレームワーク |
 | ------------ | --------- |
 | Visual Studio | .NET Framework |
-| dotnet | .NET Core |
+| dotnet.exe | .NET Core |
 | Nuget.exe | .NET Framework |
 | Msbuild.exe | .NET Framework |
 | Mono での Nuget.exe | .NET Framework |
@@ -70,14 +70,14 @@ NuGet クライアントツールとプラグインの間の通信は双方向�
 ## <a name="plugin-installation-and-discovery"></a>プラグインのインストールと検出
 
 プラグインは、規則ベースのディレクトリ構造を使用して検出されます。
-CI/CD のシナリオとパワーユーザーは、環境変数を使用して動作をオーバーライドできます。 `NUGET_NETFX_PLUGIN_PATHS` と`NUGET_NETCORE_PLUGIN_PATHS`は、5.3 以降のバージョンの NuGet ツールでのみ使用できます。
+CI/CD のシナリオとパワーユーザーは、環境変数を使用して動作をオーバーライドできます。 環境変数を使用する場合、絶対パスのみが許可されます。 @No__t-0 と `NUGET_NETCORE_PLUGIN_PATHS` は、バージョン5.3 以降の NuGet ツールでのみ使用できます。
 
-- `NUGET_NETFX_PLUGIN_PATHS`-.NET Framework ベースのツール (Nuget.exe/Msbuild.exe/Visual Studio) によって使用されるプラグインを定義します。 はより`NUGET_PLUGIN_PATHS`も優先されます。 (NuGet バージョン5.3 以降のみ)
-- `NUGET_NETCORE_PLUGIN_PATHS`-.NET Core ベースのツール (dotnet) によって使用されるプラグインを定義します。 はより`NUGET_PLUGIN_PATHS`も優先されます。 (NuGet バージョン5.3 以降のみ)
-- `NUGET_PLUGIN_PATHS`-その NuGet プロセスに使用されるプラグイン、優先順位予約済みのプラグインを定義します。 この環境変数が設定されている場合は、規則ベースの検出を上書きします。 フレームワーク固有の変数のいずれかが指定されている場合は無視されます。
--  ユーザー-場所 (の`%UserProfile%/.nuget/plugins`NuGet ホームの場所)。 この場所を上書きすることはできません。 .NET Core と .NET Framework プラグインには、別のルートディレクトリが使用されます。
+- `NUGET_NETFX_PLUGIN_PATHS`-.NET Framework ベースのツール (Nuget.exe/Msbuild.exe/Visual Studio) によって使用されるプラグインを定義します。 は `NUGET_PLUGIN_PATHS` よりも優先されます。 (NuGet バージョン5.3 以降のみ)
+- `NUGET_NETCORE_PLUGIN_PATHS`-.NET Core ベースのツール (dotnet) によって使用されるプラグインを定義します。 は `NUGET_PLUGIN_PATHS` よりも優先されます。 (NuGet バージョン5.3 以降のみ)
+- `NUGET_PLUGIN_PATHS`-その NuGet プロセスに使用されるプラグインを定義し、優先度を保持します。 この環境変数が設定されている場合は、規則ベースの検出を上書きします。 フレームワーク固有の変数のいずれかが指定されている場合は無視されます。
+-  @No__t-0 の NuGet ホームの場所。 この場所を上書きすることはできません。 .NET Core と .NET Framework プラグインには、別のルートディレクトリが使用されます。
 
-| Framework | ルート探索場所  |
+| フレームワーク | ルート探索場所  |
 | ------- | ------------------------ |
 | .NET Core |  `%UserProfile%/.nuget/plugins/netcore` |
 | .NET Framework | `%UserProfile%/.nuget/plugins/netfx` |
@@ -123,20 +123,20 @@ Dotnet シナリオの NuGet の場合、プラグインは dotnet の特定の�
 プラグインのセキュリティ検証とインスタンス化はコストがかかります。 ダウンロード操作は認証操作よりも頻繁に行われますが、平均の NuGet ユーザーは認証プラグインを持つ可能性があるだけです。
 エクスペリエンスを向上させるために、NuGet は指定された要求の操作要求をキャッシュします。 このキャッシュはプラグインごとに、プラグインキーはプラグインパス、この機能キャッシュの有効期限は30日です。 
 
-キャッシュはに`%LocalAppData%/NuGet/plugins-cache`あり、環境変数`NUGET_PLUGINS_CACHE_PATH`でオーバーライドされます。 この[キャッシュ](../../consume-packages/managing-the-global-packages-and-cache-folders.md)をクリアするには、 `plugins-cache`オプションを指定してローカルコマンドを実行します。
-[ `all`ローカル] オプションでは、プラグインキャッシュも削除されます。 
+キャッシュは @no__t 0 にあり、環境変数 `NUGET_PLUGINS_CACHE_PATH` でオーバーライドされます。 この[キャッシュ](../../consume-packages/managing-the-global-packages-and-cache-folders.md)をクリアするには、`plugins-cache` オプションを指定してローカルコマンドを実行します。
+@No__t-0 ローカルオプションでは、プラグインキャッシュも削除されます。 
 
 ## <a name="protocol-messages-index"></a>プロトコルメッセージのインデックス
 
 プロトコルバージョン*1.0.0*メッセージ:
 
 1.  閉じる
-    * 要求方向:NuGet-> プラグイン
+    * 要求方向: NuGet > プラグイン
     * 要求にペイロードが含まれていません
     * 応答は必要ありません。  適切な応答は、プラグインプロセスがすぐに終了するためです。
 
 2.  パッケージ内のファイルをコピーする
-    * 要求方向:NuGet-> プラグイン
+    * 要求方向: NuGet > プラグイン
     * 要求には次のものが含まれます。
         * パッケージ ID とバージョン
         * パッケージソースリポジトリの場所
@@ -147,7 +147,7 @@ Dotnet シナリオの NuGet の場合、プラグインは dotnet の特定の�
         * 操作が成功した場合にコピー先ディレクトリにコピーされたファイルの完全パスを列挙可能
 
 3.  パッケージファイルのコピー (. nupkg)
-    * 要求方向:NuGet-> プラグイン
+    * 要求方向: NuGet > プラグイン
     * 要求には次のものが含まれます。
         * パッケージ ID とバージョン
         * パッケージソースリポジトリの場所
@@ -166,7 +166,7 @@ Dotnet シナリオの NuGet の場合、プラグインは dotnet の特定の�
         * パスワード (使用可能な場合)
 
 5.  パッケージ内のファイルを取得する
-    * 要求方向:NuGet-> プラグイン
+    * 要求方向: NuGet > プラグイン
     * 要求には次のものが含まれます。
         * パッケージ ID とバージョン
         * パッケージソースリポジトリの場所
@@ -175,7 +175,7 @@ Dotnet シナリオの NuGet の場合、プラグインは dotnet の特定の�
         * 操作が成功した場合のパッケージ内のファイルパスの列挙。
 
 6.  操作要求の取得 
-    * 要求方向:NuGet-> プラグイン
+    * 要求方向: NuGet > プラグイン
     * 要求には次のものが含まれます。
         * パッケージソースのサービスインデックス。
         * パッケージソースリポジトリの場所
@@ -187,7 +187,7 @@ Dotnet シナリオの NuGet の場合、プラグインは dotnet の特定の�
 > このメッセージは、バージョン*2.0.0*で更新されました。 旧バージョンとの互換性を維持するために、クライアント上にあります。
 
 7.  パッケージハッシュの取得
-    * 要求方向:NuGet-> プラグイン
+    * 要求方向: NuGet > プラグイン
     * 要求には次のものが含まれます。
         * パッケージ ID とバージョン
         * パッケージソースリポジトリの場所
@@ -197,7 +197,7 @@ Dotnet シナリオの NuGet の場合、プラグインは dotnet の特定の�
         * 操作が成功した場合は、要求されたハッシュアルゴリズムを使用したパッケージファイルハッシュ
 
 8.  パッケージのバージョンを取得する
-    * 要求方向:NuGet-> プラグイン
+    * 要求方向: NuGet > プラグイン
     * 要求には次のものが含まれます。
         * パッケージ ID
         * パッケージソースリポジトリの場所
@@ -214,7 +214,7 @@ Dotnet シナリオの NuGet の場合、プラグインは dotnet の特定の�
         * 操作が成功した場合のサービスインデックス
 
 10.  ハンドシェイク
-     * 要求方向:NuGet <-> プラグイン
+     * 要求方向: NuGet <-> プラグイン
      * 要求には次のものが含まれます。
          * 現在のプラグインプロトコルのバージョン
          * サポートされている最小プラグインプロトコルバージョン
@@ -223,7 +223,7 @@ Dotnet シナリオの NuGet の場合、プラグインは dotnet の特定の�
          * 操作が成功した場合は、ネゴシエートされたプロトコルバージョン。  エラーが発生すると、プラグインが終了します。
 
 11.  Initialize
-     * 要求方向:NuGet-> プラグイン
+     * 要求方向: NuGet > プラグイン
      * 要求には次のものが含まれます。
          * NuGet クライアントツールのバージョン
          * NuGet クライアントツールの有効な言語です。  これにより、ForceEnglishOutput 設定が使用されている場合、そのことが考慮されます。
@@ -231,7 +231,7 @@ Dotnet シナリオの NuGet の場合、プラグインは dotnet の特定の�
      * 応答には次のものが含まれます。
          * 操作の結果を示す応答コード。  エラーが発生すると、プラグインが終了します。
 
-12.  Log
+12.  ログ
      * 要求方向: プラグイン-> NuGet
      * 要求には次のものが含まれます。
          * 要求のログレベル
@@ -240,14 +240,14 @@ Dotnet シナリオの NuGet の場合、プラグインは dotnet の特定の�
          * 操作の結果を示す応答コード。
 
 13.  NuGet プロセス終了の監視
-     * 要求方向:NuGet-> プラグイン
+     * 要求方向: NuGet > プラグイン
      * 要求には次のものが含まれます。
          * NuGet プロセス ID
      * 応答には次のものが含まれます。
          * 操作の結果を示す応答コード。
 
 14.  プリフェッチパッケージ
-     * 要求方向:NuGet-> プラグイン
+     * 要求方向: NuGet > プラグイン
      * 要求には次のものが含まれます。
          * パッケージ ID とバージョン
          * パッケージソースリポジトリの場所
@@ -255,7 +255,7 @@ Dotnet シナリオの NuGet の場合、プラグインは dotnet の特定の�
          * 操作の結果を示す応答コード
 
 15.  資格情報の設定
-     * 要求方向:NuGet-> プラグイン
+     * 要求方向: NuGet > プラグイン
      * 要求には次のものが含まれます。
          * パッケージソースリポジトリの場所
          * 最後に認識されたパッケージソースのユーザー名 (使用可能な場合)
@@ -266,7 +266,7 @@ Dotnet シナリオの NuGet の場合、プラグインは dotnet の特定の�
          * 操作の結果を示す応答コード
 
 16.  ログレベルの設定
-     * 要求方向:NuGet-> プラグイン
+     * 要求方向: NuGet > プラグイン
      * 要求には次のものが含まれます。
          * 既定のログレベル
      * 応答には次のものが含まれます。
@@ -276,7 +276,7 @@ Dotnet シナリオの NuGet の場合、プラグインは dotnet の特定の�
 
 17. 操作要求の取得
 
-* 要求方向:NuGet-> プラグイン
+* 要求方向: NuGet > プラグイン
     * 要求には次のものが含まれます。
         * パッケージソースのサービスインデックス。
         * パッケージソースリポジトリの場所
@@ -288,15 +288,15 @@ Dotnet シナリオの NuGet の場合、プラグインは dotnet の特定の�
 
 18. 認証資格情報の取得
 
-* 要求方向:NuGet-> プラグイン
+* 要求方向: NuGet > プラグイン
 * 要求には次のものが含まれます。
     * URI
     * isRetry
-    * NonInteractive
+    * 非対話型
     * CanShowDialog
 * 応答にはが含まれます。
-    * Username
-    * Password
-    * Message
+    * ユーザー名
+    * パスワード
+    * [メッセージ]
     * 認証の種類の一覧
     * MessageResponseCode

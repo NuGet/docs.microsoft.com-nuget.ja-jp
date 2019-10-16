@@ -6,26 +6,26 @@ ms.author: karann
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: ea9f699b202d7f32648f0ccfeac3ceb1ca325b7e
-ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
+ms.openlocfilehash: caa1509fd996c54f7de17e86559ea62ef67f749f
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68342440"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380490"
 ---
 # <a name="target-frameworks"></a>ターゲット フレームワーク
 
 NuGet は、多様な場所にあるターゲット フレームワーク参照を使用してパッケージのフレームワーク依存コンポーネントを特定し、分離します。
 
-- [プロジェクトファイル](../create-packages/multiple-target-frameworks-project-file.md):SDK スタイルのプロジェクトの場合、 *.csproj*にはターゲットフレームワーク参照が含まれています。
-- [. nuspec マニフェスト](../reference/nuspec.md):パッケージは、プロジェクトのターゲットフレームワークに応じて、プロジェクトに含める個別のパッケージを示すことができます。
-- [. nupkg フォルダー名](../create-packages/creating-a-package.md#from-a-convention-based-working-directory):パッケージの`lib`フォルダー内のフォルダーには、ターゲットフレームワークに従って名前を付けることができます。各フォルダーには、そのフレームワークに適した dll とその他のコンテンツが含まれています。
-- [app.config](../reference/packages-config.md):依存`targetframework`関係の属性は、インストールするパッケージのバリアントを指定します。
+- [プロジェクトファイル](../create-packages/multiple-target-frameworks-project-file.md): SDK スタイルのプロジェクトの場合、 *.csproj*にはターゲットフレームワークの参照が含まれています。
+- [.nuspec マニフェスト](../reference/nuspec.md): パッケージは、プロジェクトのターゲット フレームワークに依存するプロジェクトに含めるパッケージを指定できます。
+- [.nupkg フォルダー名](../create-packages/creating-a-package.md#from-a-convention-based-working-directory): パッケージの `lib` フォルダー内のフォルダーには、ターゲット フレームワークに従って名前を付けることができます。各フォルダーには、そのフレームワークに適した DLL や他のコンテンツが含まれます。
+- [packages.config](../reference/packages-config.md): 依存関係の `targetframework` 属性で、インストールするパッケージのバリエーションを指定します。
 
 > [!Note]
 > 以下の表を計算する NuGet クライアントのソース コードは、次の場所にあります。
-> - サポートされているフレームワーク名:[FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
-> - フレームワークの優先順位とマッピング:[DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
+> - サポートされているフレームワーク名: [FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
+> - フレームワークの優先順位とマッピング: [DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
 
 ## <a name="supported-frameworks"></a>サポートされるフレームワーク
 
@@ -33,7 +33,7 @@ NuGet は、多様な場所にあるターゲット フレームワーク参照�
 
 NuGet クライアントは以下の表のフレームワークをサポートしています。 同等のものがかっこ [] 内に示されています。 `dotnet` などの一部のツールは、一部のファイルで正規の TFM のバリエーションを使用することがあります。 たとえば、`dotnet pack` は `.nuspec` ファイルで `netcoreapp2.0` ではなく `.NETCoreApp2.0` を使用します。 さまざまな NuGet クライアント ツールがこれらのバリエーションを適切に処理しますが、ファイルを直接編集するときは常に正規の TFM を使用することをお勧めします。
 
-| Name | 省略形 | TFM/TxM |
+| 名 | 省略形 | TFM/TxM |
 | ------------- | ------------ | --------- |
 |.NET Framework | net | net11 |
 | | | net20 |
@@ -83,6 +83,7 @@ Windows Phone (UWP) | | wpa81 |
 | | | netcoreapp2.0 |
 | | | netcoreapp2.1 |
 | | | netcoreapp2.2 |
+| | | netcoreapp3.0 |
 Tizen | tizen | tizen3 |
 | | | tizen4 |
 
@@ -113,7 +114,7 @@ Tizen | tizen | tizen3 |
 
 フレームワークの番号は相互の関連性や互換性を示していますが、必ずしも同一ではありません。
 
-| Framework | 使用可能 |
+| フレームワーク | 使用可能 |
 | -- | --- |
 | uap (ユニバーサル Windows プラットフォーム) | win81 |
 | | wpa81 |
@@ -283,7 +284,7 @@ NuGet 3.3 以前には `dotnet` シリーズのモニカーを使用し、v3.4 �
 
 さらに、Xamarin をターゲットとする NuGet パッケージでは、Xamarin で定義された他のフレームワークも使用することができます。 [Xamarin 用の NuGet パッケージの作成](https://developer.xamarin.com/guides/cross-platform/advanced/nuget/)に関するページを参照してください。
 
-| Name | 説明 | .NET Standard |
+| 名 | 説明 | .NET Standard |
 | --- | --- | ---
 | monoandroid | Android OS の Mono サポート | netstandard1.4 |
 | monotouch | iOS の Mono サポート | netstandard1.4 |
