@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8c1d8a479747f6f7bce388c1555589543c8824a0
-ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
+ms.openlocfilehash: 1d23759433efb405fa5f0035049befced2c43d6b
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69020060"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380685"
 ---
 # <a name="support-multiple-net-framework-versions-in-your-project-file"></a>プロジェクト ファイル内で複数の .NET Framework バージョンをサポートする
 
@@ -37,7 +37,7 @@ SDK スタイルのプロジェクトでは、プロジェクト ファイルで
 
    XML 要素が単数形から複数形に変更されていることを確認します ("s" を開始タグと終了タグの両方に追加します)。
 
-3. 1 つの TFM でのみ動作するコードがある場合は、`#if NET45` または `#if NETSTANDARD20` を使用して、TFM に依存するコードを分離できます。 (詳細については、「[マルチターゲットを設定する方法](/dotnet/core/tutorials/libraries#how-to-multitarget)」を参照してください。)たとえば、次のコードを使用できます。
+3. 1 つの TFM でのみ動作するコードがある場合は、`#if NET45` または `#if NETSTANDARD2_0` を使用して、TFM に依存するコードを分離できます。 (詳細については、「[マルチターゲットを設定する方法](/dotnet/core/tutorials/libraries#how-to-multitarget)」を参照してください。)たとえば、次のコードを使用できます。
 
    ```csharp
    public string Platform {

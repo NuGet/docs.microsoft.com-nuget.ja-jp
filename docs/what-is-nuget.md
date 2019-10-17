@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: overview
-ms.openlocfilehash: 435103b600f14b9bbf606c09f0c870115204d5c7
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: a08ac24ce6b1d64496c9fc1b20604850e9711dd6
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488499"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380673"
 ---
 # <a name="an-introduction-to-nuget"></a>NuGet の概要
 
@@ -105,7 +105,7 @@ NuGet がこのサービスを実行する方法について詳しくは、[依�
 
 個々のプロジェクトでは、NuGet は依存関係グラフ全体を管理します。これにも、同じパッケージの異なるバージョンへの複数の参照の解決が含まれます。 プロジェクトが 1 つ以上のパッケージに依存関係を持ち、それらのパッケージ自体にも同じような依存関係があることは、ごく一般的なことです。 nuget.org の最も便利なユーティリティ パッケージのいくつかは、他の多くのパッケージで使用されています。 依存関係グラフ全体では、同じパッケージの異なるバージョンに対する 10 個の異なる参照が簡単にできてしまいます。 そのパッケージの複数のバージョンがアプリケーション自体に組み込まれるのを回避するために、NuGet は、すべての利用者が使用できる 1 つのバージョンを選別します (詳細については、「[依存関係の解決](concepts/dependency-resolution.md)」を参照してください)。
 
-さらに、NuGet は、パッケージの構成方法 ([ローカライズ](create-packages/creating-localized-packages.md)と[デバッグ シンボル](create-packages/symbol-packages.md)を含みます) およびパッケージの[参照](consume-packages/package-references-in-project-files.md)方法 ([バージョン参照](concepts/package-versioning.md#version-ranges-and-wildcards)と[プレリリース バージョン](create-packages/prerelease-packages.md)を含みます) に関するすべての仕様を保持しています。NuGet は、そのサービスとプログラムで連携する各種の API を提供し、Visual Studio 拡張機能およびプロジェクト テンプレートを作成する開発者用のサポートも提供します。
+さらに、NuGet は、パッケージの構成方法 ([ローカライズ](create-packages/creating-localized-packages.md)と[デバッグ シンボル](create-packages/symbol-packages-snupkg.md)を含みます) およびパッケージの[参照](consume-packages/package-references-in-project-files.md)方法 ([バージョン参照](concepts/package-versioning.md#version-ranges-and-wildcards)と[プレリリース バージョン](create-packages/prerelease-packages.md)を含みます) に関するすべての仕様を保持しています。NuGet は、そのサービスとプログラムで連携する各種の API を提供し、Visual Studio 拡張機能およびプロジェクト テンプレートを作成する開発者用のサポートも提供します。
 
 このドキュメントの目次を見るとわかるように、これらすべての機能に関するトピックと、最初の NuGet からのすべてのリリース ノートが提供されています。
 

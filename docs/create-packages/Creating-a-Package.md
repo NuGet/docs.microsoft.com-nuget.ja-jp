@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: e4223c25daa1c14c30de1ef063cd0f48df70c8b5
-ms.sourcegitcommit: 80cf99f40759911324468be1ec815c96aebf376d
+ms.openlocfilehash: 353654d12e137222ab24417f30fd22e9f027c324
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/17/2019
-ms.locfileid: "69564580"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380710"
 ---
 # <a name="create-a-package-using-the-nugetexe-cli"></a>nuget.exe CLI を使用してパッケージを作成する
 
@@ -56,7 +56,7 @@ ms.locfileid: "69564580"
 必須プロパティ:
 
 - パッケージの識別子。パッケージをホストするギャラリー全体で一意にする必要があります。
-- *Major.Minor.Patch[-Suffix]* という形式の特別なバージョン番号。*-Suffix* で[プレリリース版](prerelease-packages.md)を識別します。
+- *Major.Minor.Patch[-Suffix]* という形式の特別なバージョン番号。 *-Suffix* で[プレリリース版](prerelease-packages.md)を識別します。
 - ホスト (nuget.org など) に表示されるパッケージ タイトル。
 - 作成者と所有者の情報。
 - パッケージの詳しい説明。
@@ -434,4 +434,4 @@ Visual Studio プロジェクトの共通オプションには以下のような
 最後になりますが、次のような種類のパッケージもあります。
 
 - [ネイティブ パッケージ](../guides/native-packages.md)
-- [シンボル パッケージ](../create-packages/symbol-packages.md)
+- [シンボル パッケージ](../create-packages/symbol-packages-snupkg.md)

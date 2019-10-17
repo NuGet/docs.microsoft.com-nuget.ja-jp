@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3093761bda456ff5463f708c4d2d12f606dcecbd
-ms.sourcegitcommit: 7dba5be7b983ff508834c60caaa8b504f5fa1ae8
+ms.openlocfilehash: 6a49e410617c14e22f0d4a67d8bfe280f64f5505
+ms.sourcegitcommit: 8a424829b1f70cf7590e95db61997af6ae2d7a41
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 10/16/2019
-ms.locfileid: "72393012"
+ms.locfileid: "72510795"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>MSBuild ターゲットとしての NuGet の pack と restore
 
@@ -382,6 +382,10 @@ Nuspec ファイルをパックする .csproj ファイルの例を次に示し*
 | Restoreentkipnon存在 Enttargets  | MSBuild を使用してプロジェクトが収集されると、`SkipNonexistentTargets` の最適化を使用してプロジェクトを収集するかどうかが決定されます。 設定しない場合、既定値は `true` になります。 その結果、プロジェクトのターゲットをインポートできない場合のフェールファースト動作になります。 |
 | MSBuildProjectExtensionsPath | 出力フォルダー。 `BaseIntermediateOutputPath` および `obj` フォルダーを既定とします。 |
 | RestoreForce | PackageReference ベースのプロジェクトでは、最後の復元が成功した場合でも、すべての依存関係が強制的に解決されます。 このフラグを指定することは、`project.assets.json` ファイルの削除に似ています。 これは、http キャッシュをバイパスしません。 |
+| RestorePackagesWithLockFile | ロックファイルの使用を解除します。 |
+| RestoreLockedMode | ロックモードで復元を実行します。 これは、restore が依存関係を再評価しないことを意味します。 |
+| NuGetLockFilePath | ロックファイルのカスタムの場所。 既定の場所はプロジェクトの横にあり、には `packages.lock.json` という名前が付けられます。 |
+| RestoreForceEvaluate | 復元によって依存関係が再計算され、警告なしでロックファイルが更新されます。 | 
 
 #### <a name="examples"></a>使用例
 
