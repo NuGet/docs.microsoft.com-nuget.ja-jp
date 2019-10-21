@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1b373f245e934f2447acec2f97472d69999ae679
-ms.sourcegitcommit: 7c9f157ba02d9be543de34ab06813ab1ec10192a
+ms.openlocfilehash: 24e35f4b2c047d5f337a1779e63846b11b0c1011
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69999955"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380575"
 ---
 # <a name="nugetorg-frequently-asked-questions"></a>NuGet.org に関してよく寄せられる質問
 
@@ -80,7 +80,7 @@ NuGet では HTTP を使用してパッケージをダウンロードするた�
 
 *MTR をキャプチャするには:*
 
-- [http://winmtr.net/download/](http://winmtr.net/) から WinMTR をダウンロードします
+- [WinMTR](https://sourceforge.net/projects/winmtr/files/WinMTR-v092.zip/download) をダウンロードします。
 - ホスト名として「`api.nuget.org`」を入力して、 **[開始]** をクリックします。
 - **[送信]** 列が 100 以上になるまで待ちます。
 
@@ -148,7 +148,7 @@ Microsoft ログインを変更しようとすると、次のエラーが表示�
 
 **自分が別の NuGet.org アカウント持っていたことを忘れてしまいした。それがどの NuGet.org アカウントだったかを見つけるにはどうしたらよいですか?**
 
-[ログイン ページ](https://www.nuget.org/users/account/LogOn?returnUrl=%2F# "ログイン ページ")で 2 番目の Microsoft アカウントを使ってログインします。 これにより 2 番目の Microsoft アカウントに現在関連付けられている NuGet.org アカウントにログインします。 次に、アップロードされたパッケージを表示して、このアカウントでアカウント管理を実行できます。
+[ログイン ページ](https://www.nuget.org/users/account/LogOn?returnUrl=%2F# "login page")で、2 番目の Microsoft アカウントを使ってログインします。 これにより 2 番目の Microsoft アカウントに現在関連付けられている NuGet.org アカウントにログインします。 次に、アップロードされたパッケージを表示して、このアカウントでアカウント管理を実行できます。
 
 **この 2 番目の NuGet.org アカウントには関心がありませんが、最初の NuGet.org アカウントのログインを 2 番目の Microsoft アカウントで変更したいのですが、どうしたらよいですか?**
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: ae80206117eed639140a0c7977043d8330bc37bb
-ms.sourcegitcommit: 80cf99f40759911324468be1ec815c96aebf376d
+ms.openlocfilehash: 892483760a9f3568da7101663e93c69ce3d70b96
+ms.sourcegitcommit: 8a424829b1f70cf7590e95db61997af6ae2d7a41
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/17/2019
-ms.locfileid: "69564565"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72510805"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>プロジェクト ファイルのパッケージ参照 (PackageReference)
 
@@ -164,7 +164,7 @@ PackageReference スタイル (既存の csproj または SDK スタイルのプ
 ```
 
 ## <a name="locking-dependencies"></a>依存関係のロック
-"*この機能を使用できるのは、NuGet **4.9** 以降で、かつ Visual Studio 2017 **15.9** 以降を使用している場合です。*"
+"*この機能を使用できるのは、NuGet **4.9** 以降で、かつ Visual Studio 2017 **15.9** 以降を使用している場合です。* "
 
 NuGet の復元への入力は、プロジェクト ファイルのパッケージ参照のセット (最上位レベルまたは直接の依存関係) であり、出力は推移的依存関係を含むパッケージのすべての依存関係の完全なクロージャーです。 入力の PackageReference リストが変更されていない場合、NuGet では常に同じパッケージの依存関係の完全なクロージャーを生成しようとします。 ただし、このようにすることができないシナリオがいくつかあります。 次に例を示します。
 
@@ -236,11 +236,12 @@ ProjectA
 `ProjectA` が `PackageX` のバージョン `2.0.0` に依存し、`PackageX` のバージョン `1.0.0` に依存する `ProjectB` も参照している場合、`ProjectB` のロック ファイルでは `PackageX` のバージョン `1.0.0` に対する依存関係が記載されます。 ただし、`ProjectA` をビルドすると、そのロック ファイルには `PackageX` のバージョン **`2.0.0`** に対する依存関係が含まれます。`ProjectB` のロック ファイルに記載されている `1.0.0` では**ありません**。 したがって、共通コード プロジェクトのロックファイルは、それが依存するプロジェクトのために解決されるパッケージに対して強い力を持っていません。
 
 ### <a name="lock-file-extensibility"></a>ロック ファイルの拡張機能
+
 以下で説明するように、ロック ファイルを使用して復元のさまざまな動作を制御できます。
 
-| オプション | 対応する MSBuild オプション | 
-|:---  |:--- |
-| `--use-lock-file` | プロジェクトのロック ファイルでのブートス トラップの使用です。 代わりに、プロジェクト ファイル内で `RestorePackagesWithLockFile` プロパティを設定することもできます。 | 
-| `--locked-mode` | 復元のロック モードを有効にします。 これは、繰り返し可能なビルドを取得する必要がある CI/CD のシナリオで役立ちます。 または、`RestoreLockedMode` MSBuild プロパティを `true` に設定する方法もあります。 |  
-| `--force-evaluate` | このオプションは、プロジェクトで定義する浮動バージョンを使用するパッケージで役立ちます。 既定では、NuGet の復元では、`--force-evaluate` オプションを使用して復元を実行しない限り、各復元に基づくパッケージ バージョンの自動更新は行われません。 |
-| `--lock-file-path` | プロジェクトのカスタム ロック ファイルの場所を定義します。 これは、MSBuild プロパティ `NuGetLockFilePath` を設定することでも実現できます。 既定では、NuGet はルート ディレクトリでの `packages.lock.json` をサポートします。 同じディレクトリ内に複数のプロジェクトがある場合、NuGet はプロジェクト固有のロック ファイル `packages.<project_name>.lock.json` をサポートします。 |
+| オプション | 対応する MSBuild オプション | 説明|
+|:---  |:--- |:--- |
+| `--use-lock-file` | RestorePackagesWithLockFile | ロック ファイルの使用をオプトインします。 | 
+| `--locked-mode` | RestoreLockedMode | 復元のロック モードを有効にします。 これは、繰り返し可能なビルドを必要とする CI/CD のシナリオで役立ちます。|   
+| `--force-evaluate` | RestoreForceEvaluate | このオプションは、プロジェクトで定義する浮動バージョンを使用するパッケージで役立ちます。 既定では、NuGet の復元では、このオプションを指定して復元を実行しない限り、復元ごとのパッケージ バージョンの自動更新は行われません。 |
+| `--lock-file-path` | NuGetLockFilePath | プロジェクトのカスタム ロック ファイルの場所を定義します。 既定では、NuGet はルート ディレクトリでの `packages.lock.json` をサポートします。 同じディレクトリ内に複数のプロジェクトがある場合、NuGet はプロジェクト固有のロック ファイル `packages.<project_name>.lock.json` をサポートします。 |
