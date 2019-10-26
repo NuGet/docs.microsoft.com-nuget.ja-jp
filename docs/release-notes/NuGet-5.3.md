@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 09/06/2019
 ms.topic: conceptual
-ms.openlocfilehash: 683ee7d1bef30d0a7414ec1694a9735d79b2ab45
-ms.sourcegitcommit: c529f5944868a0692ca8550b716a73e05df0ccbf
+ms.openlocfilehash: 3418eb9b60123596eaa361a546e8ea1403396f14
+ms.sourcegitcommit: f9645fc5f49c18978e12a292a3f832e162e069d5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687883"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72924593"
 ---
 # <a name="nuget-53-release-notes"></a>NuGet 5.3 リリースノート
 
@@ -19,16 +19,16 @@ NuGet 配布の種類:
 | NuGet のバージョン | 利用可能な Visual Studio バージョン| 利用可能な .NET SDK|
 |:---|:---|:---|
 | [**以降**](https://nuget.org/downloads) | [Visual Studio 2019 バージョン16.3](https://visualstudio.microsoft.com/downloads/) | [3.0.100](https://dotnet.microsoft.com/download/dotnet-core/3.0)<sup>1</sup> |
-
+| [**5.3.1**](https://nuget.org/downloads) | [Visual Studio 2019 バージョン16.3.6](https://visualstudio.microsoft.com/downloads/) | [将来のバージョン: 3.0.101](https://dotnet.microsoft.com/download/dotnet-core/3.0) |
 <sup>1</sup>.NET Core ワークロードを含む Visual Studio 2019 と共にインストールされます。
 
-## <a name="summary-whats-new-in-53"></a>概要:5.3 の新機能
+## <a name="summary-whats-new-in-53"></a>概要: 5.3 の新機能
 
 * パッケージアイコンは、外部 URL を必要とするのではなく、[パッケージに埋め込むことができ](../reference/msbuild-targets.md#packing-an-icon-image-file)ます。 - [#352](https://github.com/NuGet/Home/issues/352)
 
 * パッケージの SHA の追跡と強制によるセキュリティ強化- [#7281](https://github.com/NuGet/Home/issues/7281)
 
-* 廃止されたまたは従来の NuGet パッケージの廃止を有効にする[#2867](https://github.com/NuGet/Home/issues/2867) |  の[ブログ投稿](https://devblogs.microsoft.com/nuget/deprecating-packages-on-nuget-org/) | [Docs](https://docs.microsoft.com/en-us/nuget/nuget-org/deprecate-packages)
+* 使用されていない/従来の NuGet パッケージの廃止を有効にする[#2867](https://github.com/NuGet/Home/issues/2867) | の[ブログ投稿](https://devblogs.microsoft.com/nuget/deprecating-packages-on-nuget-org/) | [ドキュメント](https://docs.microsoft.com/en-us/nuget/nuget-org/deprecate-packages)
 
 ### <a name="issues-fixed-in-this-release"></a>このリリースで修正された問題
 
@@ -36,7 +36,7 @@ NuGet 配布の種類:
 
 * 3\.0.100 preview9 SDK で生成された NuGet パッケージは、2.2 SDK ユーザーが使用することはできません...タイムゾーンに応じて[#8603](https://github.com/NuGet/Home/issues/8603)
 
-* 引用符 "パス内の文字が原因で、パスに無効な`nuget restore`文字が含まれる" というエラーが発生する[#8168](https://github.com/NuGet/Home/issues/8168)
+* 引用符 "パス内の文字が原因で、`nuget restore` のパスに無効な文字があります" エラー [#8168](https://github.com/NuGet/Home/issues/8168)
 
 * VS: アセンブリが完全に ngen されていません。 [#8513](https://github.com/NuGet/Home/issues/8513)
 
@@ -46,7 +46,7 @@ NuGet 配布の種類:
 
 * NU1403 の改善-すべてのパッケージを検証し、予期される/実際の sha 値を含めます- [#8424](https://github.com/NuGet/Home/issues/8424)
 
-* [#8401](https://github.com/NuGet/Home/issues/8401)内の`NuGetPackageManager.PreviewUpdatePackagesAsync`複数の - 列挙型
+* `NuGetPackageManager.PreviewUpdatePackagesAsync` - の複数の列挙型[#8401](https://github.com/NuGet/Home/issues/8401)
 
 * PluginProcess の "パブリック > 内部" の変更を元に戻す- [#8390](https://github.com/NuGet/Home/issues/8390)
 
@@ -70,7 +70,7 @@ NuGet 配布の種類:
 
 * VS レイジー [#8156](https://github.com/NuGet/Home/issues/8156)で設定を読み取ります。
 
-* の回帰`Nuget sources add`では、"the ': ' 文字、16進数値 0x3a, を名前に含めることはできません" エラー- [#7948](https://github.com/NuGet/Home/issues/7948)
+* `Nuget sources add` の回帰により、"the ': ' 文字、16進数値 0x3A" は名前に含めることができません "エラー- [#7948](https://github.com/NuGet/Home/issues/7948)
 
 * NuGet プラグイン資格情報プロバイダー-プロセスウィンドウを非表示にする- [#7511](https://github.com/NuGet/Home/issues/7511)
 
@@ -86,10 +86,16 @@ NuGet 配布の種類:
 
 * [Proj ファイルの復元を有効にする]- [#8212](https://github.com/NuGet/Home/issues/8212)
 
-* 同時に`NUGET_NETCORE_PLUGIN_PATHS`両方の構成をサポートすると共`NUGET_NETFX_PLUGIN_PATHS`に - [#8151](https://github.com/NuGet/Home/issues/8151)
+* 両方の構成を同時にサポートするための `NUGET_NETFX_PLUGIN_PATHS` と `NUGET_NETCORE_PLUGIN_PATHS` の導入- [#8151](https://github.com/NuGet/Home/issues/8151)
 
 * バージョン属性を使用して PackageDownload の複数のバージョンを有効にする- [#8074](https://github.com/NuGet/Home/issues/8074)
 
 * -SolutionDirectory オプションと-PackageDirectory オプションを nuget.exe pack- [#7163](https://github.com/NuGet/Home/issues/7163)に追加します。
 
 **[このリリースで修正されるすべての問題の一覧-5.3](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%225.3")**
+
+## <a name="summary-whats-new-in-531"></a>概要: 5.3.1 の新機能
+
+* プラグイン: タスクが取り消されました-キャンセルしてプラグインのインスタンス化に影響を与えることはできません- [#8648](https://github.com/NuGet/Home/issues/8648)
+
+* 1つのプロセスで (資格情報プロバイダーが使用されている場合) 復元タスクを2回安全に実行することはできません- [#8688](https://github.com/NuGet/Home/issues/8688)
