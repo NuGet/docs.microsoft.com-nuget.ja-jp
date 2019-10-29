@@ -7,7 +7,7 @@ ms.date: 11/11/2016
 ms.topic: conceptual
 ms.openlocfilehash: abbd3a9d9c51132477ceb236fed22cb63ccda209
 ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 09/04/2018
 ms.locfileid: "43550699"
@@ -23,8 +23,8 @@ NuGet が Visual Studio 2012 の一部として出荷されたときに、英語
 
 NuGet の UI と PowerShell コンソールは、次の言語にローカライズされます。
 
-1. 中国語 (簡体字、中国)
-1. では [
+1. 簡体中国語
+1. 繁体中国語
 1. チェコ語
 1. 英語
 1. フランス語
