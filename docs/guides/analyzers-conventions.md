@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: 0a8db9f6c55b7e79f9b338119e0b3ac6cb7a1e35
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: 4d337299f725b38981b0121069d5e6295b05e34e
+ms.sourcegitcommit: f9645fc5f49c18978e12a292a3f832e162e069d5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69520512"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72924636"
 ---
 # <a name="analyzer-nuget-formats"></a>アナライザーの NuGet の形式
 
@@ -45,7 +45,7 @@ ms.locfileid: "69520512"
 
     $/analyzers/{framework_name}{version}/{supported_architecture}/{supported_language}/{analyzer_name}.dll
 
-- **framework_name**: 含まれている DLL を実行する必要がある .NET Framework の*省略可能な* API サーフェス領域。 Roslyn がアナライザーを実行できる唯一のホストであるため、`dotnet` は、現在唯一の有効な値です。 ターゲットを指定しない場合、DLL は*すべて*のターゲットに適用されると見なされます。
+- **framework_name** および **version**: 含まれている DLL を実行する必要がある .NET Framework の "*省略可能な*" API サーフェス領域。 Roslyn がアナライザーを実行できる唯一のホストであるため、`dotnet` は、現在唯一の有効な値です。 ターゲットを指定しない場合、DLL は*すべて*のターゲットに適用されると見なされます。
 - **supported_language**: `cs` (C#)、`vb` (Visual Basic)、および `fs` (F#) の DLL のいずれかの言語です。 この言語は、その言語を使用するプロジェクトに対してのみ、アナライザーが読み込まれる必要があることを示します。 言語を指定しない場合、DLL はアナライザーでサポートされる "*すべて*" の言語に適用されると想定されます。
 - **analyzer_name**: アナライザーの DLL を指定します。 DLL 以外にもファイルが必要な場合は、ターゲットまたはプロパティ ファイルを介して含める必要があります。
 
