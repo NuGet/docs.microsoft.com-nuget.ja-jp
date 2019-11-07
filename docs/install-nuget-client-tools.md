@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/20/2019
 ms.topic: quickstart
-ms.openlocfilehash: 417388872a74b29a469d6a5c17c079a0d1a35dc3
-ms.sourcegitcommit: a0807671386782021acb7588741390e6f07e94e1
+ms.openlocfilehash: 09c859c0ab6767ea80b6a64c194aa2623ee5c505
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70384474"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610521"
 ---
 # <a name="install-nuget-client-tools"></a>NuGet クライアント ツールのインストール
 
@@ -46,7 +46,7 @@ dotnet CLI で基本的なコマンドを使用する方法を学習するには
 
 ### <a name="nugetexe-cli"></a>nuget.exe CLI
 
-`nuget.exe` CLI (`nuget.exe`) は、すべての NuGet 機能を提供する Windows 用のコマンド ライン ユーティリティです。[Mono](http://www.mono-project.com/docs/getting-started/install/) を使用して Mac OSX および Linux でも実行できますが、いくつかの制限があります。
+`nuget.exe` CLI (`nuget.exe`) は、すべての NuGet 機能を提供する Windows 用のコマンド ライン ユーティリティです。[Mono](https://www.mono-project.com/docs/getting-started/install/) を使用して Mac OSX および Linux でも実行できますが、いくつかの制限があります。
 
 `nuget.exe` CLI で基本的なコマンドを使用する方法を学習するには、[nuget.exe CLI を使用したパッケージのインストールと使用](consume-packages/install-use-packages-nuget-cli.md)に関するページを参照してください。
 

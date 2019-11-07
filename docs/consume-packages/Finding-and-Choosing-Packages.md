@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: cbe6fd964e88b054b9e2c5c8ead71d1f9090d63c
-ms.sourcegitcommit: 5aa49478dc466c67db5c3edda7c6ce8dcd8ae033
+ms.openlocfilehash: 9947a490e4373bb0b8b7fb0814828ff2a60615a8
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68817574"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73611070"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>プロジェクトの NuGet パッケージの検索と評価
 
-任意の .NET プロジェクトを開始する場合や、ご利用のアプリまたはサービスの機能上のニーズを特定する場合は常に、そのニーズを満たす既存の NuGet パッケージを使用することで時間と手間を大幅に省くことができます。 これらのパッケージは、[nuget.org](http://www.nuget.org/packages/) のパブリック コレクション、または組織あるいは別のサードパーティによって提供されるプライベート ソースから取得できます。
+任意の .NET プロジェクトを開始する場合や、ご利用のアプリまたはサービスの機能上のニーズを特定する場合は常に、そのニーズを満たす既存の NuGet パッケージを使用することで時間と手間を大幅に省くことができます。 これらのパッケージは、[nuget.org](https://www.nuget.org/packages/) のパブリック コレクション、または組織あるいは別のサードパーティによって提供されるプライベート ソースから取得できます。
 
 ## <a name="finding-packages"></a>パッケージの検索
 

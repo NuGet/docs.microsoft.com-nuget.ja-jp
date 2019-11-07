@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: 522dbbb2a39eb1cb6f0d23f39a48158b07c9076d
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: da8c5a05311c790bf6b873bc0f1a077d3ef1db87
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426850"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610626"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>NuGet パッケージとして UI コントロールを作成する
 
@@ -93,7 +93,7 @@ XAML コントロールが Visual Studio の XAML デザイナーのツールボ
 
 ![ツール ボックスのアイコンのサンプル](https://raw.githubusercontent.com/NuGet/docs.microsoft.com-nuget/live/docs/guides/media/ColorPicker_16x16x24.bmp)
 
-ピンク色の背景は実行時に置き換わります。 アイコンの色は、Visual Studio のテーマが変更され、その背景色が予想されるときに変更されます。 詳細については、「[Visual Studio のイメージとアイコン](https://docs.microsoft.com/en-us/visualstudio/extensibility/ux-guidelines/images-and-icons-for-visual-studio)」を参照してください。
+ピンク色の背景は実行時に置き換わります。 アイコンの色は、Visual Studio のテーマが変更され、その背景色が予想されるときに変更されます。 詳細については、「[Visual Studio のイメージとアイコン](https://docs.microsoft.com/visualstudio/extensibility/ux-guidelines/images-and-icons-for-visual-studio)」を参照してください。
 
 次の例では、プロジェクトには、"ManagedPackage.MyCustomControl.png" という名前の画像ファイルが含まれています。
 

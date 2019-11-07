@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: dbc3781bd17f815c6b32fc70b275469337148f41
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: 83414a824676844f9e44eab874e5eac788d50583
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488834"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610936"
 ---
 # <a name="creating-localized-nuget-packages"></a>ローカライズされた NuGet パッケージを作成する
 
@@ -71,7 +71,7 @@ ms.locfileid: "69488834"
 </package>
 ```
 
-この手法を使用しする 1 つのサンプル パッケージは [Microsoft.Data.OData 5.4.0](http://nuget.org/packages/Microsoft.Data.OData/5.4.0) です。
+この手法を使用しする 1 つのサンプル パッケージは [Microsoft.Data.OData 5.4.0](https://nuget.org/packages/Microsoft.Data.OData/5.4.0) です。
 
 ### <a name="advantages-and-disadvantages-localized-resource-assemblies"></a>メリットとデメリット (ローカライズされたリソース アセンブリ)
 
@@ -119,11 +119,11 @@ ms.locfileid: "69488834"
 
 サポートされている言語ごとに同じ方法で、追加のサテライト アセンブリを作成します。 例については、ASP.NET MVC のパッケージのセットを確認してください。
 
-- [Microsoft.AspNet.Mvc](http://nuget.org/packages/Microsoft.AspNet.Mvc) (英語のプライマリ)
-- [Microsoft.AspNet.Mvc.de](http://nuget.org/packages/Microsoft.AspNet.Mvc.de) (ドイツ語)
-- [Microsoft.AspNet.Mvc.ja](http://nuget.org/packages/Microsoft.AspNet.Mvc.ja) (日本語)
-- [Microsoft.AspNet.Mvc.zh Hans](http://nuget.org/packages/Microsoft.AspNet.Mvc.zh-Hans) (簡体字中国語)
-- [Microsoft.AspNet.Mvc.zh-Hant](http://nuget.org/packages/Microsoft.AspNet.Mvc.zh-Hant) (繁体字中国語)
+- [Microsoft.AspNet.Mvc](https://nuget.org/packages/Microsoft.AspNet.Mvc) (英語のプライマリ)
+- [Microsoft.AspNet.Mvc.de](https://nuget.org/packages/Microsoft.AspNet.Mvc.de) (ドイツ語)
+- [Microsoft.AspNet.Mvc.ja](https://nuget.org/packages/Microsoft.AspNet.Mvc.ja) (日本語)
+- [Microsoft.AspNet.Mvc.zh Hans](https://nuget.org/packages/Microsoft.AspNet.Mvc.zh-Hans) (簡体中国語)
+- [Microsoft.AspNet.Mvc.zh-Hant](https://nuget.org/packages/Microsoft.AspNet.Mvc.zh-Hant) (繁体中国語)
 
 ### <a name="summary-of-required-conventions"></a>必要な規則の概要
 

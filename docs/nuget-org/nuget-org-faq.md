@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 24e35f4b2c047d5f337a1779e63846b11b0c1011
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.openlocfilehash: e2b6a64b8010f16d0fc33cca437b348d8f784fd7
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380575"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610490"
 ---
 # <a name="nugetorg-frequently-asked-questions"></a>NuGet.org に関してよく寄せられる質問
 
@@ -90,7 +90,7 @@ NuGet では HTTP を使用してパッケージをダウンロードするた�
 
 *Fiddler をキャプチャするには:*
 
-- 最新バージョンの [Fiddler](http://www.telerik.com/download/fiddler) をインストールします。
+- 最新バージョンの [Fiddler](https://www.telerik.com/download/fiddler) をインストールします。
 - Fiddler を起動し、 **[ファイル]、[Capture Traffic]\(トラフィックのキャプチャ\)** メニューを使用してトラフィックのキャプチャを無効にします。
 - すべてのセッションを削除します (リストのすべての項目を選択して、**Delete** キーを押します)。
 - **[ツール]、[Fiddler Options...]\(Fiddler オプション...\)** メニューの **[HTTPS]** タブにある **[Decrypt HTTPS traffic]\(HTTPS トラフィックの暗号化解除\)** をオフにして、HTTPS トラフィックをキャプチャするように Fiddler を構成します。
@@ -101,7 +101,7 @@ NuGet では HTTP を使用してパッケージをダウンロードするた�
 
 注: Fiddler を介して NuGet トラフィックをルーティングするために、`HTTP_PROXY` 環境変数を `http://127.0.0.1:8888` に設定する必要がある場合があります。
 
-これが失敗した場合は、[この StackOverflow の投稿に記載されているヒント](http://stackoverflow.com/questions/21049908/using-fiddler-to-sniff-visual-studio-2013-requests-proxy-firewall)を試してください。
+これが失敗した場合は、[この StackOverflow の投稿に記載されているヒント](https://stackoverflow.com/questions/21049908/using-fiddler-to-sniff-visual-studio-2013-requests-proxy-firewall)を試してください。
 
 ## <a name="nugetorg-account-management"></a>NuGet.org のアカウント管理
 
@@ -228,17 +228,17 @@ NuGet.org でアカウントが作成されると、そのアカウントに関�
 
 ご使用のアカウントは、以前に個人の Microsoft アカウントとして登録され、正常に機能していたようですが、現在、このアカウントは Azure Active Directory (Microsoft アカウントを認証するために使用する ID サービス) で "管理対象外" テナントとして登録されているようです。 
 
-これは、自分または組織内の (@yourdomain.com メール アドレスを持つ) ユーザーが AAD 統合サービスのいずれかに登録するか、[Azure Active Directory のセルフサービス サインアップ](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-self-service-signup)を行った場合に発生する可能性があります。これらの操作により、使用した Microsoft アカウント ドメイン (ご自身の @yourdomain.com) に対してこのような "管理対象外" テナントが作成されるからです。 
+これは、自分または組織内の (@yourdomain.com メール アドレスを持つ) ユーザーが AAD 統合サービスのいずれかに登録するか、[Azure Active Directory のセルフサービス サインアップ](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-self-service-signup)を行った場合に発生する可能性があります。これらの操作により、使用した Microsoft アカウント ドメイン (ご自身の @yourdomain.com) に対してこのような "管理対象外" テナントが作成されるからです。 
 
 **自分のアカウントを復旧するにはどうすればよいですか?**
 
 現時点では、NuGet.org では、Azure Active Directory でこのような "アンマネージド" テナント アカウントを持つアカウントを認証する方法はありません。 このようなアカウントを認証するためのよりよい方法を模索しています。
 
-ご自分の Microsoft アカウント (@yourdomain.com) を使用して NuGet.org にログインする場合は、ご自分で (または会社の管理者が) メール アドレス "@yourdomain.com" を持つユーザーを認証するための DNS 検証を行うことで、AAD の所有権を要求する必要があります。 Azure Active Directory で文書化されている[ドメイン管理者の引き継ぎ](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/domains-admin-takeover)手順に従ってください。 これが完了すると、通常のログインが機能し始めるはずです。
+ご自分の Microsoft アカウント (@yourdomain.com) を使用して NuGet.org にログインする場合は、ご自分で (または会社の管理者が) メール アドレス "@yourdomain.com" を持つユーザーを認証するための DNS 検証を行うことで、AAD の所有権を要求する必要があります。 Azure Active Directory で文書化されている[ドメイン管理者の引き継ぎ](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover)手順に従ってください。 これが完了すると、通常のログインが機能し始めるはずです。
 
 **すべては実行したくありません。アカウントを復旧する他の方法はありますか?**
 
-(@yourdomain.com に関連付けられて**いない**メール アドレスを使用して) 新しい Microsoft アカウントを[作成](https://www.microsoft.com/en-us/account)できます。 [NuGet.org アカウントの復旧](#unable-to-use-microsoft-login-how-do-i-recover-my-nugetorg-account)に関するセクションの手順に従います。
+(@yourdomain.com に関連付けられて**いない**メール アドレスを使用して) 新しい Microsoft アカウントを[作成](https://www.microsoft.com/account)できます。 [NuGet.org アカウントの復旧](#unable-to-use-microsoft-login-how-do-i-recover-my-nugetorg-account)に関するセクションの手順に従います。
 
 ### <a name="how-do-i-change-my-nugetorg-account-username"></a>NuGet.org アカウントのユーザー名を変更するにはどうすればよいですか?
 
@@ -250,7 +250,7 @@ NuGet.org でアカウントが作成されると、そのアカウントに関�
 
 ### <a name="how-to-delete-my-nugetorg-account"></a>NuGet.org アカウントを削除するにはどうすればよいですか?
 
-アカウントを削除するには、ご自分が唯一の所有者である任意のパッケージの所有権を委譲することをお勧めします。 この方法の詳細については、[パッケージ所有者を管理する](https://docs.microsoft.com/en-us/nuget/create-packages/publish-a-package#managing-package-owners-on-nugetorg)をご覧ください。 これは Microsoft がお客様からの要求に迅速に対応するのにも役立ちます。
+アカウントを削除するには、ご自分が唯一の所有者である任意のパッケージの所有権を委譲することをお勧めします。 この方法の詳細については、[パッケージ所有者を管理する](https://docs.microsoft.com/nuget/create-packages/publish-a-package#managing-package-owners-on-nugetorg)をご覧ください。 これは Microsoft がお客様からの要求に迅速に対応するのにも役立ちます。
 
 ご利用のアカウントを組織に変換する場合は、[自分の NuGet.org アカウントを組織に変換](#how-to-transform-my-nugetorg-account-to-an-organization)に関するセクションに記載されている手順に従ってください。
 

@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 7c6992d6bf3142eb6aca70f1fa3c46f72efd25a0
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: e0014a812ea591ef40c961e13864652d75ebdf6c
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69520352"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610986"
 ---
 # <a name="package-versioning"></a>パッケージのバージョン管理
 
@@ -32,7 +32,7 @@ ms.locfileid: "69520352"
 - *Major*:互換性に影響する変更
 - *Minor*: 新機能、ただし下位互換性あり
 - *Patch*: 下位互換性のバグ修正のみ
-- *-Suffix* (省略可能): ハイフンに続けて、プレリリース バージョンを示す文字列 ([セマンティック バージョニングまたは SemVer 1.0 規約](http://semver.org/spec/v1.0.0.html)に従う)。
+- *-Suffix* (省略可能): ハイフンに続けて、プレリリース バージョンを示す文字列 ([セマンティック バージョニングまたは SemVer 1.0 規約](https://semver.org/spec/v1.0.0.html)に従う)。
 
 **例:**
 
@@ -55,7 +55,7 @@ ms.locfileid: "69520352"
 - `-rc`: リリース候補。一般的に、重大なバグが現れない限り、最終版 (安定版) となる可能性があるリリース。
 
 > [!Note]
-> NuGet 4.3.0 以降では、*1.0.1-build.23* のように、ドット表記のプレリリース番号をサポートする [SemVer 2.0.0](http://semver.org/spec/v2.0.0.html) がサポートされます。 ドット表記は、バージョン 4.3.0 より前の NuGet ではサポートされていません。 *1.0.1-build23* のような形式を使用できます。
+> NuGet 4.3.0 以降では、*1.0.1-build.23* のように、ドット表記のプレリリース番号をサポートする [SemVer 2.0.0](https://semver.org/spec/v2.0.0.html) がサポートされます。 ドット表記は、バージョン 4.3.0 より前の NuGet ではサポートされていません。 *1.0.1-build23* のような形式を使用できます。
 
 パッケージ参照を解決するときに、複数のパッケージ バージョンのサフィックスだけが異なる場合、NuGet ではサフィックスのないバージョンが最初に選択され、プレリリース バージョンにアルファベットの逆順の優先順位が適用されます。 たとえば、以下のバージョンは、示されているとおりの順序で選択されます。
 
@@ -70,7 +70,7 @@ ms.locfileid: "69520352"
 
 ## <a name="semantic-versioning-200"></a>セマンティック バージョニング 2.0.0
 
-NuGet 4.3.0 以降と Visual Studio 2017 バージョン 15.3 以降では、NuGet によって[セマンティック バージョニング 2.0.0](http://semver.org/spec/v2.0.0.html) がサポートされます。
+NuGet 4.3.0 以降と Visual Studio 2017 バージョン 15.3 以降では、NuGet によって[セマンティック バージョニング 2.0.0](https://semver.org/spec/v2.0.0.html) がサポートされます。
 
 SemVer v2.0.0 の特定のセマンティクスは、以前のクライアントではサポートされません。 NuGet では、次のいずれかの文が真の場合に、パッケージ バージョンが SemVer v2.0.0 に固有であると見なされます。
 
@@ -80,7 +80,7 @@ SemVer v2.0.0 の特定のセマンティクスは、以前のクライアント
 nuget.org では、次のいずれかの文が真の場合に、パッケージが SemVer v2.0.0 パッケージとして定義されます。
 
 - パッケージの独自のバージョンが上で定義されている SemVer v2.0.0 に準拠しているが、SemVer v1.0.0 には準拠していない。
-- パッケージの依存関係のバージョン範囲のいずれかの最小または最大バージョンが上で定義されている SemVer v2.0.0 に準拠しているが、SemVer v1.0.0 には準拠していない (例: *[1.0.0-alpha.1, )*)。
+- パッケージの依存関係のバージョン範囲のいずれかの最小または最大バージョンが上で定義されている SemVer v2.0.0 に準拠しているが、SemVer v1.0.0 には準拠していない (例: *[1.0.0-alpha.1, )* )。
 
 SemVer v2.0.0 固有のパッケージを nuget.org にアップロードした場合、パッケージは以前のクライアントでは非表示になり、以下の NuGet クライアントでのみ使用できます。
 

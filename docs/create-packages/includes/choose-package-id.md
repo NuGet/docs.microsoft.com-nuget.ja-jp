@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 7ebe3c0f75b8de158879119bce4df26217849251
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: c92f6e0c34347ee8555d416140d95ea2df5a3fbb
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488967"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610542"
 ---
 パッケージ識別子とバージョン番号は、パッケージに含まれる正確なコードを一意に識別するため、プロジェクトの中で最も重要な 2 つの値です。
 
@@ -21,6 +21,6 @@ ms.locfileid: "69488967"
 
 > 依存関係の解決については、「[PackageReference による依存関係の解決](../../concepts/dependency-resolution.md#dependency-resolution-with-packagereference)」をご覧ください。 バージョン管理の理解を深めるためにも役立つ可能性がある旧情報については、こちらの一連のブログ投稿を確認してください。
 >
-> - [第 1 部: DLL 地獄](http://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html)
-> - [第 2 部: コア アルゴリズム](http://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html)
-> - [第 3 部:バインド リダイレクトによる統合](http://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)
+> - [第 1 部: DLL 地獄](https://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html)
+> - [第 2 部: コア アルゴリズム](https://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html)
+> - [第 3 部:バインド リダイレクトによる統合](https://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)
