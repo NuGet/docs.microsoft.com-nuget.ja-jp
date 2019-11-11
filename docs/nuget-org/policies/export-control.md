@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/27/2019
 ms.topic: conceptual
-ms.openlocfilehash: 97e7b253bed84fc6e9a97922c19756d138dd0381
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 4ea2d2f23a02088b54982b825a5be3c872e27c37
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426927"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73611308"
 ---
 # <a name="export-control-policy"></a>輸出管理ポリシー
 
@@ -28,4 +28,4 @@ EAR (Part 742.15(b) および 734.3(b)(3)) で指定されているように、�
 
 輸出管理管轄からの上記の通知プロセスを介した一般公開ソース コードのリリースは、かかる品目を組み込んだ、またはかかる品目から派生した市販ソフトウェアには*適用されません*。  お客様は、NuGet.org を介してホストされているソース コードまたはオブジェクト コードを組み込んだ、またはそれらから派生した任意の市販のソフトウェアに適用されるような輸出法の遵守に全責任を負います。
 
-輸出規制および地理的輸出規制の詳細については、 https://www.microsoft.com/en-us/exporting をご覧ください。
+輸出規制および地理的輸出規制の詳細については、[Microsoft の輸出管理](https://www.microsoft.com/exporting)に関するページをご覧ください。

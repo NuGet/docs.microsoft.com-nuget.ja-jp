@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7b92d07d19a2e9073ecc38ed37b4ee2491080443
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 89b5fcbd76b85b77489ab36caa215c3a2fedf032
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317766"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610974"
 ---
 # <a name="manage-package-trust-boundaries"></a>パッケージ信頼境界を管理する
 
@@ -95,7 +95,7 @@ nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE408
 
 ### <a name="sync-repository-certificates"></a>リポジトリの証明書を同期する
 
-パッケージ リポジトリでは、使用する証明書をその[サービス インデックス](../api/service-index.md)で宣言する必要があります。 証明書の有効期限が切れるときなどに、実質的にこれらの証明書はリポジトリで更新されます。 これが発生した場合、特定のポリシーを使用するクライアントは、新しく追加された証明書を含めるために構成を更新する必要があります。 リポジトリに関連付けられている信頼されている署名者は、`nuget.exe` [trusted-signers sync コマンド](../reference/cli-reference/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-)を使用して簡単にアップグレードできます。
+パッケージ リポジトリでは、使用する証明書をその[サービス インデックス](../api/service-index.md)で宣言する必要があります。 証明書の有効期限が切れるときなどに、実質的にこれらの証明書はリポジトリで更新されます。 これが発生した場合、特定のポリシーを使用するクライアントは、新しく追加された証明書を含めるために構成を更新する必要があります。 `nuget.exe` [trusted-signers sync command](../reference/cli-reference/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-name を使用することで、リポジトリに関連付けられている信頼された署名者を容易にアップグレードできます。
 
 ### <a name="schema-reference"></a>スキーマ リファレンス
 

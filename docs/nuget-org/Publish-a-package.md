@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 6d183100a8319b517347567f34d276e94eb4e15d
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 937d051ff6dc49e3204f7d0cb22c4f29b99a2a7d
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427187"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610613"
 ---
 # <a name="publishing-packages"></a>パッケージを公開する
 
@@ -64,7 +64,7 @@ nuget.org にパッケージをプッシュするには、[nuget.exe v4.1.0 以�
     nuget setApiKey <your_API_key>
     ```
 
-    このコマンドはお使いの NuGet 構成に API キーを格納します。そのため、同じコンピューター上でこの手順をもう一度繰り返す必要があります。
+    このコマンドでは、ご利用の API キーがご利用の NuGet 構成に格納されます。そのため、同じコンピューター上でこの手順をもう一度繰り返す必要はありません。
 
 1. 以下のコマンドを使用して、NuGet ギャラリーにパッケージをプッシュします。
 
@@ -115,7 +115,7 @@ Azure DevOps Services を使用して、継続的インテグレーション/配
 1. ユーザー名、メッセージを入力して **[追加]** を選択し、 **[所有者の追加]** に所有者を追加します。 この動作でその新しい共同所有者に確認リンクを含む電子メールが送信されます。 確認後、その人に所有者を追加したり、削除したりできる完全アクセス許可が与えられます。 (確認されるまで、 **[Current Owners]\(現在の所有者\)** セクションにはその人が承認待ちとして表示されます。)
 1. 所有権を譲渡するには (所有権が変更された場合や間違ったアカウントでパッケージが公開された場合)、新しい所有者を追加します。新しい所有者は所有権を確認したら、一覧から他の所有者を削除できます。
 
-会社またはグループに所有権を割り当てるには、適切なチーム メンバーに転送される電子メール エイリアスを利用して nuget.org アカウントを作成します。 たとえば、そのようなエイリアスである [microsoft](http://nuget.org/profiles/microsoft) アカウントや [aspnet](http://nuget.org/profiles/aspnet) アカウントでさまざまな Microsoft ASP.NET パッケージが共同所有されています。
+会社またはグループに所有権を割り当てるには、適切なチーム メンバーに転送される電子メール エイリアスを利用して nuget.org アカウントを作成します。 たとえば、そのようなエイリアスである [microsoft](https://nuget.org/profiles/microsoft) アカウントや [aspnet](https://nuget.org/profiles/aspnet) アカウントでさまざまな Microsoft ASP.NET パッケージが共同所有されています。
 
 ### <a name="recovering-package-ownership"></a>パッケージ所有権を回復する
 

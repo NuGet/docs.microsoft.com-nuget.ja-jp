@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 09/07/2019
 ms.topic: reference
 ms.reviewer: karann
-ms.openlocfilehash: f6c4a18366b4df20fb210f718d3779e85c08d550
-ms.sourcegitcommit: 188ade66b7ac807ba1667c77cfb9325bf89a8a4a
+ms.openlocfilehash: da464cc44d8c874e13c0cdfab871f31e643b577f
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71248130"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610491"
 ---
 # <a name="package-id-prefix-reservation"></a>パッケージ ID プレフィックスの予約
 
@@ -93,7 +93,7 @@ ID プレフィックス予約の申請をレビューするとき、[nuget.org]
 
 ## <a name="third-party-feed-provider-scenarios"></a>サード パーティのフィード プロバイダーのシナリオ
 
-サード パーティのフィード プロバイダーが、独自のサービスを実装してプレフィックスの予約を提供することに興味を持っている場合、NuGet V3 フィード プロバイダーで検索サービスを変更することにより、行うことができます。 フィード検索サービスでの追加は、下の V3 フィードの例での、*verified* プロパティの追加です。 NuGet クライアントでは、V2 フィードで追加されたプロパティはサポートされていません。
+サード パーティのフィード プロバイダーが、独自のサービスを実装してプレフィックスの予約を提供することに関心がある場合、NuGet V3 フィード プロバイダーで検索サービスを変更することにより、それを行うことができます。 フィード検索サービスの変更とは、`verified` プロパティを追加することです。 NuGet クライアントでは、V2 フィードで追加されたプロパティはサポートされていません。
 
 詳しくは、[API の検索サービスに関するドキュメント](../api/search-query-service-resource.md)をご覧ください。
 
