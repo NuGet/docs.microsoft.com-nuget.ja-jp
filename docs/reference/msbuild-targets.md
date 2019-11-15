@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6a49e410617c14e22f0d4a67d8bfe280f64f5505
-ms.sourcegitcommit: 8a424829b1f70cf7590e95db61997af6ae2d7a41
+ms.openlocfilehash: 1c2af0b42e88623fa7a1216c17aa269e9b0a58cf
+ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72510795"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74096910"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>MSBuild ターゲットとしての NuGet の pack と restore
 
@@ -58,18 +58,18 @@ PackageReference 形式を使用する .NET Standard プロジェクトの場合
 | 説明 | 説明 | "パッケージの説明" | |
 | Copyright | Copyright | (なし) | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | False | |
-| 使用 | PackageLicenseExpression | (なし) | @No__t-0 に対応します。 |
-| 使用 | PackageLicenseFile | (なし) | `<license type="file">` に相当します。 参照されているライセンスファイルを明示的にパックする必要がある場合があります。 |
+| 使用 | PackageLicenseExpression | (なし) | `<license type="expression">` に対応します。 |
+| 使用 | PackageLicenseFile | (なし) | `<license type="file">` に相当します。 参照されているライセンスファイルを明示的にパックする必要があります。 |
 | LicenseUrl | PackageLicenseUrl | (なし) | `PackageLicenseUrl` は推奨されていません。パッケージのパッケージを使用してください。 |
 | ProjectUrl | PackageProjectUrl | (なし) | |
-| アイコン | PackageIcon | (なし) | 参照されているアイコンイメージファイルを明示的にパックする必要がある場合があります。|
-| IconUrl | PackageIconUrl | (なし) | `PackageIconUrl` は推奨されていません。 PackageIcon プロパティを使用してください。 |
+| アイコン | PackageIcon | (なし) | 参照されているアイコンイメージファイルを明示的にパックする必要があります。|
+| IconUrl | PackageIconUrl | (なし) | ベストダウンレベルのエクスペリエンスを実現するには、`PackageIcon`に加えて `PackageIconUrl` を指定する必要があります。 長期的には、`PackageIconUrl` は非推奨とされます。 |
 | Tags | PackageTags | (なし) | 複数のタグはセミコロン (;) で区切られます。 |
 | ReleaseNotes | PackageReleaseNotes | (なし) | |
 | リポジトリ/Url | RepositoryUrl | (なし) | ソースコードの複製または取得に使用されるリポジトリの URL。 例: *https://github.com/NuGet/NuGet.Client.git* |
 | リポジトリ/種類 | RepositoryType | (なし) | リポジトリの種類。 例: *git*、 *tfs*。 |
 | リポジトリ/ブランチ | RepositoryBranch | (なし) | リポジトリのブランチ情報 (オプション)。 このプロパティを含めるには、 *RepositoryUrl*も指定する必要があります。 例: *master* (NuGet 4.7.0 +) |
-| リポジトリ/コミット | RepositoryCommit | (なし) | 任意のリポジトリのコミットまたは変更セット。パッケージがどのソースに対してビルドされたかを示します。 このプロパティを含めるには、 *RepositoryUrl*も指定する必要があります。 例: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +) |
+| リポジトリ/コミット | RepositoryCommit | (なし) | 任意のリポジトリ コミットまたは変更セット。パッケージがどのソースに対してビルドされたかを示します。 このプロパティを含めるには、 *RepositoryUrl*も指定する必要があります。 例: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +) |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
 | まとめ | サポートなし | | |
 
@@ -118,12 +118,18 @@ PackageReference 形式を使用する .NET Standard プロジェクトの場合
 
 ### <a name="packageiconurl"></a>PackageIconUrl
 
-> [!Important]
-> PackageIconUrl は、NuGet 5.3 + & Visual Studio 2019 version 16.3 + では非推奨とされます。 代わりに[Packageicon](#packing-an-icon-image-file)を使用してください。
+新しい[`PackageIcon`](#packageicon)プロパティを優先するため、`PackageIconUrl` は非推奨とされます。
 
-### <a name="packing-an-icon-image-file"></a>アイコンイメージファイルのパッキング
+NuGet 5.3 & Visual Studio 2019 バージョン16.3 以降では、パッケージメタデータが `PackageIconUrl`を指定するだけの場合、`pack` は[NU5048](errors-and-warnings/nu5048) warning を発生させます。
 
-アイコンイメージファイルをパッキングする場合は、パッケージのルートに対して相対的なパッケージパスを指定するために PackageIcon プロパティを使用する必要があります。 また、ファイルがパッケージに含まれていることを確認する必要があります。 イメージファイルのサイズは 1 MB に制限されています。 サポートされているファイル形式は、JPEG および PNG です。 64x64 のイメージ解像度をお勧めします。
+### <a name="packageicon"></a>PackageIcon
+
+> [!Tip]
+> `PackageIcon`をまだサポートしていないクライアントとソースとの下位互換性を維持するには、`PackageIcon` と `PackageIconUrl` の両方を指定する必要があります。 Visual Studio は、今後のリリースでフォルダーベースのソースからのパッケージの `PackageIcon` をサポートします。
+
+#### <a name="packing-an-icon-image-file"></a>アイコンイメージファイルのパッキング
+
+アイコンイメージファイルをパッキングする場合は、パッケージのルートに対して相対的なパッケージパスを指定するために `PackageIcon` プロパティを使用する必要があります。 また、ファイルがパッケージに含まれていることを確認する必要があります。 イメージファイルのサイズは 1 MB に制限されています。 サポートされているファイル形式は、JPEG および PNG です。 64x64 のイメージ解像度をお勧めします。
 
 (例:
 
@@ -256,7 +262,7 @@ Nuspec に相当するものについては、「 [nuspec reference for icon」�
 
 ### <a name="packing-using-a-nuspec"></a>.nuspec を使用したパック
 
-通常はプロジェクトファイルの `.nuspec` ファイルにある[すべてのプロパティを含める](../reference/msbuild-targets.md#pack-target)ことをお勧めしますが、@no__t 2 ファイルを使用してプロジェクトをパックすることもできます。 @No__t-0 を使用する SDK 形式以外のプロジェクトの場合は、パックタスクを実行できるように `NuGet.Build.Tasks.Pack.targets` をインポートする必要があります。 Nuspec ファイルをパックする前に、プロジェクトを復元する必要があります。 (SDK スタイルのプロジェクトには、既定でパックターゲットが含まれています)。
+通常は `.nuspec` ファイルに含まれる[すべてのプロパティ](../reference/msbuild-targets.md#pack-target)をプロジェクトファイルに含めることをお勧めしますが、`.nuspec` ファイルを使用してプロジェクトをパックすることもできます。 `PackageReference`を使用する SDK 形式以外のプロジェクトの場合は、`NuGet.Build.Tasks.Pack.targets` をインポートして、パックタスクを実行できるようにする必要があります。 Nuspec ファイルをパックする前に、プロジェクトを復元する必要があります。 (SDK スタイルのプロジェクトには、既定でパックターゲットが含まれています)。
 
 Nuspec をパッキングする場合、プロジェクトファイルのターゲットフレームワークは無関係であり、使用されません。 次の 3 つの MSBuild プロパティが `.nuspec` を使用したパックと関係があります。
 
@@ -295,14 +301,14 @@ Nuspec ファイルをパックする .csproj ファイルの例を次に示し*
 
 ### <a name="advanced-extension-points-to-create-customized-package"></a>カスタマイズしたパッケージを作成するための高度な拡張機能ポイント
 
-@No__t-0 ターゲットには、ターゲットフレームワーク固有の内部ビルドで実行される2つの拡張ポイントが用意されています。 拡張ポイントは、ターゲットフレームワーク固有のコンテンツとアセンブリをパッケージに含めることをサポートしています。
+`pack` ターゲットには、ターゲットフレームワーク固有の内部ビルドで実行される2つの拡張ポイントが用意されています。 拡張ポイントは、ターゲットフレームワーク固有のコンテンツとアセンブリをパッケージに含めることをサポートしています。
 
 - `TargetsForTfmSpecificBuildOutput` target: `lib` フォルダー内のファイル、または `BuildOutputTargetFolder` を使用して指定されたフォルダー内のファイルに使用します。
 - `TargetsForTfmSpecificContentInPackage` ターゲット: `BuildOutputTargetFolder` 以外のファイルに使用します。
 
 #### <a name="targetsfortfmspecificbuildoutput"></a>TargetsForTfmSpecificBuildOutput
 
-カスタムターゲットを作成し、`$(TargetsForTfmSpecificBuildOutput)` プロパティの値として指定します。 @No__t-0 (既定では lib) に入る必要があるファイルの場合、ターゲットはこれらのファイルを ItemGroup `BuildOutputInPackage` に書き込み、次の2つのメタデータ値を設定する必要があります。
+カスタムターゲットを作成し、`$(TargetsForTfmSpecificBuildOutput)` プロパティの値として指定します。 `BuildOutputTargetFolder` に入る必要があるファイル (既定では lib) では、ItemGroup `BuildOutputInPackage` にこれらのファイルを書き込み、次の2つのメタデータ値を設定する必要があります。
 
 - `FinalOutputPath`: ファイルの絶対パス。指定されていない場合は、ソースパスの評価に Id が使用されます。
 - `TargetPath`: (省略可能) ファイルが `lib\<TargetFramework>` 内のサブフォルダーに入る必要がある場合に設定されます。これは、それぞれのカルチャフォルダーの下にあるサテライトアセンブリのようになります。 既定値は、ファイルの名前です。
@@ -359,7 +365,7 @@ Nuspec ファイルをパックする .csproj ファイルの例を次に示し*
 1. パッケージをダウンロードします
 1. アセット ファイル、ターゲット、およびプロパティを出力します
 
-@No__t-0 ターゲットは、PackageReference 形式を使用するプロジェクトに対して**のみ**機能します。 @No__t-1 形式を使用するプロジェクトでは機能し**ません**。代わりに[nuget restore](../reference/cli-reference/cli-ref-restore.md)を使用してください。
+`restore` ターゲットは、PackageReference 形式を使用するプロジェクトに対して**のみ**機能します。 `packages.config` 形式を使用するプロジェクトでは機能し**ません**。代わりに[nuget restore](../reference/cli-reference/cli-ref-restore.md)を使用してください。
 
 ### <a name="restore-properties"></a>restore のプロパティ
 
@@ -376,13 +382,13 @@ Nuspec ファイルをパックする .csproj ファイルの例を次に示し*
 | RestoreFallbackFolders | フォールバックフォルダー。ユーザーパッケージフォルダーを使用する場合と同じ方法で使用されます。 |
 | RestoreAdditionalProjectSources | 復元中に使用する追加のソース。 |
 | RestoreAdditionalProjectFallbackFolders | 復元中に使用する追加のフォールバックフォルダー。 |
-| RestoreAdditionalProjectFallbackFoldersExcludes | @No__t-0 で指定されたフォールバックフォルダーを除外します。 |
+| RestoreAdditionalProjectFallbackFoldersExcludes | `RestoreAdditionalProjectFallbackFolders` で指定されたフォールバックフォルダーを除外します |
 | RestoreTaskAssemblyFile | `NuGet.Build.Tasks.dll` のパス。 |
 | RestoreGraphProjectInput | 復元するプロジェクトのセミコロン区切りの一覧。絶対パスを指定する必要があります。 |
 | Restoreentkipnon存在 Enttargets  | MSBuild を使用してプロジェクトが収集されると、`SkipNonexistentTargets` の最適化を使用してプロジェクトを収集するかどうかが決定されます。 設定しない場合、既定値は `true` になります。 その結果、プロジェクトのターゲットをインポートできない場合のフェールファースト動作になります。 |
 | MSBuildProjectExtensionsPath | 出力フォルダー。 `BaseIntermediateOutputPath` および `obj` フォルダーを既定とします。 |
 | RestoreForce | PackageReference ベースのプロジェクトでは、最後の復元が成功した場合でも、すべての依存関係が強制的に解決されます。 このフラグを指定することは、`project.assets.json` ファイルの削除に似ています。 これは、http キャッシュをバイパスしません。 |
-| RestorePackagesWithLockFile | ロックファイルの使用を解除します。 |
+| RestorePackagesWithLockFile | ロック ファイルの使用をオプトインします。 |
 | RestoreLockedMode | ロックモードで復元を実行します。 これは、restore が依存関係を再評価しないことを意味します。 |
 | NuGetLockFilePath | ロックファイルのカスタムの場所。 既定の場所はプロジェクトの横にあり、には `packages.lock.json` という名前が付けられます。 |
 | RestoreForceEvaluate | 復元によって依存関係が再計算され、警告なしでロックファイルが更新されます。 | 
@@ -428,7 +434,7 @@ msbuild -t:restore,build
 msbuild -t:build -restore
 ```
 
-@No__t-0 に似た他のターゲットにも同じロジックが適用されます。
+`build`に似た他のターゲットにも、同じロジックが適用されます。
 
 ### <a name="packagetargetfallback"></a>PackageTargetFallback
 

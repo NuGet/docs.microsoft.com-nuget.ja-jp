@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 6bd730db16d8e8783f0d949bb04cf3b52c642cd0
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.openlocfilehash: ff8f988a4d47e18d74945d274be5cca78d3ff8e5
+ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380552"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74096916"
 ---
 # <a name="nuspec-reference"></a>.nuspec リファレンス
 
@@ -30,13 +30,13 @@ ms.locfileid: "72380552"
 
 ## <a name="project-type-compatibility"></a>プロジェクトの種類の互換性
 
-- @No__t-2 を使用する SDK 以外のプロジェクトの場合は、`.nuspec` と `nuget.exe pack` を使用します。
+- `packages.config`を使用する非 SDK 形式のプロジェクトには、`nuget.exe pack` と共に `.nuspec` を使用します。
 
-- [Sdk スタイルのプロジェクト](../resources/check-project-format.md)(通常は、 [sdk 属性](/dotnet/core/tools/csproj#additions)を使用する .net Core および .NET Standard プロジェクト) のパッケージを作成するために @no__t 0 ファイルは必要ありません。 (パッケージの作成時に @no__t 0 が生成されることに注意してください)。
+- [Sdk スタイルのプロジェクト](../resources/check-project-format.md)(通常、 [sdk 属性](/dotnet/core/tools/csproj#additions)を使用する .net Core および .NET Standard プロジェクト) のパッケージを作成するために `.nuspec` ファイルは必要ありません。 (パッケージの作成時に `.nuspec` が生成されることに注意してください)。
 
-   @No__t-0 または `msbuild pack target` を使用してパッケージを作成する場合は、通常は @no__t 3 ファイルに含まれる[すべてのプロパティ](../reference/msbuild-targets.md#pack-target)をプロジェクトファイルに含めることをお勧めします。 ただし、代わりに、 [`dotnet.exe` または `msbuild pack target` を使用して `.nuspec` ファイルをパックする](../reference/msbuild-targets.md#packing-using-a-nuspec)ように選択することもできます。
+   `dotnet.exe pack` または `msbuild pack target`を使用してパッケージを作成する場合は、通常は `.nuspec` ファイルに含まれる[すべてのプロパティ](../reference/msbuild-targets.md#pack-target)をプロジェクトファイルに含めることをお勧めします。 ただし、代わりに、 [`dotnet.exe` または `msbuild pack target` を使用して `.nuspec` ファイルをパックする](../reference/msbuild-targets.md#packing-using-a-nuspec)ように選択することもできます。
 
-- @No__t-0 から[PackageReference](../consume-packages/package-references-in-project-files.md)に移行されたプロジェクトの場合、パッケージを作成するために @no__t 2 ファイルは必要ありません。 代わりに、 [msbuild-{0}](../consume-packages/migrate-packages-config-to-package-reference.md#create-a-package-after-migration)を使用します。
+- `packages.config` から[PackageReference](../consume-packages/package-references-in-project-files.md)に移行されたプロジェクトの場合、パッケージの作成に `.nuspec` ファイルは必要ありません。 代わりに、 [msbuild-{0}](../consume-packages/migrate-packages-config-to-package-reference.md#create-a-package-after-migration)を使用します。
 
 ## <a name="general-form-and-schema"></a>一般的な形式とスキーマ
 
@@ -83,7 +83,7 @@ Nuget.org のプロファイル名と一致するパッケージ作成者のコ�
 ### <a name="optional-metadata-elements"></a>メタデータの省略可能な要素
 
 #### <a name="owners"></a>owners
-Nuget.org のプロファイル名を使用して、パッケージ作成者のコンマ区切りのリスト。これは @no__t 0 と同じリストであることが多く、パッケージを nuget.org にアップロードするときには無視されます。「 [Nuget.org でのパッケージ所有者の管理」を](../nuget-org/publish-a-package.md#managing-package-owners-on-nugetorg)参照してください。 
+Nuget.org のプロファイル名を使用して、パッケージ作成者のコンマ区切りのリスト。これは、多くの場合 `authors`と同じリストであり、パッケージを nuget.org にアップロードするときには無視されます。「 [Nuget.org でのパッケージ所有者の管理」を](../nuget-org/publish-a-package.md#managing-package-owners-on-nugetorg)参照してください。 
 
 #### <a name="projecturl"></a>projectUrl
 パッケージのホーム ページの URL。多くの場合、UI 画面と nuget.org に表示されます。 
@@ -106,7 +106,7 @@ SPDX ライセンス式またはパッケージ内のライセンスファイル
 
 `<license type="expression">BSD-2-Clause OR MIT</license>`
 
-ライセンス式でサポートされていないカスタムライセンスを使用する場合は、ライセンスのテキストと共に @no__t 0 または `.md` ファイルをパッケージ化することができます。 (例:
+ライセンス式でサポートされていないカスタムライセンスを使用する場合は、`.txt` または `.md` ファイルをライセンスのテキストと共にパッケージ化することができます。 (例:
 
 ```xml
 <package>
@@ -174,6 +174,9 @@ UI 表示でパッケージのアイコンとして使われる、背景が透�
 
 同等の MSBuild については、「[アイコンイメージファイルのパッキング」](msbuild-targets.md#packing-an-icon-image-file)を参照してください。
 
+> [!Tip]
+> `icon`をサポートしていないソースとの下位互換性を維持するために、`icon` と `iconUrl` の両方を指定できます。 Visual Studio は、今後のリリースでフォルダーベースのソースからのパッケージの `icon` をサポートします。
+
 #### <a name="requirelicenseacceptance"></a>requireLicenseAcceptance
 パッケージをインストールする前にクライアントがユーザーに対してパッケージのライセンスへの同意を求めるプロンプトを表示する必要があるかどうかを示すブール値。
 
@@ -232,7 +235,7 @@ UI 表示で使用できる、パッケージのわかりやすいタイトル�
 #### <a name="contentfiles"></a>contentFiles
 *(3.3 以降)* 使用する側のプロジェクトに含めるコンテンツ ファイルを示す `<files>` 要素のコレクション。 これらのファイルは、プロジェクト システム内でのファイルの使用方法が記述されている属性のセットで指定されます。 [パッケージに含めるファイルの指定](#specifying-files-to-include-in-the-package)に関する後の説明をご覧ください。
 #### <a name="files"></a>ファイル 
-@No__t 0 ノードには、パッケージに含めるアセンブリおよびコンテンツファイルを指定するために、`<metadata>` の兄弟として @no__t 1 ノード、および `<metadata>` の @no__t 3 の子が含まれている場合があります。 詳しくは、このトピックで後述する「[アセンブリ ファイルを含める](#including-assembly-files)」と「[コンテンツ ファイルを含める](#including-content-files)」をご覧ください。
+`<package>` ノードには、`<metadata>`の兄弟として `<files>` ノードが含まれている場合があります。また、`<metadata>`に `<contentFiles>` 子として、パッケージに含めるアセンブリおよびコンテンツファイルを指定します。 詳しくは、このトピックで後述する「[アセンブリ ファイルを含める](#including-assembly-files)」と「[コンテンツ ファイルを含める](#including-content-files)」をご覧ください。
 
 ### <a name="metadata-attributes"></a>メタデータ属性
 
@@ -320,7 +323,7 @@ nuget pack MyProject.csproj
 | 包含/除外タグ | ターゲットの影響を受けるフォルダー |
 | --- | --- |
 | contentFiles | Content |
-| ランタイム | Runtime、Resources、FrameworkAssemblies |
+| runtime | Runtime、Resources、FrameworkAssemblies |
 | compile | lib |
 | ビルド | build (MSBuild のプロパティとターゲット) |
 | native | native |
@@ -346,7 +349,7 @@ nuget pack MyProject.csproj
 ```
 
 > [!Important]
-> @No__t-1 を使用してプロジェクトから @no__t 0 を作成する場合、そのプロジェクトに存在する依存関係は、結果として生成される @no__t 2 ファイルに自動的に含まれません。 代わりに、`nuget pack myproject.csproj` を使用し、生成された*nupkg*ファイル内から*nuspec*ファイルを取得します。 この*nuspec*には、依存関係が含まれています。
+> `nuget spec`を使用してプロジェクトから `.nuspec` を作成する場合、そのプロジェクトに存在する依存関係は、結果の `.nuspec` ファイルに自動的に含まれません。 代わりに、`nuget pack myproject.csproj` を使用し、生成された*nupkg*ファイル内から*nuspec*ファイルを取得します。 この*nuspec*には、依存関係が含まれています。
 
 ### <a name="dependency-groups"></a>依存関係グループ
 
@@ -383,7 +386,7 @@ nuget pack MyProject.csproj
 
 ## <a name="explicit-assembly-references"></a>明示的なアセンブリ参照
 
-@No__t-0 要素は、パッケージを使用するときにターゲットプロジェクトが参照するアセンブリを明示的に指定するために `packages.config` を使用するプロジェクトによって使用されます。 明示的な参照は、通常、設計時のみのアセンブリに使われます。 詳細については、「[プロジェクトによって参照されるアセンブリの選択](../create-packages/select-assemblies-referenced-by-projects.md)」のページを参照してください。
+`<references>` 要素は、パッケージを使用するときにターゲットプロジェクトが参照するアセンブリを明示的に指定するために `packages.config` を使用するプロジェクトによって使用されます。 明示的な参照は、通常、設計時のみのアセンブリに使われます。 詳細については、「[プロジェクトによって参照されるアセンブリの選択](../create-packages/select-assemblies-referenced-by-projects.md)」のページを参照してください。
 
 たとえば、次の `<references>` 要素は、パッケージに他のアセンブリがある場合でも、`xunit.dll` と `xunit.extensions.dll` に対する参照だけを追加するよう NuGet に指示します。
 
