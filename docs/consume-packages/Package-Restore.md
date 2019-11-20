@@ -22,7 +22,7 @@ ms.locfileid: "69999984"
 
 パッケージの復元では、最初に、必要に応じて、プロジェクトの直接的な依存関係がインストールされます。この後、依存関係グラフ全体にパッケージの依存関係がインストールされます。
 
-パッケージがまだインストールされていない場合、NuGet は最初に、パッケージを[キャッシュ](../consume-packages/managing-the-global-packages-and-cache-folders.md)からのパッケージの取得を試みます。 パッケージがキャッシュにない場合、NuGet は、Visual Studio で **[ツール]** 、 **[オプション]** 、 **[NuGet パッケージ マネージャー]** 、 **[パッケージ ソース]** の順に選択すると一覧表示される、すべての有効なソースからのパッケージのダウンロードを試みます。 復元時には、NuGet は、要求に最初に応答するソースのパッケージを使用し、パッケージ ソースの順序を無視します。 NuGet の動作については、[一般的な NuGet 構成](Configuring-NuGet-Behavior.md)に関するページを参照してください。 
+パッケージがまだインストールされていない場合、NuGet は最初に、[キャッシュ](../consume-packages/managing-the-global-packages-and-cache-folders.md)からパッケージの取得を試みます。 パッケージがキャッシュにない場合、NuGet は、Visual Studio で **[ツール]** 、 **[オプション]** 、 **[NuGet パッケージ マネージャー]** 、 **[パッケージ ソース]** の順に選択すると一覧表示される、すべての有効なソースからのパッケージのダウンロードを試みます。 復元時には、NuGet は、要求に最初に応答するソースのパッケージを使用し、パッケージ ソースの順序を無視します。 NuGet の動作については、[一般的な NuGet 構成](Configuring-NuGet-Behavior.md)に関するページを参照してください。 
 
 > [!Note]
 > NuGet では、すべてのソースがチェックされるまで、パッケージの復元の失敗が表示されません。 このとき、NuGet では一覧の最後のソースについてのみ障害が報告されます。 このエラーは、ソースごとに個別にエラーが表示されていなくても、パッケージが他のソースの*いずれ*にも存在しないことを意味します。
@@ -58,7 +58,7 @@ Windows の Visual Studio では、次のいずれかを行います。
 
 ### <a name="restore-packages-automatically-using-visual-studio"></a>Visual Studio を使用して自動的にパッケージを復元する
 
-パッケージの復元は、テンプレートからプロジェクトを作成するとき、またはプロジェクトをビルドするときに、「[パッケージ復元の有効化と無効化](#enable-and-disable-package-restore-in-visual-studio)」に記載されているオプションに基づいて自動的に行われます。 NuGet 4.0+ では、SDK スタイルのプロジェクト (通常は .NET Core または .NET Standard プロジェクト) の変更時にも復元が行われます。
+パッケージの復元は、テンプレートからプロジェクトを作成するとき、またはプロジェクトをビルドするときに、「[パッケージ復元の有効化と無効化](#enable-and-disable-package-restore-in-visual-studio)」に記載されているオプションに基づいて自動的に行われます。 NuGet 4.0+ では、SDK スタイルのプロジェクト (通常は .NET Core または .NET Standard プロジェクト) への変更時にも復元が行われます。
 
 1. パッケージの自動復元を有効にするには、 **[ツール]**  >  **[オプション]**  >  **[NuGet パッケージ マネージャー]** の順に選択してから、 **[パッケージの復元]** の下で **[Visual Studio でのビルド中に見つからないパッケージを自動的に確認]** を選択します。
 
@@ -136,7 +136,7 @@ Visual Studio では、パッケージ復元の管理は主に、 **[ツール]*
 
 ## <a name="restore-using-msbuild"></a>MSBuild を使用した復元
 
-PackageReference を使うプロジェクト ファイルに記載されているパッケージを復元するには、[msbuild -t:restore](../reference/msbuild-targets.md#restore-target) コマンドを使います。 このコマンドは、Visual Studio 2017 以降のバージョン含まれる NuGet 4.x+ と MSBuild 15.1+ でのみ利用できます。 `nuget restore` と `dotnet restore` の両方で、該当するプロジェクトにこのコマンドが使用されます。
+PackageReference を使うプロジェクト ファイルに記載されているパッケージを復元するには、[msbuild -t:restore](../reference/msbuild-targets.md#restore-target) コマンドを使います。 このコマンドは、Visual Studio 2017 以降のバージョンに含まれる NuGet 4.x+ と MSBuild 15.1+ でのみ利用できます。 `nuget restore` と `dotnet restore` の両方で、該当するプロジェクトにこのコマンドが使用されます。
 
 1. 開発者コマンド プロンプトを開きます (**検索**ボックスに「**開発者コマンド プロンプト**」と入力します)。
 
