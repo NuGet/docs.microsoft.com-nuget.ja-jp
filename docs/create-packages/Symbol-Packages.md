@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 09/12/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: f7503dd413a976997580aa03da26df0c462ff0e1
-ms.sourcegitcommit: 80cf99f40759911324468be1ec815c96aebf376d
+ms.openlocfilehash: 97a533171d698792d66a78550dacfe8eaf29a440
+ms.sourcegitcommit: fc0f8c950829ee5c96e3f3f32184bc727714cfdb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/17/2019
-ms.locfileid: "69564554"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74253906"
 ---
 # <a name="creating-symbol-packages-legacy"></a>シンボル パッケージ (レガシ) の作成
 
