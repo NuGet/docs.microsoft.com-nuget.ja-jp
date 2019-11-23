@@ -24,7 +24,7 @@ NuGet クライアントとプラグインの間のバージョン付き通信�
 すべての NuGet クライアントツールのシナリオに対応するために、.NET Framework と .NET Core プラグインの両方が必要です。
 次に、プラグインのクライアントとフレームワークの組み合わせについて説明します。
 
-| クライアント ツール  | フレームワーク |
+| クライアント ツール  | Framework |
 | ------------ | --------- |
 | Visual Studio | .NET Framework |
 | dotnet.exe | .NET Core |
@@ -70,14 +70,14 @@ NuGet クライアントツールとプラグインの間の通信は双方向�
 ## <a name="plugin-installation-and-discovery"></a>プラグインのインストールと検出
 
 プラグインは、規則ベースのディレクトリ構造を使用して検出されます。
-CI/CD のシナリオとパワーユーザーは、環境変数を使用して動作をオーバーライドできます。 環境変数を使用する場合、絶対パスのみが許可されます。 @No__t-0 と `NUGET_NETCORE_PLUGIN_PATHS` は、バージョン5.3 以降の NuGet ツールでのみ使用できます。
+CI/CD のシナリオとパワーユーザーは、環境変数を使用して動作をオーバーライドできます。 環境変数を使用する場合、絶対パスのみが許可されます。 `NUGET_NETFX_PLUGIN_PATHS` と `NUGET_NETCORE_PLUGIN_PATHS` は、5.3 以降のバージョンの NuGet ツールでのみ使用できます。
 
-- `NUGET_NETFX_PLUGIN_PATHS`-.NET Framework ベースのツール (Nuget.exe/Msbuild.exe/Visual Studio) によって使用されるプラグインを定義します。 は `NUGET_PLUGIN_PATHS` よりも優先されます。 (NuGet バージョン5.3 以降のみ)
-- `NUGET_NETCORE_PLUGIN_PATHS`-.NET Core ベースのツール (dotnet) によって使用されるプラグインを定義します。 は `NUGET_PLUGIN_PATHS` よりも優先されます。 (NuGet バージョン5.3 以降のみ)
-- `NUGET_PLUGIN_PATHS`-その NuGet プロセスに使用されるプラグインを定義し、優先度を保持します。 この環境変数が設定されている場合は、規則ベースの検出を上書きします。 フレームワーク固有の変数のいずれかが指定されている場合は無視されます。
--  @No__t-0 の NuGet ホームの場所。 この場所を上書きすることはできません。 .NET Core と .NET Framework プラグインには、別のルートディレクトリが使用されます。
+- `NUGET_NETFX_PLUGIN_PATHS`-.NET Framework ベースのツール (Nuget.exe/Msbuild.exe/Visual Studio) によって使用されるプラグインを定義します。 は `NUGET_PLUGIN_PATHS`よりも優先されます。 (NuGet バージョン5.3 以降のみ)
+- `NUGET_NETCORE_PLUGIN_PATHS`-.NET Core ベースのツール (dotnet) によって使用されるプラグインを定義します。 は `NUGET_PLUGIN_PATHS`よりも優先されます。 (NuGet バージョン5.3 以降のみ)
+- `NUGET_PLUGIN_PATHS`-その NuGet プロセスで使用されるプラグインを定義し、優先度を保持します。 この環境変数が設定されている場合は、規則ベースの検出を上書きします。 フレームワーク固有の変数のいずれかが指定されている場合は無視されます。
+-  ユーザー-場所 (`%UserProfile%/.nuget/plugins`内の NuGet ホームの場所)。 この場所を上書きすることはできません。 .NET Core と .NET Framework プラグインには、別のルートディレクトリが使用されます。
 
-| フレームワーク | ルート探索場所  |
+| Framework | ルート探索場所  |
 | ------- | ------------------------ |
 | .NET Core |  `%UserProfile%/.nuget/plugins/netcore` |
 | .NET Framework | `%UserProfile%/.nuget/plugins/netfx` |
@@ -123,8 +123,8 @@ Dotnet シナリオの NuGet の場合、プラグインは dotnet の特定の�
 プラグインのセキュリティ検証とインスタンス化はコストがかかります。 ダウンロード操作は認証操作よりも頻繁に行われますが、平均の NuGet ユーザーは認証プラグインを持つ可能性があるだけです。
 エクスペリエンスを向上させるために、NuGet は指定された要求の操作要求をキャッシュします。 このキャッシュはプラグインごとに、プラグインキーはプラグインパス、この機能キャッシュの有効期限は30日です。 
 
-キャッシュは @no__t 0 にあり、環境変数 `NUGET_PLUGINS_CACHE_PATH` でオーバーライドされます。 この[キャッシュ](../../consume-packages/managing-the-global-packages-and-cache-folders.md)をクリアするには、`plugins-cache` オプションを指定してローカルコマンドを実行します。
-@No__t-0 ローカルオプションでは、プラグインキャッシュも削除されます。 
+キャッシュは `%LocalAppData%/NuGet/plugins-cache` にあり、環境変数 `NUGET_PLUGINS_CACHE_PATH`でオーバーライドされます。 この[キャッシュ](../../consume-packages/managing-the-global-packages-and-cache-folders.md)をクリアするには、`plugins-cache` オプションを指定してローカルコマンドを実行します。
+`all` ローカルオプションでは、プラグインキャッシュも削除されます。 
 
 ## <a name="protocol-messages-index"></a>プロトコルメッセージのインデックス
 
@@ -292,11 +292,11 @@ Dotnet シナリオの NuGet の場合、プラグインは dotnet の特定の�
 * 要求には次のものが含まれます。
     * URI
     * isRetry
-    * 非対話型
+    * NonInteractive
     * CanShowDialog
 * 応答にはが含まれます。
     * ユーザー名
-    * パスワード
-    * [メッセージ]
+    * Password
+    * Message
     * 認証の種類の一覧
     * MessageResponseCode
