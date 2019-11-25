@@ -6,12 +6,12 @@ ms.author: anangaur
 ms.date: 09/23/2019
 ms.topic: conceptual
 ms.reviewer: karann-msft
-ms.openlocfilehash: 120b463fda856fe9dd407b6eba32d60e0918f763
-ms.sourcegitcommit: 188ade66b7ac807ba1667c77cfb9325bf89a8a4a
+ms.openlocfilehash: 70666ddf9cd7bdc448d29d4235e57bc91e2c003e
+ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71248883"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74096880"
 ---
 # <a name="deprecating-packages"></a>パッケージの廃止
 
@@ -45,7 +45,7 @@ ms.locfileid: "71248883"
 ### <a name="visual-studio"></a>Visual Studio 
 *Visual Studio 2019 バージョン 16.3 以降に適用*
 
-Visual Studio では `Installed` タブに非推奨のパッケージの使用に関する警告が表示されます。その後、パッケージとその廃止情報 (非推奨とされた理由、代わりに使用する代替パッケージ (存在する場合)) が表示されます。
+Visual Studio では `Installed` タブに非推奨のパッケージの使用に関する警告が表示されます。その後、パッケージとその廃止情報 (非推奨とされた理由、代わりに使用する代替パッケージ (存在する場合)) に関する警告が表示されます。
 
    ![Visual Studio のパッケージ マネージャーの [Installed] タブに表示された非推奨のパッケージ](media/deprecation-vs.png)
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9947a490e4373bb0b8b7fb0814828ff2a60615a8
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 0691660f20f9b5a1ff0dad110ee87c6e29c0a56e
+ms.sourcegitcommit: fc0f8c950829ee5c96e3f3f32184bc727714cfdb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611070"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74253935"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>プロジェクトの NuGet パッケージの検索と評価
 
@@ -82,9 +82,12 @@ NuGet では、Visual Studio の C++ プロジェクトで使用できるネイ�
 
     ![パッケージのリスト ページのダウンロード統計](media/Finding-03-Downloads.png)
 
-- "*GitHub 使用*": パッケージ ページの **[GitHub Usage]\(GitHub 使用\)** セクションには、このパッケージに依存する上位の GitHub リポジトリが一覧表示されます。 一般的に、さまざまな人気 GitHub リポジトリが依存するパッケージが最適です。
+- *GitHub Usage (GitHub 使用)* : パッケージ ページの **[GitHub Usage]\(GitHub 使用\)** セクションには、このパッケージに依存していて GitHub に多数の星のあるパブリック GitHub リポジトリが一覧表示されます。 GitHub リポジトリの星の数は、通常、そのリポジトリが GitHub ユーザーにどの程度広く普及しているかを示しています (星の数が多いほど広く普及しています)。 GitHub の星とリポジトリのランク付けシステムの詳細については、[GitHub の概要ページ](https://help.github.com/en/github/getting-started-with-github/saving-repositories-with-stars#about-stars)を参照してください。
 
     ![GitHub 使用](media/GitHub-Usage.png)
+
+    > [!Note]
+    > パッケージの [GitHub Usage]\(GitHub 使用\) セクションは、個々のリポジトリを人間が確認することなく、定期的かつ自動的に生成されます。また、パッケージに依存していて GitHub ユーザーに広く普及している GitHub リポジトリを表示するために、情報提供のみを目的としています。
 
 - *バージョン履歴*: パッケージ ページの **[情報]** で最新の更新日を見つけて、 **[バージョン履歴]** を確認します。 適切に保守されているパッケージの場合、最新の更新情報と豊かなバージョン履歴が表示されます。 放置されたパッケージの場合、更新情報は少なく、しばらくの間更新されていないことがほとんどです。
 
