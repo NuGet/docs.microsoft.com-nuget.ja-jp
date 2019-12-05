@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: a2955617b899bfadab42d1ae98dd20c8fc6ddca9
-ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
+ms.openlocfilehash: 0b052bd03625172f1b941c365cbedf7629809d6f
+ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69020048"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74825190"
 ---
 # <a name="nugetconfig-reference"></a>nuget の .config リファレンス
 
-Nuget の動作は、「 `NuGet.Config` [一般的な nuget 構成](../consume-packages/configuring-nuget-behavior.md)」で説明されているように、さまざまなファイルの設定によって制御されます。
+NuGet の動作は、[一般的な nuget 構成](../consume-packages/configuring-nuget-behavior.md)で説明されているように、さまざまな `NuGet.Config` または `nuget.config` ファイルの設定によって制御されます。
 
 `nuget.config` は、最上位の `<configuration>` ノードを含む XML ファイルであり、このトピックで説明するセクション要素が含まれます。 各セクションには、0個以上の項目が含まれています。 「[examples config file](#example-config-file)」 (構成ファイルの例) を参照してください。 名前の設定には大文字と小文字の区別があり、値には[環境変数](#using-environment-variables)を使用することができます。
 
@@ -27,16 +27,16 @@ Nuget の動作は、「 `NuGet.Config` [一般的な nuget 構成](../consume-p
 
 [`nuget config` コマンド](../reference/cli-reference/cli-ref-config.md)を使用して設定できる、さまざまな構成設定が含まれます。
 
-`dependencyVersion`および`repositoryPath`は、を使用`packages.config`するプロジェクトにのみ適用されます。 `globalPackagesFolder`PackageReference 形式を使用するプロジェクトにのみ適用されます。
+`dependencyVersion` と `repositoryPath` は `packages.config`を使用するプロジェクトにのみ適用されます。 `globalPackagesFolder` は、PackageReference 形式を使用するプロジェクトにのみ適用されます。
 
-| キー | 値 |
+| [キー] | Value |
 | --- | --- |
 | dependencyVersion (`packages.config` のみ) | `-DependencyVersion` スイッチが直接指定されない場合の、パッケージのインストール、復元、および更新における既定の `DependencyVersion` 値です。 この値は、NuGet パッケージ マネージャー UI でも使用されます。 値は `Lowest`、`HighestPatch`、`HighestMinor`、`Highest` となります。 |
-| Globalパッケージフォルダー (PackageReference のみを使用するプロジェクト) | 既定のグローバル パッケージ フォルダーの場所です。 既定値は、`%userprofile%\.nuget\packages` (Windows) または `~/.nuget/packages` (Mac/Linux) です。 相対パスは、プロジェクト固有の `nuget.config` ファイルで使用できます。 この設定は、優先される NUGET_PACKAGES 環境変数によってオーバーライドされます。 |
-| repositoryPath (`packages.config` のみ) | 既定の `$(Solutiondir)/packages` フォルダーではなく、NuGet パッケージをインストールする場所です。 相対パスは、プロジェクト固有の `nuget.config` ファイルで使用できます。 この設定は、優先される NUGET_PACKAGES 環境変数によってオーバーライドされます。 |
+| Globalパッケージフォルダー (PackageReference のみを使用するプロジェクト) | 既定のグローバル パッケージ フォルダーの場所です。 既定値は、`%userprofile%\.nuget\packages` (Windows) または `~/.nuget/packages` (Mac/Linux) です。 相対パスは、プロジェクト固有の `nuget.config` ファイルで使用できます。 この設定は、NUGET_PACKAGES 環境変数によってオーバーライドされます。これは、優先されます。 |
+| repositoryPath (`packages.config` のみ) | 既定の `$(Solutiondir)/packages` フォルダーではなく、NuGet パッケージをインストールする場所です。 相対パスは、プロジェクト固有の `nuget.config` ファイルで使用できます。 この設定は、NUGET_PACKAGES 環境変数によってオーバーライドされます。これは、優先されます。 |
 | defaultPushSource | 操作に対してパッケージ ソースが他に見つからない場合に、既定値として使用すべきパッケージ ソースの URL またはパスを識別します。 |
 | http_proxy http_proxy.user http_proxy.password no_proxy | パッケージ ソースに接続するときに使用するプロキシ設定です。`http_proxy` の形式は `http://<username>:<password>@<domain>` とする必要があります。 パスワードは暗号化され、手動で追加することはできません。 `no_proxy` の場合、値はドメイン、バイパス、プロキシ サーバーのコンマ区切りのリストとなります。 これらの値に対して http_proxy および no_proxy の環境変数を使用することもできます。 詳細については、「[NuGet proxy settings](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html)」 (NuGet プロキシ設定) (skolima.blogspot.com) を参照してください。 |
-| signatureValidationMode | パッケージのインストールおよび復元用のパッケージ署名の検証に使用する検証モードを指定します。 値は`accept`、 `require`、です。 既定値は `accept` です。
+| signatureValidationMode | パッケージのインストールおよび復元用のパッケージ署名の検証に使用する検証モードを指定します。 値は `accept`、`require`です。 既定値は `accept` です。
 
 **例**:
 
@@ -54,9 +54,9 @@ Nuget の動作は、「 `NuGet.Config` [一般的な nuget 構成](../consume-p
 
 パッケージのインストール時に、NuGet で自動バインド リダイレクトを実行するかどうかを構成します。
 
-| キー | 値 |
+| [キー] | Value |
 | --- | --- |
-| skip | 自動バインド リダイレクトを省略するかどうかを示すブール値です。 既定値は false です。 |
+| スキップ | 自動バインド リダイレクトを省略するかどうかを示すブール値です。 既定値は false です。 |
 
 **例**:
 
@@ -70,10 +70,10 @@ Nuget の動作は、「 `NuGet.Config` [一般的な nuget 構成](../consume-p
 
 ビルド時のパッケージの復元を制御します。
 
-| キー | 値 |
+| [キー] | Value |
 | --- | --- |
-| enabled | NuGet で自動復元を実行できるかどうかを示すブール値です。 構成ファイル内にこのキーを設定するのでなく、`True` の値で `EnableNuGetPackageRestore` 環境変数を設定することもできます。 |
-| automatic | ビルド中に欠落しているパッケージの確認を NuGet で行う必要があるかどうかを示すブール値です。 |
+| が有効 | NuGet で自動復元を実行できるかどうかを示すブール値です。 構成ファイル内にこのキーを設定するのでなく、`True` の値で `EnableNuGetPackageRestore` 環境変数を設定することもできます。 |
+| 自動 | ビルド中に欠落しているパッケージの確認を NuGet で行う必要があるかどうかを示すブール値です。 |
 
 **例**:
 
@@ -88,7 +88,7 @@ Nuget の動作は、「 `NuGet.Config` [一般的な nuget 構成](../consume-p
 
 ソリューションの `packages` フォルダーをソース管理に含めるかどうかを制御します。 このセクションは、ソリューション フォルダー内の `nuget.config` ファイルでのみ機能します。
 
-| キー | 値 |
+| [キー] | Value |
 | --- | --- |
 | disableSourceControlIntegration | ソース管理を使用する場合に、パッケージ フォルダーを無視するかどうかを示すブール値です。 既定値は false です。 |
 
@@ -102,17 +102,17 @@ Nuget の動作は、「 `NuGet.Config` [一般的な nuget 構成](../consume-p
 
 ## <a name="package-source-sections"></a>パッケージ ソース セクション
 
-`packageSources` 、`packageSourceCredentials`、 、`disabledPackageSources` 、およびは`trustedSigners`すべて連携して、インストール、復元、および更新の各操作中に、NuGet がパッケージリポジトリを操作する方法を構成します。 `activePackageSource` `apikeys`
+`packageSources`、`packageSourceCredentials`、`apikeys`、`activePackageSource`、`disabledPackageSources`、`trustedSigners` のすべてが連携して、インストール、復元、および更新の操作中に、NuGet がパッケージリポジトリを操作する方法を構成します。
 
-[ `nuget trusted-signers` ](../reference/cli-reference/cli-ref-trusted-signers.md) `apikeys` [コマンドは`nuget setapikey` ](../reference/cli-reference/cli-ref-setapikey.md)、コマンドを使用`trustedSigners`して管理され、コマンドを使用して管理される以外は、これらの設定を管理するために一般的に使用されます。 [ `nuget sources` ](../reference/cli-reference/cli-ref-sources.md)
+[`nuget sources` コマンド](../reference/cli-reference/cli-ref-sources.md)は、通常、これらの設定を管理するために使用されます。ただし、 [`nuget setapikey` コマンド](../reference/cli-reference/cli-ref-setapikey.md)を使用して管理される `apikeys` と、 [`nuget trusted-signers` コマンド](../reference/cli-reference/cli-ref-trusted-signers.md)を使用して管理される `trustedSigners` は除きます。
 
 ここで、nuget.org のソース URL は `https://api.nuget.org/v3/index.json` となります。
 
 ### <a name="packagesources"></a>packageSources
 
-すべての既知のパッケージ ソースの一覧を表示します。 この順序は、復元操作中には無視され、PackageReference 形式を使用するプロジェクトでは無視されます。 NuGet は、を使用して`packages.config`、プロジェクトでのインストールおよび更新操作のソースの順序を尊重します。
+すべての既知のパッケージ ソースの一覧を表示します。 この順序は、復元操作中には無視され、PackageReference 形式を使用するプロジェクトでは無視されます。 NuGet は、`packages.config`を使用したプロジェクトでのインストールおよび更新操作のソースの順序を尊重します。
 
-| キー | 値 |
+| [キー] | Value |
 | --- | --- |
 | (パッケージ ソースに割り当てる名前) | パッケージ ソースのパスまたは URL です。 |
 
@@ -130,10 +130,10 @@ Nuget の動作は、「 `NuGet.Config` [一般的な nuget 構成](../consume-p
 
 通常、`-username` スイッチおよび `-password` スイッチと `nuget sources` によって指定される、ソースのユーザー名とパスワードを格納します。 `-storepasswordincleartext` オプションが使用されていない場合、既定ではパスワードが暗号化されます。
 
-| キー | 値 |
+| [キー] | Value |
 | --- | --- |
 | username | プレーン テキストで表されるソースのユーザー名です。 |
-| password | ソースの暗号されたパスワードです。 |
+| のパスワード | ソースの暗号されたパスワードです。 |
 | cleartextpassword | ソースの暗号化されていないパスワードです。 |
 
 **例:**
@@ -172,7 +172,7 @@ Nuget の動作は、「 `NuGet.Config` [一般的な nuget 構成](../consume-p
 
 [`nuget setapikey` コマンド](../reference/cli-reference/cli-ref-setapikey.md)で設定される、API キー認証を使用するソースのキーを格納します。
 
-| キー | 値 |
+| [キー] | Value |
 | --- | --- |
 | (ソース URL) | 暗号化された API キー。 |
 
@@ -188,7 +188,7 @@ Nuget の動作は、「 `NuGet.Config` [一般的な nuget 構成](../consume-p
 
 現在無効になっているソースを識別します。 空の場合もあります。
 
-| キー | 値 |
+| [キー] | Value |
 | --- | --- |
 | (ソースの名前) | ソースが無効になっているかどうかを示すブール値です。 |
 
@@ -209,7 +209,7 @@ Nuget の動作は、「 `NuGet.Config` [一般的な nuget 構成](../consume-p
 
 現在アクティブなソースを識別し、すべてのソースの集計を示します。
 
-| キー | 値 |
+| [キー] | Value |
 | --- | --- |
 | (ソースの名前) または `All` | キーがソースの名前である場合は、ソースのパスまたは URL が値となります。 `All` の場合は、値を `(Aggregate source)` にして、無効になっていないすべてのパッケージ ソースを結合する必要があります。 |
 
@@ -227,19 +227,19 @@ Nuget の動作は、「 `NuGet.Config` [一般的な nuget 構成](../consume-p
 
 ## <a name="trustedsigners-section"></a>trustedSigners 者セクション
 
-インストールまたは復元中にパッケージを許可するために使用される信頼された署名者を格納します。 ユーザーがに設定`signatureValidationMode`した場合、この一覧を`require`空にすることはできません。 
+インストールまたは復元中にパッケージを許可するために使用される信頼された署名者を格納します。 ユーザーが `require`に `signatureValidationMode` を設定した場合、この一覧を空にすることはできません。 
 
-このセクションは、 [ `nuget trusted-signers`コマンド](../reference/cli-reference/cli-ref-trusted-signers.md)を使用して更新できます。
+このセクションは、 [`nuget trusted-signers` コマンド](../reference/cli-reference/cli-ref-trusted-signers.md)を使用して更新できます。
 
-**スキーマ**:
+**[スキーマ]** :
 
-信頼できる署名者には、 `certificate`特定の署名者を識別するすべての証明書を登録する項目のコレクションがあります。 信頼できる署名者は、 `Author`またはの`Repository`いずれかです。
+信頼できる署名者には、特定の署名者を識別するすべての証明書を登録する `certificate` 項目のコレクションがあります。 信頼できる署名者は、`Author` または `Repository`のいずれかになります。
 
-信頼された*リポジトリ*で`serviceIndex`は、リポジトリのを指定することもでき`https`ます (これは有効な uri である必要があります`owners` )。また、必要に応じて、をセミコロンで区切ったリストを指定して、その特定のによって信頼できるユーザーをさらに制限することもできます。・.
+また、信頼された*リポジトリ*は、リポジトリの `serviceIndex` (有効な `https` uri である必要があります) を指定します。また、必要に応じて、特定のリポジトリから信頼できるユーザーを制限するために、セミコロンで区切られた `owners` の一覧を指定することもできます。
 
-証明書のフィンガープリントに使用されるサポート`SHA256`さ`SHA384`れ`SHA512`ているハッシュアルゴリズムは、、およびです。
+証明書のフィンガープリントに使用されるサポートされているハッシュアルゴリズムは、`SHA256`、`SHA384`、および `SHA512`です。
 
-がを`allowUntrustedRoot` `true`指定した場合、指定された証明書は、署名の検証の一部として証明書チェーンを構築するときに、信頼されていないルートにチェーンできます。 `certificate`
+`certificate` がとして `allowUntrustedRoot` を指定する場合 `true` 署名の検証の一部として証明書チェーンを構築するときに、指定した証明書を信頼されていないルートにチェーンすることを許可します。
 
 **例**:
 
@@ -269,7 +269,7 @@ Nuget の動作は、「 `NuGet.Config` [一般的な nuget 構成](../consume-p
 
 一致するものが見つからない場合、NuGet はファイルソースを確認し、次に http ソースを確認してから、パッケージをダウンロードします。
 
-| キー | 値 |
+| [キー] | Value |
 | --- | --- |
 | (フォールバックフォルダーの名前) | フォールバックフォルダーへのパス。 |
 
@@ -285,10 +285,10 @@ Nuget の動作は、「 `NuGet.Config` [一般的な nuget 構成](../consume-p
 
 既定のパッケージ管理形式である*app.config*または PackageReference を設定します。 SDK スタイルのプロジェクトは常に PackageReference を使用します。
 
-| キー | 値 |
+| [キー] | Value |
 | --- | --- |
-| format | 既定のパッケージ管理形式を示すブール値。 の`1`場合、format は PackageReference です。 の`0`場合、format は*app.config*です。 |
-| 無効 | 最初のパッケージのインストール時に既定のパッケージ形式を選択するようにプロンプトを表示するかどうかを示すブール値。 `False`プロンプトを非表示にします。 |
+| 書式 | 既定のパッケージ管理形式を示すブール値。 `1`の場合、format は PackageReference です。 `0`の場合、形式は*app.config*です。 |
+| 無効 | 最初のパッケージのインストール時に既定のパッケージ形式を選択するようにプロンプトを表示するかどうかを示すブール値。 `False` プロンプトを非表示にします。 |
 
 **例**:
 
