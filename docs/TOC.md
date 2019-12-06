@@ -67,7 +67,7 @@
 ## [パッケージのインストール プロセス](concepts/package-installation-process.md)
 ## [パッケージのバージョン管理](concepts/package-versioning.md)
 ## [依存関係の解決](concepts/dependency-resolution.md)
-# 参照
+# 辞書／辞典／その他
 ## [.nuspec](reference/nuspec.md)
 ## [nuget.config ファイル](reference/nuget-config-file.md)
 ## [ターゲット フレームワーク](reference/target-frameworks.md)
@@ -287,6 +287,7 @@
 ## リリース ノート
 ### [既知の問題](release-notes/known-issues.md)
 ### NuGet 5.x
+#### [NuGet 5.4](release-notes/NuGet-5.4.md)
 #### [NuGet 5.3](release-notes/NuGet-5.3.md)
 #### [NuGet 5.2](release-notes/NuGet-5.2-RTM.md)
 #### [NuGet 5.1](release-notes/NuGet-5.1-RTM.md)
