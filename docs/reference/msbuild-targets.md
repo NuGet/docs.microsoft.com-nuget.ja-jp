@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 1c2af0b42e88623fa7a1216c17aa269e9b0a58cf
-ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
+ms.openlocfilehash: ed3545454a811c311190a191c566d9e9192f3fcc
+ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74096910"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74825071"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>MSBuild ターゲットとしての NuGet の pack と restore
 
@@ -36,42 +36,42 @@ MSBuild 15.1 以降では、NuGet は以下のように `pack` および `restor
 同様に、MSBuild タスクを記述し、独自のターゲットを記述して、MSBuild タスクで NuGet プロパティを使用することができます。
 
 > [!NOTE]
-> `$(OutputPath)` は相対パスであり、プロジェクトのルートからコマンドを実行していることを前提としています。
+> `$(OutputPath)` は相対であり、プロジェクトのルートからコマンドを実行していることを前提としています。
 
 ## <a name="pack-target"></a>pack ターゲット
 
-PackageReference 形式を使用する .NET Standard プロジェクトの場合、`msbuild -t:pack` を使用すると、NuGet パッケージの作成に使用するプロジェクトファイルからの入力を描画します。
+PackageReference 形式を使用する .NET Standard プロジェクトの場合、`msbuild -t:pack` を使用して、NuGet パッケージの作成に使用するプロジェクトファイルからの入力を描画します。
 
 以下の表では、最初の `<PropertyGroup>` ノード内のプロジェクト ファイルに追加できる MSBuild のプロパティについて説明します。 Visual Studio 2017 以降では、プロジェクトを右クリックし、コンテキスト メニューで **[{project_name} の編集]** を選択して、この編集を簡単に行うことができます。 便宜上、この表は、[`.nuspec` ファイル](../reference/nuspec.md)の同等のプロパティごとに整理されています。
 
 `.nuspec` の `Owners` および `Summary` プロパティは、MSBuild ではサポートされていない点に注意してください。
 
-| 属性/NuSpec の値 | MSBuild のプロパティ | 既定 | ノート |
+| 属性/NuSpec の値 | MSBuild のプロパティ | 既定値 | メモ |
 |--------|--------|--------|--------|
-| ID | PackageId | AssemblyName | MSBuild の $(AssemblyName) |
+| Id | PackageId | AssemblyName | MSBuild の $(AssemblyName) |
 | Version | PackageVersion | Version | これは semver と互換性があります (たとえば、"1.0.0"、"1.0.0-beta"、または "1.0.0-beta-00345") |
 | VersionPrefix | PackageVersionPrefix | (なし) | PackageVersion を設定すると、PackageVersionPrefix は上書きされます |
 | VersionSuffix | PackageVersionSuffix | (なし) | MSBuild の $(VersionSuffix) PackageVersion を設定すると、PackageVersionSuffix は上書きされます |
 | Authors | Authors | 現在のユーザーのユーザー名 | |
-| 所有者 | N/A | NuSpec にはありません | |
-| Title | Title | PackageId| |
-| 説明 | 説明 | "パッケージの説明" | |
+| Owners | なし | NuSpec にはありません | |
+| [タイトル] | [タイトル] | PackageId| |
+| Description | Description | "パッケージの説明" | |
 | Copyright | Copyright | (なし) | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | False | |
-| 使用 | PackageLicenseExpression | (なし) | `<license type="expression">` に対応します。 |
-| 使用 | PackageLicenseFile | (なし) | `<license type="file">` に相当します。 参照されているライセンスファイルを明示的にパックする必要があります。 |
-| LicenseUrl | PackageLicenseUrl | (なし) | `PackageLicenseUrl` は推奨されていません。パッケージのパッケージを使用してください。 |
+| license | PackageLicenseExpression | (なし) | 対応しています `<license type="expression">` |
+| license | PackageLicenseFile | (なし) | `<license type="file">` に相当します。 参照されているライセンスファイルを明示的にパックする必要があります。 |
+| LicenseUrl | PackageLicenseUrl | (なし) | `PackageLicenseUrl` は推奨されていません。このプロパティを使用して、パッケージを使用してください。 |
 | ProjectUrl | PackageProjectUrl | (なし) | |
 | アイコン | PackageIcon | (なし) | 参照されているアイコンイメージファイルを明示的にパックする必要があります。|
 | IconUrl | PackageIconUrl | (なし) | ベストダウンレベルのエクスペリエンスを実現するには、`PackageIcon`に加えて `PackageIconUrl` を指定する必要があります。 長期的には、`PackageIconUrl` は非推奨とされます。 |
 | Tags | PackageTags | (なし) | 複数のタグはセミコロン (;) で区切られます。 |
 | ReleaseNotes | PackageReleaseNotes | (なし) | |
-| リポジトリ/Url | RepositoryUrl | (なし) | ソースコードの複製または取得に使用されるリポジトリの URL。 例: *https://github.com/NuGet/NuGet.Client.git* |
-| リポジトリ/種類 | RepositoryType | (なし) | リポジトリの種類。 例: *git*、 *tfs*。 |
-| リポジトリ/ブランチ | RepositoryBranch | (なし) | リポジトリのブランチ情報 (オプション)。 このプロパティを含めるには、 *RepositoryUrl*も指定する必要があります。 例: *master* (NuGet 4.7.0 +) |
-| リポジトリ/コミット | RepositoryCommit | (なし) | 任意のリポジトリ コミットまたは変更セット。パッケージがどのソースに対してビルドされたかを示します。 このプロパティを含めるには、 *RepositoryUrl*も指定する必要があります。 例: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +) |
+| Repository/Url | RepositoryUrl | (なし) | ソースコードの複製または取得に使用されるリポジトリの URL。 例: *https://github.com/NuGet/NuGet.Client.git* |
+| Repository/Type | RepositoryType | (なし) | リポジトリの種類。 例: *git*、 *tfs*。 |
+| Repository/Branch | RepositoryBranch | (なし) | リポジトリのブランチ情報 (オプション)。 このプロパティを含めるには、 *RepositoryUrl*も指定する必要があります。 例: *master* (NuGet 4.7.0 +) |
+| Repository/Commit | RepositoryCommit | (なし) | 任意のリポジトリ コミットまたは変更セット。パッケージがどのソースに対してビルドされたかを示します。 このプロパティを含めるには、 *RepositoryUrl*も指定する必要があります。 例:*0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +) |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
-| まとめ | サポートなし | | |
+| Summary | サポートされていません | | |
 
 ### <a name="pack-target-inputs"></a>pack ターゲットの入力
 
@@ -80,7 +80,7 @@ PackageReference 形式を使用する .NET Standard プロジェクトの場合
 - PackageVersion
 - PackageId
 - Authors
-- 説明
+- Description
 - Copyright
 - PackageRequireLicenseAcceptance
 - DevelopmentDependency
@@ -131,7 +131,7 @@ NuGet 5.3 & Visual Studio 2019 バージョン16.3 以降では、パッケー�
 
 アイコンイメージファイルをパッキングする場合は、パッケージのルートに対して相対的なパッケージパスを指定するために `PackageIcon` プロパティを使用する必要があります。 また、ファイルがパッケージに含まれていることを確認する必要があります。 イメージファイルのサイズは 1 MB に制限されています。 サポートされているファイル形式は、JPEG および PNG です。 64x64 のイメージ解像度をお勧めします。
 
-(例:
+次に例を示します。
 
 ```xml
 <PropertyGroup>
@@ -157,8 +157,8 @@ Nuspec に相当するものについては、「 [nuspec reference for icon」�
 
 出力アセンブリの出力先を制御する MSBuild プロパティが 2 つあり、プロジェクト ファイルまたはコマンド ラインで使用できます。
 
-- `IncludeBuildOutput`: ビルドの出力アセンブリをパッケージに含めるかどうかを決めるブール値。
-- `BuildOutputTargetFolder`: 出力アセンブリを配置するフォルダーを指定します。 出力アセンブリ (および他の出力ファイル) は、各フレームワーク フォルダーにコピーされます。
+- `IncludeBuildOutput`:ビルド出力アセンブリをパッケージに含める必要があるかどうかを決定するブール値。
+- `BuildOutputTargetFolder`:出力アセンブリを配置するフォルダーを指定します。 出力アセンブリ (および他の出力ファイル) は、各フレームワーク フォルダーにコピーされます。
 
 ### <a name="package-references"></a>パッケージ参照
 
@@ -242,7 +242,7 @@ Nuspec に相当するものについては、「 [nuspec reference for icon」�
 
 [NuGet.org によって受け付けられるライセンス式とライセンスの詳細については、こちらを参照](nuspec.md#license)してください。
 
-ライセンスファイルをパッキングする場合は、パッケージのルートを基準としたパッケージパスを指定するために、"パッケージの作成" プロパティを使用する必要があります。 また、ファイルがパッケージに含まれていることを確認する必要があります。 (例:
+ライセンスファイルをパッキングする場合は、パッケージのルートを基準としたパッケージパスを指定するために、"パッケージの作成" プロパティを使用する必要があります。 また、ファイルがパッケージに含まれていることを確認する必要があります。 次に例を示します。
 
 ```xml
 <PropertyGroup>
@@ -268,11 +268,11 @@ Nuspec をパッキングする場合、プロジェクトファイルのター�
 
 1. `NuspecFile`: パックに使用する `.nuspec` ファイルの相対パスまたは絶対パス。
 1. `NuspecProperties`: キー=値ペアのセミコロン区切りの一覧。 MSBuild コマンドラインの解析方法に従い、複数のプロパティは `-p:NuspecProperties=\"key1=value1;key2=value2\"` のように指定する必要があります。  
-1. `NuspecBasePath`: `.nuspec` ファイルのベース パス。
+1. `NuspecBasePath`:`.nuspec` ファイルのベースパス。
 
 `dotnet.exe` を使用してプロジェクトをパックする場合は、次のようなコマンドを使用します。
 
-```cli
+```dotnetcli
 dotnet pack <path to .csproj file> -p:NuspecFile=<path to nuspec file> -p:NuspecProperties=<> -p:NuspecBasePath=<Base path> 
 ```
 
@@ -282,7 +282,7 @@ MSBuild を使用してプロジェクトをパックする場合は、次のよ
 msbuild -t:pack <path to .csproj file> -p:NuspecFile=<path to nuspec file> -p:NuspecProperties=<> -p:NuspecBasePath=<Base path> 
 ```
 
-Dotnet または msbuild を使用して nuspec をパッキングすると、既定でプロジェクトのビルドも実行されることに注意してください。 これを回避するには ```--no-build``` プロパティを dotnet に渡します。これは、プロジェクトファイル内の ```<NoBuild>true</NoBuild> ``` を設定した場合と同じです。また、プロジェクトファイルに ```<IncludeBuildOutput>false</IncludeBuildOutput> ``` を設定した場合と同じです。
+Dotnet または msbuild を使用して nuspec をパッキングすると、既定でプロジェクトのビルドも実行されることに注意してください。 これは、```--no-build``` プロパティを dotnet に渡すことによって回避できます。これは、プロジェクトファイル内の ```<NoBuild>true</NoBuild> ``` を設定するのと同じです。また、プロジェクトファイルに ```<IncludeBuildOutput>false</IncludeBuildOutput> ``` を設定します。
 
 Nuspec ファイルをパックする .csproj ファイルの例を次に示し*ます。*
 
@@ -303,15 +303,15 @@ Nuspec ファイルをパックする .csproj ファイルの例を次に示し*
 
 `pack` ターゲットには、ターゲットフレームワーク固有の内部ビルドで実行される2つの拡張ポイントが用意されています。 拡張ポイントは、ターゲットフレームワーク固有のコンテンツとアセンブリをパッケージに含めることをサポートしています。
 
-- `TargetsForTfmSpecificBuildOutput` target: `lib` フォルダー内のファイル、または `BuildOutputTargetFolder` を使用して指定されたフォルダー内のファイルに使用します。
-- `TargetsForTfmSpecificContentInPackage` ターゲット: `BuildOutputTargetFolder` 以外のファイルに使用します。
+- `TargetsForTfmSpecificBuildOutput` 対象:`lib` フォルダー内のファイル、または `BuildOutputTargetFolder`を使用して指定されたフォルダー内のファイルに対して使用します。
+- `TargetsForTfmSpecificContentInPackage` 対象:`BuildOutputTargetFolder`の外部のファイルに使用します。
 
 #### <a name="targetsfortfmspecificbuildoutput"></a>TargetsForTfmSpecificBuildOutput
 
 カスタムターゲットを作成し、`$(TargetsForTfmSpecificBuildOutput)` プロパティの値として指定します。 `BuildOutputTargetFolder` に入る必要があるファイル (既定では lib) では、ItemGroup `BuildOutputInPackage` にこれらのファイルを書き込み、次の2つのメタデータ値を設定する必要があります。
 
-- `FinalOutputPath`: ファイルの絶対パス。指定されていない場合は、ソースパスの評価に Id が使用されます。
-- `TargetPath`: (省略可能) ファイルが `lib\<TargetFramework>` 内のサブフォルダーに入る必要がある場合に設定されます。これは、それぞれのカルチャフォルダーの下にあるサテライトアセンブリのようになります。 既定値は、ファイルの名前です。
+- `FinalOutputPath`:ファイルの絶対パス。指定されていない場合は、ソースパスの評価に Id が使用されます。
+- `TargetPath`:Optionalファイルを `lib\<TargetFramework>` 内のサブフォルダーに入れる必要がある場合に設定します。これは、それぞれのカルチャフォルダーの下にあるサテライトアセンブリのようになります。 既定値は、ファイルの名前です。
 
 例:
 
@@ -333,8 +333,8 @@ Nuspec ファイルをパックする .csproj ファイルの例を次に示し*
 
 カスタムターゲットを作成し、`$(TargetsForTfmSpecificContentInPackage)` プロパティの値として指定します。 パッケージに含めるファイルについては、ターゲットはこれらのファイルを ItemGroup `TfmSpecificPackageFile` に書き込み、次のオプションのメタデータを設定する必要があります。
 
-- `PackagePath`: パッケージ内でファイルが出力されるパス。 複数のファイルが同じパッケージパスに追加されると、NuGet は警告を発行します。
-- `BuildAction`: パッケージパスが `contentFiles` フォルダー内にある場合にのみ必要な、ファイルに割り当てるビルドアクション。 既定値は "None" です。
+- `PackagePath`:パッケージ内でファイルが出力されるパス。 複数のファイルが同じパッケージパスに追加されると、NuGet は警告を発行します。
+- `BuildAction`:ファイルに割り当てるビルドアクション。パッケージパスが `contentFiles` フォルダー内にある場合にのみ必要です。 既定値は "None" です。
 
 次に例を示します。
 ```xml
@@ -371,7 +371,7 @@ Nuspec ファイルをパックする .csproj ファイルの例を次に示し*
 
 追加の restore 設定を、プロジェクト ファイルの MSBuild プロパティで指定することができます。 また、`-p:` スイッチを使用して、コマンド ラインから値を設定することもできます (次の例を参照してください)。
 
-| property | 説明 |
+| プロパティ | Description |
 |--------|--------|
 | RestoreSources | パッケージ ソースのセミコロン区切りの一覧。 |
 | RestorePackagesPath | ユーザー パッケージ フォルダーのパス。 |
@@ -385,12 +385,12 @@ Nuspec ファイルをパックする .csproj ファイルの例を次に示し*
 | RestoreAdditionalProjectFallbackFoldersExcludes | `RestoreAdditionalProjectFallbackFolders` で指定されたフォールバックフォルダーを除外します |
 | RestoreTaskAssemblyFile | `NuGet.Build.Tasks.dll` のパス。 |
 | RestoreGraphProjectInput | 復元するプロジェクトのセミコロン区切りの一覧。絶対パスを指定する必要があります。 |
-| Restoreentkipnon存在 Enttargets  | MSBuild を使用してプロジェクトが収集されると、`SkipNonexistentTargets` の最適化を使用してプロジェクトを収集するかどうかが決定されます。 設定しない場合、既定値は `true` になります。 その結果、プロジェクトのターゲットをインポートできない場合のフェールファースト動作になります。 |
-| MSBuildProjectExtensionsPath | 出力フォルダー。 `BaseIntermediateOutputPath` および `obj` フォルダーを既定とします。 |
+| RestoreUseSkipNonexistentTargets  | MSBuild を使用してプロジェクトが収集されると、`SkipNonexistentTargets` の最適化を使用してプロジェクトを収集するかどうかが決定されます。 設定しない場合、既定値は `true`になります。 その結果、プロジェクトのターゲットをインポートできない場合のフェールファースト動作になります。 |
+| MSBuildProjectExtensionsPath | 出力フォルダー。 `BaseIntermediateOutputPath` と `obj` フォルダーを既定とします。 |
 | RestoreForce | PackageReference ベースのプロジェクトでは、最後の復元が成功した場合でも、すべての依存関係が強制的に解決されます。 このフラグを指定することは、`project.assets.json` ファイルの削除に似ています。 これは、http キャッシュをバイパスしません。 |
 | RestorePackagesWithLockFile | ロック ファイルの使用をオプトインします。 |
 | RestoreLockedMode | ロックモードで復元を実行します。 これは、restore が依存関係を再評価しないことを意味します。 |
-| NuGetLockFilePath | ロックファイルのカスタムの場所。 既定の場所はプロジェクトの横にあり、には `packages.lock.json` という名前が付けられます。 |
+| NuGetLockFilePath | ロックファイルのカスタムの場所。 既定の場所はプロジェクトの横にあり、`packages.lock.json`という名前が付けられます。 |
 | RestoreForceEvaluate | 復元によって依存関係が再計算され、警告なしでロックファイルが更新されます。 | 
 
 #### <a name="examples"></a>使用例
@@ -413,7 +413,7 @@ msbuild -t:restore -p:RestoreConfigFile=<path>
 
 restore で、次のファイルがビルドの `obj` フォルダーに作成されます。
 
-| ファイル | 説明 |
+| File | Description |
 |--------|--------|
 | `project.assets.json` | すべてのパッケージ参照の依存関係グラフを含みます。 |
 | `{projectName}.projectFileExtension.nuget.g.props` | パッケージに含まれる MSBuild プロパティへの参照 |
