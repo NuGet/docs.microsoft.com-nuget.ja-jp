@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/21/2017
 ms.topic: tutorial
-ms.openlocfilehash: a4c609b3390748099d85a73f7d168ebe4de2676a
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: 77aa186291122a8d05018ecacd1329da459badad
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812949"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380762"
 ---
 # <a name="create-uwp-packages"></a>UWP パッケージを作成する
 
@@ -58,7 +58,7 @@ ms.locfileid: "66812949"
     nuget spec
     ```
 
-1. `ImageEnhancer.nuspec` をエディターで開き、以下の内容と一致するように更新して、YOUR_NAME を適切な値に置き換えます。 具体的には、`<id>` 値を nuget.org で固有のものにする必要があります (「[パッケージの作成](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number)」で説明されている名前付け規則に関する記述を参照)。 また、作成者と説明のタグを更新する必要があることに注意してください。そうしないと、パッキングの手順でエラーが発生します。
+1. `ImageEnhancer.nuspec` をエディターで開き、以下の内容と一致するように更新して、YOUR_NAME を適切な値に置き換えます。 具体的には、`<id>` 値を nuget.org で固有のものにする必要があります (「[パッケージの作成](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number)」で説明されている名前付け規則に関する記述を参照)。 また、作成者と説明のタグを更新する必要があることに注意してください。そうしないと、パッキングの手順でエラーが発生します。
 
     ```xml
     <?xml version="1.0"?>
@@ -248,13 +248,13 @@ nuget pack ImageEnhancer.nuspec
 > [!Tip]
 > `.nupkg` ファイルは、異なる拡張子が付いた単なる .zip ファイルです。 したがって、`.nupkg` を `.zip` に変えてパッケージの内容を調べることもできますが、パッケージを nuget.org にアップロードする前に必ず、拡張子を復元してください。
 
-パッケージを他の開発者が使用できるようにする場合は、「[パッケージの公開](../create-packages/publish-a-package.md)」の手順に従ってください。
+パッケージを他の開発者が使用できるようにする場合は、「[パッケージの公開](../nuget-org/publish-a-package.md)」の手順に従ってください。
 
 ## <a name="related-topics"></a>関連トピック
 
 - [.nuspec 参照](../reference/nuspec.md)
-- [シンボル パッケージ](../create-packages/symbol-packages.md)
-- [パッケージのバージョン管理](../reference/package-versioning.md)
+- [シンボル パッケージ](../create-packages/symbol-packages-snupkg.md)
+- [パッケージのバージョン管理](../concepts/package-versioning.md)
 - [複数の .NET Framework バージョンのサポート](../create-packages/supporting-multiple-target-frameworks.md)
-- [パッケージに MSBuild プロパティとターゲットを含める](../create-packages/creating-a-package.md#including-msbuild-props-and-targets-in-a-package)
+- [パッケージに MSBuild プロパティとターゲットを含める](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)
 - [ローカライズされたパッケージを作成する](../create-packages/creating-localized-packages.md)

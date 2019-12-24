@@ -1,38 +1,39 @@
 ---
-title: NuGet のターゲット フレームワークのリファレンス
+title: NuGet のターゲットフレームワークリファレンス
 description: NuGet ターゲット フレームワーク参照は、パッケージのフレームワーク依存コンポーネントを特定し、分離します。
 author: karann-msft
 ms.author: karann
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 0b2a4fe45d0311b7540c73b481d6821357c723af
-ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
+ms.openlocfilehash: caa1509fd996c54f7de17e86559ea62ef67f749f
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610649"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380490"
 ---
 # <a name="target-frameworks"></a>ターゲット フレームワーク
 
 NuGet は、多様な場所にあるターゲット フレームワーク参照を使用してパッケージのフレームワーク依存コンポーネントを特定し、分離します。
 
-- [.nuspec マニフェスト](../reference/nuspec.md):パッケージには、プロジェクトのターゲット フレームワークに基づいて、プロジェクトに含まれる個別のパッケージを指定できます。
-- [.nupkg フォルダー名](../create-packages/creating-a-package.md#from-a-convention-based-working-directory):パッケージの内部フォルダー `lib` Dll は、そのフレームワークに適したその他のコンテンツを含む各ターゲット フレームワークに従ってフォルダーの名前を指定できます。
-- [packages.config](../reference/packages-config.md):`targetframework`依存関係の属性をインストールするパッケージの変化形を指定します。
+- [プロジェクトファイル](../create-packages/multiple-target-frameworks-project-file.md): SDK スタイルのプロジェクトの場合、 *.csproj*にはターゲットフレームワークの参照が含まれています。
+- [.nuspec マニフェスト](../reference/nuspec.md): パッケージは、プロジェクトのターゲット フレームワークに依存するプロジェクトに含めるパッケージを指定できます。
+- [.nupkg フォルダー名](../create-packages/creating-a-package.md#from-a-convention-based-working-directory): パッケージの `lib` フォルダー内のフォルダーには、ターゲット フレームワークに従って名前を付けることができます。各フォルダーには、そのフレームワークに適した DLL や他のコンテンツが含まれます。
+- [packages.config](../reference/packages-config.md): 依存関係の `targetframework` 属性で、インストールするパッケージのバリエーションを指定します。
 
 > [!Note]
 > 以下の表を計算する NuGet クライアントのソース コードは、次の場所にあります。
-> - サポートされているフレームワーク名:[FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
-> - フレームワークの優先順位とマッピング:[DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
+> - サポートされているフレームワーク名: [FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
+> - フレームワークの優先順位とマッピング: [DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
 
 ## <a name="supported-frameworks"></a>サポートされるフレームワーク
 
-通常、フレームワークは、短いターゲット フレームワーク モニカー (TFM) で参照されます。 .NET Standard ではこれが汎用化*TxM*複数のフレームワークの 1 つの参照を許可します。
+通常、フレームワークは、短いターゲット フレームワーク モニカー (TFM) で参照されます。 .NET Standard は、複数のフレームワークへの単一の参照を許可するために、 *Txm*にも一般化されています。
 
 NuGet クライアントは以下の表のフレームワークをサポートしています。 同等のものがかっこ [] 内に示されています。 `dotnet` などの一部のツールは、一部のファイルで正規の TFM のバリエーションを使用することがあります。 たとえば、`dotnet pack` は `.nuspec` ファイルで `netcoreapp2.0` ではなく `.NETCoreApp2.0` を使用します。 さまざまな NuGet クライアント ツールがこれらのバリエーションを適切に処理しますが、ファイルを直接編集するときは常に正規の TFM を使用することをお勧めします。
 
-| 名前 | 省略形 | TFM/TxM |
+| 名 | 省略形 | TFM/TxM |
 | ------------- | ------------ | --------- |
 |.NET Framework | net | net11 |
 | | | net20 |
@@ -68,7 +69,7 @@ Windows Phone (SL) | wp | wp [wp7] |
 Windows Phone (UWP) | | wpa81 |
 ユニバーサル Windows プラットフォーム | uap | uap [uap10.0] |
 | | | uap10.0 |
-| | | uap10.0.xxxxx (10.0.xxxxx はアプリを使うの対象プラットフォームの最小バージョンです) |
+| | | uap 10.0. xxxxx (使用するアプリのターゲットプラットフォームの最小バージョン) |
 .NET Standard | netstandard | netstandard1.0 |
 | | | netstandard1.1 |
 | | | netstandard1.2 |
@@ -82,6 +83,7 @@ Windows Phone (UWP) | | wpa81 |
 | | | netcoreapp2.0 |
 | | | netcoreapp2.1 |
 | | | netcoreapp2.2 |
+| | | netcoreapp3.0 |
 Tizen | tizen | tizen3 |
 | | | tizen4 |
 
@@ -120,9 +122,9 @@ Tizen | tizen | tizen3 |
 | win (Microsoft Store) | winrt |
 | | |
 
-## <a name="net-platform-standard"></a>.NET Platform Standard
+## <a name="net-standard"></a>NET Standard
 
-[.NET Platform Standard](https://github.com/dotnet/corefx/blob/master/Documentation/architecture/net-platform-standard.md) は、バイナリ互換フレームワーク間の参照を簡易化し、1 つのターゲット フレームワークで複数のフレームワークの組み合わせを参照できます (背景については、「[.NET のガイド](/dotnet/articles/standard/index)」を参照してください。)。
+[.NET Standard](/dotnet/standard/net-standard)は、バイナリ互換フレームワーク間の参照を簡略化し、1つのターゲットフレームワークで他のフレームワークの組み合わせを参照できるようにします。 (背景については、「[.NET のガイド](/dotnet/articles/standard/index)」を参照してください。)。
 
 [NuGet の Get Nearest Framework Tool](https://aka.ms/s2m3th) では、プロジェクトのフレームワークに基づいて、パッケージ内で使用できる複数のフレームワーク アセットから、1 つのフレームワークを選択するために使用する NuGet をシミュレートしています。
 
@@ -131,13 +133,13 @@ NuGet 3.3 以前には `dotnet` シリーズのモニカーを使用し、v3.4 �
 ## <a name="portable-class-libraries"></a>ポータブル クラス ライブラリ
 
 > [!Warning]
-> **PCL はお勧めできません**。 PCL はサポートされていますが、パッケージ作成者は代わりに netstandard をサポートすることをお勧めします。 .NET Platform Standard は Pcl の進化となどの静的ライブラリに関連付けられていない単一のモニカーを使用してプラットフォーム間でバイナリ移植性を表します*ポータブル-a + b + c*モニカー。
+> **PCL はお勧めできません**。 PCL はサポートされていますが、パッケージ作成者は代わりに netstandard をサポートすることをお勧めします。 .NET Platform Standard は、Pcl の進化であり、*ポータブル-a + b + c*モニカーのようなスタティックライブラリに関連付けられていない1つのモニカーを使用して、プラットフォーム間でのバイナリ移植性を表します。
 
 複数の子ターゲット フレームワークを参照するターゲット フレームワークを定義するには、参照されるフレームワークの一覧に接頭辞として `portable` キーワードを使用します。 このようなフレームワークでは意図しない副作用を招く可能性があるため、直接コンパイルされない余計なフレームワークは人為的に含めないようにしてださい。
 
 第三者によって定義された追加のフレームワークは、この方法でアクセスできる他の環境との互換性を提供します。 さらに、これらの関連するフレームワークの組み合わせを `Profile#` として参照するために使用できる省略形のプロファイル番号がありますが、フォルダーと `.nuspec` の読みやすさが低下するため、このような番号を使用することは勧められません。
 
-| プロファイル番号 | フレームワーク | 完全名 | .NET Standard |
+| プロファイル番号 | Frameworks | 完全名 | .NET Standard |
  --- | --- | --- | ---
  Profile2 | .NETFramework 4.0 | portable-net40+win8+sl4+wp7 |
  | | Windows 8.0 | |
@@ -282,7 +284,7 @@ NuGet 3.3 以前には `dotnet` シリーズのモニカーを使用し、v3.4 �
 
 さらに、Xamarin をターゲットとする NuGet パッケージでは、Xamarin で定義された他のフレームワークも使用することができます。 [Xamarin 用の NuGet パッケージの作成](https://developer.xamarin.com/guides/cross-platform/advanced/nuget/)に関するページを参照してください。
 
-| 名前 | 説明 | .NET Standard |
+| 名 | 説明 | .NET Standard |
 | --- | --- | ---
 | monoandroid | Android OS の Mono サポート | netstandard1.4 |
 | monotouch | iOS の Mono サポート | netstandard1.4 |

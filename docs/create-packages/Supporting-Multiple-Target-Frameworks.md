@@ -3,22 +3,22 @@ title: NuGet パッケージの複数バージョン対応
 description: 1 つの NuGet パッケージ内から複数の .NET Framework バージョンに対応するためのさまざま方法の説明。
 author: karann-msft
 ms.author: karann
-ms.date: 09/27/2017
+ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: a755438c1f63d33271f636cb663cc5b51a5aecbc
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: 69e12ce1c78f8d4d50cbad7a0237d767064193ab
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324813"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610651"
 ---
-# <a name="supporting-multiple-net-framework-versions"></a>複数の .NET Framework バージョンのサポート
+# <a name="support-multiple-net-versions"></a>複数の .NET バージョンをサポートする
 
-*NuGet 4.0+ を使用する .NET Core プロジェクトについては、「[NuGet pack and restore as MSBuild targets](../reference/msbuild-targets.md)」 (MSBuild ターゲットとしての NuGet pack および restore) をご覧ください。複数バージョン対応に関する詳細があります。*
+多くのライブラリは、特定のバージョンの .NET Framework に対応しています。 たとえば、あるバージョンのライブラリは UWP に固有であり、別のバージョンは .NET Framework 4.6 の機能を活用します。 これに対応するために、NuGet では 1 つのパッケージに同じライブラリの複数のバージョンを配置することがサポートされています。
 
-多くのライブラリは、特定のバージョンの .NET Framework に対応しています。 たとえば、あるバージョンのライブラリは UWP に固有であり、別のバージョンは .NET Framework 4.6 の機能を活用します。
+この記事では、パッケージやアセンブリのビルド方法に関係なく、NuGet パッケージのレイアウトについて説明します (つまり、SDK スタイルではない複数の *.csproj* ファイルとカスタムの *.nuspec* ファイルを使う場合でも、複数をターゲットにした SDK スタイルの *.csproj* を単一ファイルで使う場合でも、レイアウトは同じです)。 SDK スタイルのプロジェクトの場合、NuGet の [pack ターゲット](../reference/msbuild-targets.md)では、パッケージの整理方法が認識され、適切な lib フォルダーにアセンブリを配置したり、ターゲット フレームワーク (TFM) ごとに依存関係グループを作成する操作が自動化されます。 詳細な手順については、「[プロジェクト ファイル内で複数の .NET Framework バージョンをサポートする](multiple-target-frameworks-project-file.md)」を参照してください。
 
-それに対応するために、NuGet では、「[パッケージを作成する](../create-packages/creating-a-package.md#from-a-convention-based-working-directory)」に説明がある、規則ベースの作業ディレクトリ方法を利用するとき、1 つのパッケージに同じライブラリの複数のバージョンを置くことができます。
+「[パッケージの作成](../create-packages/creating-a-package.md#from-a-convention-based-working-directory)」で説明されている規則ベースの作業ディレクトリを使用する場合は、この記事の説明に従って手動でパッケージをレイアウトする必要があります。 SDK スタイルのプロジェクトでは自動の方法を使用することをお勧めしますが、この記事で説明されているように、パッケージを手動で配置することもできます。
 
 ## <a name="framework-version-folder-structure"></a>フレームワーク バージョンのフォルダー構造
 
@@ -65,9 +65,9 @@ ms.locfileid: "54324813"
             \native
             \lib\uap10.0
 
-これらのアセンブリはランタイムでのみ使用できます。そのため、対応するコンパイル時のアセンブリも指定する必要がある場合は、`AnyCPU` アセンブリを `/ref{tfm}` フォルダー内に置きます。 
+これらのアセンブリはランタイムでのみ使用できます。そのため、対応するコンパイル時のアセンブリも指定する必要がある場合は、`AnyCPU` アセンブリを `/ref/{tfm}` フォルダー内に置きます。 
 
-NuGet では、コンパイル時またはランタイムのアセットを常に 1 つのフォルダーから選択するため、`/ref` からの互換性のあるアセットが存在する場合は、コンパイル時のアセンブリを追加するために `/lib` が無視されます。 同様に、`/runtime` からの互換性のあるアセットが存在する場合は、ランタイムのために `/lib` が無視されます。
+NuGet では、コンパイル時またはランタイムのアセットを常に 1 つのフォルダーから選択するため、`/ref` からの互換性のあるアセットが存在する場合は、コンパイル時のアセンブリを追加するために `/lib` が無視されます。 同様に、`/runtime` からの互換性のあるアセットが存在する場合も、ランタイムのために `/lib` が無視されます。
 
 `.nuspec` マニフェストでこれらのファイルを参照する例については、「[Create UWP Packages](../guides/create-uwp-packages.md)」 (UWP パッケージの作成) を参照してください。
 
@@ -121,12 +121,38 @@ NuGet ではまた、ダッシュとプロファイル名をフォルダーの�
 - `wp`:Windows Phone
 - `cf`:Compact Framework
 
+## <a name="declaring-dependencies-advanced"></a>依存関係の宣言 (高度)
+
+プロジェクト ファイルをパックするとき、NuGet はそのプロジェクトから依存関係を自動的に生成しようとします。 このセクションに記載されている、 *.nuspec* ファイルを使用した依存関係の宣言に関する情報が必要になるのは、通常は、高度なシナリオだけです。
+
+" *(バージョン 2.0 以降)* " `<dependencies>` 要素内の `<group>` 要素を使って、ターゲット プロジェクトのターゲット フレームワークに対応する *.nuspec* でパッケージの依存関係を宣言できます。 詳しくは、[dependencies 要素](../reference/nuspec.md#dependencies-element)に関する記事をご覧ください。
+
+各グループには、`targetFramework` という名前の属性があり、0 個以上の `<dependency>` 要素が含まれます。 ターゲット フレームワークにプロジェクトのフレームワーク プロファイルとの互換性がある場合、これらの依存関係が一緒にインストールされます。 正確なフレームワーク識別子については、「[ターゲット フレームワーク](../reference/target-frameworks.md)」をご覧ください。
+
+*lib/* および *ref/* フォルダー内のファイルに対しては、ターゲット フレームワーク モニカー (TFM) ごとに 1 つのグループを使用することをお勧めします。
+
+次の例では、`<group>` 要素のさまざまなバリエーションを示します。
+
+```xml
+<dependencies>
+
+    <group targetFramework="net472">
+        <dependency id="jQuery" version="1.10.2" />
+        <dependency id="WebActivatorEx" version="2.2.0" />
+    </group>
+
+    <group targetFramework="net20">
+    </group>
+
+</dependencies>
+```
+
 ## <a name="determining-which-nuget-target-to-use"></a>使用する NuGet ターゲットを決定する
 
 ポータブル クラス ライブラリを対象とするライブラリをパッケージ化するとき、フォルダー名と `.nuspec` ファイルで使用する NuGet ターゲットの決定にはこつが要ります。PCL のサブセットのみを対象とする場合は特にそうです。 次の外部リソースが役立ちます。
 
-- [.NET のフレームワーク プロファイル](http://blog.stephencleary.com/2012/05/framework-profiles-in-net.html) (stephencleary.com)
-- [ポータブル クラス ライブラリ プロファイル](http://embed.plnkr.co/03ck2dCtnJogBKHJ9EjY/preview) (plnkr.co):PCL プロファイルとそれと同等の NuGet ターゲットを列挙するテーブル
+- [.NET のフレームワーク プロファイル](https://blog.stephencleary.com/2012/05/framework-profiles-in-net.html) (stephencleary.com)
+- [ポータブル クラス ライブラリ プロファイル](https://embed.plnkr.co/03ck2dCtnJogBKHJ9EjY/preview) (plnkr.co):PCL プロファイルとそれと同等の NuGet ターゲットを列挙するテーブル
 - [ポータブル クラス ライブラリ プロファイル ツール](https://github.com/StephenCleary/PortableLibraryProfiles) (github.com): システムで利用できる PCL プロファイルを決定するためのコマンド ライン ツール
 
 ## <a name="content-files-and-powershell-scripts"></a>コンテンツ ファイルと PowerShell スクリプト

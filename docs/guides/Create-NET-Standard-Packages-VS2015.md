@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 02/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: 7b1ccfbede4cec53cee3ec7d1c023e4c5be60bf0
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: b16bf422e2627be3b8516a875d749639734064a9
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545914"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380719"
 ---
 # <a name="create-net-standard-and-net-framework-packages-with-visual-studio-2015"></a>Visual Studio 2015 での NET Standard および NET Framework パッケージの作成
 
-**注:** .NET Standard ライブラリを開発するには、Visual Studio 2017 をお勧めします。 Visual Studio 2015 でも動作できますが、.NET Core ツールはプレビュー状態にしかなりません。 NuGet 4.x 以降および Visual Studio 2017 を使用している場合は、[Visual Studio 2017 でのパッケージの作成と公開](../quickstart/create-and-publish-a-package-using-visual-studio.md)に関するページを参照してください。
+**注:**  .NET Standard ライブラリを開発するには、Visual Studio 2017 をお勧めします。 Visual Studio 2015 でも動作できますが、.NET Core ツールはプレビュー状態にしかなりません。 NuGet 4.x 以降および Visual Studio 2017 を使用している場合は、[Visual Studio 2017 でのパッケージの作成と公開](../quickstart/create-and-publish-a-package-using-visual-studio.md)に関するページを参照してください。
 
 [.NET Standard ライブラリ](/dotnet/articles/standard/library)は、すべての .NET ランタイムで使用できるようにすることを目的とした .NET API の正式な仕様です。したがって、.NET エコシステムでより高い統一性が確立されます。 .NET Standard Library は、ワークロードに関係なく、すべての .NET プラットフォーム用に統一された BCL (基本クラス ライブラリ) API のセットを定義して実装します。 これにより、開発者はすべての .NET ランタイム間で使用可能なコードを生成できます。また、共有コードでプラットフォーム固有の条件付きコンパイル ディレクティブを除去するまでとはいかないまでも減らすことはできます。
 
@@ -31,17 +31,17 @@ ms.locfileid: "43545914"
 
 ## <a name="create-the-class-library-project"></a>クラス ライブラリ プロジェクトを作成する
 
-1. Visual Studio で、**[ファイル] > [新規] > [プロジェクト]** の順に移動し、**[Visual C#] > [Windows]** ノードの順に展開して **[クラス ライブラリ (ポータブル)]** を選択し、名前を AppLogger に変更してから **[OK]** を選択します。
+1. Visual Studio で、 **[ファイル] > [新規] > [プロジェクト]** の順に移動し、 **[Visual C#] > [Windows]** ノードの順に展開して **[クラス ライブラリ (ポータブル)]** を選択し、名前を AppLogger に変更してから **[OK]** を選択します。
 
     ![新しいクラス ライブラリ プロジェクトを作成する](media/NetStandard-NewProject.png)
 
 1. 表示された **[ポータブル クラス ライブラリの追加]** ダイアログ ボックスで、`.NET Framework 4.6` と `ASP.NET Core 1.0` のオプションを選択します。 (.NET Framework をターゲットにしている場合は、どちらか適切なオプションを選択できます。)
 
-1. .NET Standard をターゲットにしている場合、ソリューション エクスプローラーで `AppLogger (Portable)` を右クリックして **[プロパティ]** を選択し、**[ライブラリ]** タブを選択してから **[ターゲット]** セクションの **[ターゲットの .NET Platform Standard]** を選択します。 この動作によって確認を促すメッセージが表示され、以降はドロップ ダウンから `.NET Standard 1.4` (または、使用可能な別のバージョン) を選択できるようになります。
+1. .NET Standard をターゲットにしている場合、ソリューション エクスプローラーで `AppLogger (Portable)` を右クリックして **[プロパティ]** を選択し、 **[ライブラリ]** タブを選択してから **[ターゲット]** セクションの **[ターゲットの .NET Platform Standard]** を選択します。 この動作によって確認を促すメッセージが表示され、以降はドロップ ダウンから `.NET Standard 1.4` (または、使用可能な別のバージョン) を選択できるようになります。
 
     ![.NET Standard 1.4 へのターゲットの設定](media/NetStandard-ChangeTarget.png)
 
-1. **[ビルド]** タブをクリックして **[構成]** を `Release` に変更し、**[XML ドキュメント ファイル]** のボックスをオンにします。
+1. **[ビルド]** タブをクリックして **[構成]** を `Release` に変更し、 **[XML ドキュメント ファイル]** のボックスをオンにします。
 
 1. たとえば、次のようにコンポーネントにコードを追加します。
 
@@ -68,7 +68,7 @@ ms.locfileid: "43545914"
     nuget spec
     ```
 
-1. `AppLogger.nuspec` をエディターで開き、以下の内容と一致するように更新して、YOUR_NAME を適切な値に置き換えます。 具体的には、`<id>` 値を nuget.org で固有のものにする必要があります (「[パッケージの作成](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number)」で説明されている名前付け規則を参照)。 また、作成者と説明のタグを更新する必要があることに注意してください。そうしないと、パッキングの手順でエラーが発生します。
+1. `AppLogger.nuspec` をエディターで開き、以下の内容と一致するように更新して、YOUR_NAME を適切な値に置き換えます。 具体的には、`<id>` 値を nuget.org で固有のものにする必要があります (「[パッケージの作成](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number)」で説明されている名前付け規則を参照)。 また、作成者と説明のタグを更新する必要があることに注意してください。そうしないと、パッキングの手順でエラーが発生します。
 
     ```xml
     <?xml version="1.0"?>
@@ -110,7 +110,7 @@ ms.locfileid: "43545914"
     </files>
     ```
 
-1. ソリューションを右クリックし、**[ソリューションのビルド]** を選択してパッケージのすべてのファイルを生成します。
+1. ソリューションを右クリックし、 **[ソリューションのビルド]** を選択してパッケージのすべてのファイルを生成します。
 
 ### <a name="declaring-dependencies"></a>依存関係の宣言
 
@@ -125,7 +125,7 @@ ms.locfileid: "43545914"
 </dependencies>
 ```
 
-*version* 属性の構文は、バージョン 8.0.3 以降が許容されることを示します。 別のバージョンの範囲を指定する場合は、「[パッケージのバージョン管理](../reference/package-versioning.md)」を参照してください。
+*version* 属性の構文は、バージョン 8.0.3 以降が許容されることを示します。 別のバージョンの範囲を指定する場合は、「[パッケージのバージョン管理](../concepts/package-versioning.md)」を参照してください。
 
 ### <a name="adding-a-readme"></a>Readme の追加
 
@@ -159,7 +159,7 @@ nuget pack AppLogger.nuspec
 > [!Tip]
 > `.nupkg` ファイルは、異なる拡張子が付いた単なる .zip ファイルです。 したがって、`.nupkg` を `.zip` に変えてパッケージの内容を調べることもできますが、パッケージを nuget.org にアップロードする前に必ず、拡張子を復元してください。
 
-パッケージを他の開発者が使用できるようにする場合は、「[パッケージを公開する](../create-packages/publish-a-package.md)」の手順に従ってください。
+パッケージを他の開発者が使用できるようにする場合は、「[パッケージを公開する](../nuget-org/publish-a-package.md)」の手順に従ってください。
 
 `pack` には Mac OS X の場合は Mono 4.4.2 が必要であり、Linux 1 システムでは動作しないことに注意してください。 Mac の場合、`.nuspec` ファイルの Windows パス名を Unix 形式のパスに変換する必要もあります。
 
@@ -167,9 +167,9 @@ nuget pack AppLogger.nuspec
 
 - [.nuspec リファレンス](../reference/nuspec.md)
 - [複数の .NET Framework バージョンのサポート](../create-packages/supporting-multiple-target-frameworks.md)
-- [パッケージに MSBuild プロパティとターゲットを含める](../create-packages/creating-a-package.md#including-msbuild-props-and-targets-in-a-package)
+- [パッケージに MSBuild プロパティとターゲットを含める](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)
 - [ローカライズされたパッケージを作成する](../create-packages/creating-localized-packages.md)
-- [シンボル パッケージ](../create-packages/symbol-packages.md)
-- [パッケージのバージョン管理](../reference/package-versioning.md)
+- [シンボル パッケージ](../create-packages/symbol-packages-snupkg.md)
+- [パッケージのバージョン管理](../concepts/package-versioning.md)
 - [.NET Standard ライブラリのドキュメント](/dotnet/articles/standard/library)
 - [.NET Framework から .NET Core への移植](/dotnet/articles/core/porting/index)

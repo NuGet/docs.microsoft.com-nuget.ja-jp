@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: aa5cd1a2f3e3a6707a9d68204306db85651b0a18
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 87116669c1e685ffd0dbe4142c2f7e357c413497
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545201"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488244"
 ---
 # <a name="projectjson-archive"></a>project.json のアーカイブ
 
@@ -38,9 +38,9 @@ ms.locfileid: "43545201"
 
 ## <a name="constraining-package-versions-with-restore"></a>復元でのパッケージのバージョンの制約
 
-*"もともとは「[パッケージの復元](../consume-packages/package-restore.md#constraining-package-versions-with-restore)」内。"*
+*"もともとは「[パッケージの復元](../consume-packages/package-restore.md#constrain-package-versions-with-restore)」内。"*
 
-- `project.json`: 依存関係のバージョン番号でバージョンの範囲を直接指定します。 例:
+- `project.json`:依存関係のバージョン番号でバージョンの範囲を直接指定します。 次に例を示します。
 
     ```json
     "Newtonsoft.json": "[6, 7)"
@@ -50,23 +50,23 @@ ms.locfileid: "43545201"
 
 - `project.json`では、`nuget install` は機能しません。
 - `nuget restore`: `project.json`を使用するプロジェクトでは、必要に応じて、`project.lock.json` ファイルと `<project>.nuget.props` ファイルを生成します。 (どちらのファイルもソース管理から省略できます)。`<projectPath>` 引数は、`project.json` ファイルを指示することができ、`packages.config` またはプロジェクト ファイルを指示する場合同様に動作します。 パッケージ フォルダーの優先順位では、`project.json` を使用する場合、`%userprofile%\.nuget\packages` が最初に検索されます。
-- `nuget update`: Mono の場合、このコマンドは、`project.json` を使用するプロジェクトで機能しません。
+- `nuget update`:Mono の場合、このコマンドは、`project.json` を使用するプロジェクトで機能しません。
 
 ## <a name="dependency-resolution-with-packagereference"></a>PackageReference による依存関係の解決
 
-*"もともとは「[依存関係の解決](../consume-packages/dependency-resolution.md#dependency-resolution-with-packagereference)」内。"*
+*"もともとは「[依存関係の解決](../concepts/dependency-resolution.md#dependency-resolution-with-packagereference)」内。"*
 
 PackageReference の動作は、`project.json` にも適用されます。 nuget restore は、依存関係グラフを、`project.json` と同時に `project.lock.json`にも書き込みます。
 
 ## <a name="managing-dependency-assets"></a>依存関係アセットの管理
 
-*"もともとは「[依存関係の解決](../consume-packages/dependency-resolution.md#managing-dependency-assets)」内。"*
+*"もともとは「[依存関係の解決](../concepts/dependency-resolution.md#managing-dependency-assets)」内。"*
 
 `project.json` 形式を使用すると、依存関係から最上位のプロジェクトへの資産のフローを制御できます。 詳細については、「[project.json](project-json.md)」を参照してください。
 
 ## <a name="excluding-references"></a>参照の除外
 
-*"もともとは「[依存関係の解決](../consume-packages/dependency-resolution.md#excluding-references)」内。"*
+*"もともとは「[依存関係の解決](../concepts/dependency-resolution.md#excluding-references)」内。"*
 
 - `project.json`: パッケージ C の依存関係に `"exclude" : "all"` を追加します。
 
@@ -83,7 +83,7 @@ PackageReference の動作は、`project.json` にも適用されます。 nuget
 
 ## <a name="resolving-incompatible-package-errors"></a>互換性のないパッケージのエラーの解決
 
-*"もともとは「[依存関係の解決](../consume-packages/dependency-resolution.md#resolving-incompatible-package-errors)」内。"*
+*"もともとは「[依存関係の解決](../concepts/dependency-resolution.md#resolving-incompatible-package-errors)」内。"*
 
 エラーを解決するための追加手段:
 
@@ -93,7 +93,7 @@ PackageReference の動作は、`project.json` にも適用されます。 nuget
 
 *"もともとは「[ターゲット フレームワーク](../reference/target-frameworks.md)」内。"*
 
-- [project.json](project-json.md): `frameworks` ノードで、プロジェクトをコンパイルできるフレームワークのバージョンを指定します。
+- [project.json](project-json.md):`frameworks` ノードで、プロジェクトをコンパイルできるフレームワークのバージョンを指定します。
 
 ## <a name="creating-a-package"></a>パッケージの作成
 
@@ -105,7 +105,7 @@ PackageReference の動作は、`project.json` にも適用されます。 nuget
 
 パッケージの種類は `project.json` で設定されます。
 
-- `project.json`: `packOptions.packageType` プロパティ json 内のパッケージの種類を示します。
+- `project.json`:`packOptions.packageType` プロパティ json 内のパッケージの種類を示します。
 
     ```json
     {
@@ -124,7 +124,7 @@ PackageReference の動作は、`project.json` にも適用されます。 nuget
 
 ### <a name="package-versioning"></a>パッケージのバージョン管理
 
-*"もともとは「[パッケージのバージョン管理](../reference/package-versioning.md)」内。"*
+*"もともとは「[パッケージのバージョン管理](../concepts/package-versioning.md)」内。"*
 
 `project.json`形式を使用する場合、NuGet では、メジャー、マイナー、パッチ、およびプレリリースを示す、番号のサフィックス部分にワイルドカード表記 \*を使用できます。
 
@@ -142,9 +142,9 @@ PackageReference の動作は、`project.json` にも適用されます。 nuget
 
 ### <a name="package-manager-options-control"></a>パッケージ マネージャーのオプションの制御
 
-*もともとは「[パッケージ マネージャー UI リファレンス](../tools/package-manager-ui.md)」内。*
+*もともとは「[パッケージ マネージャー UI リファレンス](../consume-packages/install-use-packages-visual-studio.md)」内。*
 
-`project.json` 管理形式を使用するプロジェクトでは、**[プレビュー ウィンドウを表示する]** オプションのみが表示されます。
+`project.json` 管理形式を使用するプロジェクトでは、 **[プレビュー ウィンドウを表示する]** オプションのみが表示されます。
 
 ### <a name="visual-studio-templates"></a>Visual Studio テンプレート
 

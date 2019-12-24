@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/06/2017
 ms.topic: conceptual
-ms.openlocfilehash: 91c072c8895ab4267c64fd04deae010ae5af4d37
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 42a5c30c058a9efb35338c1b484235b6ad111bd0
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545453"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317592"
 ---
 # <a name="local-feeds"></a>ローカル フィード
 
 ローカル NuGet パッケージのフィードは単に、パッケージを配置するローカル ネットワーク上 (または独自のコンピューターだけ) の階層フォルダー構造です。 これらのフィードは、CLI、パッケージ マネージャー UI、およびパッケージ マネージャー コンソールを使用して、その他すべての NuGet の操作でパッケージ ソースとして使用できます。
 
-ソースを有効にするには、[パッケージ マネージャー UI](../tools/package-manager-ui.md#package-sources) または [`nuget sources`](../tools/cli-ref-sources.md) コマンドを使用して、そのパス名 (`\\myserver\packages` など) をソースの一覧に追加します。
+ソースを有効にするには、[パッケージ マネージャー UI](../consume-packages/install-use-packages-visual-studio.md#package-sources) または [`nuget sources`](../reference/cli-reference/cli-ref-sources.md) コマンドを使用して、そのパス名 (`\\myserver\packages` など) をソースの一覧に追加します。
 
 > [!Note]
 > 階層フォルダーの構造は、NuGet 3.3 以降でサポートされます。 古いバージョンの NuGet は、パフォーマンスが階層構造よりもはるかに劣る、パッケージを含む 1 つのフォルダーのみを使用します。
@@ -31,7 +31,7 @@ ms.locfileid: "43545453"
           ├─<packageID>.<version>.nupkg
           └─<other files>
 
-[`nuget add`](../tools/cli-ref-add.md) コマンドを使用してパッケージをフィードにコピーすると、NuGet ではこの構造が自動的に作成されます。
+[`nuget add`](../reference/cli-reference/cli-ref-add.md) コマンドを使用してパッケージをフィードにコピーすると、NuGet ではこの構造が自動的に作成されます。
 
 ```cli
 nuget add new_package.1.0.0.nupkg -source \\myserver\packages
@@ -39,7 +39,7 @@ nuget add new_package.1.0.0.nupkg -source \\myserver\packages
 
 `nuget add` コマンドは、一度に 1 つのパッケージを使用して動作します。これは、複数のパッケージを含むフィードを設定するときに、不便な場合があります。
 
-このような場合、[`nuget init`](../tools/cli-ref-init.md) コマンドを使用して、それぞれ個別に `nuget add` を実行するように、フォルダーのすべてのパッケージをフィードにコピーします。 たとえば、次のコマンドでは、すべてのパッケージを `c:\packages` から `\\myserver\packages` の階層ツリーにコピーします。
+このような場合、[`nuget init`](../reference/cli-reference/cli-ref-init.md) コマンドを使用して、それぞれ個別に `nuget add` を実行するように、フォルダーのすべてのパッケージをフィードにコピーします。 たとえば、次のコマンドでは、すべてのパッケージを `c:\packages` から `\\myserver\packages` の階層ツリーにコピーします。
 
 ```cli
 nuget init c:\packages \\myserver\packages

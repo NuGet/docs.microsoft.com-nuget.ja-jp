@@ -1,18 +1,18 @@
 ---
-title: 署名付き NuGet パッケージをインストールする
+title: パッケージ信頼境界を管理する
 description: 署名付き NuGet パッケージをインストールする手順およびパッケージの署名の信頼設定を構成する方法を説明します。
 author: karann-msft
 ms.author: karann
 ms.date: 11/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 11ffaee96b6f6a9260f38c534328b6631cd96abf
-ms.sourcegitcommit: 673e580ae749544a4a071b4efe7d42fd2bb6d209
+ms.openlocfilehash: 034b9dd9699af529e4d82d6ee5b1c42214673341
+ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52977836"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74096851"
 ---
-# <a name="install-a-signed-package"></a>署名済みパッケージをインストールする
+# <a name="manage-package-trust-boundaries"></a>パッケージ信頼境界を管理する
 
 署名済みパッケージのインストールには、特定のアクションは必要ありません。ただし、署名後にコンテンツが変更された場合、インストールはエラー [NU3008](../reference/errors-and-warnings/NU3008.md) でブロックされます。
 
@@ -22,9 +22,9 @@ ms.locfileid: "52977836"
 ## <a name="configure-package-signature-requirements"></a>パッケージの署名要件を構成する
 
 > [!Note]
-> NuGet 4.9.0 以上および Visual Studio バージョン 15.9 以上が Windows で必要です。
+> NuGet 4.9.0 以降および Visual Studio バージョン 15.9 以降が Windows で必要です。
 
-NuGet クライアントがパッケージの署名を検証する方法を構成するには、[nuget.config](../reference/nuget-config-file) ファイルで [`nuget config`](../tools/cli-ref-config) コマンドを使用し、`signatureValidationMode` を `require` に設定します。
+NuGet クライアントがパッケージの署名を検証する方法を構成するには、[nuget.config](../reference/nuget-config-file.md) ファイルで [`nuget config`](../reference/cli-reference/cli-ref-config.md) コマンドを使用し、`signatureValidationMode` を `require` に設定します。
 
 ```cmd
 nuget.exe config -set signatureValidationMode=require
@@ -40,7 +40,7 @@ nuget.exe config -set signatureValidationMode=require
 
 ### <a name="trust-package-author"></a>パッケージの作成者を信頼する
 
-作成者の署名に基づいてパッケージを信頼するには、nuget.config で [`trusted-signers`](..tools/cli-ref-trusted-signers) コマンドを使用し `author` プロパティを設定します。
+作成者の署名に基づいてパッケージを信頼するには、nuget.config で [`trusted-signers`](../reference/cli-reference/cli-ref-trusted-signers.md) コマンドを使用し `author` プロパティを設定します。
 
 ```cmd
 nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE40881FF5F0AD3E58965DA20A9F571EF1651A56933748E1BF1C99E537C4E039 -FingerprintAlgorithm SHA256
@@ -55,7 +55,7 @@ nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE408
 ```
 
 >[!TIP]
->`nuget.exe` の [verify コマンド](https://docs.microsoft.com/en-us/nuget/tools/cli-ref-verify)を使用して、証明書のフィンガープリントの `SHA256` 値を取得します。
+>`nuget.exe` の [verify コマンド](../reference/cli-reference/cli-ref-verify.md)を使用して、証明書のフィンガープリントの `SHA256` 値を取得します。
 
 
 ### <a name="trust-all-packages-from-a-repository"></a>リポジトリのパッケージをすべて信頼する
@@ -91,18 +91,17 @@ nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE408
 
 ### <a name="untrusted-root-certificates"></a>信頼されないルート証明書
 
-場合によっては、ローカル マシンの信頼されたルートに関連付けられていない証明書を使用した検証を有効にしたい場合があります。 この動作をカスタマイズするには、`allowUntrustedRoot` 属性を使用します。
+場合によっては、ローカル コンピューターの信頼されたルートに関連付けられていない証明書を使用した検証を有効にしたい場合があります。 この動作をカスタマイズするには、`allowUntrustedRoot` 属性を使用できます。
 
-### <a name="sync-repository-certificates"></a>同期リポジトリの証明書
+### <a name="sync-repository-certificates"></a>リポジトリの証明書を同期する
 
-パッケージ リポジトリでは、使用する証明書をその[サービス インデックス](https://docs.microsoft.com/en-us/nuget/api/service-index)で宣言する必要があります。 証明書の有効期限が切れるときなどに、実質的にこれらの証明書はリポジトリで更新されます。 これが発生した場合、特定のポリシーを使用するクライアントは、新しく追加された証明書を含めるために構成を更新する必要があります。 リポジトリに関連付けられている信頼されている署名者は、`nuget.exe` [trusted-signers sync コマンド](/nuget/tools/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-)を使用して簡単にアップグレードできます。
+パッケージ リポジトリでは、使用する証明書をその[サービス インデックス](../api/service-index.md)で宣言する必要があります。 証明書の有効期限が切れるときなどに、実質的にこれらの証明書はリポジトリで更新されます。 これが発生した場合、特定のポリシーを使用するクライアントは、新しく追加された証明書を含めるために構成を更新する必要があります。 リポジトリに関連付けられている信頼されている署名者は、`nuget.exe` [trusted-signers sync コマンド](../reference/cli-reference/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-name)を使用して簡単にアップグレードできます。
 
 ### <a name="schema-reference"></a>スキーマ リファレンス
 
-クライアント ポリシーの完全なスキーマ リファレンスは、[nuget.config のリファレンス](/nuget/reference/nuget-config-file#trustedsigners-section)に関するページにあります。
+クライアント ポリシーの完全なスキーマ リファレンスは、[nuget.config のリファレンス](../reference/nuget-config-file.md#trustedsigners-section)で見つけることができます。
 
 ## <a name="related-articles"></a>関連記事
 
-- [NuGet パッケージをインストールするためのさまざまな方法](ways-to-install-a-package.md)
 - [NuGet パッケージの署名](../create-packages/Sign-a-Package.md)
 - [署名済みパッケージの参照](../reference/Signed-Packages-Reference.md)

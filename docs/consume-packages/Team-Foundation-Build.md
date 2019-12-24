@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: 0e69491525fce03e504d9d455bee2718510c83c2
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: a86a58f8afb4b0f1affeddd47d6c5606fb465757
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549886"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73611003"
 ---
 # <a name="setting-up-package-restore-with-team-foundation-build"></a>Team Foundation ビルドでのパッケージの復元の設定
 
@@ -31,7 +31,7 @@ ms.locfileid: "43549886"
 
 NuGet を使用する利点は、バージョン管理システムへのバイナリのチェックインを回避できることです。
 
-これは、git などの[分散バージョン管理](http://en.wikipedia.org/wiki/Distributed_revision_control)システムを使用している場合に特に有効です。これは、開発者が、ローカルで作業を始める前に、完全な履歴を含めた全体のリポジトリを複製する必要があるためです。 バイナリ ファイルは一般的に差分圧縮なしで保存されるので、バイナリ ファイルをチェックインすると、大幅なリポジトリの肥大化を招く可能性があります。
+これは、git などの[分散バージョン管理](https://en.wikipedia.org/wiki/Distributed_revision_control)システムを使用している場合に特に有効です。これは、開発者が、ローカルで作業を始める前に、完全な履歴を含めた全体のリポジトリを複製する必要があるためです。 バイナリ ファイルは一般的に差分圧縮なしで保存されるので、バイナリ ファイルをチェックインすると、大幅なリポジトリの肥大化を招く可能性があります。
 
 NuGet は、現在まで長期にわたってビルドの一部としての[パッケージ復元](../consume-packages/package-restore.md)をサポートしています。 以前の実装では、NuGet は、プロジェクトのビルド中にパッケージを復元したので、ビルド プロセスを拡張する必要があるパッケージの場合に、卵が先か鶏が先かという問題がありました。 しかし、MSBuild では、ビルド中のビルドの拡張は許可されないので、これは MSBuild の問題だと主張されることがありますが、私はこれが固有の問題であると主張します。 拡張する必要がある局面によっては、パッケージが復元されるときには登録するのに遅すぎることがあります。
 
@@ -50,7 +50,7 @@ nuget restore path\to\solution.sln
 
 ## <a name="repository-structure"></a>リポジトリの構造
 
-デモのプロジェクトは、Bing のクエリにコマンドライン引数を使用しているシンプルなコマンド ライン ツールです。 .NET Framework 4 を対象とし、多くの [BCL パッケージ](http://www.nuget.org/profiles/dotnetframework/) ([Microsoft.Net.Http](http://www.nuget.org/packages/Microsoft.Net.Http)、[Microsoft.Bcl](http://www.nuget.org/packages/Microsoft.Bcl)、[Microsoft.Bcl.Async](http://www.nuget.org/packages/Microsoft.Bcl.Async)、[Microsoft.Bcl.Build](http://www.nuget.org/packages/Microsoft.Bcl.Build)) を使用しています。
+デモのプロジェクトは、Bing のクエリにコマンドライン引数を使用しているシンプルなコマンド ライン ツールです。 .NET Framework 4 を対象とし、多くの [BCL パッケージ](https://www.nuget.org/profiles/dotnetframework/) ([Microsoft.Net.Http](https://www.nuget.org/packages/Microsoft.Net.Http)、[Microsoft.Bcl](https://www.nuget.org/packages/Microsoft.Bcl)、[Microsoft.Bcl.Async](https://www.nuget.org/packages/Microsoft.Bcl.Async)、[Microsoft.Bcl.Build](https://www.nuget.org/packages/Microsoft.Bcl.Build)) を使用しています。
 
 リポジトリの構造は次のようになります。
 

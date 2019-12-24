@@ -1,5 +1,5 @@
 ---
-title: プッシュし、削除、NuGet API
+title: プッシュと削除、NuGet API
 description: Publish サービスは、クライアントが新しいパッケージを公開し、一覧から削除または既存のパッケージを削除できます。
 author: joelverhagen
 ms.author: jver
@@ -13,7 +13,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 06/28/2019
 ms.locfileid: "67426722"
 ---
-# <a name="push-and-delete"></a>プッシュし、削除
+# <a name="push-and-delete"></a>プッシュと削除
 
 プッシュ、削除 (またはサーバーの実装によって、一覧から削除) することは、NuGet V3 API を使用してパッケージを一覧に再記載するとします。 これらの操作は無効の基づいて、`PackagePublish`リソースで見つかった、[サービス インデックス](service-index.md)します。
 

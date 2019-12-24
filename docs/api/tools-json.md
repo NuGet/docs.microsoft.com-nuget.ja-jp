@@ -1,68 +1,68 @@
 ---
-title: nuget.exe のバージョンを検出するための tools.json
-description: エンドポイント
+title: nuget.exe バージョンを検出するためのツール。
+description: のエンドポイント
 author: jver
 ms.author: jver
 ms.date: 08/16/2018
 ms.topic: conceptual
 ms.reviewer: kraigb
-ms.openlocfilehash: 003139abac7808dbdaef4aa66119e09772db2b4f
-ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
+ms.openlocfilehash: a186db9727bdfd1b55bf73a1f29283352555dede
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56852534"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73611030"
 ---
-# <a name="toolsjson-for-discovering-nugetexe-versions"></a>nuget.exe のバージョンを検出するための tools.json
+# <a name="toolsjson-for-discovering-nugetexe-versions"></a>nuget.exe バージョンを検出するためのツール。
 
-今日では、これにはスクリプト可能な方法でコンピューターに最新バージョンの nuget.exe を取得するいくつかの方法があります。 たとえば、ダウンロードして抽出、 [ `NuGet.CommandLine` ](https://www.nuget.org/packages/NuGet.CommandLine/) nuget.org からパッケージ。Nuget.exe があるかが何らかの複雑性があります (の`nuget.exe install`) か、基本的な解凍ツールを使用して .nupkg を解凍し、バイナリの内側の検索にあります。
+現在、コンピューター上の最新バージョンの nuget.exe をスクリプト可能な方法で入手するには、いくつかの方法があります。 たとえば、nuget.org から[`NuGet.CommandLine`](https://www.nuget.org/packages/NuGet.CommandLine/)パッケージをダウンロードして抽出することができます。これにはいくつかの複雑さがあります。これは、既に nuget.exe がある (`nuget.exe install`) 必要があるか、または基本的な解凍ツールを使用して nupkg を解凍し、内部でバイナリを検索する必要があるためです。
 
-Nuget.exe 既にある場合も行えます`nuget.exe update -self`nuget.exe の既存のコピーをしなくても必要です。 このアプローチでは、最新バージョンにしても更新されます。 特定のバージョンの使用はできません。
+既に nuget.exe を持っている場合は、`nuget.exe update -self`を使用することもできますが、これには nuget.exe の既存のコピーが必要です。 この方法では、最新バージョンも更新されます。 特定のバージョンを使用することはできません。
 
-`tools.json`エンドポイントがあるブートス トラップの問題を解決両方をダウンロードする nuget.exe のバージョンを制御できるようにするとします。 これは、できます CI/CD 環境や、カスタム スクリプトで検出し、任意のリリース バージョンの nuget.exe をダウンロードします。
+`tools.json` エンドポイントを使用して、ブートストラップの問題を解決し、ダウンロードする nuget.exe のバージョンを制御することができます。 これは、CI/CD 環境またはカスタムスクリプトで使用して、任意のリリースバージョンの nuget.exe を検出してダウンロードすることができます。
 
-`tools.json`エンドポイントは、認証されていない HTTP 要求を使用して取得できます (例: `Invoke-WebRequest` powershell または`wget`)。 JSON デシリアライザーを使用して解析できを使用して Url をフェッチすることも、後続の nuget.exe ダウンロードには、HTTP 要求が認証されていません。
+`tools.json` エンドポイントは、認証されていない HTTP 要求 (PowerShell や `wget`の `Invoke-WebRequest` など) を使用してフェッチできます。 これは、JSON デシリアライザーを使用して解析できます。その後の nuget ダウンロード Url は、認証されていない HTTP 要求を使用してフェッチすることもできます。
 
-使用して、エンドポイントをフェッチすることができます、`GET`メソッド。
+エンドポイントは、`GET` メソッドを使用してフェッチできます。
 
     GET https://dist.nuget.org/tools.json
 
-[JSON スキーマ](http://json-schema.org/)のエンドポイントは、ここで使用します。
+エンドポイントの[JSON スキーマ](https://json-schema.org/)については、次を参照してください。
 
     GET https://dist.nuget.org/tools.schema.json
 
 ## <a name="response"></a>応答
 
-応答は、すべての利用可能なバージョンの nuget.exe を含む JSON ドキュメントです。
+応答は、使用可能なすべてのバージョンの nuget.exe を含む JSON ドキュメントです。
 
 ルート JSON オブジェクトには、次のプロパティがあります。
 
-名前      | 種類             | 必須
+名      | [種類]             | 必要
 --------- | ---------------- | --------
 nuget.exe | オブジェクトの配列 | 可
 
-内の各オブジェクト、`nuget.exe`配列は、次のプロパティ。
+`nuget.exe` 配列の各オブジェクトには、次のプロパティがあります。
 
-名前     | 種類   | 必須 | メモ
+名     | [種類]   | 必要 | ノート
 -------- | ------ | -------- | -----
-version  | string | 可      | A SemVer 2.0.0 string
+version  | string | 可      | SemVer 2.0.0 文字列
 url      | string | 可      | このバージョンの nuget.exe をダウンロードするための絶対 URL
-ステージ    | string | 可      | 列挙型の文字列
-アップロード | string | 可      | バージョンを利用可能であった場合のおおよその ISO 8601 のタイムスタンプ
+準備    | string | 可      | 列挙型文字列
+アップロード | string | 可      | バージョンが使用可能になったときの ISO 8601 の概算タイムスタンプ
 
-配列内の項目は SemVer 2.0.0 の順序を降順で並べ替えられます。 この保証は最新のバージョン番号に関心がクライアントの負荷を軽減するためのものです。 ただし、リストが順に並べ替えられていないことをこのわけです。 たとえば、下のメジャー バージョンは、以上のメジャー バージョンより後の日付でサービスが場合、このサービスのバージョンは、一覧の上部にあるは表示されません。 リリースされた最新バージョンの場合*タイムスタンプ*、単に、配列の並べ替え、`uploaded`文字列。 なので、`uploaded`タイムスタンプが、 [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html)形式を辞書式順序の並べ替え (単純な文字列の並べ替えなど) を使用して古い順に並べ替えできます。
+配列内の項目は、SemVer 2.0.0 order の降順で並べ替えられます。 この保証は、最も高いバージョン番号に関心のあるクライアントの負担を軽減することを目的としています。 ただし、これは、リストが時系列順に並べ替えられていないことを意味します。 たとえば、古いメジャーバージョンが上位のメジャーバージョンより後の日付でサービスされている場合、このサービスバージョンは一覧の先頭に表示されません。 *タイムスタンプ*によって最新バージョンがリリースされるようにするには、単に `uploaded` 文字列で配列を並べ替えます。 これは、`uploaded` タイムスタンプが[ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html)形式であり、辞書式並べ替え (つまり、単純な文字列の並べ替え) を使用して時系列で並べ替えることができるためです。
 
-`stage`プロパティは、ツールのこのバージョンは、審査に合格した方法を示します。 
+`stage` プロパティは、このバージョンのツールがどのように吟味されるかを示します。 
 
 段階              | 説明
 ------------------ | ------
-EarlyAccessPreview | まだ表示されない、[ダウンロード web ページ](https://www.nuget.org/downloads)とパートナーで検証する必要があります
-リリース済み           | まだ広く使用されている使用量のことをお勧めしますのダウンロード サイトで利用可能
-ReleasedAndBlessed | ダウンロード サイトで使用可能な従量課金のためお勧め
+EarlyAccessPreview | [ダウンロード web ページ](https://www.nuget.org/downloads)にはまだ表示されていないため、パートナーが検証する必要があります
+リリース済み           | ダウンロードサイトで利用できますが、大規模な消費にはまだ推奨されていません。
+ReleasedAndBlessed | ダウンロードサイトで利用可能であり、使用することをお勧めします。
 
-リストを持つ最初のバージョンを最新の 1 つの簡単な方法、推奨されるバージョンは、 `stage` @property`ReleasedAndBlessed`します。 これが機能のバージョンは SemVer 2.0.0 の順序で並べ替えられます。
+最新の推奨バージョンを使用するための簡単な方法の1つは、リスト内の `stage` 値が `ReleasedAndBlessed`の最初のバージョンを取得することです。 これは、バージョンが SemVer 2.0.0 order で並べ替えられているために機能します。
 
-`NuGet.CommandLine`で nuget.org でパッケージがのみ更新通常`ReleasedAndBlessed`バージョン。
+Nuget.org の `NuGet.CommandLine` パッケージは、通常、`ReleasedAndBlessed` バージョンでのみ更新されます。
 
 ### <a name="sample-request"></a>要求のサンプル
 

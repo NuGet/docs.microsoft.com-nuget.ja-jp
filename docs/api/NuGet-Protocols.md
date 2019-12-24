@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.reviewer: kraigb
 ms.openlocfilehash: d0add777040dbb8bcde6d8e385a4feab568e5cdd
 ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 09/04/2018
 ms.locfileid: "43547274"
 ---
-# <a name="nugetorg-protocols"></a>nuget.org protocols
+# <a name="nugetorg-protocols"></a>nuget.org プロトコル
 
 Nuget.org をやり取りするには、クライアントは特定のプロトコルに従う必要があります。 これらのプロトコル、進化、ために、クライアントは、特定 nuget.org の Api を呼び出すときに使用するプロトコルのバージョンを識別する必要があります。 これにより、古いクライアントの互換性に影響しない方法で変更を導入する nuget.org ができます。
 
@@ -26,7 +26,7 @@ NuGet エコシステム全体で広く実装されている NuGet API につい
 
 ## <a name="nuget-protocol-version-410"></a>プロトコルのバージョンの NuGet 4.1.0
 
-4.1.0 プロトコルを nuget.org には、nuget.org アカウントに対して、パッケージを検証する以外のサービスと対話することを確認スコープのキーの使用量を指定します。 なお、`4.1.0`バージョン数値が不透明な文字列が、このプロトコルがサポートされている公式の NuGet クライアントの最初のバージョンと同時に発生します。
+4\.1.0 プロトコルを nuget.org には、nuget.org アカウントに対して、パッケージを検証する以外のサービスと対話することを確認スコープのキーの使用量を指定します。 なお、`4.1.0`バージョン数値が不透明な文字列が、このプロトコルがサポートされている公式の NuGet クライアントの最初のバージョンと同時に発生します。
 
 検証では、ユーザーが作成した API キーは、nuget.org でのみ使用され、その他の検証またはサード パーティのサービスからの検証は、1 回だけ使用確認スコープ キーを介して処理されことを確認します。 パッケージを nuget.org で特定のユーザー (アカウント) が属していることを検証することを確認スコープのこれらのキーを使用できます。
 

@@ -1,11 +1,7 @@
 ---
 title: 新しいシンボル パッケージ形式 '.snupkg' を使用して NuGet シンボル パッケージを公開する方法 | Microsoft Docs
-author:
-- cristinamanu
-- kraigb
-ms.author:
-- cristinamanu
-- kraigb
+author: cristinamanu
+ms.author: cristinamanu
 manager: skofman
 ms.date: 10/30/2018
 ms.topic: reference
@@ -16,12 +12,12 @@ keywords: NuGet シンボル パッケージ, NuGet パッケージ デバッグ
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 18d54e28d77f2bdcfea70ff9ae9def05278cb26c
-ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
+ms.openlocfilehash: 8528261f90e75e2dfac8cb746b396d227c3741f4
+ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610563"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74825186"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>シンボル パッケージ (.snupkg) の作成
 
@@ -33,35 +29,45 @@ ms.locfileid: "65610563"
 
 ## <a name="creating-a-symbol-package"></a>シンボル パッケージを作成する
 
-snupkg シンボル パッケージを作成するには、dotnet.exe、NuGet.exe、または MSBuild を使用します。 NuGet.exe を使用する場合は、次のコマンドを使用すると .nupkg ファイルに加えて .snupkg ファイルを作成できます。
+dotnet.exe または MSBuild を使用する場合は、`IncludeSymbols` プロパティと `SymbolPackageFormat` プロパティを設定し、.nupkg ファイルに加えて .snupkg ファイルを作成します。
 
-```
+* 次のプロパティを .csproj ファイルに追加するか:
+
+   ```xml
+   <PropertyGroup>
+      <IncludeSymbols>true</IncludeSymbols> 
+      <SymbolPackageFormat>snupkg</SymbolPackageFormat> 
+   </PropertyGroup>
+   ```
+
+* または、コマンド ラインで次のプロパティを指定します:
+
+     ```dotnetcli
+     dotnet pack MyPackage.csproj -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
+     ```
+
+  or
+
+  ```cli
+  msbuild MyPackage.csproj /t:pack /p:IncludeSymbols=true /p:SymbolPackageFormat=snupkg
+  ```
+
+NuGet.exe を使用する場合は、次のコマンドを使用すると .nupkg ファイルに加えて .snupkg ファイルを作成できます。
+
+```cli
 nuget pack MyPackage.nuspec -Symbols -SymbolPackageFormat snupkg
 
 nuget pack MyPackage.csproj -Symbols -SymbolPackageFormat snupkg
 ```
 
-dotnet.exe または MSBuild を使用する場合は、次の手順で .nupkg ファイルに加えて .snupkg ファイルを作成します。
-
-1. 次に示すプロパティを .csproj ファイルに追加します。
-
-    ```xml
-    <PropertyGroup>
-      <IncludeSymbols>true</IncludeSymbols>
-      <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    </PropertyGroup>
-    ```
-
-1. `dotnet pack MyPackage.csproj` または `msbuild -t:pack MyPackage.csproj` を使用してプロジェクトをパックします。
-
-[`SymbolPackageFormat`](/dotnet/core/tools/csproj.md#symbolpackageformat) プロパティには、`symbols.nupkg` (既定値) または `snupkg` の 2 つの値のいずれかを指定できます。 [`SymbolPackageFormat`](/dotnet/core/tools/csproj.md#symbolpackageformat) プロパティが指定されていない場合は、レガシ シンボル パッケージが作成されます。
+[`SymbolPackageFormat`](/dotnet/core/tools/csproj#symbolpackageformat) プロパティには、`symbols.nupkg` (既定値) または `snupkg` の 2 つの値のいずれかを指定できます。 このプロパティが指定されていない場合は、レガシ シンボル パッケージが作成されます。
 
 > [!Note]
 > 従来の形式 `.symbols.nupkg` は引き続きサポートされますが、これは互換性のみを目的としています ([レガシ シンボル パッケージ](Symbol-Packages.md)に関する記事を参照)。 NuGet.org のシンボル サーバーは、新しいシンボル パッケージ形式 `.snupkg` のみを受け入れます。
 
 ## <a name="publishing-a-symbol-package"></a>シンボル パッケージを公開する
 
-1. 便宜上、最初に NuGet で API キーを保存してください (「[パッケージを公開する](../create-packages/publish-a-package.md)」を参照)。
+1. 便宜上、最初に NuGet で API キーを保存してください (「[パッケージを公開する](../nuget-org/publish-a-package.md)」を参照)。
 
     ```cli
     nuget SetApiKey Your-API-Key
@@ -86,25 +92,25 @@ NuGet では、両方のパッケージが nuget.org に公開されます。最
 
 ## <a name="nugetorg-symbol-server"></a>NuGet.org のシンボル サーバー
 
-NuGet.org は独自のシンボル サーバー リポジトリをサポートし、新しいシンボル パッケージ形式 `.snupkg` のみを受け入れます。 パッケージ コンシューマーは Visual Studio で自分のシンボル ソースに `https://symbols.nuget.org/download/symbols` を追加することで、nuget.org シンボル サーバーに公開されたシンボルを使用できます。それにより、Visual Studio デバッガーでパッケージ コードに入ることができます。 このプロセスの詳細については、「[Visual Studio デバッガーでのシンボル (.pdb) ファイルとソース ファイルの指定](https://docs.microsoft.com/en-us/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger?view=vs-2017)」を参照してください。
+NuGet.org は独自のシンボル サーバー リポジトリをサポートし、新しいシンボル パッケージ形式 `.snupkg` のみを受け入れます。 パッケージ コンシューマーは Visual Studio で自分のシンボル ソースに `https://symbols.nuget.org/download/symbols` を追加することで、nuget.org シンボル サーバーに公開されたシンボルを使用できます。それにより、Visual Studio デバッガーでパッケージ コードに入ることができます。 このプロセスの詳細については、「[Visual Studio デバッガーでのシンボル (.pdb) ファイルとソース ファイルの指定](/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger)」を参照してください。
 
-### <a name="nugetorg-symbol-package-constraints"></a>Nuget.org シンボル パッケージの制約
+### <a name="nugetorg-symbol-package-constraints"></a>NuGet.org シンボル パッケージの制約
 
-nuget.org でサポートされているシンボル パッケージには、次の 2 つの制約があります
+NuGet.org には、シンボル パッケージに対して次の制約があります。
 
-- 次のファイル拡張子のみをシンボル パッケージに追加できます。 ```.pdb,.nuspec,.xml,.psmdcp,.rels,.p7s```
-- nuget シンボル サーバーでは管理対象の[ポータブル PDB](https://github.com/dotnet/corefx/blob/master/src/System.Reflection.Metadata/specs/PortablePdb-Metadata.md) のみが現在サポートされています。
-- PDB と関連付けられている nupkg dll は、Visual studio バージョン 15.9 以上のコンパイラでビルドする必要があります ([pdb 暗号化ハッシュ](https://github.com/dotnet/roslyn/issues/24429)に関する記事を参照)
+- シンボル パッケージでは、次のファイル拡張子のみが許可されます: `.pdb`、`.nuspec`、`.xml`、`.psmdcp`、`.rels`、`.p7s`
+- NuGet.org のシンボル サーバーでは管理対象の[ポータブル PDB](https://github.com/dotnet/corefx/blob/master/src/System.Reflection.Metadata/specs/PortablePdb-Metadata.md) のみがサポートされています。
+- PDB と関連付けられている .nupkg DLL は、Visual Studio バージョン 15.9 以上のコンパイラでビルドする必要があります (「[PDB 暗号化ハッシュ](https://github.com/dotnet/roslyn/issues/24429)」を参照)
 
-それ以外のファイルの種類が .snupkg に含まれていると、nuget.org でのシンボル パッケージの公開は失敗します。
+これらの制約が満たされない場合、NuGet.org に発行されたシンボル パッケージは検証に失敗します。 
 
 ### <a name="symbol-package-validation-and-indexing"></a>シンボル パッケージの検証とインデックスの作成
 
-[NuGet.org](https://www.nuget.org/) にプッシュされたパッケージは、ウイルス チェックなど、いくつかの検証を受けます。
+[NuGet.org](https://www.nuget.org/) に発行されたシンボル パッケージは、マルウェアのスキャンなど、いくつかの検証を受けます。 パッケージが検証チェックに失敗した場合、そのパッケージの詳細ページにエラー メッセージが表示されます。 さらに、パッケージの所有者は、特定された問題の修正方法を示す電子メールを受信します。
 
-パッケージがすべての検証チェックに合格してから、シンボルのインデックスを作成し、NuGet.org シンボル サーバーで使用できるようになるまでには少し時間がかかります。 パッケージが検証チェックで不合格になった場合、.nupkg のパッケージの詳細ページが更新され、関連エラーが表示されます。それに関する電子メールも届きます。
+シンボル パッケージがすべての検証に合格すると、シンボルは NuGet. org のシンボル サーバーによってインデックスが作成されます。 インデックスが作成されると、シンボルは NuGet.org シンボル サーバーから使用できるようになります。
 
-パッケージの検証とインデックスの作成は、通常、15 以内で完了します。 パッケージ公開に予想以上の時間がかかる場合、[status.nuget.org](https://status.nuget.org/) にアクセスし、nuget.org に中断が発生していないか確認してください。 すべてのシステムが動作しているとき、1 時間以内にパッケージが正常に公開されない場合、nuget.org にログインし、パッケージの詳細ページの [Contact Support] リンクからお問い合わせください。
+パッケージの検証とインデックスの作成は、通常、15 以内で完了します。 パッケージ公開に予想以上の時間がかかる場合、[status.nuget.org](https://status.nuget.org/) にアクセスし、NuGet.org に中断が発生していないか確認してください。 すべてのシステムが動作しているとき、1 時間以内にパッケージが正常に公開されない場合、nuget.org にログインし、パッケージの詳細ページの [Contact Support] リンクからお問い合わせください。
 
 ## <a name="symbol-package-structure"></a>シンボル パッケージ構造
 
@@ -112,15 +118,20 @@ nuget.org でサポートされているシンボル パッケージには、次
 
 1) .snupkg の ID とバージョンは、対応する .nupkg と同じになります。
 2) .snupkg のファイル構造は DLL や EXE ファイルの nupkg と全く同じですが、区別されています。対応する PDB が同じフォルダ構造に含まれています。 PDB 以外の拡張子のファイルとフォルダーは snupkg から除外されたままになります。
-3) .snupkg の .nuspec ファイルでは次に示すように新しい PackageType も指定されます。 指定される PackageType は 1 つだけです。 
-``` 
-<packageTypes>
-  <packageType name="SymbolsPackage"/>
-</packageTypes>
-```
+3) .snupkg の .nuspec ファイルでは次に示すように新しい PackageType も指定されます。 指定される PackageType は 1 つだけです。
+
+   ```xml
+   <packageTypes>
+      <packageType name="SymbolsPackage"/>
+   </packageTypes>
+   ```
+
 4) 作成者が nupkg と snupkg のビルドにカスタムの nuspec を使用した場合、snupkg には 2) で説明したものと同じフォルダ階層とファイルが含まれます。
 5) ```authors``` と ```owners``` のフィールドは snupkg の nuspec から除外されます。
+6) ```<license>``` 要素は使用しないでください。 .snupkg には、対応する .nupkg と同じライセンスが適用されます。
 
 ## <a name="see-also"></a>関連項目
 
-[NuGet パッケージのデバッグとシンボルの改善](https://github.com/NuGet/Home/wiki/NuGet-Package-Debugging-&-Symbols-Improvements)
+ソース リンクを使用して、.NET アセンブリのソース コードのデバッグを有効にすることを検討してください。 詳細については、「[ソース リンクのガイダンス](/dotnet/standard/library-guidance/sourcelink)」を参照してください。
+
+シンボル パッケージの詳細については、「[NuGet パッケージのデバッグとシンボルの機能強化](https://github.com/NuGet/Home/wiki/NuGet-Package-Debugging-&-Symbols-Improvements)」の設計仕様を参照してください。

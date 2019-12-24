@@ -1,62 +1,62 @@
 ---
-title: NuGet 3.3 のリリース ノート
-description: 既知の問題、バグの修正、追加機能、および Dcr を含む NuGet 3.3 のリリース ノート。
+title: NuGet 3.3 リリースノート
+description: 既知の問題、バグ修正、追加された機能、および DCRs を含む NuGet 3.3 のリリースノート。
 author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 5fb840ab6a1329611e9cf417724bcdcd75efe2df
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 482c03a4f6ca39edf317b6ef8d535e79b53d5d16
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546648"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317038"
 ---
-# <a name="nuget-33-release-notes"></a>NuGet 3.3 のリリース ノート
+# <a name="nuget-33-release-notes"></a>NuGet 3.3 リリースノート
 
-[NuGet 3.2.1 のリリース ノート](../release-notes/nuget-3.2.1.md) | [NuGet 3.4 RC リリース ノート](../release-notes/nuget-3.4-RC.md)
+[Nuget 3.2.1 リリースノート](../release-notes/nuget-3.2.1.md) | [nuget 3.4-RC リリースノート](../release-notes/nuget-3.4-RC.md)
 
-NuGet 3.3 は、多数のユーザー インターフェイスの更新プログラムと機能のコマンド ラインほか NuGet クライアントに便利な修正プログラムのコレクションで、2015 年 11 月 30日にリリースされました。
+NuGet 3.3 は、2015年11月30日にリリースされました。これには、ユーザーインターフェイスの更新とコマンドライン機能が多数あり、NuGet クライアントに対する有用な修正プログラムが集められています。
 
 ## <a name="new-features"></a>新機能
 
-* NuGet コマンド ライン クライアントを認証済みフィードとシームレスに連携できるように許可する資格情報プロバイダーが導入されています。 [資格情報プロバイダーの Visual Studio Team Services をインストールする方法について](../api/nuget-exe-credential-providers.md)NuGet の構成とそれを使用するクライアントは、NuGet Docs でご確認いただけます。
+* 認証済みフィードで NuGet コマンドラインクライアントがシームレスに動作できるようにする資格情報プロバイダーが導入されました。 [Visual Studio Team Services 資格情報プロバイダーをインストール](../api/nuget-exe-credential-providers.md)し、それを使用するように nuget クライアントを構成する手順については、Nuget のドキュメントを参照してください。
 
-## <a name="new-user-interface-features"></a>ユーザー インターフェイスの新機能
+## <a name="new-user-interface-features"></a>新しいユーザーインターフェイスの機能
 
-* 参照、インストール、および使用可能な更新プログラムの個別のタブ
-* 更新プログラムの使用可能なバッジが利用可能な更新を使用してパッケージの数を示す
-* パッケージがインストールされているまたは、更新プログラムが利用可能なかどうかを指定するパッケージの一覧でパッケージのバッジ
-* ダウンロード数と、パッケージ一覧に追加された作成者
-* 最新の利用可能なバージョン番号とパッケージの一覧に現在インストールされているバージョン番号
-* 動作設定ボタン クイックのインストールを許可するのには、更新、およびパッケージの一覧からアンインストール
-* パッケージの詳細 パネルでわかりやすい動作設定ボタン
-* パッケージの詳細 パネルでのパッケージの更新日
-* ソリューション ビューのパネルを統合します。
-* プロジェクトとソリューション ビューでインストールされているバージョン番号の並べ替え可能なグリッド
+* 使用可能なタブを個別に参照、インストール、および更新する
+* 利用可能な更新プログラムが含まれているパッケージの数を示す更新可能なバッジ
+* パッケージがインストールされているか、更新プログラムが利用可能かどうかを示すパッケージバッジ
+* ダウンロード数と作成者がパッケージリストに追加されました
+* パッケージ一覧に表示可能な最大バージョン番号と現在インストールされているバージョン番号
+* パッケージリストからのクイックインストール、更新、およびアンインストールを可能にするアクションボタン
+* パッケージ詳細パネルのより明確なアクションボタン
+* パッケージの詳細パネルでのパッケージの更新日
+* ソリューションビューの統合パネル
+* ソリューションビューでのプロジェクトとインストールされているバージョン番号の並べ替え可能なグリッド
 
-## <a name="new-command-line-features"></a>コマンド ラインの新機能
+## <a name="new-command-line-features"></a>新しいコマンドライン機能
 
-このバージョンで導入されました、`add`と`init`コマンド」の説明に従って、フォルダー ベースのリポジトリを初期化するために、 [nuget.exe 参照](../tools/nuget-exe-cli-reference.md)します。 構築され、このフォルダーに保持するリポジトリの構造は[パフォーマンスに大きなメリットをもたらします](http://blog.nuget.org/20150922/Accelerate-Package-Source.html)私たちのブログで説明されているようです。
+このバージョンでは、 `add` [nuget.exe リファレンス](../reference/nuget-exe-cli-reference.md)で説明されているように、フォルダーベースのリポジトリを初期化するコマンドと`init`コマンドを導入しました。 このフォルダー構造を使用して構築および管理されるリポジトリは、このブログで説明されているように、大幅なパフォーマンス上の[利点を提供](http://blog.nuget.org/20150922/Accelerate-Package-Source.html)します。
 
-## <a name="contentfiles"></a>contentFiles
+## <a name="contentfiles"></a>ContentFiles
 
-コンテンツがサポートされるようになりました`project.json`マネージ プロジェクトでは、新しい`contentFiles`フォルダーと`.nuspec``contentFiles`要素表記します。  このコンテンツは、プロジェクト システムとの対話のパッケージの作成者によって直接指定できます。  ContentFiles を構成する方法については、`.nuspec`ドキュメントが記載されて、 [.nuspec リファレンス](../reference/nuspec.md)します。
+新しい`project.json` フォルダー`contentFiles`と要素の表記`contentFiles`によって、マネージプロジェクトでコンテンツがサポートされるようになりました。 `.nuspec`  このコンテンツは、プロジェクトシステムとのやり取りのためにパッケージ作成者が直接指定できます。  `.nuspec`ドキュメントで contentfiles を構成する方法の詳細については、 [nuspec のリファレンスを参照](../reference/nuspec.md)してください。
 
-## <a name="nuget-locals-cache-management"></a>NuGet のローカル キャッシュの管理
+## <a name="nuget-locals-cache-management"></a>NuGet ローカルキャッシュ管理
 
-NuGet コマンド ラインがワークステーションのローカル キャッシュを管理する方法についての情報を含めるように更新されました。  ローカル コマンドの詳細についてで使用できる、 [NuGet コマンド ライン リファレンス](../tools/cli-ref-locals.md)します。
+NuGet コマンドラインが更新され、ワークステーションでローカルキャッシュを管理する方法に関する情報が追加されました。  ローカルコマンドの詳細については、「 [NuGet コマンドラインリファレンス](../reference/cli-reference/cli-ref-locals.md)」を参照してください。
 
-## <a name="fixed-issues"></a>問題を修正しました
+## <a name="fixed-issues"></a>修正済みの問題
 
-**注目に値する問題**
+**注目すべき問題**
 
-* 復元するための NuGet コマンド ラインの復元されたサポート パッケージの Mono - でソリューション ファイルが[1543](https://github.com/NuGet/Home/issues/1543)
+* Mono- [1543](https://github.com/NuGet/Home/issues/1543)でソリューションファイルを使用してパッケージを復元するための NuGet コマンドラインによる復元
 
-3.3 のリリースで対処された問題の完全な一覧は、GitHub で確認できます、 [3.3 マイルス トーン](https://github.com/NuGet/Home/issues?q=is%3Aissue+milestone%3A3.3.0+is%3Aclosed)します。
+3\.3 リリースで解決された問題の完全な一覧については、「 [3.3 マイルストーン](https://github.com/NuGet/Home/issues?q=is%3Aissue+milestone%3A3.3.0+is%3Aclosed)」の GitHub を参照してください。
 
-コマンド ライン 3.3 のリリースで修正された問題の一覧に記録、 [3.3 コマンド ライン マイルス トーン](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A3.3.0-commandline)します。
+3\.3 コマンドラインリリースで修正された問題の一覧は、 [3.3 コマンドラインマイルストーン](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A3.3.0-commandline)に記録されます。
 
 ## <a name="known-issues"></a>既知の問題
 
-GitHub の問題一覧上の問題を追跡するために引き続き。 [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)
+GitHub の問題の一覧に関する問題は、引き続き次の場所にあります。[http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)

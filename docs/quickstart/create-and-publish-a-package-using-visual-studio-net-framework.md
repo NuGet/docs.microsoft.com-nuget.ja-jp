@@ -1,27 +1,27 @@
 ---
-title: Windows の Visual Studio を使用した .NET Framework パッケージの作成と公開
-description: Windows の Visual Studio 2017 を使用した、.NET Framework NuGet パッケージの作成と公開に関するチュートリアルです。
+title: Windows の Visual Studio を使用した .NET Framework NuGet パッケージの作成と公開
+description: Windows の Visual Studio を使用した、.NET Framework NuGet パッケージの作成と公開に関するチュートリアルです。
 author: karann-msft
 ms.author: karann
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: 68593211da1a34649c7050753a5db0f3a03cb41b
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: e00aac83a710e2f745d5e4bb9aec741ee686e595
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549629"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380646"
 ---
 # <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>クイック スタート: Visual Studio を使用したパッケージの作成と公開 (.NET Framework、Windows)
 
 .NET Framework クラス ライブラリから NuGet パッケージを作成するには、Windows の Visual Studio で DLL を作成した後、nuget.exe コマンド ライン ツールを使用してパッケージを作成し、公開します。
 
 > [!Note]
-> このクイック スタートが適用されるのは、Windows の Visual Studio 2017 のみです。 ここで説明される機能は、Visual Studio for Mac には含まれません。 代わりに [dotnet CLI ツール](create-and-publish-a-package-using-the-dotnet-cli.md)を使用してください。
+> このクイック スタートが適用されるのは、Windows 用の Visual Studio 2017 以降のバージョンのみです。 ここで説明される機能は、Visual Studio for Mac には含まれません。 代わりに [dotnet CLI ツール](create-and-publish-a-package-using-the-dotnet-cli.md)を使用してください。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-1. [visualstudio.com](https://www.visualstudio.com/) から Visual Studio 2017 の任意のエディションと、.NET 関連の任意のワークロードをインストールします。 Visual Studio 2017 では、.NET ワークロードをインストールする際、NuGet 機能は自動的に含まれません。
+1. [visualstudio.com](https://www.visualstudio.com/) から Visual Studio 2017 以降の任意のエディションと、.NET 関連の任意のワークロードをインストールします。 Visual Studio 2017 では、.NET ワークロードをインストールする際、NuGet 機能は自動的に含まれません。
 
 1. `nuget.exe` CLI をインストールします。[nuget.org](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe)からその `.exe`ファイルをダウンロードし、適切なフォルダーに保存して、そのフォルダーを PATH 環境変数に追加してください。
 
@@ -31,9 +31,9 @@ ms.locfileid: "43549629"
 
 パッケージ化するコードに既存の .NET Framework クラス ライブラリ プロジェクトを使用することも、次の手順に従って単純なプロジェクトを作成することもできます。
 
-1. Visual Studio で、**[ファイル]、[新規]、[プロジェクト]** の順に選択し、**[Visual C#]** ノードを選択し、"クラス ライブラリ (.NET Framework)" テンプレートを選択し、プロジェクトに AppLogger という名前を付け、**[OK]** をクリックします。
+1. Visual Studio で、 **[ファイル]、[新規]、[プロジェクト]** の順に選択し、 **[Visual C#]** ノードを選択し、"クラス ライブラリ (.NET Framework)" テンプレートを選択し、プロジェクトに AppLogger という名前を付け、 **[OK]** をクリックします。
 
-1. 作成されたプロジェクト ファイルを右クリックし、**[ビルド]** を選択して、プロジェクトが正しく作成されたことを確認します。 DLL は、デバッグ フォルダー (または代わりにその構成をビルドした場合はリリース フォルダー) 内にあります。
+1. 作成されたプロジェクト ファイルを右クリックし、 **[ビルド]** を選択して、プロジェクトが正しく作成されたことを確認します。 DLL は、デバッグ フォルダー (または代わりにその構成をビルドした場合はリリース フォルダー) 内にあります。
 
 実際の NuGet パッケージ内ではもちろん、多くの便利な機能を実装し、他のユーザーはそれを使用してアプリケーションをビルドできます。 また、目的のターゲット フレームワークに設定することもできます。 例については、[UWP](../guides/create-uwp-packages.md) と [Xamarin](../guides/create-packages-for-xamarin.md) のガイドを参照してください。
 
@@ -61,7 +61,7 @@ namespace AppLogger
 
 NuGet パッケージには、パッケージ識別子、バージョン番号、説明などの関連するメタデータを含むマニフェスト (`.nuspec` ファイル) が含まれています。 これらの一部は、プロジェクトのプロパティから直接引き出すことができるので、プロジェクトとマニフェストの両方で個別に更新する必要はありません。 このセクションでは、適用可能なプロパティを設定する場所について説明します。
 
-1. **[プロジェクト]、[プロパティ]** メニュー コマンドの順に選択し、**[アプリケーション]** タブを選択します。
+1. **[プロジェクト]、[プロパティ]** メニュー コマンドの順に選択し、 **[アプリケーション]** タブを選択します。
 
 1. **[アセンブリ名]** フィールドで、パッケージに一意の識別子を付けます。
 
@@ -70,7 +70,7 @@ NuGet パッケージには、パッケージ識別子、バージョン番号�
     >
     > 既に存在する名前のパッケージを公開しようとすると、エラーが表示されます。
 
-1. **[アセンブリ情報]** ボタンを選択すると、マニフェストに含める他のプロパティを入力するためのダイアログ ボックスが表示されます ([.nuspec ファイル リファレンスの置換トークン](../reference/nuspec.md#replacement-tokens)に関するセクションを参照してください)。 最もよく使用されるフィールドは、**[タイトル]**、**[説明]**、**[会社名]**、**[著作権]**、**[アセンブリ バージョン]** です。 これらのプロパティは、最終的に nuget.org のようなホスト上でパッケージと共に表示されるので、わかりやすい値を設定してください。
+1. **[アセンブリ情報]** ボタンを選択すると、マニフェストに含める他のプロパティを入力するためのダイアログ ボックスが表示されます ([.nuspec ファイル リファレンスの置換トークン](../reference/nuspec.md#replacement-tokens)に関するセクションを参照してください)。 最もよく使用されるフィールドは、 **[タイトル]** 、 **[説明]** 、 **[会社名]** 、 **[著作権]** 、 **[アセンブリ バージョン]** です。 これらのプロパティは、最終的に nuget.org のようなホスト上でパッケージと共に表示されるので、わかりやすい値を設定してください。
 
     ![Visual Studio の .NET Framework プロジェクトのアセンブリ情報](media/qs_create-vs-01b-project-properties.png)
 
@@ -94,18 +94,17 @@ DLL を入手し、プロジェクトのプロパティを設定したら、`nug
     <?xml version="1.0"?>
     <package >
       <metadata>
-        <id>$id$</id>
-        <version>$version$</version>
-        <title>$title$</title>
-        <authors>$author$</authors>
-        <owners>$author$</owners>
-        <licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>
+        <id>Package</id>
+        <version>1.0.0</version>
+        <authors>YourUsername</authors>
+        <owners>YourUsername</owners>
+        <license type="expression">MIT</license>
         <projectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</projectUrl>
         <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>$description$</description>
+        <description>Package description</description>
         <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
-        <copyright>Copyright 2018</copyright>
+        <copyright>Copyright 2019</copyright>
         <tags>Tag1 Tag2</tags>
       </metadata>
     </package>
@@ -119,7 +118,7 @@ DLL を入手し、プロジェクトのプロパティを設定したら、`nug
     - projectUrl
     - iconUrl
     - releaseNotes
-    - タグ
+    - tags
 
 1. 公開用にビルドされたパッケージの場合は、**Tags** プロパティに特に注意してください。これらのタグは nuget.org などのソースで他のユーザーがパッケージを検索して、パッケージの動作を理解する場合に役立ちます。
 
@@ -145,7 +144,7 @@ DLL を入手し、プロジェクトのプロパティを設定したら、`nug
 
 ### <a name="publish-with-nuget-push"></a>nuget push を使用して公開する
 
-1. `.nupkg` ファイルを含むフォルダーに変更します。
+1. コマンド ラインを開き、`.nupkg` ファイルを含むフォルダーに変更します。
 
 1. 次のコマンドでパッケージ名を指定し、キーを API キーに置き換えて、コマンドを実行します。
 
@@ -162,7 +161,7 @@ DLL を入手し、プロジェクトのプロパティを設定したら、`nug
     Your package was pushed.
     ```
 
-[nuget push](../tools/cli-ref-push.md)に関するページを参照してください。
+[nuget push](../reference/cli-reference/cli-ref-push.md)に関するページを参照してください。
 
 ### <a name="publish-errors"></a>公開エラー
 
@@ -172,11 +171,17 @@ DLL を入手し、プロジェクトのプロパティを設定したら、`nug
 
 [!INCLUDE [publish-manage](includes/publish-manage.md)]
 
-## <a name="related-topics"></a>関連トピック
+## <a name="next-steps"></a>次の手順
 
-- [パッケージの作成](../create-packages/creating-a-package.md)
-- [パッケージの公開](../create-packages/publish-a-package.md)
+無事に、最初の NuGet パッケージを作成できました。
+
+> [!div class="nextstepaction"]
+> [パッケージの作成](../create-packages/creating-a-package.md)
+
+NuGet による提供についてさらに詳しく調べるには、下のリンクを選択してください。
+
+- [パッケージの公開](../nuget-org/publish-a-package.md)
 - [プレリリース パッケージ](../create-packages/Prerelease-Packages.md)
 - [複数のターゲット フレームワークのサポート](../create-packages/supporting-multiple-target-frameworks.md)
-- [パッケージのバージョン管理](../reference/package-versioning.md)
+- [パッケージのバージョン管理](../concepts/package-versioning.md)
 - [ローカライズされたパッケージを作成する](../create-packages/creating-localized-packages.md)

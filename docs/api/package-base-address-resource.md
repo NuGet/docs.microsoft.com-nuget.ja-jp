@@ -1,27 +1,27 @@
 ---
-title: NuGet API、パッケージの内容
-description: パッケージのベース アドレスは、パッケージ自体を取得するための単純なインターフェイスです。
+title: パッケージコンテンツ, NuGet API
+description: パッケージのベースアドレスは、パッケージ自体をフェッチするための単純なインターフェイスです。
 author: joelverhagen
 ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 2f0f93e0cee78ea03cbd53194cdc2a10871fd7e1
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 7aea28d6224a89149aa33be035c82a45db3058f0
+ms.sourcegitcommit: 1eda83ab537c86cc27316e7bc67f95a358766e63
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426762"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71094121"
 ---
-# <a name="package-content"></a>パッケージのコンテンツ
+# <a name="package-content"></a>パッケージコンテンツ
 
-V3 API を使用して、任意のパッケージのコンテンツ (.nupkg ファイル) をフェッチする URL を生成することになります。 パッケージのコンテンツを取得するために使用されるリソースは、`PackageBaseAddress`リソースで見つかった、[サービス インデックス](service-index.md)します。 このリソースも表示されているパッケージのすべてのバージョンの探索を有効にまたは一覧から削除されました。
+V3 API を使用して、任意のパッケージのコンテンツ (nupkg ファイル) を取得するための URL を生成することができます。 パッケージコンテンツのフェッチに使用されるリソース`PackageBaseAddress`は、[サービスインデックス](service-index.md)で見つかったリソースです。 また、このリソースにより、パッケージのすべてのバージョンの検出、一覧表示、または一覧からの削除が可能になります。
 
-このリソースが、いずれかの"パッケージ ベース アドレスとして"または"フラット container"よくと呼ばれます。
+このリソースは、一般に "パッケージベースアドレス" または "フラットコンテナー" と呼ばれます。
 
 ## <a name="versioning"></a>バージョン管理
 
-次`@type`値が使用されます。
+次`@type`の値が使用されます。
 
 @type の値              | メモ
 ------------------------ | -----
@@ -29,18 +29,18 @@ PackageBaseAddress/3.0.0 | 最初のリリース
 
 ## <a name="base-url"></a>[基本 URL]
 
-次の Api のベース URL の値は、`@id`前述のリソースに関連付けられたプロパティ`@type`値。 次のドキュメントで、プレース ホルダーのベース URL`{@id}`使用されます。
+次の api のベース URL は、前述のリソース`@id` `@type`値に関連付けられているプロパティの値です。 次のドキュメントでは、プレースホルダーのベース`{@id}` URL が使用されます。
 
 ## <a name="http-methods"></a>HTTP メソッド
 
-HTTP メソッドの登録のリソースのサポートで検出されたすべての Url`GET`と`HEAD`します。
+登録リソースで見つかったすべての url は、HTTP `GET`メソッド`HEAD`とをサポートしています。
 
-## <a name="enumerate-package-versions"></a>パッケージのバージョンを列挙します。
+## <a name="enumerate-package-versions"></a>パッケージバージョンの列挙
 
-クライアントがパッケージ ID を知っているし、するパッケージのバージョンのパッケージを検出したい場合は、ソースで使用できるように、クライアントは、すべてのパッケージ バージョンを列挙するために予測可能な URL を構築できます。 この一覧は「ディレクトリの一覧」をパッケージのコンテンツ api を以下に説明したもの。
+クライアントがパッケージ ID を認識し、パッケージソースに使用可能なパッケージバージョンを検出する必要がある場合、クライアントは、すべてのパッケージバージョンを列挙するための予測可能な URL を作成できます。 このリストは、以下で説明するパッケージコンテンツ API の "ディレクトリリスト" として使用することを目的としています。
 
 > [!Note]
-> この一覧には、両方の一覧と一覧にないパッケージのバージョンが含まれています。
+> この一覧には、一覧表示され、一覧にないパッケージバージョンの両方が含まれます。
 
     GET {@id}/{LOWER_ID}/index.json
 
@@ -50,21 +50,21 @@ HTTP メソッドの登録のリソースのサポートで検出されたすべ
 -------- | ------ | ------- | -------- | -----
 LOWER_ID | URL    | string  | 可      | パッケージ ID、小文字
 
-`LOWER_ID`値は小文字で実装されたルールを使用して、目的のパッケージ ID。NET の[ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant)メソッド。
+この`LOWER_ID`値は、によって実装されたルールを使用して、必要なパッケージ ID を小文字にしたものです。NET の[`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant)メソッド。
 
 ### <a name="response"></a>応答
 
-指定されたパッケージ ID のバージョンのパッケージ ソースがない場合は、404 状態コードが返されます。
+パッケージソースに提供されているパッケージ ID のバージョンがない場合は、404状態コードが返されます。
 
-パッケージ ソースに 1 つまたは複数のバージョンがある場合は、200 ステータス コードが返されます。 応答本文では、次のプロパティを持つ JSON オブジェクトです。
+パッケージソースに1つ以上のバージョンがある場合は、200状態コードが返されます。 応答本文は、次のプロパティを持つ JSON オブジェクトです。
 
 Name     | 種類             | 必須 | メモ
 -------- | ---------------- | -------- | -----
-バージョン | 文字列の配列 | 可      | パッケージに使用できる Id
+versions | 文字列の配列 | 可      | 使用可能なバージョン
 
-内の文字列、`versions`配列はすべて小文字、 [NuGet バージョン文字列を正規化](../reference/package-versioning.md#normalized-version-numbers)します。 バージョン文字列では、SemVer 2.0.0 ビルド メタデータは含まれません。
+`versions`配列内の文字列は、すべて小文字で正規化された[NuGet バージョン文字列](../concepts/package-versioning.md#normalized-version-numbers)です。 バージョン文字列に SemVer 2.0.0 ビルドメタデータが含まれていません。
 
-この配列内で見つかったバージョン文字列をそのまま使用できることが目的の`LOWER_VERSION`のトークンが、次のエンドポイント。
+目的は、この配列で見つかったバージョン文字列を、次のエンドポイントに`LOWER_VERSION`あるトークンに対して逐語的に使用できることです。
 
 ### <a name="sample-request"></a>要求のサンプル
 
@@ -74,9 +74,9 @@ Name     | 種類             | 必須 | メモ
 
 [!code-JSON [package-base-address-index.json](./_data/package-base-address-index.json)]
 
-## <a name="download-package-content-nupkg"></a>パッケージ コンテンツ (.nupkg) のダウンロードします。
+## <a name="download-package-content-nupkg"></a>パッケージコンテンツのダウンロード (. nupkg)
 
-のみ、クライアントがパッケージ ID とバージョンを把握してパッケージ コンテンツをダウンロードする必要がある場合、次の URL を作成する必要があります。
+クライアントがパッケージ ID とバージョンを認識し、パッケージコンテンツをダウンロードする必要がある場合は、次の URL を構築するだけで済みます。
 
     GET {@id}/{LOWER_ID}/{LOWER_VERSION}/{LOWER_ID}.{LOWER_VERSION}.nupkg
 
@@ -85,18 +85,18 @@ Name     | 種類             | 必須 | メモ
 名前          | イン     | 型   | 必須 | メモ
 ------------- | ------ | ------ | -------- | -----
 LOWER_ID      | URL    | string | 可      | パッケージ ID、小文字
-LOWER_VERSION | URL    | string | 可      | パッケージのバージョンが正規化され、小文字
+LOWER_VERSION | URL    | string | 可      | パッケージのバージョン、正規化、および小文字
 
-両方`LOWER_ID`と`LOWER_VERSION`によって実装される規則を使用しては小文字です。NET [`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant)
+`LOWER_ID` と`LOWER_VERSION`はどちらも、によって実装される規則を使用した小文字です。NET の[`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant)
 メソッドをオーバーライドします。
 
-`LOWER_VERSION`目的のパッケージ バージョン正規化は、NuGet のバージョンを使用して[正規化ルール](../reference/package-versioning.md#normalized-version-numbers)します。 つまり、SemVer 2.0.0 仕様によって許可されているビルド メタデータをここで除外する必要があります。
+は`LOWER_VERSION` 、NuGet のバージョン[正規化規則](../concepts/package-versioning.md#normalized-version-numbers)を使用して正規化された、必要なパッケージバージョンです。 これは、この場合、SemVer 2.0.0 仕様で許可されているビルドメタデータを除外する必要があることを意味します。
 
 ### <a name="response-body"></a>応答本文
 
-パッケージ ソースで、パッケージが存在する場合は、200 ステータス コードが返されます。 応答本文は、パッケージ コンテンツ自体になります。
+パッケージがパッケージソースに存在する場合は、200状態コードが返されます。 応答本文は、パッケージコンテンツ自体になります。
 
-パッケージ ソースのパッケージが存在しない場合は 404 状態コードが返されます。
+パッケージがパッケージソースに存在しない場合は、404状態コードが返されます。
 
 ### <a name="sample-request"></a>要求のサンプル
 
@@ -104,11 +104,11 @@ LOWER_VERSION | URL    | string | 可      | パッケージのバージョン�
 
 ### <a name="sample-response"></a>応答のサンプル
 
-Newtonsoft.Json 9.0.1 の .nupkg をあるバイナリ ストリーム。
+. Nupkg (Newtonsoft. Json の 9.0.1) のバイナリストリーム。
 
-## <a name="download-package-manifest-nuspec"></a>パッケージ マニフェスト (.nuspec) のダウンロードします。
+## <a name="download-package-manifest-nuspec"></a>パッケージマニフェストのダウンロード (. nuspec)
 
-のみクライアントがパッケージ ID とバージョンを把握して、パッケージ マニフェストをダウンロードする場合、次の URL を作成する必要があります。
+クライアントがパッケージ ID とバージョンを認識し、パッケージマニフェストをダウンロードする必要がある場合は、次の URL を構築するだけで済みます。
 
     GET {@id}/{LOWER_ID}/{LOWER_VERSION}/{LOWER_ID}.nuspec
 
@@ -117,17 +117,17 @@ Newtonsoft.Json 9.0.1 の .nupkg をあるバイナリ ストリーム。
 名前          | イン     | 型   | 必須 | メモ
 ------------- | ------ | ------ | -------- | -----
 LOWER_ID      | URL    | string | 可      | パッケージ ID、小文字
-LOWER_VERSION | URL    | string | 可      | パッケージのバージョンが正規化され、小文字
+LOWER_VERSION | URL    | string | 可      | パッケージのバージョン、正規化、および小文字
 
-両方`LOWER_ID`と`LOWER_VERSION`によって実装される規則を使用しては小文字です。NET の[ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant)メソッド。
+`LOWER_ID` と`LOWER_VERSION`はどちらも、によって実装される規則を使用した小文字です。NET の[`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant)メソッド。
 
-`LOWER_VERSION`目的のパッケージ バージョン正規化は、NuGet のバージョンを使用して[正規化ルール](../reference/package-versioning.md#normalized-version-numbers)します。 つまり、SemVer 2.0.0 仕様によって許可されているビルド メタデータをここで除外する必要があります。
+は`LOWER_VERSION` 、NuGet のバージョン[正規化規則](../concepts/package-versioning.md#normalized-version-numbers)を使用して正規化された、必要なパッケージバージョンです。 これは、この場合、SemVer 2.0.0 仕様で許可されているビルドメタデータを除外する必要があることを意味します。
 
 ### <a name="response-body"></a>応答本文
 
-パッケージ ソースで、パッケージが存在する場合は、200 ステータス コードが返されます。 応答本文は、これは、対応する .nupkg に含まれている .nuspec パッケージ マニフェストになります。 .Nuspec は、XML ドキュメントです。
+パッケージがパッケージソースに存在する場合は、200状態コードが返されます。 応答本文はパッケージマニフェストになります。これは、対応する. nupkg に含まれている nuspec です。 Nuspec は XML ドキュメントです。
 
-パッケージ ソースのパッケージが存在しない場合は 404 状態コードが返されます。
+パッケージがパッケージソースに存在しない場合は、404状態コードが返されます。
 
 ### <a name="sample-request"></a>要求のサンプル
 

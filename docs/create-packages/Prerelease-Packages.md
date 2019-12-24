@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 845f0ea84bcb92fedf9e5f4fb2b1deee1462a004
-ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
+ms.openlocfilehash: 1c19f962dc9e42154c0f4374432548e867e9538a
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610498"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610711"
 ---
 # <a name="building-pre-release-packages"></a>プレリリース パッケージのビルド
 
@@ -20,7 +20,7 @@ ms.locfileid: "65610498"
 
 安定版リリースとは、実稼働環境で使用するだけの信頼性があると見なされるリリースです。 最新の安定版リリースは、パッケージ更新またはパッケージ復元でインストールされるリリースでもあります (「[Reinstalling and updating packages](../consume-packages/reinstalling-and-updating-packages.md)」 (パッケージの再インストールと更新) の説明にある制約に左右されます)。
 
-ソフトウェア リリース ライフサイクルをサポートするために、NuGet 1.6 以降では、プレリリース パッケージを配信できます。バージョン番号には、`-alpha`、`-beta`、`-rc` のようなセマンティック バージョン管理サフィックスが含まれます。 詳細については、「[Package versioning](../reference/package-versioning.md#pre-release-versions)」(パッケージのバージョン管理) を参照してください。
+ソフトウェア リリース ライフサイクルをサポートするために、NuGet 1.6 以降では、プレリリース パッケージを配信できます。バージョン番号には、`-alpha`、`-beta`、`-rc` のようなセマンティック バージョン管理サフィックスが含まれます。 詳細については、「[Package versioning](../concepts/package-versioning.md#pre-release-versions)」(パッケージのバージョン管理) を参照してください。
 
 次の方法のいずれかを使って、このようなバージョンを指定できます。
 
@@ -38,25 +38,25 @@ ms.locfileid: "65610498"
     <version>1.0.1-alpha</version>
     ```
 
-安定版バージョンをリリースする用意ができたら、サフィックスを削除します。このパッケージはあらゆるプレリリース版に優先します。 繰り返しになりますが、「[Package versioning](../reference/package-versioning.md#pre-release-versions)」(パッケージのバージョン管理) を参照してください。
+安定版バージョンをリリースする用意ができたら、サフィックスを削除します。このパッケージはあらゆるプレリリース版に優先します。 繰り返しになりますが、「[Package versioning](../concepts/package-versioning.md#pre-release-versions)」(パッケージのバージョン管理) を参照してください。
 
 ## <a name="installing-and-updating-pre-release-packages"></a>プレリリース パッケージのインストールと更新
 
 既定で、NuGet ではパッケージの使用時にプレリリース版を含めませんが、この動作は次のように変更できます。
 
-- **Visual Studio のパッケージ マネージャー UI**: **[NuGet パッケージの管理]** UI で、**[プレリリースを含める]** ボックスを選択します。
+- **Visual Studio のパッケージ マネージャー UI**: **[NuGet パッケージの管理]** UI で、 **[プレリリースを含める]** ボックスを選択します。
 
     ![Visual Studio の [プレリリースを含める] チェックボックス](media/Prerelease_02-CheckPrerelease.png)
 
     このボックスをオンまたはオフにするとパッケージ マネージャー UI とインストールできるバージョンの一覧が更新されます。
 
-- **パッケージ マネージャー コンソール**: `Find-Package`、`Get-Package`、`Install-Package`、`Sync-Package`、`Update-Package` コマンドで `-IncludePrerelease` スイッチを使用します。 「[PowerShell Reference](../tools/powershell-reference.md)」 (PowerShell リファレンス) を参照してください。
+- **パッケージ マネージャー コンソール**: `Find-Package`、`Get-Package`、`Install-Package`、`Sync-Package`、`Update-Package` コマンドで `-IncludePrerelease` スイッチを使用します。 「[PowerShell Reference](../reference/powershell-reference.md)」 (PowerShell リファレンス) を参照してください。
 
-- **NuGet CLI**: `install`、`update`、`delete`、`mirror` コマンドで `-prerelease` スイッチを使用します。 「[NuGet CLI reference](../tools/nuget-exe-cli-reference.md)」(NuGet CLI リファレンス) を参照してください。
+- **NuGet CLI**: `install`、`update`、`delete`、`mirror` コマンドで `-prerelease` スイッチを使用します。 「[NuGet CLI reference](../reference/nuget-exe-cli-reference.md)」(NuGet CLI リファレンス) を参照してください。
 
 ## <a name="semantic-versioning"></a>セマンティック バージョン管理
 
-「[Semantic Versioning or SemVer convention](http://semver.org/spec/v1.0.0.html)」 (セマンティック バージョニングまたは SemVer 規則) では、バージョン番号の文字列を活用し、基礎となっているコードの意味を伝える方法が説明されています。
+「[Semantic Versioning or SemVer convention](https://semver.org/spec/v1.0.0.html)」 (セマンティック バージョニングまたは SemVer 規則) では、バージョン番号の文字列を活用し、基礎となっているコードの意味を伝える方法が説明されています。
 
 この規則では、各バージョンが 3 つの部分、`Major.Minor.Patch` から構成されています。それぞれ次のような意味があります。
 
@@ -73,7 +73,7 @@ ms.locfileid: "65610498"
 - `-rc`: リリース候補。一般的に、重大なバグが現れない限り、最終版 (安定版) となる可能性があるリリース。
 
 > [!Note]
-> NuGet 4.3.0 以降は、`1.0.1-build.23` のように、ドット表記のプレリリース番号をサポートする[セマンティック バージョニング v2.0.0](http://semver.org/spec/v2.0.0.html) をサポートしています。 ドット表記は、バージョン 4.3.0 より前の NuGet ではサポートされていません。 以前のバージョンの NuGet では、`1.0.1-build23` のような形式を使用できましたが、これは常にプレリリース版と見なされていました。
+> NuGet 4.3.0 以降は、`1.0.1-build.23` のように、ドット表記のプレリリース番号をサポートする[セマンティック バージョニング v2.0.0](https://semver.org/spec/v2.0.0.html) をサポートしています。 ドット表記は、バージョン 4.3.0 より前の NuGet ではサポートされていません。 以前のバージョンの NuGet では、`1.0.1-build23` のような形式を使用できましたが、これは常にプレリリース版と見なされていました。
 
 ただし、どのようなサフィックスを使用する場合でも、NuGet はアルファベットの逆順で優先順序を与えます。
 
@@ -81,10 +81,12 @@ ms.locfileid: "65610498"
     1.0.1-zzz
     1.0.1-rc
     1.0.1-open
-    1.0.1-beta12
-    1.0.1-beta05
+    1.0.1-beta.12
+    1.0.1-beta.5
     1.0.1-beta
-    1.0.1-alpha2
+    1.0.1-alpha.2
     1.0.1-alpha
 
-このように、サフィックスのないバージョンは常にプレリリース版に優先します。 数値のサフィックスとプレリリース タグを使用するとき、番号が 2 桁 (以上) になる場合、beta01 や beta05 のように、先行ゼロを使用してください。それにより、番号が大きくなっても正しく並べ替えられます。
+このように、サフィックスのないバージョンは常にプレリリース版に優先します。
+
+semver2 では、0 を前に付ける必要はありませんが、古いバージョンのスキーマでは付与されています。 プレリリース タグと共に数値のサフィックスを使用し、その数字が 2 桁 (以上) になる可能性がある場合、beta.01 や beta.05 のように、数字が大きくなっても確実に正しく並べ替えられるように、前に付けるゼロを使用してください。 この推奨事項は、古いバージョンのスキーマのみに適用されます。

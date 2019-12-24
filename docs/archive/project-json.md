@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/27/2017
 ms.topic: reference
-ms.openlocfilehash: e4d8b5b9ab4605516827ead8939f278d110c7a48
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 5ecbcd4855de8ea7b6301a5e307779216baf96fc
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547785"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488294"
 ---
 # <a name="projectjson-reference"></a>project.json 参照
 
@@ -47,7 +47,7 @@ ms.locfileid: "43547785"
 "PackageID" : "version_constraint"
 ```
 
-例:
+次に例を示します。
 
 ```json
 "dependencies": {
@@ -62,7 +62,7 @@ ms.locfileid: "43547785"
 
 パッケージを復元するときに、`"5.0.0"` のバージョンの制約は `>= 5.0.0` を意味します。 つまり、サーバーで 5.0.0 は使用できないが 5.0.1 は使用できる場合、NuGet は 5.0.1 をインストールし、アップグレードに関する警告を発します。 それ以外の場合は、NuGet は制約に一致するサーバー上で使用可能な最も低いバージョンを選択します。
 
-解決ルールの詳細については、[依存関係の解決](../consume-packages/dependency-resolution.md)に関するページをご覧ください。
+解決ルールの詳細については、[依存関係の解決](../concepts/dependency-resolution.md)に関するページをご覧ください。
 
 ### <a name="managing-dependency-assets"></a>依存関係アセットの管理
 
@@ -71,12 +71,12 @@ ms.locfileid: "43547785"
 | 包含/除外タグ | ターゲットの影響を受けるフォルダー |
 | --- | --- |
 | contentFiles | Content  |
-| ランタイム | Runtime、Resources、FrameworkAssemblies  |
+| runtime | Runtime、Resources、FrameworkAssemblies  |
 | compile | lib |
-| ビルド | build (MSBuild のプロパティとターゲット) |
+| build | build (MSBuild のプロパティとターゲット) |
 | native | native |
 | none | フォルダーなし |
-| すべて | すべてのフォルダー |
+| all | すべてのフォルダー |
 
 `exclude` で指定されているタグの方が、`include` で指定されているタグより優先されます。 たとえば、`include="runtime, compile" exclude="compile"` は `include="runtime"` と同じです。
 
@@ -106,7 +106,7 @@ ms.locfileid: "43547785"
 }
 ```
 
-## <a name="frameworks"></a>フレームワーク
+## <a name="frameworks"></a>Frameworks
 
 プロジェクトを実行するフレームワーク (`net45`、`netcoreapp`、`netstandard` など) をリストします。
 
@@ -116,7 +116,7 @@ ms.locfileid: "43547785"
     }
  ```
 
-`frameworks` セクションでは、1 つのエントリのみが許可されます  (例外は、非推奨の DNX ツール チェーンでビルドされた ASP.NET プロジェクトの `project.json` ファイルで、これは複数のターゲットを許可します。)
+`frameworks` セクションでは、1 つのエントリのみが許可されます (例外は、非推奨の DNX ツール チェーンでビルドされた ASP.NET プロジェクトの `project.json` ファイルで、これは複数のターゲットを許可します。)
 
 ## <a name="runtimes"></a>Runtimes
 

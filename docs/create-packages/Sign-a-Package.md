@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 8ff92e5a3ab2d5c13ee02a9e49709866e2ac0e87
-ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
+ms.openlocfilehash: 1053a18926f63e02f0b1c100e7cc1cd293654ced
+ms.sourcegitcommit: e4b0ff4460865db6dc7bc9f20e9f644d98493011
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58921573"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71307211"
 ---
 # <a name="signing-nuget-packages"></a>NuGet パッケージの署名
 
@@ -34,9 +34,9 @@ ms.locfileid: "58921573"
 ## <a name="sign-the-package"></a>パッケージに署名する
 
 > [!note]
-> nuget.exe 4.6.0 以降が必要です。
+> nuget.exe 4.6.0 以降が必要です。 dotnet.exe のサポートは近日提供予定です - [#7939](https://github.com/NuGet/Home/issues/7939)
 
-[nuget sign](../tools/cli-ref-sign.md) を使用してパッケージに署名するには、次を使用します。
+[nuget sign](../reference/cli-reference/cli-ref-sign.md) を使用してパッケージに署名するには、次を使用します。
 
 ```cli
 nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper <TimestampServiceURL>
@@ -45,9 +45,9 @@ nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper 
 > [!Tip]
 > 証明書プロバイダーから、上記の省略可能な引数 `Timestamper` に使用できるタイムスタンプ サーバーの URL が提供されることがよくあります。 プロバイダーのドキュメントを参照するか、そのサービスの URL のサポートに問い合わせてください。
 
-* 証明書には、証明書ストアで入手できるものを使用するか、ファイルの証明書を使用できます。 [nuget の sign](../tools/cli-ref-sign.md) の CLI リファレンスを参照してください。
+* 証明書には、証明書ストアで入手できるものを使用するか、ファイルの証明書を使用できます。 [nuget の sign](../reference/cli-reference/cli-ref-sign.md) の CLI リファレンスを参照してください。
 * 署名証明書が期限切れになったときに署名の有効な状態を維持するには、署名済みパッケージにタイムスタンプが含まれている必要があります。 そうでない場合は、署名操作で[警告](../reference/errors-and-warnings/NU3002.md)が生成されます。
-* 特定のパッケージの署名の詳細を表示するには、[nuget verify](../tools/cli-ref-verify.md) を使用します。
+* 特定のパッケージの署名の詳細を表示するには、[nuget verify](../reference/cli-reference/cli-ref-verify.md) を使用します。
 
 ## <a name="register-the-certificate-on-nugetorg"></a>NuGet.org に証明書を登録する
 
@@ -66,7 +66,7 @@ nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper 
 
 ## <a name="publish-the-package"></a>パッケージを公開する
 
-これで NuGet.org にパッケージを公開する準備ができました。「[パッケージを公開する](Publish-a-package.md)」を参照してください。
+これで NuGet.org にパッケージを公開する準備ができました。「[パッケージを公開する](../nuget-org/Publish-a-package.md)」を参照してください。
 
 ## <a name="create-a-test-certificate"></a>テスト証明書を作成する
 
@@ -103,5 +103,5 @@ New-SelfSignedCertificate -Subject "CN=NuGet Test Developer, OU=Use for testing 
 
 ## <a name="related-articles"></a>関連記事
 
-- [署名付きパッケージのインストール](../consume-packages/installing-signed-packages.md)
+- [パッケージ信頼境界を管理する](../consume-packages/installing-signed-packages.md)
 - [署名済みパッケージの参照](../reference/Signed-Packages-Reference.md)

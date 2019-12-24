@@ -1,16 +1,16 @@
 ---
-title: dotnet CLI を使って NuGet パッケージを使用するための入門ガイド
+title: dotnet CLI を使用して NuGet パッケージをインストールし、使用する
 description: .NET Core プロジェクトで NuGet パッケージをインストールし、使用するプロセスを説明したチュートリアル。
 author: karann-msft
 ms.author: karann
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: 4b593cc215ad68629e5a93d1f17c90e53c0b4f4f
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: 9b6eb012b4bc8135b1648fa9f5e84d7d1c9d6b16
+ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324631"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74825352"
 ---
 # <a name="quickstart-install-and-use-a-package-using-the-dotnet-cli"></a>クイック スタート: dotnet CLI を使用してパッケージをインストールし使用する
 
@@ -23,7 +23,7 @@ NuGet パッケージには、他の開発者がお客様のプロジェクト�
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-- [.NET Core SDK](https://www.microsoft.com/net/download/)。これは、`dotnet`コマンド ライン ツールを提供します。
+- [.NET Core SDK](https://www.microsoft.com/net/download/)。これは、`dotnet`コマンド ライン ツールを提供します。 Visual Studio 2017 以降、dotnet CLI は .NET Core 関連のワークロードで自動的にインストールされます。
 
 ## <a name="create-a-project"></a>プロジェクトを作成する
 
@@ -31,9 +31,11 @@ NuGet パッケージは、ある種類の .NET プロジェクトにインス�
 
 1. プロジェクトのフォルダーを作成します。
 
+1. コマンド プロンプトを開いて、新しいフォルダーに切り替えます。
+
 1. 次のコマンドを使用して、プロジェクトを作成します。
 
-    ```cli
+    ```dotnetcli
     dotnet new console
     ```
 
@@ -43,7 +45,7 @@ NuGet パッケージは、ある種類の .NET プロジェクトにインス�
 
 1. 次のコマンドを使用して、`Newtonsoft.json` パッケージをインストールします。
 
-    ```cli
+    ```dotnetcli
     dotnet add package Newtonsoft.Json
     ```
 
@@ -101,9 +103,15 @@ NuGet パッケージは、ある種類の .NET プロジェクトにインス�
     }
     ```
 
-## <a name="related-articles"></a>関連記事
+## <a name="next-steps"></a>次の手順
+
+最初の NuGet パッケージを無事にインストールして使用できました。
+
+> [!div class="nextstepaction"]
+> [dotnet CLI を使用してパッケージをインストールし使用する](../consume-packages/install-use-packages-dotnet-cli.md)
+
+NuGet が提供するその他の機能を調べるには、下のリンクを選択してください。
 
 - [パッケージ使用の概要とワークフロー](../consume-packages/overview-and-workflow.md)
 - [パッケージの検索と選択](../consume-packages/finding-and-choosing-packages.md)
-- [パッケージをインストールする方法](../consume-packages/ways-to-install-a-package.md)
-- [NuGet の動作を構成する](../consume-packages/configuring-nuget-behavior.md)
+- [プロジェクト ファイルのパッケージ参照](../consume-packages/package-references-in-project-files.md)

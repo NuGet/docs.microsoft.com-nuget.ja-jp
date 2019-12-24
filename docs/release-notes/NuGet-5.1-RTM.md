@@ -1,10 +1,16 @@
 ---
-ms.openlocfilehash: 48306e77a017c11fa7dc0d695e0177edf4e79d1e
-ms.sourcegitcommit: 69b5eb1494a1745a4b1a7f320a91255d5d8356a9
+title: NuGet 5.1 RTM リリース ノート
+description: 新機能、バグの修正、および Dcr を含む NuGet 5.1 リリース ノート。
+author: karann-msft
+ms.author: karann
+ms.date: 05/21/2019
+ms.topic: conceptual
+ms.openlocfilehash: 384145947b19af6577dc1255985df1a361c72bb5
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65975836"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842578"
 ---
 # <a name="nuget-51-release-notes"></a>NuGet 5.1 リリース ノート
 

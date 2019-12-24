@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/25/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 45d8a6557ee02998f3d12b128ee2dc4fd6ae48bb
-ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
+ms.openlocfilehash: 3ca023c8d39b9b36388f5f517b50ca5cd2347cc0
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56145593"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610456"
 ---
 # <a name="hosting-your-own-nuget-feeds"></a>独自の NuGet フィードをホスティングする
 
@@ -23,18 +23,20 @@ ms.locfileid: "56145593"
 - NuGet.Server:パッケージは、ローカル HTTP サーバー経由で有効にされます。 詳細については、「[NuGet.Server](../hosting-packages/nuget-server.md)」を参照してください。
 - NuGet ギャラリー:パッケージは、[NuGet ギャラリー プロジェクト](https://github.com/NuGet/NuGetGallery#build-and-run-the-gallery-in-arbitrary-number-easy-steps) (github.com) を使用して、インターネット サーバー上にホストされます。 NuGet ギャラリーは、nuget.org と同様に、ブラウザー内からパッケージを検索できる広範な Web UI など、ユーザーの管理や機能を備えています。
 
-また、次のようなその他のいくつかの NuGet ホスティング製品でも、リモート プライベート フィードをサポートします。
+リモート プライベート フィードをサポートする [Azure Artifacts](https://www.visualstudio.com/docs/package/nuget/publish) や [GitHub パッケージ レジストリ](https://help.github.com/articles/configuring-nuget-for-use-with-github-package-registry)など、他のいくつかの NuGet ホスティング製品もあります。 このような製品の一覧を次に示します。
 
-- [Azure Artifacts](https://www.visualstudio.com/docs/package/nuget/publish)。これは、Team Foundation Server 2017 以降でも利用できます。
-- [MyGet](http://myget.org)
-- [ProGet](http://inedo.com/proget) (Inedo)
-- [NuGet Server](http://nugetserver.net/)。Inedo のコミュニティ プロジェクト
-- [NuGet Server (オープン ソース)](http://nuget-server.net)。Inedo の NuGet Server と同様のオープンソースの実装
-- [LiGet](https://github.com/ai-traders/liget)。Docker の Kestrel 上で実行される NuGet V2 サーバーのオープン ソースの実装
-- [BaGet](https://github.com/loic-sharma/BaGet)。ASP.NET Core 上に構築された NuGet V3 サーバーのオープン ソースの実装
-- [Sleet](https://github.com/emgarten/sleet)。オープン ソースの NuGet V3 静的フィード ジェネレーター
 - [Artifactory](https://www.jfrog.com/artifactory/) (JFrog)
-- [Nexus](http://www.sonatype.org/nexus/) (Sonatype)
+- [Azure Artifacts](https://www.visualstudio.com/docs/package/nuget/publish)。これは、Team Foundation Server 2017 以降でも利用できます。
+- [BaGet](https://github.com/loic-sharma/BaGet)。ASP.NET Core 上に構築された NuGet V3 サーバーのオープン ソースの実装
+- [Cloudsmith](https://cloudsmith.io/l/nuget-feed/)。フル マネージド パッケージ管理の SaaS
+- [GitHub パッケージ レジストリ](https://help.github.com/articles/configuring-nuget-for-use-with-github-package-registry)
+- [LiGet](https://github.com/ai-traders/liget)。Docker の Kestrel 上で実行される NuGet V2 サーバーのオープン ソースの実装
+- [MyGet](https://myget.org)
+- [Nexus](https://www.sonatype.org/nexus/) (Sonatype)
+- [NuGet Server (オープン ソース)](https://github.com/svenkle/nuget-server)。Inedo の NuGet Server と同様のオープンソースの実装
+- [NuGet Server](http://nugetserver.net/)。Inedo のコミュニティ プロジェクト
+- [ProGet](https://inedo.com/proget) (Inedo)
+- [Sleet](https://github.com/emgarten/sleet)。オープン ソースの NuGet V3 静的フィード ジェネレーター
 - [TeamCity](https://www.jetbrains.com/teamcity/) (JetBrains)
 
-パッケージがどのようにホストされているかに関係なく、`NuGet.Config` で利用可能なソースの一覧にパッケージを追加して、アクセスします。 これは、「[パッケージ ソース](../tools/package-manager-ui.md#package-sources)」に示されているように Visual Studio で、またはコマンド ラインから [`nuget sources`](../tools/cli-ref-sources.md) を使用して実行できます。 ソースへのパスは、ローカル フォルダーのパス名、ネットワーク名、または URL にすることができます。
+パッケージがどのようにホストされているかに関係なく、`NuGet.Config` で利用可能なソースの一覧にパッケージを追加して、アクセスします。 これは、「[パッケージ ソース](../consume-packages/install-use-packages-visual-studio.md#package-sources)」に示されているように Visual Studio で、またはコマンド ラインから [`nuget sources`](../reference/cli-reference/cli-ref-sources.md) を使用して実行できます。 ソースへのパスは、ローカル フォルダーのパス名、ネットワーク名、または URL にすることができます。

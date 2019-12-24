@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: dfbd6a3e6d59dfcea6394891703ea66bce5e8e92
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: da8c5a05311c790bf6b873bc0f1a077d3ef1db87
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580274"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610626"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>NuGet パッケージとして UI コントロールを作成する
 
-Visual Studio 2017 では、NuGet パッケージで配信する UWP コントロールと WPF コントロール用の追加機能を活用できます。 このガイドでは、UWP コントロールのコンテキストから、[ExtensionSDKasNuGetPackage サンプル](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage)を使用してこれらの機能を紹介します。 特に言及がない限り、WPF コントロールに対しても同じことが該当します。
+Visual Studio 2017 以降では、NuGet パッケージで配信する UWP コントロールと WPF コントロール用の追加機能を活用できます。 このガイドでは、UWP コントロールのコンテキストから、[ExtensionSDKasNuGetPackage サンプル](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage)を使用してこれらの機能を紹介します。 特に言及がない限り、WPF コントロールに対しても同じことが該当します。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
@@ -60,7 +60,7 @@ XAML コントロールが Visual Studio の XAML デザイナーのツールボ
 それぞれの文字について以下に説明します。
 
 - *your_package_file*: `ManagedPackage.winmd` などのコントロール ファイルの名前 ("ManagedPackage" はこの例で任意の名前を使用するだけで、それ以外の意味を持ちません)。
-- *vs_category*: Visual Studio デザイナーのツールボックスにコントロールを表示するグループのラベル。 `VSCategory` は、コントロールをツールボックスに表示するために必要です。
+- *vs_category*:  Visual Studio デザイナーのツールボックスにコントロールを表示するグループのラベル。 `VSCategory` は、コントロールをツールボックスに表示するために必要です。
 - *blend_category*: Blend デザイナーの [資産] ウィンドウにコントロールを表示するグループのラベル。 `BlendCategory` は、コントロールを [資産] に表示するために必要です。
 - *type_full_name_n*: `ManagedPackage.MyCustomControl` など、名前空間を含む、各コントロールの完全修飾名です。 マネージド コードとネイティブの両方の種類でドット形式が使用されることに注意してください。
 
@@ -93,7 +93,7 @@ XAML コントロールが Visual Studio の XAML デザイナーのツールボ
 
 ![ツール ボックスのアイコンのサンプル](https://raw.githubusercontent.com/NuGet/docs.microsoft.com-nuget/live/docs/guides/media/ColorPicker_16x16x24.bmp)
 
-ピンク色の背景は実行時に置き換わります。 アイコンの色は、Visual Studio のテーマが変更され、その背景色が予想されるときに変更されます。 詳細については、「[Visual Studio のイメージとアイコン](https://docs.microsoft.com/en-us/visualstudio/extensibility/ux-guidelines/images-and-icons-for-visual-studio)」を参照してください。
+ピンク色の背景は実行時に置き換わります。 アイコンの色は、Visual Studio のテーマが変更され、その背景色が予想されるときに変更されます。 詳細については、「[Visual Studio のイメージとアイコン](https://docs.microsoft.com/visualstudio/extensibility/ux-guidelines/images-and-icons-for-visual-studio)」を参照してください。
 
 次の例では、プロジェクトには、"ManagedPackage.MyCustomControl.png" という名前の画像ファイルが含まれています。
 
@@ -120,7 +120,7 @@ WPF の場合、たとえば、.NET Framework v4.6.1 以上をターゲットと
 
 ## <a name="add-design-time-support"></a>デザイン時サポートの追加
 
-プロパティ インスペクターのどこにコントロールのプロパティが表示されるかを構成するには、カスタム装飾などを追加し、ターゲット プラットフォームに合わせて `design.dll` ファイルを `lib\uap10.0.14393\Design` フォルダー内に配置します。 また、**[[テンプレートの編集] > [コピーして編集]](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)** 機能を確実に動作させるには、マージする `Generic.xaml` とリソース ディクショナリを `<your_assembly_name>\Themes` フォルダーに含める必要があります (ここでも実際のアセンブリ名を使用します)。 (このファイルはコントロールの実行時の動作には影響しません)。その結果、フォルダー構造は次のようになります。
+プロパティ インスペクターのどこにコントロールのプロパティが表示されるかを構成するには、カスタム装飾などを追加し、ターゲット プラットフォームに合わせて `design.dll` ファイルを `lib\uap10.0.14393\Design` フォルダー内に配置します。 また、 **[[テンプレートの編集] > [コピーして編集]](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)** 機能を確実に動作させるには、マージする `Generic.xaml` とリソース ディクショナリを `<your_assembly_name>\Themes` フォルダーに含める必要があります (ここでも実際のアセンブリ名を使用します)。 (このファイルはコントロールの実行時の動作には影響しません)。その結果、フォルダー構造は次のようになります。
 
     \lib
       \uap10.0.14393

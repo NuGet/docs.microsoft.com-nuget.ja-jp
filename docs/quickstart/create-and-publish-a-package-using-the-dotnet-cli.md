@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: 6aa5c7bcb2a46e5f8dcf8f2c04a91eafe9ca03b6
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: 55f9c760ae05f060b748e6fbb82d8e9bd77c4e37
+ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812996"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74825299"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>クイック スタート: パッケージの作成と公開 (dotnet CLI)
 
@@ -18,7 +18,7 @@ ms.locfileid: "66812996"
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-1. `dotnet` CLI を含む [.NET Core SDK](https://www.microsoft.com/net/download/) をインストールします。
+1. `dotnet` CLI を含む [.NET Core SDK](https://www.microsoft.com/net/download/) をインストールします。 Visual Studio 2017 以降、dotnet CLI は .NET Core 関連のワークロードで自動的にインストールされます。
 
 1. まだ持っていない場合は、[nuget.org で無料アカウントを登録](https://www.nuget.org/users/account/LogOn?returnUrl=%2F)します。 新しいアカウントを作成すると、確認メールが送信されます。 パッケージをアップロードするには、その前にアカウントを確認する必要があります。
 
@@ -26,9 +26,13 @@ ms.locfileid: "66812996"
 
 パッケージ化するコードに既存の .NET クラス ライブラリ プロジェクトを使用することも、次の手順に従って単純なプロジェクトを作成することもできます。
 
-1. `AppLogger`という名前のフォルダーを作成し、そこに変更します。
+1. `AppLogger` という名前のフォルダーを作成します。
 
-1. `dotnet new classlib`を使用してプロジェクトを作成します。プロジェクト名には現在のフォルダーの名前が使用されます。
+1. コマンド プロンプトを開いて、`AppLogger` フォルダーに切り替えます。
+
+1. 「`dotnet new classlib`」と入力します。ここでは、プロジェクトに現在のフォルダーの名前が使用されます。
+
+   これにより、新しいプロジェクトが作成されます。
 
 ## <a name="add-package-metadata-to-the-project-file"></a>パッケージのメタデータをプロジェクト ファイルに追加する
 
@@ -55,7 +59,7 @@ ms.locfileid: "66812996"
 
 プロジェクトから NuGet パッケージ (`.nupkg` ファイル) を作成するには、`dotnet pack` コマンドを実行します。このコマンドではプロジェクトのビルドも自動的に行われます。
 
-```cli
+```dotnetcli
 # Uses the project file in the current folder by default
 dotnet pack
 ```
@@ -101,13 +105,19 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 
 [!INCLUDE [publish-manage](includes/publish-manage.md)]
 
-## <a name="related-topics"></a>関連トピック
+## <a name="next-steps"></a>次の手順
 
-- [パッケージの作成](../create-packages/creating-a-package.md)
-- [パッケージの公開](../create-packages/publish-a-package.md)
+無事に、最初の NuGet パッケージを作成できました。
+
+> [!div class="nextstepaction"]
+> [パッケージの作成](../create-packages/creating-a-package-dotnet-cli.md)
+
+NuGet による提供についてさらに詳しく調べるには、下のリンクを選択してください。
+
+- [パッケージの公開](../nuget-org/publish-a-package.md)
 - [プレリリース パッケージ](../create-packages/Prerelease-Packages.md)
-- [複数のターゲット フレームワークのサポート](../create-packages/supporting-multiple-target-frameworks.md)
-- [パッケージのバージョン管理](../reference/package-versioning.md)
+- [複数のターゲット フレームワークのサポート](../create-packages/multiple-target-frameworks-project-file.md)
+- [パッケージのバージョン管理](../concepts/package-versioning.md)
 - [ローカライズされたパッケージを作成する](../create-packages/creating-localized-packages.md)
 - [シンボル パッケージを作成する](../create-packages/symbol-packages-snupkg.md)
 - [署名パッケージ](../create-packages/Sign-a-package.md)
