@@ -7,7 +7,7 @@ ms.date: 03/23/2018
 ms.topic: conceptual
 ms.openlocfilehash: ed3545454a811c311190a191c566d9e9192f3fcc
 ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 12/04/2019
 ms.locfileid: "74825071"
@@ -18,7 +18,7 @@ ms.locfileid: "74825071"
 
 [PackageReference](../consume-packages/package-references-in-project-files.md)形式では、NuGet 4.0 以降では、個別の `.nuspec` ファイルを使用するのではなく、すべてのマニフェストメタデータをプロジェクトファイル内に直接格納できます。
 
-MSBuild 15.1 以降では、NuGet は以下のように `pack` および `restore` ターゲットを使用する MSBuild の最上級のメンバーです。 これらのターゲットを使用すると、他の MSBuild タスクやターゲットの場合と同様に NuGet を使用できます MSBuild を使用して NuGet パッケージを作成する手順については、「[msbuild を使用した nuget パッケージの作成](../create-packages/creating-a-package-msbuild.md)」を参照してください。 (NuGet 3.x 以前の場合は、代わりに NuGet CLI の [pack](../reference/cli-reference/cli-ref-pack.md) および [restore](../reference/cli-reference/cli-ref-restore.md) コマンドを使用します)。
+MSBuild 15.1 以降では、NuGet は以下のように `pack` および `restore` ターゲットを使用する MSBuild の最上級のメンバーです。 これらのターゲットを使用すると、他の MSBuild タスクやターゲットの場合と同様に NuGet を使用できます MSBuild を使用して NuGet パッケージを作成する手順については、「 [msbuild を使用した nuget パッケージの作成](../create-packages/creating-a-package-msbuild.md)」を参照してください。 (NuGet 3.x 以前の場合は、代わりに NuGet CLI の [pack](../reference/cli-reference/cli-ref-pack.md) および [restore](../reference/cli-reference/cli-ref-restore.md) コマンドを使用します)。
 
 ## <a name="target-build-order"></a>ターゲットのビルド順序
 
@@ -54,7 +54,7 @@ PackageReference 形式を使用する .NET Standard プロジェクトの場合
 | VersionSuffix | PackageVersionSuffix | (なし) | MSBuild の $(VersionSuffix) PackageVersion を設定すると、PackageVersionSuffix は上書きされます |
 | Authors | Authors | 現在のユーザーのユーザー名 | |
 | Owners | なし | NuSpec にはありません | |
-| Title | Title | PackageId| |
+| [タイトル] | [タイトル] | PackageId| |
 | Description | Description | "パッケージの説明" | |
 | Copyright | Copyright | (なし) | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | False | |
@@ -377,7 +377,7 @@ Nuspec ファイルをパックする .csproj ファイルの例を次に示し*
 | RestorePackagesPath | ユーザー パッケージ フォルダーのパス。 |
 | RestoreDisableParallel | ダウンロード数を一度に 1 つまでに制限します。 |
 | RestoreConfigFile | 適用する `Nuget.Config` ファイルのパス。 |
-| RestoreNoCache | True の場合、キャッシュされたパッケージの使用を回避します。 「[グローバルパッケージとキャッシュフォルダーの管理](../consume-packages/managing-the-global-packages-and-cache-folders.md)」を参照してください。 |
+| RestoreNoCache | True の場合、キャッシュされたパッケージの使用を回避します。 「[グローバルパッケージとキャッシュフォルダーの管理」を](../consume-packages/managing-the-global-packages-and-cache-folders.md)参照してください。 |
 | RestoreIgnoreFailedSources | true の場合、失敗した、または不足しているパッケージ ソースを無視します。 |
 | RestoreFallbackFolders | フォールバックフォルダー。ユーザーパッケージフォルダーを使用する場合と同じ方法で使用されます。 |
 | RestoreAdditionalProjectSources | 復元中に使用する追加のソース。 |

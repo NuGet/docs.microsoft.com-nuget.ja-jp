@@ -130,4 +130,4 @@ X-NuGet-Session-Id       | *省略可能*。 NuGet クライアント v1.0 + 同
 
 ## <a name="authentication"></a>認証
 
-認証は、を定義するために、パッケージソースの実装に残されます。 Nuget.org では、 `PackagePublish`リソースのみが特別な API キーヘッダーによる認証を必要とします。 詳細については、「 [ `PackagePublish`リソース](package-publish-resource.md)」を参照してください。
+認証は、を定義するために、パッケージソースの実装に残されます。 Nuget.org では、 `PackagePublish`リソースのみが特別な API キーヘッダーによる認証を必要とします。 詳細については、「[`PackagePublish`リソース](package-publish-resource.md)」を参照してください。
