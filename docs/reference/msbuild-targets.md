@@ -18,7 +18,7 @@ ms.locfileid: "74825071"
 
 [PackageReference](../consume-packages/package-references-in-project-files.md)形式では、NuGet 4.0 以降では、個別の `.nuspec` ファイルを使用するのではなく、すべてのマニフェストメタデータをプロジェクトファイル内に直接格納できます。
 
-MSBuild 15.1 以降では、NuGet は以下のように `pack` および `restore` ターゲットを使用する MSBuild の最上級のメンバーです。 これらのターゲットを使用すると、他の MSBuild タスクやターゲットの場合と同様に NuGet を使用できます MSBuild を使用して NuGet パッケージを作成する手順については、「 [msbuild を使用した nuget パッケージの作成](../create-packages/creating-a-package-msbuild.md)」を参照してください。 (NuGet 3.x 以前の場合は、代わりに NuGet CLI の [pack](../reference/cli-reference/cli-ref-pack.md) および [restore](../reference/cli-reference/cli-ref-restore.md) コマンドを使用します)。
+MSBuild 15.1 以降では、NuGet は以下のように `pack` および `restore` ターゲットを使用する MSBuild の最上級のメンバーです。 これらのターゲットを使用すると、他の MSBuild タスクやターゲットの場合と同様に NuGet を使用できます MSBuild を使用して NuGet パッケージを作成する手順については、「[msbuild を使用した nuget パッケージの作成](../create-packages/creating-a-package-msbuild.md)」を参照してください。 (NuGet 3.x 以前の場合は、代わりに NuGet CLI の [pack](../reference/cli-reference/cli-ref-pack.md) および [restore](../reference/cli-reference/cli-ref-restore.md) コマンドを使用します)。
 
 ## <a name="target-build-order"></a>ターゲットのビルド順序
 
@@ -54,7 +54,7 @@ PackageReference 形式を使用する .NET Standard プロジェクトの場合
 | VersionSuffix | PackageVersionSuffix | (なし) | MSBuild の $(VersionSuffix) PackageVersion を設定すると、PackageVersionSuffix は上書きされます |
 | Authors | Authors | 現在のユーザーのユーザー名 | |
 | Owners | なし | NuSpec にはありません | |
-| [タイトル] | [タイトル] | PackageId| |
+| Title | Title | PackageId| |
 | Description | Description | "パッケージの説明" | |
 | Copyright | Copyright | (なし) | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | False | |
@@ -62,7 +62,7 @@ PackageReference 形式を使用する .NET Standard プロジェクトの場合
 | license | PackageLicenseFile | (なし) | `<license type="file">` に相当します。 参照されているライセンスファイルを明示的にパックする必要があります。 |
 | LicenseUrl | PackageLicenseUrl | (なし) | `PackageLicenseUrl` は推奨されていません。このプロパティを使用して、パッケージを使用してください。 |
 | ProjectUrl | PackageProjectUrl | (なし) | |
-| アイコン | PackageIcon | (なし) | 参照されているアイコンイメージファイルを明示的にパックする必要があります。|
+| Icon | PackageIcon | (なし) | 参照されているアイコンイメージファイルを明示的にパックする必要があります。|
 | IconUrl | PackageIconUrl | (なし) | ベストダウンレベルのエクスペリエンスを実現するには、`PackageIcon`に加えて `PackageIconUrl` を指定する必要があります。 長期的には、`PackageIconUrl` は非推奨とされます。 |
 | Tags | PackageTags | (なし) | 複数のタグはセミコロン (;) で区切られます。 |
 | ReleaseNotes | PackageReleaseNotes | (なし) | |
@@ -377,7 +377,7 @@ Nuspec ファイルをパックする .csproj ファイルの例を次に示し*
 | RestorePackagesPath | ユーザー パッケージ フォルダーのパス。 |
 | RestoreDisableParallel | ダウンロード数を一度に 1 つまでに制限します。 |
 | RestoreConfigFile | 適用する `Nuget.Config` ファイルのパス。 |
-| RestoreNoCache | True の場合、キャッシュされたパッケージの使用を回避します。 「[グローバルパッケージとキャッシュフォルダーの管理」を](../consume-packages/managing-the-global-packages-and-cache-folders.md)参照してください。 |
+| RestoreNoCache | True の場合、キャッシュされたパッケージの使用を回避します。 「[グローバルパッケージとキャッシュフォルダーの管理](../consume-packages/managing-the-global-packages-and-cache-folders.md)」を参照してください。 |
 | RestoreIgnoreFailedSources | true の場合、失敗した、または不足しているパッケージ ソースを無視します。 |
 | RestoreFallbackFolders | フォールバックフォルダー。ユーザーパッケージフォルダーを使用する場合と同じ方法で使用されます。 |
 | RestoreAdditionalProjectSources | 復元中に使用する追加のソース。 |
