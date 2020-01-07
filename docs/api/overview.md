@@ -21,7 +21,7 @@ NuGet サーバー API は、パッケージのダウンロード、メタデー
 
 注 nuget.org には、他のパッケージソースによって適用されない追加の要件がある場合があります。 これらの違いについては、 [Nuget.org プロトコル](nuget-protocols.md)によって説明されています。
 
-使用可能な nuget.exe バージョンの簡単な列挙とダウンロードについては、「[ツールの json](tools-json.md)エンドポイント」を参照してください。
+使用可能な nuget.exe バージョンの簡単な列挙とダウンロードについては、[tools.json](tools-json.md) のエンドポイントを参照してください。
 
 ## <a name="service-index"></a>サービス インデックス
 
@@ -121,9 +121,9 @@ API エンドポイントに対して行われた要求は、HTTPリダイレク
 
 名前                     | 説明
 ------------------------ | -----------
-X-NuGet-ApiKey           | プッシュと削除には必須です。「リソース」を参照してください。 [ `PackagePublish`](package-publish-resource.md)
+X-NuGet-ApiKey           | プッシュと削除には必須です。「リソース」を参照してください。 [`PackagePublish`](package-publish-resource.md)
 X-NuGet-Client-Version   | **非推奨**と置き換え`X-NuGet-Protocol-Version`
-X-NuGet-Protocol-Version | Nuget.org のみで必要な場合は、「 [nuget.org プロトコル](NuGet-Protocols.md)」を参照してください。
+X-NuGet-Protocol-Version | Nuget.org のみで必要な場合は、「[nuget.org プロトコル](NuGet-Protocols.md)」を参照してください。
 X-NuGet-Session-Id       | *省略可能*。 NuGet クライアント v1.0 + 同じ NuGet クライアントセッションの一部である HTTP 要求を識別します。
 
 `X-NuGet-Session-Id` で`PackageReference`は、の1回の復元に関連するすべての操作に対して1つの値が使用されます。 オートコンプリートや`packages.config`復元などの他のシナリオでは、コードがどのように考慮されるかによって、複数の異なるセッション ID が存在する可能性があります。
