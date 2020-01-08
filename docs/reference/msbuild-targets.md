@@ -7,7 +7,7 @@ ms.date: 03/23/2018
 ms.topic: conceptual
 ms.openlocfilehash: ed3545454a811c311190a191c566d9e9192f3fcc
 ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 12/04/2019
 ms.locfileid: "74825071"
@@ -62,7 +62,7 @@ PackageReference 形式を使用する .NET Standard プロジェクトの場合
 | license | PackageLicenseFile | (なし) | `<license type="file">` に相当します。 参照されているライセンスファイルを明示的にパックする必要があります。 |
 | LicenseUrl | PackageLicenseUrl | (なし) | `PackageLicenseUrl` は推奨されていません。このプロパティを使用して、パッケージを使用してください。 |
 | ProjectUrl | PackageProjectUrl | (なし) | |
-| アイコン | PackageIcon | (なし) | 参照されているアイコンイメージファイルを明示的にパックする必要があります。|
+| Icon | PackageIcon | (なし) | 参照されているアイコンイメージファイルを明示的にパックする必要があります。|
 | IconUrl | PackageIconUrl | (なし) | ベストダウンレベルのエクスペリエンスを実現するには、`PackageIcon`に加えて `PackageIconUrl` を指定する必要があります。 長期的には、`PackageIconUrl` は非推奨とされます。 |
 | Tags | PackageTags | (なし) | 複数のタグはセミコロン (;) で区切られます。 |
 | ReleaseNotes | PackageReleaseNotes | (なし) | |
