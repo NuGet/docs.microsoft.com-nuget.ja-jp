@@ -1,5 +1,5 @@
 ---
-title: nuget.exeバージョンを検出するためのtools.json
+title: nuget.exe バージョンを検出するための tools.json
 description: のエンドポイント
 author: jver
 ms.author: jver
@@ -13,7 +13,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 11/05/2019
 ms.locfileid: "73611030"
 ---
-# <a name="toolsjson-for-discovering-nugetexe-versions"></a>nuget.exeバージョンを検出するためのtools.json
+# <a name="toolsjson-for-discovering-nugetexe-versions"></a>nuget.exe バージョンを検出するための tools.json
 
 現在、コンピューター上の最新バージョンの nuget.exe をスクリプト可能な方法で入手するには、いくつかの方法があります。 たとえば、nuget.org から[`NuGet.CommandLine`](https://www.nuget.org/packages/NuGet.CommandLine/)パッケージをダウンロードして抽出することができます。これにはいくつかの複雑さがあります。これは、既に nuget.exe がある (`nuget.exe install`) 必要があるか、または基本的な解凍ツールを使用して nupkg を解凍し、内部でバイナリを検索する必要があるためです。
 
