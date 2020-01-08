@@ -21,7 +21,7 @@ NuGet サーバー API は、パッケージのダウンロード、メタデー
 
 注 nuget.org には、他のパッケージソースによって適用されない追加の要件がある場合があります。 これらの違いについては、 [Nuget.org プロトコル](nuget-protocols.md)によって説明されています。
 
-使用可能な nuget.exe バージョンの簡単な列挙とダウンロードについては、[tools.json](tools-json.md) のエンドポイントを参照してください。
+使用可能な nuget.exe バージョンの簡単な列挙とダウンロードについては、[tools.json](tools-json.md)] のエンドポイントを参照してください。
 
 ## <a name="service-index"></a>サービス インデックス
 
