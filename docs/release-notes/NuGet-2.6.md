@@ -1,107 +1,107 @@
 ---
-title: NuGet 2.6 リリース ノート
-description: NuGet 2.6.1 の既知の問題、バグの修正、追加機能、および Dcr を含む WebMatrix のリリース ノート。
+title: NuGet 2.6 リリースノート
+description: 既知の問題、バグ修正、追加された機能、および DCRs を含む、NuGet 2.6.1 向けのリリースノート。
 author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: f011a8db7ac2067a2ed7db67849d63f7dd40d1ce
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 5e80965aad4caa69130be31a37b7f5f5ffb12ea6
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551944"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384125"
 ---
-# <a name="nuget-26-release-notes"></a>NuGet 2.6 リリース ノート
+# <a name="nuget-26-release-notes"></a>NuGet 2.6 リリースノート
 
-[NuGet 2.5 リリース ノート](../release-notes/nuget-2.5.md) | [NuGet 2.6.1 for WebMatrix のリリース ノート](../release-notes/nuget-2.6.1-for-webmatrix.md)
+Nuget [2.5 リリースノート](../release-notes/nuget-2.5.md) | [WebMatrix のリリース](../release-notes/nuget-2.6.1-for-webmatrix.md)ノート
 
-NuGet 2.6 は、2013 年 6 月 26 日にリリースされました。
+NuGet 2.6 は、2013年6月26日にリリースされました。
 
-## <a name="notable-features-in-the-release"></a>リリースで注目すべき機能
+## <a name="notable-features-in-the-release"></a>リリースの注目すべき機能
 
 ### <a name="support-for-visual-studio-2013"></a>Visual Studio 2013 のサポート
 
-NuGet 2.6 は、Visual Studio 2013 のサポートを提供する最初のリリースです。 Visual Studio のすべてのエディションの Visual Studio 2012 のように、NuGet パッケージ マネージャー拡張機能が含まれています。
+NuGet 2.6 は Visual Studio 2013 のサポートを提供する最初のリリースです。 また、Visual Studio 2012 と同様に、NuGet パッケージマネージャー拡張機能は Visual Studio のすべてのエディションに含まれています。
 
-まだ Visual Studio 2010 と Visual Studio 2012 の両方をサポートしていると、拡張サイズをできるだけ小さく維持する方法の中に Visual Studio 2013 の最高レベルのサポートを提供するためには、中に Visual Studio 2013 用の別個の拡張機能を作成する、Visual Studio 2010 と 2012 の両方をターゲットに元の拡張子が続行されます。
+Visual Studio 2010 と Visual Studio 2012 の両方を引き続きサポートしながら、Visual Studio 2013 の最適なサポートを提供するために、拡張機能のサイズを可能な限り小さくするために、Visual Studio 2013 用に個別の拡張機能を作成しています。元の拡張機能は、引き続き Visual Studio 2010 と2012の両方を対象とします。
 
-NuGet 2.6 以降では、次の 2 つの拡張機能を発行します。
+NuGet 2.6 以降、次のように2つの拡張機能を公開します。
 
-1. [NuGet パッケージ マネージャー](https://marketplace.visualstudio.com/items?itemName=NuGetTeam.NuGetPackageManager) (Visual Studio 2010 および 2012 に適用されます)
-1. [Visual Studio 2013 用の NuGet パッケージ マネージャー](https://marketplace.visualstudio.com/items?itemName=NuGetTeam.NuGetPackageManagerforVisualStudio2013)
+1. [NuGet パッケージマネージャー](https://marketplace.visualstudio.com/items?itemName=NuGetTeam.NuGetPackageManager) (Visual Studio 2010 および2012に適用されます)
+1. [Visual Studio 2013 用の NuGet パッケージマネージャー](https://marketplace.visualstudio.com/items?itemName=NuGetTeam.NuGetPackageManagerforVisualStudio2013)
 
-この分割は、 [nuget.org](https://nuget.org)ホーム ページの"NuGet のインストール"ボタンに移動、 [NuGet をインストールする](../install-nuget-client-tools.md)ページで、詳細については、さまざまな NuGet クライアントをインストールする方法を見つけることができます。
+この分割では、 [nuget.org](https://nuget.org)ホームページの [Nuget のインストール] ボタンをクリックすると、[ [nuget](../install-nuget-client-tools.md)のインストール] ページが表示されます。このページでは、さまざまな nuget クライアントのインストールに関する詳細情報を確認できます。
 
 <a name="xdt"></a>
 
 ### <a name="xdt-webconfig-transformation-support"></a>XDT Web.config 変換のサポート
 
-NuGet クライアントの高度から要求された機能の 1 つは、Visual Studio のビルド構成の変換で使用されている、XDT 変換エンジンを使用してより強力な XML の変換をサポートするようにしています。
+NuGet クライアントで最も要求の高い機能の1つは、Visual Studio ビルド構成の変換で使用される XDT 変換エンジンを使用して、より強力な XML 変換をサポートすることでした。
 
-2013 年 4 月には、XDT の NuGet サポートに関する 2 つの大規模なお知らせを行いました。 最初は、XDT ライブラリ自体はされていた自体[NuGet パッケージとしてリリース](https://nuget.org/packages/Microsoft.Web.Xdt)と[CodePlex でのオープン ソース](http://xdt.codeplex.com/)します。 この手順では、NuGet クライアントを含むその他のオープン ソース ソフトウェアで自由に使用される、XDT エンジンが有効になります。 2 番目のお知らせは、NuGet クライアントでの変換、XDT エンジンの使用をサポートするために、プランをしました。 NuGet 2.6 には、この統合が含まれています。
+2013年4月に、XDT の NuGet サポートに関して2つの大きな発表を行いました。 1つ目は、XDT ライブラリ自体が[NuGet パッケージとしてリリース](https://nuget.org/packages/Microsoft.Web.Xdt)され、 [CodePlex でオープンソース](http://xdt.codeplex.com/)になっていることでした。 この手順では、他のオープンソースソフトウェア (NuGet クライアントを含む) で XDT エンジンを自由に使用できるようになりました。 2番目の発表は、NuGet クライアントでの変換のための XDT エンジンの使用をサポートする計画でした。 NuGet 2.6 には、この統合が含まれています。
 
-#### <a name="how-it-works"></a>しくみ
+#### <a name="how-it-works"></a>機能のしくみ
 
-NuGet の XDT サポートを利用するしくみは検索のと同様、 [config 変換機能を現在](../create-packages/source-and-config-file-transformations.md)します。
-変換ファイルは、パッケージのコンテンツのフォルダーに追加されます。 ただし、構成の変換では、1 つのファイルを使用してのインストールおよびアンインストールの両方、XDT 変換には、次のファイルを使用してこれらのプロセスの両方を詳細に制御が有効にします。
+NuGet の XDT サポートを活用するために、このしくみは、[現在の構成変換機能](../create-packages/source-and-config-file-transformations.md)に似ています。
+変換ファイルは、パッケージのコンテンツフォルダーに追加されます。 ただし、構成変換では、インストールとアンインストールの両方に1つのファイルが使用されますが、XDT 変換では、次のファイルを使用して、両方のプロセスをきめ細かく制御できます。
 
 - Web.config.install.xdt
 - Web.config.uninstall.xdt
 
-さらに、NuGet はファイルのサフィックスを使用して既存 web.config.transforms を使用してパッケージは引き続き機能するための変換を実行するには、どのエンジンを確認します。 XDT 変換は、XML ファイル (だけでなく web.config) にも適用できますこのに他のアプリケーション プロジェクトで利用できるようにします。
+また、NuGet はファイルサフィックスを使用して変換を実行するエンジンを決定します。そのため、既存の web.config を使用するパッケージは引き続き機能します。 XDT 変換は、(web.config だけでなく) 任意の XML ファイルにも適用できます。そのため、プロジェクト内の他のアプリケーションでこれを活用できます。
 
-#### <a name="what-you-can-do-with-xdt"></a>XDT を行うことができます。
+#### <a name="what-you-can-do-with-xdt"></a>XDT でできること
 
-XDT の最大の強みの 1 つはその[単純ながらも強力な構文](http://msdn.microsoft.com/library/dd465326.aspx)XML DOM の構造を操作します。 別の構造に 1 つの固定ドキュメントの構造を単純にオーバーレイではなく XDT はさまざまな方法は、完全な XPath をサポートする単純な属性名が一致するから内の要素を照合するコントロールを提供します。 一致する要素または要素のセットが見つかった後、XDT 関数の豊富な操作を提供します、要素の追加、更新、または属性の削除、特定の場所に新しい要素を配置することまたは交換または全体を削除することを意味するかどうか要素とその子。
+XDT の最大の強みの1つは、XML DOM の構造を操作するための[単純で強力な構文](https://docs.microsoft.com/previous-versions/aspnet/dd465326(v=vs.110))です。 XDT では、1つの固定ドキュメント構造を別の構造に単にオーバーレイするのではなく、単純な属性名の照合から完全な XPath サポートまで、さまざまな方法で要素を照合するためのコントロールを提供します。 一致する要素または要素のセットが見つかった場合、XDT は、要素を操作するための豊富な関数セットを提供します。これは、属性の追加、更新、または削除、特定の位置に新しい要素を配置する、全体を置換または削除することを意味します。要素とその子。
 
 ### <a name="machine-wide-configuration"></a>コンピューター全体の構成
 
-NuGet のすばらしい強みの 1 つは、それ以外の場合の大きな実行可能ファイルまたはライブラリできる統合と最も重要なは維持され、バージョン管理された独立してモジュラー コンポーネントのセットに分割します。 この、1 つの副作用は製品または製品ファミリの従来の考え方がより断片化可能性があります。
-NuGet のカスタム パッケージのソースの機能は、パッケージを整理するための 1 つの方法を提供します。ただし、カスタム パッケージのソースは、自分で検出可能ではありません。
+NuGet の優れた利点の1つは、それ以外の大規模な実行可能ファイルまたはライブラリをモジュール式のセットに分割することです。これらのコンポーネントは統合可能で、ほとんどの場合、個別に管理およびバージョン管理できます。 ただし、このような副作用の1つは、製品または製品ファミリの従来の考え方がより複雑になる可能性があるということです。
+NuGet のカスタムパッケージソース機能は、パッケージを整理するための1つの方法を提供します。ただし、カスタムパッケージソースは独自に検出できません。
 
-NuGet 2.6 では、パス %programdata%/nuget/config フォルダー階層を検索して NuGet を構成するためのロジックを拡張します。製品インストーラーには、自社製品のカスタム パッケージのソースを登録するには、このフォルダーの下にカスタムの NuGet 構成ファイルを追加できます。 さらに、フォルダー構造は、製品、バージョン、および IDE の偶数の SKU のセマンティクスをサポートします。 これらのディレクトリからの設定は、"wins"では最後の優先順位戦略では、次の順序で適用されます。
+NuGet 2.6 では、パス% ProgramData%/NuGet/Config. でフォルダー階層を検索して、NuGet を構成するためのロジックを拡張します。製品インストーラーでは、このフォルダーにカスタムの NuGet 構成ファイルを追加して、製品用のカスタムパッケージソースを登録できます。 さらに、フォルダー構造は、IDE の製品、バージョン、および SKU のセマンティクスをサポートしています。 これらのディレクトリからの設定は、"last in wins" 優先順位戦略に従って次の順序で適用されます。
 
 1. %ProgramData%\NuGet\Config\*.config
 2. %ProgramData%\NuGet\Config\{IDE}\*.config
 3. %ProgramData%\NuGet\Config\{IDE}\{Version}\*.config
 4. %ProgramData%\NuGet\Config\{IDE}\{Version}\{SKU}\*.config
 
-この一覧で、{IDE} プレース ホルダーは、Visual Studio の場合"VisualStudio"になるように、NuGet が実行されている IDE に固有です。 {バージョン} (例: {SKU} プレース ホルダーを IDE によって提供されると"11.0":"WDExpress"、"VWDExpress"と"Pro"でそれぞれ)。 フォルダーには、多くの異なる *.config ファイルし、含めることができます。
-そのため、ACME コンポーネント会社、製品インストーラーの一部としてソースを追加できますカスタム パッケージ、次のファイル パスを作成して Visual Studio 2012 の Professional、および Ultimate バージョンでのみ表示されます。
+この一覧では、{IDE} プレースホルダーは NuGet が実行されている IDE に固有であるため、Visual Studio の場合は "VisualStudio" になります。 {Version} と {SKU} プレースホルダーは、IDE によって提供されています (例: "11.0"、"WDExpress"、"VWDExpress"、"Pro" など)。 このフォルダーには、さまざまな * .config ファイルを含めることができます。
+そのため、ACME コンポーネント会社は、製品インストーラーの一部として、次のファイルパスを作成することによって、Visual Studio 2012 の Professional および Ultimate バージョンでのみ表示されるカスタムパッケージソースを追加できます。
 
 %ProgramData%\NuGet\Config\VisualStudio\11.0\Pro\acme.config
 
-パッケージ ソースとしての登録を許可する、NuGet の構成ダイアログ ボックスが更新されてもフォルダー構造を使用する NuGet の構成にコンピューター全体のパッケージ ソースを追加するソフトウェア インストーラーのようなプログラムの簡単です、(例: %appdata%/nuget/nuget.config で登録されている) かユーザー固有またはコンピューター全体に適用します。
+フォルダー構造は、コンピューター全体のパッケージソースを NuGet の構成に追加するソフトウェアのインストーラーなどのプログラムにとっては簡単ですが、[NuGet の構成] ダイアログも更新され、ユーザー固有 (たとえば、% AppData%/NuGet/NuGet.Config に登録されている) またはコンピューター全体にパッケージソースを登録できるようになりました。
 
-この機能は、Visual Studio 2013 でのファイルがインストールされているによって使用されています。
+この機能は Visual Studio 2013 によって使用されます。この場合、ファイルは次の場所にインストールされます。
 
 %ProgramData%\NuGet\Config\VisualStudio\12.0\Microsoft.VisualStudio.config
 
-このファイルでは、「.NET Framework パッケージ」と呼ばれる新しいパッケージ ソースが構成されます。
+このファイル内には、".NET Framework Packages" という名前の新しいパッケージソースが構成されています。
 
-![NuGet 構成ファイルのマシン全体の設定](./media/NuGet-Config-File-Machine-Wide.png)
+![NuGet 構成ファイルコンピューター全体の設定](./media/NuGet-Config-File-Machine-Wide.png)
 
-### <a name="contextualizing-search"></a>検索のコンテキスト化
+### <a name="contextualizing-search"></a>身検索
 
-NuGet ギャラリーで提供されるパッケージの数は、指数のペースで成長を続けるは検索を改善する NuGet の優先度リストの上部にあるこれまでに残ります。 コンテキスト検索、つまり、潜在的な検索の妥当性を判断するための条件として NuGet は、バージョンと SKU の Visual Studio を使用している、およびビルドするプロジェクトの種類について使用して NuGet の計画的な機能の 1 つです。結果。
+NuGet ギャラリーによって提供されるパッケージの数は指数関数的に増加し続けているため、NuGet の優先度リストの上部には、検索の向上が続きます。 NuGet の計画された機能の1つはコンテキスト検索です。つまり、NuGet は、使用している Visual Studio のバージョンと SKU に関する情報と、候補となる検索の関連性を判断するための条件として構築するプロジェクトの種類に関する情報を使用します。生じ.
 
-NuGet 2.6 以降、パッケージをインストールするたびに、インストールのコンテキストとして記録されます、インストール操作のデータの一部。  検索では、コンテキストのインストールの傾向によって検索結果を向上させるため、NuGet ギャラリーで、同じコンテキスト情報も送信します。  今後の更新プログラム、NuGet ギャラリーでは、この状況依存の関連性の向上を有効になります。
+NuGet 2.6 以降では、パッケージがインストールされるたびに、インストールのコンテキストがインストール操作データの一部として記録されます。  検索でも同じコンテキスト情報が送信されます。これにより、NuGet ギャラリーはコンテキストのインストール傾向によって検索結果を向上させることができます。  今後、NuGet ギャラリーを更新することで、この状況に応じた関連性が向上します。
 
-### <a name="tracking-direct-installs-vs-dependency-installs"></a>追跡との直接インストールされます。依存関係のインストール
+### <a name="tracking-direct-installs-vs-dependency-installs"></a>直接インストールと依存関係のインストールの追跡
 
-上のパッケージの作成者はより証明書利用者、[パッケージ統計](http://blog.nuget.org/20130226/Introducing-Package-Statistics.html)NuGet ギャラリーで提供します。  重要な不足しているデータ ポイントの作成者が求めている 1 つは、直接パッケージをインストールし、依存関係のインストールとの違いです。  これまで、NuGet クライアントは、開発者が直接パッケージをインストールするかどうか、または依存関係を満たすためにインストールされているかどうか、インストール操作を任意のコンテキストを送信しませんでした。
-NuGet 2.6 以降、データがインストール操作で送信されるようになりましたが。  NuGet ギャラリーにパッケージの統計情報はで、独立したインストール操作としてそのデータを公開するは、"-依存関係"サフィックス。
+パッケージの作成者は、NuGet ギャラリーで提供されている[パッケージの統計情報](http://blog.nuget.org/20130226/Introducing-Package-Statistics.html)によって、より多くの情報を利用できます。  作成者が要求した重要なデータポイントの1つに、パッケージの直接インストールと依存関係のインストールの違いがあります。  これまでは、NuGet クライアントは、開発者がパッケージを直接インストールしたかどうか、または依存関係を満たすためにインストールされたかどうかについて、インストール操作に関するコンテキストを一切送信しませんでした。
+NuGet 2.6 以降、このデータはインストール操作のために送信されるようになります。  NuGet ギャラリーのパッケージ統計は、"-Dependency" サフィックスを使用して、そのデータを個別のインストール操作として公開します。
 
-* インストール
-* 依存関係のインストール
+* のインストール
+* インストール-依存関係
 * 更新
-* 依存関係の更新
+* 更新-依存関係
 * 再インストール
-* 依存関係を再インストール
+* 再インストール-依存関係
 
-別の操作の名前だけでなく依存パッケージ id は、インストールも記録されます。  今後の更新プログラム、NuGet ギャラリーでは、パッケージ作成者を開発者がそれらのパッケージをインストールする方法を完全に理解できるように、レポート内でそのデータを公開します。
+異なる操作名に加えて、依存パッケージ id もインストール用に記録されます。  NuGet ギャラリーの今後の更新では、レポート内でそのデータが公開されるため、パッケージの作成者はパッケージのインストール方法を完全に理解できます。
 
 ## <a name="bug-fixes"></a>バグ修正
 
-NuGet 2.6 には、いくつかのバグ修正も含まれています。 作業の完全な一覧の項目で修正された NuGet 2.6 では、くださいビュー、[このリリースの NuGet Issue Tracker](https://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%202.6&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0&reasonClosed=All)します。
+NuGet 2.6 には、いくつかのバグ修正も含まれています。 NuGet 2.6 で修正された作業項目の完全な一覧については、[このリリースの Nuget Issue Tracker](https://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%202.6&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0&reasonClosed=All)を参照してください。

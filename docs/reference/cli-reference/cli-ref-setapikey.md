@@ -5,36 +5,39 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: b00e8b1f7a6fda9c1a0c079069fa8ee08a45b419
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 0e2119953e6d07cd3571f156fa0b2665de49f963
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327609"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383970"
 ---
 # <a name="setapikey-command-nuget-cli"></a>setapikey コマンド (NuGet CLI)
 
-**適用対象:** パッケージの使用、 &bullet; **サポートされるバージョン**の発行: すべて
+**適用対象:** パッケージの使用、発行 &bullet;**サポートされているバージョン:** すべて
 
-指定されたサーバー URL の API キーを`NuGet.Config`に保存して、後続のコマンドに入力する必要がないようにします。
+指定されたサーバー URL の API キーを `NuGet.Config` に保存して、後続のコマンドに入力する必要がないようにします。
 
-## <a name="usage"></a>使用法
+## <a name="usage"></a>使用状況
 
 ```cli
 nuget setapikey <key> -Source <url> [options]
 ```
 
-はサーバーを`<key>`識別し、は保存するキーまたはパスワードです。 `<source>` を`<source>`省略した場合、nuget.org が想定されます。
+`<source>` はサーバーを識別し、`<key>` は保存するキーまたはパスワードです。 `<source>` を省略した場合、nuget.org が想定されます。
 
-## <a name="options"></a>オプション
+> [!NOTE]
+> API キーは、プライベートフィードでの認証には使用されません。 ソースで認証するための資格情報を管理するには、 [`nuget sources` のコマンド](../cli-reference/cli-ref-sources.md)を参照してください。
+
+## <a name="options"></a>[オプション]
 
 | オプション | 説明 |
 | --- | --- |
-| ConfigFile | 適用する NuGet 構成ファイル。 指定されて`%AppData%\NuGet\NuGet.Config`いない場合は`~/.nuget/NuGet/NuGet.Config` 、(Windows) または (Mac/Linux) が使用されます。|
+| ConfigFile | 適用する NuGet 構成ファイル。 指定しない場合は、`%AppData%\NuGet\NuGet.Config` (Windows) または `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) が使用されます。|
 | ForceEnglishOutput | *(3.5 +)* 不変の英語ベースのカルチャを使用して nuget.exe を強制的に実行します。 |
-| Help | ヘルプのコマンドの情報を表示します。 |
+| ヘルプ | ヘルプのコマンドの情報を表示します。 |
 | NonInteractive | ユーザーの入力または確認のプロンプトを表示しません。 |
-| Verbosity | 出力に表示される詳細データの量を指定します:*normal*、*quiet*、*detailed* |
+| 詳細度 | 出力に表示される詳細データの量を指定します:*normal*、*quiet*、*detailed* |
 
 「[環境変数](cli-ref-environment-variables.md)」も参照してください。
 

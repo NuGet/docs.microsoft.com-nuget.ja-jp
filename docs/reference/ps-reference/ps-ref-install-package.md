@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/01/2017
 ms.topic: reference
-ms.openlocfilehash: 1899662049735189ab4dcb728df5d56afdc5f7c5
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: a65ba63ed070f40e82c43d12e5fad12d86f28112
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327339"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384442"
 ---
 # <a name="install-package-package-manager-console-in-visual-studio"></a>Install-Package (Visual Studio パッケージ マネージャー コンソール)
 
@@ -26,7 +26,7 @@ Install-Package [-Id] <string> [-IgnoreDependencies] [-ProjectName <string>] [[-
     [-WhatIf] [<CommonParameters>]
 ```
 
-NuGet 2.8 以降では`Install-Package` 、はプロジェクト内の既存のパッケージをダウングレードできます。 たとえば、次のコマンドでは、Microsoft の AspNet. MVC 5.1.0-rc1 がインストールされている場合、それを5.0.0 にダウングレードします。
+NuGet 2.8 以降では、`Install-Package` はプロジェクト内の既存のパッケージをダウングレードできます。 たとえば、次のコマンドでは、Microsoft の AspNet. MVC 5.1.0-rc1 がインストールされている場合、それを5.0.0 にダウングレードします。
 
 ```ps
 Install-Package Microsoft.AspNet.MVC -Version 5.0.0.
@@ -34,23 +34,23 @@ Install-Package Microsoft.AspNet.MVC -Version 5.0.0.
 
 ## <a name="parameters"></a>パラメーター
 
-| パラメーター | 説明 |
+| パラメータ | 説明 |
 | --- | --- |
-| ID | 必要インストールするパッケージの識別子。 (*3.0 以降*)識別子には、 `packages.config`ファイル`.nupkg`またはファイルのパスまたは URL を指定できます。 -Id スイッチ自体は省略可能です。 |
+| ID | 必要インストールするパッケージの識別子。 (*3.0 以降*)識別子には、`packages.config` ファイルまたは `.nupkg` ファイルのパスまたは URL を指定できます。 -Id スイッチ自体は省略可能です。 |
 | IgnoreDependencies | 依存関係ではなく、このパッケージのみをインストールします。 |
 | ProjectName | パッケージのインストール先となるプロジェクト。既定のプロジェクトが既定のプロジェクトになります。 |
-| Source | 検索するパッケージソースの URL またはフォルダーパス。 ローカルフォルダーのパスは、絶対パスでも、現在のフォルダーを基準とした相対パスでもかまいません。 省略した`Install-Package`場合、現在選択されているパッケージソースを検索します。 |
+| Source | 検索するパッケージソースの URL またはフォルダーパス。 ローカルフォルダーのパスは、絶対パスでも、現在のフォルダーを基準とした相対パスでもかまいません。 省略した場合、`Install-Package` は現在選択されているパッケージソースを検索します。 |
 | Version | インストールするパッケージのバージョン。既定では、最新バージョンが対象となります。 |
-| IncludePrerelease | インストールのプレリリースパッケージを検討します。 省略した場合、安定したパッケージだけが考慮されます。 |
+| IncludePrerelease | インストールのプレリリースパッケージを検討します。 省略した場合、安定版パッケージのみが考慮されます。 |
 | FileConflictAction | プロジェクトによって参照される既存のファイルを上書きまたは無視するように要求されたときに実行するアクション。 指定できる値は *、Overwrite、Ignore、None、OverwriteAll*、 *(3.0 +)* *ignoreall*です。 |
-| DependencyVersion | 使用する依存関係パッケージのバージョン。次のいずれかになります。<br/><ul><li>*最低*(既定): 最も低いバージョン</li><li>*HighestPatch*: 最も低いメジャー、最低のマイナー、最高のパッチを持つバージョン</li><li>*HighestMinor*: 最上位のメジャー、最高のマイナー、最高の修正プログラムが適用されたバージョン</li><li>*最高*(パラメーターのない更新プログラム-パッケージの既定値): 最高のバージョン</li></ul>`Nuget.Config`ファイルの[`dependencyVersion`](../nuget-config-file.md#config-section)設定を使用して、既定値を設定できます。 |
-| WhatIf | 実際にインストールを実行せずにコマンドを実行した場合の動作を示します。 |
+| DependencyVersion | 使用する依存関係パッケージのバージョン。次のいずれかになります。<br/><ul><li>*最低*(既定): 最も低いバージョンです。</li><li>*HighestPatch*: 最も低いメジャー、最低のマイナー、最高のパッチを持つバージョン</li><li>*HighestMinor*: 最上位のメジャー、最高のマイナー、最高の修正プログラムが適用されたバージョン</li><li>*最高*(更新プログラム-パラメーターなしのパッケージ): 最高バージョン</li></ul>`Nuget.Config` ファイルの[`dependencyVersion`](../nuget-config-file.md#config-section)設定を使用して、既定値を設定できます。 |
+| Whatif | 実際にインストールを実行せずにコマンドを実行した場合の動作を示します。 |
 
 これらのパラメーターでは、パイプラインの入力やワイルドカード文字を受け入れません。
 
 ## <a name="common-parameters"></a>共通パラメーター
 
-`Install-Package`では、次の[一般的な PowerShell パラメーター](http://go.microsoft.com/fwlink/?LinkID=113216)がサポートされています。Debug、Error Action、ErrorVariable、OutBuffer、Outbuffer、PipelineVariable、Verbose、Warnings Action、および Warnings 変数。
+`Install-Package` 次のサポート[一般的な PowerShell パラメーター](https://go.microsoft.com/fwlink/?LinkID=113216): Debug、Error Action、ErrorVariable、OutBuffer、OutVariable、PipelineVariable、Verbose、WarningAction、WarningVariable、します。
 
 ## <a name="examples"></a>使用例
 

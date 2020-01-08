@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 6/1/2017
 ms.topic: reference
-ms.openlocfilehash: 4bb6d090b97dd55fc1be0625855aab27a0d181c4
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 4118b5a38f80a2300b3945738315d56bda096f9a
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327389"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384634"
 ---
 # <a name="find-package-package-manager-console-in-visual-studio"></a>Find-package (Visual Studio パッケージ マネージャー コンソール)
 
@@ -27,22 +27,22 @@ Find-Package [-Id] <keywords> -Source <string> [-AllVersions] [-First [<int>]]
 
 ## <a name="parameters"></a>パラメーター
 
-| パラメーター | 説明 |
+| パラメータ | 説明 |
 | --- | --- |
-| Id &lt;キーワード&gt; | 必要パッケージソースの検索時に使用するキーワード。 パッケージ ID がキーワードと一致するパッケージのみを返すには、-"Exactmatch" を使用します。 キーワードが指定されて`Find-Package`いない場合は、ダウンロードによって上位20個のパッケージの一覧が返されます。または、-First で指定した数が返されます。 -Id は省略可能であり、no op であることに注意してください。 |
-| Source | 検索するパッケージソースの URL またはフォルダーパス。 ローカルフォルダーのパスは、絶対パスでも、現在のフォルダーを基準とした相対パスでもかまいません。 省略した`Find-Package`場合、現在選択されているパッケージソースを検索します。 |
+| Id &lt;キーワード&gt; | 必要パッケージソースの検索時に使用するキーワード。 パッケージ ID がキーワードと一致するパッケージのみを返すには、-"Exactmatch" を使用します。 キーワードが指定されていない場合、`Find-Package` によって、ダウンロードによって上位20個のパッケージの一覧が返されます。または、-First で指定した数になります。 -Id は省略可能であり、no op であることに注意してください。 |
+| Source | 検索するパッケージソースの URL またはフォルダーパス。 ローカルフォルダーのパスは、絶対パスでも、現在のフォルダーを基準とした相対パスでもかまいません。 省略した場合、`Find-Package` は現在選択されているパッケージソースを検索します。 |
 | AllVersions | 最新バージョンのみではなく、各パッケージの使用可能なすべてのバージョンを表示します。 |
 | First | リストの先頭から取得するパッケージの数。既定値は20です。 |
-| Skip | 表示され&lt;て&gt;いる一覧から最初の int パッケージを除外します。  |
+| スキップ | 表示されている一覧から、最初の &lt;int&gt; パッケージを省略します。  |
 | IncludePrerelease | 結果にプレリリースパッケージが含まれます。 |
-| "Exactmatch" | 大文字小文字&lt;を&gt;区別するパッケージ ID としてキーワードを使用するように指定します。 |
-| StartWith | パッケージ ID がキーワード&lt;&gt;で始まるパッケージを返します。 |
+| ExactMatch | 大文字と小文字を区別するパッケージ ID として&gt; &lt;キーワードを使用するように指定されています。 |
+| StartWith | &lt;キーワード&gt;で始まるパッケージ ID を持つパッケージを返します。 |
 
 これらのパラメーターでは、パイプラインの入力やワイルドカード文字を受け入れません。
 
 ## <a name="common-parameters"></a>共通パラメーター
 
-`Find-Package`では、次の[一般的な PowerShell パラメーター](http://go.microsoft.com/fwlink/?LinkID=113216)がサポートされています。Debug、Error Action、ErrorVariable、OutBuffer、Outbuffer、PipelineVariable、Verbose、Warnings Action、および Warnings 変数。
+`Find-Package` 次のサポート[一般的な PowerShell パラメーター](https://go.microsoft.com/fwlink/?LinkID=113216): Debug、Error Action、ErrorVariable、OutBuffer、OutVariable、PipelineVariable、Verbose、WarningAction、WarningVariable、します。
 
 ## <a name="examples"></a>使用例
 
