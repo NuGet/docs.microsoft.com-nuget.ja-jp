@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 69e12ce1c78f8d4d50cbad7a0237d767064193ab
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 34f7c6132ba6050e20114642932ccf29a5ec088d
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610651"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385097"
 ---
 # <a name="support-multiple-net-versions"></a>複数の .NET バージョンをサポートする
 
@@ -67,7 +67,7 @@ ms.locfileid: "73610651"
 
 これらのアセンブリはランタイムでのみ使用できます。そのため、対応するコンパイル時のアセンブリも指定する必要がある場合は、`AnyCPU` アセンブリを `/ref/{tfm}` フォルダー内に置きます。 
 
-NuGet では、コンパイル時またはランタイムのアセットを常に 1 つのフォルダーから選択するため、`/ref` からの互換性のあるアセットが存在する場合は、コンパイル時のアセンブリを追加するために `/lib` が無視されます。 同様に、`/runtime` からの互換性のあるアセットが存在する場合も、ランタイムのために `/lib` が無視されます。
+NuGet では、コンパイル時またはランタイムのアセットを常に 1 つのフォルダーから選択するため、`/ref` からの互換性のあるアセットが存在する場合は、コンパイル時のアセンブリを追加するために `/lib` が無視されます。 同様に、`/runtimes` からの互換性のあるアセットが存在する場合も、ランタイムのために `/lib` が無視されます。
 
 `.nuspec` マニフェストでこれらのファイルを参照する例については、「[Create UWP Packages](../guides/create-uwp-packages.md)」 (UWP パッケージの作成) を参照してください。
 
