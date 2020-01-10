@@ -49,7 +49,7 @@
 ### [ネイティブ パッケージを作成する](guides/native-packages.md)
 ### [NuGet パッケージとして UI コントロールを作成する](guides/create-UI-controls.md)
 ### [NuGet パッケージとしてアナライザーを作成する](guides/analyzers-conventions.md)
-### [Visual Studio 2015 で Xamarin 用パッケージを作成する](guides/create-packages-for-xamarin.md)
+### [Visual Studio 2017 または 2019 で Xamarin 用パッケージを作成する](guides/create-packages-for-xamarin.md)
 ### [COM 相互運用アセンブリを含むパッケージを作成する](create-packages/author-packages-with-COM-interop-assemblies.md)
 ## パッケージに署名する
 ### [パッケージに署名する](create-packages/sign-a-package.md)
@@ -67,7 +67,7 @@
 ## [パッケージのインストール プロセス](concepts/package-installation-process.md)
 ## [パッケージのバージョン管理](concepts/package-versioning.md)
 ## [依存関係の解決](concepts/dependency-resolution.md)
-# 辞書／辞典／その他
+# 関連項目
 ## [.nuspec](reference/nuspec.md)
 ## [nuget.config ファイル](reference/nuget-config-file.md)
 ## [ターゲット フレームワーク](reference/target-frameworks.md)
