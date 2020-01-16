@@ -1,22 +1,22 @@
 ---
-title: Visual Studio 2015 による Xamarin 用 NuGet パッケージの作成 (iOS、Android、および Windows 用)
+title: Visual Studio 2017 または 2019 での Xamarin 用 NuGet パッケージ (iOS、Android、および Windows 用) の作成
 description: iOS、Android、および Windows でネイティブ API を使用する、Xamarin の NuGet パッケージを作成するためのエンド ツー エンド チュートリアル。
 author: karann-msft
 ms.author: karann
-ms.date: 01/09/2017
+ms.date: 11/05/2019
 ms.topic: tutorial
-ms.openlocfilehash: 927991429d8d4ce54aa35be3e450475a38141b11
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: fce3c9a92dfee325f9e914bf3d6444601fb38b6c
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488915"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385685"
 ---
-# <a name="create-packages-for-xamarin-with-visual-studio-2015"></a>Visual Studio 2015 での Xamarin 用パッケージの作成
+# <a name="create-packages-for-xamarin-with-visual-studio-2017-or-2019"></a>Visual Studio 2017 または 2019 での Xamarin 用パッケージの作成
 
 Xamarin 用 パッケージには、実行時のオペレーティング システムに応じて、iOS、Android、および Windows でネイティブ API を使用するコードが含まれます。 これを行うのは簡単ですが、開発者が共通の API のセキュリティ、外部からのアクセスを通じて PCL または .NET Standard ライブラリからパッケージを使用できるようにすることをお勧めします。
 
-このチュートリアルでは、Visual Studio 2015 を使用して、iOS、Android、および Windows 上のモバイル プロジェクトで使用できるクロスプラットフォームの NuGet パッケージを作成します。
+このチュートリアルでは、Visual Studio 2017 または 2019 を使用して、iOS、Android、および Windows 上のモバイル プロジェクトで使用できるクロスプラットフォームの NuGet パッケージを作成します。
 
 1. [必須コンポーネント](#prerequisites)
 1. [プロジェクトの構造体および抽象化コードを作成する](#create-the-project-structure-and-abstraction-code)
@@ -27,7 +27,7 @@ Xamarin 用 パッケージには、実行時のオペレーティング シス�
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-1. Visual Studio 2015、ユニバーサル Windows プラットフォーム (UWP) および Xamarin。 [visualstudio.com](https://www.visualstudio.com/) から無料の Community Edition をインストールします。もちろん、Professional Edition と Enterprise Edition も使用できます。 UWP および Xamarin ツールを含めるには、カスタム インストールを選択して、適切なオプションを確認します。
+1. ユニバーサル Windows プラットフォーム (UWP) および Xamarin を備えた Visual Studio 2017 または 2019。 [visualstudio.com](https://www.visualstudio.com/) から無料の Community Edition をインストールします。もちろん、Professional Edition と Enterprise Edition も使用できます。 UWP および Xamarin ツールを含めるには、カスタム インストールを選択して、適切なオプションを確認します。
 1. NuGet CLI。 [nuget.org/downloads](https://nuget.org/downloads) から最新バージョンの nuget.exe をダウンロードして、任意の場所に保存します。 次に、その場所を PATH 環境変数に追加します (まだ存在していない場合)。
 
 > [!Note]
@@ -35,23 +35,33 @@ Xamarin 用 パッケージには、実行時のオペレーティング シス�
 
 ## <a name="create-the-project-structure-and-abstraction-code"></a>プロジェクトの構造体および抽象化コードを作成する
 
-1. Visual Studio 用の [Plugin For Xamarin テンプレート拡張機能](https://marketplace.visualstudio.com/items?itemName=vs-publisher-473885.PluginForXamarinTemplates)をダウンロードして実行します。 これらのテンプレートを使用することで、このチュートリアルで必要なプロジェクトの構造体を簡単に作成できます。
-1. Visual Studio で、 **[ファイル]、[新規]、[プロジェクト]** の順に選択し、`Plugin` を検索して **[Plugin for Xamarin]** テンプレートを選択し、名前を LoggingLibrary に変更してから [OK] をクリックします。
+1. Visual Studio 用の [Cross-Platform .NET Standard Plugin Templates 拡張機能](https://marketplace.visualstudio.com/items?itemName=vs-publisher-473885.PluginForXamarinTemplates)をダウンロードして実行します。 これらのテンプレートを使用することで、このチュートリアルで必要なプロジェクトの構造体を簡単に作成できます。
+1. Visual Studio 2017 で、 **[ファイル]、[新規]、[プロジェクト]** の順に選択し、`Plugin` を検索して **[Cross-Platform .NET Standard Library Plugin]\(クロスプラットフォーム .NET Standard Library プラグイン\)** テンプレートを選択し、名前を「LoggingLibrary」に変更してから [OK] をクリックします。
 
-    ![Visual Studio の新しい空のアプリ (Xamarin.Forms ポータブル) プロジェクト](media/CrossPlatform-NewProject.png)
+    ![VS 2017 の新しい空のアプリ (Xamarin.Forms ポータブル) プロジェクト](media/CrossPlatform-NewProject.png)
 
-結果として得られるソリューションには、以下のようなさまざまなプラットフォーム固有のプロジェクトと共に 2 つの PCL プロジェクトが含まれます。
+    Visual Studio 2019 で、 **[ファイル]、[新規]、[プロジェクト]** の順に選択し、`Plugin` を検索して **[Cross-Platform .NET Standard Library Plugin]\(クロスプラットフォーム .NET Standard Library プラグイン\)** テンプレートを選択し、[次へ] をクリックします。
 
-- `Plugin.LoggingLibrary.Abstractions (Portable)` という名前の PCL ではコンポーネントのパブリック インターフェイス (API のセキュリティ、外部からのアクセス) を定義します。この場合、ILoggingLibrary.cs ファイルに含まれている `ILoggingLibrary` インターフェイスとなります。 これは、ライブラリへのインターフェイスを定義する場所です。
-- その他の PCL `Plugin.LoggingLibrary (Portable)` には、実行時に抽象インターフェイスのプラットフォーム固有の実装を検索する CrossLoggingLibrary.cs のコードが含まれます。 通常、このファイルを変更する必要はありません。
-- `Plugin.LoggingLibrary.Android` などのプラットフォーム固有の各プロジェクトには、対応する LoggingLibraryImplementation.cs ファイルのインターフェイスのネイティブ実装が含まれます。 これは、ライブラリのコードをビルドする場所です。
+    ![VS 2019 の新しい空のアプリ (Xamarin.Forms ポータブル) プロジェクト](media/CrossPlatform-NewProject19-Part1.png)
 
-既定では、抽象化プロジェクトの ILoggingLibrary.cs ファイルにインターフェイス定義が含まれますが、メソッドは含まれません。 このチュートリアルでは、以下のように `Log` メソッドを追加します。
+    名前を「LoggingLibrary」に変更し、[作成] をクリックします。
+
+    ![VS 2019 の新しい空のアプリ (Xamarin.Forms ポータブル) 構成](media/CrossPlatform-NewProject19-Part2.png)
+
+結果として得られるソリューションには、以下のようなさまざまなプラットフォーム固有のプロジェクトと共に、2 つの共有プロジェクトが含まれます。
+
+- `ILoggingLibrary.shared.cs` ファイルに含まれる `ILoggingLibrary` プロジェクトでは、コンポーネントのパブリック インターフェイス (API のアクセス領域) が定義されます。 これは、ライブラリへのインターフェイスを定義する場所です。
+- もう 1 つの共有プロジェクトでは、`CrossLoggingLibrary.shared.cs` に、実行時に抽象インターフェイスのプラットフォーム固有の実装を検索するコードが含まれています。 通常、このファイルを変更する必要はありません。
+- `LoggingLibrary.android.cs` などのプラットフォーム固有の各プロジェクトには、その対応する `LoggingLibraryImplementation.cs` (VS 2017) または `LoggingLibrary.<PLATFORM>.cs` (VS 2019) ファイルに、インターフェイスのネイティブ実装が含まれています。 これは、ライブラリのコードをビルドする場所です。
+
+既定では、`ILoggingLibrary` プロジェクトの ILoggingLibrary.shared.cs ファイルにはインターフェイスの定義が含まれますが、メソッドは含まれません。 このチュートリアルでは、以下のように `Log` メソッドを追加します。
 
 ```cs
 using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace Plugin.LoggingLibrary.Abstractions
+namespace Plugin.LoggingLibrary
 {
     /// <summary>
     /// Interface for LoggingLibrary
@@ -70,11 +80,12 @@ namespace Plugin.LoggingLibrary.Abstractions
 
 `ILoggingLibrary` インターフェイスとそのメソッドのプラットフォーム固有の実装を行うには、次の操作を実行します。
 
-1. 各プラットフォーム プロジェクトの `LoggingLibraryImplementation.cs` ファイルを開き、必要なコードを追加します。 たとえば、`Plugin.LoggingLibrary.Android` プロジェクトを使用する場合は次のようになります。
+1. 各プラットフォーム プロジェクトの `LoggingLibraryImplementation.cs` (VS 2017) または `LoggingLibrary.<PLATFORM>.cs` (VS 2019) ファイルを開き、必要なコードを追加します。 例 (`Android` プラットフォーム プロジェクトを使用する場合):
 
     ```cs
-    using Plugin.LoggingLibrary.Abstractions;
     using System;
+    using System.Collections.Generic;
+    using System.Text;
 
     namespace Plugin.LoggingLibrary
     {
@@ -95,9 +106,10 @@ namespace Plugin.LoggingLibrary.Abstractions
     ```
 
 1. サポートする各プラットフォームのプロジェクトでこの実装を繰り返します。
-1. iOS プロジェクトを右クリックし、 **[プロパティ]** を選択して **[ビルド]** タブをクリックし、 **[出力パス]** および **[XML ドキュメント ファイル]** の設定から "\iPhone" を削除します。 この操作は、このチュートリアルの後半での利便性のためだけに行います。 完了したら、ファイルを保存します。
-1. ソリューションを右クリックし、 **[構成マネージャー]** を選択して、PCL とサポートする各プラットフォームの **[ビルド]** ボックスをオンにします。
 1. ソリューションを右クリックし、 **[ソリューションのビルド]** を選択して作業内容を確認し、次にパッケージ化する成果物を生成します。 欠落している参照に関するエラーが発生した場合は、ソリューションを右クリックし、 **[NuGet パッケージの復元]** を選択して依存関係をインストールしてからリビルドします。
+
+> [!Note]
+> Visual Studio 2019 を使用している場合は、 **[NuGet パッケージの復元]** を選択してリビルドしてみる前に、`LoggingLibrary.csproj` で `MSBuild.Sdk.Extras` のバージョンを `2.0.54` に変更する必要があります。 このファイルにアクセスするには、まず (ソリューションの下の) プロジェクトを右クリックして [`Unload Project`] を選択した後、アンロードされたプロジェクトを右クリックして [`Edit LoggingLibrary.csproj`] を選択する必要があります。
 
 > [!Note]
 > iOS 用にビルドするには、「[Xamarin.iOS for Visual Studio の概要](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/introduction_to_xamarin_ios_for_visual_studio/)」の説明に従って、ネットワーク接続された Mac を Visual Studio に接続する必要があります。 使用可能な Mac がない場合は、構成マネージャーで iOS プロジェクトをクリアします (上記の手順 3)。
@@ -125,7 +137,7 @@ namespace Plugin.LoggingLibrary.Abstractions
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Awesome application logging utility</description>
         <releaseNotes>First release</releaseNotes>
-        <copyright>Copyright 2016</copyright>
+        <copyright>Copyright 2018</copyright>
         <tags>logger logging logs</tags>
         </metadata>
     </package>
@@ -209,7 +221,7 @@ namespace Plugin.LoggingLibrary.Abstractions
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Awesome application logging utility</description>
     <releaseNotes>First release</releaseNotes>
-    <copyright>Copyright 2016</copyright>
+    <copyright>Copyright 2018</copyright>
     <tags>logger logging logs</tags>
         <dependencies>
         <group targetFramework="MonoAndroid">

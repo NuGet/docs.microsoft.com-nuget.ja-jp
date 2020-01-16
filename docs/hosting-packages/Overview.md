@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/25/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 3ca023c8d39b9b36388f5f517b50ca5cd2347cc0
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 81acf15ac69d78d39d2784e77c18ba38bfea126d
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610456"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385543"
 ---
 # <a name="hosting-your-own-nuget-feeds"></a>独自の NuGet フィードをホスティングする
 
@@ -32,7 +32,7 @@ ms.locfileid: "73610456"
 - [GitHub パッケージ レジストリ](https://help.github.com/articles/configuring-nuget-for-use-with-github-package-registry)
 - [LiGet](https://github.com/ai-traders/liget)。Docker の Kestrel 上で実行される NuGet V2 サーバーのオープン ソースの実装
 - [MyGet](https://myget.org)
-- [Nexus](https://www.sonatype.org/nexus/) (Sonatype)
+- [Nexus Repository OSS](https://www.sonatype.com/nexus-repository-oss) (Sonatype)。
 - [NuGet Server (オープン ソース)](https://github.com/svenkle/nuget-server)。Inedo の NuGet Server と同様のオープンソースの実装
 - [NuGet Server](http://nugetserver.net/)。Inedo のコミュニティ プロジェクト
 - [ProGet](https://inedo.com/proget) (Inedo)

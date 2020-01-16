@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 1053a18926f63e02f0b1c100e7cc1cd293654ced
-ms.sourcegitcommit: e4b0ff4460865db6dc7bc9f20e9f644d98493011
+ms.openlocfilehash: 00fe1d5fa81132b5d6826203a0d26e56aa8d4755
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71307211"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383983"
 ---
 # <a name="signing-nuget-packages"></a>NuGet パッケージの署名
 
@@ -19,7 +19,7 @@ ms.locfileid: "71307211"
 
 ## <a name="get-a-code-signing-certificate"></a>コード署名証明書を取得する
 
-有効な証明書は、[Symantec](https://trustcenter.websecurity.symantec.com/process/trust/productOptions?productType=SoftwareValidationClass3)、[DigiCert](https://www.digicert.com/code-signing/)、[Go Daddy](https://www.godaddy.com/web-security/code-signing-certificate)、[Global Sign](https://www.globalsign.com/en/code-signing-certificate/)、[Comodo](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php)、[Certum](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml) などの公的な証明機関から入手できます。Windows によって信頼される証明機関の全一覧は、[http://aka.ms/trustcertpartners](http://aka.ms/trustcertpartners) から入手できます。
+有効な証明書は、[Symantec](https://trustcenter.websecurity.symantec.com/process/trust/productOptions?productType=SoftwareValidationClass3)、[DigiCert](https://www.digicert.com/code-signing/)、[Go Daddy](https://www.godaddy.com/web-security/code-signing-certificate)、[Global Sign](https://www.globalsign.com/en/code-signing-certificate/)、[Comodo](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php)、[Certum](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml) などの公的な証明機関から入手できます。Windows によって信頼される証明機関の全一覧は、[http://aka.ms/trustcertpartners](https://aka.ms/trustcertpartners) から入手できます。
 
 テスト目的には、自己発行した証明書を使用できます。 ただし、NuGet.org では自己発行した証明書で署名されたパッケージは許可されていません。詳細については、[テスト証明書の作成](#create-a-test-certificate)に関するページを参照してください。
 

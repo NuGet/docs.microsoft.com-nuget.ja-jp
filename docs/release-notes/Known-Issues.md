@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: b104eb39ddeacd9ca1ea45937cf98ad57531112a
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 8f2b33a7290301bd16db3b1979ae496eee602f55
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317136"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383659"
 ---
 # <a name="known-issues-with-nuget"></a>NuGet に関する既知の問題
 
@@ -71,7 +71,7 @@ install-package log4net
 
 このコマンドが失敗する場合は、その場所にファイルが存在するかどうかを確認してください。
 
-このエラーの詳細については、この[作業項目](https://nuget.codeplex.com/workitem/3609 "作業項目 3609") を参照してください。
+このエラーの詳細については、こちらの[作業項目](https://nuget.codeplex.com/workitem/3609 "作業項目 3609")を参照してください。
 
 ## <a name="build-failure-after-package-update-in-vs-2012"></a>VS 2012 のパッケージの更新後のビルド エラー
 
@@ -90,7 +90,7 @@ VS 2010 SP1 を実行していて、NuGet の以前のバージョンをイン�
 ログを表示すると、`SignatureMismatchException` のメンションが表示されることがあります。
 
 これを防ぐには、[Visual Studio 2010 SP1 修正プログラム](http://bit.ly/vsixcertfix)をインストールします。
-または、(管理者として Visual Studio を実行しているときに) NuGet をアンインストールし、VS 拡張ギャラリーから NuGet をインストールするだけ、という回避策もあります。  詳細については、「[http://support.microsoft.com/kb/2581019](http://support.microsoft.com/kb/2581019)」を参照してください。
+または、(管理者として Visual Studio を実行しているときに) NuGet をアンインストールし、VS 拡張ギャラリーから NuGet をインストールするだけ、という回避策もあります。 詳細については、「<https://support.microsoft.com/kb/2581019>」を参照してください。
 
 ## <a name="package-manager-console-throws-an-exception-when-the-reflector-visual-studio-add-in-is-also-installed"></a>Reflector Visual Studio アドインもインストールされている場合、パッケージ マネージャー コンソールから例外がスローされます。
 
@@ -134,7 +134,7 @@ or
 
 解決できるように、アドインの作成者に連絡しました。
 
-<p class="info">Update: 最新バージョンの Reflector 6.5 を使用すると、コンソールでこの例外が発生しないことを確認しました。</p>
+<p class="info">更新:最新バージョンの Reflector 6.5 を使用すると、コンソールでこの例外が発生しないことを確認しました。</p>
 
 ## <a name="opening-package-manager-console-fails-with-objectsecurity-exception"></a>ObjectSecurity 例外でパッケージ マネージャー コンソールを開くことができない
 
@@ -159,7 +159,7 @@ Visual Studio 拡張機能マネージャーを使用して NuGet をアンイ�
 
 ## <a name="the-package-manager-console-crashes-when-i-open-it-in-windows-xp-whats-wrong"></a>Windows XP でパッケージ マネージャー コンソールを開こうとするとクラッシュする 理由
 
-NuGet には PowerShell 2.0 ランタイムが必要です。 Windows XP の既定では PowerShell 2.0 がインストールされていません。 Powershell 2.0 ランタイムは [http://support.microsoft.com/kb/968929](http://support.microsoft.com/kb/968929) からダウンロードできます。 インストール後に Visual Studio を再起動すると、パッケージ マネージャー コンソールを開くことができるようになります。
+NuGet には PowerShell 2.0 ランタイムが必要です。 Windows XP の既定では PowerShell 2.0 がインストールされていません。 Powershell 2.0 ランタイムは <https://support.microsoft.com/kb/968929> からダウンロードできます。 インストール後に Visual Studio を再起動すると、パッケージ マネージャー コンソールを開くことができるようになります。
 
 ## <a name="visual-studio-2010-sp1-beta-crashes-on-exit-if-the-package-manager-console-is-open"></a>パッケージ マネージャー コンソールが開いていると、Visual Studio 2010 SP1 ベータ版の終了時にクラッシュします。
 
