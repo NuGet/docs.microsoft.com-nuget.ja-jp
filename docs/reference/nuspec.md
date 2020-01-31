@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: ff8f988a4d47e18d74945d274be5cca78d3ff8e5
-ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
+ms.openlocfilehash: ccb9c21041bef6f2bb791667a6e08b36c55b3e1f
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74096916"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813157"
 ---
 # <a name="nuspec-reference"></a>.nuspec リファレンス
 
@@ -32,9 +32,9 @@ ms.locfileid: "74096916"
 
 - `packages.config`を使用する非 SDK 形式のプロジェクトには、`nuget.exe pack` と共に `.nuspec` を使用します。
 
-- [Sdk スタイルのプロジェクト](../resources/check-project-format.md)(通常、 [sdk 属性](/dotnet/core/tools/csproj#additions)を使用する .net Core および .NET Standard プロジェクト) のパッケージを作成するために `.nuspec` ファイルは必要ありません。 (パッケージの作成時に `.nuspec` が生成されることに注意してください)。
+- [Sdk スタイルのプロジェクト](../resources/check-project-format.md)のパッケージを作成するためにファイルは必要ありません(通常、[sdk属性を使用する](/dotnet/core/tools/csproj#additions).netCoreおよび.NETStandardプロジェクト)。`.nuspec` (パッケージの作成時に `.nuspec` が生成されることに注意してください)。
 
-   `dotnet.exe pack` または `msbuild pack target`を使用してパッケージを作成する場合は、通常は `.nuspec` ファイルに含まれる[すべてのプロパティ](../reference/msbuild-targets.md#pack-target)をプロジェクトファイルに含めることをお勧めします。 ただし、代わりに、 [`dotnet.exe` または `msbuild pack target` を使用して `.nuspec` ファイルをパックする](../reference/msbuild-targets.md#packing-using-a-nuspec)ように選択することもできます。
+   `dotnet.exe pack` または `msbuild pack target`を使用してパッケージを作成する場合は、通常は `.nuspec` ファイルに含まれる[すべてのプロパティ](../reference/msbuild-targets.md#pack-target)をプロジェクトファイルに含めることをお勧めします。 ただし、代わりに、 [`dotnet.exe` または `msbuild pack target`を使用してパックするために `.nuspec` ファイルを使用](../reference/msbuild-targets.md#packing-using-a-nuspec)することもできます。
 
 - `packages.config` から[PackageReference](../consume-packages/package-references-in-project-files.md)に移行されたプロジェクトの場合、パッケージの作成に `.nuspec` ファイルは必要ありません。 代わりに、 [msbuild-{0}](../consume-packages/migrate-packages-config-to-package-reference.md#create-a-package-after-migration)を使用します。
 
@@ -73,11 +73,11 @@ ms.locfileid: "74096916"
 
 #### <a name="id"></a>ID 
 パッケージの識別子。大文字と小文字が区別されます。nuget.org 全体で、またはパッケージが存在するギャラリー全体で、一意である必要があります。 ID は、スペースまたは URL で無効な文字を含んでいてはならず、一般に .NET 名前空間の規則に従います。 ガイダンスについては、[一意のパッケージ識別子の選択](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number)に関するページをご覧ください。
-#### <a name="version"></a>version
+#### <a name="version"></a>のバージョン
 パッケージのバージョン。*major.minor.patch* のパターンに従います。 「[Package versioning](../concepts/package-versioning.md#pre-release-versions)」(パッケージのバージョン管理) で説明されているように、バージョン番号にはプレリリースのサフィックスを含めることができます。 
 #### <a name="description"></a>説明
 UI 表示用のパッケージの説明。
-#### <a name="authors"></a>作成者
+#### <a name="authors"></a>authors
 Nuget.org のプロファイル名と一致するパッケージ作成者のコンマ区切りのリスト。これらは nuget.org の NuGet ギャラリーに表示され、同じ作成者によってパッケージを相互参照するために使用されます。 
 
 ### <a name="optional-metadata-elements"></a>メタデータの省略可能な要素
@@ -94,19 +94,19 @@ Nuget.org のプロファイル名を使用して、パッケージ作成者の�
 
 パッケージのライセンスの URL。多くの場合、nuget.org のような Ui に表示されます。
 
-#### <a name="license"></a>使用
-SPDX ライセンス式またはパッケージ内のライセンスファイルへのパス。多くの場合、nuget.org のような Ui に表示されます。MIT や BSD-2 句などの一般的なライセンスでパッケージのライセンスを取得している場合は、関連付けられている[Spdx ライセンス識別子](https://spdx.org/licenses/)を使用します。 (例:
+#### <a name="license"></a>ライセンス●らいせんす○
+SPDX ライセンス式またはパッケージ内のライセンスファイルへのパス。多くの場合、nuget.org のような Ui に表示されます。MIT や BSD-2 句などの一般的なライセンスでパッケージのライセンスを取得している場合は、関連付けられている[Spdx ライセンス識別子](https://spdx.org/licenses/)を使用します。 例:
 
 `<license type="expression">MIT</license>`
 
 > [!Note]
 > NuGet.org は、オープンソースイニシアチブまたは無償のソフトウェア基盤によって承認されたライセンス式のみを受け入れます。
 
-パッケージが複数の一般的なライセンスでライセンスされている場合は、 [Spdx 式の構文バージョン 2.0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60)を使用して複合ライセンスを指定できます。 (例:
+パッケージが複数の一般的なライセンスでライセンスされている場合は、 [Spdx 式の構文バージョン 2.0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60)を使用して複合ライセンスを指定できます。 例:
 
 `<license type="expression">BSD-2-Clause OR MIT</license>`
 
-ライセンス式でサポートされていないカスタムライセンスを使用する場合は、`.txt` または `.md` ファイルをライセンスのテキストと共にパッケージ化することができます。 (例:
+ライセンス式でサポートされていないカスタムライセンスを使用する場合は、`.txt` または `.md` ファイルをライセンスのテキストと共にパッケージ化することができます。 例:
 
 ```xml
 <package>
@@ -147,11 +147,11 @@ license-expression =  1*1(simple-expression / compound-expression / UNLICENSED)
 > [!Important]
 > iconUrl は非推奨とされます。 代わりにアイコンを使用してください。
 
-UI 表示でパッケージのアイコンとして使われる、背景が透明な 64 x 64 の画像の URL。 この要素の値は、"*画像を直接示す URL*" であり、画像を含む Web ページの URL ではないことに注意してください。 たとえば、GitHub のイメージを使用するには、 <em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>のような RAW ファイル URL を使用します。 
+UI 表示でパッケージのアイコンとして使用される透明な背景を持つ128x128 イメージの URL。 この要素の値は、"*画像を直接示す URL*" であり、画像を含む Web ページの URL ではないことに注意してください。 たとえば、GitHub のイメージを使用するには、 <em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>のような RAW ファイル URL を使用します。 
    
-#### <a name="icon"></a>表す
+#### <a name="icon"></a>アイコン●あいこん○
 
-これはパッケージ内のイメージファイルへのパスであり、多くの場合、パッケージアイコンとして nuget.org のような Ui に表示されます。 イメージファイルのサイズは 1 MB に制限されています。 サポートされているファイル形式は、JPEG および PNG です。 64x64 のイメージ resoulution をお勧めします。
+これはパッケージ内のイメージファイルへのパスであり、多くの場合、パッケージアイコンとして nuget.org のような Ui に表示されます。 イメージファイルのサイズは 1 MB に制限されています。 サポートされているファイル形式は、JPEG および PNG です。 128x128 のイメージの解像度をお勧めします。
 
 たとえば、nuget.exe を使用してパッケージを作成するときに、nuspec に次のコードを追加します。
 
@@ -185,7 +185,7 @@ UI 表示でパッケージのアイコンとして使われる、背景が透�
 
 #### <a name="summary"></a>概要
 > [!Important]
-> `summary` は非推奨とされます。 代わりに、`description` を使用してください。
+> `summary` は非推奨とされます。 代わりに、 `description` を使用してください。
 
 UI 画面用のパッケージの短い説明。 省略すると、`description` を切り詰めたバージョンが使われます。
 
@@ -198,16 +198,16 @@ UI 画面用のパッケージの短い説明。 省略すると、`description`
 #### <a name="language"></a>language
 パッケージのロケール ID。 「[ローカライズされたパッケージの作成](../create-packages/creating-localized-packages.md)」をご覧ください。
 
-#### <a name="tags"></a>tags
+#### <a name="tags"></a>タグ
 パッケージについて説明し、検索やフィルターでパッケージを見つけやすくするタグやキーワードを、スペースで区切って列記したリスト。 
 
 #### <a name="serviceable"></a>保守 
 *(3.3 以降)* NuGet 内部でのみ使われます。
 
 #### <a name="repository"></a>リポジトリ
-リポジトリメタデータ。4つの省略可能な属性で構成されます。 `type` および `url` *(4.0 +)* 、`branch` と `commit` *(4.6 +)* です。 これらの属性を使用すると、`.nupkg` を構築したリポジトリにマップできます。これにより、パッケージを構築した個々のブランチ名またはコミット SHA-1 ハッシュとして詳細な情報が得られる可能性があります。 これは、バージョン管理ソフトウェアによって直接呼び出すことができる、一般公開されている url である必要があります。 これはコンピューター用の html ページである必要はありません。 [プロジェクトへのリンク] ページでは、代わりに `projectUrl` フィールドを使用します。
+`type` と `url` *(4.0 +)* 、および `branch` と `commit` *(4.6 +)* の4つの省略可能な属性で構成されるリポジトリメタデータ。 これらの属性を使用すると、`.nupkg` を構築したリポジトリにマップすることができます。これにより、パッケージを構築した個々のブランチ名またはコミット SHA-1 ハッシュが詳細に表示される可能性があります。 これは、バージョン管理ソフトウェアによって直接呼び出すことができる、一般公開されている url である必要があります。 これはコンピューター用の html ページである必要はありません。 [プロジェクトへのリンク] ページでは、代わりに `projectUrl` フィールドを使用します。
 
-(例:
+例:
 ```xml
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2016/06/nuspec.xsd">
@@ -283,12 +283,12 @@ nuget pack MyProject.csproj
 
 例外である `$configuration$` を除き、コマンド ラインの同じトークンに割り当てられている値より、プロジェクトの値の方が優先的に使われます。
 
-| トークン | 値のソース | [値]
+| トークン | 値のソース | Value
 | --- | --- | ---
 | **$id$** | プロジェクト ファイル | プロジェクトファイルからの AssemblyName (title) |
 | **$version$** | AssemblyInfo | ある場合は AssemblyInformationalVersion、ない場合は AssemblyVersion |
 | **$author$** | AssemblyInfo | AssemblyCompany |
-| **$title $** | AssemblyInfo | AssemblyTitle |
+| **$title$** | AssemblyInfo | AssemblyTitle |
 | **$description$** | AssemblyInfo | AssemblyDescription |
 | **$copyright$** | AssemblyInfo | AssemblyCopyright |
 | **$configuration$** | アセンブリ DLL | アセンブリのビルドに使われる構成。既定値は Debug。 Release 構成を使ってパッケージを作成するには、常にコマンド ラインで `-properties Configuration=Release` を使うことに注意してください。 |
@@ -318,13 +318,13 @@ nuget pack MyProject.csproj
 | `id` | (必須) "EntityFramework" や "NUnit" などの依存関係のパッケージ ID。これはパッケージ ページに表示されるパッケージ nuget.org の名前となります。 |
 | `version` | (必須) 依存関係として許容されるバージョンの範囲。 厳密な構文については、「[Package versioning](../concepts/package-versioning.md#version-ranges-and-wildcards)」(パッケージのバージョン管理) をご覧ください。 ワイルドカード (浮動) バージョンはサポートされていません。 |
 | include | 最終的なパッケージに含める依存関係を示す包含/除外タグ (下記参照) のコンマ区切りリスト。 既定値は `all`です。 |
-| exclude | 最終的なパッケージから除外する依存関係を示す包含/除外タグ (下記参照) のコンマ区切りリスト。 既定値は `build,analyzers` で、上書きすることができます。 ただし、`content/ ContentFiles` も最終的なパッケージで暗黙的に除外され、上書きすることはできません。 `exclude` で指定されているタグの方が、`include` で指定されているタグより優先されます。 たとえば、`include="runtime, compile" exclude="compile"` は `include="runtime"` と同じです。 |
+| exclude | 最終的なパッケージから除外する依存関係を示す包含/除外タグ (下記参照) のコンマ区切りリスト。 既定値は `build,analyzers` を上書きすることができます。 ただし、`content/ ContentFiles` は、上書きできない最終的なパッケージでも暗黙的に除外されます。 `exclude` で指定されているタグの方が、`include` で指定されているタグより優先されます。 たとえば、`include="runtime, compile" exclude="compile"` は `include="runtime"` と同じです。 |
 
 | 包含/除外タグ | ターゲットの影響を受けるフォルダー |
 | --- | --- |
 | contentFiles | Content |
-| runtime | Runtime、Resources、FrameworkAssemblies |
-| compile | lib |
+| ランタイム ( runtime) | Runtime、Resources、FrameworkAssemblies |
+| コンパイル | lib |
 | ビルド | build (MSBuild のプロパティとターゲット) |
 | native | native |
 | none | フォルダーなし |
@@ -349,7 +349,7 @@ nuget pack MyProject.csproj
 ```
 
 > [!Important]
-> `nuget spec`を使用してプロジェクトから `.nuspec` を作成する場合、そのプロジェクトに存在する依存関係は、結果の `.nuspec` ファイルに自動的に含まれません。 代わりに、`nuget pack myproject.csproj` を使用し、生成された*nupkg*ファイル内から*nuspec*ファイルを取得します。 この*nuspec*には、依存関係が含まれています。
+> `nuget spec`を使用してプロジェクトから `.nuspec` を作成する場合、そのプロジェクトに存在する依存関係は、結果の `.nuspec` ファイルに自動的に含まれません。 代わりに、`nuget pack myproject.csproj`を使用し、生成された*nupkg*ファイル内から*nuspec*ファイルを取得します。 この*nuspec*には、依存関係が含まれています。
 
 ### <a name="dependency-groups"></a>依存関係グループ
 
@@ -458,7 +458,7 @@ nuget pack MyProject.csproj
 > [!Important]
 > プロジェクトにパッケージをインストールするとき、NuGet はパッケージの DLL にアセンブリ参照を自動的に追加します。ただし、指定されている `.resources.dll` は、ローカライズされたサテライト アセンブリであると見なされるため "*除外*" されます。 そのため、避けなければ不可欠なパッケージ コードが含まれてしまうファイルには `.resources.dll` を使わないようにします。
 
-この自動動作をバイパスして、パッケージに含めるファイルを明示的に制御するには、`<files>` 要素を `<package>` の子要素 (および `<metadata>` の兄弟要素) として配置し、各ファイルを個別の `<file>` 要素で示します。 (例:
+この自動動作をバイパスして、パッケージに含めるファイルを明示的に制御するには、`<files>` 要素を `<package>` の子要素 (および `<metadata>` の兄弟要素) として配置し、各ファイルを個別の `<file>` 要素で示します。 例:
 
 ```xml
 <files>
@@ -681,9 +681,9 @@ NuGet 2.x 以前および `packages.config` を使っているプロジェクト
 
 | 属性 | 説明 |
 | --- | --- |
-| **include** | (必須) 含める 1 つまたは複数のファイルの場所。`exclude` 属性によって指定される除外の対象になります。 絶対パスが指定されていない場合は、`contentFiles` フォルダーに対する相対パスです。 ワイルドカード文字 `*` を使うことができ、2 個のワイルドカード `**` は再帰的なフォルダー検索を意味します。 |
+| **include** | (必須) 含める 1 つまたは複数のファイルの場所。`exclude` 属性によって指定される除外の対象になります。 絶対パスが指定されていない場合、パスは `contentFiles` フォルダーの相対パスになります。 ワイルドカード文字 `*` を使うことができ、2 個のワイルドカード `**` は再帰的なフォルダー検索を意味します。 |
 | **exclude** | `src` の場所から除外するファイルまたはファイル パターンをセミコロンで区切ったリスト。 ワイルドカード文字 `*` を使うことができ、2 個のワイルドカード `**` は再帰的なフォルダー検索を意味します。 |
-| **buildAction** | MSBuild のコンテンツ項目に割り当てるビルドアクション (`Content`、`None`、`Embedded Resource`、`Compile` など)。既定値は `Compile` です。 |
+| **buildAction** | MSBuild のコンテンツ項目に割り当てるビルドアクション (`Content`、`None`、`Embedded Resource`、`Compile`など)。既定値は `Compile`です。 |
 | **copyToOutput** | コンテンツ項目をビルド (または発行) 出力フォルダーにコピーするかどうかを示すブール値。 既定値は false です。 |
 | **flatten** | コンテンツ項目をビルド出力の単一フォルダーにコピーするか (true)、それともパッケージのフォルダー構造を保持するか (false) を示すブール値。 このフラグは、copyToOutput が true に設定されている場合のみ機能します。 既定値は false です。 |
 
@@ -699,7 +699,7 @@ NuGet 2.x 以前および `packages.config` を使っているプロジェクト
 - `TxM` は、NuGet がサポートする任意の有効なターゲット フレームワーク モニカーです (「[ターゲット フレームワーク](../reference/target-frameworks.md)」を参照)。
 - この構文の末尾に、任意のフォルダー構造を追加できます。
 
-(例:
+例:
 
     Language- and framework-agnostic:
         /contentFiles/any/any/config.xml

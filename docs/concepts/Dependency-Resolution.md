@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: d2294ef0acb9053e74543204ae6f68b9fbc6fb0a
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: c6f50e6eb21826afebcdcd4045c7ab8b6e6489e3
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611065"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813326"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>NuGet でのパッケージ依存関係の解決方法
 
@@ -24,7 +24,7 @@ ms.locfileid: "73611065"
 
 PackageReference 形式を使用してパッケージをプロジェクトにインストールする場合、NuGet は、フラットなパッケージ グラフへの参照を適切なファイルに追加して、競合を未然に解決します。 このプロセスは、"*推移的な復元*" と呼ばれます。 この場合、パッケージの再インストールまたは復元はグラフに列記されているパッケージをダウンロードするプロセスであり、結果としてビルドはいっそう高速で予測可能になります。 また、ワイルドカード (浮動) バージョン (2.8\* など) を利用することもでき、コストがかかってエラーが発生しやすい `nuget update` の呼び出しをクライアント コンピューターやビルド サーバーで回避できます。
 
-ビルド以前に NuGet の復元プロセスを実行すると、最初にメモリ内で依存関係が解決された後、`project.assets.json` という名前のファイルに結果のグラフが書き込まれます。 また、[ロック ファイル機能が有効になっている](https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files#locking-dependencies)場合、`packages.lock.json` という名前のロック ファイルに解決された依存関係が書き込まれます。
+ビルド以前に NuGet の復元プロセスを実行すると、最初にメモリ内で依存関係が解決された後、`project.assets.json` という名前のファイルに結果のグラフが書き込まれます。 また、[ロック ファイル機能が有効になっている](../consume-packages/package-references-in-project-files.md#locking-dependencies)場合、`packages.lock.json` という名前のロック ファイルに解決された依存関係が書き込まれます。
 この資産ファイルは `MSBuildProjectExtensionsPath` (既定でプロジェクトの 'obj' フォルダー) にあります。 その後、MSBuild はこのファイルを読み取り、潜在的な参照が見つかるフォルダーのセットに変換して、メモリ内のプロジェクト ツリーに追加します。
 
 `project.assets.json` ファイルは一時的なものであるため、ソース管理に追加しないでください。 ロック ファイルは既定で `.gitignore` と `.tfignore` の両方に一覧表示されます。 「[パッケージとソース管理](../consume-packages/packages-and-source-control.md)」をご覧ください。
@@ -156,4 +156,3 @@ Package restore failed. Rolling back package changes for 'MyProject'.
 
 - 使うパッケージでサポートされているフレームワークに、プロジェクトのターゲットを変更します。
 - パッケージの作成者に連絡し、協力して、選んだフレームワークに対するサポートを追加します。 [nuget.org](https://www.nuget.org/) の各パッケージ リスト ページには、そのための **[Contact Owners]** リンクがあります。
-

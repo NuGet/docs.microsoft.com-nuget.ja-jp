@@ -1,6 +1,6 @@
 ---
 title: レート制限、NuGet API
-description: NuGet Api で、不正使用を防ぐために転送率の制限が適用されたされます。
+description: NuGet Api では、誤用を防ぐためにレート制限が適用されます。
 author: cmanu
 ms.author: cmanu
 ms.date: 03/20/2018
@@ -9,16 +9,16 @@ ms.reviewer:
 - skofman
 - anangaur
 - kraigb
-ms.openlocfilehash: 70b478ae17cd10b17f9d6ecb0f5776c1effcea58
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 9e60c0236bd4e6f1374b50a236447faf80dddb38
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548678"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813196"
 ---
 # <a name="rate-limits"></a>速度の制限
 
-NuGet.org の API は、不正使用を防ぐレートの制限を適用します。 レート制限を超える要求には、次のエラーが返されます。 
+NuGet.org API は、誤用を防ぐためにレート制限を適用します。 転送率の制限を超える要求では、次のエラーが返されます。 
 
   ~~~
     {
@@ -27,7 +27,7 @@ NuGet.org の API は、不正使用を防ぐレートの制限を適用しま�
     }
   ~~~
 
-要求の調整も、レート制限、一部の Api を使用するだけでなく、クォータを適用します。 クォータを超える要求には、次のエラーが返されます。
+レート制限を使用した要求の調整に加えて、一部の Api もクォータを適用します。 クォータを超える要求では、次のエラーが返されます。
 
   ~~~
     {
@@ -36,24 +36,23 @@ NuGet.org の API は、不正使用を防ぐレートの制限を適用しま�
     }
   ~~~
 
-次の表では、NuGet.org の API のレート制限を一覧表示します。
+次の表は、NuGet.org API のレート制限を示しています。
 
 ## <a name="package-search"></a>パッケージの検索
 
 > [!Note]
-> NuGet.org の使用をお勧め[V3 Api](https://docs.microsoft.com/nuget/api/search-query-service-resource)現在はパフォーマンスの高いを持たない検索の制限します。 V1 と V2 の search Api、followins 制限が適用されます。
+> 現在、レートが制限されていないため、NuGet の[V3 検索 api](search-query-service-resource.md)を使用することをお勧めします。 V1 と V2 の検索 Api では、次の制限が適用されます。
 
-
-| API | 制限の種類 | 制限値 | API のユースケース |
+| API | 制限の種類 | 制限値 | API ユースケース |
 |:---|:---|:---|:---|
-**GET** `/api/v1/Packages` | IP | 1000/分 | V1 の OData を使用して NuGet パッケージのメタデータを照会`Packages`コレクション |
-**GET** `/api/v1/Search()` | IP | 3000/分 | V1 Search エンドポイント経由での NuGet パッケージを検索します。 | 
-**GET** `/api/v2/Packages` | IP | 20000/分 | V2 の OData を使用して NuGet パッケージのメタデータを照会`Packages`コレクション | 
-**GET** `/api/v2/Packages/$count` | IP | 100/分 | V2 の OData を使用して NuGet パッケージの数を照会`Packages`コレクション | 
+**GET** `/api/v1/Packages` | IP | 1000/分 | V1 OData `Packages` コレクションを使用した NuGet パッケージメタデータのクエリ |
+**GET** `/api/v1/Search()` | IP | 3000/分 | V1 検索エンドポイント経由で NuGet パッケージを検索する | 
+**GET** `/api/v2/Packages` | IP | 2万/分 | V2 OData `Packages` コレクションを使用した NuGet パッケージメタデータのクエリ | 
+**GET** `/api/v2/Packages/$count` | IP | 100/分 | V2 OData `Packages` コレクションを使用した NuGet パッケージ数の照会 | 
 
-## <a name="package-push-and-unlist"></a>パッケージをプッシュし、一覧から削除します。
+## <a name="package-push-and-unlist"></a>Package Push and 一覧から削除
 
-| API | 制限の種類 | 制限値 | API のユースケース | 
+| API | 制限の種類 | 制限値 | API ユースケース | 
 |:---|:---|:---|:--- |
-**PUT** `/api/v2/package` | API キー | 250/時間 | V2 プッシュ エンドポイントを経由して、新しい NuGet パッケージ (バージョン) をアップロードします。 
-**DELETE** `/api/v2/package/{id}/{version}` | API キー | 250/時間 | V2 エンドポイントを使用して NuGet パッケージ (バージョン) を一覧から削除します。 
+**PUT** `/api/v2/package` | API キー | 350/時間 | V2 プッシュエンドポイント経由で新しい NuGet パッケージ (バージョン) をアップロードする 
+`/api/v2/package/{id}/{version}` の**削除** | API キー | 250/時間 | V2 エンドポイントを使用した NuGet パッケージ (バージョン) の一覧から削除 

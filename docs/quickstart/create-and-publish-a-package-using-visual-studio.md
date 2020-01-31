@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/16/2019
 ms.topic: quickstart
-ms.openlocfilehash: ef1bda19c5ca3c6b5a4bd9b9d4e3ef41d7dadb53
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: fe551dfa7f2322e6677c9c0b972c79c9df2e7695
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610638"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813560"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>クイック スタート: Visual Studio を使用した NuGet パッケージの作成と公開 (.NET Standard、Windows のみ)
 
@@ -30,7 +30,7 @@ Windows の Visual Studio で .NET Standard クラス ライブラリから NuGe
    > [!Important]
    > 非 SDK スタイルのプロジェクトを使用している場合は、代わりに [.NET Framework パッケージの作成と公開 (Visual Studio)](create-and-publish-a-package-using-visual-studio-net-framework.md) に関するページの手順に従って、パッケージの作成と公開を行ってください。 この記事では、`dotnet` CLI を使用することをお勧めします。 `nuget.exe` CLI を使用してもあらゆる NuGet パッケージを公開できますが、この記事の手順の一部は SDK スタイルのプロジェクトと dotnet CLI に固有のものです。 nuget.exe CLI は、[非 SDK 形式のプロジェクト](../resources/check-project-format.md) (通常は .NET Framework) 用に使用されます。
 
-1. まだ持っていない場合は、[nuget.org で無料アカウントを登録](https://docs.microsoft.com/nuget/nuget-org/individual-accounts#add-a-new-individual-account)します。 新しいアカウントを作成すると、確認メールが送信されます。 パッケージをアップロードするには、その前にアカウントを確認する必要があります。
+1. まだ持っていない場合は、[nuget.org で無料アカウントを登録](../nuget-org/individual-accounts.md#add-a-new-individual-account)します。 新しいアカウントを作成すると、確認メールが送信されます。 パッケージをアップロードするには、その前にアカウントを確認する必要があります。
 
 ## <a name="create-a-class-library-project"></a>クラス ライブラリ プロジェクトを作成する
 

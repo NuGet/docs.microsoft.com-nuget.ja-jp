@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 3/1/2019
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 3102cb9a20f354e92a0da8bba6457dc2ad0f0f2d
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 1b84c6e88a56216e5747d5bc602219af6695c305
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610954"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76812936"
 ---
 # <a name="package-details-url-template"></a>パッケージの詳細の URL テンプレート
 
@@ -23,7 +23,7 @@ ms.locfileid: "73610954"
 
 次の `@type` 値が使用されます。
 
-@type の値                     | ノート
+@type 値                     | メモ
 ------------------------------- | -----
 PackageDetailsUriTemplate/5.1.0 | 最初のリリース
 
@@ -45,12 +45,12 @@ URL は絶対 URL にする必要があり、スキーム (プロトコル) は 
 
 ### <a name="url-placeholders"></a>URL プレースホルダー
 
-名        | [種類]    | 必要 | ノート
+[名前]        | の型    | 必須 | メモ
 ----------- | ------- | -------- | -----
 `{id}`      | string  | Ｘ       | 詳細を取得するパッケージ ID
 `{version}` | string  | Ｘ       | 詳細を取得するパッケージのバージョン
 
-サーバーは `{id}` と `{version}` の値を大文字と小文字を区別して受け取る必要があります。 また、バージョンが[正規化](https://docs.microsoft.com/nuget/concepts/package-versioning#normalized-version-numbers)されているかどうかはサーバーに依存しないようにしてください。 つまり、サーバーは、正規化されていないバージョンも受け入れる必要があります。
+サーバーは `{id}` と `{version}` の値を大文字と小文字を区別して受け取る必要があります。 また、バージョンが[正規化](../concepts/package-versioning.md#normalized-version-numbers)されているかどうかはサーバーに依存しないようにしてください。 つまり、サーバーは、正規化されていないバージョンも受け入れる必要があります。
 
 たとえば、nuget の [パッケージの詳細] テンプレートは次のようになります。
 

@@ -5,22 +5,22 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 482c03a4f6ca39edf317b6ef8d535e79b53d5d16
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: aa8290c80cc500b59d1779bf76662c07382fd277
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317038"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813781"
 ---
 # <a name="nuget-33-release-notes"></a>NuGet 3.3 リリースノート
 
-[Nuget 3.2.1 リリースノート](../release-notes/nuget-3.2.1.md) | [nuget 3.4-RC リリースノート](../release-notes/nuget-3.4-RC.md)
+Nuget [3.2.1 のリリースノート](../release-notes/nuget-3.2.1.md) | [NUGET 3.4-RC リリースノート](../release-notes/nuget-3.4-RC.md)
 
 NuGet 3.3 は、2015年11月30日にリリースされました。これには、ユーザーインターフェイスの更新とコマンドライン機能が多数あり、NuGet クライアントに対する有用な修正プログラムが集められています。
 
 ## <a name="new-features"></a>新機能
 
-* 認証済みフィードで NuGet コマンドラインクライアントがシームレスに動作できるようにする資格情報プロバイダーが導入されました。 [Visual Studio Team Services 資格情報プロバイダーをインストール](../api/nuget-exe-credential-providers.md)し、それを使用するように nuget クライアントを構成する手順については、Nuget のドキュメントを参照してください。
+* 認証済みフィードで NuGet コマンドラインクライアントがシームレスに動作できるようにする資格情報プロバイダーが導入されました。 [Visual Studio Team Services 資格情報プロバイダーをインストール](../reference/extensibility/nuget-exe-credential-providers.md)し、それを使用するように nuget クライアントを構成する手順については、Nuget のドキュメントを参照してください。
 
 ## <a name="new-user-interface-features"></a>新しいユーザーインターフェイスの機能
 
@@ -37,11 +37,11 @@ NuGet 3.3 は、2015年11月30日にリリースされました。これには�
 
 ## <a name="new-command-line-features"></a>新しいコマンドライン機能
 
-このバージョンでは、 `add` [nuget.exe リファレンス](../reference/nuget-exe-cli-reference.md)で説明されているように、フォルダーベースのリポジトリを初期化するコマンドと`init`コマンドを導入しました。 このフォルダー構造を使用して構築および管理されるリポジトリは、このブログで説明されているように、大幅なパフォーマンス上の[利点を提供](http://blog.nuget.org/20150922/Accelerate-Package-Source.html)します。
+このバージョンでは、「 [nuget.exe リファレンス](../reference/nuget-exe-cli-reference.md)」で説明されているように、フォルダーベースのリポジトリを初期化するための `add` と `init` コマンドを紹介しました。 このフォルダー構造を使用して構築および管理されるリポジトリは、このブログで説明されているように、大幅なパフォーマンス上の[利点を提供](http://blog.nuget.org/20150922/Accelerate-Package-Source.html)します。
 
 ## <a name="contentfiles"></a>ContentFiles
 
-新しい`project.json` フォルダー`contentFiles`と要素の表記`contentFiles`によって、マネージプロジェクトでコンテンツがサポートされるようになりました。 `.nuspec`  このコンテンツは、プロジェクトシステムとのやり取りのためにパッケージ作成者が直接指定できます。  `.nuspec`ドキュメントで contentfiles を構成する方法の詳細については、 [nuspec のリファレンスを参照](../reference/nuspec.md)してください。
+新しい `contentFiles` フォルダーと `.nuspec` `contentFiles` 要素表記を通じて、`project.json` マネージプロジェクトでコンテンツがサポートされるようになりました。  このコンテンツは、プロジェクトシステムとのやり取りのためにパッケージ作成者が直接指定できます。  `.nuspec` ドキュメントで contentFiles を構成する方法の詳細については、 [nuspec のリファレンスを参照](../reference/nuspec.md)してください。
 
 ## <a name="nuget-locals-cache-management"></a>NuGet ローカルキャッシュ管理
 
@@ -59,4 +59,4 @@ NuGet コマンドラインが更新され、ワークステーションでロ�
 
 ## <a name="known-issues"></a>既知の問題
 
-GitHub の問題の一覧に関する問題は、引き続き次の場所にあります。[http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)
+GitHub の問題の一覧に関する問題は、引き続き次の場所にあります: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)

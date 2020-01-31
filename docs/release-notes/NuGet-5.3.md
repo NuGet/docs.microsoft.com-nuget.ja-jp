@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 09/06/2019
 ms.topic: conceptual
-ms.openlocfilehash: e77219d355f73f3bf01f68283ffb2759813af563
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: ca71c5b9ef546f3ea92e55763d5059466ac3a930
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611322"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813755"
 ---
 # <a name="nuget-53-release-notes"></a>NuGet 5.3 リリースノート
 
@@ -29,7 +29,7 @@ NuGet 配布の種類:
 
 * パッケージの SHA の追跡と強制によるセキュリティ強化- [#7281](https://github.com/NuGet/Home/issues/7281)
 
-* 使用されていない/従来の NuGet パッケージの廃止を有効にする[#2867](https://github.com/NuGet/Home/issues/2867) | の[ブログ投稿](https://devblogs.microsoft.com/nuget/deprecating-packages-on-nuget-org/) | [ドキュメント](https://docs.microsoft.com/nuget/nuget-org/deprecate-packages)
+* 使用されていない/従来の NuGet パッケージの廃止を有効にする[#2867](https://github.com/NuGet/Home/issues/2867) | の[ブログ投稿](https://devblogs.microsoft.com/nuget/deprecating-packages-on-nuget-org/) | [ドキュメント](../nuget-org/deprecate-packages.md)
 
 ### <a name="issues-fixed-in-this-release"></a>このリリースで修正された問題
 
@@ -43,7 +43,7 @@ NuGet 配布の種類:
 
 * メモリ使用量の削減 (イベントからのサブスクリプションの解除)- [#8471](https://github.com/NuGet/Home/issues/8471)
 
-* "Error_UnableToFindProjectInfo" メッセージが文法的に正しくありません- [#8441](https://github.com/NuGet/Home/issues/8441)
+* "Error_UnableToFindProjectInfo" メッセージは、文法が正しくありません- [#8441](https://github.com/NuGet/Home/issues/8441)
 
 * NU1403 の改善-すべてのパッケージを検証し、予期される/実際の sha 値を含めます- [#8424](https://github.com/NuGet/Home/issues/8424)
 
@@ -87,7 +87,7 @@ NuGet 配布の種類:
 
 * [Proj ファイルの復元を有効にする]- [#8212](https://github.com/NuGet/Home/issues/8212)
 
-* 両方の構成を同時にサポートするための `NUGET_NETFX_PLUGIN_PATHS` と `NUGET_NETCORE_PLUGIN_PATHS` の導入- [#8151](https://github.com/NuGet/Home/issues/8151)
+* 同時に`NUGET_NETCORE_PLUGIN_PATHS`両方の構成をサポートすると共`NUGET_NETFX_PLUGIN_PATHS`に - [#8151](https://github.com/NuGet/Home/issues/8151)
 
 * バージョン属性を使用して PackageDownload の複数のバージョンを有効にする- [#8074](https://github.com/NuGet/Home/issues/8074)
 
