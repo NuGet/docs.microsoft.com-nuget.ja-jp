@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0691660f20f9b5a1ff0dad110ee87c6e29c0a56e
-ms.sourcegitcommit: fc0f8c950829ee5c96e3f3f32184bc727714cfdb
+ms.openlocfilehash: 9f427005251bc2bf7a8a79285e39b4bd49062dbf
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74253935"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813352"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>プロジェクトの NuGet パッケージの検索と評価
 
@@ -122,25 +122,25 @@ NuGet では、Visual Studio の C++ プロジェクトで使用できるネイ�
 1. これは `<license type="file">license\license.txt</license>` のようなタグを含んでいます。 これは、ライセンス ファイルが `license.txt` と名付けられ、同様にそのフォルダーのルートにある `license` というフォルダー内にあることを意味しています。
 1. `license` フォルダーに移動して `license.txt` ファイルを開きます。
 
-`.nuspec` でライセンスを設定することと同じことを MSBuild で行う方法については、「[ライセンス式またはライセンスファイルのパッキング](/nuget/reference/msbuild-targets#packing-a-license-expression-or-a-license-file)」を参照してください。
+`.nuspec` でライセンスを設定することと同じことを MSBuild で行う方法については、「[ライセンス式またはライセンスファイルのパッキング](../reference/msbuild-targets.md#packing-a-license-expression-or-a-license-file)」を参照してください。
 
 ## <a name="search-syntax"></a>検索構文
 
 NuGet パッケージ検索は、nuget.org、NuGet CLI、Visual Studio の NuGet パッケージ マネージャー拡張機能で同じように動作します。 一般に、検索はキーワードとパッケージの説明に適用されます。
 
-- **キーワード**:入力されたいずれかのキーワードを含む関連パッケージを探します。 例 : `modern UI`。 入力したキーワードがすべて含まれるパッケージを検索するには、`modern+UI` のように、用語の間に "+" を入れます。
-- **語句**: 用語を引用符で囲んで入力すると、これらの用語と完全に一致する大文字と小文字を区別しない用語を探します。 例 : `"modern UI" package`
-- **フィルタリング**: 構文 `<property>:<term>` (この `<property>` (大文字と小文字を区別しない) に `id`、`packageid`、`version`、`title`、`tags`、`author`、`description`、`summary`、`owner` を指定することができます) を使用して、特定のプロパティに検索用語を適用することができます。 必要に応じて、用語を引用符で囲むことができ、同時に複数のプロパティを検索することができます。 また、`id` プロパティの検索が部分文字列一致であるのに対して、`packageid` では完全一致を使用します。 次に例を示します。
+- **フィルタリング**: 構文 `<property>:<term>` (この `<property>` (大文字と小文字を区別しない) に `id`、`packageid`、`version`、`title`、`tags`、`author`、`description`、`summary`、`owner` を指定することができます) を使用して、特定のプロパティに検索用語を適用することができます。 複数のプロパティを同時に検索することができます。 `id` プロパティの検索が部分文字列一致であるのに対して、`packageid` および `owner` では大文字と小文字を区別しない完全一致が使用されます。 次に例を示します。
 
-    ```
-    id:NuGet.Core                # Match any part of the id property
-    Id:"Nuget.Core"
-    ID:jQuery
-    title:jquery                 # Searches title as shown on the package listing
-    PackageId:jquery             # Match the package id exactly
-    id:jquery id:ui              # Search for multiple terms in the id
-    id:jquery tags:validation    # Search multiple properties
-    id:"jquery.ui"               # Phrase search
-    invalid:jquery ui            # Unsupported properties are ignored, so this
-                                 # is the same as searching on jquery ui
-    ```
+```
+PackageId:jquery             # Match the package ID in an exact, case-insensitive manner
+
+owner:microsoft              # Match the owner in an exact, case-insensitive manner
+
+id:NuGet.Core                # Match any part of the ID property
+Id:"Nuget.Core"
+ID:jQuery
+id:jquery id:ui              # Search for multiple terms in the ID
+id:jquery tags:validation    # Search multiple properties
+
+invalid:jquery ui            # Unsupported properties are ignored, so this
+                             # is the same as searching on ui
+```
