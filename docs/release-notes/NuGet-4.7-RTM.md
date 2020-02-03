@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 5/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0c3c0380fe6efb3c58124ca5ba8bc1306a433340
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 2290025d42dcd5704b6b019c17346201fe6a990d
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611351"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813794"
 ---
 # <a name="nuget-47-release-notes"></a>NuGet 4.7 リリース ノート
 
@@ -20,7 +20,7 @@ ms.locfileid: "73611351"
 
 * パッケージの署名が拡張され、[リポジトリの署名付きパッケージ](https://github.com/NuGet/Home/wiki/Repository-Signatures)が有効になりました。
 
-* Visual Studio Version 15.7 では、[packages.config 形式を使用する既存のプロジェクトを移行して、代わりに PackageReference を使用する](https://docs.microsoft.com/nuget/consume-packages/migrate-packages-config-to-package-reference)機能が導入されました。
+* Visual Studio Version 15.7 では、[packages.config 形式を使用する既存のプロジェクトを移行して、代わりに PackageReference を使用する](../consume-packages/migrate-packages-config-to-package-reference.md)機能が導入されました。
 
 ## <a name="summary-whats-new-in-472"></a>概要:4.7.2 の新機能
 

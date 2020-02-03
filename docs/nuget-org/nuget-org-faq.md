@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: e2b6a64b8010f16d0fc33cca437b348d8f784fd7
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 915f6e4cfc0b21d2b10006c62e8230720d07ce74
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610490"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813742"
 ---
 # <a name="nugetorg-frequently-asked-questions"></a>NuGet.org に関してよく寄せられる質問
 
@@ -242,7 +242,7 @@ NuGet.org でアカウントが作成されると、そのアカウントに関�
 
 ### <a name="how-do-i-change-my-nugetorg-account-username"></a>NuGet.org アカウントのユーザー名を変更するにはどうすればよいですか?
 
-変更できません。 ポリシーの問題として、今のところまだユーザー名の変更は許可していません。 ユーザー名を変更する唯一の方法は、目的のユーザー名を使用して新しいアカウントを作成することです。 新しいアカウントを作成する前に、既存アカウントを削除することをお勧めします。削除しないと、登録済みの Microsoft アカウントを再利用できなくなります。
+変更できません。 ポリシーの問題として、ユーザー名の変更は許可していません。 また、[パッケージ信頼ポリシーをパッケージ所有者に基づいて](../consume-packages/installing-signed-packages.md#trust-package-owners)定義している可能性のあるユーザーにとって、これは非常に重大な変更になります。 ユーザー名を変更する唯一の方法は、目的のユーザー名を使用して新しいアカウントを作成することです。 新しいアカウントを作成する前に、既存アカウントを削除することをお勧めします。削除しないと、登録済みの Microsoft アカウントを再利用できなくなります。
 > [!Important]
 > ユーザーを削除しても、その `username` は**予約**されたままです。 同じユーザー名をもう一度再利用することはできません。**これには大文字/小文字の変更も含まれます**。 例として、ユーザー名 `mycoolname` を持つユーザーを作成し、これを `MyCoolName` (大文字と小文字の変更) に変更する場合、ユーザーを削除すると変更できなくなります。
 
@@ -250,7 +250,7 @@ NuGet.org でアカウントが作成されると、そのアカウントに関�
 
 ### <a name="how-to-delete-my-nugetorg-account"></a>NuGet.org アカウントを削除するにはどうすればよいですか?
 
-アカウントを削除するには、ご自分が唯一の所有者である任意のパッケージの所有権を委譲することをお勧めします。 この方法の詳細については、[パッケージ所有者を管理する](https://docs.microsoft.com/nuget/create-packages/publish-a-package#managing-package-owners-on-nugetorg)をご覧ください。 これは Microsoft がお客様からの要求に迅速に対応するのにも役立ちます。
+アカウントを削除するには、ご自分が唯一の所有者である任意のパッケージの所有権を委譲することをお勧めします。 この方法の詳細については、[パッケージ所有者を管理する](../nuget-org/publish-a-package.md#managing-package-owners-on-nugetorg)をご覧ください。 これは Microsoft がお客様からの要求に迅速に対応するのにも役立ちます。
 
 ご利用のアカウントを組織に変換する場合は、[自分の NuGet.org アカウントを組織に変換](#how-to-transform-my-nugetorg-account-to-an-organization)に関するセクションに記載されている手順に従ってください。
 

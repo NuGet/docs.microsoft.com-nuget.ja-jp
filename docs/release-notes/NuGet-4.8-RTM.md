@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 5/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6e352fef9fc36646f6feedbc390f847119cb00bf
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: e6f6d9f703dd4761236d166f3772618c100aca09
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611368"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813768"
 ---
 # <a name="nuget-48-release-notes"></a>NuGet 4.8 リリース ノート
 
@@ -36,7 +36,7 @@ ms.locfileid: "73611368"
 ### <a name="installing-signed-packages-on-a-ci-machine-or-in-an-offline-environment-takes-longer-than-usual"></a>CI マシン上またはオフライン環境に署名済みパッケージをインストールすると、通常よりも長い時間がかかる。
 
 #### <a name="issue"></a>懸案事項
-マシンのインターネット アクセスが制限されている場合 (CI/CD シナリオでのビルド マシンなど)、失効サーバーには到達できないため、署名済みの nuget パッケージからの警告 ([NU3028](https://docs.microsoft.com/nuget/reference/errors-and-warnings/nu3028)) が発生します。 これは想定されている動作です。 ただし、場合によっては、これによって通常よりも時間がかるパッケージのインストール/復元など、意図しない結果を引き起こす場合があります。
+マシンのインターネット アクセスが制限されている場合 (CI/CD シナリオでのビルド マシンなど)、失効サーバーには到達できないため、署名済みの nuget パッケージからの警告 ([NU3028](../reference/errors-and-warnings/nu3028.md)) が発生します。 これは想定されている動作です。 ただし、場合によっては、これによって通常よりも時間がかるパッケージのインストール/復元など、意図しない結果を引き起こす場合があります。
 
 #### <a name="workaround"></a>回避策
 失効チェック モードを切り替えるために環境変数を導入した Visual Studio 15.8.4 および NuGet.exe 4.8.1 に更新します。
