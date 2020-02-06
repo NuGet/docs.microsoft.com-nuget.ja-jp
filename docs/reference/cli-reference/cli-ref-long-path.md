@@ -5,16 +5,16 @@ author: zhili1208
 ms.author: lzhi
 ms.date: 07/12/2018
 ms.topic: reference
-ms.openlocfilehash: 42b5b7d863d22d7aad99a65700ca11bcc2861db1
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 9b5a97d963eab7fbbde4aefae1c9b1a8bfcdeb11
+ms.sourcegitcommit: 415c70d7014545c1f65271a2debf8c3c1c5eb688
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327679"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77036956"
 ---
 # <a name="long-path-support-nuget-cli"></a>長いパスのサポート (NuGet CLI)
 
-**適用対象:** &bullet; **サポートされているすべてのバージョン:** 4.8 +
+**適用対象:** &bullet;**サポートされているすべてのバージョン:** 4.8 +
 
 Nuget.exe 4.8 以降では、パック、復元、インストールなど、ファイルパスを必要とするその他のシナリオのために、ファイルおよびディレクトリの長いパスがサポートされます。
 
@@ -39,6 +39,6 @@ Nuget.exe 4.8 以降では、パック、復元、インストールなど、フ
 > 他の NuGet ツールが長いパスをサポートできるようにする
 >
 > -   Dotnet CLI では、オペレーティングシステムまたはバージョンに関係なく、長いパスがサポートされます。
-> -   Visual Studio または msbuild-' の復元では、長いパスはまだサポートされていません。
-> -   NuGet ライブラリを使用して復元などのコマンドを実行するソフトウェアは、Nuget.exe が動作する同じシステム上の長いパスをサポートします。これは、windows マニフェストで longPathAware を設定し、App.config[を使用して UseLegacyPathHandling を false に設定する場合にも有効になります。詳細を表示](https://blogs.msdn.microsoft.com/jeremykuhne/2016/07/30/net-4-6-2-and-long-paths-on-windows-10/)
+> -   Visual Studio または `msbuild -t:restore` は、長いパスをまだサポートしていません。
+> -   NuGet ライブラリを使用して復元などのコマンドを実行するソフトウェアでは、Nuget.exe が動作するのと同じシステム上の長いパスがサポートされます。これは、windows マニフェストで `longPathAware` を設定し、App.config を使用して `false` するように `UseLegacyPathHandling` を構成する場合は、[詳細を参照してください](https://blogs.msdn.microsoft.com/jeremykuhne/2016/07/30/net-4-6-2-and-long-paths-on-windows-10/)。
 
