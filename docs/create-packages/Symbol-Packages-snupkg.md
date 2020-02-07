@@ -12,24 +12,24 @@ keywords: NuGet シンボル パッケージ, NuGet パッケージ デバッグ
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 0109aea95ec255b3e0abcdff4cf51b4bfeafbb8c
-ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
+ms.openlocfilehash: 839c38ec165372bab9b93dec25e5c8e8e9439bfa
+ms.sourcegitcommit: 415c70d7014545c1f65271a2debf8c3c1c5eb688
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76813482"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77036891"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>シンボル パッケージ (.snupkg) の作成
 
-シンボル パッケージを利用すると、NuGet パッケージのデバッグがしやすくなります。
+きちんとデバッグできるには、コンパイルされたコードとソースコードの間の関連付け、ローカル変数の名前、スタック トレースなどの重要な情報を提供するデバッグ シンボルが必要です。 シンボル パッケージ (snupkg) を使用すると、これらのシンボルを配布して、お使いの NuGet パッケージのデバッグ エクスペリエンスを向上させることができます。
 
 ## <a name="prerequisites"></a>必須コンポーネント
 
-必要な [NuGet プロトコル](../api/nuget-protocols.md)を実装する、[nuget.exe v4.9.0 以上](https://www.nuget.org/downloads)または [dotnet.exe v2.2.0 以上](https://www.microsoft.com/net/download/dotnet-core/2.2)。
+必要な [NuGet プロトコル](../api/nuget-protocols.md)を実装する [nuget.exe v4.9.0 以上](https://www.nuget.org/downloads) または [dotnet CLI v2.2.0 以上](https://www.microsoft.com/net/download/dotnet-core/2.2)。
 
 ## <a name="creating-a-symbol-package"></a>シンボル パッケージを作成する
 
-dotnet.exe または MSBuild を使用する場合は、`IncludeSymbols` プロパティと `SymbolPackageFormat` プロパティを設定し、.nupkg ファイルに加えて .snupkg ファイルを作成します。
+dotnet CLI または MSBuild を使用する場合は、`IncludeSymbols` プロパティと `SymbolPackageFormat` プロパティを設定し、.nupkg ファイルに加えて .snupkg ファイルを作成します。
 
 * 次のプロパティを .csproj ファイルに追加するか:
 
@@ -108,17 +108,17 @@ NuGet.org には、シンボル パッケージに対して次の制約があり
 
 [NuGet.org](https://www.nuget.org/) に発行されたシンボル パッケージは、マルウェアのスキャンなど、いくつかの検証を受けます。 パッケージが検証チェックに失敗した場合、そのパッケージの詳細ページにエラー メッセージが表示されます。 さらに、パッケージの所有者は、特定された問題の修正方法を示す電子メールを受信します。
 
-シンボル パッケージがすべての検証に合格すると、シンボルは NuGet. org のシンボル サーバーによってインデックスが作成されます。 インデックスが作成されると、シンボルは NuGet.org シンボル サーバーから使用できるようになります。
+シンボル パッケージがすべての検証に合格すると、そのシンボルは NuGet. org のシンボル サーバーによってインデックス付けされ、使用可能になります。
 
-パッケージの検証とインデックスの作成は、通常、15 以内で完了します。 パッケージ公開に予想以上の時間がかかる場合、[status.nuget.org](https://status.nuget.org/) にアクセスし、NuGet.org に中断が発生していないか確認してください。 すべてのシステムが動作しているとき、1 時間以内にパッケージが正常に公開されない場合、nuget.org にログインし、パッケージの詳細ページの [Contact Support] リンクからお問い合わせください。
+パッケージの検証とインデックスの作成は、通常、15 以内で完了します。 パッケージの公開に予想以上の時間がかかる場合、[status.nuget.org](https://status.nuget.org/) にアクセスし、Nuget.org に中断が発生していないか確認してください。 すべてのシステムが動作しているとき、1 時間以内にパッケージが正常に公開されない場合、nuget.org にログインし、パッケージの詳細ページの [Contact Support] リンクからお問い合わせください。
 
 ## <a name="symbol-package-structure"></a>シンボル パッケージ構造
 
-.nupkg ファイルは全く変わりませんが、.snupkg ファイルには次の特性が含まれます。
+シンボル パッケージ (.snupkg) には、次の特徴があります。
 
-1) .snupkg の ID とバージョンは、対応する .nupkg と同じになります。
-2) .snupkg のファイル構造は DLL や EXE ファイルの nupkg と全く同じですが、区別されています。対応する PDB が同じフォルダ構造に含まれています。 PDB 以外の拡張子のファイルとフォルダーは snupkg から除外されたままになります。
-3) .snupkg の .nuspec ファイルでは次に示すように新しい PackageType も指定されます。 指定される PackageType は 1 つだけです。
+1) .snupkg の ID とバージョンは、対応する NuGet パッケージ (.nupkg) のものと同じです。
+2) .snupkg のすべての DLL や EXE ファイルのファイル構造は、DLL および EXE ではなくそれに対応する PDB が同じフォルダ構造に含まれることを除き、それと対応する nupkg と全く同じです。 PDB 以外の拡張子のファイルとフォルダーは snupkg から除外されたままになります。
+3) シンボル パッケージの .nuspec ファイルのパッケージの種類は、`SymbolsPackage` です。
 
    ```xml
    <packageTypes>
