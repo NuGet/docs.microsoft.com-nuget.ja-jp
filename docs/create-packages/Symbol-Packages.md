@@ -1,36 +1,36 @@
 ---
-title: NuGet シンボル パッケージの作成方法
+title: レガシ シンボル パッケージ (.symbols.nupkg) の作成
 description: シンボルのみを含む NuGet パッケージを作成し、Visual Studio でその他の NuGet パッケージをデバッグする方法。
 author: karann-msft
 ms.author: karann
 ms.date: 09/12/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 97a533171d698792d66a78550dacfe8eaf29a440
-ms.sourcegitcommit: fc0f8c950829ee5c96e3f3f32184bc727714cfdb
+ms.openlocfilehash: 374e9ccfc01cd06508e76529765db3f849342222
+ms.sourcegitcommit: 1799d4ac23c8aacee7498fdc72c40dd1646d267b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74253906"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77476270"
 ---
-# <a name="creating-symbol-packages-legacy"></a><span data-ttu-id="95dff-103">シンボル パッケージ (レガシ) の作成</span><span class="sxs-lookup"><span data-stu-id="95dff-103">Creating symbol packages (legacy)</span></span>
+# <a name="creating-legacy-symbol-packages-symbolsnupkg"></a><span data-ttu-id="dbcba-103">レガシ シンボル パッケージ (.symbols.nupkg) の作成</span><span class="sxs-lookup"><span data-stu-id="dbcba-103">Creating legacy symbol packages (.symbols.nupkg)</span></span>
 
 > [!Important]
-> <span data-ttu-id="95dff-104">シンボル パッケージに推奨される新しい形式は .snupkg です。</span><span class="sxs-lookup"><span data-stu-id="95dff-104">The new recommended format for symbol packages is .snupkg.</span></span> <span data-ttu-id="95dff-105">「[シンボル パッケージ (.snupkg) の作成](Symbol-Packages-snupkg.md)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="95dff-105">See [Creating symbol packages (.snupkg)](Symbol-Packages-snupkg.md).</span></span> </br>
-> <span data-ttu-id="95dff-106">.symbols.nupkg は、互換性のためにのみ、引き続きサポートされます。</span><span class="sxs-lookup"><span data-stu-id="95dff-106">.symbols.nupkg is still supported but only for compatibility reasons.</span></span>
+> <span data-ttu-id="dbcba-104">シンボル パッケージに推奨される新しい形式は .snupkg です。</span><span class="sxs-lookup"><span data-stu-id="dbcba-104">The new recommended format for symbol packages is .snupkg.</span></span> <span data-ttu-id="dbcba-105">「[シンボル パッケージ (.snupkg) の作成](Symbol-Packages-snupkg.md)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="dbcba-105">See [Creating symbol packages (.snupkg)](Symbol-Packages-snupkg.md).</span></span> </br>
+> <span data-ttu-id="dbcba-106">.symbols.nupkg は、互換性のためにのみ、引き続きサポートされます。</span><span class="sxs-lookup"><span data-stu-id="dbcba-106">.symbols.nupkg is still supported but only for compatibility reasons.</span></span>
 
-<span data-ttu-id="95dff-107">nuget.org やその他のソースのためにパッケージをビルドするだけでなく、NuGet では、関連するシンボル パッケージを作成し、それを SymbolSource リポジトリに公開することもできます。</span><span class="sxs-lookup"><span data-stu-id="95dff-107">In addition to building packages for nuget.org or other sources, NuGet also supports creating associated symbol packages and publishing them to the SymbolSource repository.</span></span>
+<span data-ttu-id="dbcba-107">nuget.org やその他のソースに向けたパッケージの構築だけでなく、NuGet では、シンボル サーバーに公開可能な関連するシンボル パッケージの作成もサポートされています。</span><span class="sxs-lookup"><span data-stu-id="dbcba-107">In addition to building packages for nuget.org or other sources, NuGet also supports creating associated symbol packages that can be published to symbol servers.</span></span> <span data-ttu-id="dbcba-108">レガシ シンボル パッケージの形式である .symbols.nupkg は、SymbolSource リポジトリにプッシュすることができます。</span><span class="sxs-lookup"><span data-stu-id="dbcba-108">The legacy symbol package format, .symbols.nupkg, can be pushed to the SymbolSource repository.</span></span>
 
-<span data-ttu-id="95dff-108">公開後、パッケージ コンシューマーは Visual Studio で自分のシンボル ソースに `https://nuget.smbsrc.net` を追加できます。それにより、Visual Studio デバッガーでパッケージ コードに入ることができます。</span><span class="sxs-lookup"><span data-stu-id="95dff-108">Package consumers can then add `https://nuget.smbsrc.net` to their symbol sources in Visual Studio, which allows stepping into package code in the Visual Studio debugger.</span></span> <span data-ttu-id="95dff-109">このプロセスの詳細については、「[Visual Studio デバッガーでのシンボル (.pdb) ファイルとソース ファイルの指定](/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="95dff-109">See [Specify symbol (.pdb) and source files in the Visual Studio debugger](/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger) for details on that process.</span></span>
+<span data-ttu-id="dbcba-109">公開後、パッケージ コンシューマーは Visual Studio で自分のシンボル ソースに `https://nuget.smbsrc.net` を追加できます。それにより、Visual Studio デバッガーでパッケージ コードに入ることができます。</span><span class="sxs-lookup"><span data-stu-id="dbcba-109">Package consumers can then add `https://nuget.smbsrc.net` to their symbol sources in Visual Studio, which allows stepping into package code in the Visual Studio debugger.</span></span> <span data-ttu-id="dbcba-110">このプロセスの詳細については、「[Visual Studio デバッガーでのシンボル (.pdb) ファイルとソース ファイルの指定](/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="dbcba-110">See [Specify symbol (.pdb) and source files in the Visual Studio debugger](/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger) for details on that process.</span></span>
 
-## <a name="creating-a-symbol-package"></a><span data-ttu-id="95dff-110">シンボル パッケージを作成する</span><span class="sxs-lookup"><span data-stu-id="95dff-110">Creating a symbol package</span></span>
+## <a name="creating-a-legacy-symbol-package"></a><span data-ttu-id="dbcba-111">レガシ シンボル パッケージの作成</span><span class="sxs-lookup"><span data-stu-id="dbcba-111">Creating a legacy symbol package</span></span>
 
-<span data-ttu-id="95dff-111">シンボル パッケージを作成するには、次の規則に従います。</span><span class="sxs-lookup"><span data-stu-id="95dff-111">To create a symbol package, follow these conventions:</span></span>
+<span data-ttu-id="dbcba-112">レガシ シンボル パッケージを作成するには、次の規則に従います。</span><span class="sxs-lookup"><span data-stu-id="dbcba-112">To create a legacy symbol package, follow these conventions:</span></span>
 
-- <span data-ttu-id="95dff-112">(コードを含む) プライマリ パッケージに `{identifier}.nupkg` という名前を付け、`.pdb` ファイルを除くすべてのファイルを含めます。</span><span class="sxs-lookup"><span data-stu-id="95dff-112">Name the primary package (with your code) `{identifier}.nupkg` and include all your files except `.pdb` files.</span></span>
-- <span data-ttu-id="95dff-113">シンボル パッケージに `{identifier}.symbols.nupkg` という名前を付け、アセンブリ DLL、`.pdb` ファイル、XMLDOC ファイル、ソース ファイルを含めます (後続のセクションを参照してください)。</span><span class="sxs-lookup"><span data-stu-id="95dff-113">Name the symbol package `{identifier}.symbols.nupkg` and include your assembly DLL, `.pdb` files, XMLDOC files, source files (see the sections that follow).</span></span>
+- <span data-ttu-id="dbcba-113">(コードを含む) プライマリ パッケージに `{identifier}.nupkg` という名前を付け、`.pdb` ファイルを除くすべてのファイルを含めます。</span><span class="sxs-lookup"><span data-stu-id="dbcba-113">Name the primary package (with your code) `{identifier}.nupkg` and include all your files except `.pdb` files.</span></span>
+- <span data-ttu-id="dbcba-114">レガシ シンボル パッケージに `{identifier}.symbols.nupkg` という名前を付け、アセンブリ DLL、`.pdb` ファイル、XMLDOC ファイル、ソース ファイルを含めます (後続のセクションを参照)。</span><span class="sxs-lookup"><span data-stu-id="dbcba-114">Name the legacy symbol package `{identifier}.symbols.nupkg` and include your assembly DLL, `.pdb` files, XMLDOC files, source files (see the sections that follow).</span></span>
 
-<span data-ttu-id="95dff-114">いずれのパッケージも、`.nuspec` ファイルまたはプロジェクト ファイルから、`-Symbols` オプションで作成できます。</span><span class="sxs-lookup"><span data-stu-id="95dff-114">You can create both packages with the `-Symbols` option, either from a `.nuspec` file or a project file:</span></span>
+<span data-ttu-id="dbcba-115">いずれのパッケージも、`.nuspec` ファイルまたはプロジェクト ファイルから、`-Symbols` オプションで作成できます。</span><span class="sxs-lookup"><span data-stu-id="dbcba-115">You can create both packages with the `-Symbols` option, either from a `.nuspec` file or a project file:</span></span>
 
 ```cli
 nuget pack MyPackage.nuspec -Symbols
@@ -38,13 +38,13 @@ nuget pack MyPackage.nuspec -Symbols
 nuget pack MyProject.csproj -Symbols
 ```
 
-<span data-ttu-id="95dff-115">`pack` には Mac OS X の場合は Mono 4.4.2 が必要であり、Linux 1 システムでは動作しないことに注意してください。</span><span class="sxs-lookup"><span data-stu-id="95dff-115">Note that `pack` requires Mono 4.4.2 on Mac OS X and does not work on Linux systems.</span></span> <span data-ttu-id="95dff-116">Mac の場合、`.nuspec` ファイルの Windows パス名を Unix 形式のパスに変換する必要もあります。</span><span class="sxs-lookup"><span data-stu-id="95dff-116">On a Mac, you must also convert Windows pathnames in the `.nuspec` file to Unix-style paths.</span></span>
+<span data-ttu-id="dbcba-116">`pack` には Mac OS X の場合は Mono 4.4.2 が必要であり、Linux 1 システムでは動作しないことに注意してください。</span><span class="sxs-lookup"><span data-stu-id="dbcba-116">Note that `pack` requires Mono 4.4.2 on Mac OS X and does not work on Linux systems.</span></span> <span data-ttu-id="dbcba-117">Mac の場合、`.nuspec` ファイルの Windows パス名を Unix 形式のパスに変換する必要もあります。</span><span class="sxs-lookup"><span data-stu-id="dbcba-117">On a Mac, you must also convert Windows pathnames in the `.nuspec` file to Unix-style paths.</span></span>
 
-## <a name="symbol-package-structure"></a><span data-ttu-id="95dff-117">シンボル パッケージ構造</span><span class="sxs-lookup"><span data-stu-id="95dff-117">Symbol package structure</span></span>
+## <a name="legacy-symbol-package-structure"></a><span data-ttu-id="dbcba-118">レガシ シンボル パッケージの構造</span><span class="sxs-lookup"><span data-stu-id="dbcba-118">Legacy symbol package structure</span></span>
 
-<span data-ttu-id="95dff-118">シンボル パッケージは、ライブラリ パッケージの場合と同じように、複数のターゲット フレームワークを対象とすることができます。そのため、`lib` フォルダーの構造はプライマリ パッケージとまったく同じになります (`.pdb` ファイルは DLL と共に含まれます)。</span><span class="sxs-lookup"><span data-stu-id="95dff-118">A symbol package can target multiple target frameworks in the same way that a library package does, so the structure of the `lib` folder should be exactly the same as the primary package, only including `.pdb` files alongside the DLL.</span></span>
+<span data-ttu-id="dbcba-119">レガシ シンボル パッケージは、ライブラリ パッケージと同様の方法で複数のターゲット フレームワークを対象とすることができます。そのため、`lib` フォルダーの構造はプライマリ パッケージとまったく同じになります (`.pdb` ファイルは DLL と共に含まれます)。</span><span class="sxs-lookup"><span data-stu-id="dbcba-119">A legacy symbol package can target multiple target frameworks in the same way that a library package does, so the structure of the `lib` folder should be exactly the same as the primary package, only including `.pdb` files alongside the DLL.</span></span>
 
-<span data-ttu-id="95dff-119">たとえば、NET 4.0 と Silverlight 4 を対象とするシンボル パッケージのレイアウトは次のようになります。</span><span class="sxs-lookup"><span data-stu-id="95dff-119">For example, a symbol package that targets .NET 4.0 and Silverlight 4 would have this layout:</span></span>
+<span data-ttu-id="dbcba-120">たとえば、NET 4.0 と Silverlight 4 をターゲットとするレガシ シンボル パッケージのレイアウトは次のようになります。</span><span class="sxs-lookup"><span data-stu-id="dbcba-120">For example, a legacy symbol package that targets .NET 4.0 and Silverlight 4 would have this layout:</span></span>
 
     \lib
         \net40
@@ -54,7 +54,7 @@ nuget pack MyProject.csproj -Symbols
             \MyAssembly.dll
             \MyAssembly.pdb
 
-<span data-ttu-id="95dff-120">ソース ファイルは、`src` という名前の別個の特別なフォルダーに置かれます。このフォルダーはソース リポジトリの相対的構造に従う必要があります。</span><span class="sxs-lookup"><span data-stu-id="95dff-120">Source files are then placed in a separate special folder named `src`, which must follow the relative structure of your source repository.</span></span> <span data-ttu-id="95dff-121">これは PDB に、一致する DLL のコンパイルに使用されるソース ファイルの絶対パスが含まれるためです。このパスは公開プロセス中に検出される必要があります。</span><span class="sxs-lookup"><span data-stu-id="95dff-121">This is because PDBs contain absolute paths to source files used to compile the matching DLL, and they need to be found during the publishing process.</span></span> <span data-ttu-id="95dff-122">基本パス (共通パス プレフィックス) は取り除くことができます。たとえば、これらのファイルからライブラリが構築されるとします。</span><span class="sxs-lookup"><span data-stu-id="95dff-122">A base path (common path prefix) can be stripped out. For example, consider a library built from these files:</span></span>
+<span data-ttu-id="dbcba-121">ソース ファイルは、`src` という名前の別個の特別なフォルダーに置かれます。このフォルダーはソース リポジトリの相対的構造に従う必要があります。</span><span class="sxs-lookup"><span data-stu-id="dbcba-121">Source files are then placed in a separate special folder named `src`, which must follow the relative structure of your source repository.</span></span> <span data-ttu-id="dbcba-122">これは PDB に、一致する DLL のコンパイルに使用されるソース ファイルの絶対パスが含まれるためです。このパスは公開プロセス中に検出される必要があります。</span><span class="sxs-lookup"><span data-stu-id="dbcba-122">This is because PDBs contain absolute paths to source files used to compile the matching DLL, and they need to be found during the publishing process.</span></span> <span data-ttu-id="dbcba-123">基本パス (共通パス プレフィックス) は取り除くことができます。たとえば、これらのファイルからライブラリが構築されるとします。</span><span class="sxs-lookup"><span data-stu-id="dbcba-123">A base path (common path prefix) can be stripped out. For example, consider a library built from these files:</span></span>
 
     C:\Projects
         \MyProject
@@ -70,7 +70,7 @@ nuget pack MyProject.csproj -Symbols
                 \MySilverlightExtensions.cs
                 \MyAssembly.csproj (producing \lib\sl4\MyAssembly.dll)
 
-<span data-ttu-id="95dff-123">`lib` フォルダーを除き、シンボル パッケージにはこのレイアウトが含まれている必要があります。</span><span class="sxs-lookup"><span data-stu-id="95dff-123">Apart from the `lib` folder, a symbol package would need to contain this layout:</span></span>
+<span data-ttu-id="dbcba-124">`lib` フォルダーを除き、レガシ シンボル パッケージには次のレイアウトが含まれている必要があります。</span><span class="sxs-lookup"><span data-stu-id="dbcba-124">Apart from the `lib` folder, a legacy symbol package would need to contain this layout:</span></span>
 
     \src
         \Common
@@ -83,9 +83,9 @@ nuget pack MyProject.csproj -Symbols
                 \AssemblyInfo.cs
             \MySilverlightExtensions.cs
 
-## <a name="referring-to-files-in-the-nuspec"></a><span data-ttu-id="95dff-124">nuspec でファイルを参照する</span><span class="sxs-lookup"><span data-stu-id="95dff-124">Referring to files in the nuspec</span></span>
+## <a name="referring-to-files-in-the-nuspec"></a><span data-ttu-id="dbcba-125">nuspec でファイルを参照する</span><span class="sxs-lookup"><span data-stu-id="dbcba-125">Referring to files in the nuspec</span></span>
 
-<span data-ttu-id="95dff-125">シンボル パッケージは規則によって、前のセクションで説明したフォルダー構造から構築できます。あるいは、マニフェストの `files` セクションでその内容を指定することで構築できます。</span><span class="sxs-lookup"><span data-stu-id="95dff-125">A symbol package can be built by conventions, from a folder structure as described in the previous section, or by specifying its contents in the `files` section of the manifest.</span></span> <span data-ttu-id="95dff-126">たとえば、前のセクションのようなパッケージを構築するには、`.nuspec` ファイルで次を使用します。</span><span class="sxs-lookup"><span data-stu-id="95dff-126">For example, to build the package shown in the previous section, use the following in the `.nuspec` file:</span></span>
+<span data-ttu-id="dbcba-126">レガシ シンボル パッケージは、前のセクションで説明したフォルダー構造から、規則によって構築できます。あるいは、マニフェストの `files` セクションにその内容を指定することで構築できます。</span><span class="sxs-lookup"><span data-stu-id="dbcba-126">A legacy symbol package can be built by conventions, from a folder structure as described in the previous section, or by specifying its contents in the `files` section of the manifest.</span></span> <span data-ttu-id="dbcba-127">たとえば、前のセクションのようなパッケージを構築するには、`.nuspec` ファイルで次を使用します。</span><span class="sxs-lookup"><span data-stu-id="dbcba-127">For example, to build the package shown in the previous section, use the following in the `.nuspec` file:</span></span>
 
 ```xml
 <files>
@@ -97,40 +97,41 @@ nuget pack MyProject.csproj -Symbols
 </files>
 ```
 
-## <a name="publishing-a-symbol-package"></a><span data-ttu-id="95dff-127">シンボル パッケージを公開する</span><span class="sxs-lookup"><span data-stu-id="95dff-127">Publishing a symbol package</span></span>
+## <a name="publishing-a-legacy-symbol-package"></a><span data-ttu-id="dbcba-128">レガシ シンボル パッケージの公開</span><span class="sxs-lookup"><span data-stu-id="dbcba-128">Publishing a legacy symbol package</span></span>
 
 > [!Important]
-> <span data-ttu-id="95dff-128">nuget.org にパッケージをプッシュするには、[nuget.exe v4.9.1 以降](https://www.nuget.org/downloads)を使用する必要があります。これは必須の [NuGet プロトコル](../api/nuget-protocols.md)を実装します。</span><span class="sxs-lookup"><span data-stu-id="95dff-128">To push packages to nuget.org you must use [nuget.exe v4.9.1 or above](https://www.nuget.org/downloads), which implements the required [NuGet protocols](../api/nuget-protocols.md).</span></span>
+> <span data-ttu-id="dbcba-129">nuget.org にパッケージをプッシュするには、[nuget.exe v4.9.1 以降](https://www.nuget.org/downloads)を使用する必要があります。これは必須の [NuGet プロトコル](../api/nuget-protocols.md)を実装します。</span><span class="sxs-lookup"><span data-stu-id="dbcba-129">To push packages to nuget.org you must use [nuget.exe v4.9.1 or above](https://www.nuget.org/downloads), which implements the required [NuGet protocols](../api/nuget-protocols.md).</span></span>
 
-1. <span data-ttu-id="95dff-129">便宜上、最初に NuGet で API キーを保存します ([パッケージの公開](../nuget-org/publish-a-package.md)ページを参照してください)。この保存は nuget.org と symbolsource.org の両方に適用されます。symbolsource.org はあなたがパッケージ所有者であることを nuget.org に確認するためです。</span><span class="sxs-lookup"><span data-stu-id="95dff-129">For convenience, first save your API key with NuGet (see [publish a package](../nuget-org/publish-a-package.md), which will apply to both nuget.org and symbolsource.org, because symbolsource.org will check with nuget.org to verify that you are the package owner.</span></span>
+1. <span data-ttu-id="dbcba-130">便宜上、最初に NuGet で API キーを保存します ([パッケージの公開](../nuget-org/publish-a-package.md)ページを参照してください)。この保存は nuget.org と symbolsource.org の両方に適用されます。symbolsource.org はあなたがパッケージ所有者であることを nuget.org に確認するためです。</span><span class="sxs-lookup"><span data-stu-id="dbcba-130">For convenience, first save your API key with NuGet (see [publish a package](../nuget-org/publish-a-package.md), which will apply to both nuget.org and symbolsource.org, because symbolsource.org will check with nuget.org to verify that you are the package owner.</span></span>
 
     ```cli
     nuget SetApiKey Your-API-Key
     ```
 
-2. <span data-ttu-id="95dff-130">プライマリ パッケージを nuget.org に公開したら、シンボル パッケージを次のようにプッシュします。ファイル名の `.symbols` に起因し、symbolsource.org がターゲットとして自動的に使用されます。</span><span class="sxs-lookup"><span data-stu-id="95dff-130">After publishing your primary package to nuget.org, push the symbol package as follows, which will automatically use symbolsource.org as the target because of the `.symbols` in the filename:</span></span>
+2. <span data-ttu-id="dbcba-131">プライマリ パッケージを nuget.org に公開したら、レガシ シンボル パッケージを次のようにプッシュします。ファイル名の `.symbols` によって、symbolsource.org が自動的にターゲットとして使用されます。</span><span class="sxs-lookup"><span data-stu-id="dbcba-131">After publishing your primary package to nuget.org, push the legacy symbol package as follows, which will automatically use symbolsource.org as the target because of the `.symbols` in the filename:</span></span>
 
     ```cli
     nuget push MyPackage.symbols.nupkg
     ```
 
-3. <span data-ttu-id="95dff-131">別のシンボル リポジトリに公開するには、あるいは命名規則に従わないシンボル パッケージをプッシュするには、`-Source` オプションを使用します。</span><span class="sxs-lookup"><span data-stu-id="95dff-131">To publish to a different symbol repository, or to push a symbol package that doesn't follow the naming convention, use the `-Source` option:</span></span>
+3. <span data-ttu-id="dbcba-132">別のシンボル リポジトリに公開するか、命名規則に従わないレガシ シンボル パッケージをプッシュするには、`-Source` オプションを使用します。</span><span class="sxs-lookup"><span data-stu-id="dbcba-132">To publish to a different symbol repository, or to push a legacy symbol package that doesn't follow the naming convention, use the `-Source` option:</span></span>
 
     ```cli
     nuget push MyPackage.symbols.nupkg -source https://nuget.smbsrc.net/
     ```
 
-4. <span data-ttu-id="95dff-132">次を利用し、プライマリ パッケージとシンボル パッケージの両方を両方のリポジトリに同時にプッシュすることもできます。</span><span class="sxs-lookup"><span data-stu-id="95dff-132">You can also push both primary and symbol packages to both repositories at the same time using the following:</span></span>
+4. <span data-ttu-id="dbcba-133">次を利用し、プライマリ パッケージとシンボル パッケージの両方を両方のリポジトリに同時にプッシュすることもできます。</span><span class="sxs-lookup"><span data-stu-id="dbcba-133">You can also push both primary and symbol packages to both repositories at the same time using the following:</span></span>
 
     ```cli
     nuget push MyPackage.nupkg
     ```
 
    > [!Note]
-   > <span data-ttu-id="95dff-133">nuget.exe 4.5.0 以上の場合、シンボル パッケージが symbolsource.org に自動的にプッシュされることはありません。前の手順で説明したように、シンボル パッケージを個別にプッシュする必要があります。</span><span class="sxs-lookup"><span data-stu-id="95dff-133">With nuget.exe 4.5.0 or above, the symbols packages are not automatically pushed to symbolsource.org. You would need to push the symbols packages separately as explained in the earlier steps.</span></span>
+   > <span data-ttu-id="dbcba-134">nuget.exe 4.5.0 以上の場合、シンボル パッケージが symbolsource.org に自動的にプッシュされることはありません。前の手順で説明したように、シンボル パッケージを個別にプッシュする必要があります。</span><span class="sxs-lookup"><span data-stu-id="dbcba-134">With nuget.exe 4.5.0 or above, the symbols packages are not automatically pushed to symbolsource.org. You would need to push the symbols packages separately as explained in the earlier steps.</span></span>
    
-<span data-ttu-id="95dff-134">その場合、NuGet は、nuget.org にプライマリ パッケージを公開した後、`MyPackage.symbols.nupkg` があればそれを https://nuget.smbsrc.net/ (symbolsource.org のプッシュ URL) に公開します。</span><span class="sxs-lookup"><span data-stu-id="95dff-134">In this case, NuGet will publish `MyPackage.symbols.nupkg`, if present, to https://nuget.smbsrc.net/ (the push URL for symbolsource.org), after it publishes the primary package to nuget.org.</span></span>
+<span data-ttu-id="dbcba-135">その場合、NuGet は、nuget.org にプライマリ パッケージを公開した後、`MyPackage.symbols.nupkg` があればそれを https://nuget.smbsrc.net/ (symbolsource.org のプッシュ URL) に公開します。</span><span class="sxs-lookup"><span data-stu-id="dbcba-135">In this case, NuGet will publish `MyPackage.symbols.nupkg`, if present, to https://nuget.smbsrc.net/ (the push URL for symbolsource.org), after it publishes the primary package to nuget.org.</span></span>
 
-## <a name="see-also"></a><span data-ttu-id="95dff-135">関連項目</span><span class="sxs-lookup"><span data-stu-id="95dff-135">See also</span></span>
+## <a name="see-also"></a><span data-ttu-id="dbcba-136">関連項目</span><span class="sxs-lookup"><span data-stu-id="dbcba-136">See also</span></span>
 
-<span data-ttu-id="95dff-136">[Moving to the new SymbolSource engine](https://tripleemcoder.com/2015/10/04/moving-to-the-new-symbolsource-engine/) (新しい SymbolSource エンジンへの移行) (symbolsource.org)</span><span class="sxs-lookup"><span data-stu-id="95dff-136">[Moving to the new SymbolSource engine](https://tripleemcoder.com/2015/10/04/moving-to-the-new-symbolsource-engine/) (symbolsource.org)</span></span>
+* <span data-ttu-id="dbcba-137">[シンボル パッケージ (.snupkg) の作成](Symbol-Packages-snupkg.md) - シンボル パッケージに推奨される新しい形式です</span><span class="sxs-lookup"><span data-stu-id="dbcba-137">[Creating symbol packages (.snupkg)](Symbol-Packages-snupkg.md) - The new recommended format for symbol packages</span></span>
+* <span data-ttu-id="dbcba-138">[Moving to the new SymbolSource engine](https://tripleemcoder.com/2015/10/04/moving-to-the-new-symbolsource-engine/) (新しい SymbolSource エンジンへの移行) (symbolsource.org)</span><span class="sxs-lookup"><span data-stu-id="dbcba-138">[Moving to the new SymbolSource engine](https://tripleemcoder.com/2015/10/04/moving-to-the-new-symbolsource-engine/) (symbolsource.org)</span></span>
