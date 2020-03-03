@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 8ba61fa87118108c36e9dc73f30d964380d02dab
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.openlocfilehash: d1768a741e3f1c48e94d854fa7d365ebfa3513ea
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380455"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231150"
 ---
 # <a name="restore-command-nuget-cli"></a>restore コマンド (NuGet CLI)
 
@@ -36,9 +36,13 @@ nuget restore <projectPath> [options]
 | DirectDownload | *(4.0 以降)* バイナリまたはメタデータを使用してキャッシュを設定せずに、パッケージを直接ダウンロードします。 |
 | DisableParallelProcessing | 複数のパッケージの並列復元を無効にします。 |
 | FallbackSource | *(3.2 +)* プライマリまたは既定のソースにパッケージが見つからない場合にフォールバックとして使用するパッケージソースの一覧。 リストエントリを区切るには、セミコロンを使用します。 |
+| Force | PackageReference ベースのプロジェクトでは、最後の復元が成功した場合でも、すべての依存関係が強制的に解決されます。 このフラグを指定することは、`project.assets.json` ファイルの削除に似ています。 これは、http キャッシュをバイパスしません。 |
 | ForceEnglishOutput | *(3.5 +)* 不変の英語ベースのカルチャを使用して nuget.exe を強制的に実行します。 |
+| ForceEvaluate | ロックファイルが既に存在する場合でも、すべての依存関係を再評価するように復元を強制します。 |
 | ヘルプ | ヘルプのコマンドの情報を表示します。 |
-| MSBuildPath | *(4.0 以降)* `-MSBuildVersion`よりも優先される、コマンドで使用する MSBuild のパスを指定します。 |
+| LockFilePath | プロジェクトロックファイルが書き込まれる出力場所。 既定では、' PROJECT_ROOT \packages.lock.json ' になります。 |
+| LockedMode | プロジェクトロックファイルの更新を許可しません。 |
+| MSBuildPath | *(4.0 以降)*`-MSBuildVersion`よりも優先される、コマンドで使用する MSBuild のパスを指定します。 |
 | MSBuildVersion | *(3.2 +)* このコマンドで使用する MSBuild のバージョンを指定します。 サポートされる値は、4、12、14、15.1、15.3、15.4、15.5、15.6、15.7、15.8、15.9 です。 既定では、パス内の MSBuild が選択されます。それ以外の場合は、MSBuild のインストールされている最新バージョンが既定値になります。 |
 | NoCache | NuGet がキャッシュされたパッケージを使用しないようにします。 「[グローバルパッケージとキャッシュフォルダーの管理」を](../../consume-packages/managing-the-global-packages-and-cache-folders.md)参照してください。 |
 | NonInteractive | ユーザーの入力または確認のプロンプトを表示しません。 |
@@ -50,8 +54,8 @@ nuget restore <projectPath> [options]
 | RequireConsent | パッケージをダウンロードしてインストールする前に、パッケージの復元が有効になっていることを確認します。 詳細については、「[パッケージの復元](../../consume-packages/package-restore.md)」を参照してください。 |
 | SolutionDirectory | ソリューションフォルダーを指定します。 ソリューションのパッケージを復元するときには無効です。 `PackagesDirectory` または `OutputDirectory` が使用されていない場合に `packages.config` ファイルで復元するときに必要になります。 |
 | ソース | 復元に使用するパッケージソースの一覧を Url として指定します。 省略した場合、コマンドは構成ファイルで提供されているソースを使用します。「 [NuGet の動作の構成](../../consume-packages/configuring-nuget-behavior.md)」を参照してください。 リストエントリを区切るには、セミコロンを使用します。 |
-| Force | PackageReference ベースのプロジェクトでは、最後の復元が成功した場合でも、すべての依存関係が強制的に解決されます。 このフラグを指定することは、`project.assets.json` ファイルの削除に似ています。 これは、http キャッシュをバイパスしません。 |
-| 詳細度 | 出力に表示される詳細データの量を指定します:*normal*、*quiet*、*detailed* |
+| UseLockFile | Restore でプロジェクトロックファイルを生成して使用できるようにします。 |
+| 詳細度 | 出力に表示される詳細の量を指定します (*通常*、*非*表示、*詳細*)。 |
 
 「[環境変数](cli-ref-environment-variables.md)」も参照してください。
 
@@ -81,7 +85,7 @@ Restore コマンドは、次の手順を実行します。
     - `$(SolutionDir)\.nuget\packages.config` に一覧表示されているソリューションレベルのパッケージを `packages` フォルダーに復元します。
     - `$(ProjectDir)\packages.config` に一覧表示されているパッケージを `packages` フォルダーに復元します。 指定されたパッケージごとに、`-DisableParallelProcessing` が指定されていない限り、並列でパッケージを復元します。
 
-## <a name="examples"></a>使用例
+## <a name="examples"></a>例
 
 ```cli
 # Restore packages for a solution file

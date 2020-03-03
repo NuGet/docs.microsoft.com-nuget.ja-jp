@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: caa1509fd996c54f7de17e86559ea62ef67f749f
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.openlocfilehash: 995f15ae2ad823d9c814cb7e78facddee713cc8f
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380490"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230513"
 ---
 # <a name="target-frameworks"></a>ターゲット フレームワーク
 
@@ -27,13 +27,13 @@ NuGet は、多様な場所にあるターゲット フレームワーク参照�
 > - サポートされているフレームワーク名: [FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
 > - フレームワークの優先順位とマッピング: [DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
 
-## <a name="supported-frameworks"></a>サポートされるフレームワーク
+## <a name="supported-frameworks"></a>サポートされているフレームワーク
 
 通常、フレームワークは、短いターゲット フレームワーク モニカー (TFM) で参照されます。 .NET Standard は、複数のフレームワークへの単一の参照を許可するために、 *Txm*にも一般化されています。
 
-NuGet クライアントは以下の表のフレームワークをサポートしています。 同等のものがかっこ [] 内に示されています。 `dotnet` などの一部のツールは、一部のファイルで正規の TFM のバリエーションを使用することがあります。 たとえば、`dotnet pack` は `.nuspec` ファイルで `netcoreapp2.0` ではなく `.NETCoreApp2.0` を使用します。 さまざまな NuGet クライアント ツールがこれらのバリエーションを適切に処理しますが、ファイルを直接編集するときは常に正規の TFM を使用することをお勧めします。
+NuGet クライアントは以下の表のフレームワークをサポートしています。 同等のものがかっこ [] 内に示されています。 `dotnet` などの一部のツールは、一部のファイルで正規の TFM のバリエーションを使用することがあります。 たとえば、`dotnet pack` は `.NETCoreApp2.0` ファイルで `.nuspec` ではなく `netcoreapp2.0` を使用します。 さまざまな NuGet クライアント ツールがこれらのバリエーションを適切に処理しますが、ファイルを直接編集するときは常に正規の TFM を使用することをお勧めします。
 
-| 名 | 省略形 | TFM/TxM |
+| Name | 省略形 | TFM/TxM |
 | ------------- | ------------ | --------- |
 |.NET Framework | net | net11 |
 | | | net20 |
@@ -78,12 +78,14 @@ Windows Phone (UWP) | | wpa81 |
 | | | netstandard1.5 |
 | | | netstandard1.6 |
 | | | netstandard2.0 |
+| | | netstandard2.1 |
 .NET Core アプリ | netcoreapp | netcoreapp1.0 |
 | | | netcoreapp1.1 |
 | | | netcoreapp2.0 |
 | | | netcoreapp2.1 |
 | | | netcoreapp2.2 |
 | | | netcoreapp3.0 |
+| | | netcoreapp3.1 |
 Tizen | tizen | tizen3 |
 | | | tizen4 |
 
@@ -91,7 +93,7 @@ Tizen | tizen | tizen3 |
 
 次のフレームワークは非推奨とされます。 これらのフレームワークを対象とするパッケージは、指定されている代替のフレームワークに移行するようにしてください。
 
-| 非推奨のフレームワーク | Replacement
+| 非推奨のフレームワーク | 代替
 | --- | ---
 | aspnet50 | netcoreapp |
 | aspnetcore50 |
@@ -110,11 +112,11 @@ Tizen | tizen | tizen3 |
 | dotnet56 | |
 | winrt | win |
 
-## <a name="precedence"></a>優先順位
+## <a name="precedence"></a>［優先順位］
 
 フレームワークの番号は相互の関連性や互換性を示していますが、必ずしも同一ではありません。
 
-| フレームワーク | 使用可能 |
+| Framework | 使用可能 |
 | -- | --- |
 | uap (ユニバーサル Windows プラットフォーム) | win81 |
 | | wpa81 |
@@ -139,7 +141,7 @@ NuGet 3.3 以前には `dotnet` シリーズのモニカーを使用し、v3.4 �
 
 第三者によって定義された追加のフレームワークは、この方法でアクセスできる他の環境との互換性を提供します。 さらに、これらの関連するフレームワークの組み合わせを `Profile#` として参照するために使用できる省略形のプロファイル番号がありますが、フォルダーと `.nuspec` の読みやすさが低下するため、このような番号を使用することは勧められません。
 
-| プロファイル番号 | Frameworks | 完全名 | .NET Standard |
+| プロファイル番号 | フレームワーク | 氏名 | .NET Standard |
  --- | --- | --- | ---
  Profile2 | .NETFramework 4.0 | portable-net40+win8+sl4+wp7 |
  | | Windows 8.0 | |
@@ -284,7 +286,7 @@ NuGet 3.3 以前には `dotnet` シリーズのモニカーを使用し、v3.4 �
 
 さらに、Xamarin をターゲットとする NuGet パッケージでは、Xamarin で定義された他のフレームワークも使用することができます。 [Xamarin 用の NuGet パッケージの作成](https://developer.xamarin.com/guides/cross-platform/advanced/nuget/)に関するページを参照してください。
 
-| 名 | 説明 | .NET Standard |
+| Name | 説明 | .NET Standard |
 | --- | --- | ---
 | monoandroid | Android OS の Mono サポート | netstandard1.4 |
 | monotouch | iOS の Mono サポート | netstandard1.4 |

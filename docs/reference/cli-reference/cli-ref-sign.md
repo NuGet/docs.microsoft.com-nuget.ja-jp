@@ -6,14 +6,14 @@ ms.author: dtivel
 ms.date: 03/06/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: 746f7a421bd855b77716388b4af2fecbd5cf5a68
-ms.sourcegitcommit: 96aab8a1ad35eca0c029679d0158d9cc93d66009
+ms.openlocfilehash: e596fd5eb3de8ca4802d9b7b8e7cb623568e3dcb
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75676407"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231124"
 ---
-# <a name="sign-command-nuget-cli"></a>sign コマンド (NuGet CLI)
+# <a name="sign-command-nuget-cli"></a>NuGet CLI sign コマンド
 
 **適用対象:** パッケージ作成 &bullet;**サポートされているバージョン:** 4.6 以降
 
@@ -22,7 +22,7 @@ ms.locfileid: "75676407"
 > [!Note]
 > パッケージの署名は、.NET Core、Mono、または Windows 以外のプラットフォームではまだサポートされていません。
 
-## <a name="usage"></a>使用状況
+## <a name="usage"></a>使用法
 
 ```cli
 nuget sign <package(s)> [options]
@@ -30,7 +30,7 @@ nuget sign <package(s)> [options]
 
 ここで `<package(s)>` は1つ以上の `.nupkg` ファイルです。
 
-## <a name="options"></a>[オプション]
+## <a name="options"></a>オプション
 
 | オプション | 説明 |
 | --- | --- |
@@ -42,16 +42,16 @@ nuget sign <package(s)> [options]
 | CertificateSubjectName | 証明書のローカル証明書ストアの検索に使用する証明書のサブジェクト名を指定します。  検索は、指定された値を使用して、大文字と小文字を区別せずに文字列を比較します。これにより、他のサブジェクト値に関係なく、その文字列を含むサブジェクト名を持つすべての証明書が検索されます。  証明書ストアは、-証明オプションと-CertificateStoreLocation オプションで指定できます。 |
 | ConfigFile | 適用する NuGet 構成ファイル。 指定しない場合は、`%AppData%\NuGet\NuGet.Config` (Windows) または `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) が使用されます。|
 | ForceEnglishOutput | 不変の英語ベースのカルチャを使用して nuget.exe を強制的に実行します。 |
-| HashAlgorithm | パッケージの署名に使用するハッシュアルゴリズム。 既定値は SHA256 です。 |
+| HashAlgorithm | パッケージの署名に使用するハッシュアルゴリズム。 既定値は SHA256 です。 指定できる値は SHA256、SHA384、および SHA512 です。 |
 | ヘルプ | ヘルプのコマンドの情報を表示します。 |
 | NonInteractive | ユーザーの入力または確認のプロンプトを表示しません。 |
 | OutputDirectory | 署名されたパッケージを保存するディレクトリを指定します。 既定では、元のパッケージは署名付きパッケージによって上書きされます。 |
 | 上書き | 現在の署名を上書きするかどうかを示すには、を切り替えます。 既定では、パッケージに既に署名がある場合、コマンドは失敗します。 |
 | Timestamper | RFC 3161 タイムスタンプサーバーの URL。 |
 | TimestampHashAlgorithm | RFC 3161 タイムスタンプサーバーによって使用されるハッシュアルゴリズム。 既定値は SHA256 です。 |
-| 詳細度 | 出力に表示される詳細データの量を指定します:*normal*、*quiet*、*detailed* |
+| 詳細度 | 出力に表示される詳細の量を指定します (*通常*、*非*表示、*詳細*)。 |
 
-## <a name="examples"></a>使用例
+## <a name="examples"></a>例
 
 ```cli
 nuget sign MyPackage.nupkg -Timestamper http://timestamp.test

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: 906d07eb22599eb423b00300954ff2601dd33369
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: 13b6f5abe93a17c809564265990f86f6780aa67e
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75383552"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230812"
 ---
 # <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>NuGet 資格情報プロバイダーを使用した Visual Studio でのフィードの認証
 
@@ -19,6 +19,8 @@ Visual Studio の NuGet 資格情報プロバイダーをインストールす�
 
 サンプルの実装については[、VsCredentialProvider サンプル](https://github.com/NuGet/Samples/tree/master/VsCredentialProvider)を参照してください。
 
+Visual Studio では、NuGet は内部 `VsCredentialProviderImporter` を使用して、プラグイン資格情報プロバイダーもスキャンします。 これらのプラグイン資格情報プロバイダーは、`IVsCredentialProvider`型の MEF エクスポートとして検出可能である必要があります。
+
 Visual Studio の 4.8 + NuGet 以降では、新しいクロスプラットフォーム認証プラグインもサポートされていますが、パフォーマンス上の理由から推奨される方法ではありません。
 
 > [!Note]
@@ -26,16 +28,6 @@ Visual Studio の 4.8 + NuGet 以降では、新しいクロスプラットフ�
 >
 > Visual Studio の NuGet 資格情報プロバイダーは、(dotnet restore または nuget.exe ではなく) Visual Studio でのみ動作します。 Nuget.exe の資格情報プロバイダーについては、「 [Nuget.exe 資格情報プロバイダー](nuget-exe-Credential-providers.md)」を参照してください。
 > Dotnet と msbuild の資格情報プロバイダーについては、「 [NuGet クロスプラットフォームプラグイン](nuget-cross-platform-authentication-plugin.md)」を参照してください。
-
-## <a name="available-nuget-credential-providers-for-visual-studio"></a>Visual Studio の利用可能な NuGet 資格情報プロバイダー
-
-Visual Studio Team Services をサポートするために、Visual Studio NuGet 拡張機能に組み込まれている資格情報プロバイダーがあります。
-
-NuGet Visual Studio 拡張機能は内部 `VsCredentialProviderImporter` を使用します。これは、プラグイン資格情報プロバイダーもスキャンします。 これらのプラグイン資格情報プロバイダーは、`IVsCredentialProvider`型の MEF エクスポートとして検出可能である必要があります。
-
-利用可能なプラグイン資格情報プロバイダーは次のとおりです。
-
-- [Visual Studio の MyGet Credential Provider](http://docs.myget.org/docs/reference/credential-provider-for-visual-studio)
 
 ## <a name="creating-a-nuget-credential-provider-for-visual-studio"></a>Visual Studio の NuGet 資格情報プロバイダーを作成する
 

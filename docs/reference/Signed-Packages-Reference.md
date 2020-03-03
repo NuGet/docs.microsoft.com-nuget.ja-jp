@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 05/18/2018
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: e02b2a241008b1b7096f20b351173fd3df7ed172
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 7384e8b30cb2ec5fe53ea0fe485858bc1f7b3c43
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317512"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231254"
 ---
 # <a name="signed-packages"></a>署名付きパッケージ
 
@@ -26,15 +26,15 @@ NuGet パッケージには、改ざんされたコンテンツからの保護�
 作成者が署名したパッケージの作成の詳細については、「[パッケージに署名](../create-packages/Sign-a-package.md)する」および「 [nuget sign コマンド](../reference/cli-reference/cli-ref-sign.md)」を参照してください。
 
 > [!Important]
-> パッケージの署名は、現在 Windows で nuget.exe を使用している場合にのみサポートされます。 署名付きパッケージの検証は、現在、Windows で nuget.exe または Visual Studio を使用している場合にのみサポートされます。
+> パッケージの署名は、現在 Windows で nuget.exe を使用している場合にのみサポートされます。 [署名付きパッケージの検証は、現在、Windows で nuget.exe または Visual Studio を使用している場合にのみサポートさ](../reference/cli-reference/cli-ref-verify.md)れます。
 
 ## <a name="certificate-requirements"></a>証明書の要件
 
-パッケージの署名にはコード署名証明書が必要です。これは、 `id-kp-codeSigning` [[RFC 5280 section 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)] の目的で有効な特別な種類の証明書です。 また、証明書の RSA 公開キーの長さは2048ビット以上である必要があります。
+パッケージに署名するには、コード署名証明書が必要です。これは、`id-kp-codeSigning` の目的で有効な特殊な種類の証明書である [[RFC 5280 section 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)] です。 また、証明書の RSA 公開キーの長さは2048ビット以上である必要があります。
 
 ## <a name="timestamp-requirements"></a>タイムスタンプの要件
 
-署名されたパッケージには、パッケージ署名証明書の有効期間を超えて署名が有効であることを確認するために、RFC 3161 タイムスタンプを含める必要があります。 タイムスタンプの署名に使用する証明書は、 `id-kp-timeStamping` [[RFC 5280 section 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)] の目的で有効である必要があります。 また、証明書の RSA 公開キーの長さは2048ビット以上である必要があります。
+署名されたパッケージには、パッケージ署名証明書の有効期間を超えて署名が有効であることを確認するために、RFC 3161 タイムスタンプを含める必要があります。 タイムスタンプの署名に使用する証明書は、`id-kp-timeStamping` の目的で有効である必要があります [[RFC 5280 section 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)]。 また、証明書の RSA 公開キーの長さは2048ビット以上である必要があります。
 
 技術的な詳細については、「[パッケージ署名技術仕様](https://github.com/NuGet/Home/wiki/Package-Signatures-Technical-Details)(GitHub)」を参照してください。
 
@@ -54,7 +54,7 @@ nuget.org には、署名付きパッケージを受け入れるための追加�
   - 署名時に取り消すことはできません。 (これは送信時に knowable されない場合があるため、nuget.org は定期的に失効状態を検査します)。
   
   
-## <a name="related-articles"></a>関連記事
+## <a name="related-articles"></a>関連トピック
 
 - [NuGet パッケージの署名](../create-packages/Sign-a-Package.md)
 - [パッケージ信頼境界を管理する](../consume-packages/installing-signed-packages.md)

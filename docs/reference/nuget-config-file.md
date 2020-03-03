@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: d6cad228eb052563fe57ea635bff0ea548cedc1f
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: cd321084c46709e3d1d22872c37485edacd33afa
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75383565"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230527"
 ---
 # <a name="nugetconfig-reference"></a>nuget の .config リファレンス
 
@@ -29,9 +29,9 @@ NuGet の動作は、[一般的な nuget 構成](../consume-packages/configuring
 
 `dependencyVersion` と `repositoryPath` は `packages.config`を使用するプロジェクトにのみ適用されます。 `globalPackagesFolder` は、PackageReference 形式を使用するプロジェクトにのみ適用されます。
 
-| [キー] | Value |
+| Key | 値 |
 | --- | --- |
-| dependencyVersion (`packages.config` のみ) | `-DependencyVersion` スイッチが直接指定されない場合の、パッケージのインストール、復元、および更新における既定の `DependencyVersion` 値です。 この値は、NuGet パッケージ マネージャー UI でも使用されます。 値は `Lowest`、`HighestPatch`、`HighestMinor`、`Highest` となります。 |
+| dependencyVersion (`packages.config` のみ) | `DependencyVersion` スイッチが直接指定されない場合の、パッケージのインストール、復元、および更新における既定の `-DependencyVersion` 値です。 この値は、NuGet パッケージ マネージャー UI でも使用されます。 値は `Lowest`、`HighestPatch`、`HighestMinor`、`Highest` となります。 |
 | Globalパッケージフォルダー (PackageReference のみを使用するプロジェクト) | 既定のグローバル パッケージ フォルダーの場所です。 既定値は、`%userprofile%\.nuget\packages` (Windows) または `~/.nuget/packages` (Mac/Linux) です。 相対パスは、プロジェクト固有の `nuget.config` ファイルで使用できます。 この設定は、NUGET_PACKAGES 環境変数によってオーバーライドされます。これは、優先されます。 |
 | repositoryPath (`packages.config` のみ) | 既定の `$(Solutiondir)/packages` フォルダーではなく、NuGet パッケージをインストールする場所です。 相対パスは、プロジェクト固有の `nuget.config` ファイルで使用できます。 この設定は、NUGET_PACKAGES 環境変数によってオーバーライドされます。これは、優先されます。 |
 | defaultPushSource | 操作に対してパッケージ ソースが他に見つからない場合に、既定値として使用すべきパッケージ ソースの URL またはパスを識別します。 |
@@ -54,9 +54,9 @@ NuGet の動作は、[一般的な nuget 構成](../consume-packages/configuring
 
 パッケージのインストール時に、NuGet で自動バインド リダイレクトを実行するかどうかを構成します。
 
-| [キー] | Value |
+| Key | 値 |
 | --- | --- |
-| スキップ | 自動バインド リダイレクトを省略するかどうかを示すブール値です。 既定値は false です。 |
+| skip | 自動バインド リダイレクトを省略するかどうかを示すブール値です。 既定値は false です。 |
 
 **例**:
 
@@ -70,10 +70,10 @@ NuGet の動作は、[一般的な nuget 構成](../consume-packages/configuring
 
 ビルド時のパッケージの復元を制御します。
 
-| [キー] | Value |
+| Key | 値 |
 | --- | --- |
-| が有効 | NuGet で自動復元を実行できるかどうかを示すブール値です。 構成ファイル内にこのキーを設定するのでなく、`True` の値で `EnableNuGetPackageRestore` 環境変数を設定することもできます。 |
-| 自動 | ビルド中に欠落しているパッケージの確認を NuGet で行う必要があるかどうかを示すブール値です。 |
+| enabled | NuGet で自動復元を実行できるかどうかを示すブール値です。 構成ファイル内にこのキーを設定するのでなく、`EnableNuGetPackageRestore` の値で `True` 環境変数を設定することもできます。 |
+| automatic | ビルド中に欠落しているパッケージの確認を NuGet で行う必要があるかどうかを示すブール値です。 |
 
 **例**:
 
@@ -88,7 +88,7 @@ NuGet の動作は、[一般的な nuget 構成](../consume-packages/configuring
 
 ソリューションの `packages` フォルダーをソース管理に含めるかどうかを制御します。 このセクションは、ソリューション フォルダー内の `nuget.config` ファイルでのみ機能します。
 
-| [キー] | Value |
+| Key | 値 |
 | --- | --- |
 | disableSourceControlIntegration | ソース管理を使用する場合に、パッケージ フォルダーを無視するかどうかを示すブール値です。 既定値は false です。 |
 
@@ -112,7 +112,7 @@ NuGet の動作は、[一般的な nuget 構成](../consume-packages/configuring
 
 すべての既知のパッケージ ソースの一覧を表示します。 この順序は、復元操作中には無視され、PackageReference 形式を使用するプロジェクトでは無視されます。 NuGet は、`packages.config`を使用したプロジェクトでのインストールおよび更新操作のソースの順序を尊重します。
 
-| [キー] | Value |
+| Key | 値 |
 | --- | --- |
 | (パッケージ ソースに割り当てる名前) | パッケージ ソースのパスまたは URL です。 |
 
@@ -126,14 +126,17 @@ NuGet の動作は、[一般的な nuget 構成](../consume-packages/configuring
 </packageSources>
 ```
 
+> [!Tip]
+> 指定されたノードに `<clear />` が存在すると、そのノードより前に定義された構成値は無視されます。 [詳細については、「設定の適用方法](../consume-packages/configuring-nuget-behavior.md#how-settings-are-applied)」を参照してください。
+
 ### <a name="packagesourcecredentials"></a>packageSourceCredentials
 
 通常、`-username` スイッチおよび `-password` スイッチと `nuget sources` によって指定される、ソースのユーザー名とパスワードを格納します。 `-storepasswordincleartext` オプションが使用されていない場合、既定ではパスワードが暗号化されます。
 
-| [キー] | Value |
+| Key | 値 |
 | --- | --- |
 | username | プレーン テキストで表されるソースのユーザー名です。 |
-| のパスワード | ソースの暗号されたパスワードです。 |
+| password | ソースの暗号されたパスワードです。 |
 | cleartextpassword | ソースの暗号化されていないパスワードです。 |
 
 **例:**
@@ -172,7 +175,7 @@ NuGet の動作は、[一般的な nuget 構成](../consume-packages/configuring
 
 [`nuget setapikey` コマンド](../reference/cli-reference/cli-ref-setapikey.md)で設定される、API キー認証を使用するソースのキーを格納します。
 
-| [キー] | Value |
+| Key | 値 |
 | --- | --- |
 | (ソース URL) | 暗号化された API キー。 |
 
@@ -188,7 +191,7 @@ NuGet の動作は、[一般的な nuget 構成](../consume-packages/configuring
 
 現在無効になっているソースを識別します。 空の場合もあります。
 
-| [キー] | Value |
+| Key | 値 |
 | --- | --- |
 | (ソースの名前) | ソースが無効になっているかどうかを示すブール値です。 |
 
@@ -209,7 +212,7 @@ NuGet の動作は、[一般的な nuget 構成](../consume-packages/configuring
 
 現在アクティブなソースを識別し、すべてのソースの集計を示します。
 
-| [キー] | Value |
+| Key | 値 |
 | --- | --- |
 | (ソースの名前) または `All` | キーがソースの名前である場合は、ソースのパスまたは URL が値となります。 `All` の場合は、値を `(Aggregate source)` にして、無効になっていないすべてのパッケージ ソースを結合する必要があります。 |
 
@@ -231,7 +234,7 @@ NuGet の動作は、[一般的な nuget 構成](../consume-packages/configuring
 
 このセクションは、 [`nuget trusted-signers` コマンド](../reference/cli-reference/cli-ref-trusted-signers.md)を使用して更新できます。
 
-**[スキーマ]** :
+**[スキーマ]**: 
 
 信頼できる署名者には、特定の署名者を識別するすべての証明書を登録する `certificate` 項目のコレクションがあります。 信頼できる署名者は、`Author` または `Repository`のいずれかになります。
 
@@ -269,7 +272,7 @@ NuGet の動作は、[一般的な nuget 構成](../consume-packages/configuring
 
 一致するものが見つからない場合、NuGet はファイルソースを確認し、次に http ソースを確認してから、パッケージをダウンロードします。
 
-| [キー] | Value |
+| Key | 値 |
 | --- | --- |
 | (フォールバックフォルダーの名前) | フォールバックフォルダーへのパス。 |
 
@@ -285,9 +288,9 @@ NuGet の動作は、[一般的な nuget 構成](../consume-packages/configuring
 
 既定のパッケージ管理形式である*app.config*または PackageReference を設定します。 SDK スタイルのプロジェクトは常に PackageReference を使用します。
 
-| [キー] | Value |
+| Key | 値 |
 | --- | --- |
-| 書式 | 既定のパッケージ管理形式を示すブール値。 `1`の場合、format は PackageReference です。 `0`の場合、形式は*app.config*です。 |
+| format | 既定のパッケージ管理形式を示すブール値。 `1`の場合、format は PackageReference です。 `0`の場合、形式は*app.config*です。 |
 | 無効 | 最初のパッケージのインストール時に既定のパッケージ形式を選択するようにプロンプトを表示するかどうかを示すブール値。 `False` プロンプトを非表示にします。 |
 
 **例**:
@@ -305,13 +308,13 @@ NuGet の動作は、[一般的な nuget 構成](../consume-packages/configuring
 
 たとえば、Windows 上の `HOME` 環境変数を `c:\users\username` に設定すると、構成ファイル内の `%HOME%\NuGetRepository` の値は `c:\users\username\NuGetRepository` に解決されます。
 
-同様に、Mac/Linux 上の `HOME` を `/home/myStuff` に設定すると、構成ファイル内の `$HOME/NuGetRepository` は `/home/myStuff/NuGetRepository` に解決されます。
+Windows スタイルの環境変数を使用する必要があることに注意してください (開始と終了は%)Mac/Linux でも同様です。 構成ファイルに `$HOME/NuGetRepository` があると、解決されません。 Mac/Linux では、`%HOME%\NuGetRepository` の値が `/home/myStuff/NuGetRepository`に解決されます。
 
 環境変数が見つからない場合、NuGet は構成ファイルからのリテラル値を使用します。
 
 ## <a name="example-config-file"></a>構成ファイルの例
 
-複数の設定が含まれている `nuget.config` ファイルの例を次に示します。
+オプションの設定など、いくつかの設定を示す `nuget.config` ファイルの例を次に示します。
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
