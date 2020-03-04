@@ -24,6 +24,7 @@
 ### [パッケージを再インストールして更新する](consume-packages/reinstalling-and-updating-packages.md)
 ### [グローバル パッケージとキャッシュ フォルダーを管理する](consume-packages/managing-the-global-packages-and-cache-folders.md)
 ### [パッケージ信頼境界を管理する](consume-packages/installing-signed-packages.md)
+### [認証されたフィードを使用する](consume-packages/consuming-packages-authenticated-feeds.md)
 ### [ソース管理システムを使用する](consume-packages/packages-and-source-control.md)
 ### [一般的な NuGet 構成](consume-packages/configuring-nuget-behavior.md)
 ## プロジェクトでパッケージを参照する
@@ -45,7 +46,8 @@
 ### [パッケージの種類の設定](create-packages/set-package-type.md)
 ### [ローカライズされたパッケージを作成する](create-packages/creating-localized-packages.md)
 ## 特定のコンテンツのガイド
-### [UWP パッケージを作成する](guides/create-uwp-packages.md)
+### [UWP パッケージを作成する (C++)](guides/create-uwp-packages.md)
+### [UWP パッケージを作成する (C#)](guides/create-uwp-packages-CS.md)
 ### [ネイティブ パッケージを作成する](guides/native-packages.md)
 ### [NuGet パッケージとして UI コントロールを作成する](guides/create-UI-controls.md)
 ### [NuGet パッケージとしてアナライザーを作成する](guides/analyzers-conventions.md)
