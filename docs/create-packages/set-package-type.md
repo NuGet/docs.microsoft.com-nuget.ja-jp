@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 22e8ac2e9e2086a1280c5b0c3be8a032b7998b36
-ms.sourcegitcommit: 415c70d7014545c1f65271a2debf8c3c1c5eb688
+ms.openlocfilehash: 1d869f616ce0291cf1c0a17b7ff20fc61e6a3bd5
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77036917"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230825"
 ---
 # <a name="set-a-nuget-package-type"></a>NuGet パッケージの種類を設定する
 
@@ -30,7 +30,7 @@ NuGet 3.5+ では、パッケージに特定の*パッケージの種類*の印�
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
-    <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+    <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
         <metadata>
         <!-- ... -->
         <packageTypes>
