@@ -3,14 +3,14 @@ title: dotnet CLI を使用して NuGet パッケージを作成する
 description: NuGet パッケージを設計し、作成する過程を詳しく説明します。ファイルやバージョン管理など、重要な決定ポイントが含まれます。
 author: karann-msft
 ms.author: karann
-ms.date: 07/09/2019
+ms.date: 02/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: c198bb73f0e4f5a59826db905eaf4622fe8543bc
-ms.sourcegitcommit: 1799d4ac23c8aacee7498fdc72c40dd1646d267b
+ms.openlocfilehash: 712e4c7159aa9719052330d8e45f63e18e390325
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77476257"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230585"
 ---
 # <a name="create-a-nuget-package-using-the-dotnet-cli"></a>dotnet CLI を使用して NuGet パッケージを作成する
 
@@ -67,6 +67,10 @@ Visual Studio では、プロジェクトのプロパティにこれらの値を
 > 公開用にビルドされたパッケージの場合は、**PackageTags**プロパティに特に注意してください。これらのタグは他のユーザーがパッケージを検索して、パッケージの動作を理解するのに役立ちます。
 
 依存関係の宣言とバージョン番号の指定の詳細については、「[プロジェクト ファイルのパッケージ参照 (PackageReference)](../consume-packages/package-references-in-project-files.md)」と「[パッケージのバージョン管理](../concepts/package-versioning.md)」を参照してください。 `<IncludeAssets>` および `<ExcludeAssets>` 属性を使用して、パッケージ内で直接、依存関係からアセットを表面化させることもできます。 詳しくは、「[依存関係アセットを制御する](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)」をご覧ください。
+
+## <a name="add-an-optional-description-field"></a>省略可能な説明フィールドを追加する
+
+[!INCLUDE [add description to package](includes/add-description.md)]
 
 ## <a name="choose-a-unique-package-identifier-and-set-the-version-number"></a>一意のパッケージ識別子を選択してバージョン番号を設定する
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: b6a009832430ee08f51ea1028feb878a39f45222
-ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
+ms.openlocfilehash: a5833df60c5f7905359f421141347b1237f45d86
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74825146"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230617"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>プロジェクト ファイルのパッケージ参照 (PackageReference)
 
@@ -48,7 +48,7 @@ PackageReference の場合、MSBuild 条件を使用し、ターゲット フレ
 </ItemGroup>
 ```
 
-上記の例では、3.6.0 は 3.6.0 以上のあらゆるバージョンを意味し、最も下のバージョンが優先されます。詳細は、「[Package versioning](../concepts/package-versioning.md#version-ranges-and-wildcards)」 (パッケージ バージョン) にあります。
+上記の例では、3.6.0 は 3.6.0 以上のあらゆるバージョンを意味し、最も下のバージョンが優先されます。詳細は、「[Package versioning](../concepts/package-versioning.md#version-ranges)」 (パッケージ バージョン) にあります。
 
 ## <a name="using-packagereference-for-a-project-with-no-packagereferences"></a>PackageReference のないプロジェクトに PackageReference を使用する
 
@@ -170,7 +170,107 @@ PackageReference プロジェクトでは、推移的な依存関係バージョ
 </ItemGroup>
 ```
 
+## <a name="generatepathproperty"></a>GeneratePathProperty
+
+この機能を使用できるのは、NuGet **5.0** 以降で、かつ Visual Studio 2019 **16.0** 以降を使用している場合です。
+
+場合によっては、MSBuild ターゲットからパッケージ内のファイルを参照することが望ましい場合があります。
+`packages.config` ベースのプロジェクトでは、パッケージは、プロジェク トファイルに対して相対的なフォルダーにインストールされます。 ただし、PackageReference では、パッケージは "*グローバルパッケージ*" フォルダーから[使用](../concepts/package-installation-process.md)されます。このフォルダーは、マシンごとに異なる場合があります。
+
+このギャップを埋めるために、NuGet では、パッケージの使用元となる場所を指すプロパティが導入されました。
+
+例:
+
+```xml
+  <ItemGroup>
+      <PackageReference Include="Some.Package" Version="1.0.0" GeneratePathProperty="true" />
+  </ItemGroup>
+
+  <Target Name="TakeAction" AfterTargets="Build">
+    <Exec Command="$(PkgSome_Package)\something.exe" />
+  </Target>
+````
+
+また、NuGet では、ツール フォルダーを含むパッケージのプロパティが自動的に生成されます。
+
+```xml
+  <ItemGroup>
+      <PackageReference Include="Package.With.Tools" Version="1.0.0" />
+  </ItemGroup>
+
+  <Target Name="TakeAction" AfterTargets="Build">
+    <Exec Command="$(PkgPackage_With_Tools)\tools\tool.exe" />
+  </Target>
+````
+
+MSBuild のプロパティとパッケージ ID には同じ制限がないため、パッケージ ID を MSBuild の表示名 (`Pkg` という語が接頭辞として付けられます) に変更する必要があります。
+生成されたプロパティの正確な名前を確認するには、生成された [nuget.g.props](../reference/msbuild-targets.md#restore-outputs) ファイルを調べます。
+
+## <a name="nuget-warnings-and-errors"></a>NuGet の警告とエラー
+
+"*この機能を使用できるのは、NuGet **4.3** 以降で、かつ Visual Studio 2017 **15.3** 以降を使用している場合です。* "
+
+多くのパックと復元シナリオでは、すべての NuGet の警告とエラーがコード化され、`NU****` から始まります。 すべての NuGet の警告とエラーは、[リファレンス](../reference/errors-and-warnings.md) ドキュメントに記載されています。
+
+NuGet では、次の警告プロパティが監視されます。
+
+- `TreatWarningsAsErrors`: すべての警告をエラーとして扱います。
+- `WarningsAsErrors`: 指定した警告をエラーとして扱います。
+- `NoWarn`: 特定の警告を非表示にします (プロジェクト全体またはパッケージ全体)。
+
+次に例を示します。
+
+```xml
+<PropertyGroup>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+</PropertyGroup>
+...
+<PropertyGroup>
+    <WarningsAsErrors>$(WarningsAsErrors);NU1603;NU1605</WarningsAsErrors>
+</PropertyGroup>
+...
+<PropertyGroup>
+    <NoWarn>$(NoWarn);NU5124</NoWarn>
+</PropertyGroup>
+...
+<ItemGroup>
+    <PackageReference Include="Contoso.Package" Version="1.0.0" NoWarn="NU1605" />
+</ItemGroup>
+```
+
+### <a name="suppressing-nuget-warnings"></a>NuGet 警告の非表示
+
+パックと復元操作中にすべての NuGet 警告を解決することをお勧めしますが、特定の状況では、それらを非表示にすることが認められています。
+プロジェクト全体で警告を非表示にするには、次のことを検討してください。
+
+```xml
+<PropertyGroup>
+    <PackageVersion>5.0.0</PackageVersion>
+    <NoWarn>$(NoWarn);NU5104</NoWarn>
+</PropertyGroup>
+<ItemGroup>
+    <PackageReference Include="Contoso.Package" Version="1.0.0-beta.1"/>
+</ItemGroup>
+```
+
+警告は、グラフ内の特定のパッケージにのみ適用されることがあります。 PackageReference 項目に `NoWarn` を追加することで、その警告をより選択的に非表示にすることができます。 
+
+```xml
+<PropertyGroup>
+    <PackageVersion>5.0.0</PackageVersion>
+</PropertyGroup>
+<ItemGroup>
+    <PackageReference Include="Contoso.Package" Version="1.0.0-beta.1" NoWarn="NU1603" />
+</ItemGroup>
+```
+
+#### <a name="suppressing-nuget-package-warnings-in-visual-studio"></a>Visual Studio での NuGet パッケージ警告の非表示
+
+Visual Studio では、IDE から[警告を非表示にする](/visualstudio/ide/how-to-suppress-compiler-warnings#suppress-warnings-for-nuget-packages
+)こともできます。
+
 ## <a name="locking-dependencies"></a>依存関係のロック
+
 "*この機能を使用できるのは、NuGet **4.9** 以降で、かつ Visual Studio 2017 **15.9** 以降を使用している場合です。* "
 
 NuGet の復元への入力は、プロジェクト ファイルのパッケージ参照のセット (最上位レベルまたは直接の依存関係) であり、出力は推移的依存関係を含むパッケージのすべての依存関係の完全なクロージャーです。 入力の PackageReference リストが変更されていない場合、NuGet では常に同じパッケージの依存関係の完全なクロージャーを生成しようとします。 ただし、このようにすることができないシナリオがいくつかあります。 次に例を示します。
@@ -185,6 +285,7 @@ NuGet の復元への入力は、プロジェクト ファイルのパッケー�
 * 指定したパッケージ バージョンがリポジトリから削除される場合。 nuget.org ではパッケージの削除が許可されていませんが、すべてのパッケージ リポジトリがこの制約を持っているわけではありません。 これにより、削除されたバージョンに解決できない場合、NuGet では最適な一致が検索されます。
 
 ### <a name="enabling-lock-file"></a>ロック ファイルの有効化
+
 パッケージの依存関係の完全なクロージャーを保持するために、プロジェクトに対して MSBuild プロパティ `RestorePackagesWithLockFile` を設定して、ロック ファイル機能にオプトインすることができます。
 
 ```xml
@@ -251,9 +352,9 @@ ProjectA
 
 以下で説明するように、ロック ファイルを使用して復元のさまざまな動作を制御できます。
 
-| オプション | 対応する MSBuild オプション | 説明|
-|:---  |:--- |:--- |
-| `--use-lock-file` | RestorePackagesWithLockFile | ロック ファイルの使用をオプトインします。 | 
-| `--locked-mode` | RestoreLockedMode | 復元のロック モードを有効にします。 これは、繰り返し可能なビルドを必要とする CI/CD のシナリオで役立ちます。|   
-| `--force-evaluate` | RestoreForceEvaluate | このオプションは、プロジェクトで定義する浮動バージョンを使用するパッケージで役立ちます。 既定では、NuGet の復元では、このオプションを指定して復元を実行しない限り、復元ごとのパッケージ バージョンの自動更新は行われません。 |
-| `--lock-file-path` | NuGetLockFilePath | プロジェクトのカスタム ロック ファイルの場所を定義します。 既定では、NuGet はルート ディレクトリでの `packages.lock.json` をサポートします。 同じディレクトリ内に複数のプロジェクトがある場合、NuGet はプロジェクト固有のロック ファイル `packages.<project_name>.lock.json` をサポートします。 |
+| NuGet.exe オプション | dotnet オプション | 対応する MSBuild オプション | 説明 |
+|:--- |:--- |:--- |:--- |
+| `-UseLockFile` |`--use-lock-file` | RestorePackagesWithLockFile | ロック ファイルの使用をオプトインします。 |
+| `-LockedMode` | `--locked-mode` | RestoreLockedMode | 復元のロック モードを有効にします。 これは、繰り返し可能なビルドを必要とする CI/CD のシナリオで役立ちます。|   
+| `-ForceEvaluate` | `--force-evaluate` | RestoreForceEvaluate | このオプションは、プロジェクトで定義する浮動バージョンを使用するパッケージで役立ちます。 既定では、NuGet の復元では、このオプションを指定して復元を実行しない限り、復元ごとのパッケージ バージョンの自動更新は行われません。 |
+| `-LockFilePath` | `--lock-file-path` | NuGetLockFilePath | プロジェクトのカスタム ロック ファイルの場所を定義します。 既定では、NuGet はルート ディレクトリでの `packages.lock.json` をサポートします。 同じディレクトリ内に複数のプロジェクトがある場合、NuGet はプロジェクト固有のロック ファイル `packages.<project_name>.lock.json` をサポートします。 |

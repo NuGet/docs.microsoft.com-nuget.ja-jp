@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: 55f9c760ae05f060b748e6fbb82d8e9bd77c4e37
-ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
+ms.openlocfilehash: 8c09d6d5662ed6ff0deffa5d45b823ad0992f399
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74825299"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231306"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>クイック スタート: パッケージの作成と公開 (dotnet CLI)
 
@@ -104,6 +104,12 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 ### <a name="manage-the-published-package"></a>公開済みパッケージを管理する
 
 [!INCLUDE [publish-manage](includes/publish-manage.md)]
+
+## <a name="related-video"></a>関連ビデオ
+
+> [!Video https://channel9.msdn.com/Series/NuGet-101/Create-and-Publish-a-NuGet-Package-with-the-NET-CLI-5-of-5/player]
+
+他の NuGet ビデオは、[Channel 9](https://channel9.msdn.com/Series/NuGet-101) および [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_) でご覧いただけます。
 
 ## <a name="next-steps"></a>次の手順
 

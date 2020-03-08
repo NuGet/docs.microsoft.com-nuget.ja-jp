@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 937d051ff6dc49e3204f7d0cb22c4f29b99a2a7d
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 02c6c8f3018bfd063c2d16a10381f88b54cac840
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610613"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231345"
 ---
 # <a name="publishing-packages"></a>パッケージを公開する
 
@@ -65,6 +65,10 @@ nuget.org にパッケージをプッシュするには、[nuget.exe v4.1.0 以�
     ```
 
     このコマンドでは、ご利用の API キーがご利用の NuGet 構成に格納されます。そのため、同じコンピューター上でこの手順をもう一度繰り返す必要はありません。
+
+    > [!NOTE]
+    > API キーは、プライベート フィードでの認証には使用されません。 ソースで認証するための資格情報を管理するには、[`nuget sources` コマンド](../reference/cli-reference/cli-ref-sources.md)を参照してください。
+    > API キーは、個々の NuGet サーバーから取得できます。 nuget.org の APIKeys を作成して管理するには、[publish-api-key](../quickstart/includes/publish-api-key.md) を参照してください。
 
 1. 以下のコマンドを使用して、NuGet ギャラリーにパッケージをプッシュします。
 

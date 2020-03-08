@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/16/2019
 ms.topic: quickstart
-ms.openlocfilehash: fe551dfa7f2322e6677c9c0b972c79c9df2e7695
-ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
+ms.openlocfilehash: 32dcc1d233154463e2950b1ce46554b1cb89956e
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76813560"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231293"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>クイック スタート: Visual Studio を使用した NuGet パッケージの作成と公開 (.NET Standard、Windows のみ)
 
@@ -132,7 +132,7 @@ NuGet 4.x 以降と MSBuild 15.1 以降では、**Pack** メニュー コマン�
 
 CLI ツールのタブ ( **.NET Core CLI** (dotnet cli) または **NuGet** (nuget.exe CLI)) を選択します。
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 `nuget.exe` を使用する代わりに、この手順を使用することをお勧めします。
 
@@ -140,7 +140,7 @@ CLI ツールのタブ ( **.NET Core CLI** (dotnet cli) または **NuGet** (nug
 
 [!INCLUDE [publish-dotnet](includes/publish-dotnet.md)]
 
-# <a name="nugettabnuget"></a>[NuGet](#tab/nuget)
+# <a name="nuget"></a>[NuGet](#tab/nuget)
 
 この手順は、`dotnet.exe`の使用に代わる方法です。
 
@@ -192,6 +192,12 @@ CLI ツールのタブ ( **.NET Core CLI** (dotnet cli) または **NuGet** (nug
 
 > [!Note]
 > プロジェクトのルートに readme.txt を追加するだけでは、作成されたパッケージに含まれません。
+
+## <a name="related-video"></a>関連ビデオ
+
+> [!Video https://channel9.msdn.com/Series/NuGet-101/Create-and-Publish-a-NuGet-Package-with-Visual-Studio-4-of-5/player]
+
+他の NuGet ビデオは、[Channel 9](https://channel9.msdn.com/Series/NuGet-101) および [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_) でご覧いただけます。
 
 ## <a name="related-topics"></a>関連トピック
 

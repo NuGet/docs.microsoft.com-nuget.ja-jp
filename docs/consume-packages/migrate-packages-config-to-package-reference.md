@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6f659af6b09a12be54a5ef843d34f956119b33f4
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: 8e825410d621ff2946e23e80173292f24f9d21f2
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69520492"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231271"
 ---
 # <a name="migrate-from-packagesconfig-to-packagereference"></a>packages.config から PackageReference への移行
 
@@ -29,6 +29,8 @@ Visual Studio 2017 バージョン 15.7 以降では、[packages.config](../refe
 * NuGet PackageReference は、Visual Studio 2015 以前では使用できません。 移行されたプロジェクトは、Visual Studio 2017 以降でのみ開くことができます。
 * C++ プロジェクトと ASP.NET プロジェクトについては、現在のところ、移行を利用できません。
 * 一部のパッケージは、PackageReference と完全に互換ではない場合があります。 詳しくは、「[パッケージの互換性の問題](#package-compatibility-issues)」をご覧ください。
+
+また、PackageReferences のしくみには、packages.config と比べていくつかの違いがあります。たとえば、[アップグレード バージョンを制限する](../consume-packages/reinstalling-and-updating-packages.md#constraining-upgrade-versions)ことは、PackageReference ではサポートされていませんが、[浮動小数点バージョン](../consume-packages/package-references-in-project-files.md#floating-versions)のサポートが追加されています。
 
 ### <a name="known-issues"></a>既知の問題
 
@@ -55,7 +57,7 @@ Visual Studio 2017 バージョン 15.7 以降では、[packages.config](../refe
 
 1. `packages.config` を使用してプロジェクトを含むソリューションを開きます。
 
-1. **ソリューション エクスプローラー**で、**[参照]** ノードまたは `packages.config` ファイルを右クリックし、**[packages.config を PackageReference に移行する...]** を選択します。
+1. **ソリューション エクスプローラー**で、 **[参照]** ノードまたは `packages.config` ファイルを右クリックし、 **[packages.config を PackageReference に移行する...]** を選択します。
 
 1. 移行プログラムによってプロジェクトの NuGet パッケージ参照が分析され、**最上位の依存関係** (直接インストールした NuGet パッケージ) と**推移的依存関係** (最上位のパッケージの依存関係としてインストールされたパッケージ) への分類が試行されます。
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/24/2018
 ms.topic: quickstart
-ms.openlocfilehash: 92fc78a88733d0308dc26e10c5b0bafb86b78045
-ms.sourcegitcommit: e4b0ff4460865db6dc7bc9f20e9f644d98493011
+ms.openlocfilehash: 96e138561390984d9def495ba5e091c43023cc92
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71307229"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231332"
 ---
 # <a name="quickstart-install-and-use-a-package-in-visual-studio-windows-only"></a>クイック スタート: Visual Studio にパッケージをインストールして使用する (Windows のみ)
 
@@ -124,6 +124,12 @@ Visual Studio によってプロジェクトが作成され、ソリューショ
 1. ボタンを選択し、TextBlock の内容が JSON テキストに置換されたことを確認します。
 
     ![ボタンを選択した後の WPF アプリの出力](media/QS_Use-07-AppEnd.png)
+
+## <a name="related-video"></a>関連ビデオ
+
+> [!Video https://channel9.msdn.com/Series/NuGet-101/Install-and-Use-a-NuGet-Package-with-Visual-Studio-2-of-5/player]
+
+他の NuGet ビデオは、[Channel 9](https://channel9.msdn.com/Series/NuGet-101) および [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_) でご覧いただけます。
 
 ## <a name="next-steps"></a>次の手順
 

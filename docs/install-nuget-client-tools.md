@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/20/2019
 ms.topic: quickstart
-ms.openlocfilehash: 09c859c0ab6767ea80b6a64c194aa2623ee5c505
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 2769f0ef0373b26eedb4bac6242fee0e814310c5
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610521"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230540"
 ---
 # <a name="install-nuget-client-tools"></a>NuGet クライアント ツールのインストール
 
@@ -22,11 +22,25 @@ ms.locfileid: "73610521"
 |:------------- |:-------------|:-----|
 | [dotnet.exe](#dotnetexe-cli) | .NET Core と .NET Standard ライブラリ、および任意の [SDK スタイルのプロジェクト](resources/check-project-format.md) (.NET Framework を対象とするものなど) のための CLI ツール。 .NET Core SDK 含まれており、すべてのプラットフォームで NuGet のコア機能を提供します。 (Visual Studio 2017 以降、dotnet CLI は .NET Core に関連するすべてのワークロードで自動的にインストールされます。)| [.NET Core SDK](https://www.microsoft.com/net/download/) |
 | [nuget.exe](#nugetexe-cli) | .NET Framework ライブラリ、および任意の[非 SDK スタイルのプロジェクト](resources/check-project-format.md) (.NET Standard ライブラリを対象とするものなど) のための CLI ツール。 Windows のすべての NuGet 機能と、Mono で実行される場合の Mac および Linux の ほとんどの機能を提供します。 | [nuget.exe](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe) |
-| [Visual Studio](#visual-studio) | Windows 上で、パッケージ マネージャー UI およびパッケージ マネージャー コンソール (.NET 関連のワークロードに含まれます) を介して NuGet 機能を提供します。 Mac 上で、UI 経由で特定の機能を提供します。 Visual Studio Code で、拡張機能によって NuGet 機能が提供されます。 | [Visual Studio](https://www.visualstudio.com/downloads/) |
+| [Visual Studio](#visual-studio) | Windows では、**NuGet パッケージ マネージャー**は、Visual Studio 2012 以降に含まれています。 Visual Studio では、[パッケージ マネージャー UI](consume-packages/install-use-packages-visual-studio.md) と[パッケージ マネージャー コンソール](consume-packages/install-use-packages-powershell.md)を提供します。NuGet の操作のほとんどは、これらを使用して実行できます。 | [Visual Studio](https://www.visualstudio.com/downloads/) |
+| [Visual Studio for Mac](/visualstudio/mac/nuget-walkthrough) | Mac では、NuGet の機能は直接組み込まれています。 パッケージ マネージャー コンソールは、現在、使用できません。 他の機能については、CLI ツールの `dotnet.exe` または `nuget.exe` を使用します。  | [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/) |
+| [Visual Studio Code](https://code.visualstudio.com/docs) | Windows、Mac、または Linux では、NuGet 機能は、Marketplace 拡張機能から入手できます。また、CLI ツールの `dotnet.exe` または `nuget.exe` を使用して入手することもできます。 | [Visual Studio Code](https://code.visualstudio.com/Download/)|
 
 さらに、[MSBuild CLI](reference/msbuild-targets.md) は、パッケージを復元および作成する機能を提供します。これはおもにビルド サーバーで有用です。 MSBuild は、NuGet を使用するための汎用ツールではありません。
 
+パッケージ マネージャー コンソール コマンドは、Windows 上の Visual Studio 内でのみ機能し、他の PowerShell 環境では機能しません。
+
+## <a name="visual-studio"></a>Visual Studio
+### <a name="install-on-visual-studio-2017-and-newer"></a>Visual Studio 2017 以降へのインストール
+Visual Studio 2017 以降、インストーラーには、NuGet パッケージ マネージャーと .NET を使用するすべてのワークロードが含まれます。 個別にインストール、またはパッケージ マネージャーがインストールされていることを確認するには、Visual Studio インストーラーを実行し、 **[個別のコンポーネント] > [コード ツール] > [NuGet パッケージ マネージャー]** の下でオプションを確認します。
+
+### <a name="install-on-visual-studio-2015-and-older"></a>Visual Studio 2015 以前へのインストール
+Visual Studio 2013 および 2015 用の NuGet 拡張機能は、[https://dist.nuget.org/index.html](https://dist.nuget.org/index.html) からダウンロードできます。
+
+Visual Studio 2010 以前の場合、"Visual Studio 用 NuGet パッケージ マネージャー" 拡張機能をインストールします。 検索結果の最初のページに拡張機能が表示されない場合は、[並べ替え] ドロップダウンを [ダウンロード数順] またはアルファベット順に変更してみてください。
+
 ## <a name="cli-tools"></a>CLI ツール
+IDE で NuGet 機能をサポートするには、`dotnet` CLI または `nuget.exe` CLI のいずれかが使用できます。 `dotnet` CLI は、一部の Visual Studio ワークロード (.NET Core など) と共にインストールされます。 `nuget.exe` CLI は、前述のように個別にインストールする必要があります。
 
 `dotnet.exe` と `nuget.exe` の 2 つの NuGet CLI ツールがあります。 比較については、「[機能の可用性](#feature-availability)」をご覧ください。
 
@@ -60,21 +74,6 @@ dotnet CLI で基本的なコマンドを使用する方法を学習するには
 > [!Note]
 > 最新の推奨される NuGet CLI はいつでも、`https://dist.nuget.org/win-x86-commandline/latest/nuget.exe` で入手できます。 古い継続的インテグレーション システムとの互換性を維持するために、以前の URL (`https://nuget.org/nuget.exe`) では現在、[非推奨の 2.8.6 CLI ツール](https://github.com/NuGet/NuGetGallery/issues/5381)が提供されています。
 
-## <a name="visual-studio"></a>Visual Studio
-
-- Visual Studio Code:NuGet 機能は、Marketplace 拡張機能を通じて入手できます。または、CLI ツールの `dotnet.exe` か `nuget.exe` を使用します。
-
-- Visual Studio for Mac: NuGet の機能は直接組み込まれています。 チュートリアルについては、「[プロジェクトに NuGet パッケージを含める](/visualstudio/mac/nuget-walkthrough)」をご覧ください。 他の機能については、CLI ツールの `dotnet.exe` または `nuget.exe` を使用します。
-
-- Windows 上の Visual Studio:**NuGet パッケージ マネージャー**は、Visual Studio 2012 以降に含まれています。 Visual Studio では、[パッケージ マネージャー UI](consume-packages/install-use-packages-visual-studio.md) と[パッケージ マネージャー コンソール](consume-packages/install-use-packages-powershell.md)を提供します。NuGet の操作のほとんどは、これらを使用して実行できます。
-  - Visual Studio 2017 以降、インストーラーには、NuGet パッケージ マネージャーと .NET を使用するすべてのワークロードが含まれます。 個別にインストール、またはパッケージ マネージャーがインストールされていることを確認するには、Visual Studio インストーラーを実行し、 **[個別のコンポーネント] > [コード ツール] > [NuGet パッケージ マネージャー]** の下でオプションを確認します。
-  - パッケージ マネージャー UI とパッケージ マネージャー コンソールは、Windows 上の Visual Studio 固有です。 現在、Visual Studio for Mac では、これらを使用できません。
-  - この IDE で NuGet 機能をサポートするためには、CLI ツールが必要です。 お客様は、`dotnet` CLI、`nuget.exe` CLI のいずれかを使用することができます。 `dotnet` CLI は、一部の Visual Studio ワークロード (.NET Core など) と共にインストールされます。 `nuget.exe` CLI は、前述のように個別にインストールする必要があります。
-  - パッケージ マネージャー コンソール コマンドは、Windows 上の Visual Studio 内でのみ機能し、他の PowerShell 環境では機能しません。
-  - Visual Studio 2010 以前の場合、"Visual Studio 用 NuGet パッケージ マネージャー" 拡張機能をインストールします。
-  - さらに、Visual Studio 2013 および 2015 用の NuGet 拡張機能は、[https://dist.nuget.org/index.html](https://dist.nuget.org/index.html)からダウンロードできます。
-  - 今後の NuGet の機能をプレビューしたい場合は、[Visual Studio Preview](https://www.visualstudio.com/vs/preview/) をインストールします。これは、Visual Studio の安定版リリースと同時に実行できます。 問題を報告したり、プレビューに関するアイデアを共有したりするには、[NuGet GitHub リポジトリ](https://github.com/Nuget/Home/issues)で懸案事項を開きます。
-
 ## <a name="feature-availability"></a>機能の可用性
 
 | 機能 | dotnet CLI | nuget CLI (Windows) | nuget CLI (Mono) | Visual Studio (Windows) | Visual Studio for Mac |
@@ -99,6 +98,9 @@ dotnet CLI で基本的なコマンドを使用する方法を学習するには
 (3) 各種の高度なパッケージ機能は、Visual Studio UI ツールで表示されない場合のみ、CLI を通じて使用できます。
 
 (4) `.nuspec` ファイルでは機能しますが、プロジェクト ファイルでは機能しません。
+
+## <a name="upcoming-features"></a>今後の機能
+今後の NuGet の機能をプレビューしたい場合は、[Visual Studio Preview](https://www.visualstudio.com/vs/preview/) をインストールします。これは、Visual Studio の安定版リリースと同時に実行できます。 問題を報告したり、プレビューに関するアイデアを共有したりするには、[NuGet GitHub リポジトリ](https://github.com/Nuget/Home/issues)で懸案事項を開きます。
 
 ### <a name="related-topics"></a>関連トピック
 
