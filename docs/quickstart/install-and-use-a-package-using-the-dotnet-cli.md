@@ -5,51 +5,51 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: 9b6eb012b4bc8135b1648fa9f5e84d7d1c9d6b16
-ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
+ms.openlocfilehash: 006fff8360ac62393e4b88c1a253514591d22f4c
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74825352"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231278"
 ---
-# <a name="quickstart-install-and-use-a-package-using-the-dotnet-cli"></a><span data-ttu-id="90df7-103">クイック スタート: dotnet CLI を使用してパッケージをインストールし使用する</span><span class="sxs-lookup"><span data-stu-id="90df7-103">Quickstart: Install and use a package using the dotnet CLI</span></span>
+# <a name="quickstart-install-and-use-a-package-using-the-dotnet-cli"></a><span data-ttu-id="35814-103">クイック スタート: dotnet CLI を使用してパッケージをインストールし使用する</span><span class="sxs-lookup"><span data-stu-id="35814-103">Quickstart: Install and use a package using the dotnet CLI</span></span>
 
-<span data-ttu-id="90df7-104">NuGet パッケージには、他の開発者がお客様のプロジェクトで使用できるようにした、再利用可能なコードが含まれます。</span><span class="sxs-lookup"><span data-stu-id="90df7-104">NuGet packages contain reusable code that other developers make available to you for use in your projects.</span></span> <span data-ttu-id="90df7-105">背景については、[NuGet の紹介](../What-is-NuGet.md)に関するページを参照してください。</span><span class="sxs-lookup"><span data-stu-id="90df7-105">See [What is NuGet?](../What-is-NuGet.md) for background.</span></span> <span data-ttu-id="90df7-106">一般的な [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) パッケージに関するこの記事で説明するとおり、パッケージを .NET Core プロジェクトにインストールするには、`dotnet add package` コマンドを使用します。</span><span class="sxs-lookup"><span data-stu-id="90df7-106">Packages are installed into a .NET Core project using the `dotnet add package` command as described in this article for the popular [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) package.</span></span>
+<span data-ttu-id="35814-104">NuGet パッケージには、他の開発者がお客様のプロジェクトで使用できるようにした、再利用可能なコードが含まれます。</span><span class="sxs-lookup"><span data-stu-id="35814-104">NuGet packages contain reusable code that other developers make available to you for use in your projects.</span></span> <span data-ttu-id="35814-105">背景については、[NuGet の紹介](../What-is-NuGet.md)に関するページを参照してください。</span><span class="sxs-lookup"><span data-stu-id="35814-105">See [What is NuGet?](../What-is-NuGet.md) for background.</span></span> <span data-ttu-id="35814-106">一般的な [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) パッケージに関するこの記事で説明するとおり、パッケージを .NET Core プロジェクトにインストールするには、`dotnet add package` コマンドを使用します。</span><span class="sxs-lookup"><span data-stu-id="35814-106">Packages are installed into a .NET Core project using the `dotnet add package` command as described in this article for the popular [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) package.</span></span>
 
-<span data-ttu-id="90df7-107">インストール後、`using <namespace>` でコード内のパッケージを参照します。\<namespace\> は、使用しているパッケージに固有です。</span><span class="sxs-lookup"><span data-stu-id="90df7-107">Once installed, refer to the package in code with `using <namespace>` where \<namespace\> is specific to the package you're using.</span></span> <span data-ttu-id="90df7-108">その後、パッケージの API を使用できます。</span><span class="sxs-lookup"><span data-stu-id="90df7-108">You can then use the package's API.</span></span>
+<span data-ttu-id="35814-107">インストール後、`using <namespace>` でコード内のパッケージを参照します。\<namespace\> は、使用しているパッケージに固有です。</span><span class="sxs-lookup"><span data-stu-id="35814-107">Once installed, refer to the package in code with `using <namespace>` where \<namespace\> is specific to the package you're using.</span></span> <span data-ttu-id="35814-108">その後、パッケージの API を使用できます。</span><span class="sxs-lookup"><span data-stu-id="35814-108">You can then use the package's API.</span></span>
 
 > [!Tip]
-> <span data-ttu-id="90df7-109">**nuget.org を開始する**:nuget.org を参照するのは、.NET 開発者が自身のアプリケーションで再利用可能なコンポーネントを検索するための一般的な方法です。</span><span class="sxs-lookup"><span data-stu-id="90df7-109">**Start with nuget.org**: Browsing nuget.org is how .NET developers typically find components they can reuse in their own applications.</span></span> <span data-ttu-id="90df7-110">この記事で説明するように、nuget.org を直接検索することも、Visual Studio 内でパッケージを見つけてインストールすることもできます。</span><span class="sxs-lookup"><span data-stu-id="90df7-110">You can search nuget.org directly or find and install packages within Visual Studio as shown in this article.</span></span>
+> <span data-ttu-id="35814-109">**nuget.org を開始する**:nuget.org を参照するのは、.NET 開発者が自身のアプリケーションで再利用可能なコンポーネントを検索するための一般的な方法です。</span><span class="sxs-lookup"><span data-stu-id="35814-109">**Start with nuget.org**: Browsing nuget.org is how .NET developers typically find components they can reuse in their own applications.</span></span> <span data-ttu-id="35814-110">この記事で説明するように、nuget.org を直接検索することも、Visual Studio 内でパッケージを見つけてインストールすることもできます。</span><span class="sxs-lookup"><span data-stu-id="35814-110">You can search nuget.org directly or find and install packages within Visual Studio as shown in this article.</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="90df7-111">必須コンポーネント</span><span class="sxs-lookup"><span data-stu-id="90df7-111">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="35814-111">必須コンポーネント</span><span class="sxs-lookup"><span data-stu-id="35814-111">Prerequisites</span></span>
 
-- <span data-ttu-id="90df7-112">[.NET Core SDK](https://www.microsoft.com/net/download/)。これは、`dotnet`コマンド ライン ツールを提供します。</span><span class="sxs-lookup"><span data-stu-id="90df7-112">The [.NET Core SDK](https://www.microsoft.com/net/download/), which provides the `dotnet` command-line tool.</span></span> <span data-ttu-id="90df7-113">Visual Studio 2017 以降、dotnet CLI は .NET Core 関連のワークロードで自動的にインストールされます。</span><span class="sxs-lookup"><span data-stu-id="90df7-113">Starting in Visual Studio 2017, the dotnet CLI is automatically installed with any .NET Core related workloads.</span></span>
+- <span data-ttu-id="35814-112">[.NET Core SDK](https://www.microsoft.com/net/download/)。これは、`dotnet`コマンド ライン ツールを提供します。</span><span class="sxs-lookup"><span data-stu-id="35814-112">The [.NET Core SDK](https://www.microsoft.com/net/download/), which provides the `dotnet` command-line tool.</span></span> <span data-ttu-id="35814-113">Visual Studio 2017 以降、dotnet CLI は .NET Core 関連のワークロードで自動的にインストールされます。</span><span class="sxs-lookup"><span data-stu-id="35814-113">Starting in Visual Studio 2017, the dotnet CLI is automatically installed with any .NET Core related workloads.</span></span>
 
-## <a name="create-a-project"></a><span data-ttu-id="90df7-114">プロジェクトを作成する</span><span class="sxs-lookup"><span data-stu-id="90df7-114">Create a project</span></span>
+## <a name="create-a-project"></a><span data-ttu-id="35814-114">プロジェクトを作成する</span><span class="sxs-lookup"><span data-stu-id="35814-114">Create a project</span></span>
 
-<span data-ttu-id="90df7-115">NuGet パッケージは、ある種類の .NET プロジェクトにインストールできます。</span><span class="sxs-lookup"><span data-stu-id="90df7-115">NuGet packages can be installed into a .NET project of some kind.</span></span> <span data-ttu-id="90df7-116">このチュートリアルでは、次の手順に従って、単純な .NET Core コンソール プロジェクトを作成します。</span><span class="sxs-lookup"><span data-stu-id="90df7-116">For this walkthrough, create a simple .NET Core console project as follows:</span></span>
+<span data-ttu-id="35814-115">NuGet パッケージは、ある種類の .NET プロジェクトにインストールできます。</span><span class="sxs-lookup"><span data-stu-id="35814-115">NuGet packages can be installed into a .NET project of some kind.</span></span> <span data-ttu-id="35814-116">このチュートリアルでは、次の手順に従って、単純な .NET Core コンソール プロジェクトを作成します。</span><span class="sxs-lookup"><span data-stu-id="35814-116">For this walkthrough, create a simple .NET Core console project as follows:</span></span>
 
-1. <span data-ttu-id="90df7-117">プロジェクトのフォルダーを作成します。</span><span class="sxs-lookup"><span data-stu-id="90df7-117">Create a folder for the project.</span></span>
+1. <span data-ttu-id="35814-117">プロジェクトのフォルダーを作成します。</span><span class="sxs-lookup"><span data-stu-id="35814-117">Create a folder for the project.</span></span>
 
-1. <span data-ttu-id="90df7-118">コマンド プロンプトを開いて、新しいフォルダーに切り替えます。</span><span class="sxs-lookup"><span data-stu-id="90df7-118">Open a command prompt and switch to the new folder.</span></span>
+1. <span data-ttu-id="35814-118">コマンド プロンプトを開いて、新しいフォルダーに切り替えます。</span><span class="sxs-lookup"><span data-stu-id="35814-118">Open a command prompt and switch to the new folder.</span></span>
 
-1. <span data-ttu-id="90df7-119">次のコマンドを使用して、プロジェクトを作成します。</span><span class="sxs-lookup"><span data-stu-id="90df7-119">Create the project using the following command:</span></span>
+1. <span data-ttu-id="35814-119">次のコマンドを使用して、プロジェクトを作成します。</span><span class="sxs-lookup"><span data-stu-id="35814-119">Create the project using the following command:</span></span>
 
     ```dotnetcli
     dotnet new console
     ```
 
-1. <span data-ttu-id="90df7-120">`dotnet run` を使用して、アプリが正しく作成されたことをテストします。</span><span class="sxs-lookup"><span data-stu-id="90df7-120">Use `dotnet run` to test that the app has been created properly.</span></span>
+1. <span data-ttu-id="35814-120">`dotnet run` を使用して、アプリが正しく作成されたことをテストします。</span><span class="sxs-lookup"><span data-stu-id="35814-120">Use `dotnet run` to test that the app has been created properly.</span></span>
 
-## <a name="add-the-newtonsoftjson-nuget-package"></a><span data-ttu-id="90df7-121">Newtonsoft.Json NuGet パッケージを追加する</span><span class="sxs-lookup"><span data-stu-id="90df7-121">Add the Newtonsoft.Json NuGet package</span></span>
+## <a name="add-the-newtonsoftjson-nuget-package"></a><span data-ttu-id="35814-121">Newtonsoft.Json NuGet パッケージを追加する</span><span class="sxs-lookup"><span data-stu-id="35814-121">Add the Newtonsoft.Json NuGet package</span></span>
 
-1. <span data-ttu-id="90df7-122">次のコマンドを使用して、`Newtonsoft.json` パッケージをインストールします。</span><span class="sxs-lookup"><span data-stu-id="90df7-122">Use the following command to install the `Newtonsoft.json` package:</span></span>
+1. <span data-ttu-id="35814-122">次のコマンドを使用して、`Newtonsoft.json` パッケージをインストールします。</span><span class="sxs-lookup"><span data-stu-id="35814-122">Use the following command to install the `Newtonsoft.json` package:</span></span>
 
     ```dotnetcli
     dotnet add package Newtonsoft.Json
     ```
 
-2. <span data-ttu-id="90df7-123">コマンドが完了したら、`.csproj` ファイルを開いて、追加された参照を確認します。</span><span class="sxs-lookup"><span data-stu-id="90df7-123">After the command completes, open the `.csproj` file to see the added reference:</span></span>
+2. <span data-ttu-id="35814-123">コマンドが完了したら、`.csproj` ファイルを開いて、追加された参照を確認します。</span><span class="sxs-lookup"><span data-stu-id="35814-123">After the command completes, open the `.csproj` file to see the added reference:</span></span>
 
     ```xml
    <ItemGroup>
@@ -57,15 +57,15 @@ ms.locfileid: "74825352"
    </ItemGroup>
     ```
 
-## <a name="use-the-newtonsoftjson-api-in-the-app"></a><span data-ttu-id="90df7-124">アプリで Newtonsoft.Json API を使用する</span><span class="sxs-lookup"><span data-stu-id="90df7-124">Use the Newtonsoft.Json API in the app</span></span>
+## <a name="use-the-newtonsoftjson-api-in-the-app"></a><span data-ttu-id="35814-124">アプリで Newtonsoft.Json API を使用する</span><span class="sxs-lookup"><span data-stu-id="35814-124">Use the Newtonsoft.Json API in the app</span></span>
 
-1. <span data-ttu-id="90df7-125">`Program.cs`ファイルを開いて、ファイルの上部に次の行を追加します。</span><span class="sxs-lookup"><span data-stu-id="90df7-125">Open the `Program.cs` file and add the following line at the top of the file:</span></span>
+1. <span data-ttu-id="35814-125">`Program.cs`ファイルを開いて、ファイルの上部に次の行を追加します。</span><span class="sxs-lookup"><span data-stu-id="35814-125">Open the `Program.cs` file and add the following line at the top of the file:</span></span>
 
     ```cs
     using Newtonsoft.Json;
     ```
 
-1. <span data-ttu-id="90df7-126">`class Program` 行の前に次のコードを追加します。</span><span class="sxs-lookup"><span data-stu-id="90df7-126">Add the following code before the `class Program` line:</span></span>
+1. <span data-ttu-id="35814-126">`class Program` 行の前に次のコードを追加します。</span><span class="sxs-lookup"><span data-stu-id="35814-126">Add the following code before the `class Program` line:</span></span>
 
     ```cs
     public class Account
@@ -76,7 +76,7 @@ ms.locfileid: "74825352"
     }
     ```
 
-1. <span data-ttu-id="90df7-127">`Main` 関数を次のコードに置き換えます。</span><span class="sxs-lookup"><span data-stu-id="90df7-127">Replace the `Main` function with the following:</span></span>
+1. <span data-ttu-id="35814-127">`Main` 関数を次のコードに置き換えます。</span><span class="sxs-lookup"><span data-stu-id="35814-127">Replace the `Main` function with the following:</span></span>
 
     ```cs
     static void Main(string[] args)
@@ -93,7 +93,7 @@ ms.locfileid: "74825352"
     }
     ```
 
-1. <span data-ttu-id="90df7-128">`dotnet run` コマンドを使用して、アプリをビルドして実行します。</span><span class="sxs-lookup"><span data-stu-id="90df7-128">Build and run the app by using the `dotnet run` command.</span></span> <span data-ttu-id="90df7-129">出力は、コード内の `Account` オブジェクトの JSON 表現になります。</span><span class="sxs-lookup"><span data-stu-id="90df7-129">The output should be the JSON representation of the `Account` object in the code:</span></span>
+1. <span data-ttu-id="35814-128">`dotnet run` コマンドを使用して、アプリをビルドして実行します。</span><span class="sxs-lookup"><span data-stu-id="35814-128">Build and run the app by using the `dotnet run` command.</span></span> <span data-ttu-id="35814-129">出力は、コード内の `Account` オブジェクトの JSON 表現になります。</span><span class="sxs-lookup"><span data-stu-id="35814-129">The output should be the JSON representation of the `Account` object in the code:</span></span>
 
     ```output
     {
@@ -102,16 +102,21 @@ ms.locfileid: "74825352"
       "DOB": "1980-02-20T00:00:00Z"
     }
     ```
+## <a name="related-video"></a><span data-ttu-id="35814-130">関連ビデオ</span><span class="sxs-lookup"><span data-stu-id="35814-130">Related video</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="90df7-130">次の手順</span><span class="sxs-lookup"><span data-stu-id="90df7-130">Next steps</span></span>
+> [!Video https://channel9.msdn.com/Series/NuGet-101/Install-and-Use-a-NuGet-Package-with-the-NET-CLI-3-of-5/player]
 
-<span data-ttu-id="90df7-131">最初の NuGet パッケージを無事にインストールして使用できました。</span><span class="sxs-lookup"><span data-stu-id="90df7-131">Congratulations on installing and using your first NuGet package!</span></span>
+<span data-ttu-id="35814-131">他の NuGet ビデオは、[Channel 9](https://channel9.msdn.com/Series/NuGet-101) および [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_) でご覧いただけます。</span><span class="sxs-lookup"><span data-stu-id="35814-131">Find more NuGet videos on [Channel 9](https://channel9.msdn.com/Series/NuGet-101) and [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_).</span></span>
+
+## <a name="next-steps"></a><span data-ttu-id="35814-132">次の手順</span><span class="sxs-lookup"><span data-stu-id="35814-132">Next steps</span></span>
+
+<span data-ttu-id="35814-133">最初の NuGet パッケージを無事にインストールして使用できました。</span><span class="sxs-lookup"><span data-stu-id="35814-133">Congratulations on installing and using your first NuGet package!</span></span>
 
 > [!div class="nextstepaction"]
-> [<span data-ttu-id="90df7-132">dotnet CLI を使用してパッケージをインストールし使用する</span><span class="sxs-lookup"><span data-stu-id="90df7-132">Install and use packages using the dotnet CLI</span></span>](../consume-packages/install-use-packages-dotnet-cli.md)
+> [<span data-ttu-id="35814-134">dotnet CLI を使用してパッケージをインストールし使用する</span><span class="sxs-lookup"><span data-stu-id="35814-134">Install and use packages using the dotnet CLI</span></span>](../consume-packages/install-use-packages-dotnet-cli.md)
 
-<span data-ttu-id="90df7-133">NuGet が提供するその他の機能を調べるには、下のリンクを選択してください。</span><span class="sxs-lookup"><span data-stu-id="90df7-133">To explore more that NuGet has to offer, select the links below.</span></span>
+<span data-ttu-id="35814-135">NuGet が提供するその他の機能を調べるには、下のリンクを選択してください。</span><span class="sxs-lookup"><span data-stu-id="35814-135">To explore more that NuGet has to offer, select the links below.</span></span>
 
-- [<span data-ttu-id="90df7-134">パッケージ使用の概要とワークフロー</span><span class="sxs-lookup"><span data-stu-id="90df7-134">Overview and workflow of package consumption</span></span>](../consume-packages/overview-and-workflow.md)
-- [<span data-ttu-id="90df7-135">パッケージの検索と選択</span><span class="sxs-lookup"><span data-stu-id="90df7-135">Finding and choosing packages</span></span>](../consume-packages/finding-and-choosing-packages.md)
-- [<span data-ttu-id="90df7-136">プロジェクト ファイルのパッケージ参照</span><span class="sxs-lookup"><span data-stu-id="90df7-136">Package references in project files</span></span>](../consume-packages/package-references-in-project-files.md)
+- [<span data-ttu-id="35814-136">パッケージ使用の概要とワークフロー</span><span class="sxs-lookup"><span data-stu-id="35814-136">Overview and workflow of package consumption</span></span>](../consume-packages/overview-and-workflow.md)
+- [<span data-ttu-id="35814-137">パッケージの検索と選択</span><span class="sxs-lookup"><span data-stu-id="35814-137">Finding and choosing packages</span></span>](../consume-packages/finding-and-choosing-packages.md)
+- [<span data-ttu-id="35814-138">プロジェクト ファイルのパッケージ参照</span><span class="sxs-lookup"><span data-stu-id="35814-138">Package references in project files</span></span>](../consume-packages/package-references-in-project-files.md)
