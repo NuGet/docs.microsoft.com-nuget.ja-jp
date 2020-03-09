@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 93a94a5468b48179d27b89825cebf2447657c8f2
-ms.sourcegitcommit: 7c9f157ba02d9be543de34ab06813ab1ec10192a
+ms.openlocfilehash: c1f1957c58839ac763238938b476eb0882c56a59
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69999984"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231210"
 ---
 # <a name="restore-packages-using-package-restore"></a>[パッケージの復元] を使用したパッケージの復元
 
@@ -119,6 +119,17 @@ Visual Studio では、パッケージ復元の管理は主に、 **[ツール]*
 
 > [!Important]
 > `nuget.config` で直接、`packageRestore` 設定を編集する場合、 **[オプション]** ダイアログ ボックスに現在の値が表示されるように Visual Studio を再起動します。
+
+### <a name="choose-default-package-management-format"></a>既定のパッケージ管理形式を選択する
+
+![NuGet パッケージ マネージャーのオプションを指定して、既定のパッケージ管理形式を制御する](media/Restore-02-PackageFormatOptions.png)
+
+NuGet には、プロジェクトでパッケージを使用できる、[`PackageReference`](package-references-in-project-files.md) と [`packages.config`](../reference/packages-config.md) の 2 つの形式があります。 既定の形式は、 **[Package Management]** 見出しの下にあるドロップダウンから選択できます。 最初のパッケージをプロジェクトにインストールするときに確認メッセージを表示するオプションも使用できます。
+
+> [!Note]
+> プロジェクトで両方のパッケージ管理形式がサポートされていない場合は、使用するパッケージ管理形式がプロジェクトと互換性がある形式となるため、オプションの既定の設定ではない可能性があります。 また、オプション ウィンドウでオプションが選択されている場合でも、NuGet では最初のパッケージのインストール時に選択を求めるプロンプトが表示されません。
+>
+> パッケージ マネージャー コンソールを使用してプロジェクトの最初のパッケージをインストールする場合、オプション ウィンドウでオプションが選択されていても、NuGet で形式の選択が要求されることはありません。
 
 ## <a name="restore-using-the-dotnet-cli"></a>dotnet CLI を使用した復元
 
