@@ -1,49 +1,49 @@
 ---
-title: NuGet 1.2 リリース ノート
-description: 既知の問題、バグの修正、追加機能、および Dcr を含む NuGet 1.2 リリース ノートです。
+title: NuGet 1.2 リリースノート
+description: 既知の問題、バグ修正、追加された機能、および DCRs を含む NuGet 1.2 のリリースノート。
 author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
 ms.openlocfilehash: 5d10d6bf27614980a144c30c3af6f9892a109061
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426190"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428367"
 ---
-# <a name="nuget-12-release-notes"></a>NuGet 1.2 リリース ノート
+# <a name="nuget-12-release-notes"></a>NuGet 1.2 リリースノート
 
-[NuGet 1.0 および 1.1 のリリース ノート](../release-notes/nuget-1.1.md) | [NuGet 1.3 のリリース ノート](../release-notes/nuget-1.3.md)
+Nuget [1.3 リリース](../release-notes/nuget-1.3.md)ノート | nuget [1.0 および1.1 の](../release-notes/nuget-1.1.md)リリースノート
 
-NuGet 1.2 は、2011 年 3 月 30 日にリリースされました。
+NuGet 1.2 は、2011年3月30日にリリースされました。
 
 ## <a name="new-features"></a>新機能
 
-### <a name="framework-profile-support"></a>Framework のプロファイルのサポート
+### <a name="framework-profile-support"></a>フレームワークプロファイルのサポート
 
-しなくては NuGet、最初からサポート ライブラリは、さまざまなフレームワークを対象します。 今すぐパッケージは、Windows Phone プロファイルなどの特定のプロファイルを対象とするアセンブリを含めることができます。 ターゲット フレームワークの特定のプロファイルをするには、プロファイルの省略形の後にダッシュを追加します。 たとえば、Windows Phone (Windows Phone 7 とも呼ばれます) で実行されている SilverLight を対象と、次のスクリーン ショットに示すように、sl3 wp フォルダーにアセンブリを配置できます。
+最初から、NuGet でサポートされているライブラリが異なるフレームワークを対象としています。 ただし、現在、パッケージには、Windows Phone プロファイルなどの特定のプロファイルを対象とするアセンブリを含めることができます。 フレームワークの特定のプロファイルをターゲットにするには、ダッシュの後にプロファイルの省略形を追加します。 たとえば、Windows Phone (Windows Phone 7) で実行されている SilverLight を対象にするには、次のスクリーンショットに示すように、sl3-wp フォルダーにアセンブリを配置します。
 
-![フレームワーク プロファイル フォルダーのレイアウト](./media/framework-profile-support.png)
+![フレームワークプロファイルフォルダーのレイアウト](./media/framework-profile-support.png)
 
-なぜ"wp7"をモニカーとして使用する選択しなかっただけを要求する可能性があります。 Windows Phone 7 が Silverlight の新しいバージョンを後で実行、対象としたフレームワーク プロファイルについて詳細を指定する必要がありますにしていることを予測しています。
+モニカーとして "wp7" を使用することを選択しなかったのはなぜでしょうか。 ここでは、Windows Phone 7 が将来、Silverlight の新しいバージョンを実行する可能性があることを予測しています。その場合は、ターゲットとするフレームワークプロファイルについてより具体的な情報が必要になる場合があります。
 
-### <a name="automatically-add-binding-redirects"></a>バインド リダイレクトを自動的に追加します。
+### <a name="automatically-add-binding-redirects"></a>バインドリダイレクトを自動的に追加する
 
-厳密な名前付きアセンブリを使用したパッケージをインストールするときに NuGet では、プロジェクトが必要なバインド リダイレクトは、プロジェクトをコンパイルして、自動的に追加するために、構成ファイルに追加する場合が検出されます。 NuGet のバージョン管理というタイトルの David Ebbo のブログ投稿のパート 3"[バインド リダイレクトを使用して統一](http://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)"の詳細については、この機能の目的について説明します。
+厳密な名前を持つアセンブリを含むパッケージをインストールする場合、NuGet では、プロジェクトをコンパイルして自動的に追加するために、バインドリダイレクトが構成ファイルに追加される必要があるケースを検出できるようになりました。 「[バインドリダイレクトを使用](http://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)した統合」では、David Ebbo のブログ投稿シリーズの第3部で、この機能の目的について詳しく説明しています。
 
 <a name="framework-assembly-refs"></a>
 
-### <a name="specifying-framework-assembly-references-gac"></a>フレームワーク アセンブリ参照 (GAC) の指定
+### <a name="specifying-framework-assembly-references-gac"></a>フレームワークアセンブリ参照 (GAC) の指定
 
-場合によっては、パッケージは、.NET Framework に含まれるアセンブリに依存可能性があります。 厳密に言う必要はありません常に、パッケージのコンシューマーがフレームワーク アセンブリを参照します。 場合によっては、開発者が、パッケージを使用するためにコード アセンブリ内の型を記述する必要がある場合など、重要です。 新しい`frameworkAssemblies`要素であるメタデータの要素の子要素のセットを指定できます。`frameworkAssembly`要素は、GAC 内のフレームワーク アセンブリをポイントします。 Framework アセンブリに重点を置いたに注意してください。
-これらのアセンブリは、.NET Framework の一部としてすべてのコンピューター上に存在したと見なされます、パッケージには含まれません。 次の表の属性の一覧、`frameworkAssembly`要素。
+場合によっては、パッケージが .NET Framework 内のアセンブリに依存していることもあります。 厳密に言うと、パッケージのコンシューマーがフレームワークアセンブリを参照する必要は必ずしも必要ではありません。 ただし、場合によっては、パッケージを使用するために開発者がそのアセンブリ内の型に対してコードを記述する必要がある場合などにも重要です。 新しい `frameworkAssemblies` 要素である metadata 要素の子要素を使用すると、GAC 内のフレームワークアセンブリを指す `frameworkAssembly` 要素のセットを指定できます。 フレームワークアセンブリに重点を置いていることに注意してください。
+これらのアセンブリは、すべてのコンピューターに .NET Framework の一部と見なされるため、パッケージには含まれません。 次の表に、`frameworkAssembly` 要素の属性を示します。
 
 
 |属性 |説明|
 |----------------|-----------|
-|**assemblyName**|*必要な*します。 など、アセンブリの名前`System.Net`します。|
-|**targetFramework**|*省略可能な*します。 フレームワークとプロファイル名 (またはエイリアス) を指定することにより、このフレームワーク アセンブリが"net40"または"sl4"などに適用されます。 説明されている同じ形式を使用して[複数のターゲット フレームワークをサポートしている](../create-packages/supporting-multiple-target-frameworks.md)します。|
+|**assemblyName**|*必須*。 `System.Net`などのアセンブリの名前。|
+|**targetFramework**|*オプション*。 このフレームワークアセンブリが適用されるフレームワークとプロファイル名 (またはエイリアス) を指定できます ("net40"、"sl4" など)。 では、「複数の[ターゲットフレームワークのサポート](../create-packages/supporting-multiple-target-frameworks.md)」で説明したのと同じ形式が使用されます。|
 
 ```xml
   <frameworkAssemblies>
@@ -52,19 +52,19 @@ NuGet 1.2 は、2011 年 3 月 30 日にリリースされました。
   </frameworkAssemblies>
 ```
 
-### <a name="nugetexe-now-is-able-to-store-api-key-credentials"></a>nuget.exe はこれで API キーの資格情報を格納することが
+### <a name="nugetexe-now-is-able-to-store-api-key-credentials"></a>nuget.exe は API キー資格情報を格納できるようになりました
 
-Nuget.exe コマンドライン ツールを使用する場合は、API キーを格納するようになりました SetApiKey コマンドを使用できます。 これにより、パッケージをプッシュするたびに、これを指定する必要はありません。 Nuget.exe を使用して、API キーを保存の詳細については[パッケージを公開する方法のドキュメントを読む](../nuget-org/publish-a-package.md)します。
+Nuget.exe コマンドラインツールを使用するときに、SetApiKey コマンドを使用して API キーを格納できるようになりました。 このようにして、パッケージをプッシュするたびに指定する必要はありません。 Nuget.exe で API キーを保存する方法の詳細については、[パッケージの公開に関するドキュメントを参照](../nuget-org/publish-a-package.md)してください。
 
-### <a name="package-explorer"></a>パッケージ エクスプ ローラー
-NuGet 1.2 をサポートするパッケージ エクスプ ローラーが更新されました。 詳細については、チェック アウト、[パッケージ エクスプ ローラーのリリース ノート](http://nuget.codeplex.com/wikipage?title=New%20features%20in%20NuGet%20Package%20Explorer%201.0)します。
+### <a name="package-explorer"></a>パッケージエクスプローラー
+NuGet 1.2 をサポートするように、パッケージエクスプローラーが更新されました。 詳細については、「 [Package Explorer のリリースノート](http://nuget.codeplex.com/wikipage?title=New%20features%20in%20NuGet%20Package%20Explorer%201.0)」を参照してください。
 
 ## <a name="other-featuresfixes"></a>その他の機能/修正
 
-上記の一覧が、最も顕著な多くの機能を実装しましたとバグを修正しました。 すべてを実装/修正[59 作業項目](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%201.2&assignedTo=All&component=All&sortField=Votes&sortDirection=Descending&page=0)このリリースでします。
+前の一覧は、実装した多くの機能と修正されたバグに最も顕著でした。 すべてについて、このリリースでは[59 作業項目](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%201.2&assignedTo=All&component=All&sortField=Votes&sortDirection=Descending&page=0)を実装または修正しています。
 
 ## <a name="known-issues"></a>既知の問題
 
-* **1.2 パッケージの非互換性の**:コマンド ライン ツールの最新バージョンでビルドされたパッケージ、nuget.exe (1.2 >) は NuGet VS アドイン (1.1) などの以前のバージョンでは機能しません。 互換性のないスキーマについて何かを示すエラー メッセージに実行する場合にこのエラーが発生しています。 NuGet を最新バージョンに更新してください。
-* **NuGet.Server の非互換性**:フィード、NuGet.Server プロジェクトを使用して内部の NuGet をホストしている場合は、最新バージョンの NuGet.Server でそのプロジェクトを更新する必要があります。
-* **署名の不一致エラー**:署名の不一致に関するメッセージが、アップグレード中にエラーを実行する場合は、最初に NuGet をアンインストールし、インストールする必要があります。 これが記載されています、[既知の問題ページ](../release-notes/known-issues.md)の詳細を提供します。 のみ、問題は、Visual Studio 2010 SP1 を実行しているに影響し、インストールが正しく署名されていない NuGet 1.0 のバージョンします。 このバージョンのみしました CodePlex web サイトから使用可能な短時間のため、この問題は多数のユーザーに影響しません。
+* **1.2 パッケージの互換性**がありません: 最新バージョンのコマンドラインツールでビルドされたパッケージ (> 1.2) は、以前のバージョンの Nuget VS アドイン (1.1 など) では動作しません。 互換性のないスキーマに関する情報を示すエラーメッセージが表示された場合は、このエラーが発生しています。 NuGet を最新バージョンに更新してください。
+* **Nuget. サーバーの非互換性**: Nuget. server プロジェクトを使用して内部の nuget フィードをホストしている場合は、最新バージョンの Nuget. server を使用してそのプロジェクトを更新する必要があります。
+* **署名の不一致エラー**: 署名の不一致に関するメッセージを含むアップグレード中にエラーが発生した場合は、まず NuGet をアンインストールしてからインストールする必要があります。 詳細については、[既知の問題に関するページ](../release-notes/known-issues.md)を参照してください。 この問題は、Visual Studio 2010 SP1 を実行していて、正しく署名されていないバージョンの NuGet 1.0 がインストールされている場合にのみ影響します。 このバージョンは、CodePlex の web サイトから短時間のみ利用できるようになったため、この問題は多くの人間に影響を与えないようにしてください。

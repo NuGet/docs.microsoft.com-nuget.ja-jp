@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
 ms.openlocfilehash: 922fc0b25664dede59e33c6cd012dfeedcad0397
-ms.sourcegitcommit: 415c70d7014545c1f65271a2debf8c3c1c5eb688
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77036930"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428343"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>MSBuild ターゲットとしての NuGet の pack と restore
 
@@ -46,32 +46,32 @@ PackageReference 形式を使用する .NET Standard プロジェクトの場合
 
 `Owners` の `Summary` および `.nuspec` プロパティは、MSBuild ではサポートされていない点に注意してください。
 
-| 属性/NuSpec の値 | MSBuild のプロパティ | 既定 | メモ |
+| 属性/NuSpec の値 | MSBuild のプロパティ | 既定値 | 説明 |
 |--------|--------|--------|--------|
-| ID | PackageId | AssemblyName | MSBuild の $(AssemblyName) |
+| Id | PackageId | AssemblyName | MSBuild の $(AssemblyName) |
 | バージョン | PackageVersion | バージョン | これは semver と互換性があります (たとえば、"1.0.0"、"1.0.0-beta"、または "1.0.0-beta-00345") |
-| VersionPrefix | PackageVersionPrefix | (なし) | PackageVersion を設定すると、PackageVersionPrefix は上書きされます |
-| VersionSuffix | PackageVersionSuffix | (なし) | MSBuild の $(VersionSuffix) PackageVersion を設定すると、PackageVersionSuffix は上書きされます |
-| 作成者 | 作成者 | 現在のユーザーのユーザー名 | |
+| VersionPrefix | PackageVersionPrefix | empty | PackageVersion を設定すると、PackageVersionPrefix は上書きされます |
+| VersionSuffix | PackageVersionSuffix | empty | MSBuild の $(VersionSuffix) PackageVersion を設定すると、PackageVersionSuffix は上書きされます |
+| 執筆者 | 執筆者 | 現在のユーザーのユーザー名 | |
 | 所有者 | N/A | NuSpec にはありません | |
 | タイトル | タイトル | PackageId| |
-| [説明] | [説明] | "パッケージの説明" | |
-| Copyright | Copyright | (なし) | |
+| 説明 | 説明 | "パッケージの説明" | |
+| 著作権 | 著作権 | empty | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
-| ライセンス●らいせんす○ | PackageLicenseExpression | (なし) | `<license type="expression">` に対応します。 |
-| ライセンス●らいせんす○ | PackageLicenseFile | (なし) | `<license type="file">` に相当します。 参照されているライセンスファイルを明示的にパックする必要があります。 |
-| LicenseUrl | PackageLicenseUrl | (なし) | `PackageLicenseUrl` は推奨されていません。このプロパティを使用して、パッケージを使用してください。 |
-| ProjectUrl | PackageProjectUrl | (なし) | |
-| アイコン | PackageIcon | (なし) | 参照されているアイコンイメージファイルを明示的にパックする必要があります。|
-| IconUrl | PackageIconUrl | (なし) | ベストダウンレベルのエクスペリエンスを実現するには、`PackageIcon`に加えて `PackageIconUrl` を指定する必要があります。 長期的には、`PackageIconUrl` は非推奨とされます。 |
-| Tags | PackageTags | (なし) | 複数のタグはセミコロン (;) で区切られます。 |
-| ReleaseNotes | PackageReleaseNotes | (なし) | |
-| Repository/Url | RepositoryUrl | (なし) | ソースコードの複製または取得に使用されるリポジトリの URL。 例: *https://github.com/NuGet/NuGet.Client.git* |
-| Repository/Type | RepositoryType | (なし) | リポジトリの種類。 例: *git*、 *tfs*。 |
-| Repository/Branch | RepositoryBranch | (なし) | リポジトリのブランチ情報 (オプション)。 このプロパティを含めるには、 *RepositoryUrl*も指定する必要があります。 例: *master* (NuGet 4.7.0 +) |
-| Repository/Commit | RepositoryCommit | (なし) | 任意のリポジトリ コミットまたは変更セット。パッケージがどのソースに対してビルドされたかを示します。 このプロパティを含めるには、 *RepositoryUrl*も指定する必要があります。 例: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +) |
+| ライセンス●らいせんす○ | PackageLicenseExpression | empty | `<license type="expression">` に対応します。 |
+| ライセンス●らいせんす○ | PackageLicenseFile | empty | `<license type="file">` に相当します。 参照されているライセンスファイルを明示的にパックする必要があります。 |
+| LicenseUrl | PackageLicenseUrl | empty | `PackageLicenseUrl` は推奨されていません。このプロパティを使用して、パッケージを使用してください。 |
+| ProjectUrl | PackageProjectUrl | empty | |
+| アイコン | PackageIcon | empty | 参照されているアイコンイメージファイルを明示的にパックする必要があります。|
+| IconUrl | PackageIconUrl | empty | ベストダウンレベルのエクスペリエンスを実現するには、`PackageIcon`に加えて `PackageIconUrl` を指定する必要があります。 長期的には、`PackageIconUrl` は非推奨とされます。 |
+| Tags | PackageTags | empty | 複数のタグはセミコロン (;) で区切られます。 |
+| ReleaseNotes | PackageReleaseNotes | empty | |
+| Repository/Url | RepositoryUrl | empty | ソースコードの複製または取得に使用されるリポジトリの URL。 例: *https://github.com/NuGet/NuGet.Client.git* |
+| Repository/Type | RepositoryType | empty | リポジトリの種類。 例: *git*、 *tfs*。 |
+| Repository/Branch | RepositoryBranch | empty | リポジトリのブランチ情報 (オプション)。 このプロパティを含めるには、 *RepositoryUrl*も指定する必要があります。 例: *master* (NuGet 4.7.0 +) |
+| Repository/Commit | RepositoryCommit | empty | 任意のリポジトリ コミットまたは変更セット。パッケージがどのソースに対してビルドされたかを示します。 このプロパティを含めるには、 *RepositoryUrl*も指定する必要があります。 例: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +) |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
-| まとめ | サポートされていません | | |
+| 要約 | サポートされていません | | |
 
 ### <a name="pack-target-inputs"></a>pack ターゲットの入力
 
@@ -79,9 +79,9 @@ PackageReference 形式を使用する .NET Standard プロジェクトの場合
 - SuppressDependenciesWhenPacking
 - PackageVersion
 - PackageId
-- 作成者
-- [説明]
-- Copyright
+- 執筆者
+- 説明
+- 著作権
 - PackageRequireLicenseAcceptance
 - DevelopmentDependency
 - PackageLicenseExpression
@@ -131,7 +131,7 @@ NuGet 5.3 & Visual Studio 2019 バージョン16.3 以降では、パッケー�
 
 アイコンイメージファイルをパッキングする場合は、パッケージのルートに対して相対的なパッケージパスを指定するために `PackageIcon` プロパティを使用する必要があります。 また、ファイルがパッケージに含まれていることを確認する必要があります。 イメージファイルのサイズは 1 MB に制限されています。 サポートされているファイル形式は、JPEG および PNG です。 128x128 のイメージの解像度をお勧めします。
 
-次に例を示します。
+例 :
 
 ```xml
 <PropertyGroup>
@@ -242,7 +242,7 @@ Nuspec に相当するものについては、「 [nuspec reference for icon」�
 
 [NuGet.org によって受け付けられるライセンス式とライセンスの詳細については、こちらを参照](nuspec.md#license)してください。
 
-ライセンスファイルをパッキングする場合は、パッケージのルートを基準としたパッケージパスを指定するために、"パッケージの作成" プロパティを使用する必要があります。 また、ファイルがパッケージに含まれていることを確認する必要があります。 次に例を示します。
+ライセンスファイルをパッキングする場合は、パッケージのルートを基準としたパッケージパスを指定するために、"パッケージの作成" プロパティを使用する必要があります。 また、ファイルがパッケージに含まれていることを確認する必要があります。 例 :
 
 ```xml
 <PropertyGroup>
@@ -371,7 +371,7 @@ Nuspec ファイルをパックする .csproj ファイルの例を次に示し*
 
 追加の restore 設定を、プロジェクト ファイルの MSBuild プロパティで指定することができます。 また、`-p:` スイッチを使用して、コマンド ラインから値を設定することもできます (次の例を参照してください)。
 
-| property | [説明] |
+| プロパティ | 説明 |
 |--------|--------|
 | RestoreSources | パッケージ ソースのセミコロン区切りの一覧。 |
 | RestorePackagesPath | ユーザー パッケージ フォルダーのパス。 |
@@ -395,7 +395,7 @@ Nuspec ファイルをパックする .csproj ファイルの例を次に示し*
 
 #### <a name="examples"></a>例
 
-コマンド ライン:
+[コマンド ライン]:
 
 ```cli
 msbuild -t:restore -p:RestoreConfigFile=<path>
@@ -413,7 +413,7 @@ msbuild -t:restore -p:RestoreConfigFile=<path>
 
 restore で、次のファイルがビルドの `obj` フォルダーに作成されます。
 
-| ファイル | [説明] |
+| ファイル | 説明 |
 |--------|--------|
 | `project.assets.json` | すべてのパッケージ参照の依存関係グラフを含みます。 |
 | `{projectName}.projectFileExtension.nuget.g.props` | パッケージに含まれる MSBuild プロパティへの参照 |

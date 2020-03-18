@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 08/13/2019
 ms.topic: reference
 ms.openlocfilehash: cd321084c46709e3d1d22872c37485edacd33afa
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78230527"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428403"
 ---
 # <a name="nugetconfig-reference"></a>nuget の .config リファレンス
 
@@ -234,7 +234,7 @@ NuGet の動作は、[一般的な nuget 構成](../consume-packages/configuring
 
 このセクションは、 [`nuget trusted-signers` コマンド](../reference/cli-reference/cli-ref-trusted-signers.md)を使用して更新できます。
 
-**[スキーマ]**: 
+**[スキーマ]** :
 
 信頼できる署名者には、特定の署名者を識別するすべての証明書を登録する `certificate` 項目のコレクションがあります。 信頼できる署名者は、`Author` または `Repository`のいずれかになります。
 
