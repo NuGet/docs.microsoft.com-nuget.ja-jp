@@ -6,11 +6,11 @@ ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
 ms.openlocfilehash: 7039dd27f2dddebc3c84e5ad35d5efec59547792
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488818"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428415"
 ---
 # <a name="manage-packages-using-the-nugetexe-cli"></a>nuget.exe CLI を使用してパッケージを管理する
 

@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 12/07/2017
 ms.topic: conceptual
 ms.openlocfilehash: 101c6d6b9d93da912f60c40b27559e80327154b8
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78231189"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428427"
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>パッケージを再インストールし更新する方法
 
