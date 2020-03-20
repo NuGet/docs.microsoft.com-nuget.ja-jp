@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
 ms.openlocfilehash: c1f1957c58839ac763238938b476eb0882c56a59
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78231210"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428439"
 ---
 # <a name="restore-packages-using-package-restore"></a>[パッケージの復元] を使用したパッケージの復元
 
@@ -22,7 +22,7 @@ ms.locfileid: "78231210"
 
 パッケージの復元では、最初に、必要に応じて、プロジェクトの直接的な依存関係がインストールされます。この後、依存関係グラフ全体にパッケージの依存関係がインストールされます。
 
-パッケージがまだインストールされていない場合、NuGet は最初に、[キャッシュ](../consume-packages/managing-the-global-packages-and-cache-folders.md)からパッケージの取得を試みます。 パッケージがキャッシュにない場合、NuGet は、Visual Studio で **[ツール]** 、 **[オプション]** 、 **[NuGet パッケージ マネージャー]** 、 **[パッケージ ソース]** の順に選択すると一覧表示される、すべての有効なソースからのパッケージのダウンロードを試みます。 復元時には、NuGet は、要求に最初に応答するソースのパッケージを使用し、パッケージ ソースの順序を無視します。 NuGet の動作については、[一般的な NuGet 構成](Configuring-NuGet-Behavior.md)に関するページを参照してください。 
+パッケージがまだインストールされていない場合、NuGet は最初に、[キャッシュ](../consume-packages/managing-the-global-packages-and-cache-folders.md)からパッケージの取得を試みます。 パッケージがキャッシュにない場合、NuGet は、Visual Studio で **[ツール]**  >  **[オプション]**  >  **[NuGet パッケージ マネージャー]**  >  **[パッケージ ソース]** の順に選択すると一覧表示される、すべての有効なソースからのパッケージのダウンロードを試みます。 復元時には、NuGet は、要求に最初に応答するソースのパッケージを使用し、パッケージ ソースの順序を無視します。 NuGet の動作については、[一般的な NuGet 構成](Configuring-NuGet-Behavior.md)に関するページを参照してください。 
 
 > [!Note]
 > NuGet では、すべてのソースがチェックされるまで、パッケージの復元の失敗が表示されません。 このとき、NuGet では一覧の最後のソースについてのみ障害が報告されます。 このエラーは、ソースごとに個別にエラーが表示されていなくても、パッケージが他のソースの*いずれ*にも存在しないことを意味します。
@@ -82,7 +82,7 @@ Windows の Visual Studio では、次のいずれかを行います。
 
 ### <a name="enable-and-disable-package-restore-in-visual-studio"></a>Visual Studio でパッケージの復元を有効または無効にする
 
-Visual Studio では、パッケージ復元の管理は主に、 **[ツール]** 、 **[オプション]** 、 **[NuGet パッケージ マネージャー]** の順に選択して行います。
+Visual Studio では、パッケージ復元の管理は主に、 **[ツール]**  >  **[オプション]**  >  **[NuGet パッケージ マネージャー]** の順に選択して行います。
 
 ![NuGet パッケージ マネージャーのオプションによるパッケージ復元の制御](media/Restore-01-AutoRestoreOptions.png)
 
