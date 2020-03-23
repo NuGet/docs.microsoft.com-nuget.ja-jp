@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 12/12/2017
 ms.topic: conceptual
 ms.openlocfilehash: 41e3e63138351bafd5e3a56080268faef10d85a3
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78230786"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428301"
 ---
 # <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>Nuget.exe 資格情報プロバイダーを使用したフィードの認証
 
