@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 03/22/2018
 ms.topic: conceptual
 ms.openlocfilehash: ddd1d163e18ed4ce1e7cbf41ed152acc40c1c423
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488780"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428517"
 ---
 # <a name="package-consumption-workflow"></a>パッケージ利用のワークフロー
 

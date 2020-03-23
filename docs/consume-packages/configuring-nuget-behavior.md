@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 10/25/2017
 ms.topic: conceptual
 ms.openlocfilehash: 89127203df0aa1eb24f36b8ec64c5bb4a4d59319
-ms.sourcegitcommit: 1eda83ab537c86cc27316e7bc67f95a358766e63
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71094069"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428541"
 ---
 # <a name="common-nuget-configurations"></a>一般的な NuGet 構成
 
@@ -18,11 +18,11 @@ NuGet の動作は、1 つ以上の `NuGet.Config` (XML) ファイルの設定�
 
 ## <a name="config-file-locations-and-uses"></a>構成ファイルの場所と使用
 
-| Scope (スコープ) | NuGet.Config ファイルの場所 | 説明 |
+| スコープ | NuGet.Config ファイルの場所 | 説明 |
 | --- | --- | --- |
-| 解決策 | 現在のフォルダー (ソリューション フォルダーとも呼ばれる) またはドライブのルートまでの任意のフォルダー。| ソリューション フォルダーでは、設定はサブフォルダー内のすべてのプロジェクトに適用されます。 構成ファイルをプロジェクト フォルダーに置いた場合、そのプロジェクトには影響しないことに注意してください。 |
-| User | Windows: `%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.config/NuGet/NuGet.Config` または `~/.nuget/NuGet/NuGet.Config` (OS のディストリビューションによって異なります) | 設定はすべての操作に適用されますが、プロジェクト レベルの設定によってオーバーライドされます。 |
-| Computer | Windows: `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux: `$XDG_DATA_HOME`。 `$XDG_DATA_HOME` が null または空の場合は、`~/.local/share` または `/usr/local/share` が使用されます (OS 配布によって異なります)  | 設定はそのコンピューターでのすべての操作に適用されますが、ユーザー レベルまたはプロジェクト レベルの設定によってオーバーライドされます。 |
+| ソリューション | 現在のフォルダー (ソリューション フォルダーとも呼ばれる) またはドライブのルートまでの任意のフォルダー。| ソリューション フォルダーでは、設定はサブフォルダー内のすべてのプロジェクトに適用されます。 構成ファイルをプロジェクト フォルダーに置いた場合、そのプロジェクトには影響しないことに注意してください。 |
+| ユーザー | Windows: `%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.config/NuGet/NuGet.Config` または `~/.nuget/NuGet/NuGet.Config` (OS のディストリビューションによって異なります) | 設定はすべての操作に適用されますが、プロジェクト レベルの設定によってオーバーライドされます。 |
+| コンピューター | Windows: `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux: `$XDG_DATA_HOME`。 `$XDG_DATA_HOME` が null または空の場合は、`~/.local/share` または `/usr/local/share` が使用されます (OS 配布によって異なります)  | 設定はそのコンピューターでのすべての操作に適用されますが、ユーザー レベルまたはプロジェクト レベルの設定によってオーバーライドされます。 |
 
 以前のバージョンの NuGet に関する注意事項:
 - NuGet 3.3 以前では、ソリューション全体の設定用に `.nuget` フォルダーが使われていました。 このフォルダーは、NuGet 3.4 以降では使用されません。
@@ -43,7 +43,7 @@ NuGet の動作は、1 つ以上の `NuGet.Config` (XML) ファイルの設定�
 
 ### <a name="setting-a-value"></a>値の設定
 
-Windows:
+Windows の場合:
 
 ```cli
 # Set repositoryPath in the user-level config file
