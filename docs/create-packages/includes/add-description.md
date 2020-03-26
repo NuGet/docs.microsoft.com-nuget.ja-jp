@@ -1,12 +1,12 @@
 ---
-ms.openlocfilehash: fadb6091f9f1e4f380c3896f790fd61ce80e9683
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.openlocfilehash: b615bcb78ad2eaf8524bfbf17864d4652e546ff1
+ms.sourcegitcommit: 1a63a84da2719c8141823ac89a20bf507fd22b00
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78230581"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80151265"
 ---
-パッケージの NuGet.org ページに表示される、パッケージの省略可能な説明は、`.csproj` ファイルで使用されている `<description></description` から取得されるか、または [.nuspec ファイル](../../reference/nuspec.md)の `$description` を経由して取得されます。
+パッケージの NuGet.org ページに表示される、パッケージの省略可能な説明は、`.csproj` ファイルで使用されている `<description></description>` から取得されるか、または [.nuspec ファイル](../../reference/nuspec.md)の `$description` を経由して取得されます。
 
 "_description_" フィールドの例は、.NET パッケージ用の `.csproj` ファイルの次の XML テキストに示されています。
 
