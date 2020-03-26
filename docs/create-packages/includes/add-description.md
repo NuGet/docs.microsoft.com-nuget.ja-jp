@@ -1,14 +1,14 @@
 ---
-ms.openlocfilehash: fadb6091f9f1e4f380c3896f790fd61ce80e9683
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.openlocfilehash: b615bcb78ad2eaf8524bfbf17864d4652e546ff1
+ms.sourcegitcommit: 1a63a84da2719c8141823ac89a20bf507fd22b00
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78230581"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80151265"
 ---
-<span data-ttu-id="f7183-101">パッケージの NuGet.org ページに表示される、パッケージの省略可能な説明は、`.csproj` ファイルで使用されている `<description></description` から取得されるか、または [.nuspec ファイル](../../reference/nuspec.md)の `$description` を経由して取得されます。</span><span class="sxs-lookup"><span data-stu-id="f7183-101">The package's optional description, displayed on the package's NuGet.org page, is either pulled in from the `<description></description` used in the `.csproj` file or pulled in via the `$description` in the [.nuspec file](../../reference/nuspec.md).</span></span>
+<span data-ttu-id="7f607-101">パッケージの NuGet.org ページに表示される、パッケージの省略可能な説明は、`.csproj` ファイルで使用されている `<description></description>` から取得されるか、または [.nuspec ファイル](../../reference/nuspec.md)の `$description` を経由して取得されます。</span><span class="sxs-lookup"><span data-stu-id="7f607-101">The package's optional description, displayed on the package's NuGet.org page, is either pulled in from the `<description></description>` used in the `.csproj` file or pulled in via the `$description` in the [.nuspec file](../../reference/nuspec.md).</span></span>
 
-<span data-ttu-id="f7183-102">"_description_" フィールドの例は、.NET パッケージ用の `.csproj` ファイルの次の XML テキストに示されています。</span><span class="sxs-lookup"><span data-stu-id="f7183-102">An example of a _description_ field is shown in the following XML text of the `.csproj` file for a .NET package:</span></span>
+<span data-ttu-id="7f607-102">"_description_" フィールドの例は、.NET パッケージ用の `.csproj` ファイルの次の XML テキストに示されています。</span><span class="sxs-lookup"><span data-stu-id="7f607-102">An example of a _description_ field is shown in the following XML text of the `.csproj` file for a .NET package:</span></span>
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
