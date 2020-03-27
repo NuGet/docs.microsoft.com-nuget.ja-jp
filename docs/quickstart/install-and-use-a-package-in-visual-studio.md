@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/24/2018
 ms.topic: quickstart
-ms.openlocfilehash: 96e138561390984d9def495ba5e091c43023cc92
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.openlocfilehash: 10bc34653d294cf70b5c91ce79a79cf6532fba1b
+ms.sourcegitcommit: 1a63a84da2719c8141823ac89a20bf507fd22b00
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78231332"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80147488"
 ---
 # <a name="quickstart-install-and-use-a-package-in-visual-studio-windows-only"></a>クイック スタート: Visual Studio にパッケージをインストールして使用する (Windows のみ)
 
-NuGet パッケージには、他の開発者がお客様のプロジェクトで使用できるようにした、再利用可能なコードが含まれます。 背景については、[NuGet の紹介](../What-is-NuGet.md)に関するページを参照してください。 NuGet パッケージ マネージャーまたはパッケージ マネージャー コンソールを使用して、パッケージが Visual Studio プロジェクトにインストールされます。 この記事では、よく使用されている [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) パッケージと Windows Presentation Foundation (WPF) プロジェクトを使用したプロセスを示します。 同じプロセスは、他の任意の .NET または .NET Core プロジェクトにも適用されます。
+NuGet パッケージには、他の開発者がお客様のプロジェクトで使用できるようにした、再利用可能なコードが含まれます。 背景については、[NuGet の紹介](../What-is-NuGet.md)に関するページを参照してください。 パッケージは NuGet パッケージ マネージャー、[パッケージ マネージャー コンソール](../consume-packages/install-use-packages-powershell)、または [dotnet CLI](install-and-use-a-package-using-the-dotnet-cli.md) を使用して、Visual Studio プロジェクトにインストールされます。 この記事では、よく使用されている [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) パッケージと Windows Presentation Foundation (WPF) プロジェクトを使用したプロセスを示します。 同じプロセスは、他の任意の .NET または .NET Core プロジェクトにも適用されます。
 
 インストール後、`using <namespace>` でコード内のパッケージを参照します。\<namespace\> は、使用しているパッケージに固有です。 参照が行われたら、その API からパッケージを呼び出すことができます。
 
