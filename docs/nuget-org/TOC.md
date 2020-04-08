@@ -9,10 +9,10 @@
 ## [パッケージの非推奨](deprecate-packages.md)
 # ポリシー
 ## [データ要求](policies/Data-requests.md)
-## [争議の解決](policies/dispute-resolution.md)
+## [争いの解決](policies/dispute-resolution.md)
 ## [パッケージの削除](policies/deleting-packages.md)
 ## [コントロールをエクスポートする](policies/export-control.md)
-# 参照
+# リファレンス
 ## [NuGet API](../api/overview.md)
 ## [licenses.nuget.org](licenses.nuget.org.md)
 # リソース

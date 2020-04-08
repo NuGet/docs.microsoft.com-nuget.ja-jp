@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 07/15/2019
 ms.topic: conceptual
 ms.openlocfilehash: 34f7c6132ba6050e20114642932ccf29a5ec088d
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/16/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "79428625"
 ---
 # <a name="support-multiple-net-versions"></a>複数の .NET バージョンをサポートする
@@ -42,7 +42,7 @@ ms.locfileid: "79428625"
         \netcore
             \MyAssembly.dll
 
-パッケージのビルド時、これらすべてのファイルを簡単に含めるには、`.nuspec` の `<files>` セクションに再帰的 `**` ワイルドカードを使用します。
+パッケージのビルド時、これらすべてのファイルを簡単に含めるには、`**` の `<files>` セクションに再帰的 `.nuspec` ワイルドカードを使用します。
 
 ```xml
 <files>
@@ -69,7 +69,7 @@ ms.locfileid: "79428625"
 
 NuGet では、コンパイル時またはランタイムのアセットを常に 1 つのフォルダーから選択するため、`/ref` からの互換性のあるアセットが存在する場合は、コンパイル時のアセンブリを追加するために `/lib` が無視されます。 同様に、`/runtimes` からの互換性のあるアセットが存在する場合も、ランタイムのために `/lib` が無視されます。
 
-`.nuspec` マニフェストでこれらのファイルを参照する例については、「[Create UWP Packages](../guides/create-uwp-packages.md)」 (UWP パッケージの作成) を参照してください。
+[ マニフェストでこれらのファイルを参照する例については、「](../guides/create-uwp-packages.md)Create UWP Packages`.nuspec`」 (UWP パッケージの作成) を参照してください。
 
 また、[NuGet を使用した Windows ストア アプリのコンポーネントのパッケージ化](https://blogs.msdn.microsoft.com/mim/2013/09/02/packaging-a-windows-store-apps-component-with-nuget-part-2)に関するページもご覧ください。
 
@@ -116,16 +116,16 @@ NuGet ではまた、ダッシュとプロファイル名をフォルダーの�
 
 サポートされているプロファイルは次のとおりです。
 
-- `client`:Client Profile
-- `full`:Full Profile
-- `wp`:Windows Phone
-- `cf`:Compact Framework
+- `client`: Client Profile
+- `full`: Full Profile
+- `wp`: Windows Phone
+- `cf`: Compact Framework
 
 ## <a name="declaring-dependencies-advanced"></a>依存関係の宣言 (高度)
 
 プロジェクト ファイルをパックするとき、NuGet はそのプロジェクトから依存関係を自動的に生成しようとします。 このセクションに記載されている、 *.nuspec* ファイルを使用した依存関係の宣言に関する情報が必要になるのは、通常は、高度なシナリオだけです。
 
-" *(バージョン 2.0 以降)* " `<dependencies>` 要素内の `<group>` 要素を使って、ターゲット プロジェクトのターゲット フレームワークに対応する *.nuspec* でパッケージの依存関係を宣言できます。 詳しくは、[dependencies 要素](../reference/nuspec.md#dependencies-element)に関する記事をご覧ください。
+" *(バージョン 2.0 以降)* " *要素内の* 要素を使って、ターゲット プロジェクトのターゲット フレームワークに対応する `<group>`.nuspec`<dependencies>` でパッケージの依存関係を宣言できます。 詳しくは、[dependencies 要素](../reference/nuspec.md#dependencies-element)に関する記事をご覧ください。
 
 各グループには、`targetFramework` という名前の属性があり、0 個以上の `<dependency>` 要素が含まれます。 ターゲット フレームワークにプロジェクトのフレームワーク プロファイルとの互換性がある場合、これらの依存関係が一緒にインストールされます。 正確なフレームワーク識別子については、「[ターゲット フレームワーク](../reference/target-frameworks.md)」をご覧ください。
 
@@ -152,7 +152,7 @@ NuGet ではまた、ダッシュとプロファイル名をフォルダーの�
 ポータブル クラス ライブラリを対象とするライブラリをパッケージ化するとき、フォルダー名と `.nuspec` ファイルで使用する NuGet ターゲットの決定にはこつが要ります。PCL のサブセットのみを対象とする場合は特にそうです。 次の外部リソースが役立ちます。
 
 - [.NET のフレームワーク プロファイル](https://blog.stephencleary.com/2012/05/framework-profiles-in-net.html) (stephencleary.com)
-- [ポータブル クラス ライブラリ プロファイル](https://embed.plnkr.co/03ck2dCtnJogBKHJ9EjY/preview) (plnkr.co):PCL プロファイルとそれと同等の NuGet ターゲットを列挙するテーブル
+- [ポータブル クラス ライブラリ プロファイル](https://embed.plnkr.co/03ck2dCtnJogBKHJ9EjY/preview) (plnkr.co): PCL プロファイルとそれと同等の NuGet ターゲットを列挙するテーブル
 - [ポータブル クラス ライブラリ プロファイル ツール](https://github.com/StephenCleary/PortableLibraryProfiles) (github.com): システムで利用できる PCL プロファイルを決定するためのコマンド ライン ツール
 
 ## <a name="content-files-and-powershell-scripts"></a>コンテンツ ファイルと PowerShell スクリプト

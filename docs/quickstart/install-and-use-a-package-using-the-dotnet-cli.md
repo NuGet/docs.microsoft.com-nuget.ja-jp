@@ -6,26 +6,26 @@ ms.author: karann
 ms.date: 01/23/2018
 ms.topic: quickstart
 ms.openlocfilehash: 006fff8360ac62393e4b88c1a253514591d22f4c
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "78231278"
 ---
 # <a name="quickstart-install-and-use-a-package-using-the-dotnet-cli"></a>クイック スタート: dotnet CLI を使用してパッケージをインストールし使用する
 
-NuGet パッケージには、他の開発者がお客様のプロジェクトで使用できるようにした、再利用可能なコードが含まれます。 背景については、[NuGet の紹介](../What-is-NuGet.md)に関するページを参照してください。 一般的な [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) パッケージに関するこの記事で説明するとおり、パッケージを .NET Core プロジェクトにインストールするには、`dotnet add package` コマンドを使用します。
+NuGet パッケージには、他の開発者がお客様のプロジェクトで使用できるようにした、再利用可能なコードが含まれます。 背景については、[NuGet の紹介](../What-is-NuGet.md)に関するページを参照してください。 一般的な `dotnet add package`Newtonsoft.Json[ パッケージに関するこの記事で説明するとおり、パッケージを .NET Core プロジェクトにインストールするには、](https://www.nuget.org/packages/Newtonsoft.Json/) コマンドを使用します。
 
 インストール後、`using <namespace>` でコード内のパッケージを参照します。\<namespace\> は、使用しているパッケージに固有です。 その後、パッケージの API を使用できます。
 
 > [!Tip]
-> **nuget.org を開始する**:nuget.org を参照するのは、.NET 開発者が自身のアプリケーションで再利用可能なコンポーネントを検索するための一般的な方法です。 この記事で説明するように、nuget.org を直接検索することも、Visual Studio 内でパッケージを見つけてインストールすることもできます。
+> **nuget.org を開始する**: nuget.org を参照するのは、.NET 開発者が自身のアプリケーションで再利用可能なコンポーネントを検索するための一般的な方法です。 この記事で説明するように、nuget.org を直接検索することも、Visual Studio 内でパッケージを見つけてインストールすることもできます。
 
-## <a name="prerequisites"></a>必須コンポーネント
+## <a name="prerequisites"></a>前提条件
 
 - [.NET Core SDK](https://www.microsoft.com/net/download/)。これは、`dotnet`コマンド ライン ツールを提供します。 Visual Studio 2017 以降、dotnet CLI は .NET Core 関連のワークロードで自動的にインストールされます。
 
-## <a name="create-a-project"></a>プロジェクトを作成する
+## <a name="create-a-project"></a>プロジェクトの作成
 
 NuGet パッケージは、ある種類の .NET プロジェクトにインストールできます。 このチュートリアルでは、次の手順に従って、単純な .NET Core コンソール プロジェクトを作成します。
 
@@ -108,14 +108,14 @@ NuGet パッケージは、ある種類の .NET プロジェクトにインス�
 
 他の NuGet ビデオは、[Channel 9](https://channel9.msdn.com/Series/NuGet-101) および [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_) でご覧いただけます。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-最初の NuGet パッケージを無事にインストールして使用できました。
+無事に、最初の NuGet パッケージをインストールして使用できるようになりました。
 
 > [!div class="nextstepaction"]
 > [dotnet CLI を使用してパッケージをインストールし使用する](../consume-packages/install-use-packages-dotnet-cli.md)
 
-NuGet が提供するその他の機能を調べるには、下のリンクを選択してください。
+NuGet による提供についてさらに詳しく調べるには、下のリンクを選択してください。
 
 - [パッケージ使用の概要とワークフロー](../consume-packages/overview-and-workflow.md)
 - [パッケージの検索と選択](../consume-packages/finding-and-choosing-packages.md)

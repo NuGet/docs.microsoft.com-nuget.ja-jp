@@ -6,10 +6,10 @@ ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
 ms.openlocfilehash: 67cca81c48970c7f2e2cf0a64ee5ba57704a31e2
-ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "74825161"
 ---
 # <a name="install-and-manage-packages-using-the-dotnet-cli"></a>dotnet CLI を使用してパッケージをインストールして管理する
@@ -20,7 +20,7 @@ dotnet CLI は .NET Core や .NET Standard のプロジェクト (SDK スタイ�
 
 この記事では、最も一般的ないくつかの dotnet CLI コマンドの基本的な使用方法を説明します。 これらのコマンドの多くでは、コマンドにプロジェクト ファイルが指定されていない限り、CLI ツールは現在のディレクトリでプロジェクト ファイルを探します (プロジェクト ファイルはオプションのスイッチです)。 コマンドと使用できる引数の完全一覧については、[.NET Core コマンドライン インターフェイス (CLI) ツール](../reference/dotnet-commands.md)に関するページを参照してください。
 
-## <a name="prerequisites"></a>必須コンポーネント
+## <a name="prerequisites"></a>前提条件
 
 - [.NET Core SDK](https://www.microsoft.com/net/download/)。これは、`dotnet`コマンド ライン ツールを提供します。 Visual Studio 2017 以降、dotnet CLI は .NET Core 関連のワークロードで自動的にインストールされます。
 
@@ -90,7 +90,7 @@ dotnet remove package Newtonsoft.Json
 
 ## <a name="update-a-package"></a>パッケージを更新する
 
-NuGet では、パッケージ バージョンを指定しない限り (`-v` スイッチ)、`dotnet add package` コマンドの使用時、最新版のパッケージがインストールされます。
+NuGet では、パッケージ バージョンを指定しない限り (`dotnet add package` スイッチ)、`-v` コマンドの使用時、最新版のパッケージがインストールされます。
 
 ## <a name="restore-packages"></a>パッケージの復元
 

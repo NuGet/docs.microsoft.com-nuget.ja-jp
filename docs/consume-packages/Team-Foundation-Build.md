@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 01/09/2017
 ms.topic: conceptual
 ms.openlocfilehash: a86a58f8afb4b0f1affeddd47d6c5606fb465757
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "73611003"
 ---
 # <a name="setting-up-package-restore-with-team-foundation-build"></a>Team Foundation ビルドでのパッケージの復元の設定
@@ -18,7 +18,7 @@ ms.locfileid: "73611003"
 
 このチュートリアルは、Visual Studio Team Service の使用のシナリオに固有ですが、概念は他のバージョン管理およびビルドシステムにも適用されます。
 
-対象:
+適用先:
 
 - TFS の任意のバージョンで実行されているカスタム MSBuild プロジェクト
 - Team Foundation Server 2012 またはそれ以前
@@ -84,7 +84,7 @@ nuget restore path\to\solution.sln
 ### <a name="ignore-files"></a>ファイルを無視
 
 > [!Note]
-> 現在、[NuGet クライアントに既知のバグ](https://nuget.codeplex.com/workitem/4072)があり、そのためにクライアントが依然として `packages` フォルダーをバージョン管理に追加します。 回避策は、ソース管理の統合を無効にすることです。 そのためには、ソリューションと並列な `.nuget` フォルダーに `Nuget.Config ` ファイルが必要です。 このフォルダーがまだ存在しない場合は、それを作成する必要があります。 [`Nuget.Config`](../consume-packages/configuring-nuget-behavior.md) に次のコンテンツを追加します。
+> 現在、[NuGet クライアントに既知のバグ](https://nuget.codeplex.com/workitem/4072)があり、そのためにクライアントが依然として `packages` フォルダーをバージョン管理に追加します。 回避策は、ソース管理の統合を無効にすることです。 そのためには、ソリューションと並列な `Nuget.Config ` フォルダーに `.nuget` ファイルが必要です。 このフォルダーがまだ存在しない場合は、それを作成する必要があります。 [`Nuget.Config`](../consume-packages/configuring-nuget-behavior.md) に次のコンテンツを追加します。
 
 ```xml
 <configuration>

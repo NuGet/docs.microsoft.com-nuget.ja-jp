@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
 ms.openlocfilehash: 8f2b33a7290301bd16db3b1979ae496eee602f55
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "75383659"
 ---
 # <a name="known-issues-with-nuget"></a>NuGet に関する既知の問題
@@ -21,29 +21,29 @@ ms.locfileid: "75383659"
 
 ## <a name="authentication-issues-with-nuget-feeds-in-vsts-with-nugetexe-v343"></a>NuGet に関する認証の問題は、nuget.exe v3.4.3 が付属している VSTS で提供されています。
 
-**問題:**
+**問題**:
 
 次のコマンドを使用して資格情報を格納すると、個人用アクセス トークンを二重に暗号化することになります。
 
 $PAT = "Your personal access token" $Feed = "Your url" .\nuget.exe sources add -Name Test -Source $Feed -UserName $UserName -Password $PAT
 
-**回避策:**
+**対処法:**
 
 [-StorePasswordInClearText](../reference/cli-reference/cli-ref-sources.md) オプションを使用して、クリア テキストにパスワードを格納します。
 
 ## <a name="error-installing-packages-with-nuget-34-341"></a>NuGet 3.4、3.4.1 を使用してパッケージをインストールするときのエラー
 
-**問題:**
+**問題**:
 
 NuGet 3.4 および 3.4.1 で NuGet アドインを使用している場合、使用できると報告されているソースがありません。また、構成ウィンドウで新しいソースを追加できません。 その結果、次の画像のようになります。
 
 ![ソースがない NuGet の構成](./media/knownIssue-34-NoSources.PNG)
 
-`%AppData%\NuGet\` (Windows) フォルダーまたは `~/.nuget/` (Mac/Linux) フォルダーの `NuGet.Config` ファイルが誤って空になります。 この問題を解決するには、Visual Studio を終了し (Windows で該当する場合)、`NuGet.Config` ファイルを削除し、操作をやり直します。 NuGet から新しい `NuGet.Config` が生成され、続行できるようになります。
+`NuGet.Config` (Windows) フォルダーまたは `%AppData%\NuGet\` (Mac/Linux) フォルダーの `~/.nuget/` ファイルが誤って空になります。 この問題を解決するには、Visual Studio を終了し (Windows で該当する場合)、`NuGet.Config` ファイルを削除し、操作をやり直します。 NuGet から新しい `NuGet.Config` が生成され、続行できるようになります。
 
 ## <a name="error-installing-packages-with-nuget-27"></a>NuGet 2.7 を使用してパッケージをインストールするときのエラー
 
-**問題:**
+**問題**:
 
 NuGet 2.7 以降、アセンブリの参照を含むパッケージをインストールしようとすると、次のように **"入力文字列の形式が正しくありません"** というエラー メッセージを受け取ることがあります。
 
@@ -75,7 +75,7 @@ install-package log4net
 
 ## <a name="build-failure-after-package-update-in-vs-2012"></a>VS 2012 のパッケージの更新後のビルド エラー
 
-問題:VS 2012 RTM を使用しているとします。 NuGet パッケージを更新すると、次のメッセージが表示されます:"完全にアンインストールできなかったパッケージがあります"。 また、Visual Studio を再起動するように求められます。 VS を再起動すると、通常とは異なるビルド エラーを受け取ります。
+問題: VS 2012 RTM を使用しています。 NuGet パッケージを更新すると、"完全にアンインストールできなかったパッケージがあります" というメッセージを受け取ります。 また、Visual Studio を再起動するように求められます。 VS を再起動すると、通常とは異なるビルド エラーを受け取ります。
 
 この原因は、以前のパッケージに含まれる特定のファイルが、バックグラウンドの MSBuild プロセスでロックされていることです。 VS の再起動後も、バックグラウンドの MSBuild プロセスで、以前のパッケージに含まれるファイルが継続して使用されているため、ビルド エラーが発生します。
 
@@ -90,7 +90,7 @@ VS 2010 SP1 を実行していて、NuGet の以前のバージョンをイン�
 ログを表示すると、`SignatureMismatchException` のメンションが表示されることがあります。
 
 これを防ぐには、[Visual Studio 2010 SP1 修正プログラム](http://bit.ly/vsixcertfix)をインストールします。
-または、(管理者として Visual Studio を実行しているときに) NuGet をアンインストールし、VS 拡張ギャラリーから NuGet をインストールするだけ、という回避策もあります。 詳細については、「<https://support.microsoft.com/kb/2581019>」を参照してください。
+または、(管理者として Visual Studio を実行しているときに) NuGet をアンインストールし、VS 拡張ギャラリーから NuGet をインストールするだけ、という回避策もあります。 詳細については、「 <https://support.microsoft.com/kb/2581019> 」を参照してください。
 
 ## <a name="package-manager-console-throws-an-exception-when-the-reflector-visual-studio-add-in-is-also-installed"></a>Reflector Visual Studio アドインもインストールされている場合、パッケージ マネージャー コンソールから例外がスローされます。
 
@@ -134,7 +134,7 @@ or
 
 解決できるように、アドインの作成者に連絡しました。
 
-<p class="info">更新:最新バージョンの Reflector 6.5 を使用すると、コンソールでこの例外が発生しないことを確認しました。</p>
+<p class="info">更新プログラム: 最新バージョンの Reflector 6.5 を使用すると、コンソールでこの例外が発生しないことを確認しました。</p>
 
 ## <a name="opening-package-manager-console-fails-with-objectsecurity-exception"></a>ObjectSecurity 例外でパッケージ マネージャー コンソールを開くことができない
 
@@ -171,7 +171,7 @@ Visual Studio 2010 SP1 ベータ版をインストールした場合、パッケ
 
 ## <a name="attempting-to-install-or-uninstall-results-in-the-error-cannot-create-a-file-when-that-file-already-exists"></a>インストールまたはアンインストールをしようとすると、"既に存在するファイルを作成することはできません。" というエラーが発生する
 
-Visual Studio 拡張機能は、なんらかの理由で、VSIX 拡張機能をアンインストールしたにもかかわらず一部のファイルが残っているという正常ではない状態になっています。 この問題を解決するには:
+Visual Studio 拡張機能は、なんらかの理由で、VSIX 拡張機能をアンインストールしたにもかかわらず一部のファイルが残っているという正常ではない状態になっています。 この問題を回避するには、次のようにします。
 
 1. Visual Studio の終了
 1. 次のフォルダーを開きます (コンピューターの別のドライブにある可能性があります)
@@ -223,6 +223,6 @@ Windows Phone Tools は Visual Studio 拡張機能マネージャーをサポー
 
 [この GitHub の問題](https://github.com/Particular/NServiceBus/issues/1271#issuecomment-20865932)で議論されているように、NuGet ではパッケージの大文字と小文字の変更がサポートされていますが、自分の "*グローバル パッケージ*" フォルダーに大文字と小文字が異なるパッケージを既に持っているユーザーがいた場合、パッケージを復元する際に困難な状況が発生します。 ビルド時のパッケージの復元で発生する可能性のある中断について、パッケージの既存のユーザーに伝える方法がある場合にのみ、大文字と小文字の変更を要求することをお勧めします。
 
-## <a name="reporting-issues"></a>レポートの問題
+## <a name="reporting-issues"></a>問題の報告
 
 NuGet の問題を報告するには、[https://github.com/nuget/home/issues](https://github.com/nuget/home/issues) にアクセスしてください。

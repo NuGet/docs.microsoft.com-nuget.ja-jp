@@ -7,11 +7,11 @@ ms.date: 02/03/2017
 ms.topic: conceptual
 ms.reviewer: ananguar
 ms.openlocfilehash: 2d0bb6356c0a20843bdc884b68f5f61838b82e73
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549247"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64496645"
 ---
 # <a name="nuget-40-rc-release-notes"></a>NuGet 4.0 RC リリース ノート
 
@@ -19,9 +19,9 @@ ms.locfileid: "43549247"
 
 [NuGet 4.0 RC for Visual Studio 2017](http://blog.nuget.org/20161121/introducing-nuget4.0) の焦点は .NET Core シナリオのサポートを追加することです。顧客からの重要なフィードバックに対処し、さまざまなシナリオにおけるパフォーマンスを改善します。 このリリースでは、PackageReference のサポート、MSBuild ターゲットとしての NuGet コマンド、バックグラウンド パッケージの復元など、いくつかの改善点があります。
 
-## <a name="bug-fixes"></a>バグ修正
+## <a name="bug-fixes"></a>バグの修正
 
-- `dotnet pack --version-suffix foo` の動作変更  -  [#3838](https://github.com/NuGet/Home/issues/3838)
+- `dotnet pack --version-suffix foo` の動作変更  - [#3838](https://github.com/NuGet/Home/issues/3838)
 
 - vs "15" コンピューターでのみ、nuget.exe 復元が失敗する - [#3834](https://github.com/NuGet/Home/issues/3834)
 
@@ -56,7 +56,7 @@ ms.locfileid: "43549247"
 
 - System.Xml.XmlException: Core Properties パートのルート要素を認識できない。 ライン 2、位置 2。 - [#2718](https://github.com/NuGet/Home/issues/2718)
 
-- テキスト フィールドの &lt; または &gt; をエスケープ処理すると、`.nuspec` がビルドされなくなる - [#2651](https://github.com/NuGet/Home/issues/2651)
+- テキスト フィールドの `.nuspec` または &lt; をエスケープ処理すると、&gt; がビルドされなくなる - [#2651](https://github.com/NuGet/Home/issues/2651)
 
 - nuget.exe 削除で資格情報が求められない (非対話モードで) - [#2626](https://github.com/NuGet/Home/issues/2626)
 
@@ -91,7 +91,7 @@ ms.locfileid: "43549247"
 
 - 資格情報プロバイダーが VS に読み込まれないとき、NuGet が中断されない - [#2422](https://github.com/NuGet/Home/issues/2422)
 
-## <a name="features"></a>フィーチャー
+## <a name="features"></a>[機能]
 
 - x86 を実行するように CI を設定する - [#3868](https://github.com/NuGet/Home/issues/3868)
 
@@ -133,7 +133,7 @@ ms.locfileid: "43549247"
 
 - ToolsReference デザイン - [#3462](https://github.com/NuGet/Home/issues/3462)
 
-- `.csproj` で復元と PackageReferences をサポートするように NuGet UI を修正  -  [#3455](https://github.com/NuGet/Home/issues/3455)
+- `.csproj` で復元と PackageReferences をサポートするように NuGet UI を修正  - [#3455](https://github.com/NuGet/Home/issues/3455)
 
 - VS パッケージ マネージャー設定にキャッシュ消去ボタンを追加 - [#3289](https://github.com/NuGet/Home/issues/3289)
 

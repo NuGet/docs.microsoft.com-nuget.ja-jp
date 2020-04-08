@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
 ms.openlocfilehash: 2aaaf41b3fc4ef3621333e5099780b5d7ef393bc
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549451"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64500396"
 ---
 # <a name="nuget-governance"></a>NuGet のガバナンス
 
@@ -20,7 +20,7 @@ NuGet プロジェクトのリーダーは、ヴェノベレント ディクテ�
 
 ヴェノベレント ディクテーターの仕事は、コミュニティ内の問題を解決し、プロジェクトを協調的に進めることです。 それに対して、コミュニティは、積極的に関わり貢献することによって、ヴェノベレント ディクテーターを意思決定に導きます。
 
-## <a name="roles-and-responsibilities"></a>役割と責任
+## <a name="roles-and-responsibilities"></a>ロールと責任
 
 ここでは、ヴェノベレント ディクテーター、コミッター、共同作成者、およびユーザーの 4 つの役割について説明します。
 
@@ -90,6 +90,6 @@ NuGet のアカウント所有者が、不幸にも資格を取り消された�
 
 このポリシーを行使する必要がある場合、身分証明書とパッケージのバージョンを [support@nuget.org](mailto:support@nuget.org) に電子メールで送信してください。
 
-## <a name="transparency"></a>[透明度]
+## <a name="transparency"></a>透明性
 
 オープン ソースのプロジェクトのガバナンスの成功には、コミュニティ内で信頼を構築することが不可欠です。 そのために、意志決定を行う場合、透明性を確保しながら、オープンに行う必要があります。 プロジェクトの方向に関する議論は、公開で行う必要があります。 コミュニティは、ヴェノベレント ディクテーターの意思決定に不意を突かれないようにする必要があります。 また、コミュニティ メンバーが意思決定とその内容の全過程を理解できるよう、プロジェクトの意思決定に関する議論を保存記録する必要があります。

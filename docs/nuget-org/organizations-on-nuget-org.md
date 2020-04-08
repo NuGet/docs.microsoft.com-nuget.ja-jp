@@ -9,10 +9,10 @@ ms.reviewer:
 - kraigb
 - camsoper
 ms.openlocfilehash: 152de360bfa31a0c8c60fac0b12149748773b13e
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "67427077"
 ---
 # <a name="your-organization-on-nugetorg"></a>NuGet.org 上の組織
@@ -58,7 +58,7 @@ ms.locfileid: "67427077"
 
 組織の管理者は、各メンバーの NuGet.org の "*ユーザー アカウント名*" を指定することで、メンバーを追加できます。メール アドレスは使用できません。 その後、各メンバーを次のアクセス許可を持つコラボレーターまたは管理者として指定します。
 
-| アクセス許可 | コラボレーター | 管理者 |
+| 権限 | コラボレーター | 管理者 |
 | --- | --- | --- |
 | 組織のパッケージを管理する<br/>(新しいパッケージの送信、既存のパッケージの更新またはリストからの削除) | はい | はい |
 | 組織のメタデータを変更する<br/>(メール アドレス、通知の設定) | いいえ | はい |

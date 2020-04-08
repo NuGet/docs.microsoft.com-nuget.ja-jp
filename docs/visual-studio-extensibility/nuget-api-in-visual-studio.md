@@ -6,17 +6,17 @@ ms.author: karann
 ms.date: 01/09/2017
 ms.topic: reference
 ms.openlocfilehash: f1a11eb63c07a5d737a9474870f5653f6f7d850a
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50980977"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64495911"
 ---
 # <a name="nuget-api-in-visual-studio"></a>Visual Studio の NuGet API
 
 Visual Studio のパッケージ マネージャー UI とコンソールに加え、NuGet は [Managed Extensibility Framework (MEF)](/dotnet/framework/mef/index) を通じていくつかの便利なサービスもエクスポートします。 このインターフェイスでは、Visual Studio 内の他のコンポーネントが NuGet とやり取りできるるため、パッケージのインストールやアンインストール、インストールされているパッケージに関する情報の取得に使用することができます。
 
-NuGet 3.3 以降では、NuGet は次のサービスをエクスポートします。これらはすべて `NuGet.VisualStudio.dll` アセンブリ内の `NuGet.VisualStudio` 名前空間にあります。
+NuGet 3.3 以降では、NuGet は次のサービスをエクスポートします。これらはすべて `NuGet.VisualStudio` アセンブリ内の `NuGet.VisualStudio.dll` 名前空間にあります。
 
 - [`IRegistryKey`](#iregistrykey-interface): レジストリ サブキーから値を取得するメソッド。
 - [`IVsPackageInstaller`](#ivspackageinstaller-interface): プロジェクトに NuGet パッケージをインストールするメソッド。

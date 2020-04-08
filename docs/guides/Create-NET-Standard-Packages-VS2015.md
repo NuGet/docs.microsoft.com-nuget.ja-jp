@@ -6,21 +6,21 @@ ms.author: karann
 ms.date: 02/02/2018
 ms.topic: tutorial
 ms.openlocfilehash: b16bf422e2627be3b8516a875d749639734064a9
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "72380719"
 ---
 # <a name="create-net-standard-and-net-framework-packages-with-visual-studio-2015"></a>Visual Studio 2015 での NET Standard および NET Framework パッケージの作成
 
-**注:**  .NET Standard ライブラリを開発するには、Visual Studio 2017 をお勧めします。 Visual Studio 2015 でも動作できますが、.NET Core ツールはプレビュー状態にしかなりません。 NuGet 4.x 以降および Visual Studio 2017 を使用している場合は、[Visual Studio 2017 でのパッケージの作成と公開](../quickstart/create-and-publish-a-package-using-visual-studio.md)に関するページを参照してください。
+**注:** .NET Standard ライブラリを開発するには、Visual Studio 2017 をお勧めします。 Visual Studio 2015 でも動作できますが、.NET Core ツールはプレビュー状態にしかなりません。 NuGet 4.x 以降および Visual Studio 2017 を使用している場合は、[Visual Studio 2017 でのパッケージの作成と公開](../quickstart/create-and-publish-a-package-using-visual-studio.md)に関するページを参照してください。
 
 [.NET Standard ライブラリ](/dotnet/articles/standard/library)は、すべての .NET ランタイムで使用できるようにすることを目的とした .NET API の正式な仕様です。したがって、.NET エコシステムでより高い統一性が確立されます。 .NET Standard Library は、ワークロードに関係なく、すべての .NET プラットフォーム用に統一された BCL (基本クラス ライブラリ) API のセットを定義して実装します。 これにより、開発者はすべての .NET ランタイム間で使用可能なコードを生成できます。また、共有コードでプラットフォーム固有の条件付きコンパイル ディレクティブを除去するまでとはいかないまでも減らすことはできます。
 
 このガイドでは、 .NET Standard Library 1.4 をターゲットとするか、または .NET Framework 4.6 をターゲットとする NuGet パッケージの作成について説明します。 .NET Standard 1.4 ライブラリは、.NET Framework 4.6.1、ユニバーサル Windows プラットフォーム 10、.NET Core、および Mono/Xamarin に適用できます。 詳細については、「[.NET Standard マッピング テーブル](/dotnet/standard/net-standard#net-implementation-support)」 (.NET ドキュメント) を参照してください。 必要な場合は、他のバージョンの .NET Standard ライブラリを選択できます。
 
-## <a name="prerequisites"></a>必須コンポーネント
+## <a name="prerequisites"></a>前提条件
 
 1. Visual Studio 2015 更新プログラム 3
 1. (.NET Standard のみ) [.NET Core SDK](https://www.microsoft.com/net/download/)
@@ -62,7 +62,7 @@ ms.locfileid: "72380719"
 
 ## <a name="create-and-update-the-nuspec-file"></a>.nuspec ファイルを作成して更新する
 
-1. コマンド プロンプトを開き、(`.sln` ファイルの 1 レベル下の) `AppLogger.csproj` フォルダーを含むフォルダーに移動して NuGet `spec` コマンドを実行し、初期 `AppLogger.nuspec` ファイルを作成します。
+1. コマンド プロンプトを開き、(`AppLogger.csproj` ファイルの 1 レベル下の) `.sln` フォルダーを含むフォルダーに移動して NuGet `spec` コマンドを実行し、初期 `AppLogger.nuspec` ファイルを作成します。
 
     ```cli
     nuget spec

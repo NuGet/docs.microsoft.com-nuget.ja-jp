@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 01/03/2018
 ms.topic: conceptual
 ms.openlocfilehash: be7c10fb6ce60375f77e38f9b604ec33063e52fc
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43550511"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64498248"
 ---
 # <a name="packages-in-visual-studio-templates"></a>Visual Studio テンプレートのパッケージ
 
@@ -66,7 +66,7 @@ Visual Studio プロジェクト/項目テンプレートの推奨される配�
 
 VSIX 自体は、テンプレートで必要となるパッケージのソースとして使用できます。
 
-1. `.vstemplate` ファイルで次のように `<packages>` 要素を変更します。
+1. `<packages>` ファイルで次のように `.vstemplate` 要素を変更します。
 
     ```xml
     <packages repository="extension" repositoryId="MyTemplateContainerExtensionId">
@@ -74,7 +74,7 @@ VSIX 自体は、テンプレートで必要となるパッケージのソース
     </packages>
     ```
 
-    `repository` 属性がリポジトリの種類を `extension` として指定するのに対し、`repositoryId` は VSIX 自体の一意の識別子です (これが、拡張機能の `vsixmanifest` ファイル内の `ID` 属性の値です。「[VSIX 拡張機能スキーマ 2.0 リファレンス](/visualstudio/extensibility/vsix-extension-schema-2-0-reference)」を参照してください)。
+    `repository` 属性がリポジトリの種類を `extension` として指定するのに対し、`repositoryId` は VSIX 自体の一意の識別子です (これが、拡張機能の `ID` ファイル内の `vsixmanifest` 属性の値です。「[VSIX 拡張機能スキーマ 2.0 リファレンス](/visualstudio/extensibility/vsix-extension-schema-2-0-reference)」を参照してください)。
 
 1. `nupkg` ファイルを VSIX 内の `Packages` というフォルダー内に配置します。
 
@@ -90,7 +90,7 @@ VSIX 自体は、テンプレートで必要となるパッケージのソース
 
 1 つのプロジェクト/項目テンプレートのみを配布して、複数のテンプレートをまとめてパッケージ化する必要がない場合は、プロジェクト/項目テンプレートの ZIP ファイルにパッケージを直接含める、よりシンプルですがより制限された方法を使用できます。
 
-1. `.vstemplate` ファイルで次のように `<packages>` 要素を変更します。
+1. `<packages>` ファイルで次のように `.vstemplate` 要素を変更します。
 
     ```xml
     <packages repository="template"">
@@ -116,7 +116,7 @@ MSI を使用してインストールされる SDK は、開発者のマシン�
     - キー名: 自分にとって一意の名前を使用します。 たとえば、VS 2012 の ASP.NET MVC 4 テンプレートでは、`AspNetMvc4VS11` を使用します。
     - 値: パッケージ フォルダーへの完全パス。
 
-1. `.vstemplate` ファイル内の `<packages>` 要素に、属性 `repository="registry"` を追加し、`keyName` 属性でレジストリ キーの名前を指定します。
+1. `<packages>` ファイル内の `.vstemplate` 要素に、属性 `repository="registry"` を追加し、`keyName` 属性でレジストリ キーの名前を指定します。
 
     - 解凍前のパッケージがある場合は、`isPreunzipped="true"` 属性を使用します。
     - *(NuGet 3.2 以降)* パッケージのインストール終了時にデザイン時ビルドを強制する場合は、`forceDesignTimeBuild="true"` 属性を追加します。
@@ -141,6 +141,6 @@ MSI を使用してインストールされる SDK は、開発者のマシン�
     <!-- ... -->
     ```
 
-1. `.vstemplate` ファイルに [`<PromptForSaveOnCreation>true</PromptForSaveOnCreation>`](/visualstudio/extensibility/promptforsaveoncreation-element-visual-studio-templates) を含めることにより、作成時にプロジェクト/項目テンプレートが保存されるようにする必要があります。
+1. [ ファイルに `<PromptForSaveOnCreation>true</PromptForSaveOnCreation>`](/visualstudio/extensibility/promptforsaveoncreation-element-visual-studio-templates)`.vstemplate` を含めることにより、作成時にプロジェクト/項目テンプレートが保存されるようにする必要があります。
 
 1. テンプレートに、`packages.config` ファイルは含まれません。また、NuGet パッケージがインストールされるときに追加される参照やコンテンツも含まれません。

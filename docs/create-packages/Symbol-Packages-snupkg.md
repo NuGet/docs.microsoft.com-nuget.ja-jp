@@ -12,20 +12,20 @@ keywords: NuGet シンボル パッケージ, NuGet パッケージ デバッグ
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 839c38ec165372bab9b93dec25e5c8e8e9439bfa
-ms.sourcegitcommit: 415c70d7014545c1f65271a2debf8c3c1c5eb688
+ms.openlocfilehash: c42032f1869f4be0af44ffa8fbd5ad522f73c459
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77036891"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80380419"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>シンボル パッケージ (.snupkg) の作成
 
 きちんとデバッグできるには、コンパイルされたコードとソースコードの間の関連付け、ローカル変数の名前、スタック トレースなどの重要な情報を提供するデバッグ シンボルが必要です。 シンボル パッケージ (snupkg) を使用すると、これらのシンボルを配布して、お使いの NuGet パッケージのデバッグ エクスペリエンスを向上させることができます。
 
-## <a name="prerequisites"></a>必須コンポーネント
+## <a name="prerequisites"></a>前提条件
 
-必要な [NuGet プロトコル](../api/nuget-protocols.md)を実装する [nuget.exe v4.9.0 以上](https://www.nuget.org/downloads) または [dotnet CLI v2.2.0 以上](https://www.microsoft.com/net/download/dotnet-core/2.2)。
+必要な [NuGet プロトコル](https://www.nuget.org/downloads)を実装する [nuget.exe v4.9.0 以上](https://www.microsoft.com/net/download/dotnet-core/2.2) または [dotnet CLI v2.2.0 以上](../api/nuget-protocols.md)。
 
 ## <a name="creating-a-symbol-package"></a>シンボル パッケージを作成する
 
@@ -99,7 +99,7 @@ NuGet.org は独自のシンボル サーバー リポジトリをサポート�
 NuGet.org には、シンボル パッケージに対して次の制約があります。
 
 - シンボル パッケージでは、次のファイル拡張子のみが許可されます: `.pdb`、`.nuspec`、`.xml`、`.psmdcp`、`.rels`、`.p7s`
-- NuGet.org のシンボル サーバーでは管理対象の[ポータブル PDB](https://github.com/dotnet/corefx/blob/master/src/System.Reflection.Metadata/specs/PortablePdb-Metadata.md) のみがサポートされています。
+- NuGet.org のシンボル サーバーでは管理対象の[ポータブル PDB](https://github.com/dotnet/runtime/blob/87572a799bfd37779c079faf28544e3f9a16be58/src/libraries/System.Reflection.Metadata/specs/PortablePdb-Metadata.md) のみがサポートされています。
 - PDB と関連付けられている .nupkg DLL は、Visual Studio バージョン 15.9 以上のコンパイラでビルドする必要があります (「[PDB 暗号化ハッシュ](https://github.com/dotnet/roslyn/issues/24429)」を参照)
 
 これらの制約が満たされない場合、NuGet.org に発行されたシンボル パッケージは検証に失敗します。 
@@ -130,7 +130,7 @@ NuGet.org には、シンボル パッケージに対して次の制約があり
 5) 次のフィールドは snupkg の nuspec から除外されます: ```authors```、```owners```、```requireLicenseAcceptance```、```license type```、```licenseUrl```、```icon```。
 6) ```<license>``` 要素は使用しないでください。 .snupkg には、対応する .nupkg と同じライセンスが適用されます。
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 ソース リンクを使用して、.NET アセンブリのソース コードのデバッグを有効にすることを検討してください。 詳細については、「[ソース リンクのガイダンス](/dotnet/standard/library-guidance/sourcelink)」を参照してください。
 

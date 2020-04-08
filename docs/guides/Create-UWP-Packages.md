@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 03/21/2017
 ms.topic: tutorial
 ms.openlocfilehash: 77aa186291122a8d05018ecacd1329da459badad
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "72380762"
 ---
 # <a name="create-uwp-packages"></a>UWP パッケージを作成する

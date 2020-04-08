@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 06/20/2019
 ms.topic: conceptual
 ms.openlocfilehash: 1ae030c308b14b8884fb608c1683c8c46000b0bd
-ms.sourcegitcommit: 415c70d7014545c1f65271a2debf8c3c1c5eb688
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/06/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "77036904"
 ---
 # <a name="what-happens-when-a-nuget-package-is-installed"></a>NuGet パッケージのインストールのしくみ

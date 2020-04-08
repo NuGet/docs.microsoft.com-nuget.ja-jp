@@ -6,11 +6,11 @@ ms.author: anangaur
 ms.date: 12/4/2017
 ms.topic: conceptual
 ms.openlocfilehash: 321aedb471bc6f86e9c03878093b199267e31195
-ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58432505"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64496582"
 ---
 # <a name="nuget-45-release-notes"></a>NuGet 4.5 リリース ノート
 
@@ -90,6 +90,6 @@ NuGet 4.4 RTM で修正された問題については、[NuGet 4.4 RTM のリリ
 - 検索が登録 BLOB よりも前の場合、UI クライアントでエラーまたは警告が表示されない - [#2149](https://github.com/NuGet/Home/issues/2149)
 - Get-Packages -Updates により不正なクエリが生成される - [#2135](https://github.com/NuGet/Home/issues/2135)
 
-## <a name="links-to-github-issues-fixed-in-45-rtm"></a>4.5 RTM で修正された GitHub の懸案事項へのリンク
+## <a name="links-to-github-issues-fixed-in-45-rtm"></a>4\.5 RTM で修正された GitHub の懸案事項へのリンク
 
 [懸案事項リスト](https://github.com/NuGet/Home/issues?q=is%3Aissue+milestone%3A4.5+is%3Aclosed)

@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 02/20/2020
 ms.topic: conceptual
 ms.openlocfilehash: 7166d622ef9d3975fc1c931d30caf570a765a6da
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "78231319"
 ---
 # <a name="create-a-nuget-package-using-msbuild"></a>MSBuild を使用して NuGet パッケージを作成する
@@ -67,7 +67,7 @@ Visual Studio では、プロジェクトのプロパティにこれらの値を
 </Project>
 ```
 
-また、[MSBuild pack ターゲット](../reference/msbuild-targets.md#pack-target)に関するセクション、「[依存関係アセットを制御する](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)」、「[NuGet メタデータ プロパティ](/dotnet/core/tools/csproj#nuget-metadata-properties)」に説明されているように、`Title`、`PackageDescription`、`PackageTags` などのオプションのプロパティを設定することもできます。
+また、`Title`MSBuild pack ターゲット`PackageDescription`に関するセクション、「`PackageTags`依存関係アセットを制御する[」、「](../reference/msbuild-targets.md#pack-target)NuGet メタデータ プロパティ[」に説明されているように、](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)、[、](/dotnet/core/tools/csproj#nuget-metadata-properties) などのオプションのプロパティを設定することもできます。
 
 > [!NOTE]
 > 公開用にビルドされたパッケージの場合は、**PackageTags**プロパティに特に注意してください。これらのタグは他のユーザーがパッケージを検索して、パッケージの動作を理解するのに役立ちます。

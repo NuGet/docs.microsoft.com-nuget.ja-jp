@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
 ms.openlocfilehash: 4b95251e4b055523a9533b4125589b2650be932d
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/16/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "79428469"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>NuGet でのパッケージ依存関係の解決方法
@@ -24,7 +24,7 @@ ms.locfileid: "79428469"
 
 PackageReference 形式を使用してパッケージをプロジェクトにインストールする場合、NuGet は、フラットなパッケージ グラフへの参照を適切なファイルに追加して、競合を未然に解決します。 このプロセスは、"*推移的な復元*" と呼ばれます。 この場合、パッケージの再インストールまたは復元はグラフに列記されているパッケージをダウンロードするプロセスであり、結果としてビルドはいっそう高速で予測可能になります。 また、2.8.\* などの浮動小数点バージョンを利用して、パッケージの最新バージョンを使用するようにプロジェクトが変更されないようにすることもできます。
 
-ビルド以前に NuGet の復元プロセスを実行すると、最初にメモリ内で依存関係が解決された後、`project.assets.json` という名前のファイルに結果のグラフが書き込まれます。 また、[ロック ファイル機能が有効になっている](../consume-packages/package-references-in-project-files.md#locking-dependencies)場合、`packages.lock.json` という名前のロック ファイルに解決された依存関係が書き込まれます。
+ビルド以前に NuGet の復元プロセスを実行すると、最初にメモリ内で依存関係が解決された後、`project.assets.json` という名前のファイルに結果のグラフが書き込まれます。 また、`packages.lock.json`ロック ファイル機能が有効になっている[場合、](../consume-packages/package-references-in-project-files.md#locking-dependencies) という名前のロック ファイルに解決された依存関係が書き込まれます。
 この資産ファイルは `MSBuildProjectExtensionsPath` (既定でプロジェクトの 'obj' フォルダー) にあります。 その後、MSBuild はこのファイルを読み取り、潜在的な参照が見つかるフォルダーのセットに変換して、メモリ内のプロジェクト ツリーに追加します。
 
 `project.assets.json` ファイルは一時的なものであるため、ソース管理に追加しないでください。 ロック ファイルは既定で `.gitignore` と `.tfignore` の両方に一覧表示されます。 「[パッケージとソース管理](../consume-packages/packages-and-source-control.md)」をご覧ください。
@@ -55,7 +55,7 @@ PackageReference 形式を使用してパッケージをプロジェクトにイ
 
 #### <a name="floating-versions"></a>浮動小数点バージョン
 
-浮動小数点の依存関係バージョンは \* 文字で指定されます。 たとえば、`6.0.*` のようにします。 このバージョン指定は、"最新の 6.0.x バージョンを使う" ことを意味し、`4.*` は、"最新の 4.x バージョンを使う" ことを意味します。 浮動小数点バージョンを使用すると、最新バージョンの依存関係で最新の状態を維持しながら、プロジェクト ファイルへの変更を減らすことができます。
+浮動小数点の依存関係バージョンは \* 文字で指定されます。 たとえば、「 `6.0.*` 」のように入力します。 このバージョン指定は、"最新の 6.0.x バージョンを使う" ことを意味し、`4.*` は、"最新の 4.x バージョンを使う" ことを意味します。 浮動小数点バージョンを使用すると、最新バージョンの依存関係で最新の状態を維持しながら、プロジェクト ファイルへの変更を減らすことができます。
 
 浮動小数点バージョンを使用すると、NuGet はバージョン パターンと一致する最高バージョンのパッケージを解決します。たとえば、`6.0.*` は 6.0 で始まるパッケージの最高バージョンになります。
 
@@ -102,7 +102,7 @@ PackageReference 形式を使用してパッケージをプロジェクトにイ
 
 `packages.config` の場合、NuGet は個々のパッケージのインストール中に依存関係の競合の解決を試みます。 つまり、パッケージ B に依存するパッケージ A がインストールされていて、パッケージ B が別のものの依存関係として `packages.config` のリストに既に含まれる場合、NuGet は要求されているパッケージ B のバージョンを比較し、すべてのバージョン制約を満たすバージョンの発見を試みます。 具体的には、NuGet は依存関係を満たす低い方の *major.minor* バージョンを選びます。
 
-NuGet 2.8 は、既定により、最も低い "パッチ" バージョンを探します (「[NuGet 2.8 のリリース ノート](../release-notes/nuget-2.8.md#patch-resolution-for-dependencies)」を参照してください)。 この設定は、`Nuget.Config` の `DependencyVersion` 属性およびコマンド ラインの `-DependencyVersion` スイッチで制御できます。  
+NuGet 2.8 は、既定により、最も低い "パッチ" バージョンを探します (「[NuGet 2.8 のリリース ノート](../release-notes/nuget-2.8.md#patch-resolution-for-dependencies)」を参照してください)。 この設定は、`DependencyVersion` の `Nuget.Config` 属性およびコマンド ラインの `-DependencyVersion` スイッチで制御できます。  
 
 `packages.config` の依存関係解決プロセスは、大規模な依存関係グラフでは複雑になります。 パッケージの各新規インストールでは、グラフ全体を走査して、バージョン間の競合の可能性を明らかにする必要があります。 競合が発生するときは、インストールが停止されて、プロジェクトは不明な状態のままになります (特に、プロジェクト ファイル自体への変更の可能性がある場合)。 他のパッケージ管理形式を使うと、このような問題はありません。
 
@@ -110,7 +110,7 @@ NuGet 2.8 は、既定により、最も低い "パッチ" バージョンを探
 
 PackageReference 形式を使用すると、依存関係から最上位のプロジェクトへの資産のフローを制御できます。 詳細については、[PackageReference](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets) に関するページを参照してください。
 
-最上位レベルのプロジェクト自体がパッケージである場合は、`include` および `exclude` 属性と `.nuspec` ファイルの依存関係リストを使って、このフローを制御することもできます。 「.nuspec Reference」(.nuspec リファレンス) の「[Dependencies](../reference/nuspec.md#dependencies)」(依存関係) をご覧ください。
+最上位レベルのプロジェクト自体がパッケージである場合は、`include` および `exclude` 属性と `.nuspec` ファイルの依存関係リストを使って、このフローを制御することもできます。 [.nuspec リファレンスの依存関係](../reference/nuspec.md#dependencies)をご覧ください。
 
 ## <a name="excluding-references"></a>参照の除外
 
@@ -124,7 +124,7 @@ PackageReference 形式を使用すると、依存関係から最上位のプロ
     <PackageReference Include="PackageC" Version="1.0.0" ExcludeAssets="All" />
     ```
 
-- `packages.config`: 必要なバージョンの `C.dll` だけを参照するように、`.csproj` ファイルからパッケージ C への参照を削除します。
+- `packages.config`: 必要なバージョンの `.csproj` だけを参照するように、`C.dll` ファイルからパッケージ C への参照を削除します。
     
 ## <a name="dependency-updates-during-package-install"></a>パッケージをインストールする間の依存関係の更新 
 

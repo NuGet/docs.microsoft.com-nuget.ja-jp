@@ -6,10 +6,10 @@ ms.author: rrelyea
 ms.date: 02/28/2020
 ms.topic: tutorial
 ms.openlocfilehash: 61f46f2623769927f881877cfe3f96132211b442
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "78231753"
 ---
 # <a name="create-uwp-packages-c"></a>UWP パッケージの作成 (C#)
@@ -18,11 +18,11 @@ ms.locfileid: "78231753"
 
 このチュートリアルでは、マネージド プロジェクトとネイティブ プロジェクトの両方で使用できる C# UWP コンポーネント (XAML コントロールを含む) で NuGet パッケージを作成します。
 
-## <a name="prerequisites"></a>必須コンポーネント
+## <a name="prerequisites"></a>前提条件
 
 1. Visual Studio 2019。 [visualstudio.com](https://www.visualstudio.com/) から無料の 2019 Community Edition をインストールします。Professional Edition と Enterprise Edition を使用することもできます。
 
-1. NuGet CLI。 [nuget.org/downloads](https://nuget.org/downloads) から最新バージョンの `nuget.exe` をダウンロードして、任意の場所に保存します (`.exe`を直接ダウンロードします)。 次に、その場所を PATH 環境変数に追加します (まだ存在していない場合)。 詳細については、[こちら](/nuget/reference/nuget-exe-cli-reference#windows)を参照してください。
+1. NuGet CLI。 `nuget.exe`nuget.org/downloads[ から最新バージョンの ](https://nuget.org/downloads) をダウンロードして、任意の場所に保存します (`.exe`を直接ダウンロードします)。 次に、その場所を PATH 環境変数に追加します (まだ存在していない場合)。 [詳細についてはこちらをご覧ください](/nuget/reference/nuget-exe-cli-reference#windows)。
 
 ## <a name="create-a-uwp-windows-runtime-component"></a>UWP Windows ランタイム コンポーネントを作成する
 

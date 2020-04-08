@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 07/24/2018
 ms.topic: quickstart
 ms.openlocfilehash: 10bc34653d294cf70b5c91ce79a79cf6532fba1b
-ms.sourcegitcommit: 1a63a84da2719c8141823ac89a20bf507fd22b00
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "80147488"
 ---
 # <a name="quickstart-install-and-use-a-package-in-visual-studio-windows-only"></a>クイック スタート: Visual Studio にパッケージをインストールして使用する (Windows のみ)

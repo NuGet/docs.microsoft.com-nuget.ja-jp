@@ -6,10 +6,10 @@ ms.author: jomatthi
 ms.date: 08/14/2019
 ms.topic: quickstart
 ms.openlocfilehash: 6f3fd4f2ffec0037a48aec845fddee258b5c1e7f
-ms.sourcegitcommit: ac9a00ccaf90e539a381e92b650074910b21eb0d
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/03/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "70238478"
 ---
 # <a name="quickstart-install-and-use-a-package-in-visual-studio-for-mac"></a>クイック スタート: Visual Studio for Mac にパッケージをインストールして使用する

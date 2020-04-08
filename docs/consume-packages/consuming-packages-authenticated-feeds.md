@@ -6,10 +6,10 @@ ms.author: nikolev
 ms.date: 02/28/2020
 ms.topic: conceptual
 ms.openlocfilehash: bb624ec6987dd5c6ee38d5bb7e01200487dd4bed
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "78231741"
 ---
 # <a name="consuming-packages-from-authenticated-feeds"></a>認証済みフィードからのパッケージの使用
@@ -27,7 +27,7 @@ nuget.org [パブリック フィード](https://api.nuget.org/v3/index.json)に
 さまざまな NuGet クライアントでは、プライベート フィード プロバイダーそのものが認証を担当します。
 すべての NuGet クライアントには、これをサポートするための拡張メソッドがあります。 これらは、Visual Studio の拡張機能、または NuGet と通信して資格情報を取得できるプラグインのいずれかです。
 
-### <a name="visual-studio"></a>Visual Studio
+### <a name="visual-studio"></a>Visual Studio
 
 Visual Studio では、フィード プロバイダーが実装して顧客に提供できるインターフェイスが NuGet によって公開されます。 詳細については、[Visual Studio 資格情報プロバイダーの作成方法](../reference/extensibility/NuGet-Credential-Providers-for-Visual-Studio.md)に関するドキュメントを参照してください。
 

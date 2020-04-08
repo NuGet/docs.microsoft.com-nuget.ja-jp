@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 07/27/2017
 ms.topic: reference
 ms.openlocfilehash: 5ecbcd4855de8ea7b6301a5e307779216baf96fc
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/15/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "69488294"
 ---
 # <a name="projectjson-reference"></a>project.json 参照
@@ -70,13 +70,13 @@ ms.locfileid: "69488294"
 
 | 包含/除外タグ | ターゲットの影響を受けるフォルダー |
 | --- | --- |
-| contentFiles | Content  |
+| contentFiles | コンテンツ  |
 | runtime | Runtime、Resources、FrameworkAssemblies  |
 | compile | lib |
 | build | build (MSBuild のプロパティとターゲット) |
 | native | native |
-| none | フォルダーなし |
-| all | すべてのフォルダー |
+| なし | フォルダーなし |
+| すべて | すべてのフォルダー |
 
 `exclude` で指定されているタグの方が、`include` で指定されているタグより優先されます。 たとえば、`include="runtime, compile" exclude="compile"` は `include="runtime"` と同じです。
 
@@ -106,7 +106,7 @@ ms.locfileid: "69488294"
 }
 ```
 
-## <a name="frameworks"></a>Frameworks
+## <a name="frameworks"></a>フレームワーク
 
 プロジェクトを実行するフレームワーク (`net45`、`netcoreapp`、`netstandard` など) をリストします。
 
@@ -136,7 +136,7 @@ ms.locfileid: "69488294"
 任意のランタイムで実行できる PCL を含むパッケージは、ランタイムを指定する必要はありません。 これはどの依存関係にも当てはまります。それ以外の場合は、ランタイムを指定する必要があります。
 
 
-## <a name="supports"></a>Supports
+## <a name="supports"></a>サポート
 
 パッケージの依存関係のチェックのセットを定義します。 PCL またはアプリの実行を想定している場所を定義できます。 他の場所でもコードを実行できるように、定義は制限が緩くなっています。 しかしこれらのチェックを指定すると、NuGet はリストされている TxMs ですべての依存関係が満たされていることを確認します。 この値の例には、`net46.app`、`uwp.10.0.app` などがあります。
 
@@ -149,9 +149,9 @@ ms.locfileid: "69488294"
 }
 ```
 
-## <a name="imports"></a>Imports
+## <a name="imports"></a>インポートする
 
-Imports は、`dotnet` TxM を使用するパッケージに、dotnet TxM を宣言しないパッケージで動作することを許可するように設計されています。 プロジェクトが `dotnet` TxM を使用している場合、以下を `project.json` に追加して非 `dotnet` プラットフォームを `dotnet` 対応にしない限り、依存するすべてのパッケージにも `dotnet` TxM が必要です。
+Imports は、`dotnet` TxM を使用するパッケージに、dotnet TxM を宣言しないパッケージで動作することを許可するように設計されています。 プロジェクトが `dotnet` TxM を使用している場合、以下を `dotnet` に追加して非 `project.json` プラットフォームを `dotnet` 対応にしない限り、依存するすべてのパッケージにも `dotnet` TxM が必要です。
 
 ```json
 "frameworks": {
@@ -176,6 +176,6 @@ NuGet 3 以降では、Visual Studio のパッケージ マネージャー UI �
 
 ## <a name="projectlockjson"></a>project.lock.json
 
-`project.lock.json` ファイルは、`project.json` を使用するプロジェクトで NuGet パッケージを復元する過程で生成されます。 このファイルには、NuGet がグラフ全体を処理する際に生成されたすべての情報のスナップショットが保持され、プロジェクトのすべてのパッケージのバージョン、コンテンツ、依存関係が含まれます。 ビルド システムはこれを使用して、プロジェクト自体のローカル パッケージ フォルダーに依存する代わりに、プロジェクトのビルド時に関連するグローバルな場所からパッケージを選択します。 この結果、多くの個別の `.nuspec` ファイルの代わりに、`project.lock.json` のみを読み取ればよいため、ビルド パフォーマンスが向上します。
+`project.lock.json` ファイルは、`project.json` を使用するプロジェクトで NuGet パッケージを復元する過程で生成されます。 このファイルには、NuGet がグラフ全体を処理する際に生成されたすべての情報のスナップショットが保持され、プロジェクトのすべてのパッケージのバージョン、コンテンツ、依存関係が含まれます。 ビルド システムはこれを使用して、プロジェクト自体のローカル パッケージ フォルダーに依存する代わりに、プロジェクトのビルド時に関連するグローバルな場所からパッケージを選択します。 この結果、多くの個別の `project.lock.json` ファイルの代わりに、`.nuspec` のみを読み取ればよいため、ビルド パフォーマンスが向上します。
 
 `project.lock.json` はパッケージの復元で自動的に生成されるため、`.gitignore` ファイルと `.tfignore`ファイルに追加することで、ソース管理から省くことができます ([パッケージとソース管理](../consume-packages/packages-and-source-control.md)に関するページを参照してください)。 ただし、これをソース管理に含めると、変更履歴に時間の経過と共に解決された依存関係の変更が示されます。

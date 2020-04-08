@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 01/09/2017
 ms.topic: reference
 ms.openlocfilehash: 00a64d95c943e9e5cb3a279358a6495125a1bd87
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551371"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64495929"
 ---
 # <a name="nuget-support-for-the-visual-studio-project-system"></a>Visual Studio プロジェクト システムの NuGet サポート
 
@@ -101,7 +101,7 @@ class VsProjectCapabilitiesPresenceChecker : IVsBooleanSymbolPresenceChecker
 
 ## <a name="responding-to-queries"></a>クエリに応答する
 
-プロジェクトは、`IVsHierarchy::GetProperty` を介して `VSHPROPID_ProjectCapabilitiesChecker` プロパティをサポートすることでこの機能を宣言します。 これは `Microsoft.VisualStudio.Shell.Interop.14.0.DesignTime.dll` アセンブリで定義される `Microsoft.VisualStudio.Shell.Interop.IVsBooleanSymbolPresenceChecker` のインスタンスを返すはずです。 [その NuGet パッケージ](https://www.nuget.org/packages/Microsoft.VisualStudio.Shell.Interop.14.0.DesignTime)をインストールすることでこのアセンブリを参照します。
+プロジェクトは、`VSHPROPID_ProjectCapabilitiesChecker` を介して `IVsHierarchy::GetProperty` プロパティをサポートすることでこの機能を宣言します。 これは `Microsoft.VisualStudio.Shell.Interop.IVsBooleanSymbolPresenceChecker` アセンブリで定義される `Microsoft.VisualStudio.Shell.Interop.14.0.DesignTime.dll` のインスタンスを返すはずです。 [その NuGet パッケージ](https://www.nuget.org/packages/Microsoft.VisualStudio.Shell.Interop.14.0.DesignTime)をインストールすることでこのアセンブリを参照します。
 
 たとえば、次の `case` ステートメントを `IVsHierarchy::GetProperty` メソッドの `switch` ステートメントに追加します。
 

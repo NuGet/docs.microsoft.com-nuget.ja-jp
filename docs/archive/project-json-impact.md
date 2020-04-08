@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
 ms.openlocfilehash: 34b08f06f04efdcf7bf73efc2cbdb5a5494ae2d9
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/15/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "69488196"
 ---
 # <a name="impact-of-projectjson-when-creating-packages"></a>パッケージを作成するときの project.json の影響
@@ -33,7 +33,7 @@ NuGet 3 以降で使用される `project.json` システムは、次のセク�
 
 インストール スクリプトと同様に、変換はパッケージのインストールで実行され、通常はべき等ではありません。 インストール時刻は存在しなくなったため、XDT 変換と同様の機能はサポートされません。また、このようなパッケージが推移的なシナリオで使用される場合は無視されます。
 
-### <a name="content"></a>Content
+### <a name="content"></a>コンテンツ
 
 従来の NuGet パッケージでは、ソース コードや構成ファイルなどのコンテンツ ファイルを配布しています。 通常、次の 2 つのシナリオで使用されます。
 

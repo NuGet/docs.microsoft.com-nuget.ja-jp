@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 11/05/2019
 ms.topic: tutorial
 ms.openlocfilehash: 0cb653bad9e853d908039b3f7a94e1dd7eefdde5
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "78230903"
 ---
 # <a name="create-packages-for-xamarin-with-visual-studio-2017-or-2019"></a>Visual Studio 2017 または 2019 での Xamarin 用パッケージの作成
@@ -18,14 +18,14 @@ Xamarin 用 パッケージには、実行時のオペレーティング シス�
 
 このチュートリアルでは、Visual Studio 2017 または 2019 を使用して、iOS、Android、および Windows 上のモバイル プロジェクトで使用できるクロスプラットフォームの NuGet パッケージを作成します。
 
-1. [必須コンポーネント](#prerequisites)
+1. [前提条件](#prerequisites)
 1. [プロジェクトの構造体および抽象化コードを作成する](#create-the-project-structure-and-abstraction-code)
 1. [プラットフォーム固有のコードを記述する](#write-your-platform-specific-code)
 1. [.nuspec ファイルを作成して更新する](#create-and-update-the-nuspec-file)
 1. [コンポーネントをパッケージ化する](#package-the-component)
 1. [関連トピック](#related-topics)
 
-## <a name="prerequisites"></a>必須コンポーネント
+## <a name="prerequisites"></a>前提条件
 
 1. ユニバーサル Windows プラットフォーム (UWP) および Xamarin を備えた Visual Studio 2017 または 2019。 [visualstudio.com](https://www.visualstudio.com/) から無料の Community Edition をインストールします。もちろん、Professional Edition と Enterprise Edition も使用できます。 UWP および Xamarin ツールを含めるには、カスタム インストールを選択して、適切なオプションを確認します。
 1. NuGet CLI。 [nuget.org/downloads](https://nuget.org/downloads) から最新バージョンの nuget.exe をダウンロードして、任意の場所に保存します。 次に、その場所を PATH 環境変数に追加します (まだ存在していない場合)。
@@ -50,7 +50,7 @@ Xamarin 用 パッケージには、実行時のオペレーティング シス�
 
 結果として得られるソリューションには、以下のようなさまざまなプラットフォーム固有のプロジェクトと共に、2 つの共有プロジェクトが含まれます。
 
-- `ILoggingLibrary.shared.cs` ファイルに含まれる `ILoggingLibrary` プロジェクトでは、コンポーネントのパブリック インターフェイス (API のアクセス領域) が定義されます。 これは、ライブラリへのインターフェイスを定義する場所です。
+- `ILoggingLibrary` ファイルに含まれる `ILoggingLibrary.shared.cs` プロジェクトでは、コンポーネントのパブリック インターフェイス (API のアクセス領域) が定義されます。 これは、ライブラリへのインターフェイスを定義する場所です。
 - もう 1 つの共有プロジェクトでは、`CrossLoggingLibrary.shared.cs` に、実行時に抽象インターフェイスのプラットフォーム固有の実装を検索するコードが含まれています。 通常、このファイルを変更する必要はありません。
 - `LoggingLibrary.android.cs` などのプラットフォーム固有の各プロジェクトには、その対応する `LoggingLibraryImplementation.cs` (VS 2017) または `LoggingLibrary.<PLATFORM>.cs` (VS 2019) ファイルに、インターフェイスのネイティブ実装が含まれています。 これは、ライブラリのコードをビルドする場所です。
 
@@ -109,14 +109,14 @@ namespace Plugin.LoggingLibrary
 1. ソリューションを右クリックし、 **[ソリューションのビルド]** を選択して作業内容を確認し、次にパッケージ化する成果物を生成します。 欠落している参照に関するエラーが発生した場合は、ソリューションを右クリックし、 **[NuGet パッケージの復元]** を選択して依存関係をインストールしてからリビルドします。
 
 > [!Note]
-> Visual Studio 2019 を使用している場合は、 **[NuGet パッケージの復元]** を選択してリビルドしてみる前に、`LoggingLibrary.csproj` で `MSBuild.Sdk.Extras` のバージョンを `2.0.54` に変更する必要があります。 このファイルにアクセスするには、まず (ソリューションの下の) プロジェクトを右クリックして [`Unload Project`] を選択した後、アンロードされたプロジェクトを右クリックして [`Edit LoggingLibrary.csproj`] を選択する必要があります。
+> Visual Studio 2019 を使用している場合は、 **[NuGet パッケージの復元]** を選択してリビルドしてみる前に、`MSBuild.Sdk.Extras` で `2.0.54` のバージョンを `LoggingLibrary.csproj` に変更する必要があります。 このファイルにアクセスするには、まず (ソリューションの下の) プロジェクトを右クリックして [`Unload Project`] を選択した後、アンロードされたプロジェクトを右クリックして [`Edit LoggingLibrary.csproj`] を選択する必要があります。
 
 > [!Note]
 > iOS 用にビルドするには、「[Xamarin.iOS for Visual Studio の概要](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/introduction_to_xamarin_ios_for_visual_studio/)」の説明に従って、ネットワーク接続された Mac を Visual Studio に接続する必要があります。 使用可能な Mac がない場合は、構成マネージャーで iOS プロジェクトをクリアします (上記の手順 3)。
 
 ## <a name="create-and-update-the-nuspec-file"></a>.nuspec ファイルを作成して更新する
 
-1. コマンド プロンプトを開き、`.sln` ファイルの 1 レベル下の `LoggingLibrary` フォルダーに移動して NuGet `spec` コマンドを実行し、初期 `Package.nuspec` ファイルを作成します。
+1. コマンド プロンプトを開き、`LoggingLibrary` ファイルの 1 レベル下の `.sln` フォルダーに移動して NuGet `spec` コマンドを実行し、初期 `Package.nuspec` ファイルを作成します。
 
     ```cli
     nuget spec
@@ -148,7 +148,7 @@ namespace Plugin.LoggingLibrary
 
 ### <a name="add-reference-assemblies"></a>参照アセンブリを追加する
 
-プラットフォーム固有の参照アセンブリを含めるには、サポート対象プラットフォームに応じて、以下の内容を `LoggingLibrary.nuspec` の `<files>` 要素に追加します。
+プラットフォーム固有の参照アセンブリを含めるには、サポート対象プラットフォームに応じて、以下の内容を `<files>` の `LoggingLibrary.nuspec` 要素に追加します。
 
 ```xml
 <!-- Insert below <metadata> element -->
@@ -265,7 +265,7 @@ namespace Plugin.LoggingLibrary
 nuget pack LoggingLibrary.nuspec
 ```
 
-これで `LoggingLibrary.YOUR_NAME.1.0.0.nupkg` が生成されます。 [NuGet パッケージ エクスプローラー](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer)などのツールでこのファイルを開き、すべてのノードを展開すると、以下のコンテンツが表示されます。
+これにより、`LoggingLibrary.YOUR_NAME.1.0.0.nupkg` が生成されます。 [NuGet パッケージ エクスプローラー](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer)などのツールでこのファイルを開き、すべてのノードを展開すると、以下のコンテンツが表示されます。
 
 ![LoggingLibrary パッケージが表示された NuGet パッケージ エクスプローラー](media/Cross-Platform-PackageExplorer.png)
 

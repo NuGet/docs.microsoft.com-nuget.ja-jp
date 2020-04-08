@@ -6,19 +6,19 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
 ms.openlocfilehash: 8c09d6d5662ed6ff0deffa5d45b823ad0992f399
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "78231306"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>クイック スタート: パッケージの作成と公開 (dotnet CLI)
 
 これは、`dotnet`コマンド ライン インターフェイス (CLI) を使用して、.NET クラス ライブラリから NuGet パッケージを作成し、nuget.org に公開する簡単なプロセスです。
 
-## <a name="prerequisites"></a>必須コンポーネント
+## <a name="prerequisites"></a>前提条件
 
-1. `dotnet` CLI を含む [.NET Core SDK](https://www.microsoft.com/net/download/) をインストールします。 Visual Studio 2017 以降、dotnet CLI は .NET Core 関連のワークロードで自動的にインストールされます。
+1. [ CLI を含む ](https://www.microsoft.com/net/download/).NET Core SDK`dotnet` をインストールします。 Visual Studio 2017 以降、dotnet CLI は .NET Core 関連のワークロードで自動的にインストールされます。
 
 1. まだ持っていない場合は、[nuget.org で無料アカウントを登録](https://www.nuget.org/users/account/LogOn?returnUrl=%2F)します。 新しいアカウントを作成すると、確認メールが送信されます。 パッケージをアップロードするには、その前にアカウントを確認する必要があります。
 
@@ -77,7 +77,7 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 
 ### <a name="automatically-generate-package-on-build"></a>ビルド時に自動的にパッケージを生成する
 
-`dotnet build` の実行時に自動的に `dotnet pack` を実行させるには、プロジェクト ファイルの `<PropertyGroup>` 内に次の行を追加します。
+`dotnet pack` の実行時に自動的に `dotnet build` を実行させるには、プロジェクト ファイルの `<PropertyGroup>` 内に次の行を追加します。
 
 ```xml
 <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -111,16 +111,16 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 
 他の NuGet ビデオは、[Channel 9](https://channel9.msdn.com/Series/NuGet-101) および [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_) でご覧いただけます。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 無事に、最初の NuGet パッケージを作成できました。
 
 > [!div class="nextstepaction"]
-> [パッケージの作成](../create-packages/creating-a-package-dotnet-cli.md)
+> [パッケージを作成する](../create-packages/creating-a-package-dotnet-cli.md)
 
 NuGet による提供についてさらに詳しく調べるには、下のリンクを選択してください。
 
-- [パッケージの公開](../nuget-org/publish-a-package.md)
+- [パッケージの発行](../nuget-org/publish-a-package.md)
 - [プレリリース パッケージ](../create-packages/Prerelease-Packages.md)
 - [複数のターゲット フレームワークのサポート](../create-packages/multiple-target-frameworks-project-file.md)
 - [パッケージのバージョン管理](../concepts/package-versioning.md)
