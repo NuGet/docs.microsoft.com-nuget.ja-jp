@@ -6,11 +6,11 @@ ms.author: anangaur
 ms.date: 03/03/2017
 ms.topic: conceptual
 ms.openlocfilehash: c27d0aa2e5c9af9cb15d2f487b93e93aca666214
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547762"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64496605"
 ---
 # <a name="nuget-40-rtm-release-notes"></a>NuGet 4.0 RTM リリース ノート
 
@@ -163,13 +163,13 @@ Visual Studio では、ターゲット フレームワーク バージョンを�
 
 - 既定で、パッケージ形式の選択オプションが無効になっている - [#4468](https://github.com/NuGet/Home/issues/4468)
 
-- パフォーマンス: CreateUAP_CSharp_VS.01.1.Create プロジェクトの Duration_TotalElapsedTime が 3,153.570 ミリ秒 (149.1%) 遅くなった。 ベースライン 26129.02 - [#4452](https://github.com/NuGet/Home/issues/4452)
+- パフォーマンス:CreateUAP_CSharp_VS.01.1.Create プロジェクトの Duration_TotalElapsedTime が 3,153.570 ミリ秒 (149.1%) 遅くなった。 ベースライン 26129.02 - [#4452](https://github.com/NuGet/Home/issues/4452)
 
-- パフォーマンス: ManagedLangs_CS_DDRIT.0300.Rebuild ソリューションの Duration_TotalElapsedTime が 1.5 秒遅くなった。 ベースライン 26105 - [#4441](https://github.com/NuGet/Home/issues/4441)
+- パフォーマンス:ManagedLangs_CS_DDRIT.0300.Rebuild ソリューションの Duration_TotalElapsedTime が 1.5 秒遅くなった。 ベースライン 26105 - [#4441](https://github.com/NuGet/Home/issues/4441)
 
 - マルチ TFM プロジェクトで候補表示が失敗する - [#4419](https://github.com/NuGet/Home/issues/4419)
 
-- パフォーマンス: WebForms_DDRIT.1200.Close Solution の VM_ImagesInMemory_Total_devenv は 3.000 カウント (0.5%) 低下しました。 ベースライン 26123.04 - [#4408](https://github.com/NuGet/Home/issues/4408)
+- パフォーマンス:WebForms_DDRIT.1200.Close Solution の VM_ImagesInMemory_Total_devenv は 3.000 カウント (0.5%) 低下しました。 ベースライン 26123.04 - [#4408](https://github.com/NuGet/Home/issues/4408)
 
 - vsfeedback - netcoreapp1.1 をターゲットとするときのパックの警告 - [#4397](https://github.com/NuGet/Home/issues/4397)
 
@@ -182,7 +182,7 @@ Visual Studio では、ターゲット フレームワーク バージョンを�
 
 - C++ プロジェクトで packageref を使用して NuGet を追加するときに NullReferenceException が発生する - [#4378](https://github.com/NuGet/Home/issues/4378)
 
-- アクセシビリティ: ナレーターで、パッケージをインストールするプロジェクトを選択するためのチェックボックスが読み上げられない - [#4366](https://github.com/NuGet/Home/issues/4366)
+- アクセシビリティ:ナレーターで、パッケージをインストールするプロジェクトを選択するためのチェックボックスが読み上げられない - [#4366](https://github.com/NuGet/Home/issues/4366)
 
 - NuGet VS17 がときどき VSO/VSTS フィードへの接続に失敗する - VS バグ 365798 - [#4365](https://github.com/NuGet/Home/issues/4365)
 
@@ -252,23 +252,23 @@ Visual Studio では、ターゲット フレームワーク バージョンを�
 
 - 参照先プロジェクトをアンロードするビルド ソリューションの後にエラー リストにエラーが発生する - [#4208](https://github.com/NuGet/Home/issues/4208)
 
-- MSB4057: ターゲット "_GenerateRestoreGraphProjectEntry" がプロジェクトに存在しません。 - [#4194](https://github.com/NuGet/Home/issues/4194)
+- MSB4057:ターゲット "_GenerateRestoreGraphProjectEntry" がプロジェクトに存在しません。 - [#4194](https://github.com/NuGet/Home/issues/4194)
 
 - vsfeedback: すべてのプロジェクトを選択するとソリューションがクラッシュする NuGet マネージャー UI - [#4191](https://github.com/NuGet/Home/issues/4191)
 
 - nuget.exe の msbuildpath の末尾にスラッシュがあると、msbuildpath が失敗する - [#4180](https://github.com/NuGet/Home/issues/4180)
 
-- vsfeedback: NuGet の復元で、LinqToTwitter プロジェクトに関するプロジェクト参照の警告を受け取る - [#4156](https://github.com/NuGet/Home/issues/4156)
+- vsfeedback:NuGet の復元で、LinqToTwitter プロジェクトに関するプロジェクト参照の警告を受け取る - [#4156](https://github.com/NuGet/Home/issues/4156)
 
 - `.csproj` のパックに minClientVersion 属性が含まれていない - [#4135](https://github.com/NuGet/Home/issues/4135)
 
 - VS2017 (d15rel 26014.00) で NuGet.Build.Tasks.Pack.dll は遅延署名された状態でリリースされた - [#4122](https://github.com/NuGet/Home/issues/4122)
 
-- VSFeedback: CMake 3.7.1 で生成された VS 2015 プロジェクトの復元に失敗する - [#4114](https://github.com/NuGet/Home/issues/4114)
+- VSFeedback:CMake 3.7.1 で生成された VS 2015 プロジェクトの復元に失敗する - [#4114](https://github.com/NuGet/Home/issues/4114)
 
-- VSFeedback: 復元エラーにより、ビルドで発生する詳細なエラー メッセージがあいまいになることがある - [#4113](https://github.com/NuGet/Home/issues/4113)
+- VSFeedback:復元エラーにより、ビルドで発生する詳細なエラー メッセージがあいまいになることがある - [#4113](https://github.com/NuGet/Home/issues/4113)
 
-- [VSFeedback] Web サイト プロジェクトの NuGet パッケージを復元するときにエラー "値を null にすることはできません" が発生する - [#4092](https://github.com/NuGet/Home/issues/4092)
+- [VSFeedback] Web サイト プロジェクトの NuGet パッケージを復元するときに次のエラーが発生する値を null にすることはできません。 - [#4092](https://github.com/NuGet/Home/issues/4092)
 
 - 移行時に NuGet.PackageManagement.VisualStudio.SolutionRestoreWorker で "オブジェクト参照の例外" がスローされる - [#4067](https://github.com/NuGet/Home/issues/4067)
 
@@ -310,7 +310,7 @@ Visual Studio では、ターゲット フレームワーク バージョンを�
 
 - Restore3 は PackageReferences を TargetFrameworks と結合する。 - [#3504](https://github.com/NuGet/Home/issues/3504)
 
-- VS "15" Preview 4 dev コマンド プロンプトで、Nuget によって予期しないバージョンの MSBuild が選択される - [#3408](https://github.com/NuGet/Home/issues/3408)
+- VS "15" Preview 4 dev コマンド プロンプトで、Nuget によって予期しないバージョンの MSBuild が選択される \- [#3408](https://github.com/NuGet/Home/issues/3408)
 
 - 失敗した復元でターゲット/プロパティ ファイルを書き出す - [#3399](https://github.com/NuGet/Home/issues/3399)
 
@@ -320,7 +320,7 @@ Visual Studio では、ターゲット フレームワーク バージョンを�
 
 - Blend と NuGet の問題 - [#4043](https://github.com/NuGet/Home/issues/4043)
 
-- 4.0.0.2067 を CLI と SDK リポジトリに統合して RC2 と共にリリースする - [#4029](https://github.com/NuGet/Home/issues/4029)
+- 4\.0.0.2067 を CLI と SDK リポジトリに統合して RC2 と共にリリースする - [#4029](https://github.com/NuGet/Home/issues/4029)
 
 - 新しいコア コンソール アプリケーションを作成し、ソリューションを終了し、ソリューションを開き、ソリューションを閉じるときに VS がハングする - [#4008](https://github.com/NuGet/Home/issues/4008)
 

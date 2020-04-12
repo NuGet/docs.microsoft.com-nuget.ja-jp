@@ -7,11 +7,11 @@ ms.date: 08/14/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
 ms.openlocfilehash: 72d707cb9bacd8abbac873ee10b2fd00f233d3cc
-ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58432479"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64496593"
 ---
 # <a name="nuget-43-release-notes"></a>NuGet 4.3 リリース ノート
 
@@ -129,6 +129,6 @@ Visual Studio では、ターゲット フレームワーク バージョンを�
 
 - ロック ファイルに依存関係の診断を入れる - [#1599](https://github.com/NuGet/Home/issues/1599)
 
-## <a name="links-to-github-issues-fixed-in-43-rtm"></a>4.3 RTM で修正された GitHub の懸案事項へのリンク
+## <a name="links-to-github-issues-fixed-in-43-rtm"></a>4\.3 RTM で修正された GitHub の懸案事項へのリンク
 
 [懸案事項リスト](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.3")

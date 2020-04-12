@@ -7,11 +7,11 @@ ms.date: 08/14/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
 ms.openlocfilehash: 3be24a86cc92c4e6d07fcae1dc625a150f28d7b4
-ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58432570"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64498697"
 ---
 # <a name="nuget-44-release-notes"></a>NuGet 4.4 リリース ノート
 
@@ -193,7 +193,7 @@ Visual Studio では、ターゲット フレームワーク バージョンを�
 
 - NuGet の警告およびエラーに関するドキュメントに対する更新 - [#5857](https://github.com/NuGet/Home/issues/5857)
 
-## <a name="links-to-github-issues-fixed-in-44-rtm"></a>4.4 RTM で修正された GitHub の懸案事項へのリンク
+## <a name="links-to-github-issues-fixed-in-44-rtm"></a>4\.4 RTM で修正された GitHub の懸案事項へのリンク
 
 [懸案事項リスト 1](https://github.com/NuGet/Home/issues?q=is:issue+is:closed+milestone:"4.4")
 
