@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: a2f1fed578f1635296892ab925219f0f27883c02
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 7e725d8114cde3de189dc3a648bc5a6c0b0e785b
+ms.sourcegitcommit: 0a63956bf12aaf1b1b45e680bc8e90f97347988c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "67426937"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83367948"
 ---
 # <a name="resolving-disputes-over-nuget-package-names"></a>NuGet パッケージ名に関する争いを解決する
 
@@ -20,10 +20,10 @@ ms.locfileid: "67426937"
 
 このシナリオでは、Nancy には悪意がないように見え、それどころか、自分の時間を使ってコードを作り、Northwind のツールや顧客をサポートしています。 とは言え、Northwind 名の正当な所有者は Northwind です。
 
-以下のプロセスに従うことで、Northwind と Nancy はしかるべき解決に向かい協力し合うことができます。いずれの当事者も開発者コミュニティに貢献することが目的であるからです。 一般的に、NuGet チームが関与する必要はありません。通常、当事者同士、互いの協力があれば問題なく解決します。 事実、NuGet チームがこれまで注目したどの争いにおいても、チームが判断することなく解決しています。
+以下のプロセスに従うことで、Northwind と Nancy はしかるべき解決に向かい協力し合うことができます。いずれの当事者も開発者コミュニティに貢献することが目的であるからです。 一般的に、NuGet チームが関与する必要はありません。通常、当事者同士、互いの協力があれば問題なく解決します。
 
-## <a name="process"></a>Process
+## <a name="process"></a>プロセス
 
-1. パッケージ詳細ページの **[所有者に連絡]** リンクを使用し、争いの相手であるパッケージの所有者に連絡します。 丁寧かつ明確に問題を説明します。
+1. パッケージ詳細ページの **[Contact Owners]\(所有者に問い合わせ\)** リンクを使い、争いの元になっているパッケージの所有者に連絡を取ります。 問題についてはっきりと、ただし穏やかに説明します。
 2. [support@nuget.org](mailto:support@nuget.org) にメッセージのコピーを送信し、NuGet と .NET Foundation に争いについて知らせます。
 3. 解決まで最大 30 日待ちます。それが過ぎたら、[support@nuget.org](mailto:support@nuget.org) に再度通知します。 nuget.org サポート チームが関与し、両当事者と共に解決に努めます。
