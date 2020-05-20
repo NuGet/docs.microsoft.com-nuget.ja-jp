@@ -42,7 +42,7 @@ ms.locfileid: "79428625"
         \netcore
             \MyAssembly.dll
 
-パッケージのビルド時、これらすべてのファイルを簡単に含めるには、`**` の `<files>` セクションに再帰的 `.nuspec` ワイルドカードを使用します。
+パッケージのビルド時、これらすべてのファイルを簡単に含めるには、`.nuspec` の `<files>` セクションに再帰的 `**` ワイルドカードを使用します。
 
 ```xml
 <files>
@@ -69,7 +69,7 @@ ms.locfileid: "79428625"
 
 NuGet では、コンパイル時またはランタイムのアセットを常に 1 つのフォルダーから選択するため、`/ref` からの互換性のあるアセットが存在する場合は、コンパイル時のアセンブリを追加するために `/lib` が無視されます。 同様に、`/runtimes` からの互換性のあるアセットが存在する場合も、ランタイムのために `/lib` が無視されます。
 
-[ マニフェストでこれらのファイルを参照する例については、「](../guides/create-uwp-packages.md)Create UWP Packages`.nuspec`」 (UWP パッケージの作成) を参照してください。
+`.nuspec` マニフェストでこれらのファイルを参照する例については、「[Create UWP Packages](../guides/create-uwp-packages.md)」 (UWP パッケージの作成) を参照してください。
 
 また、[NuGet を使用した Windows ストア アプリのコンポーネントのパッケージ化](https://blogs.msdn.microsoft.com/mim/2013/09/02/packaging-a-windows-store-apps-component-with-nuget-part-2)に関するページもご覧ください。
 
@@ -125,7 +125,7 @@ NuGet ではまた、ダッシュとプロファイル名をフォルダーの�
 
 プロジェクト ファイルをパックするとき、NuGet はそのプロジェクトから依存関係を自動的に生成しようとします。 このセクションに記載されている、 *.nuspec* ファイルを使用した依存関係の宣言に関する情報が必要になるのは、通常は、高度なシナリオだけです。
 
-" *(バージョン 2.0 以降)* " *要素内の* 要素を使って、ターゲット プロジェクトのターゲット フレームワークに対応する `<group>`.nuspec`<dependencies>` でパッケージの依存関係を宣言できます。 詳しくは、[dependencies 要素](../reference/nuspec.md#dependencies-element)に関する記事をご覧ください。
+"*(バージョン 2.0 以降)*" `<dependencies>` 要素内の `<group>` 要素を使って、ターゲット プロジェクトのターゲット フレームワークに対応する *.nuspec* でパッケージの依存関係を宣言できます。 詳しくは、[dependencies 要素](../reference/nuspec.md#dependencies-element)に関する記事をご覧ください。
 
 各グループには、`targetFramework` という名前の属性があり、0 個以上の `<dependency>` 要素が含まれます。 ターゲット フレームワークにプロジェクトのフレームワーク プロファイルとの互換性がある場合、これらの依存関係が一緒にインストールされます。 正確なフレームワーク識別子については、「[ターゲット フレームワーク](../reference/target-frameworks.md)」をご覧ください。
 

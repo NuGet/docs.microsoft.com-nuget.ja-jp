@@ -101,7 +101,7 @@ class VsProjectCapabilitiesPresenceChecker : IVsBooleanSymbolPresenceChecker
 
 ## <a name="responding-to-queries"></a>クエリに応答する
 
-プロジェクトは、`VSHPROPID_ProjectCapabilitiesChecker` を介して `IVsHierarchy::GetProperty` プロパティをサポートすることでこの機能を宣言します。 これは `Microsoft.VisualStudio.Shell.Interop.IVsBooleanSymbolPresenceChecker` アセンブリで定義される `Microsoft.VisualStudio.Shell.Interop.14.0.DesignTime.dll` のインスタンスを返すはずです。 [その NuGet パッケージ](https://www.nuget.org/packages/Microsoft.VisualStudio.Shell.Interop.14.0.DesignTime)をインストールすることでこのアセンブリを参照します。
+プロジェクトは、`IVsHierarchy::GetProperty` を介して `VSHPROPID_ProjectCapabilitiesChecker` プロパティをサポートすることでこの機能を宣言します。 これは `Microsoft.VisualStudio.Shell.Interop.14.0.DesignTime.dll` アセンブリで定義される `Microsoft.VisualStudio.Shell.Interop.IVsBooleanSymbolPresenceChecker` のインスタンスを返すはずです。 [その NuGet パッケージ](https://www.nuget.org/packages/Microsoft.VisualStudio.Shell.Interop.14.0.DesignTime)をインストールすることでこのアセンブリを参照します。
 
 たとえば、次の `case` ステートメントを `IVsHierarchy::GetProperty` メソッドの `switch` ステートメントに追加します。
 

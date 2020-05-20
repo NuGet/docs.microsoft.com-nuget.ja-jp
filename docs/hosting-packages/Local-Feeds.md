@@ -16,7 +16,7 @@ ms.locfileid: "68317592"
 
 ローカル NuGet パッケージのフィードは単に、パッケージを配置するローカル ネットワーク上 (または独自のコンピューターだけ) の階層フォルダー構造です。 これらのフィードは、CLI、パッケージ マネージャー UI、およびパッケージ マネージャー コンソールを使用して、その他すべての NuGet の操作でパッケージ ソースとして使用できます。
 
-ソースを有効にするには、`\\myserver\packages`パッケージ マネージャー UI[ または ](../consume-packages/install-use-packages-visual-studio.md#package-sources)[`nuget sources` コマンドを使用して、そのパス名 (](../reference/cli-reference/cli-ref-sources.md) など) をソースの一覧に追加します。
+ソースを有効にするには、[パッケージ マネージャー UI](../consume-packages/install-use-packages-visual-studio.md#package-sources) または [`nuget sources`](../reference/cli-reference/cli-ref-sources.md) コマンドを使用して、そのパス名 (`\\myserver\packages` など) をソースの一覧に追加します。
 
 > [!Note]
 > 階層フォルダーの構造は、NuGet 3.3 以降でサポートされます。 古いバージョンの NuGet は、パフォーマンスが階層構造よりもはるかに劣る、パッケージを含む 1 つのフォルダーのみを使用します。

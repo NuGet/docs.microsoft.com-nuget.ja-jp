@@ -42,7 +42,7 @@ ms.locfileid: "67427477"
 ```
 
 > [!Note]
-> `packages.config` プロジェクトでは、[ResolveAssemblyReference](https://github.com/Microsoft/msbuild/blob/master/documentation/wiki/ResolveAssemblyReference.md) というプロセスを使用し、`bin\<configuration>\` 出力ディレクトリにアセンブリをコピーします。 プロジェクトのアセンブリがコピーされると、ビルド システムがアセンブリ マニフェストで参照アセンブリを探し、そのアセンブリをコピーし、すべてのアセンブリに再帰的に繰り返します。 つまり、`lib\<tfm>\` ディレクトリのいずれかのアセンブリが他のアセンブリのマニフェストに依存関係として一覧表示されない場合 (`Assembly.Load`、MEF、またはその他の依存関係挿入フレームワークを利用し、実行時にアセンブリが読み込まれる場合)、`bin\<configuration>\` にあるとしても、プロジェクトの `bin\<tfm>\` 出力ディレクトリにコピーされないことがあります。
+> `packages.config` プロジェクトでは、[ResolveAssemblyReference](https://github.com/Microsoft/msbuild/blob/master/documentation/wiki/ResolveAssemblyReference.md) というプロセスを使用し、`bin\<configuration>\` 出力ディレクトリにアセンブリをコピーします。 プロジェクトのアセンブリがコピーされると、ビルド システムがアセンブリ マニフェストで参照アセンブリを探し、そのアセンブリをコピーし、すべてのアセンブリに再帰的に繰り返します。 つまり、`lib\<tfm>\` ディレクトリのいずれかのアセンブリが他のアセンブリのマニフェストに依存関係として一覧表示されない場合 (`Assembly.Load`、MEF、またはその他の依存関係挿入フレームワークを利用し、実行時にアセンブリが読み込まれる場合)、`bin\<tfm>\` にあるとしても、プロジェクトの `bin\<configuration>\` 出力ディレクトリにコピーされないことがあります。
 
 ## <a name="example"></a>例
 

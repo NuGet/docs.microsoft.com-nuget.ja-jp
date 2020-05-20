@@ -56,7 +56,7 @@ ms.locfileid: "64496645"
 
 - System.Xml.XmlException: Core Properties パートのルート要素を認識できない。 ライン 2、位置 2。 - [#2718](https://github.com/NuGet/Home/issues/2718)
 
-- テキスト フィールドの `.nuspec` または &lt; をエスケープ処理すると、&gt; がビルドされなくなる - [#2651](https://github.com/NuGet/Home/issues/2651)
+- テキスト フィールドの &lt; または &gt; をエスケープ処理すると、`.nuspec` がビルドされなくなる - [#2651](https://github.com/NuGet/Home/issues/2651)
 
 - nuget.exe 削除で資格情報が求められない (非対話モードで) - [#2626](https://github.com/NuGet/Home/issues/2626)
 

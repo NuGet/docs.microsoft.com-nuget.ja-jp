@@ -67,7 +67,7 @@ Visual Studio では、プロジェクトのプロパティにこれらの値を
 </Project>
 ```
 
-また、`Title`MSBuild pack ターゲット`PackageDescription`に関するセクション、「`PackageTags`依存関係アセットを制御する[」、「](../reference/msbuild-targets.md#pack-target)NuGet メタデータ プロパティ[」に説明されているように、](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)、[、](/dotnet/core/tools/csproj#nuget-metadata-properties) などのオプションのプロパティを設定することもできます。
+また、[MSBuild pack ターゲット](../reference/msbuild-targets.md#pack-target)に関するセクション、「[依存関係アセットを制御する](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)」、「[NuGet メタデータ プロパティ](/dotnet/core/tools/csproj#nuget-metadata-properties)」に説明されているように、`Title`、`PackageDescription`、`PackageTags` などのオプションのプロパティを設定することもできます。
 
 > [!NOTE]
 > 公開用にビルドされたパッケージの場合は、**PackageTags**プロパティに特に注意してください。これらのタグは他のユーザーがパッケージを検索して、パッケージの動作を理解するのに役立ちます。

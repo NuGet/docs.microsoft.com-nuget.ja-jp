@@ -19,7 +19,7 @@ CLI ツールを使用すると、プロジェクトやソリューションで 
 `nuget.exe` CLI は、.NET Framework プロジェクトと非 SDK スタイルのプロジェクト (例: .NET Standard ライブラリを対象とする非 SDK スタイルのプロジェクト) 用です。 `PackageReference` に移行された非 SDK スタイルのプロジェクトを使用している場合、代わりに `dotnet` CLI を使用してください。 `nuget.exe` CLI には、パッケージ参照のために [packages.config](../reference/packages-config.md) ファイルが必要になります。
 
 > [!NOTE]
-> ほとんどのシナリオでは、PackageReference に [ を使用する ](../consume-packages/migrate-packages-config-to-package-reference.md)非 SDK スタイルのプロジェクトを移行する`packages.config`ことをお勧めします。そうすることで、`dotnet` CLI の代わりに `nuget.exe` CLI を使用できます。 C++ プロジェクトと ASP.NET プロジェクトについては、現在のところ、移行を利用できません。
+> ほとんどのシナリオでは、PackageReference に `packages.config` を使用する [非 SDK スタイルのプロジェクトを移行する](../consume-packages/migrate-packages-config-to-package-reference.md)ことをお勧めします。そうすることで、`nuget.exe` CLI の代わりに `dotnet` CLI を使用できます。 C++ プロジェクトと ASP.NET プロジェクトについては、現在のところ、移行を利用できません。
 
 この記事では、最も一般的ないくつかの `nuget.exe` CLI コマンドの基本的な使用方法を説明します。 これらのコマンドの多くでは、コマンドにプロジェクト ファイルが指定されていない限り、CLI ツールは現在のディレクトリでプロジェクト ファイルを探します。 コマンドと使用できる引数の完全一覧については、「[nuget.exe CLI reference](../reference/nuget-exe-cli-reference.md)」(nuget.exe CLI リファレンス) を参照してください。
 

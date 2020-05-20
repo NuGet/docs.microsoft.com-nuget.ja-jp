@@ -16,7 +16,7 @@ ms.locfileid: "64495911"
 
 Visual Studio のパッケージ マネージャー UI とコンソールに加え、NuGet は [Managed Extensibility Framework (MEF)](/dotnet/framework/mef/index) を通じていくつかの便利なサービスもエクスポートします。 このインターフェイスでは、Visual Studio 内の他のコンポーネントが NuGet とやり取りできるるため、パッケージのインストールやアンインストール、インストールされているパッケージに関する情報の取得に使用することができます。
 
-NuGet 3.3 以降では、NuGet は次のサービスをエクスポートします。これらはすべて `NuGet.VisualStudio` アセンブリ内の `NuGet.VisualStudio.dll` 名前空間にあります。
+NuGet 3.3 以降では、NuGet は次のサービスをエクスポートします。これらはすべて `NuGet.VisualStudio.dll` アセンブリ内の `NuGet.VisualStudio` 名前空間にあります。
 
 - [`IRegistryKey`](#iregistrykey-interface): レジストリ サブキーから値を取得するメソッド。
 - [`IVsPackageInstaller`](#ivspackageinstaller-interface): プロジェクトに NuGet パッケージをインストールするメソッド。

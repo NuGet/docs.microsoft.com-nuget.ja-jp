@@ -90,7 +90,7 @@ dotnet remove package Newtonsoft.Json
 
 ## <a name="update-a-package"></a>パッケージを更新する
 
-NuGet では、パッケージ バージョンを指定しない限り (`dotnet add package` スイッチ)、`-v` コマンドの使用時、最新版のパッケージがインストールされます。
+NuGet では、パッケージ バージョンを指定しない限り (`-v` スイッチ)、`dotnet add package` コマンドの使用時、最新版のパッケージがインストールされます。
 
 ## <a name="restore-packages"></a>パッケージの復元
 

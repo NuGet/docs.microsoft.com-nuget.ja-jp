@@ -25,7 +25,7 @@ Windows の Visual Studio で .NET Standard クラス ライブラリから NuGe
 
 1. まだインストールされていない場合、`dotnet` CLI をインストールします。
 
-   `dotnet` CLI について、Visual Studio 2017 以降、`dotnet` CLI は .NET Core 関連のワークロードと共に自動的にインストールされます。 それ以外の場合は、[.NET Core SDK](https://www.microsoft.com/net/download/) をインストールして `dotnet` CLI を取得します。 `dotnet`SDK スタイルの形式[ (SDK 属性) を使用する .NET Standard プロジェクトには、](../resources/check-project-format.md) CLI が必要です。 Visual Studio 2017 以降の既定の .NET Standard クラス ライブラリ テンプレート (この記事で使用するものです) では、SDK 属性が使用されます。
+   `dotnet` CLI について、Visual Studio 2017 以降、`dotnet` CLI は .NET Core 関連のワークロードと共に自動的にインストールされます。 それ以外の場合は、[.NET Core SDK](https://www.microsoft.com/net/download/) をインストールして `dotnet` CLI を取得します。 [SDK スタイルの形式](../resources/check-project-format.md) (SDK 属性) を使用する .NET Standard プロジェクトには、`dotnet` CLI が必要です。 Visual Studio 2017 以降の既定の .NET Standard クラス ライブラリ テンプレート (この記事で使用するものです) では、SDK 属性が使用されます。
    
    > [!Important]
    > 非 SDK スタイルのプロジェクトを使用している場合は、代わりに [.NET Framework パッケージの作成と公開 (Visual Studio)](create-and-publish-a-package-using-visual-studio-net-framework.md) に関するページの手順に従って、パッケージの作成と公開を行ってください。 この記事では、`dotnet` CLI を使用することをお勧めします。 `nuget.exe` CLI を使用してもあらゆる NuGet パッケージを公開できますが、この記事の手順の一部は SDK スタイルのプロジェクトと dotnet CLI に固有のものです。 nuget.exe CLI は、[非 SDK 形式のプロジェクト](../resources/check-project-format.md) (通常は .NET Framework) 用に使用されます。

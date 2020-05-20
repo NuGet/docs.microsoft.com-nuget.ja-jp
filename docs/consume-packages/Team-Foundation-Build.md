@@ -84,7 +84,7 @@ nuget restore path\to\solution.sln
 ### <a name="ignore-files"></a>ファイルを無視
 
 > [!Note]
-> 現在、[NuGet クライアントに既知のバグ](https://nuget.codeplex.com/workitem/4072)があり、そのためにクライアントが依然として `packages` フォルダーをバージョン管理に追加します。 回避策は、ソース管理の統合を無効にすることです。 そのためには、ソリューションと並列な `Nuget.Config ` フォルダーに `.nuget` ファイルが必要です。 このフォルダーがまだ存在しない場合は、それを作成する必要があります。 [`Nuget.Config`](../consume-packages/configuring-nuget-behavior.md) に次のコンテンツを追加します。
+> 現在、[NuGet クライアントに既知のバグ](https://nuget.codeplex.com/workitem/4072)があり、そのためにクライアントが依然として `packages` フォルダーをバージョン管理に追加します。 回避策は、ソース管理の統合を無効にすることです。 そのためには、ソリューションと並列な `.nuget` フォルダーに `Nuget.Config ` ファイルが必要です。 このフォルダーがまだ存在しない場合は、それを作成する必要があります。 [`Nuget.Config`](../consume-packages/configuring-nuget-behavior.md) に次のコンテンツを追加します。
 
 ```xml
 <configuration>

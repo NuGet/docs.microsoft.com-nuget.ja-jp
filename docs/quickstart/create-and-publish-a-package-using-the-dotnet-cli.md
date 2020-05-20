@@ -18,7 +18,7 @@ ms.locfileid: "78231306"
 
 ## <a name="prerequisites"></a>前提条件
 
-1. [ CLI を含む ](https://www.microsoft.com/net/download/).NET Core SDK`dotnet` をインストールします。 Visual Studio 2017 以降、dotnet CLI は .NET Core 関連のワークロードで自動的にインストールされます。
+1. `dotnet` CLI を含む [.NET Core SDK](https://www.microsoft.com/net/download/) をインストールします。 Visual Studio 2017 以降、dotnet CLI は .NET Core 関連のワークロードで自動的にインストールされます。
 
 1. まだ持っていない場合は、[nuget.org で無料アカウントを登録](https://www.nuget.org/users/account/LogOn?returnUrl=%2F)します。 新しいアカウントを作成すると、確認メールが送信されます。 パッケージをアップロードするには、その前にアカウントを確認する必要があります。
 
@@ -77,7 +77,7 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 
 ### <a name="automatically-generate-package-on-build"></a>ビルド時に自動的にパッケージを生成する
 
-`dotnet pack` の実行時に自動的に `dotnet build` を実行させるには、プロジェクト ファイルの `<PropertyGroup>` 内に次の行を追加します。
+`dotnet build` の実行時に自動的に `dotnet pack` を実行させるには、プロジェクト ファイルの `<PropertyGroup>` 内に次の行を追加します。
 
 ```xml
 <GeneratePackageOnBuild>true</GeneratePackageOnBuild>

@@ -22,7 +22,7 @@ ms.locfileid: "78231753"
 
 1. Visual Studio 2019。 [visualstudio.com](https://www.visualstudio.com/) から無料の 2019 Community Edition をインストールします。Professional Edition と Enterprise Edition を使用することもできます。
 
-1. NuGet CLI。 `nuget.exe`nuget.org/downloads[ から最新バージョンの ](https://nuget.org/downloads) をダウンロードして、任意の場所に保存します (`.exe`を直接ダウンロードします)。 次に、その場所を PATH 環境変数に追加します (まだ存在していない場合)。 [詳細についてはこちらをご覧ください](/nuget/reference/nuget-exe-cli-reference#windows)。
+1. NuGet CLI。 [nuget.org/downloads](https://nuget.org/downloads) から最新バージョンの `nuget.exe` をダウンロードして、任意の場所に保存します (`.exe`を直接ダウンロードします)。 次に、その場所を PATH 環境変数に追加します (まだ存在していない場合)。 [詳細についてはこちらをご覧ください](/nuget/reference/nuget-exe-cli-reference#windows)。
 
 ## <a name="create-a-uwp-windows-runtime-component"></a>UWP Windows ランタイム コンポーネントを作成する
 

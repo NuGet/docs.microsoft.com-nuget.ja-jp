@@ -50,9 +50,9 @@ ms.locfileid: "73610711"
 
     このボックスをオンまたはオフにするとパッケージ マネージャー UI とインストールできるバージョンの一覧が更新されます。
 
-- **パッケージ マネージャー コンソール**: `-IncludePrerelease`、`Find-Package`、`Get-Package`、`Install-Package`、`Sync-Package` コマンドで `Update-Package` スイッチを使用します。 「[PowerShell Reference](../reference/powershell-reference.md)」 (PowerShell リファレンス) を参照してください。
+- **パッケージ マネージャー コンソール**: `Find-Package`、`Get-Package`、`Install-Package`、`Sync-Package`、`Update-Package` コマンドで `-IncludePrerelease` スイッチを使用します。 「[PowerShell Reference](../reference/powershell-reference.md)」 (PowerShell リファレンス) を参照してください。
 
-- **NuGet CLI**: `-prerelease`、`install`、`update`、`delete` コマンドで `mirror` スイッチを使用します。 「[NuGet CLI reference](../reference/nuget-exe-cli-reference.md)」 (NuGet CLI リファレンス) を参照してください。
+- **NuGet CLI**: `install`、`update`、`delete`、`mirror` コマンドで `-prerelease` スイッチを使用します。 「[NuGet CLI reference](../reference/nuget-exe-cli-reference.md)」 (NuGet CLI リファレンス) を参照してください。
 
 ## <a name="semantic-versioning"></a>セマンティック バージョニング
 
@@ -73,7 +73,7 @@ ms.locfileid: "73610711"
 - `-rc`: リリース候補。一般的に、重大なバグが現れない限り、最終版 (安定版) となる可能性があるリリース。
 
 > [!Note]
-> NuGet 4.3.0 以降は、[ のように、ドット表記のプレリリース番号をサポートする](https://semver.org/spec/v2.0.0.html)セマンティック バージョニング v2.0.0`1.0.1-build.23` をサポートしています。 ドット表記は、バージョン 4.3.0 より前の NuGet ではサポートされていません。 以前のバージョンの NuGet では、`1.0.1-build23` のような形式を使用できましたが、これは常にプレリリース版と見なされていました。
+> NuGet 4.3.0 以降は、`1.0.1-build.23` のように、ドット表記のプレリリース番号をサポートする[セマンティック バージョニング v2.0.0](https://semver.org/spec/v2.0.0.html) をサポートしています。 ドット表記は、バージョン 4.3.0 より前の NuGet ではサポートされていません。 以前のバージョンの NuGet では、`1.0.1-build23` のような形式を使用できましたが、これは常にプレリリース版と見なされていました。
 
 ただし、どのようなサフィックスを使用する場合でも、NuGet はアルファベットの逆順で優先順序を与えます。
 

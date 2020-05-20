@@ -6,7 +6,7 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 04/07/2020
 ms.locfileid: "80151265"
 ---
-パッケージの NuGet.org ページに表示される、パッケージの省略可能な説明は、`<description></description>` ファイルで使用されている `.csproj` から取得されるか、または `$description`.nuspec ファイル[の ](../../reference/nuspec.md) を経由して取得されます。
+パッケージの NuGet.org ページに表示される、パッケージの省略可能な説明は、`.csproj` ファイルで使用されている `<description></description>` から取得されるか、または [.nuspec ファイル](../../reference/nuspec.md)の `$description` を経由して取得されます。
 
 "_description_" フィールドの例は、.NET パッケージ用の `.csproj` ファイルの次の XML テキストに示されています。
 

@@ -20,7 +20,7 @@ PackageReference の場合、MSBuild 条件を使用し、ターゲット フレ
 
 ## <a name="project-type-support"></a>プロジェクトの種類のサポート
 
-既定では、PackageReference は、Windows 10 Build 15063 (Creators Update) 以降を対象とする .NET Core プロジェクト、.NET Standard プロジェクト、および UWP プロジェクトに使用されます。ただし、C++ UWP プロジェクトは例外です。 .NET Framework プロジェクトは PackageReference をサポートしていますが、現在の既定は `packages.config` です。 PackageReference を使用するには、依存関係を [ からプロジェクト ファイルに "](../consume-packages/migrate-packages-config-to-package-reference.md)移行`packages.config`" してから、packages.config を削除します。
+既定では、PackageReference は、Windows 10 Build 15063 (Creators Update) 以降を対象とする .NET Core プロジェクト、.NET Standard プロジェクト、および UWP プロジェクトに使用されます。ただし、C++ UWP プロジェクトは例外です。 .NET Framework プロジェクトは PackageReference をサポートしていますが、現在の既定は `packages.config` です。 PackageReference を使用するには、依存関係を `packages.config` からプロジェクト ファイルに "[移行](../consume-packages/migrate-packages-config-to-package-reference.md)" してから、packages.config を削除します。
 
 完全な .NET Framework を対象とする ASP.NET アプリには、PackageReference の[制限されたサポート](https://github.com/NuGet/Home/issues/5877)しか追加されません。 C++ および JavaScript のプロジェクト タイプはサポートされていません。
 
@@ -112,7 +112,7 @@ PackageReference プロジェクトでは、推移的な依存関係バージョ
 | compile | `lib` フォルダーの内容と、プロジェクトをフォルダー内のアセンブリに対してコンパイルできるかどうかのコントロール |
 | runtime | `lib` と `runtimes` フォルダーの内容と、これらのアセンブリがコピーされて出力ディレクトリをビルドするかどうかのコントロール |
 | contentFiles | `contentfiles` フォルダーの内容 |
-| build | `.props` フォルダー内の `.targets` と `build` |
+| build | `build` フォルダー内の `.props` と `.targets` |
 | buildMultitargeting | *(4.0)* `.props` フォルダー内の `.targets` と `buildMultitargeting` (フレームワーク間でのターゲット設定用) |
 | buildTransitive | *(5.0 以降)* `.props` フォルダー内の `.targets` と `buildTransitive` (使用するプロジェクトに推移的にフローするアセット用)。 [機能](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior)に関するページをご覧ください。 |
 | analyzers | .NET アナライザー |
@@ -139,13 +139,13 @@ PackageReference プロジェクトでは、推移的な依存関係バージョ
 `build` は `PrivateAssets` で含まれないため、targets と props は親プロジェクトに*流れる*ことに注目してください。 たとえば、上記の参照は、AppLogger という名前の NuGet パッケージをビルドするプロジェクトで使用されます。 AppLogger は、AppLogger を使用するプロジェクトと同様に、`Contoso.Utility.UsefulStuff` から targets と props を使用できます。
 
 > [!NOTE]
-> `developmentDependency` ファイル内で `true` が `.nuspec` に設定されている場合、パッケージが開発専用の依存関係としてマークされます。これにより、そのパッケージは他のパッケージに依存関係として含まれなくなります。 PackageReference *(NuGet 4.8 以降)* では、このフラグは、コンパイルからコンパイル時アセットを除外することも意味します。 詳しくは、「[DevelopmentDependency support for PackageReference (PackageReference に対する DevelopmentDependency のサポート)](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference)」をご覧ください。
+> `.nuspec` ファイル内で `developmentDependency` が `true` に設定されている場合、パッケージが開発専用の依存関係としてマークされます。これにより、そのパッケージは他のパッケージに依存関係として含まれなくなります。 PackageReference *(NuGet 4.8 以降)* では、このフラグは、コンパイルからコンパイル時アセットを除外することも意味します。 詳しくは、「[DevelopmentDependency support for PackageReference (PackageReference に対する DevelopmentDependency のサポート)](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference)」をご覧ください。
 
 ## <a name="adding-a-packagereference-condition"></a>PackageReference 条件を追加する
 
 条件を使用し、パッケージを含めるかどうかを制御できます。条件では、あらゆる MSBuild 変数や、targets または props ファイルに定義されている変数を使用できます。 ただし、現在のところ `TargetFramework` 変数のみに対応しています。
 
-たとえば、`netstandard1.4` と共に `net452` を対象とするが、`net452` にのみ該当する依存関係があるとします。 その場合、パッケージを使用する `netstandard1.4` プロジェクトでは、その不要な依存関係を追加することが望まれません。 それを回避するために、次のように `PackageReference` で条件を指定します。
+たとえば、`net452` と共に `netstandard1.4` を対象とするが、`net452` にのみ該当する依存関係があるとします。 その場合、パッケージを使用する `netstandard1.4` プロジェクトでは、その不要な依存関係を追加することが望まれません。 それを回避するために、次のように `PackageReference` で条件を指定します。
 
 ```xml
 <ItemGroup>
@@ -175,7 +175,7 @@ PackageReference プロジェクトでは、推移的な依存関係バージョ
 この機能を使用できるのは、NuGet **5.0** 以降で、かつ Visual Studio 2019 **16.0** 以降を使用している場合です。
 
 場合によっては、MSBuild ターゲットからパッケージ内のファイルを参照することが望ましい場合があります。
-`packages.config` ベースのプロジェクトでは、パッケージは、プロジェク トファイルに対して相対的なフォルダーにインストールされます。 ただし、PackageReference では、パッケージは "[グローバルパッケージ](../concepts/package-installation-process.md)" フォルダーから*使用*されます。このフォルダーは、マシンごとに異なる場合があります。
+`packages.config` ベースのプロジェクトでは、パッケージは、プロジェク トファイルに対して相対的なフォルダーにインストールされます。 ただし、PackageReference では、パッケージは "*グローバルパッケージ*" フォルダーから[使用](../concepts/package-installation-process.md)されます。このフォルダーは、マシンごとに異なる場合があります。
 
 このギャップを埋めるために、NuGet では、パッケージの使用元となる場所を指すプロパティが導入されました。
 
@@ -346,7 +346,7 @@ ProjectA
              |------>PackageX 1.0.0
 ```
 
-`ProjectA` が `PackageX` のバージョン `2.0.0` に依存し、`ProjectB` のバージョン `PackageX` に依存する `1.0.0` も参照している場合、`ProjectB` のロック ファイルでは `PackageX` のバージョン `1.0.0` に対する依存関係が記載されます。 ただし、`ProjectA` をビルドすると、そのロック ファイルには `PackageX` のバージョン **`2.0.0`** に対する依存関係が含まれます。**のロック ファイルに記載されている** では`1.0.0`ありません`ProjectB`。 したがって、共通コード プロジェクトのロックファイルは、それが依存するプロジェクトのために解決されるパッケージに対して強い力を持っていません。
+`ProjectA` が `PackageX` のバージョン `2.0.0` に依存し、`PackageX` のバージョン `1.0.0` に依存する `ProjectB` も参照している場合、`ProjectB` のロック ファイルでは `PackageX` のバージョン `1.0.0` に対する依存関係が記載されます。 ただし、`ProjectA` をビルドすると、そのロック ファイルには `PackageX` のバージョン **`2.0.0`** に対する依存関係が含まれます。**のロック ファイルに記載されている** では`1.0.0`ありません`ProjectB`。 したがって、共通コード プロジェクトのロックファイルは、それが依存するプロジェクトのために解決されるパッケージに対して強い力を持っていません。
 
 ### <a name="lock-file-extensibility"></a>ロック ファイルの拡張機能
 

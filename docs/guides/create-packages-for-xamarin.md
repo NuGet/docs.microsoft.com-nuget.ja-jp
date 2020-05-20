@@ -50,7 +50,7 @@ Xamarin 用 パッケージには、実行時のオペレーティング シス�
 
 結果として得られるソリューションには、以下のようなさまざまなプラットフォーム固有のプロジェクトと共に、2 つの共有プロジェクトが含まれます。
 
-- `ILoggingLibrary` ファイルに含まれる `ILoggingLibrary.shared.cs` プロジェクトでは、コンポーネントのパブリック インターフェイス (API のアクセス領域) が定義されます。 これは、ライブラリへのインターフェイスを定義する場所です。
+- `ILoggingLibrary.shared.cs` ファイルに含まれる `ILoggingLibrary` プロジェクトでは、コンポーネントのパブリック インターフェイス (API のアクセス領域) が定義されます。 これは、ライブラリへのインターフェイスを定義する場所です。
 - もう 1 つの共有プロジェクトでは、`CrossLoggingLibrary.shared.cs` に、実行時に抽象インターフェイスのプラットフォーム固有の実装を検索するコードが含まれています。 通常、このファイルを変更する必要はありません。
 - `LoggingLibrary.android.cs` などのプラットフォーム固有の各プロジェクトには、その対応する `LoggingLibraryImplementation.cs` (VS 2017) または `LoggingLibrary.<PLATFORM>.cs` (VS 2019) ファイルに、インターフェイスのネイティブ実装が含まれています。 これは、ライブラリのコードをビルドする場所です。
 
@@ -109,14 +109,14 @@ namespace Plugin.LoggingLibrary
 1. ソリューションを右クリックし、 **[ソリューションのビルド]** を選択して作業内容を確認し、次にパッケージ化する成果物を生成します。 欠落している参照に関するエラーが発生した場合は、ソリューションを右クリックし、 **[NuGet パッケージの復元]** を選択して依存関係をインストールしてからリビルドします。
 
 > [!Note]
-> Visual Studio 2019 を使用している場合は、 **[NuGet パッケージの復元]** を選択してリビルドしてみる前に、`MSBuild.Sdk.Extras` で `2.0.54` のバージョンを `LoggingLibrary.csproj` に変更する必要があります。 このファイルにアクセスするには、まず (ソリューションの下の) プロジェクトを右クリックして [`Unload Project`] を選択した後、アンロードされたプロジェクトを右クリックして [`Edit LoggingLibrary.csproj`] を選択する必要があります。
+> Visual Studio 2019 を使用している場合は、**[NuGet パッケージの復元]** を選択してリビルドしてみる前に、`LoggingLibrary.csproj` で `MSBuild.Sdk.Extras` のバージョンを `2.0.54` に変更する必要があります。 このファイルにアクセスするには、まず (ソリューションの下の) プロジェクトを右クリックして [`Unload Project`] を選択した後、アンロードされたプロジェクトを右クリックして [`Edit LoggingLibrary.csproj`] を選択する必要があります。
 
 > [!Note]
 > iOS 用にビルドするには、「[Xamarin.iOS for Visual Studio の概要](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/introduction_to_xamarin_ios_for_visual_studio/)」の説明に従って、ネットワーク接続された Mac を Visual Studio に接続する必要があります。 使用可能な Mac がない場合は、構成マネージャーで iOS プロジェクトをクリアします (上記の手順 3)。
 
 ## <a name="create-and-update-the-nuspec-file"></a>.nuspec ファイルを作成して更新する
 
-1. コマンド プロンプトを開き、`LoggingLibrary` ファイルの 1 レベル下の `.sln` フォルダーに移動して NuGet `spec` コマンドを実行し、初期 `Package.nuspec` ファイルを作成します。
+1. コマンド プロンプトを開き、`.sln` ファイルの 1 レベル下の `LoggingLibrary` フォルダーに移動して NuGet `spec` コマンドを実行し、初期 `Package.nuspec` ファイルを作成します。
 
     ```cli
     nuget spec
@@ -148,7 +148,7 @@ namespace Plugin.LoggingLibrary
 
 ### <a name="add-reference-assemblies"></a>参照アセンブリを追加する
 
-プラットフォーム固有の参照アセンブリを含めるには、サポート対象プラットフォームに応じて、以下の内容を `<files>` の `LoggingLibrary.nuspec` 要素に追加します。
+プラットフォーム固有の参照アセンブリを含めるには、サポート対象プラットフォームに応じて、以下の内容を `LoggingLibrary.nuspec` の `<files>` 要素に追加します。
 
 ```xml
 <!-- Insert below <metadata> element -->

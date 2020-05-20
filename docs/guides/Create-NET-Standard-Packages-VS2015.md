@@ -37,7 +37,7 @@ ms.locfileid: "72380719"
 
 1. 表示された **[ポータブル クラス ライブラリの追加]** ダイアログ ボックスで、`.NET Framework 4.6` と `ASP.NET Core 1.0` のオプションを選択します。 (.NET Framework をターゲットにしている場合は、どちらか適切なオプションを選択できます。)
 
-1. .NET Standard をターゲットにしている場合、ソリューション エクスプローラーで `AppLogger (Portable)` を右クリックして **[プロパティ]** を選択し、 **[ライブラリ]** タブを選択してから **[ターゲット]** セクションの **[ターゲットの .NET Platform Standard]** を選択します。 この動作によって確認を促すメッセージが表示され、以降はドロップ ダウンから `.NET Standard 1.4` (または、使用可能な別のバージョン) を選択できるようになります。
+1. .NET Standard をターゲットにしている場合、ソリューション エクスプローラーで `AppLogger (Portable)` を右クリックして **[プロパティ]** を選択し、**[ライブラリ]** タブを選択してから **[ターゲット]** セクションの **[ターゲットの .NET Platform Standard]** を選択します。 この動作によって確認を促すメッセージが表示され、以降はドロップ ダウンから `.NET Standard 1.4` (または、使用可能な別のバージョン) を選択できるようになります。
 
     ![.NET Standard 1.4 へのターゲットの設定](media/NetStandard-ChangeTarget.png)
 
@@ -62,7 +62,7 @@ ms.locfileid: "72380719"
 
 ## <a name="create-and-update-the-nuspec-file"></a>.nuspec ファイルを作成して更新する
 
-1. コマンド プロンプトを開き、(`AppLogger.csproj` ファイルの 1 レベル下の) `.sln` フォルダーを含むフォルダーに移動して NuGet `spec` コマンドを実行し、初期 `AppLogger.nuspec` ファイルを作成します。
+1. コマンド プロンプトを開き、(`.sln` ファイルの 1 レベル下の) `AppLogger.csproj` フォルダーを含むフォルダーに移動して NuGet `spec` コマンドを実行し、初期 `AppLogger.nuspec` ファイルを作成します。
 
     ```cli
     nuget spec

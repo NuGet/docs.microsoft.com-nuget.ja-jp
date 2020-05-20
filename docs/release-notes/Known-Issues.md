@@ -39,7 +39,7 @@ NuGet 3.4 および 3.4.1 で NuGet アドインを使用している場合、�
 
 ![ソースがない NuGet の構成](./media/knownIssue-34-NoSources.PNG)
 
-`NuGet.Config` (Windows) フォルダーまたは `%AppData%\NuGet\` (Mac/Linux) フォルダーの `~/.nuget/` ファイルが誤って空になります。 この問題を解決するには、Visual Studio を終了し (Windows で該当する場合)、`NuGet.Config` ファイルを削除し、操作をやり直します。 NuGet から新しい `NuGet.Config` が生成され、続行できるようになります。
+`%AppData%\NuGet\` (Windows) フォルダーまたは `~/.nuget/` (Mac/Linux) フォルダーの `NuGet.Config` ファイルが誤って空になります。 この問題を解決するには、Visual Studio を終了し (Windows で該当する場合)、`NuGet.Config` ファイルを削除し、操作をやり直します。 NuGet から新しい `NuGet.Config` が生成され、続行できるようになります。
 
 ## <a name="error-installing-packages-with-nuget-27"></a>NuGet 2.7 を使用してパッケージをインストールするときのエラー
 
