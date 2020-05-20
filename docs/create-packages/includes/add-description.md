@@ -6,9 +6,9 @@ ms.contentlocale: ja-JP
 ms.lasthandoff: 04/07/2020
 ms.locfileid: "80151265"
 ---
-<span data-ttu-id="4e554-101">パッケージの NuGet.org ページに表示される、パッケージの省略可能な説明は、`<description></description>` ファイルで使用されている `.csproj` から取得されるか、または `$description`.nuspec ファイル[の ](../../reference/nuspec.md) を経由して取得されます。</span><span class="sxs-lookup"><span data-stu-id="4e554-101">The package's optional description, displayed on the package's NuGet.org page, is either pulled in from the `<description></description>` used in the `.csproj` file or pulled in via the `$description` in the [.nuspec file](../../reference/nuspec.md).</span></span>
+<span data-ttu-id="079cf-101">パッケージの NuGet.org ページに表示される、パッケージの省略可能な説明は、`.csproj` ファイルで使用されている `<description></description>` から取得されるか、または [.nuspec ファイル](../../reference/nuspec.md)の `$description` を経由して取得されます。</span><span class="sxs-lookup"><span data-stu-id="079cf-101">The package's optional description, displayed on the package's NuGet.org page, is either pulled in from the `<description></description>` used in the `.csproj` file or pulled in via the `$description` in the [.nuspec file](../../reference/nuspec.md).</span></span>
 
-<span data-ttu-id="4e554-102">"_description_" フィールドの例は、.NET パッケージ用の `.csproj` ファイルの次の XML テキストに示されています。</span><span class="sxs-lookup"><span data-stu-id="4e554-102">An example of a _description_ field is shown in the following XML text of the `.csproj` file for a .NET package:</span></span>
+<span data-ttu-id="079cf-102">"_description_" フィールドの例は、.NET パッケージ用の `.csproj` ファイルの次の XML テキストに示されています。</span><span class="sxs-lookup"><span data-stu-id="079cf-102">An example of a _description_ field is shown in the following XML text of the `.csproj` file for a .NET package:</span></span>
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
