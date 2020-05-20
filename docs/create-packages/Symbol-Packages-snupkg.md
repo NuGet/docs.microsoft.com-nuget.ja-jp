@@ -25,7 +25,7 @@ ms.locfileid: "80380419"
 
 ## <a name="prerequisites"></a>前提条件
 
-必要な [NuGet プロトコル](https://www.nuget.org/downloads)を実装する [nuget.exe v4.9.0 以上](https://www.microsoft.com/net/download/dotnet-core/2.2) または [dotnet CLI v2.2.0 以上](../api/nuget-protocols.md)。
+必要な [NuGet プロトコル](../api/nuget-protocols.md)を実装する [nuget.exe v4.9.0 以上](https://www.nuget.org/downloads) または [dotnet CLI v2.2.0 以上](https://www.microsoft.com/net/download/dotnet-core/2.2)。
 
 ## <a name="creating-a-symbol-package"></a>シンボル パッケージを作成する
 
