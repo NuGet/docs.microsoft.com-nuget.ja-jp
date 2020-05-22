@@ -1,6 +1,6 @@
 # [ドキュメントの概要](index.yml)
 # [NuGet とは何ですか?](what-is-nuget.md)
-# はじめに
+# 作業開始
 ## [NuGet クライアント ツールのインストール](install-nuget-client-tools.md)
 ## [パッケージをインストールして使用する (dotnet CLI)](quickstart/install-and-use-a-package-using-the-dotnet-cli.md)
 ## [パッケージをインストールして使用する (Visual Studio)](quickstart/install-and-use-a-package-in-visual-studio.md)
@@ -69,7 +69,7 @@
 ## [パッケージのインストール プロセス](concepts/package-installation-process.md)
 ## [パッケージのバージョン管理](concepts/package-versioning.md)
 ## [依存関係の解決](concepts/dependency-resolution.md)
-# リファレンス
+# 関連項目
 ## [.nuspec](reference/nuspec.md)
 ## [nuget.config ファイル](reference/nuget-config-file.md)
 ## [ターゲット フレームワーク](reference/target-frameworks.md)
@@ -81,13 +81,13 @@
 ### [delete](reference/cli-reference/cli-ref-delete.md)
 ### [help or ?](reference/cli-reference/cli-ref-help.md)
 ### [init](reference/cli-reference/cli-ref-init.md)
-### [インストール](reference/cli-reference/cli-ref-install.md)
+### [install](reference/cli-reference/cli-ref-install.md)
 ### [list](reference/cli-reference/cli-ref-list.md)
 ### [locals](reference/cli-reference/cli-ref-locals.md)
 ### [mirror](reference/cli-reference/cli-ref-mirror.md)
 ### [pack](reference/cli-reference/cli-ref-pack.md)
 ### [push](reference/cli-reference/cli-ref-push.md)
-### [復元 (restore)](reference/cli-reference/cli-ref-restore.md)
+### [restore](reference/cli-reference/cli-ref-restore.md)
 ### [setapikey](reference/cli-reference/cli-ref-setapikey.md)
 ### [sign](reference/cli-reference/cli-ref-sign.md)
 ### [sources](reference/cli-reference/cli-ref-sources.md)
@@ -97,7 +97,7 @@
 ### [trusted-signers](reference/cli-reference/cli-ref-trusted-signers.md)
 ### [環境変数](reference/cli-reference/cli-ref-environment-variables.md)
 ### [長いパスのサポート](reference/cli-reference/cli-ref-long-path.md)
-## [PowerShell リファレンス](reference/powershell-reference.md)
+## [PowerShell の参照資料](reference/powershell-reference.md)
 ### [Add-BindingRedirect](reference/ps-reference/ps-ref-add-bindingredirect.md)
 ### [Find-Package](reference/ps-reference/ps-ref-find-package.md)
 ### [Get-Package](reference/ps-reference/ps-ref-get-package.md)
@@ -122,7 +122,7 @@
 #### [検索](api/search-query-service-resource.md)
 #### [サービス インデックス](api/service-index.md)
 ### [方法: API を使用したすべてのパッケージのクエリ](guides/api/query-for-all-published-packages.md)
-### [転送率の制限](api/rate-limits.md)
+### [速度の制限](api/rate-limits.md)
 ### [nuget.org プロトコル](api/nuget-protocols.md)
 ### [tools.json](api/tools-json.md)
 ## [NuGet クライアント SDK](reference/nuget-client-sdk.md)
@@ -289,6 +289,7 @@
 ## リリース ノート
 ### [既知の問題](release-notes/known-issues.md)
 ### NuGet 5.x
+#### [NuGet 5.6](release-notes/NuGet-5.6.md)
 #### [NuGet 5.5](release-notes/NuGet-5.5.md)
 #### [NuGet 5.4](release-notes/NuGet-5.4.md)
 #### [NuGet 5.3](release-notes/NuGet-5.3.md)
@@ -357,6 +358,6 @@
 #### [NuGet 1.3](release-notes/NuGet-1.3.md)
 #### [NuGet 1.2](release-notes/NuGet-1.2.md)
 #### [NuGet 1.1](release-notes/NuGet-1.1.md)
-## [FAQ](resources/nuget-faq.md)
+## [よく寄せられる質問](resources/nuget-faq.md)
 ## [プロジェクトの形式](resources/check-project-format.md)
 # [NuGet.org](nuget-org/overview-nuget-org.md)
