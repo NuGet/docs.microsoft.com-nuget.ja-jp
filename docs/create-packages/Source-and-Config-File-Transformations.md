@@ -15,7 +15,7 @@ ms.locfileid: "78231176"
 ---
 # <a name="transforming-source-code-and-configuration-files"></a>ソース コードと構成ファイルの変換
 
-**ソース コード変換**は、パッケージがインストールされるときに、パッケージの `content` または `contentFiles` フォルダー (`content` を使用している場合は `packages.config`、`contentFiles` を使用している場合は `PackageReference`) のファイルに一方向トークンの置き換えを適用します。この場合、トークンは、Visual Studio [プロジェクトのプロパティ](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7)を参照します。 これにより、プロジェクトの名前空間にファイルを挿入したり、ASP.NET プロジェクトで通常は `global.asax` に置かれるコードをカスタマイズしたりすることができます。
+**ソース コード変換**は、パッケージがインストールされるときに、パッケージの `content` または `contentFiles` フォルダー (`packages.config` を使用している場合は `content`、`PackageReference` を使用している場合は `contentFiles`) のファイルに一方向トークンの置き換えを適用します。この場合、トークンは、Visual Studio [プロジェクトのプロパティ](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7)を参照します。 これにより、プロジェクトの名前空間にファイルを挿入したり、ASP.NET プロジェクトで通常は `global.asax` に置かれるコードをカスタマイズしたりすることができます。
 
 **構成ファイルの変換**を使用して、`web.config` や `app.config` などのターゲット プロジェクトに既に存在するファイルを変更することができます。 たとえば、場合によっては、パッケージで構成ファイルの `modules` セクションに項目を追加する必要があります。 この変換は、構成ファイルに追加するセクションを記述するパッケージ内の特別なファイルを含めることで行われます。 パッケージがアンインストールされるときには、同じ変更が、逆に行われ、これを双方向の変換にします。
 
@@ -61,7 +61,7 @@ XDT を使用することの利点は、2 つの静的なファイルを単純�
 
 ### <a name="xml-transforms"></a>XML 変換
 
-パッケージの `app.config.transform` フォルダーの `web.config.transform` と `content` は、プロジェクトの既存の `app.config` および `web.config` ファイルにマージする要素のみを含んでいます。
+パッケージの `content` フォルダーの `app.config.transform` と `web.config.transform` は、プロジェクトの既存の `app.config` および `web.config` ファイルにマージする要素のみを含んでいます。
 
 例のように、プロジェクトが最初に `web.config` 内に次のコンテンツを含んでいると仮定します。
 
@@ -113,11 +113,11 @@ NuGet が `modules` セクションを置き換えずに、新しい要素と特
 ### <a name="xdt-transforms"></a>XDT 変換
 
 > [!Note]
-> [`packages.config` から `PackageReference` への移行に関するドキュメントのパッケージの互換性の問題に関するセクション](../consume-packages/migrate-packages-config-to-package-reference.md#package-compatibility-issues)で説明したように、XDT 変換は、以下で説明するように、`packages.config` でのみサポートされています。 次のファイルをパッケージに追加すると、`PackageReference` でパッケージを使用しているコンシューマーには変換が適用されません (XDT 変換を [ で動作するようにするには、](https://github.com/NuGet/Samples/tree/master/XDTransformExample)このサンプル`PackageReference`を参照してください)。
+> [`packages.config` から `PackageReference` への移行に関するドキュメントのパッケージの互換性の問題に関するセクション](../consume-packages/migrate-packages-config-to-package-reference.md#package-compatibility-issues)で説明したように、XDT 変換は、以下で説明するように、`packages.config` でのみサポートされています。 次のファイルをパッケージに追加すると、`PackageReference` でパッケージを使用しているコンシューマーには変換が適用されません (XDT 変換を `PackageReference` で動作するようにするには、[このサンプル](https://github.com/NuGet/Samples/tree/master/XDTransformExample)を参照してください)。
 
-[XDT 構文](https://msdn.microsoft.com/library/dd465326.aspx)を使用して構成ファイルを変更することができます。 [ 区切り文字 (大文字と小文字は区別されません) 内にプロパティ名を含めることにより、NuGet でトークンを](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7)プロジェクト プロパティ`$`に置き換えることもできます。
+[XDT 構文](https://msdn.microsoft.com/library/dd465326.aspx)を使用して構成ファイルを変更することができます。 `$` 区切り文字 (大文字と小文字は区別されません) 内にプロパティ名を含めることにより、NuGet でトークンを[プロジェクト プロパティ](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7)に置き換えることもできます。
 
-たとえば、次の `app.config.install.xdt` ファイルは、プロジェクトの `appSettings`、`app.config`、`FullPath` 値を含む `FileName` に `ActiveConfigurationSettings` 要素を挿入します。
+たとえば、次の `app.config.install.xdt` ファイルは、プロジェクトの `FullPath`、`FileName`、`ActiveConfigurationSettings` 値を含む `app.config` に `appSettings` 要素を挿入します。
 
 ```xml
 <?xml version="1.0"?>
