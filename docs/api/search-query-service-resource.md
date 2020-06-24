@@ -6,34 +6,38 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: be25e9bf72b9115de8ae55f6296195fed3152f10
-ms.sourcegitcommit: ac9a00ccaf90e539a381e92b650074910b21eb0d
+ms.openlocfilehash: aed591ceba00f1820a573eacf312112db0a1c69e
+ms.sourcegitcommit: 7e9c0630335ef9ec1e200e2ee9065f702e52a8ec
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70235115"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85292276"
 ---
 # <a name="search"></a>検索
 
-V3 API を使用して、パッケージソースで利用可能なパッケージを検索することができます。 検索に使用されるリソースは`SearchQueryService` 、[サービスインデックス](service-index.md)で検出されたリソースです。
+V3 API を使用して、パッケージソースで利用可能なパッケージを検索することができます。 検索に使用されるリソースは、 `SearchQueryService` [サービスインデックス](service-index.md)で検出されたリソースです。
 
 ## <a name="versioning"></a>バージョン管理
 
-次`@type`の値が使用されます。
+次の `@type` 値が使用されます。
 
 @type の値                   | メモ
 ----------------------------- | -----
 SearchQueryService            | 最初のリリース
-SearchQueryService/3.0.0-beta | エイリアス`SearchQueryService`
-SearchQueryService/3.0.0-rc   | エイリアス`SearchQueryService`
+SearchQueryService/3.0.0-ベータ | エイリアス`SearchQueryService`
+SearchQueryService/3.0.0   | エイリアス`SearchQueryService`
+SearchQueryService/3.5.0      | クエリパラメーターのサポートを含む `packageType`
 
-## <a name="base-url"></a>[基本 URL]
+### <a name="searchqueryservice350"></a>SearchQueryService/3.5.0
+このバージョンでは、 `packageType` クエリパラメーターと応答プロパティのサポートが導入されており `packageTypes` 、作成者が定義したパッケージの種類でフィルター処理できます。 に対するクエリと完全に下位互換性が `SearchQueryService` あります。
 
-次の API のベース URL は、前述のいずれか`@id`のリソース`@type`値に関連付けられているプロパティの値です。 次のドキュメントでは、プレースホルダーのベース`{@id}` URL が使用されます。
+## <a name="base-url"></a>ベース URL
+
+次の API のベース URL は、 `@id` 前述のいずれかのリソース値に関連付けられているプロパティの値です `@type` 。 次のドキュメントでは、プレースホルダーのベース URL `{@id}` が使用されます。
 
 ## <a name="http-methods"></a>HTTP メソッド
 
-登録リソースで見つかったすべての url は、HTTP `GET`メソッド`HEAD`とをサポートしています。
+登録リソースで見つかったすべての Url は、HTTP メソッドとをサポートして `GET` `HEAD` います。
 
 ## <a name="search-for-packages"></a>パッケージの検索
 
@@ -41,73 +45,85 @@ SearchQueryService/3.0.0-rc   | エイリアス`SearchQueryService`
 
 一覧にないパッケージは、検索結果に表示されません。
 
-    GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
+    GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}&packageType={PACKAGETYPE}
 
 ### <a name="request-parameters"></a>要求パラメーター
 
-名前        | イン     | 型    | 必須 | メモ
+名前        | /     | 型    | 必須 | メモ
 ----------- | ------ | ------- | -------- | -----
-q           | URL    | string  | Ｘ       | パッケージをフィルター処理するために使用する検索語句
-skip        | URL    | integer | Ｘ       | 改ページ位置の自動修正のためにスキップする結果の数
-take        | URL    | integer | Ｘ       | 改ページ位置の自動修正の対象となる結果の数
-prerelease  | URL    | boolean | Ｘ       | `true`また`false`は[プレリリースパッケージ](../create-packages/prerelease-packages.md)を含めるかどうかを判断する
-semVerLevel | URL    | string  | Ｘ       | SemVer 1.0.0 のバージョン文字列 
+q           | URL    | string  | no       | パッケージをフィルター処理するために使用する検索語句
+skip        | URL    | 整数 (integer) | no       | 改ページ位置の自動修正のためにスキップする結果の数
+take        | URL    | 整数 (integer) | no       | 改ページ位置の自動修正の対象となる結果の数
+リリース  | URL    | boolean | no       | `true`または `false` [プレリリースパッケージ](../create-packages/prerelease-packages.md)を含めるかどうかを判断する
+semVerLevel | URL    | string  | no       | SemVer 1.0.0 のバージョン文字列 
+packageType | URL    | string  | no       | パッケージをフィルター処理するために使用するパッケージの種類 (で追加 `SearchQueryService/3.5.0` )
 
-検索クエリ`q`は、サーバー実装によって定義された方法で解析されます。 nuget.org では、さまざまな[フィールド](../consume-packages/finding-and-choosing-packages.md#search-syntax)に対する基本的なフィルター処理がサポートされています。 `q`が指定されていない場合は、skip および take によって設定された境界内で、すべてのパッケージが返される必要があります。 これにより、NuGet Visual Studio エクスペリエンスの [参照] タブが有効になります。
+検索クエリは、 `q` サーバー実装によって定義された方法で解析されます。 nuget.org では、さまざまな[フィールド](../consume-packages/finding-and-choosing-packages.md#search-syntax)に対する基本的なフィルター処理がサポートされています。 が指定されていない場合は、 `q` skip および take によって設定された境界内で、すべてのパッケージが返される必要があります。 これにより、NuGet Visual Studio エクスペリエンスの [参照] タブが有効になります。
 
-パラメーター `skip`の既定値は0です。
+`skip`パラメーターの既定値は0です。
 
-パラメーター `take`には、0より大きい整数を指定してください。 サーバーの実装では、最大値が適用される場合があります。
+パラメーターには、 `take` 0 より大きい整数を指定してください。 サーバーの実装では、最大値が適用される場合があります。
 
-が`prerelease`指定されていない場合、プレリリースパッケージは除外されます。
+が指定されて `prerelease` いない場合、プレリリースパッケージは除外されます。
 
-クエリ`semVerLevel`パラメーターは、 [semver 2.0.0 パッケージ](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29#identifying-semver-v200-packages)にオプトインするために使用されます。
+`semVerLevel`クエリパラメーターは、 [semver 2.0.0 パッケージ](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29#identifying-semver-v200-packages)にオプトインするために使用されます。
 このクエリパラメーターを除外すると、SemVer 1.0.0 互換バージョンのパッケージのみが返されます (4 つの整数部分を持つバージョン文字列など、NuGet のバージョン管理に関する[標準的](../concepts/package-versioning.md)な注意点があります)。
-を`semVerLevel=2.0.0`指定した場合、semver 1.0.0 と semver 2.0.0 互換性のあるパッケージの両方が返されます。 詳細については、 [nuget.org の Semver 2.0.0 のサポート](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29)を参照してください。
+を指定した場合 `semVerLevel=2.0.0` 、semver 1.0.0 と semver 2.0.0 互換性のあるパッケージの両方が返されます。 詳細については、 [nuget.org の Semver 2.0.0 のサポート](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29)を参照してください。
+
+パラメーターを使用すると、パッケージの種類 `packageType` 名と一致するパッケージの種類が少なくとも1つあるパッケージのみに検索結果をさらに絞り込むことができます。
+指定されたパッケージの種類が、[パッケージの種類のドキュメント](https://github.com/NuGet/Home/wiki/Package-Type-%5BPacking%5D)で定義されている有効なパッケージの種類ではない場合は、空の結果が返されます。
+指定されたパッケージの種類が空の場合、フィルターは適用されません。 つまり、packageType パラメーターに値を渡さないと、パラメーターが渡されなかったかのように動作します。
 
 ### <a name="response"></a>応答
 
-応答は、最大検索結果を`take`含む JSON ドキュメントです。 検索結果はパッケージ ID 別にグループ化されます。
+応答は、最大検索結果を含む JSON ドキュメントです `take` 。 検索結果はパッケージ ID 別にグループ化されます。
 
 ルート JSON オブジェクトには、次のプロパティがあります。
 
-名前      | 種類             | 必須 | メモ
+名前      | Type             | 必須 | メモ
 --------- | ---------------- | -------- | -----
-totalHits | integer          | 可      | 一致の合計数、無視`skip`と`take`
-data      | オブジェクトの配列 | 可      | 要求に一致する検索結果
+totalHits | 整数 (integer)          | はい      | 一致の合計数、無視 `skip` と`take`
+data      | オブジェクトの配列 | はい      | 要求に一致する検索結果
 
-### <a name="search-result"></a>検索結果
+### <a name="search-result"></a>Search result
 
-`data`配列の各項目は、同じパッケージ ID を共有するパッケージバージョンのグループで構成される JSON オブジェクトです。
-オブジェクトには、次のプロパティがあります。
+配列の各項目 `data` は、同じパッケージ ID を共有するパッケージバージョンのグループで構成される JSON オブジェクトです。
+このオブジェクトには、以下のプロパティがあります。
 
-名前           | 種類                       | 必須 | メモ
+名前           | Type                       | 必須 | メモ
 -------------- | -------------------------- | -------- | -----
-id             | string                     | 可      | 一致したパッケージの ID
-version        | string                     | 可      | パッケージの完全な SemVer 2.0.0 バージョン文字列 (ビルドメタデータを含む可能性があります)
-description    | string                     | Ｘ       | 
-versions       | オブジェクトの配列           | 可      | パラメーターに`prerelease`一致するパッケージのすべてのバージョン
-authors        | 文字列または文字列の配列 | Ｘ       | 
-iconUrl        | string                     | Ｘ       | 
-licenseUrl     | string                     | Ｘ       | 
-owners         | 文字列または文字列の配列 | Ｘ       | 
-projectUrl     | string                     | Ｘ       | 
-registration   | string                     | Ｘ       | 関連付けられている[登録インデックス](registration-base-url-resource.md#registration-index)の絶対 URL
-summary        | string                     | Ｘ       | 
-tags           | 文字列または文字列の配列 | Ｘ       | 
-title          | string                     | Ｘ       | 
-totalDownloads | integer                    | Ｘ       | この値は、 `versions`配列内のダウンロードの合計によって推論できます。
-verified       | boolean                    | Ｘ       | パッケージが[検証](../nuget-org/id-prefix-reservation.md)されているかどうかを示す JSON ブール値
+id             | string                     | はい      | 一致したパッケージの ID
+version        | string                     | はい      | パッケージの完全な SemVer 2.0.0 バージョン文字列 (ビルドメタデータを含む可能性があります)
+description    | string                     | no       | 
+versions       | オブジェクトの配列           | はい      | パラメーターに一致するパッケージのすべてのバージョン `prerelease`
+作成者        | 文字列または文字列の配列 | no       | 
+iconUrl        | string                     | no       | 
+licenseUrl     | string                     | no       | 
+owners         | 文字列または文字列の配列 | no       | 
+projectUrl     | string                     | no       | 
+登録   | string                     | no       | 関連付けられている[登録インデックス](registration-base-url-resource.md#registration-index)の絶対 URL
+summary        | string                     | no       | 
+tags           | 文字列または文字列の配列 | no       | 
+title          | string                     | no       | 
+totalDownloads | 整数 (integer)                    | no       | この値は、配列内のダウンロードの合計によって推論できます。 `versions`
+れ       | boolean                    | no       | パッケージが[検証](../nuget-org/id-prefix-reservation.md)されているかどうかを示す JSON ブール値
+packageTypes   | オブジェクトの配列           | はい      | パッケージ作成者によって定義されたパッケージの種類 (で追加 `SearchQueryService/3.5.0` )
 
 Nuget.org では、検証済みのパッケージとは、予約済みの ID プレフィックスに一致し、予約済みのプレフィックスの所有者によって所有されているパッケージ ID を持つパッケージのことです。 詳細については、 [ID プレフィックスの予約に関するドキュメント](../reference/id-prefix-reservation.md)を参照してください。
 
-検索結果オブジェクトに含まれるメタデータは、最新のパッケージバージョンから取得されます。 `versions`配列内の各項目は、次のプロパティを持つ JSON オブジェクトです。
+検索結果オブジェクトに含まれるメタデータは、最新のパッケージバージョンから取得されます。 配列内の各項目 `versions` は、次のプロパティを持つ JSON オブジェクトです。
 
-名前      | 種類    | 必須 | メモ
+名前      | Type    | 必須 | メモ
 --------- | ------- | -------- | -----
-@id       | string  | 可      | 関連付けられている[登録リーフ](registration-base-url-resource.md#registration-leaf)への絶対 URL
-version   | string  | 可      | パッケージの完全な SemVer 2.0.0 バージョン文字列 (ビルドメタデータを含む可能性があります)
-downloads | integer | 可      | この特定のパッケージバージョンのダウンロード回数
+@id       | string  | はい      | 関連付けられている[登録リーフ](registration-base-url-resource.md#registration-leaf)への絶対 URL
+version   | string  | はい      | パッケージの完全な SemVer 2.0.0 バージョン文字列 (ビルドメタデータを含む可能性があります)
+ダウンロード | 整数 (integer) | はい      | この特定のパッケージバージョンのダウンロード回数
+
+配列は、 `packageTypes` 常に少なくとも1つの項目で構成されます。 特定のパッケージ ID のパッケージの種類は、他の検索パラメーターに関して、パッケージの最新バージョンで定義されているパッケージの種類と見なされます。 配列内の各項目 `packageTypes` は、次のプロパティを持つ JSON オブジェクトです。
+
+名前      | Type    | 必須 | Notes
+--------- | ------- | -------- | -----
+name      | string  | はい      | パッケージの種類の名前。
 
 ### <a name="sample-request"></a>要求のサンプル
 

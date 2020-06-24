@@ -6,34 +6,38 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 1179ad649da560766f28c18ab6fa670fd8fa6d8b
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: f574849bf99cd4da4eefd55c3dd5a0648042f0c1
+ms.sourcegitcommit: 7e9c0630335ef9ec1e200e2ee9065f702e52a8ec
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488306"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85292294"
 ---
 # <a name="autocomplete"></a>オートコンプリート
 
-V3 API を使用して、パッケージ ID とバージョンのオートコンプリートエクスペリエンスを構築することができます。 オートコンプリートクエリを作成するために使用`SearchAutocompleteService`されるリソースは、[サービスインデックス](service-index.md)で検出されたリソースです。
+V3 API を使用して、パッケージ ID とバージョンのオートコンプリートエクスペリエンスを構築することができます。 オートコンプリートクエリを作成するために使用されるリソースは、 `SearchAutocompleteService` [サービスインデックス](service-index.md)で検出されたリソースです。
 
 ## <a name="versioning"></a>バージョン管理
 
-次`@type`の値が使用されます。
+次の `@type` 値が使用されます。
 
 @type の値                          | メモ
 ------------------------------------ | -----
 SearchAutocompleteService            | 最初のリリース
 SearchAutocompleteService/3.0.0-ベータ | エイリアス`SearchAutocompleteService`
-SearchAutocompleteService/3.0.0-rc   | エイリアス`SearchAutocompleteService`
+SearchAutocompleteService/3.0.0   | エイリアス`SearchAutocompleteService`
+SearchAutocompleteService/3.5.0      | クエリパラメーターのサポートを含む `packageType`
 
-## <a name="base-url"></a>[基本 URL]
+### <a name="searchautocompleteservice350"></a>SearchAutocompleteService/3.5.0
+このバージョン `packageType` では、クエリパラメーターのサポートが導入されており、作成者が定義したパッケージの種類でフィルター処理できます。 に対するクエリと完全に下位互換性が `SearchAutocompleteService` あります。
 
-次の api のベース URL は、前述のいずれか`@id`のリソース`@type`値に関連付けられているプロパティの値です。 次のドキュメントでは、プレースホルダーのベース`{@id}` URL が使用されます。
+## <a name="base-url"></a>ベース URL
+
+次の Api のベース URL は、 `@id` 前述のいずれかのリソース値に関連付けられているプロパティの値です `@type` 。 次のドキュメントでは、プレースホルダーのベース URL `{@id}` が使用されます。
 
 ## <a name="http-methods"></a>HTTP メソッド
 
-登録リソースで見つかったすべての url は、HTTP `GET`メソッド`HEAD`とをサポートしています。
+登録リソースで見つかったすべての Url は、HTTP メソッドとをサポートして `GET` `HEAD` います。
 
 ## <a name="search-for-package-ids"></a>パッケージ Id の検索
 
@@ -41,40 +45,45 @@ SearchAutocompleteService/3.0.0-rc   | エイリアス`SearchAutocompleteService
 
 一覧にないバージョンのみを含むパッケージは、結果に表示されません。
 
-    GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
+    GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}&packageType={PACKAGETYPE}
 
 ### <a name="request-parameters"></a>要求パラメーター
 
-名前        | イン     | 型    | 必須 | メモ
+名前        | /     | 型    | 必須 | メモ
 ----------- | ------ | ------- | -------- | -----
-q           | URL    | string  | Ｘ       | パッケージ Id と比較する文字列
-skip        | URL    | integer | Ｘ       | 改ページ位置の自動修正のためにスキップする結果の数
-take        | URL    | integer | Ｘ       | 改ページ位置の自動修正の対象となる結果の数
-prerelease  | URL    | boolean | Ｘ       | `true`また`false`は[プレリリースパッケージ](../create-packages/prerelease-packages.md)を含めるかどうかを判断する
-semVerLevel | URL    | string  | Ｘ       | SemVer 1.0.0 のバージョン文字列 
+q           | URL    | string  | no       | パッケージ Id と比較する文字列
+skip        | URL    | 整数 (integer) | no       | 改ページ位置の自動修正のためにスキップする結果の数
+take        | URL    | 整数 (integer) | no       | 改ページ位置の自動修正の対象となる結果の数
+リリース  | URL    | boolean | no       | `true`または `false` [プレリリースパッケージ](../create-packages/prerelease-packages.md)を含めるかどうかを判断する
+semVerLevel | URL    | string  | no       | SemVer 1.0.0 のバージョン文字列 
+packageType | URL    | string  | no       | パッケージをフィルター処理するために使用するパッケージの種類 (で追加 `SearchAutocompleteService/3.5.0` )
 
-オートコンプリートクエリ`q`は、サーバー実装によって定義された方法で解析されます。 nuget.org では、パッケージ ID トークンのプレフィックスのクエリをサポートしています。これは、元の文字を camel 形式と記号で表現して生成された ID の一部です。
+オートコンプリートクエリ `q` は、サーバー実装によって定義された方法で解析されます。 nuget.org では、パッケージ ID トークンのプレフィックスのクエリをサポートしています。これは、元の文字を camel 形式と記号で表現して生成された ID の一部です。
 
-パラメーター `skip`の既定値は0です。
+`skip`パラメーターの既定値は0です。
 
-パラメーター `take`には、0より大きい整数を指定してください。 サーバーの実装では、最大値が適用される場合があります。
+パラメーターには、 `take` 0 より大きい整数を指定してください。 サーバーの実装では、最大値が適用される場合があります。
 
-が`prerelease`指定されていない場合、プレリリースパッケージは除外されます。
+が指定されて `prerelease` いない場合、プレリリースパッケージは除外されます。
 
-クエリ`semVerLevel`パラメーターは、 [semver 2.0.0 パッケージ](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29#identifying-semver-v200-packages)にオプトインするために使用されます。
+`semVerLevel`クエリパラメーターは、 [semver 2.0.0 パッケージ](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29#identifying-semver-v200-packages)にオプトインするために使用されます。
 このクエリパラメーターを除外すると、SemVer 1.0.0 互換バージョンのパッケージ Id のみが返されます (4 つの整数部分を持つバージョン文字列など、NuGet のバージョン管理に関する[標準的](../concepts/package-versioning.md)な注意点があります)。
-を`semVerLevel=2.0.0`指定した場合、semver 1.0.0 と semver 2.0.0 互換性のあるパッケージの両方が返されます。 詳細については、 [nuget.org の Semver 2.0.0 のサポート](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29)を参照してください。
+を指定した場合 `semVerLevel=2.0.0` 、semver 1.0.0 と semver 2.0.0 互換性のあるパッケージの両方が返されます。 詳細については、 [nuget.org の Semver 2.0.0 のサポート](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29)を参照してください。
+
+パラメーターを使用して、 `packageType` オートコンプリートの結果をさらにフィルター処理して、パッケージの種類名と一致するパッケージの種類が少なくとも1つあるパッケージのみを表示します。
+指定されたパッケージの種類が、[パッケージの種類のドキュメント](https://github.com/NuGet/Home/wiki/Package-Type-%5BPacking%5D)で定義されている有効なパッケージの種類ではない場合は、空の結果が返されます。
+指定されたパッケージの種類が空の場合、フィルターは適用されません。 つまり、パラメーターに値を渡さないと、パラメーターが渡されなかった `packageType` かのように動作します。
 
 ### <a name="response"></a>応答
 
-応答は、オートコンプリートの結果を`take`含む JSON ドキュメントです。
+応答は、オートコンプリートの結果を含む JSON ドキュメントです `take` 。
 
 ルート JSON オブジェクトには、次のプロパティがあります。
 
-名前      | 種類             | 必須 | メモ
+名前      | Type             | 必須 | メモ
 --------- | ---------------- | -------- | -----
-totalHits | integer          | 可      | 一致の合計数、無視`skip`と`take`
-data      | 文字列の配列 | 可      | 要求に一致するパッケージ Id
+totalHits | 整数 (integer)          | はい      | 一致の合計数、無視 `skip` と`take`
+data      | 文字列の配列 | はい      | 要求に一致するパッケージ Id
 
 ### <a name="sample-request"></a>要求のサンプル
 
@@ -94,15 +103,15 @@ data      | 文字列の配列 | 可      | 要求に一致するパッケージ
 
 ### <a name="request-parameters"></a>要求パラメーター
 
-名前        | イン     | 型    | 必須 | メモ
+名前        | /     | 型    | 必須 | メモ
 ----------- | ------ | ------- | -------- | -----
-id          | URL    | string  | 可      | バージョンをフェッチするパッケージ ID
-prerelease  | URL    | boolean | Ｘ       | `true`また`false`は[プレリリースパッケージ](../create-packages/prerelease-packages.md)を含めるかどうかを判断する
-semVerLevel | URL    | string  | Ｘ       | SemVer 2.0.0 バージョン文字列 
+id          | URL    | string  | はい      | バージョンをフェッチするパッケージ ID
+リリース  | URL    | boolean | no       | `true`または `false` [プレリリースパッケージ](../create-packages/prerelease-packages.md)を含めるかどうかを判断する
+semVerLevel | URL    | string  | no       | SemVer 2.0.0 バージョン文字列 
 
-が`prerelease`指定されていない場合、プレリリースパッケージは除外されます。
+が指定されて `prerelease` いない場合、プレリリースパッケージは除外されます。
 
-クエリ`semVerLevel`パラメーターは、semver 2.0.0 パッケージにオプトインするために使用されます。 このクエリパラメーターを除外すると、SemVer 1.0.0 のバージョンのみが返されます。 を`semVerLevel=2.0.0`指定した場合は、semver 1.0.0 と semver 2.0.0 の両方のバージョンが返されます。 詳細については、 [nuget.org の Semver 2.0.0 のサポート](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29)を参照してください。
+`semVerLevel`クエリパラメーターは、SemVer 2.0.0 パッケージにオプトインするために使用されます。 このクエリパラメーターを除外すると、SemVer 1.0.0 のバージョンのみが返されます。 を指定した場合は `semVerLevel=2.0.0` 、semver 1.0.0 と semver 2.0.0 の両方のバージョンが返されます。 詳細については、 [nuget.org の Semver 2.0.0 のサポート](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29)を参照してください。
 
 ### <a name="response"></a>応答
 
@@ -110,11 +119,11 @@ semVerLevel | URL    | string  | Ｘ       | SemVer 2.0.0 バージョン文字�
 
 ルート JSON オブジェクトには、次のプロパティがあります。
 
-Name      | 種類             | 必須 | メモ
+名前      | Type             | 必須 | メモ
 --------- | ---------------- | -------- | -----
-data      | 文字列の配列 | 可      | 要求に一致するパッケージのバージョン
+data      | 文字列の配列 | はい      | 要求に一致するパッケージのバージョン
 
-がクエリ文字列に指定`data`されている場合、配列内のパッケージバージョン`1.0.0+metadata`に semver 2.0.0 build メタデータ (など) が含まれている可能性があります。 `semVerLevel=2.0.0`
+`data` `1.0.0+metadata` `semVerLevel=2.0.0` がクエリ文字列に指定されている場合、配列内のパッケージバージョンに semver 2.0.0 build メタデータ (など) が含まれている可能性があります。
 
 ### <a name="sample-request"></a>要求のサンプル
 
