@@ -1,22 +1,22 @@
 ---
 title: NuGet CLI spec コマンド
-description: Nuget.exe spec コマンドのリファレンス
+description: nuget.exe spec コマンドのリファレンス
 author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: be6e4fdfe127d5582ecf9983a753a41e6760afe2
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 17603fa30a75c7906f867c96c5d77f31732eaa59
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327569"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622565"
 ---
 # <a name="spec-command-nuget-cli"></a>spec コマンド (NuGet CLI)
 
-**適用対象:** パッケージ作成&bullet;で**サポートされているバージョン:** すべて
+**適用対象:** パッケージ作成で &bullet; **サポートされているバージョン:** すべて
 
-新しいパッケージ`.nuspec`のファイルを生成します。 プロジェクトファイルと同じフォルダー (`.csproj`、 `.vbproj`、 `.fsproj`) で実行すると、 `spec`はトークン`.nuspec`化されたファイルを作成します。 詳細については、「[パッケージの作成](../../create-packages/creating-a-package.md)」を参照してください。
+`.nuspec`新しいパッケージのファイルを生成します。 プロジェクトファイルと同じフォルダー (、、) で実行すると `.csproj` `.vbproj` 、はトークン化 `.fsproj` `spec` されたファイルを作成し `.nuspec` ます。 詳細については、「 [パッケージの作成](../../create-packages/creating-a-package.md)」を参照してください。
 
 ## <a name="usage"></a>使用法
 
@@ -24,18 +24,34 @@ ms.locfileid: "68327569"
 nuget spec [<packageID>] [options]
 ```
 
-ここ`<packageID>`で、は、 `.nuspec`ファイルに保存するオプションのパッケージ識別子です。
+ここ `<packageID>` で、は、ファイルに保存するオプションのパッケージ識別子です `.nuspec` 。
 
-## <a name="options"></a>オプション
+## <a name="options"></a>Options
 
-| オプション | 説明 |
-| --- | --- |
-| AssemblyPath | メタデータに使用するアセンブリへのパスを指定します。 |
-| Force | 既存`.nuspec`のファイルを上書きします。 |
-| ForceEnglishOutput | *(3.5 +)* 不変の英語ベースのカルチャを使用して nuget.exe を強制的に実行します。 |
-| Help | ヘルプのコマンドの情報を表示します。 |
-| NonInteractive | ユーザーの入力または確認のプロンプトを表示しません。 |
-| Verbosity | 出力に表示される詳細データの量を指定します:*normal*、*quiet*、*detailed* |
+- **`-AssemblyPath`**
+
+  メタデータに使用するアセンブリへのパスを指定します。
+
+- **`-Force`**
+
+  既存の `.nuspec` ファイルを上書きします。
+
+
+- **`-ForceEnglishOutput`**
+
+  *(3.5 +)* 不変の英語ベースのカルチャを使用して nuget.exe を強制的に実行します。
+
+- **`-?|-help`**
+
+  コマンドのヘルプ情報を表示します。
+
+- **`-NonInteractive`**
+
+  ユーザーの入力または確認のプロンプトを表示しません。
+
+- **`-Verbosity [normal|quiet|detailed]`**
+
+  出力に表示する詳細の量 `normal` (既定値)、 `quiet` 、またはを指定し `detailed` ます。
 
 「[環境変数](cli-ref-environment-variables.md)」も参照してください。
 

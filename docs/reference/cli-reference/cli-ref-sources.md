@@ -1,22 +1,22 @@
 ---
-title: NuGet CLI source コマンド
-description: Nuget.exe の source コマンドリファレンス
+title: NuGet CLI ソースコマンド
+description: nuget.exe sources コマンドのリファレンス
 author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 94134b87f83e057d5d11a2722d9067fb76cc8e21
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 73c9cea8200a1ab1937d25a9a611ae7f2a943dba
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327599"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622591"
 ---
-# <a name="sources-command-nuget-cli"></a>NuGet CLI source コマンド
+# <a name="sources-command-nuget-cli"></a>sources コマンド (NuGet CLI)
 
-**適用対象:** パッケージの使用、 &bullet; **サポートされるバージョン**の発行: すべて
+**適用対象:** パッケージの使用、 &bullet; **サポートされるバージョン** の発行: すべて
 
-ユーザースコープ構成ファイルまたは指定された構成ファイルにあるソースの一覧を管理します。 ユーザースコープ構成ファイルは、(Windows `%appdata%\NuGet\NuGet.Config` ) と`~/.nuget/NuGet/NuGet.Config` (Mac/Linux) にあります。
+ユーザースコープ構成ファイルまたは指定された構成ファイルにあるソースの一覧を管理します。 ユーザースコープ構成ファイルは、 `%appdata%\NuGet\NuGet.Config` (Windows) と `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) にあります。
 
 ここで、nuget.org のソース URL は `https://api.nuget.org/v3/index.json` となります。
 
@@ -26,24 +26,60 @@ ms.locfileid: "68327599"
 nuget sources <operation> -Name <name> -Source <source>
 ```
 
-ここ`<operation>`で、は*List、Add、Remove、Enable、Disable、* または Update `<name>`のいずれかで、はソース`<source>`の名前、はソースの URL です。 操作できるソースは一度に1つだけです。
+ここで `<operation>` 、は *List、Add、Remove、Enable、Disable、* または *Update*のいずれかで、は `<name>` ソースの名前、 `<source>` はソースの URL です。 操作できるソースは一度に1つだけです。
 
-## <a name="options"></a>オプション
+## <a name="options"></a>Options
 
-| オプション | 説明 |
-| --- | --- |
-| ConfigFile | 適用する NuGet 構成ファイル。 指定されて`%AppData%\NuGet\NuGet.Config`いない場合は`~/.nuget/NuGet/NuGet.Config` 、(Windows) または (Mac/Linux) が使用されます。|
-| ForceEnglishOutput | *(3.5 +)* 不変の英語ベースのカルチャを使用して nuget.exe を強制的に実行します。 |
-| Format | `list`アクションに適用され、 `Detailed` (既定値) または`Short`にすることができます。 |
-| Help | ヘルプのコマンドの情報を表示します。 |
-| NonInteractive | ユーザーの入力または確認のプロンプトを表示しません。 |
-| Password | ソースでの認証に使用するパスワードを指定します。 |
-| StorePasswordInClearText | 暗号化されたフォームを格納する既定の動作ではなく、暗号化されていないテキストにパスワードを格納することを示します。 |
-| UserName | ソースでの認証に使用するユーザー名を指定します。 |
-| Verbosity | 出力に表示される詳細データの量を指定します:*normal*、*quiet*、*detailed* |
+- **`-ConfigFile`**
+
+  適用する NuGet 構成ファイル。 指定されていない場合は、 `%AppData%\NuGet\NuGet.Config` (Windows)、また `~/.nuget/NuGet/NuGet.Config` はまたは `~/.config/NuGet/NuGet.Config` (Mac/Linux) が使用されます。
+
+- **`-ForceEnglishOutput`**
+
+  *(3.5 +)* 不変の英語ベースのカルチャを使用して nuget.exe を強制的に実行します。
+
+- **`-Format`**
+
+  アクションに適用され、 `list` `Detailed` (既定値) またはにすることができ `Short` ます。
+
+- **`-?|-help`**
+
+  コマンドのヘルプ情報を表示します。
+
+- **`-Name`**
+
+  ソースの名前。
+
+- **`-NonInteractive`**
+
+  ユーザーの入力または確認のプロンプトを表示しません。
+
+- **`-Password`**
+
+  ソースでの認証に使用するパスワードを指定します。
+
+- **`-src|-Source`**
+
+  パッケージソースへのパス。
+
+- **`-StorePasswordInClearText`**
+
+  暗号化されたフォームを格納する既定の動作ではなく、暗号化されていないテキストにパスワードを格納することを示します。
+
+- **`-UserName`**
+
+  ソースでの認証に使用するユーザー名を指定します。
+
+- **`-ValidAuthenticationTypes`**
+
+  このソースに対して有効な認証の種類のコンマ区切りのリスト。 既定では、すべての認証の種類が有効です。 例: `basic,negotiate`.
+
+- **`-Verbosity [normal|quiet|detailed]`**
+
+  出力に表示する詳細の量 `normal` (既定値)、 `quiet` 、またはを指定し `detailed` ます。
 
 > [!Note]
-> Nuget を後で使用してパッケージソースにアクセスするのと同じユーザーコンテキストで、ソースのパスワードを追加してください。 パスワードは暗号化されて構成ファイルに格納され、暗号化されたときと同じユーザーコンテキストでのみ暗号化を解除できます。 たとえば、ビルドサーバーを使用して NuGet パッケージを復元する場合、ビルドサーバータスクを実行するのと同じ Windows ユーザーでパスワードを暗号化する必要があります。
+> 後でパッケージソースへのアクセスに使用する nuget.exe と同じユーザーコンテキストで、ソースのパスワードを追加してください。 パスワードは暗号化されて構成ファイルに格納され、暗号化されたときと同じユーザーコンテキストでのみ暗号化を解除できます。 たとえば、ビルドサーバーを使用して NuGet パッケージを復元する場合、ビルドサーバータスクを実行するのと同じ Windows ユーザーでパスワードを暗号化する必要があります。
 
 「[環境変数](cli-ref-environment-variables.md)」も参照してください。
 

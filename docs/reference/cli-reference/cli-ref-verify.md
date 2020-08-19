@@ -1,21 +1,21 @@
 ---
-title: NuGet CLI verify コマンド
-description: Nuget.exe の verify コマンドのリファレンス
+title: NuGet CLI 確認コマンド
+description: nuget.exe verify コマンドのリファレンス
 author: dtivel
 ms.author: dtivel
 ms.date: 03/06/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: 9510f7323fe0cb860e0dbde51c1eda761846ee27
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 2c501753a16820c5d027441001561c6b637ccda9
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327499"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622604"
 ---
 # <a name="verify-command-nuget-cli"></a>verify コマンド (NuGet CLI)
 
-**適用対象:** パッケージの使用&bullet;が**サポートされているバージョン:** 4.6 +
+**適用対象:** パッケージの使用量が &bullet; **サポートされているバージョン:** 4.6 以降
 
 パッケージを検証します。
 
@@ -27,30 +27,43 @@ ms.locfileid: "68327499"
 nuget verify <-All|-Signatures> <package(s)> [options]
 ```
 
-ここ`<package(s)>` で`.nupkg` 、は1つ以上のファイルです。
+ここ `<package(s)>` で、は1つ以上の `.nupkg` ファイルです。
 
-## <a name="nuget-verify--all"></a>nuget verify -All
+## <a name="nuget-verify--all"></a>nuget 検証-すべて
 
 パッケージに対して可能なすべての検証を実行することを指定します。
 
-## <a name="nuget-verify--signatures"></a>nuget verify -Signatures
+## <a name="nuget-verify--signatures"></a>nuget の検証-署名
 
 パッケージ署名の検証を実行する必要があることを指定します。
 
-## <a name="options-for-verify--signatures"></a>"verify -Signatures" のオプション
+## <a name="options-for-verify--signatures"></a>"確認-署名" のオプション
 
-| オプション | 説明 |
-| --- | --- |
-| CertificateFingerprint | 署名されたパッケージに署名する必要がある証明書の1つまたは複数の 256 SHA-1 証明書の指紋を指定します。 証明書 SHA-256 フィンガープリントは、証明書の SHA-256 ハッシュです。 複数の入力をセミコロンで区切る必要があります。 |
+- **`-CertificateFingerprint`**
 
-## <a name="options"></a>オプション
+  署名されたパッケージに署名する必要がある証明書の1つまたは複数の 256 SHA-1 証明書の指紋を指定します。 証明書 SHA-256 フィンガープリントは、証明書の SHA-256 ハッシュです。 複数の入力をセミコロンで区切る必要があります。
 
-| オプション | 説明 |
-| --- | --- |
-| ConfigFile | 適用する NuGet 構成ファイル。 指定されて`%AppData%\NuGet\NuGet.Config`いない場合は`~/.nuget/NuGet/NuGet.Config` 、(Windows) または (Mac/Linux) が使用されます。|
-| ForceEnglishOutput | 不変の英語ベースのカルチャを使用して nuget.exe を強制的に実行します。 |
-| Help | ヘルプのコマンドの情報を表示します。 |
-| Verbosity | 出力に表示される詳細データの量を指定します:*normal*、*quiet*、*detailed* |
+## <a name="options"></a>Options
+
+- **`-ConfigFile`**
+
+  適用する NuGet 構成ファイル。 指定されていない場合は、 `%AppData%\NuGet\NuGet.Config` (Windows)、また `~/.nuget/NuGet/NuGet.Config` はまたは `~/.config/NuGet/NuGet.Config` (Mac/Linux) が使用されます。
+
+- **`-ForceEnglishOutput`**
+
+  不変の英語ベースのカルチャを使用して nuget.exe を強制的に実行します。
+
+- **`-?|-help`**
+
+  コマンドのヘルプ情報を表示します。
+
+- **`-NonInteractive`**
+
+  ユーザーの入力または確認のプロンプトを表示しません。
+
+- **`-Verbosity [normal|quiet|detailed]`**
+
+  出力に表示する詳細の量 `normal` (既定値)、 `quiet` 、またはを指定し `detailed` ます。
 
 ## <a name="examples"></a>使用例
 

@@ -1,25 +1,25 @@
 ---
-title: NuGet CLI の mirror コマンド
-description: Nuget.exe mirror コマンドのリファレンス
+title: NuGet CLI ミラーコマンド
+description: nuget.exe mirror コマンドのリファレンス
 author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 81866172bfbf55c42ee96c213c0117f1f986235c
-ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
+ms.openlocfilehash: a7247aeb21418e78dbfe9be15c2e7cd152aa3f4a
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959710"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622968"
 ---
-# <a name="mirror-command-nuget-cli"></a>mirror コマンド (NuGet CLI)
+# <a name="mirror-command-nuget-cli"></a>mirror コマンド (NuGet CLI)
 
-**適用対象:** パッケージ発行&bullet;が**サポートされているバージョン:** 3.2 以降では非推奨です。
+**適用対象:** パッケージ発行が &bullet; **サポートされているバージョン:** 3.2 以降では非推奨です。
 
 指定されたソースリポジトリからターゲットリポジトリにパッケージとその依存関係をミラー化します。
 
 > [!NOTE]
-> Nuget 2.x で以前にこのコマンドをサポートしていた Nuget.exe と NuGet-Signed (NuGet-Signed を nuget.exe に変更することによって) は、ダウンロードできなくなりました。 このようなコマンドを使用するには、 [NuGetMirror](https://www.nuget.org/packages/NuGetMirror/)を試してください。
+> 以前に NuGet 2.x でこのコマンドをサポートしていた NuGet.ServerExtensions.dll と NuGet-Signed.exe (NuGet-Signed.exe 名前を nuget.exe に変更) は、ダウンロードできなくなりました。 このようなコマンドを使用するには、 [NuGetMirror](https://www.nuget.org/packages/NuGetMirror/)を試してください。
 
 ## <a name="usage"></a>使用法
 
@@ -27,24 +27,45 @@ ms.locfileid: "68959710"
 nuget mirror <packageID | configFilePath> <listUrlTarget> <publishUrlTarget> [options]
 ```
 
-は、ミラー化するパッケージ、また`<configFilePath>`はミラー `packages.config`化するパッケージの一覧を示すファイルを指定します。 `<packageID>`
+`<packageID>`は、ミラー化するパッケージ、または `<configFilePath>` ミラー化 `packages.config` するパッケージの一覧を示すファイルを指定します。
 
-は`<listUrlTarget>`ソースリポジトリ`<publishUrlTarget>`を指定し、はターゲットリポジトリを指定します。
+は `<listUrlTarget>` ソースリポジトリを指定し、は `<publishUrlTarget>` ターゲットリポジトリを指定します。
 
-ターゲットリポジトリが、 [NuGet](../../hosting-packages/nuget-server.md)を`https://machine/repo`実行しているである場合、リストと`https://machine/repo/nuget`プッシュ url はそれぞれと`https://machine/repo/api/v2/package`になります。
+ターゲットリポジトリが、NuGet を実行しているである場合 `https://machine/repo` 、リストとプッシュ url は[NuGet.Server](../../hosting-packages/nuget-server.md) `https://machine/repo/nuget` それぞれと `https://machine/repo/api/v2/package` になります。
 
-## <a name="options"></a>オプション
+## <a name="options"></a>Options
 
-| オプション | 説明 |
-| --- | --- |
-| ApiKey | ターゲットリポジトリの API キー。 存在しない場合は、構成ファイルで指定されている`%AppData%\NuGet\NuGet.Config`ものが使用さ`~/.nuget/NuGet/NuGet.Config`れます ((Windows) または (Mac/Linux))。 |
-| Help | ヘルプのコマンドの情報を表示します。 |
-| NoCache | NuGet がキャッシュされたパッケージを使用しないようにします。 「[グローバルパッケージとキャッシュフォルダーの管理」を](../../consume-packages/managing-the-global-packages-and-cache-folders.md)参照してください。 |
-| Noop | 実行される処理をログに記録しますが、アクションは実行しません。プッシュ操作の成功を想定します。 |
-| PreRelease | ミラーリング操作にプレリリースパッケージを含めます。 |
-| Source | ミラー化するパッケージソースの一覧。 ソースが指定されていない場合は、構成ファイルで定義されているもの (上記の ApiKey を参照) が使用され、何も指定されていない場合は nuget.org が既定値となります。 |
-| Timeout | サーバーにプッシュするときのタイムアウトを秒単位で指定します。 既定値は300秒 (5 分) です。 |
-| Version | インストールするパッケージのバージョン。 指定しない場合、最新バージョンがミラー化されます。 |
+- **`-ApiKey`**
+
+  ターゲットリポジトリの API キー。 存在しない場合は、構成ファイルで指定されているものが使用され `%AppData%\NuGet\NuGet.Config` ます ((Windows) または `~/.nuget/NuGet/NuGet.Config` (Mac/Linux))。
+
+- **`-Help`**
+
+  コマンドのヘルプ情報を表示します。
+
+- **`-NoCache`**
+
+  NuGet がキャッシュされたパッケージを使用しないようにします。 「 [グローバルパッケージとキャッシュフォルダーの管理」を](../../consume-packages/managing-the-global-packages-and-cache-folders.md)参照してください。
+
+- **`-Noop`**
+
+  実行される処理をログに記録しますが、アクションは実行しません。プッシュ操作の成功を想定します。
+
+- **`-PreRelease`**
+
+  ミラーリング操作にプレリリースパッケージを含めます。
+
+- **`-Source`**
+
+  ミラー化するパッケージソースの一覧。 ソースが指定されていない場合は、構成ファイルで定義されているもの (上記の ApiKey を参照) が使用され、何も指定されていない場合は nuget.org が既定値となります。
+
+- **`-Timeout`**
+
+  サーバーにプッシュするときのタイムアウトを秒単位で指定します。 設定値の既定は 300 秒 (5 分) です。
+
+- **`-Version`**
+
+  インストールするパッケージのバージョン。 指定しない場合、最新バージョンがミラー化されます。
 
 「[環境変数](cli-ref-environment-variables.md)」も参照してください。
 

@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: 760bf09cb03608275e2c5406474f572a407a7379
-ms.sourcegitcommit: f29fa9b93fd59e679fab50d7413bbf67da3ea5b3
+ms.openlocfilehash: 28fae46a65bd4c2b7050e12568c21123fc8658c1
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86451126"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88623163"
 ---
 # <a name="nugetconfig-reference"></a>nuget.config リファレンス
 
-NuGet の動作は `NuGet.Config` 、 `nuget.config` 「[一般的な nuget 構成](../consume-packages/configuring-nuget-behavior.md)」で説明されているように、異なるファイルまたはファイルの設定によって制御されます。
+NuGet の動作は `NuGet.Config` 、 `nuget.config` 「 [一般的な nuget 構成](../consume-packages/configuring-nuget-behavior.md)」で説明されているように、異なるファイルまたはファイルの設定によって制御されます。
 
 `nuget.config` は、最上位の `<configuration>` ノードを含む XML ファイルであり、このトピックで説明するセクション要素が含まれます。 各セクションには、0個以上の項目が含まれています。 「[examples config file](#example-config-file)」 (構成ファイルの例) を参照してください。 名前の設定には大文字と小文字の区別があり、値には[環境変数](#using-environment-variables)を使用することができます。
 
@@ -27,7 +27,7 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「[一般的な nuget 構�
 
 には、 [ `nuget config` コマンド](../reference/cli-reference/cli-ref-config.md)を使用して設定できるその他の構成設定が含まれています。
 
-`dependencyVersion`および `repositoryPath` は、を使用するプロジェクトにのみ適用さ `packages.config` れます。 `globalPackagesFolder`PackageReference 形式を使用するプロジェクトにのみ適用されます。
+`dependencyVersion` および `repositoryPath` は、を使用するプロジェクトにのみ適用さ `packages.config` れます。 `globalPackagesFolder` PackageReference 形式を使用するプロジェクトにのみ適用されます。
 
 | キー | 値 |
 | --- | --- |
@@ -132,12 +132,14 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「[一般的な nuget 構�
 ### <a name="packagesourcecredentials"></a>packageSourceCredentials
 
 通常、`-username` スイッチおよび `-password` スイッチと `nuget sources` によって指定される、ソースのユーザー名とパスワードを格納します。 `-storepasswordincleartext` オプションが使用されていない場合、既定ではパスワードが暗号化されます。
+必要に応じて、有効な認証の種類をスイッチで指定でき `-validauthenticationtypes` ます。
 
 | キー | 値 |
 | --- | --- |
 | username | プレーン テキストで表されるソースのユーザー名です。 |
 | password | ソースの暗号されたパスワードです。 暗号化されたパスワードは Windows でのみサポートされ、同じコンピューターで、元の暗号化と同じユーザーが使用する場合にのみ、暗号化を解除できます。 |
 | cleartextpassword | ソースの暗号化されていないパスワードです。 注: 環境変数はセキュリティを強化するために使用できます。 |
+| validauthenticationtypes | このソースに対して有効な認証の種類のコンマ区切りのリスト。 サーバーによって NTLM または Negotiate がアドバタイズされていて、基本メカニズムを使用して資格情報を送信する必要がある場合は、これを `basic` に設定します。たとえば、オンプレミスの Azure DevOps Server で PAT を使用する場合などです。 その他の有効な値には、`negotiate`、`kerberos`、`ntlm`、`digest` などがありますが、これらの値は役に立たない可能性があります。 |
 
 **例:**
 
@@ -182,6 +184,23 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「[一般的な nuget 構�
     <Test_x0020_Source>
         <add key="Username" value="user" />
         <add key="ClearTextPassword" value="hal+9ooo_da!sY" />
+    </Test_x0020_Source>
+</packageSourceCredentials>
+```
+
+また、有効な認証方法を指定することもできます。
+
+```xml
+<packageSourceCredentials>
+    <Contoso>
+        <add key="Username" value="user@contoso.com" />
+        <add key="Password" value="..." />
+        <add key="ValidAuthenticationTypes" value="basic" />
+    </Contoso>
+    <Test_x0020_Source>
+        <add key="Username" value="user" />
+        <add key="ClearTextPassword" value="hal+9ooo_da!sY" />
+        <add key="ValidAuthenticationTypes" value="basic, negotiate" />
     </Test_x0020_Source>
 </packageSourceCredentials>
 ```
@@ -253,7 +272,7 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「[一般的な nuget 構�
 
 信頼できる署名者には、 `certificate` 特定の署名者を識別するすべての証明書を登録する項目のコレクションがあります。 信頼できる署名者は、またはのいずれか `Author` `Repository` です。
 
-信頼された*リポジトリ*では、リポジトリのを指定することもできます `serviceIndex` (これは有効な uri である必要があります)。また、必要に応じて、 `https` のセミコロンで区切られた一覧を指定して、 `owners` その特定のリポジトリから信頼できるユーザーをさらに制限することもできます。
+信頼された *リポジトリ* では、リポジトリのを指定することもできます `serviceIndex` (これは有効な uri である必要があります)。また、必要に応じて、 `https` のセミコロンで区切られた一覧を指定して、 `owners` その特定のリポジトリから信頼できるユーザーをさらに制限することもできます。
 
 証明書のフィンガープリントに使用されるサポートされているハッシュアルゴリズムは `SHA256` 、、 `SHA384` および `SHA512` です。
 
@@ -275,7 +294,7 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「[一般的な nuget 構�
 
 ## <a name="fallbackpackagefolders-section"></a>fallbackPackageFolders セクション
 
-*(3.5 +)* パッケージがフォールバックフォルダーに存在する場合に作業を行う必要がないように、パッケージをプレインストールする方法を提供します。 フォールバックパッケージフォルダーには、グローバルパッケージフォルダーとまったく同じフォルダーとファイル構造があり*ます。 nupkg*は存在し、すべてのファイルが抽出されます。
+*(3.5 +)* パッケージがフォールバックフォルダーに存在する場合に作業を行う必要がないように、パッケージをプレインストールする方法を提供します。 フォールバックパッケージフォルダーには、グローバルパッケージフォルダーとまったく同じフォルダーとファイル構造があり *ます。 nupkg* は存在し、すべてのファイルが抽出されます。
 
 この構成の参照ロジックは次のとおりです。
 
@@ -306,7 +325,7 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「[一般的な nuget 構�
 | キー | 値 |
 | --- | --- |
 | format | 既定のパッケージ管理形式を示すブール値。 `1`の場合、format は PackageReference です。 `0`の場合、format は*packages.config*です。 |
-| disabled | 最初のパッケージのインストール時に既定のパッケージ形式を選択するようにプロンプトを表示するかどうかを示すブール値。 `False`プロンプトを非表示にします。 |
+| disabled | 最初のパッケージのインストール時に既定のパッケージ形式を選択するようにプロンプトを表示するかどうかを示すブール値。 `False` プロンプトを非表示にします。 |
 
 **例**:
 
@@ -323,9 +342,21 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「[一般的な nuget 構�
 
 たとえば、Windows 上の `HOME` 環境変数を `c:\users\username` に設定すると、構成ファイル内の `%HOME%\NuGetRepository` の値は `c:\users\username\NuGetRepository` に解決されます。
 
-Windows スタイルの環境変数を使用する必要があることに注意してください (開始と終了は%)Mac/Linux でも同様です。 `$HOME/NuGetRepository`構成ファイルでのの保持は解決されません。 Mac/Linux では、の値 `%HOME%\NuGetRepository` はに解決され `/home/myStuff/NuGetRepository` ます。
+Windows スタイルの環境変数を使用する必要があることに注意してください (開始と終了は%)Mac/Linux でも同様です。 `$HOME/NuGetRepository`構成ファイルでのの保持は解決されません。 Mac/Linux では、の値 `%HOME%/NuGetRepository` はに解決され `/home/myStuff/NuGetRepository` ます。
 
-環境変数が見つからない場合、NuGet は構成ファイルからのリテラル値を使用します。
+環境変数が見つからない場合、NuGet は構成ファイルからのリテラル値を使用します。 たとえば、次の `%MY_UNDEFINED_VAR%/NuGetRepository` ように解決されます。 `path/to/current_working_dir/$MY_UNDEFINED_VAR/NuGetRepository`
+
+次の表は、NuGet.Config ファイルの環境 variable 構文とパス区切り記号のサポートを示しています。
+
+### <a name="nugetconfig-environment-variable-support"></a>NuGet.Config 環境変数のサポート
+
+| 構文 | Dir の区切り記号 | Windows nuget.exe | Windows dotnet.exe | Mac nuget.exe (Mono) | Mac dotnet.exe |
+|---|---|---|---|---|---|
+| `%MY_VAR%` | `/`  | はい | はい | はい | はい |
+| `%MY_VAR%` | `\`  | はい | はい | いいえ | いいえ |
+| `$MY_VAR` | `/`  | いいえ | いいえ | いいえ | いいえ |
+| `$MY_VAR` | `\`  | いいえ | いいえ | いいえ | いいえ |
+
 
 ## <a name="example-config-file"></a>構成ファイルの例
 
@@ -340,10 +371,10 @@ Windows スタイルの環境変数を使用する必要があることに注意
             See: nuget.exe help install
             See: nuget.exe help update
 
-            In this example, %PACKAGEHOME% is an environment variable. On Mac/Linux,
-            use $PACKAGE_HOME/External as the value.
+            In this example, %PACKAGEHOME% is an environment variable.
+            This syntax works on Windows/Mac/Linux
         -->
-        <add key="repositoryPath" value="%PACKAGEHOME%\External" />
+        <add key="repositoryPath" value="%PACKAGEHOME%/External" />
 
         <!--
             Used to specify default source for the push command.
