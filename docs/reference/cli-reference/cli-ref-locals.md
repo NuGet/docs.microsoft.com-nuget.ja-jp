@@ -1,50 +1,68 @@
 ---
-title: NuGet CLI の locals コマンド
-description: Nuget.exe locals コマンドのリファレンス
+title: NuGet CLI ローカルコマンド
+description: nuget.exe のローカルコマンドのリファレンス
 author: karann-msft
 ms.author: karann
 ms.date: 03/19/2018
 ms.topic: reference
-ms.openlocfilehash: b02360c38ad66c95bbe3c7d403ef4a959112c91a
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: cdc2b760021ffc4a9e02edacb45beac01cc99bf1
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327809"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88623059"
 ---
-# <a name="locals-command-nuget-cli"></a><span data-ttu-id="5947d-103">locals コマンド (NuGet CLI)</span><span class="sxs-lookup"><span data-stu-id="5947d-103">locals command (NuGet CLI)</span></span>
+# <a name="locals-command-nuget-cli"></a><span data-ttu-id="f9fc7-103">[ローカル] コマンド (NuGet CLI)</span><span class="sxs-lookup"><span data-stu-id="f9fc7-103">locals command (NuGet CLI)</span></span>
 
-<span data-ttu-id="5947d-104">**適用対象:** パッケージの使用3&bullet;が**サポートされているバージョン:** 3.3+</span><span class="sxs-lookup"><span data-stu-id="5947d-104">**Applies to:** package consumption &bullet; **Supported versions:** 3.3+</span></span>
+<span data-ttu-id="f9fc7-104">**適用対象:** パッケージの使用量が &bullet; **サポートされているバージョン:** 3.3 以降</span><span class="sxs-lookup"><span data-stu-id="f9fc7-104">**Applies to:** package consumption &bullet; **Supported versions:** 3.3+</span></span>
 
-<span data-ttu-id="5947d-105">*Http キャッシュ*、*グローバルパッケージ*フォルダー、一時フォルダーなどのローカル NuGet リソースをクリアまたは一覧表示します。</span><span class="sxs-lookup"><span data-stu-id="5947d-105">Clears or lists local NuGet resources such as the *http-cache*, *global-packages* folder, and the temp folder.</span></span> <span data-ttu-id="5947d-106">また`locals` 、コマンドを使用して、これらの場所の一覧を表示することもできます。</span><span class="sxs-lookup"><span data-stu-id="5947d-106">The `locals` command can also be used to display a list of those locations.</span></span> <span data-ttu-id="5947d-107">詳細については、「[グローバルパッケージとキャッシュフォルダーの管理](../../consume-packages/managing-the-global-packages-and-cache-folders.md)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="5947d-107">For more information, see [Managing the global packages and cache folders](../../consume-packages/managing-the-global-packages-and-cache-folders.md).</span></span>
+<span data-ttu-id="f9fc7-105">*Http キャッシュ*、*グローバルパッケージ*フォルダー、一時フォルダーなどのローカル NuGet リソースをクリアまたは一覧表示します。</span><span class="sxs-lookup"><span data-stu-id="f9fc7-105">Clears or lists local NuGet resources such as the *http-cache*, *global-packages* folder, and the temp folder.</span></span> <span data-ttu-id="f9fc7-106">また、コマンドを使用して、 `locals` これらの場所の一覧を表示することもできます。</span><span class="sxs-lookup"><span data-stu-id="f9fc7-106">The `locals` command can also be used to display a list of those locations.</span></span> <span data-ttu-id="f9fc7-107">詳細については、「 [グローバルパッケージとキャッシュフォルダーの管理](../../consume-packages/managing-the-global-packages-and-cache-folders.md)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="f9fc7-107">For more information, see [Managing the global packages and cache folders](../../consume-packages/managing-the-global-packages-and-cache-folders.md).</span></span>
 
-## <a name="usage"></a><span data-ttu-id="5947d-108">使用法</span><span class="sxs-lookup"><span data-stu-id="5947d-108">Usage</span></span>
+## <a name="usage"></a><span data-ttu-id="f9fc7-108">使用法</span><span class="sxs-lookup"><span data-stu-id="f9fc7-108">Usage</span></span>
 
 ```cli
 nuget locals <folder> [options]
 ```
 
-<span data-ttu-id="5947d-109">ここ`<folder>`で、は`all`、 `http-cache` `temp` `global-packages` `plugins-cache`、(3.5 以前)、、(3.4 +)、および (4.8 +) のいずれかです。 `packages-cache`</span><span class="sxs-lookup"><span data-stu-id="5947d-109">where `<folder>` is one of `all`, `http-cache`, `packages-cache` *(3.5 and earlier)*, `global-packages`, `temp` *(3.4+)*, and `plugins-cache` *(4.8+)*.</span></span>
+<span data-ttu-id="f9fc7-109">ここで、 `<folder>` は `all` 、 `http-cache` 、 `packages-cache` *(3.5 以前)*、 `global-packages` 、 `temp` *(3.4 +)*、および `plugins-cache` *(4.8 +)* のいずれかです。</span><span class="sxs-lookup"><span data-stu-id="f9fc7-109">where `<folder>` is one of `all`, `http-cache`, `packages-cache` *(3.5 and earlier)*, `global-packages`, `temp` *(3.4+)*, and `plugins-cache` *(4.8+)*.</span></span>
 
-## <a name="options"></a><span data-ttu-id="5947d-110">オプション</span><span class="sxs-lookup"><span data-stu-id="5947d-110">Options</span></span>
+## <a name="options"></a><span data-ttu-id="f9fc7-110">Options</span><span class="sxs-lookup"><span data-stu-id="f9fc7-110">Options</span></span>
 
-| <span data-ttu-id="5947d-111">オプション</span><span class="sxs-lookup"><span data-stu-id="5947d-111">Option</span></span> | <span data-ttu-id="5947d-112">説明</span><span class="sxs-lookup"><span data-stu-id="5947d-112">Description</span></span> |
-| --- | --- |
-| <span data-ttu-id="5947d-113">Clear</span><span class="sxs-lookup"><span data-stu-id="5947d-113">Clear</span></span> | <span data-ttu-id="5947d-114">指定されたフォルダーをクリアします。</span><span class="sxs-lookup"><span data-stu-id="5947d-114">Clears the specified folder.</span></span> |
-| <span data-ttu-id="5947d-115">ConfigFile</span><span class="sxs-lookup"><span data-stu-id="5947d-115">ConfigFile</span></span> | <span data-ttu-id="5947d-116">適用する NuGet 構成ファイル。</span><span class="sxs-lookup"><span data-stu-id="5947d-116">The NuGet configuration file to apply.</span></span> <span data-ttu-id="5947d-117">指定されて`%AppData%\NuGet\NuGet.Config`いない場合は`~/.nuget/NuGet/NuGet.Config` 、(Windows) または (Mac/Linux) が使用されます。</span><span class="sxs-lookup"><span data-stu-id="5947d-117">If not specified, `%AppData%\NuGet\NuGet.Config` (Windows) or `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) is used.</span></span>|
-| <span data-ttu-id="5947d-118">ForceEnglishOutput</span><span class="sxs-lookup"><span data-stu-id="5947d-118">ForceEnglishOutput</span></span> | <span data-ttu-id="5947d-119">*(3.5 +)* 不変の英語ベースのカルチャを使用して nuget.exe を強制的に実行します。</span><span class="sxs-lookup"><span data-stu-id="5947d-119">*(3.5+)* Forces nuget.exe to run using an invariant, English-based culture.</span></span> |
-| <span data-ttu-id="5947d-120">Help</span><span class="sxs-lookup"><span data-stu-id="5947d-120">Help</span></span> | <span data-ttu-id="5947d-121">ヘルプのコマンドの情報を表示します。</span><span class="sxs-lookup"><span data-stu-id="5947d-121">Displays help information for the command.</span></span> |
-| <span data-ttu-id="5947d-122">List</span><span class="sxs-lookup"><span data-stu-id="5947d-122">List</span></span> | <span data-ttu-id="5947d-123">指定したフォルダーの場所、または*すべて*のフォルダーを使用する場合はすべてのフォルダーの場所を一覧表示します。</span><span class="sxs-lookup"><span data-stu-id="5947d-123">Lists the location of the specified folder, or the locations of all folders when used with *all*.</span></span> |
-| <span data-ttu-id="5947d-124">NonInteractive</span><span class="sxs-lookup"><span data-stu-id="5947d-124">NonInteractive</span></span> | <span data-ttu-id="5947d-125">ユーザーの入力または確認のプロンプトを表示しません。</span><span class="sxs-lookup"><span data-stu-id="5947d-125">Suppresses prompts for user input or confirmations.</span></span> |
-| <span data-ttu-id="5947d-126">Verbosity</span><span class="sxs-lookup"><span data-stu-id="5947d-126">Verbosity</span></span> | <span data-ttu-id="5947d-127">出力に表示される詳細データの量を指定します:*normal*、*quiet*、*detailed*</span><span class="sxs-lookup"><span data-stu-id="5947d-127">Specifies the amount of detail displayed in the output: *normal*, *quiet*, *detailed*.</span></span> |
+- **`-Clear`**
 
-<span data-ttu-id="5947d-128">「[環境変数](cli-ref-environment-variables.md)」も参照してください。</span><span class="sxs-lookup"><span data-stu-id="5947d-128">Also see [Environment variables](cli-ref-environment-variables.md)</span></span>
+  <span data-ttu-id="f9fc7-111">指定されたフォルダーをクリアします。</span><span class="sxs-lookup"><span data-stu-id="f9fc7-111">Clears the specified folder.</span></span>
 
-## <a name="examples"></a><span data-ttu-id="5947d-129">使用例</span><span class="sxs-lookup"><span data-stu-id="5947d-129">Examples</span></span>
+- **`-ConfigFile`**
+
+  <span data-ttu-id="f9fc7-112">適用する NuGet 構成ファイル。</span><span class="sxs-lookup"><span data-stu-id="f9fc7-112">The NuGet configuration file to apply.</span></span> <span data-ttu-id="f9fc7-113">指定されていない場合は、 `%AppData%\NuGet\NuGet.Config` (Windows)、また `~/.nuget/NuGet/NuGet.Config` はまたは `~/.config/NuGet/NuGet.Config` (Mac/Linux) が使用されます。</span><span class="sxs-lookup"><span data-stu-id="f9fc7-113">If not specified, `%AppData%\NuGet\NuGet.Config` (Windows), or `~/.nuget/NuGet/NuGet.Config` or `~/.config/NuGet/NuGet.Config` (Mac/Linux) is used.</span></span>
+
+- **`-ForceEnglishOutput`**
+
+  <span data-ttu-id="f9fc7-114">*(3.5 +)* 不変の英語ベースのカルチャを使用して nuget.exe を強制的に実行します。</span><span class="sxs-lookup"><span data-stu-id="f9fc7-114">*(3.5+)* Forces nuget.exe to run using an invariant, English-based culture.</span></span>
+
+- **`-?|-help`**
+
+  <span data-ttu-id="f9fc7-115">コマンドのヘルプ情報を表示します。</span><span class="sxs-lookup"><span data-stu-id="f9fc7-115">Displays help information for the command.</span></span>
+
+- **`-List`**
+
+  <span data-ttu-id="f9fc7-116">指定したフォルダーの場所、または *すべて*のフォルダーを使用する場合はすべてのフォルダーの場所を一覧表示します。</span><span class="sxs-lookup"><span data-stu-id="f9fc7-116">Lists the location of the specified folder, or the locations of all folders when used with *all*.</span></span>
+
+- **`-NonInteractive`**
+
+  <span data-ttu-id="f9fc7-117">ユーザーの入力または確認のプロンプトを表示しません。</span><span class="sxs-lookup"><span data-stu-id="f9fc7-117">Suppresses prompts for user input or confirmations.</span></span>
+
+- **`-Verbosity [normal|quiet|detailed]`**
+
+  <span data-ttu-id="f9fc7-118">出力に表示する詳細の量 `normal` (既定値)、 `quiet` 、またはを指定し `detailed` ます。</span><span class="sxs-lookup"><span data-stu-id="f9fc7-118">Specifies the amount of detail displayed in the output: `normal` (the default), `quiet`, or `detailed`.</span></span>
+
+<span data-ttu-id="f9fc7-119">「[環境変数](cli-ref-environment-variables.md)」も参照してください。</span><span class="sxs-lookup"><span data-stu-id="f9fc7-119">Also see [Environment variables](cli-ref-environment-variables.md)</span></span>
+
+## <a name="examples"></a><span data-ttu-id="f9fc7-120">例</span><span class="sxs-lookup"><span data-stu-id="f9fc7-120">Examples</span></span>
 
 ```cli
 nuget locals all -list
 nuget locals http-cache -clear
 ```
 
-<span data-ttu-id="5947d-130">その他の例については、「[グローバルパッケージとキャッシュフォルダーの管理](../../consume-packages/managing-the-global-packages-and-cache-folders.md)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="5947d-130">For additional examples, see [Managing the global packages and cache folders](../../consume-packages/managing-the-global-packages-and-cache-folders.md).</span></span>
+<span data-ttu-id="f9fc7-121">その他の例については、「 [グローバルパッケージとキャッシュフォルダーの管理](../../consume-packages/managing-the-global-packages-and-cache-folders.md)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="f9fc7-121">For additional examples, see [Managing the global packages and cache folders](../../consume-packages/managing-the-global-packages-and-cache-folders.md).</span></span>
