@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 1c19f962dc9e42154c0f4374432548e867e9538a
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 5dda56ccd4c959bcbcbd12b7a4771ddff1fe7530
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "73610711"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88623007"
 ---
 # <a name="building-pre-release-packages"></a>プレリリース パッケージのビルド
 
@@ -24,7 +24,7 @@ ms.locfileid: "73610711"
 
 次の方法のいずれかを使って、このようなバージョンを指定できます。
 
-- **プロジェクトで [`PackageReference`](../consume-packages/package-references-in-project-files.md) を使う場合**: `.csproj` ファイルの [`PackageVersion`](/dotnet/core/tools/csproj.md#packageversion) 要素にセマンティック バージョン サフィックスを含めます。
+- **プロジェクトで [`PackageReference`](../consume-packages/package-references-in-project-files.md) を使う場合**: `.csproj` ファイルの [`PackageVersion`](/dotnet/core/tools/csproj#packageversion) 要素にセマンティック バージョン サフィックスを含めます。
 
     ```xml
     <PropertyGroup>

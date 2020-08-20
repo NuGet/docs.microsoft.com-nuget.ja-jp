@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/03/2018
 ms.topic: conceptual
-ms.openlocfilehash: be7c10fb6ce60375f77e38f9b604ec33063e52fc
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 2dfbd793eee05169f051d9c8943bc065945b92da
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64498248"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622643"
 ---
 # <a name="packages-in-visual-studio-templates"></a>Visual Studio テンプレートのパッケージ
 
@@ -93,7 +93,7 @@ VSIX 自体は、テンプレートで必要となるパッケージのソース
 1. `.vstemplate` ファイルで次のように `<packages>` 要素を変更します。
 
     ```xml
-    <packages repository="template"">
+    <packages repository="template">
         <!-- ... -->
     </packages>
     ```
@@ -129,7 +129,7 @@ MSI を使用してインストールされる SDK は、開発者のマシン�
         </packages>
         ```
 
-## <a name="best-practices"></a>ベスト プラクティス
+## <a name="best-practices"></a>推奨する運用方法
 
 1. NuGet VSIX で依存関係を宣言するため、VSIX マニフェストに依存関係への参照を追加します。
 
