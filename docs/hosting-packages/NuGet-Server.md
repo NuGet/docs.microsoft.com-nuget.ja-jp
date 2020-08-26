@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 098375b2bba13675ba5d80a27e0226dc2ee39e77
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 7a806e6b586c63c701642c9e43865cb077d7999c
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79059551"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88623046"
 ---
 # <a name="nugetserver"></a>NuGet.Server
 
@@ -26,7 +26,7 @@ NuGet.Server についてさらに質問がある場合は、[https://github.com
 
 ## <a name="create-and-deploy-an-aspnet-web-application-with-nugetserver"></a>NuGet.Server を使用して ASP.NET Web アプリケーションを作成して配置する
 
-1. Visual Studio で、 **[ファイル] > [新規] > [プロジェクト]** を選択し、"ASP.NET Web アプリケーション (.NET Framework)" を検索して、一致する C# 用テンプレートを選択します。
+1. Visual Studio で、 **[ファイル] > [新規] > [プロジェクト]** を選択し、"ASP.NET Web アプリケーション (.NET Framework)" を検索して、一致する **C#** 用テンプレートを選択します。
 
     ![.NET Framework Web プロジェクト テンプレートを選択する](media/Hosting_00-NuGet.Server-ProjectType.png)
 

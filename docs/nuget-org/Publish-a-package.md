@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 02c6c8f3018bfd063c2d16a10381f88b54cac840
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: dc20e43bfb43a4b6e47297fb3446319860034d46
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428637"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88623028"
 ---
 # <a name="publishing-packages"></a>パッケージを公開する
 
@@ -46,7 +46,8 @@ Nuget.org の場合、Microsoft アカウントでサインインする必要が
 
 ### <a name="command-line"></a>コマンド ライン
 
-nuget.org にパッケージをプッシュするには、[nuget.exe v4.1.0 以降](https://www.nuget.org/downloads)を使用する必要があります。これは必須の [NuGet プロトコル](../api/nuget-protocols.md)を実装します。 また、nuget.org 上で作成される API キーも必要です。
+パッケージを nuget.org にプッシュするには、最初に nuget.org に作成された API キーが必要です。必要な NuGet プロトコルを実装する dotnet.exe (.NET Core) または nuget.exe v4.1.0 以上を使用する必要があります。
+詳細については、[.NET Core](https://docs.microsoft.com/dotnet/core/install/)、[nuget.exe](https://www.nuget.org/downloads)、および [NuGet プロトコル](../api/nuget-protocols.md)に関する記事を参照してください。
 
 #### <a name="create-api-keys"></a>API キーの作成
 
@@ -68,7 +69,7 @@ nuget.org にパッケージをプッシュするには、[nuget.exe v4.1.0 以�
 
     > [!NOTE]
     > API キーは、プライベート フィードでの認証には使用されません。 ソースで認証するための資格情報を管理するには、[`nuget sources` コマンド](../reference/cli-reference/cli-ref-sources.md)を参照してください。
-    > API キーは、個々の NuGet サーバーから取得できます。 nuget.org の APIKeys を作成して管理するには、[publish-api-key](../quickstart/includes/publish-api-key.md) を参照してください。
+    > API キーは、個々の NuGet サーバーから取得できます。 nuget.org の API キーを作成して管理するには、「[API キーの作成](#create-api-keys)」を参照してください。
 
 1. 以下のコマンドを使用して、NuGet ギャラリーにパッケージをプッシュします。
 
