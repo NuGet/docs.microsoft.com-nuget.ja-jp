@@ -5,12 +5,12 @@ author: advay26
 ms.author: t-adtand
 ms.date: 08/17/2020
 ms.topic: reference
-ms.openlocfilehash: 35e4906960534299418cb2a17c190476708b2634
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 8d63efefb8f14c03fbe3986d8d7eebcc3eb5bcac
+ms.sourcegitcommit: 6cda91f135e58cf57a2471b0c7c4a2f748f40024
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623253"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89359683"
 ---
 # <a name="search-command-nuget-cli"></a>search コマンド (NuGet CLI)
 
@@ -33,18 +33,16 @@ nuget search [search terms] [options]
 | リリース | プレリリースパッケージは既定では含まれていませんが、この引数を使用して含めることができます。 | -プレリリース |
 | source | __nuget.config__の既定のソースに対してクエリを実行するのではなく、検索する特定のパッケージソース | -ソース `<Source URL>`|
 | Take | 返される結果の数。 既定値は 20 です。 | -Take `<positive integer>` |
-| 詳細度 | 出力に表示する詳細のレベル。 既定値は _normal_です。 (下のメモを参照してください)  | -詳細度 `<quiet\|normal\|detailed>` |
+| 詳細度 | 出力に表示する詳細のレベル。 既定値は _normal_です。 (下のメモを参照してください)  | -詳細度 `<quiet|normal|detailed>` |
 | Help | コマンドのヘルプ情報を表示します。 | -ヘルプ |
 
 「[環境変数](cli-ref-environment-variables.md)」も参照してください。
 
-__注__
-
-詳細レベル:
-
-* _quiet_ -パッケージ ID、バージョン
-* _通常_ -パッケージ ID、バージョン、ダウンロード、説明のプレビュー
-* _詳細_ -パッケージ ID、バージョン、ダウンロード、完全な説明、クエリ URL などのその他の情報
+> [!NOTE] 
+> 詳細レベル:
+> * _quiet_ -パッケージ ID、バージョン
+> * _通常_ -パッケージ ID、バージョン、ダウンロード、説明のプレビュー
+> * _詳細_ -パッケージ ID、バージョン、ダウンロード、完全な説明、クエリ URL などのその他の情報
 
 ## <a name="examples"></a>例
 
