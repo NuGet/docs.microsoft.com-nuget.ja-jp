@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: b615bcb78ad2eaf8524bfbf17864d4652e546ff1
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: c604d20c6358b7da5b1294ae48d9b7452794102f
+ms.sourcegitcommit: 6cda91f135e58cf57a2471b0c7c4a2f748f40024
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80151265"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89359652"
 ---
 パッケージの NuGet.org ページに表示される、パッケージの省略可能な説明は、`.csproj` ファイルで使用されている `<description></description>` から取得されるか、または [.nuspec ファイル](../../reference/nuspec.md)の `$description` を経由して取得されます。
 
@@ -25,5 +25,5 @@ ms.locfileid: "80151265"
       REST API Reference for Blob Service - https://docs.microsoft.com/en-us/rest/api/storageservices/blob-service-rest-api
     </Description>
   </PropertyGroup>
-</PropertyGroup>
+</Project>
 ```
