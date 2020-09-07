@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 02/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2fcba9dd6bbc7ff4e9b5b8b57250c399f59a1c5e
-ms.sourcegitcommit: e02482e15c0cef63153086ed50d14f5b2a38f598
+ms.openlocfilehash: 87b38d7a707d6175eb3347280784d9dfefd9c17d
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87473845"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "89359651"
 ---
 # <a name="create-a-nuget-package-using-the-dotnet-cli"></a>dotnet CLI を使用して NuGet パッケージを作成する
 
