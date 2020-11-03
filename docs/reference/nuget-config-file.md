@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: 28fae46a65bd4c2b7050e12568c21123fc8658c1
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 371f0d934fcd3c1f111d277131553c1eed0200be
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623163"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238102"
 ---
 # <a name="nugetconfig-reference"></a>nuget.config リファレンス
 
@@ -38,7 +38,7 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「 [一般的な nuget 構
 | http_proxy http_proxy.user http_proxy.password no_proxy | パッケージ ソースに接続するときに使用するプロキシ設定です。`http_proxy` の形式は `http://<username>:<password>@<domain>` とする必要があります。 パスワードは暗号化され、手動で追加することはできません。 `no_proxy` の場合、値はドメイン、バイパス、プロキシ サーバーのコンマ区切りのリストとなります。 これらの値に対して http_proxy および no_proxy の環境変数を使用することもできます。 詳細については、「[NuGet proxy settings](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html)」 (NuGet プロキシ設定) (skolima.blogspot.com) を参照してください。 |
 | signatureValidationMode | パッケージのインストールおよび復元用のパッケージ署名の検証に使用する検証モードを指定します。 値は `accept` 、、 `require` です。 既定値は `accept` です。
 
-**例**:
+**例** :
 
 ```xml
 <config>
@@ -58,7 +58,7 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「 [一般的な nuget 構
 | --- | --- |
 | skip | 自動バインド リダイレクトを省略するかどうかを示すブール値です。 既定値は false です。 |
 
-**例**:
+**例** :
 
 ```xml
 <bindingRedirects>
@@ -75,7 +75,7 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「 [一般的な nuget 構
 | enabled | NuGet で自動復元を実行できるかどうかを示すブール値です。 構成ファイル内にこのキーを設定するのでなく、`True` の値で `EnableNuGetPackageRestore` 環境変数を設定することもできます。 |
 | automatic | ビルド中に欠落しているパッケージの確認を NuGet で行う必要があるかどうかを示すブール値です。 |
 
-**例**:
+**例** :
 
 ```xml
 <packageRestore>
@@ -92,7 +92,7 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「 [一般的な nuget 構
 | --- | --- |
 | disableSourceControlIntegration | ソース管理を使用する場合に、パッケージ フォルダーを無視するかどうかを示すブール値です。 既定値は false です。 |
 
-**例**:
+**例** :
 
 ```xml
 <solution>
@@ -116,7 +116,7 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「 [一般的な nuget 構
 | --- | --- |
 | (パッケージ ソースに割り当てる名前) | パッケージ ソースのパスまたは URL です。 |
 
-**例**:
+**例** :
 
 ```xml
 <packageSources>
@@ -213,7 +213,7 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「 [一般的な nuget 構
 | --- | --- |
 | (ソース URL) | 暗号化された API キー。 |
 
-**例**:
+**例** :
 
 ```xml
 <apikeys>
@@ -250,7 +250,7 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「 [一般的な nuget 構
 | --- | --- |
 | (ソースの名前) または `All` | キーがソースの名前である場合は、ソースのパスまたは URL が値となります。 `All` の場合は、値を `(Aggregate source)` にして、無効になっていないすべてのパッケージ ソースを結合する必要があります。 |
 
-**例**:
+**例** :
 
 ```xml
 <activePackageSource>
@@ -268,7 +268,7 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「 [一般的な nuget 構
 
 このセクションは、 [ `nuget trusted-signers` コマンド](../reference/cli-reference/cli-ref-trusted-signers.md)を使用して更新できます。
 
-**スキーマ**:
+**[スキーマ]** :
 
 信頼できる署名者には、 `certificate` 特定の署名者を識別するすべての証明書を登録する項目のコレクションがあります。 信頼できる署名者は、またはのいずれか `Author` `Repository` です。
 
@@ -278,12 +278,13 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「 [一般的な nuget 構
 
 がを指定した場合、 `certificate` `allowUntrustedRoot` 指定された `true` 証明書は、署名の検証の一部として証明書チェーンを構築するときに、信頼されていないルートにチェーンできます。
 
-**例**:
+**例** :
 
 ```xml
 <trustedSigners>
     <author name="microsoft">
         <certificate fingerprint="3F9001EA83C560D712C24CF213C3D312CB3BFF51EE89435D3430BD06B5D0EECE" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
+        <certificate fingerprint="AA12DA22A49BCE7D5C1AE64CC1F3D892F150DA76140F210ABD2CBFFCA2C18A27" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
     </author>
     <repository name="nuget.org" serviceIndex="https://api.nuget.org/v3/index.json">
         <certificate fingerprint="0E5F38F57DC1BCC806D8494F4F90FBCEDD988B46760709CBEEC6F4219AA6157D" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
@@ -310,7 +311,7 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「 [一般的な nuget 構
 | --- | --- |
 | (フォールバックフォルダーの名前) | フォールバックフォルダーへのパス。 |
 
-**例**:
+**例** :
 
 ```xml
 <fallbackPackageFolders>
@@ -320,14 +321,14 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「 [一般的な nuget 構
 
 ## <a name="packagemanagement-section"></a>packageManagement セクション
 
-*packages.config*または PackageReference の既定のパッケージ管理形式を設定します。 SDK スタイルのプロジェクトは常に PackageReference を使用します。
+*packages.config* または PackageReference の既定のパッケージ管理形式を設定します。 SDK スタイルのプロジェクトは常に PackageReference を使用します。
 
 | キー | 値 |
 | --- | --- |
-| format | 既定のパッケージ管理形式を示すブール値。 `1`の場合、format は PackageReference です。 `0`の場合、format は*packages.config*です。 |
+| format | 既定のパッケージ管理形式を示すブール値。 `1`の場合、format は PackageReference です。 `0`の場合、format は *packages.config* です。 |
 | disabled | 最初のパッケージのインストール時に既定のパッケージ形式を選択するようにプロンプトを表示するかどうかを示すブール値。 `False` プロンプトを非表示にします。 |
 
-**例**:
+**例** :
 
 ```xml
 <packageManagement>
@@ -431,6 +432,7 @@ Windows スタイルの環境変数を使用する必要があることに注意
     <trustedSigners>
         <author name="microsoft">
             <certificate fingerprint="3F9001EA83C560D712C24CF213C3D312CB3BFF51EE89435D3430BD06B5D0EECE" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
+            <certificate fingerprint="AA12DA22A49BCE7D5C1AE64CC1F3D892F150DA76140F210ABD2CBFFCA2C18A27" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
         </author>
         <repository name="nuget.org" serviceIndex="https://api.nuget.org/v3/index.json">
             <certificate fingerprint="0E5F38F57DC1BCC806D8494F4F90FBCEDD988B46760709CBEEC6F4219AA6157D" hashAlgorithm="SHA256" allowUntrustedRoot="false" />

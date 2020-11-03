@@ -1,22 +1,22 @@
 ---
-title: NuGet Get-プロジェクト PowerShell リファレンス
+title: NuGet Get-Project PowerShell リファレンス
 description: Visual Studio の NuGet パッケージマネージャーコンソールでの GetProject PowerShell コマンドのリファレンス。
 author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 3343952535c2d3c822f5cac24cb30c8f5bfa5be3
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: 6d9e1d48c8e1838f193878cab3483b1bfba7d7f0
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75384621"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238076"
 ---
-# <a name="get-project-package-manager-console-in-visual-studio"></a>Get-Project (Visual Studio パッケージ マネージャー コンソール)
+# <a name="get-project-package-manager-console-in-visual-studio"></a>Get-Project (Visual Studio のパッケージマネージャーコンソール)
 
-*Windows の Visual Studio の[パッケージマネージャーコンソール](../../consume-packages/install-use-packages-powershell.md)内でのみ使用できます。*
+*Windows の Visual Studio の [パッケージマネージャーコンソール](../../consume-packages/install-use-packages-powershell.md) 内でのみ使用できます。*
 
-既定のプロジェクトまたは指定されたプロジェクトに関する情報を表示します。 `Get-Project` は、プロジェクトの Visual Studio DTE (開発ツール環境) オブジェクトに対して明示的にを返します。
+既定のプロジェクトまたは指定されたプロジェクトに関する情報を表示します。 `Get-Project` 具体的には、プロジェクトの Visual Studio DTE (開発ツール環境) オブジェクトへの指示を返します。
 
 ## <a name="syntax"></a>構文
 
@@ -26,16 +26,16 @@ Get-Project [[-Name] <string>] [-All] [<CommonParameters>]
 
 ## <a name="parameters"></a>パラメーター
 
-| パラメータ | 説明 |
+| パラメーター | 説明 |
 | --- | --- |
-| [名前] | 既定では、パッケージ マネージャー コンソールで選択されている既定のプロジェクトを表示するには、プロジェクトに指定します。 -Name スイッチ自体は省略可能です。 |
-| すべての | ソリューション内のすべてのプロジェクトの情報を表示します。プロジェクトの順序は決定的ではありません。 |
+| Name | 表示するプロジェクトを指定します。既定では、パッケージマネージャーコンソールで選択されている既定のプロジェクトが対象となります。 -Name スイッチ自体はオプションです。 |
+| All | ソリューション内のすべてのプロジェクトの情報を表示します。プロジェクトの順序は決定的ではありません。 |
 
 これらのパラメーターでは、パイプラインの入力やワイルドカード文字を受け入れません。
 
 ## <a name="common-parameters"></a>共通パラメーター
 
-`Get-Project` 次のサポート[一般的な PowerShell パラメーター](https://go.microsoft.com/fwlink/?LinkID=113216): Debug、Error Action、ErrorVariable、OutBuffer、OutVariable、PipelineVariable、Verbose、WarningAction、WarningVariable、します。
+`Get-Project` は、Debug、Error Action、ErrorVariable、OutBuffer、Outbuffer、PipelineVariable、Verbose、Warnings Action、および Warnings 変数の [一般的な PowerShell パラメーター](/powershell/module/microsoft.powershell.core/about/about_commonparameters)をサポートしています。
 
 ## <a name="examples"></a>使用例
 

@@ -6,12 +6,12 @@ ms.author: dtivel
 ms.date: 03/06/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: 2c501753a16820c5d027441001561c6b637ccda9
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 7ce08f11195437e94bfe69883ff525e9ad3a73f0
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622604"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238141"
 ---
 # <a name="verify-command-nuget-cli"></a>verify コマンド (NuGet CLI)
 
@@ -19,9 +19,9 @@ ms.locfileid: "88622604"
 
 パッケージを検証します。
 
-署名付きパッケージの検証は、.NET Core、Mono、または Windows 以外のプラットフォームではまだサポートされていません。
+署名付きパッケージの検証は、Mono ではまだサポートされていません。
 
-## <a name="usage"></a>使用法
+## <a name="usage"></a>使用
 
 ```cli
 nuget verify <-All|-Signatures> <package(s)> [options]
@@ -31,7 +31,7 @@ nuget verify <-All|-Signatures> <package(s)> [options]
 
 ## <a name="nuget-verify--all"></a>nuget 検証-すべて
 
-パッケージに対して可能なすべての検証を実行することを指定します。
+可能なすべての検証をパッケージに対して実行する必要があることを指定します。
 
 ## <a name="nuget-verify--signatures"></a>nuget の検証-署名
 
@@ -43,7 +43,7 @@ nuget verify <-All|-Signatures> <package(s)> [options]
 
   署名されたパッケージに署名する必要がある証明書の1つまたは複数の 256 SHA-1 証明書の指紋を指定します。 証明書 SHA-256 フィンガープリントは、証明書の SHA-256 ハッシュです。 複数の入力をセミコロンで区切る必要があります。
 
-## <a name="options"></a>Options
+## <a name="options"></a>オプション
 
 - **`-ConfigFile`**
 

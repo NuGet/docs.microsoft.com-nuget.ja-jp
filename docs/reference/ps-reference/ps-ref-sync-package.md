@@ -1,20 +1,20 @@
 ---
-title: NuGet 同期-パッケージ PowerShell リファレンス
-description: Visual Studio の NuGet パッケージマネージャーコンソールでの Sync-Package PowerShell コマンドのリファレンス。
+title: NuGet Sync-Package PowerShell リファレンス
+description: Visual Studio の NuGet パッケージマネージャーコンソールで Sync-Package PowerShell コマンドのリファレンスです。
 author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 12a3d5f32056539a75da9e17b15d67e72a8a42c2
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: fc4c875b5dcb0b90e4d048daf5984ed265370090
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75384904"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238050"
 ---
-# <a name="sync-package-package-manager-console-in-visual-studio"></a>Sync-Package (Visual Studio パッケージ マネージャー コンソール)
+# <a name="sync-package-package-manager-console-in-visual-studio"></a>Sync-Package (Visual Studio のパッケージマネージャーコンソール)
 
-*バージョン 3.0 +;Windows の Visual Studio の[パッケージマネージャーコンソール](../../consume-packages/install-use-packages-powershell.md)内でのみ使用できます。*
+*バージョン 3.0 +;Windows の Visual Studio の [パッケージマネージャーコンソール](../../consume-packages/install-use-packages-powershell.md) 内でのみ使用できます。*
 
 指定された (または既定の) プロジェクトからインストールされているパッケージのバージョンを取得し、そのバージョンをソリューション内の残りのプロジェクトと同期します。
 
@@ -28,23 +28,23 @@ Sync-Package [-Id] <string> [-IgnoreDependencies] [-ProjectName <string>] [[-Ver
 
 ## <a name="parameters"></a>パラメーター
 
-| パラメータ | 説明 |
+| パラメーター | 説明 |
 | --- | --- |
-| ID | 必要同期するパッケージの識別子。-Id スイッチ自体は省略可能です。 |
+| Id | 必要同期するパッケージの識別子。-Id スイッチ自体は省略可能です。 |
 | IgnoreDependencies | 依存関係ではなく、このパッケージのみをインストールします。 |
 | ProjectName | パッケージの同期元のプロジェクト。既定のプロジェクトが既定のプロジェクトになります。 |
 | Version | 同期するパッケージのバージョンです。既定では、現在インストールされているバージョンが対象となります。 |
-| Source | 検索するパッケージソースの URL またはフォルダーパス。 ローカルフォルダーのパスは、絶対パスでも、現在のフォルダーを基準とした相対パスでもかまいません。 省略した場合、`Sync-Package` は現在選択されているパッケージソースを検索します。 |
-| IncludePrerelease | には、同期のプレリリースパッケージが含まれています。 |
-| FileConflictAction | プロジェクトによって参照される既存のファイルを上書きまたは無視するように要求されたときに実行するアクション。 指定できる値は *、Overwrite、Ignore、None、OverwriteAll*、 *(3.0 +)* *ignoreall*です。 |
-| DependencyVersion | 使用する依存関係パッケージのバージョン。次のいずれかになります。<br/><ul><li>*最低*(既定): 最も低いバージョンです。</li><li>*HighestPatch*: 最も低いメジャー、最低のマイナー、最高のパッチを持つバージョン</li><li>*HighestMinor*: 最上位のメジャー、最高のマイナー、最高の修正プログラムが適用されたバージョン</li><li>*最高*(更新プログラム-パラメーターなしのパッケージ): 最高バージョン</li></ul>`Nuget.Config` ファイルの[`dependencyVersion`](../nuget-config-file.md#config-section)設定を使用して、既定値を設定できます。 |
-| Whatif | 実際に同期を実行せずにコマンドを実行した場合の動作を示します。 |
+| source | 検索するパッケージソースの URL またはフォルダーパス。 ローカルフォルダーのパスは、絶対パスでも、現在のフォルダーを基準とした相対パスでもかまいません。 省略した場合、 `Sync-Package` 現在選択されているパッケージソースを検索します。 |
+| IncludePrerelease リリース | には、同期のプレリリースパッケージが含まれています。 |
+| FileConflictAction | プロジェクトによって参照される既存のファイルを上書きまたは無視するように要求されたときに実行するアクション。 指定できる値は *、Overwrite、Ignore、None、OverwriteAll* 、 *(3.0 +)* *ignoreall* です。 |
+| DependencyVersion | 使用する依存関係パッケージのバージョン。次のいずれかになります。<br/><ul><li>*最低* (既定): 最も低いバージョンです。</li><li>*HighestPatch* : 最も低いメジャー、最低のマイナー、最高のパッチを持つバージョン</li><li>*HighestMinor* : 最上位のメジャー、最高のマイナー、最高の修正プログラムが適用されたバージョン</li><li>*最高* (パラメーターのない Update-Package の既定値): 最高バージョン</li></ul>ファイルの設定を使用して、既定値を設定でき [`dependencyVersion`](../nuget-config-file.md#config-section) `Nuget.Config` ます。 |
+| WhatIf | 実際に同期を実行せずにコマンドを実行した場合の動作を示します。 |
 
 これらのパラメーターでは、パイプラインの入力やワイルドカード文字を受け入れません。
 
 ## <a name="common-parameters"></a>共通パラメーター
 
-`Sync-Package` 次のサポート[一般的な PowerShell パラメーター](https://go.microsoft.com/fwlink/?LinkID=113216): Debug、Error Action、ErrorVariable、OutBuffer、OutVariable、PipelineVariable、Verbose、WarningAction、WarningVariable、します。
+`Sync-Package` は、Debug、Error Action、ErrorVariable、OutBuffer、Outbuffer、PipelineVariable、Verbose、Warnings Action、および Warnings 変数の [一般的な PowerShell パラメーター](/powershell/module/microsoft.powershell.core/about/about_commonparameters)をサポートしています。
 
 ## <a name="examples"></a>使用例
 

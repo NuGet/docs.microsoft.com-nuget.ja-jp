@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 84f939188ac190f6d539f8ee2b422049a274f178
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 106c4027f03d8e8c1d19545b3ca9b6cd5263830e
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622578"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93236790"
 ---
 # <a name="update-command-nuget-cli"></a>update コマンド (NuGet CLI)
 
@@ -24,7 +24,7 @@ ms.locfileid: "88622578"
 
 このコマンドは、 *-self* フラグを使用して nuget.exe 自体を更新するためにも使用できます。
 
-## <a name="usage"></a>使用法
+## <a name="usage"></a>使用
 
 ```cli
 nuget update <configPath> [options]
@@ -32,11 +32,15 @@ nuget update <configPath> [options]
 
 ここ `<configPath>` `packages.config` では、プロジェクトの依存関係を一覧表示するまたはソリューションファイルを指定します。
 
-## <a name="options"></a>Options
+## <a name="options"></a>オプション
 
 - **`-ConfigFile`**
 
   適用する NuGet 構成ファイル。 指定されていない場合は、 `%AppData%\NuGet\NuGet.Config` (Windows)、また `~/.nuget/NuGet/NuGet.Config` はまたは `~/.config/NuGet/NuGet.Config` (Mac/Linux) が使用されます。
+  
+- **`-DependencyVersion [Lowest, HighestPatch, HighestMinor, Highest, Ignore]`**
+
+  使用する依存関係パッケージのバージョンを指定します。次のいずれかになります。<br/><ul><li>*最低* (既定): 最も低いバージョンです。</li><li>*HighestPatch* : 最も低いメジャー、最低のマイナー、最高のパッチを持つバージョン</li><li>*HighestMinor* : 最上位のメジャー、最高のマイナー、最高の修正プログラムが適用されたバージョン</li><li>*最高* : 最高バージョン</li><li>*無視* : 依存関係パッケージは使用されません</li></ul>
 
 - **`-FileConflictAction [PromptUser, Overwrite, Ignore]`**
 

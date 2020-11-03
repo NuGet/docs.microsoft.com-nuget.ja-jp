@@ -1,18 +1,18 @@
 ---
-title: NuGet BindingRedirect PowerShell リファレンス
-description: Visual Studio の NuGet パッケージマネージャーコンソールでの BindingRedirect PowerShell コマンドのリファレンス。
+title: NuGet Add-BindingRedirect PowerShell リファレンス
+description: Visual Studio の NuGet パッケージマネージャーコンソールで Add-BindingRedirect PowerShell コマンドのリファレンスです。
 author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: f5ba4bd8140fa8cac7da8bf1351ad5448671b768
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 382ba9b179428c70e3eb16db86a363e095207d61
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623124"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237258"
 ---
-# <a name="add-bindingredirect-package-manager-console-in-visual-studio"></a>BindingRedirect (Visual Studio のパッケージマネージャーコンソール)
+# <a name="add-bindingredirect-package-manager-console-in-visual-studio"></a>Add-BindingRedirect (Visual Studio のパッケージマネージャーコンソール)
 
 *Windows の Visual Studio の [パッケージマネージャーコンソール](../../consume-packages/install-use-packages-powershell.md) 内でのみ使用できます。*
 
@@ -39,7 +39,7 @@ Add-BindingRedirect [-ProjectName] <string> [<CommonParameters>]
 
 ## <a name="common-parameters"></a>共通パラメーター
 
-`Add-BindingRedirect` は、Debug、Error Action、ErrorVariable、OutBuffer、Outbuffer、PipelineVariable、Verbose、Warnings Action、および Warnings 変数の [一般的な PowerShell パラメーター](https://go.microsoft.com/fwlink/?LinkID=113216)をサポートしています。
+`Add-BindingRedirect` は、Debug、Error Action、ErrorVariable、OutBuffer、Outbuffer、PipelineVariable、Verbose、Warnings Action、および Warnings 変数の [一般的な PowerShell パラメーター](/powershell/module/microsoft.powershell.core/about/about_commonparameters)をサポートしています。
 
 ## <a name="examples"></a>使用例
 
