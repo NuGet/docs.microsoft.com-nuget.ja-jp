@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 31243076f36f6ff274c4377c1773ea59dda8c834
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 165587fb64be5a5f4dbfdece7dc3a1e6402b733e
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64495502"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237427"
 ---
 # <a name="an-overview-of-the-nuget-ecosystem"></a>NuGet のエコシステムの概要
 
@@ -68,7 +68,7 @@ Microsoft は、NuGet の開発に広範囲に貢献しました。 Microsoft �
 
 ## <a name="training-materials-and-references"></a>トレーニング資料と参照
 
-通常、新しいツールまたはテクノロジの使用には、学習曲線が伴います。 幸運なことに、NuGet には急な学習曲線はまったくありません。 実際に、すべてのユーザーが[パッケージの使用を](../quickstart/use-a-package.md)すぐに開始できます。
+通常、新しいツールまたはテクノロジの使用には、学習曲線が伴います。 幸運なことに、NuGet には急な学習曲線はまったくありません。 実際に、すべてのユーザーが[パッケージの使用を](../quickstart/install-and-use-a-package-in-visual-studio.md)すぐに開始できます。
 
 ただし、パッケージを作成し (特に良いパッケージ)、さらに自動化されたビルドと配置プロセスに NuGet を対応させる場合、次のリソースに少し時間を費やす必要があります。
 

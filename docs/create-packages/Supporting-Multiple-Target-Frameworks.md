@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 34f7c6132ba6050e20114642932ccf29a5ec088d
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 7c0da38ab4059b89c9693ecbece2bc8ed1a775ec
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428625"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237946"
 ---
 # <a name="support-multiple-net-versions"></a>複数の .NET バージョンをサポートする
 
@@ -71,7 +71,7 @@ NuGet では、コンパイル時またはランタイムのアセットを常�
 
 `.nuspec` マニフェストでこれらのファイルを参照する例については、「[Create UWP Packages](../guides/create-uwp-packages.md)」 (UWP パッケージの作成) を参照してください。
 
-また、[NuGet を使用した Windows ストア アプリのコンポーネントのパッケージ化](https://blogs.msdn.microsoft.com/mim/2013/09/02/packaging-a-windows-store-apps-component-with-nuget-part-2)に関するページもご覧ください。
+また、[NuGet を使用した Windows ストア アプリのコンポーネントのパッケージ化](/archive/blogs/mim/packaging-a-windows-store-apps-component-with-nuget-part-2)に関するページもご覧ください。
 
 ## <a name="matching-assembly-versions-and-the-target-framework-in-a-project"></a>プロジェクトでアセンブリ バージョンとターゲット フレームワークを組み合わせる
 
@@ -125,7 +125,7 @@ NuGet ではまた、ダッシュとプロファイル名をフォルダーの�
 
 プロジェクト ファイルをパックするとき、NuGet はそのプロジェクトから依存関係を自動的に生成しようとします。 このセクションに記載されている、 *.nuspec* ファイルを使用した依存関係の宣言に関する情報が必要になるのは、通常は、高度なシナリオだけです。
 
-"*(バージョン 2.0 以降)*" `<dependencies>` 要素内の `<group>` 要素を使って、ターゲット プロジェクトのターゲット フレームワークに対応する *.nuspec* でパッケージの依存関係を宣言できます。 詳しくは、[dependencies 要素](../reference/nuspec.md#dependencies-element)に関する記事をご覧ください。
+" *(バージョン 2.0 以降)* " `<dependencies>` 要素内の `<group>` 要素を使って、ターゲット プロジェクトのターゲット フレームワークに対応する *.nuspec* でパッケージの依存関係を宣言できます。 詳しくは、[dependencies 要素](../reference/nuspec.md#dependencies-element)に関する記事をご覧ください。
 
 各グループには、`targetFramework` という名前の属性があり、0 個以上の `<dependency>` 要素が含まれます。 ターゲット フレームワークにプロジェクトのフレームワーク プロファイルとの互換性がある場合、これらの依存関係が一緒にインストールされます。 正確なフレームワーク識別子については、「[ターゲット フレームワーク](../reference/target-frameworks.md)」をご覧ください。
 

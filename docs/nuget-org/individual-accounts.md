@@ -6,11 +6,11 @@ ms.author: mikejo
 ms.date: 06/05/2019
 ms.topic: conceptual
 ms.openlocfilehash: 7951b3db0cdcaee0a1eb955a5bf6fedce24c79c9
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428631"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237615"
 ---
 # <a name="individual-accounts-on-nugetorg"></a>NuGet.org での個人アカウント
 
@@ -32,13 +32,13 @@ NuGet.org アカウントを作成するには、個人の Microsoft アカウ�
 
 1. Microsoft アカウントまたは Azure Active Directory アカウントの詳細を入力します。
 
-1. **[はい]** をクリックして、*NuGet.org* アプリケーションにアクセス許可を与えることに同意してください。
+1. **[はい]** をクリックして、 *NuGet.org* アプリケーションにアクセス許可を与えることに同意してください。
 
    ![NuGet.org へのアクセス許可の付与](media/nuget-org-permissions.png)
 
 1. *nuget.org* にリダイレクトされ、ユーザー名を登録するように求められます。
 
-1. 入力ボックスに、ユーザー名を指定します。 ユーザー名は大文字と小文字が**区別され**、後から変更できないことに注意してください。
+1. 入力ボックスに、ユーザー名を指定します。 ユーザー名は大文字と小文字が **区別され** 、後から変更できないことに注意してください。
 
    ![NuGet.org でユーザー名を指定する](media/nuget-org-register.png) 
 

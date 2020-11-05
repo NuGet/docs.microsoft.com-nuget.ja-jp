@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: dc20e43bfb43a4b6e47297fb3446319860034d46
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: fe5625247dca51c10d82fffe82022c40a4716069
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623028"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237933"
 ---
 # <a name="publishing-packages"></a>パッケージを公開する
 
@@ -24,7 +24,7 @@ ms.locfileid: "88623028"
 
 ## <a name="publish-to-nugetorg"></a>nuget.org に公開する
 
-Nuget.org の場合、Microsoft アカウントでサインインする必要があります。このアカウントで、nuget.org でのアカウント登録を行うよう求められます。また、古いバージョンのポータルを使用して作成された nuget.org アカウントで、サインインすることも可能です。
+Nuget.org の場合、Microsoft アカウントでサインインする必要があります。このアカウントで、nuget.org でのアカウント登録を行うよう求められます。
 
 ![NuGet サインインの場所](media/publish_NuGetSignIn.png)
 
@@ -47,7 +47,7 @@ Nuget.org の場合、Microsoft アカウントでサインインする必要が
 ### <a name="command-line"></a>コマンド ライン
 
 パッケージを nuget.org にプッシュするには、最初に nuget.org に作成された API キーが必要です。必要な NuGet プロトコルを実装する dotnet.exe (.NET Core) または nuget.exe v4.1.0 以上を使用する必要があります。
-詳細については、[.NET Core](https://docs.microsoft.com/dotnet/core/install/)、[nuget.exe](https://www.nuget.org/downloads)、および [NuGet プロトコル](../api/nuget-protocols.md)に関する記事を参照してください。
+詳細については、[.NET Core](/dotnet/core/install/)、[nuget.exe](https://www.nuget.org/downloads)、および [NuGet プロトコル](../api/nuget-protocols.md)に関する記事を参照してください。
 
 #### <a name="create-api-keys"></a>API キーの作成
 

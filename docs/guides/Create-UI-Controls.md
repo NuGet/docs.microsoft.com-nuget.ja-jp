@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: e1ebf5042597693ee55d986a4f93e797c27ad30a
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 17062d83349fe1b8cd28e57dd888686a226ac9cb
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622708"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238024"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>NuGet パッケージとして UI コントロールを作成する
 
@@ -59,11 +59,11 @@ XAML コントロールが Visual Studio の XAML デザイナーのツールボ
 
 それぞれの文字について以下に説明します。
 
-- *your_package_file*: `ManagedPackage.winmd` などのコントロール ファイルの名前 ("ManagedPackage" はこの例で任意の名前を使用するだけで、それ以外の意味を持ちません)。
-- *vs_category*:  Visual Studio デザイナーのツールボックスにコントロールを表示するグループのラベル。 `VSCategory` は、コントロールをツールボックスに表示するために必要です。
-*ui_framework*: フレームワークの名前 ('WPF' など)。ツールボックスにコントロールを表示するには、Visual Studio 16.7 Preview 3 以降の ToolboxItems ノードに `UIFramework` 属性が必要です。
-- *blend_category*: Blend デザイナーの [資産] ウィンドウにコントロールを表示するグループのラベル。 `BlendCategory` は、コントロールを [資産] に表示するために必要です。
-- *type_full_name_n*: `ManagedPackage.MyCustomControl` など、名前空間を含む、各コントロールの完全修飾名です。 マネージド コードとネイティブの両方の種類でドット形式が使用されることに注意してください。
+- *your_package_file* : `ManagedPackage.winmd` などのコントロール ファイルの名前 ("ManagedPackage" はこの例で任意の名前を使用するだけで、それ以外の意味を持ちません)。
+- *vs_category* :  Visual Studio デザイナーのツールボックスにコントロールを表示するグループのラベル。 `VSCategory` は、コントロールをツールボックスに表示するために必要です。
+*ui_framework* : フレームワークの名前 ('WPF' など)。ツールボックスにコントロールを表示するには、Visual Studio 16.7 Preview 3 以降の ToolboxItems ノードに `UIFramework` 属性が必要です。
+- *blend_category* : Blend デザイナーの [資産] ウィンドウにコントロールを表示するグループのラベル。 `BlendCategory` は、コントロールを [資産] に表示するために必要です。
+- *type_full_name_n* : `ManagedPackage.MyCustomControl` など、名前空間を含む、各コントロールの完全修飾名です。 マネージド コードとネイティブの両方の種類でドット形式が使用されることに注意してください。
 
 より高度なシナリオでは、1 つのパッケージに複数のコントロール アセンブリが含まれているときに、複数の `<File>` 要素を `<FileList>` に含めることもできます。 コントロールをカテゴリ別に整理する場合は、複数 `<ToolboxItems>` ノードを 1 つの `<File>` 内に含めることもできます。
 
@@ -94,7 +94,7 @@ XAML コントロールが Visual Studio の XAML デザイナーのツールボ
 
 ![ツール ボックスのアイコンのサンプル](https://raw.githubusercontent.com/NuGet/docs.microsoft.com-nuget/live/docs/guides/media/ColorPicker_16x16x24.bmp)
 
-ピンク色の背景は実行時に置き換わります。 アイコンの色は、Visual Studio のテーマが変更され、その背景色が予想されるときに変更されます。 詳細については、「[Visual Studio のイメージとアイコン](https://docs.microsoft.com/visualstudio/extensibility/ux-guidelines/images-and-icons-for-visual-studio)」を参照してください。
+ピンク色の背景は実行時に置き換わります。 アイコンの色は、Visual Studio のテーマが変更され、その背景色が予想されるときに変更されます。 詳細については、「[Visual Studio のイメージとアイコン](/visualstudio/extensibility/ux-guidelines/images-and-icons-for-visual-studio)」を参照してください。
 
 次の例では、プロジェクトには、"ManagedPackage.MyCustomControl.png" という名前の画像ファイルが含まれています。
 
@@ -121,7 +121,7 @@ WPF の場合、たとえば、.NET Framework v4.6.1 以上をターゲットと
 
 ## <a name="add-design-time-support"></a>デザイン時サポートの追加
 
-プロパティ インスペクターのどこにコントロールのプロパティが表示されるかを構成するには、カスタム装飾などを追加し、ターゲット プラットフォームに合わせて `design.dll` ファイルを `lib\uap10.0.14393\Design` フォルダー内に配置します。 また、**[[テンプレートの編集] > [コピーして編集]](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)** 機能を確実に動作させるには、マージする `Generic.xaml` とリソース ディクショナリを `<your_assembly_name>\Themes` フォルダーに含める必要があります (ここでも実際のアセンブリ名を使用します)。 (このファイルはコントロールの実行時の動作には影響しません)。その結果、フォルダー構造は次のようになります。
+プロパティ インスペクターのどこにコントロールのプロパティが表示されるかを構成するには、カスタム装飾などを追加し、ターゲット プラットフォームに合わせて `design.dll` ファイルを `lib\uap10.0.14393\Design` フォルダー内に配置します。 また、 **[[テンプレートの編集] > [コピーして編集]](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)** 機能を確実に動作させるには、マージする `Generic.xaml` とリソース ディクショナリを `<your_assembly_name>\Themes` フォルダーに含める必要があります (ここでも実際のアセンブリ名を使用します)。 (このファイルはコントロールの実行時の動作には影響しません)。その結果、フォルダー構造は次のようになります。
 
     \lib
       \uap10.0.14393

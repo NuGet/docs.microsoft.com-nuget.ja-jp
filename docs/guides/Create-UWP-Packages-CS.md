@@ -5,12 +5,12 @@ author: rrelyea
 ms.author: rrelyea
 ms.date: 02/28/2020
 ms.topic: tutorial
-ms.openlocfilehash: 61f46f2623769927f881877cfe3f96132211b442
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 6f8037f439d627af158b6d5b7746a633b053e514
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "78231753"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238011"
 ---
 # <a name="create-uwp-packages-c"></a>UWP パッケージの作成 (C#)
 
@@ -22,7 +22,7 @@ ms.locfileid: "78231753"
 
 1. Visual Studio 2019。 [visualstudio.com](https://www.visualstudio.com/) から無料の 2019 Community Edition をインストールします。Professional Edition と Enterprise Edition を使用することもできます。
 
-1. NuGet CLI。 [nuget.org/downloads](https://nuget.org/downloads) から最新バージョンの `nuget.exe` をダウンロードして、任意の場所に保存します (`.exe`を直接ダウンロードします)。 次に、その場所を PATH 環境変数に追加します (まだ存在していない場合)。 [詳細についてはこちらをご覧ください](/nuget/reference/nuget-exe-cli-reference#windows)。
+1. NuGet CLI。 [nuget.org/downloads](https://nuget.org/downloads) から最新バージョンの `nuget.exe` をダウンロードして、任意の場所に保存します (`.exe`を直接ダウンロードします)。 次に、その場所を PATH 環境変数に追加します (まだ存在していない場合)。 [詳細についてはこちらをご覧ください](../reference/nuget-exe-cli-reference.md#windows)。
 
 ## <a name="create-a-uwp-windows-runtime-component"></a>UWP Windows ランタイム コンポーネントを作成する
 
@@ -38,7 +38,7 @@ ms.locfileid: "78231753"
 
     ![[XML ドキュメント ファイルの生成] を [はい] に設定する](media/UWP-GenerateXMLDocFiles-CS.png)
 
-1. ここで*ソリューション*を右クリックし、 **[バッチ ビルド]** を選択して、以下に示すようにダイアログの 5 つのビルド ボックスをオンにします。 これで、ビルドの実行時に、Windows でサポートされるターゲット システムごとに完全な成果物セットが生成されるようになります。
+1. ここで *ソリューション* を右クリックし、 **[バッチ ビルド]** を選択して、以下に示すようにダイアログの 5 つのビルド ボックスをオンにします。 これで、ビルドの実行時に、Windows でサポートされるターゲット システムごとに完全な成果物セットが生成されるようになります。
 
     ![[バッチ ビルド]](media/UWP-BatchBuild-CS.png)
 
@@ -52,7 +52,7 @@ ms.locfileid: "78231753"
 初期 `.nuspec` ファイルを作成するには、次の 3 つの手順を実行します。 次のセクションでは、他の必要な更新について説明します。
 
 1. コマンド プロンプトを開き、`ImageEnhancer.csproj` (これは、ソリューション ファイルの下のサブフォルダーになります) を含むフォルダーに移動します。
-1. [`NuGet spec`](/nuget/reference/cli-reference/cli-ref-spec) コマンドを実行して、`ImageEnhancer.nuspec` (ファイルの名前は `.csroj` ファイルの名前から取得されます) を生成します。
+1. [`NuGet spec`](../reference/cli-reference/cli-ref-spec.md) コマンドを実行して、`ImageEnhancer.nuspec` (ファイルの名前は `.csroj` ファイルの名前から取得されます) を生成します。
 
     ```cli
     nuget spec
@@ -197,7 +197,7 @@ Windows ランタイム コンポーネントには、一般公開されるす�
 
 ## <a name="package-the-component"></a>コンポーネントをパッケージ化する
 
-パッケージに含める必要があるすべてのファイルを参照する `.nuspec` が完成したら、以下の [`nuget pack`](/nuget/reference/cli-reference/cli-ref-pack) コマンドを実行できます。
+パッケージに含める必要があるすべてのファイルを参照する `.nuspec` が完成したら、以下の [`nuget pack`](../reference/cli-reference/cli-ref-pack.md) コマンドを実行できます。
 
 ```cli
 nuget pack ImageEnhancer.nuspec

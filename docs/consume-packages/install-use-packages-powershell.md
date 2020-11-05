@@ -7,12 +7,12 @@ ms.date: 07/08/2019
 ms.topic: conceptual
 f1_keywords:
 - vs.nuget.packagemanager.console
-ms.openlocfilehash: 42031f7b5fe4d3c1b4dbe5e1bfbf9197014e0e88
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 8b23b6cc22eff5413e317fbe619edd3d4f4716ee
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428577"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237401"
 ---
 # <a name="install-and-manage-packages-with-the-package-manager-console-in-visual-studio-powershell"></a>Visual Studio でパッケージ マネージャー コンソールを使用してパッケージをインストールおよび管理する (PowerShell)
 
@@ -56,7 +56,7 @@ Nuget パッケージ マネージャー コンソールでは、[NuGet PowerShe
 
 1. 別のパッケージ ソースやプロジェクトを選択すると、後続のコマンドの既定値が変更されます。 既定値を変更せずにこれらの設定をオーバーライドするために、ほとんどのコマンドで `-Source` および `-ProjectName` オプションがサポートされています。
 
-1. パッケージ ソースを管理するには、歯車アイコンを選択します。 これは、 **[ツール] > [オプション] > [NuGet パッケージ マネージャー]** ダイアログ ボックスへのショートカットです ([パッケージ マネージャー UI](install-use-packages-visual-studio.md#package-sources) に関するページで説明されています)。 また、プロジェクト セレクターの右側にあるコントロールを使用すると、コンソールの内容をクリアできます。
+1. パッケージ ソースを管理するには、歯車アイコンを選択します。 これは、 **[ツール] > [オプション] > [NuGet パッケージ マネージャー]** ダイアログ ボックスへのショートカットです ( [パッケージ マネージャー UI](install-use-packages-visual-studio.md#package-sources) に関するページで説明されています)。 また、プロジェクト セレクターの右側にあるコントロールを使用すると、コンソールの内容をクリアできます。
 
     ![パッケージ マネージャー コンソールの設定とクリアのためのコントロール](media/PackageManagerConsoleControls2.png)
 
@@ -79,7 +79,7 @@ Install-Package Elmah -ProjectName UtilitiesLib
 コンソールでパッケージをインストールすると、「[NuGet パッケージのインストールのしくみ](../concepts/package-installation-process.md)」で説明されているのと同じ手順が実行されるのに加えて、次の操作が実行されます。
 
 - コンソールのウィンドウに、適用されるライセンス条項と暗黙の契約が表示されます。 条項に同意しない場合は、パッケージをすぐにアンインストールする必要があります。
-- また、パッケージへの参照がプロジェクト ファイルに追加され、 **[参照]** ノードの下の**ソリューション エクスプローラー**に表示されます。プロジェクト ファイルの変更内容を直接確認するには、プロジェクトを保存する必要があります。
+- また、パッケージへの参照がプロジェクト ファイルに追加され、 **[参照]** ノードの下の **ソリューション エクスプローラー** に表示されます。プロジェクト ファイルの変更内容を直接確認するには、プロジェクトを保存する必要があります。
 
 ## <a name="uninstall-a-package"></a>パッケージをアンインストールします
 
@@ -98,7 +98,7 @@ Uninstall-Package Elmah -Force
 
 パッケージをアンインストールすると、次の操作が実行されます。
 
-- パッケージへの参照をプロジェクトから削除します (使用中の管理形式にかかわらず)。 参照は**ソリューション エクスプローラー**に表示されなくなります。 (**Bin** フォルダーから削除されたことを確認するには、プロジェクトのリビルドが必要になる場合があります。)
+- パッケージへの参照をプロジェクトから削除します (使用中の管理形式にかかわらず)。 参照は **ソリューション エクスプローラー** に表示されなくなります。 ( **Bin** フォルダーから削除されたことを確認するには、プロジェクトのリビルドが必要になる場合があります。)
 - パッケージがインストールされたときに `app.config` または `web.config` に加えられた変更を元に戻します。
 - 以前にインストールされた依存関係を削除します (残りのパッケージがそれらの依存関係を使用していない場合)。
 
@@ -168,7 +168,7 @@ $profile
 C:\Users\<user>\Documents\WindowsPowerShell\NuGet_profile.ps1
 ```
 
-詳細については、「[Windows PowerShell プロファイル](https://technet.microsoft.com/library/bb613488.aspx)」を参照してください。
+詳細については、「[Windows PowerShell プロファイル](/previous-versions//bb613488(v=vs.85))」を参照してください。
 
 ## <a name="use-the-nugetexe-cli-in-the-console"></a>コンソールで nuget.exe CLI を使用する
 

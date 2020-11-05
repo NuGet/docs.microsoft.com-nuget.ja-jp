@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 02/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7166d622ef9d3975fc1c931d30caf570a765a6da
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 47a20c5566affec1cdc7772c86d8101dab162d85
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "78231319"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237972"
 ---
 # <a name="create-a-nuget-package-using-msbuild"></a>MSBuild を使用して NuGet パッケージを作成する
 
-自分のコードで NuGet パッケージを作成する場合、その機能をコンポーネントにパッケージ化し、数を問わず他の開発者と共有し、使用することができます。 この記事では、MSBuild を使用してパッケージを作成する方法について説明します。 MSBuild は、NuGet を含むすべての Visual Studio ワークロードにプレインストールされています。 また、dotnet CLI と [dotnet msbuild](https://docs.microsoft.com/dotnet/core/tools/dotnet-msbuild) を介して MSBuild を使用することもできます。
+自分のコードで NuGet パッケージを作成する場合、その機能をコンポーネントにパッケージ化し、数を問わず他の開発者と共有し、使用することができます。 この記事では、MSBuild を使用してパッケージを作成する方法について説明します。 MSBuild は、NuGet を含むすべての Visual Studio ワークロードにプレインストールされています。 また、dotnet CLI と [dotnet msbuild](/dotnet/core/tools/dotnet-msbuild) を介して MSBuild を使用することもできます。
 
 [SDK スタイルの形式](../resources/check-project-format.md)を使用する .NET Core および .NET Standard プロジェクト、またその他の SDK スタイルのあらゆるプロジェクトに対して、NuGet ではプロジェクト ファイルにある情報を直接使ってパッケージが作成されます。  `<PackageReference>` を使用する SDK スタイル以外のプロジェクトの場合、NuGet ではプロジェクト ファイルを使用してパッケージを作成することもできます。
 
@@ -30,7 +30,7 @@ SDK スタイルのプロジェクトには、既定でパック機能を利用�
 次のプロパティは、パッケージを作成するために必要です。
 
 - `PackageId`、パッケージの識別子。パッケージをホストするギャラリー全体で一意にする必要があります。 指定しない場合は、既定値の `AssemblyName` が使用されます。
-- `Version`、*Major.Minor.Patch[-Suffix]* という形式の特別なバージョン番号。 *-Suffix* によって[プレリリース版](prerelease-packages.md)を識別します。 指定しない場合は、既定値は 1.0.0 です。
+- `Version`、 *Major.Minor.Patch[-Suffix]* という形式の特別なバージョン番号。 *-Suffix* によって [プレリリース版](prerelease-packages.md)を識別します。 指定しない場合は、既定値は 1.0.0 です。
 - ホスト (nuget.org など) に表示されるパッケージ タイトル。
 - `Authors`、作成者と所有者の情報。 指定しない場合は、既定値の `AssemblyName` が使用されます。
 - `Company`、会社名。 指定しない場合は、既定値の `AssemblyName` が使用されます。
@@ -39,7 +39,7 @@ SDK スタイルのプロジェクトには、既定でパック機能を利用�
 
 - `PackageOutputPath`、パックの呼び出し時に生成されるパッケージの出力フォルダー。
 
-Visual Studio では、プロジェクトのプロパティにこれらの値を設定できます (ソリューション エクスプローラー内でプロジェクトを右クリックし、 **[プロパティ]** を選択して、 **[パッケージ]** タブを選択します)。 プロジェクト ファイル ( *.csproj*) 内でこれらのプロパティを直接設定することもできます。
+Visual Studio では、プロジェクトのプロパティにこれらの値を設定できます (ソリューション エクスプローラー内でプロジェクトを右クリックし、 **[プロパティ]** を選択して、 **[パッケージ]** タブを選択します)。 プロジェクト ファイル ( *.csproj* ) 内でこれらのプロパティを直接設定することもできます。
 
 ```xml
 <PropertyGroup>
@@ -70,7 +70,7 @@ Visual Studio では、プロジェクトのプロパティにこれらの値を
 また、[MSBuild pack ターゲット](../reference/msbuild-targets.md#pack-target)に関するセクション、「[依存関係アセットを制御する](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)」、「[NuGet メタデータ プロパティ](/dotnet/core/tools/csproj#nuget-metadata-properties)」に説明されているように、`Title`、`PackageDescription`、`PackageTags` などのオプションのプロパティを設定することもできます。
 
 > [!NOTE]
-> 公開用にビルドされたパッケージの場合は、**PackageTags**プロパティに特に注意してください。これらのタグは他のユーザーがパッケージを検索して、パッケージの動作を理解するのに役立ちます。
+> 公開用にビルドされたパッケージの場合は、 **PackageTags** プロパティに特に注意してください。これらのタグは他のユーザーがパッケージを検索して、パッケージの動作を理解するのに役立ちます。
 
 依存関係の宣言とバージョン番号の指定の詳細については、「[プロジェクト ファイルのパッケージ参照 (PackageReference)](../consume-packages/package-references-in-project-files.md)」と「[パッケージのバージョン管理](../concepts/package-versioning.md)」を参照してください。 `<IncludeAssets>` および `<ExcludeAssets>` 属性を使用して、パッケージ内で直接、依存関係からアセットを表面化させることもできます。 詳しくは、「[依存関係アセットを制御する](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)」をご覧ください。
 
@@ -96,7 +96,7 @@ SDK スタイル以外のプロジェクトと PackageReference で MSBuild を�
    </ItemGroup>
    ```
 
-2. 開発者コマンド プロンプトを開きます (**検索**ボックスに「**開発者コマンド プロンプト**」と入力します)。
+2. 開発者コマンド プロンプトを開きます ( **検索** ボックスに「 **開発者コマンド プロンプト** 」と入力します)。
 
    MSBuild に必要なすべてのパスが構成されるため、通常は **[スタート]** メニューから Visual Studio 用開発者コマンド プロンプトを使用します。
 

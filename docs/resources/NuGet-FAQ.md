@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 937a0083ca47ba5668059736a7e99f7ca88e8908
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: aae6f0474cc6e8e8aa5c269b79be6fd949d9184c
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622617"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237998"
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet に関してよく寄せられる質問
 
@@ -41,7 +41,7 @@ UI とコマンド ライン ツールの両方に関するすべての情報は
 - Windows の Visual Studio では、[パッケージ マネージャー UI](../consume-packages/install-use-packages-visual-studio.md) と[パッケージ マネージャー コンソール](../consume-packages/install-use-packages-powershell.md)がサポートされます。
 - 「[プロジェクトに NuGet パッケージを含める](/visualstudio/mac/nuget-walkthrough)」で説明されているように、Visual Studio for Mac には NuGet 機能が組み込まれています。
 - Visual Studio Code (すべてのプラットフォーム) には、直接 NuGet は統合されていません。 [NuGet CLI](../reference/nuget-exe-cli-reference.md) または [dotnet CLI](../reference/dotnet-commands.md) を使用してください。
-- Azure DevOps には、[NuGet パッケージを復元するためのビルド ステップ](/vsts/build-release/tasks/package/nuget)があります。 [Azure DevOps でプライベート NuGet パッケージ フィードをホストする](https://docs.microsoft.com/azure/devops/artifacts/nuget/publish)こともできます。
+- Azure DevOps には、[NuGet パッケージを復元するためのビルド ステップ](/vsts/build-release/tasks/package/nuget)があります。 [Azure DevOps でプライベート NuGet パッケージ フィードをホストする](/azure/devops/artifacts/nuget/publish)こともできます。
 
 **インストールされている NuGet ツールの正確なバージョンはどのように確認すればよいですか?**
 
@@ -103,7 +103,7 @@ Visual Studio オートメーション オブジェクト モデルのトップ 
 
 **フィードではどのように自分のパッケージをリストするのですか?**
 
-「[パッケージの作成と発行](../quickstart/create-and-publish-a-package.md)」を参照してください。
+「[パッケージの作成と発行](../quickstart/create-and-publish-a-package-using-visual-studio.md)」を参照してください。
 
 **異なるバージョンの .NET Framework をターゲットとする複数バージョンのライブラリがあります。これをサポートする 1 つのパッケージをビルドするにはどうすればよいですか?**
 
@@ -137,7 +137,7 @@ Visual Studio オートメーション オブジェクト モデルのトップ 
 
 **リモートの依存関係があるローカル パッケージをインストールするときに、"依存関係を解決できません" という内容のエラーが表示されるのはなぜですか?**
 
-プロジェクトにローカル パッケージをインストールする場合は、**すべて**のソースを選択する必要があります。 これにより、フィードを 1 つだけ使用するのではなく、すべて集約することになります。 このエラーが表示されるのは、ローカル リポジトリのユーザーは、多くの場合、企業ポリシーにより、リモート パッケージが誤ってインストールされないようにする必要があるためです。
+プロジェクトにローカル パッケージをインストールする場合は、 **すべて** のソースを選択する必要があります。 これにより、フィードを 1 つだけ使用するのではなく、すべて集約することになります。 このエラーが表示されるのは、ローカル リポジトリのユーザーは、多くの場合、企業ポリシーにより、リモート パッケージが誤ってインストールされないようにする必要があるためです。
 
 **同じフォルダーに複数のプロジェクトがあります。プロジェクトごとに別個の packages.config ファイルを使用するにはどうすればよいですか?**
 

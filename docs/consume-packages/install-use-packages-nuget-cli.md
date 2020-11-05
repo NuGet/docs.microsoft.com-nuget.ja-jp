@@ -6,11 +6,11 @@ ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
 ms.openlocfilehash: 7039dd27f2dddebc3c84e5ad35d5efec59547792
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428415"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237388"
 ---
 # <a name="manage-packages-using-the-nugetexe-cli"></a>nuget.exe CLI を使用してパッケージを管理する
 
@@ -32,7 +32,7 @@ CLI ツールを使用すると、プロジェクトやソリューションで 
 [install](../reference/cli-reference/cli-ref-install.md) コマンドでは、指定されたパッケージ ソースを利用し、パッケージがダウンロードされ、プロジェクトにインストールされます。既定では、現在のフォルダーにインストールされます。 プロジェクトのルート ディレクトリの *packages* フォルダーに新しいパッケージをインストールします。
 
 > [!IMPORTANT]
-> `install` コマンドではプロジェクト ファイルや *packages.config* が変更されることはありません。そのため、パッケージがディスクに追加されるだけであり、プロジェクトの依存関係が変更されないという点で `restore` と似ています。 依存関係を追加するには、Visual Studio でパッケージ マネージャー UI かコンソールを利用してパッケージ復元を追加するか、*packages.config* を変更し、`install` か `restore` を実行します。
+> `install` コマンドではプロジェクト ファイルや *packages.config* が変更されることはありません。そのため、パッケージがディスクに追加されるだけであり、プロジェクトの依存関係が変更されないという点で `restore` と似ています。 依存関係を追加するには、Visual Studio でパッケージ マネージャー UI かコンソールを利用してパッケージ復元を追加するか、 *packages.config* を変更し、`install` か `restore` を実行します。
 
 1. コマンド ラインを開き、プロジェクト ファイルが含まれるディレクトリに切り替えます。
 
@@ -84,7 +84,7 @@ nuget install Newtonsoft.Json -Version 12.0.1
 nuget list -Source <source>
 ```
 
-たとえば、*packages* フォルダーのパッケージを一覧表示します。
+たとえば、 *packages* フォルダーのパッケージを一覧表示します。
 
 ```cli
 nuget list -Source C:\Users\username\source\repos\MyProject\packages
