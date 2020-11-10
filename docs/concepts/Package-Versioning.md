@@ -6,16 +6,16 @@ ms.author: karann
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: c79976c2f4ded2fba3796fb847d3c90807d7b86c
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 4cb12f439d796d583f52d657225c39418d5a4836
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80147449"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237362"
 ---
 # <a name="package-versioning"></a>パッケージのバージョン管理
 
-特定のパッケージは、常にパッケージ識別子と正確なバージョン番号を使用して参照されます。 たとえば、nuget.org の [Entity Framework](https://www.nuget.org/packages/EntityFramework/) には、バージョン *4.1.10311* からバージョン *6.1.3* (最新の安定したリリース) までの数十の特定のパッケージと、*6.2.0-beta1* のようなさまざまなプレリリース バージョンがあります。
+特定のパッケージは、常にパッケージ識別子と正確なバージョン番号を使用して参照されます。 たとえば、nuget.org の [Entity Framework](https://www.nuget.org/packages/EntityFramework/) には、バージョン *4.1.10311* からバージョン *6.1.3* (最新の安定したリリース) までの数十の特定のパッケージと、 *6.2.0-beta1* のようなさまざまなプレリリース バージョンがあります。
 
 パッケージの作成時に、オプションのプレリリース テキスト サフィックスを使用して特定のバージョン番号を割り当てます。 一方、パッケージを使用するときには、正確なバージョン番号または許容されるバージョンの範囲のいずれかを指定できます。
 
@@ -27,12 +27,12 @@ ms.locfileid: "80147449"
 
 ## <a name="version-basics"></a>バージョンの基本
 
-特定のバージョン番号は、*Major.Minor.Patch[-Suffix]* という形式になっています。ここで、各構成要素には次の意味があります。
+特定のバージョン番号は、 *Major.Minor.Patch[-Suffix]* という形式になっています。ここで、各構成要素には次の意味があります。
 
-- *Major*:互換性に影響する変更
-- *Minor*: 新機能、ただし下位互換性あり
-- *Patch*: 下位互換性のバグ修正のみ
-- *-Suffix* (省略可能): ハイフンに続けて、プレリリース バージョンを示す文字列 ([セマンティック バージョニングまたは SemVer 1.0 規約](https://semver.org/spec/v1.0.0.html)に従う)。
+- *Major* :互換性に影響する変更
+- *Minor* : 新機能、ただし下位互換性あり
+- *Patch* : 下位互換性のバグ修正のみ
+- *-Suffix* (省略可能): ハイフンに続けて、プレリリース バージョンを示す文字列 ( [セマンティック バージョニングまたは SemVer 1.0 規約](https://semver.org/spec/v1.0.0.html)に従う)。
 
 **例:**
 
@@ -55,7 +55,7 @@ ms.locfileid: "80147449"
 - `-rc`: リリース候補。一般的に、重大なバグが現れない限り、最終版 (安定版) となる可能性があるリリース。
 
 > [!Note]
-> NuGet 4.3.0 以降では、*1.0.1-build.23* のように、ドット表記のプレリリース番号をサポートする [SemVer 2.0.0](https://semver.org/spec/v2.0.0.html) がサポートされます。 ドット表記は、バージョン 4.3.0 より前の NuGet ではサポートされていません。 *1.0.1-build23* のような形式を使用できます。
+> NuGet 4.3.0 以降では、 *1.0.1-build.23* のように、ドット表記のプレリリース番号をサポートする [SemVer 2.0.0](https://semver.org/spec/v2.0.0.html) がサポートされます。 ドット表記は、バージョン 4.3.0 より前の NuGet ではサポートされていません。 *1.0.1-build23* のような形式を使用できます。
 
 パッケージ参照を解決するときに、複数のパッケージ バージョンのサフィックスだけが異なる場合、NuGet ではサフィックスのないバージョンが最初に選択され、プレリリース バージョンにアルファベットの逆順の優先順位が適用されます。 たとえば、以下のバージョンは、示されているとおりの順序で選択されます。
 
@@ -74,8 +74,8 @@ NuGet 4.3.0 以降と Visual Studio 2017 バージョン 15.3 以降では、NuG
 
 SemVer v2.0.0 の特定のセマンティクスは、以前のクライアントではサポートされません。 NuGet では、次のいずれかの文が真の場合に、パッケージ バージョンが SemVer v2.0.0 に固有であると見なされます。
 
-- プレリリース ラベルがドットで区切られている (例: *1.0.0-alpha.1*)
-- バージョンにビルド メタデータが含まれている (例: *1.0.0+githash*)
+- プレリリース ラベルがドットで区切られている (例: *1.0.0-alpha.1* )
+- バージョンにビルド メタデータが含まれている (例: *1.0.0+githash* )
 
 nuget.org では、次のいずれかの文が真の場合に、パッケージが SemVer v2.0.0 パッケージとして定義されます。
 
@@ -114,42 +114,57 @@ SemVer v2.0.0 固有のパッケージを nuget.org にアップロードした�
 | [1.0,2.0) | 1.0 ≤ x < 2.0 | 示されている値を含む最小バージョンと示されている値を含まない最大バージョンの組み合わせ |
 | (1.0)    | 無効な | 無効な |
 
-PackageReference 形式を使用する場合、NuGet では、番号の Major、Minor、Patch、およびプレリリース サフィックス部分に浮動小数点表記 \* を使用できます。 `packages.config` 形式では、浮動小数点バージョンはサポートされていません。
+PackageReference 形式を使用する場合、NuGet では、番号の Major、Minor、Patch、およびプレリリース サフィックス部分に浮動小数点表記 \* を使用できます。 `packages.config` 形式では、浮動小数点バージョンはサポートされていません。 浮動バージョンを指定した場合、バージョンの説明に一致する既存の最高バージョンに解決されるというルールになります。 次に、浮動バージョンと解決の例を示します。
 
 > [!Note]
 > PackageReference のバージョン範囲には、プレリリース バージョンが含まれます。 仕様により、浮動バージョンでは、オプトインしない限りプレリリース バージョンは解決されません。 関連する機能要求の状態については、[問題 6434](https://github.com/NuGet/Home/issues/6434#issuecomment-358782297) に関するページをご覧ください。
 
-### <a name="examples"></a>使用例
+### <a name="examples"></a>例
 
 プロジェクト ファイル、`packages.config` ファイル、`.nuspec` ファイル内では、パッケージの依存関係のバージョンまたはバージョン範囲を必ず指定します。 バージョンまたはバージョン範囲を指定しない場合、NuGet 2.8.x 以前では依存関係を解決するときに利用可能な最新のパッケージ バージョンが選択されますが、NuGet 3.x 以降ではパッケージの最小バージョンが選択されます。 バージョンまたはバージョン範囲を指定すると、この不確実性が回避されます。
 
 #### <a name="references-in-project-files-packagereference"></a>プロジェクト ファイル内の参照 (PackageReference)
 
 ```xml
-<!-- Accepts any version 6.1 and above. -->
+<!-- Accepts any version 6.1 and above.
+     Will resolve to the smallest acceptable stable version.-->
 <PackageReference Include="ExamplePackage" Version="6.1" />
 
-<!-- Accepts any 6.x.y version. -->
+<!-- Accepts any 6.x.y version.
+     Will resolve to the highest acceptable stable version.-->
 <PackageReference Include="ExamplePackage" Version="6.*" />
-<PackageReference Include="ExamplePackage" Version="[6,7)" />
 
 <!-- Accepts any version above, but not including 4.1.3. Could be
-     used to guarantee a dependency with a specific bug fix. -->
+     used to guarantee a dependency with a specific bug fix. 
+     Will resolve to the smallest acceptable stable version.-->
 <PackageReference Include="ExamplePackage" Version="(4.1.3,)" />
 
 <!-- Accepts any version up below 5.x, which might be used to prevent pulling in a later
      version of a dependency that changed its interface. However, this form is not
-     recommended because it can be difficult to determine the lowest version. -->
+     recommended because it can be difficult to determine the lowest version. 
+     Will resolve to the smallest acceptable stable version.
+     -->
 <PackageReference Include="ExamplePackage" Version="(,5.0)" />
 
-<!-- Accepts any 1.x or 2.x version, but not 0.x or 3.x and higher. -->
+<!-- Accepts any 1.x or 2.x version, but not 0.x or 3.x and higher.
+     Will resolve to the smallest acceptable stable version.-->
 <PackageReference Include="ExamplePackage" Version="[1,3)" />
 
-<!-- Accepts 1.3.2 up to 1.4.x, but not 1.5 and higher. -->
+<!-- Accepts 1.3.2 up to 1.4.x, but not 1.5 and higher.
+     Will resolve to the smallest acceptable stable version. -->
 <PackageReference Include="ExamplePackage" Version="[1.3.2,1.5)" />
 ```
 
-**`packages.config` 内の参照**:
+#### <a name="floating-version-resolutions"></a>浮動バージョンの解決 
+
+| Version | サーバーに存在するバージョン | 解決方法 | 理由 | メモ |
+|----------|--------------|-------------|-------------|-------------|
+| * | 1.1.0 <br> 1.1.1 <br> 1.2.0 <br> 1.3.0-alpha  | 1.2.0 | 最も高い安定バージョン。 |
+| 1.1.* | 1.1.0 <br> 1.1.1 <br> 1.1.2-alpha <br> 1.2.0-alpha | 1.1.1 | 指定したパターンに従う最も高い安定バージョン。|
+| * - * | 1.1.0 <br> 1.1.1 <br> 1.1.2-alpha <br> 1.3.0-beta  | 1.3.0-beta | 安定していないバージョンも含めた、最も高いバージョン。 | Visual Studio バージョン 16.6、NuGet バージョン 5.6、.NET Core SDK バージョン 3.1.300 で使用可能。 |
+| 1.1.* - * | 1.1.0 <br> 1.1.1 <br> 1.1.2-alpha <br> 1.1.2-beta <br> 1.3.0-beta  | 1.1.2-beta | 安定していないバージョンも含めて、パターンに従う最も高いバージョン。 | Visual Studio バージョン 16.6、NuGet バージョン 5.6、.NET Core SDK バージョン 3.1.300 で使用可能。 |
+
+**`packages.config` 内の参照** :
 
 `packages.config` では、すべての依存関係が、パッケージの復元時に使用される正確な `version` 属性と共に一覧表示されます。 `allowedVersions` 属性は、パッケージの更新先にできるバージョンを制限するために、更新操作中にのみ使用されます。
 

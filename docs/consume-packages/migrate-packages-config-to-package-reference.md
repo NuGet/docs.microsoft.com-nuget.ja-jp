@@ -1,16 +1,16 @@
 ---
-title: package.config から PackageReference 形式への移行
-description: NuGet 4.0 以降と VS2017 および .NET Core 2.0 でサポートされているように、プロジェクトを package.config 管理形式から PackageReference に移行する方法について詳しく説明します
+title: packages.config から PackageReference 形式への移行
+description: NuGet 4.0 以降と VS2017 および .NET Core 2.0 でサポートされているように、プロジェクトを packages.config 管理形式から PackageReference に移行する方法について詳しく説明します
 author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8e825410d621ff2946e23e80173292f24f9d21f2
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 23bd936707173f49a651a8ba432fa8773fa53881
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428523"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237836"
 ---
 # <a name="migrate-from-packagesconfig-to-packagereference"></a>packages.config から PackageReference への移行
 
@@ -18,11 +18,11 @@ Visual Studio 2017 バージョン 15.7 以降では、[packages.config](../refe
 
 ## <a name="benefits-of-using-packagereference"></a>PackageReference を使用する利点
 
-* **すべてのプロジェクトの依存関係を 1 か所で管理**:プロジェクト間参照やアセンブリ参照と同様に、NuGet パッケージ参照 (`PackageReference` ノードを使用) は、個別の packages.config ファイルを使用するのではなく、プロジェクト ファイル内で直接管理されます。
-* **最上位の依存関係のすっきりしたビュー**:packages.config とは異なり、PackageReference では、プロジェクトに直接インストールした NuGet パッケージのみが一覧表示されます。 その結果、NuGet パッケージ マネージャー UI とプロジェクト ファイルが下位レベルの依存関係によって乱雑になることはありません。
-* **パフォーマンスの向上**:PackageReference を使用する場合、(「[グローバル パッケージとキャッシュ フォルダーの管理](../consume-packages/managing-the-global-packages-and-cache-folders.md)」で説明されているように) パッケージはソリューション内の `packages` フォルダーではなく "*グローバル パッケージ*" フォルダー内で管理されます。 その結果、PackageReference のパフォーマンスが向上し、使用するディスク領域も少なくなります。
-* **依存関係とコンテンツ フローのきめ細かな制御**:MSBuild の既存の機能を使用して、[NuGet パッケージを条件付きで参照](../consume-packages/Package-References-in-Project-Files.md#adding-a-packagereference-condition)し、ターゲット フレームワーク、構成、プラットフォーム、またはその他のピボットごとにパッケージ参照を選択できます。
-* **PackageReference はアクティブに開発中**:[GitHub 上の PackageReference の問題](https://aka.ms/nuget-pr-improvements)に関するページをご覧ください。 packages.config の開発は現在継続されていません。
+* **すべてのプロジェクトの依存関係を 1 か所で管理** :プロジェクト間参照やアセンブリ参照と同様に、NuGet パッケージ参照 (`PackageReference` ノードを使用) は、個別の packages.config ファイルを使用するのではなく、プロジェクト ファイル内で直接管理されます。
+* **最上位の依存関係のすっきりしたビュー** :packages.config とは異なり、PackageReference では、プロジェクトに直接インストールした NuGet パッケージのみが一覧表示されます。 その結果、NuGet パッケージ マネージャー UI とプロジェクト ファイルが下位レベルの依存関係によって乱雑になることはありません。
+* **パフォーマンスの向上** :PackageReference を使用する場合、(「 [グローバル パッケージとキャッシュ フォルダーの管理](../consume-packages/managing-the-global-packages-and-cache-folders.md)」で説明されているように) パッケージはソリューション内の `packages` フォルダーではなく " *グローバル パッケージ* " フォルダー内で管理されます。 その結果、PackageReference のパフォーマンスが向上し、使用するディスク領域も少なくなります。
+* **依存関係とコンテンツ フローのきめ細かな制御** :MSBuild の既存の機能を使用して、 [NuGet パッケージを条件付きで参照](../consume-packages/Package-References-in-Project-Files.md#adding-a-packagereference-condition)し、ターゲット フレームワーク、構成、プラットフォーム、またはその他のピボットごとにパッケージ参照を選択できます。
+* **PackageReference はアクティブに開発中** : [GitHub 上の PackageReference の問題](https://aka.ms/nuget-pr-improvements)に関するページをご覧ください。 packages.config の開発は現在継続されていません。
 
 ### <a name="limitations"></a>制限事項
 
@@ -57,9 +57,9 @@ Visual Studio 2017 バージョン 15.7 以降では、[packages.config](../refe
 
 1. `packages.config` を使用してプロジェクトを含むソリューションを開きます。
 
-1. **ソリューション エクスプローラー**で、 **[参照]** ノードまたは `packages.config` ファイルを右クリックし、 **[packages.config を PackageReference に移行する...]** を選択します。
+1. **ソリューション エクスプローラー** で、 **[参照]** ノードまたは `packages.config` ファイルを右クリックし、 **[packages.config を PackageReference に移行する...]** を選択します。
 
-1. 移行プログラムによってプロジェクトの NuGet パッケージ参照が分析され、**最上位の依存関係** (直接インストールした NuGet パッケージ) と**推移的依存関係** (最上位のパッケージの依存関係としてインストールされたパッケージ) への分類が試行されます。
+1. 移行プログラムによってプロジェクトの NuGet パッケージ参照が分析され、 **最上位の依存関係** (直接インストールした NuGet パッケージ) と **推移的依存関係** (最上位のパッケージの依存関係としてインストールされたパッケージ) への分類が試行されます。
 
    > [!Note]
    > PackageReference では推移的なパッケージの復元がサポートされ、依存関係が動的に解決されます。つまり、推移的依存関係を明示的にインストールする必要はありません。

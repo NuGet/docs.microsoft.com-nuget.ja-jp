@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: 8c09d6d5662ed6ff0deffa5d45b823ad0992f399
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: a67c8cd92304c6c4abcffbb79ddbe964664d08fb
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "78231306"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237485"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>クイック スタート: パッケージの作成と公開 (dotnet CLI)
 
@@ -53,7 +53,7 @@ ms.locfileid: "78231306"
 1. 「[NuGet メタデータ プロパティ](/dotnet/core/tools/csproj#nuget-metadata-properties)」で説明する省略可能なプロパティを追加します。
 
     > [!Note]
-    > 公開用にビルドされたパッケージの場合は、**PackageTags**プロパティに特に注意してください。これらのタグは他のユーザーがパッケージを検索して、パッケージの動作を理解するのに役立ちます。
+    > 公開用にビルドされたパッケージの場合は、 **PackageTags** プロパティに特に注意してください。これらのタグは他のユーザーがパッケージを検索して、パッケージの動作を理解するのに役立ちます。
 
 ## <a name="run-the-pack-command"></a>pack コマンドを実行する
 
@@ -124,6 +124,7 @@ NuGet による提供についてさらに詳しく調べるには、下のリ�
 - [プレリリース パッケージ](../create-packages/Prerelease-Packages.md)
 - [複数のターゲット フレームワークのサポート](../create-packages/multiple-target-frameworks-project-file.md)
 - [パッケージのバージョン管理](../concepts/package-versioning.md)
+- [ライセンス式またはファイルの追加](../reference/msbuild-targets#packing-a-license-expression-or-a-license-file)
 - [ローカライズされたパッケージを作成する](../create-packages/creating-localized-packages.md)
 - [シンボル パッケージを作成する](../create-packages/symbol-packages-snupkg.md)
-- [署名パッケージ](../create-packages/Sign-a-package.md)
+- [パッケージの署名](../create-packages/Sign-a-package.md)
