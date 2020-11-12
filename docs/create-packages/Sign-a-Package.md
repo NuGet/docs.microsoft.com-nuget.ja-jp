@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 81f8695d7b3cec73f3e18f90ddf38dfe6c3ecf4d
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 64b28c29ae3b533bde7c8f41dd38a4ab0a5afef7
+ms.sourcegitcommit: 0cc6ac680c3202d0b036c0bed7910f6709215682
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237589"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94550376"
 ---
 # <a name="signing-nuget-packages"></a>NuGet パッケージの署名
 
@@ -54,7 +54,7 @@ nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper 
 署名されたパッケージを発行するには、まず NuGet.org に証明書を登録する必要があります。この証明書は、DER 形式の `.cer` ファイルである必要があります。
 
 1. NuGet.org に[サインイン](https://www.nuget.org/users/account/LogOn?returnUrl=%2F)します。
-1. [`Account settings`] に移動します (または、証明書を組織アカウントで登録するには [`Manage Organization`] **>** [`Edit Organziation`] に移動します)。
+1. [`Account settings`] に移動します (または、証明書を組織アカウントで登録するには [`Manage Organization`] **>** [`Edit Organization`] に移動します)。
 1. [`Certificates`] セクションを展開し、[`Register new`] を選択します。
 1. 前にエクスポートした証明書ファイルを参照し選択します。
   ![登録済みの証明書](../reference/media/registered-certs.png)
