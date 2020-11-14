@@ -5,12 +5,12 @@ author: dominofire
 ms.author: feaguila
 ms.date: 11/9/2020
 ms.topic: conceptual
-ms.openlocfilehash: 86e173b9d760578454df8f5f817533f64e193996
-ms.sourcegitcommit: 0cc6ac680c3202d0b036c0bed7910f6709215682
+ms.openlocfilehash: 09fb98eec79ee4ed08d85a1c557a420d6b265f11
+ms.sourcegitcommit: f4b74b500e3db9e468f11142df48d87880382267
 ms.translationtype: MT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 11/12/2020
-ms.locfileid: "94550742"
+ms.locfileid: "94572832"
 ---
 # <a name="nuget-58-release-notes"></a>NuGet 5.8 リリースノート
 
@@ -28,6 +28,8 @@ NuGet 配布の種類:
 
 ## <a name="summary-whats-new-in-58"></a>概要: 5.8 の新機能
 🎉 **これは、.net 5.0 をターゲットとする NuGet パッケージの完全な作成と復元のサポートを提供するための最初のリリースです** 🎉
+
+* Mmap/Createfilemapping にを使用した nupkg 抽出[#9807](https://github.com/NuGet/Home/issues/9807)の高速化
 
 * パッケージマネージャー UI パッケージの詳細ペインでパッケージの脆弱性の詳細を表示する- [#9850](https://github.com/NuGet/Home/issues/9850)
 
@@ -129,7 +131,7 @@ NuGet 配布の種類:
 
 この NuGet のリリースに役立ったすべての共同作成者に感謝します。
 
-|担当者|Pr|発行|
+|担当者|Pr|issue|
 |----|----|----|
 [omajid](https://github.com/omajid) | [3437](https://github.com/NuGet/NuGet.Client/pull/3437) | エラーメッセージに誤りがあります。 "administrator" ではなく "管理者"- [#9662](https://github.com/NuGet/Home/issues/9662)
 [odalet](https://github.com/odalet) | [3341](https://github.com/NuGet/NuGet.Client/pull/3341) | 無効な AssemblyInformationalVersion レポートの NuGet パックが必要です。 "- [#5548](https://github.com/NuGet/Home/issues/5548)
