@@ -1,9 +1,7 @@
 ---
 title: プッシュシンボルパッケージ、NuGet API |Microsoft Docs
 author: cristinamanum
-ms.author:
-- cmanu
-- kraigb
+ms.author: cmanu
 manager: skofman
 ms.date: 10/30/2018
 ms.topic: reference
@@ -12,12 +10,12 @@ ms.technology: ''
 description: 発行サービスにより、クライアントは新しいシンボルパッケージを発行できます。
 keywords: NuGet API プッシュシンボルパッケージ
 ms.reviewer: karann
-ms.openlocfilehash: 27e557bf15ce31152243a409eddc4112eeb6c38b
-ms.sourcegitcommit: ac9a00ccaf90e539a381e92b650074910b21eb0d
+ms.openlocfilehash: bd4a10cc976c9d0775a63cfe61c35327c196065c
+ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70235109"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96738878"
 ---
 # <a name="push-symbol-packages"></a>シンボルパッケージのプッシュ
 
@@ -26,19 +24,19 @@ NuGet V3 API を使用してシンボルパッケージ ([snupkg](../create-pack
 
 ## <a name="versioning"></a>バージョン管理
 
-次`@type`の値が使用されます。
+次の `@type` 値が使用されます。
 
-@type の値                 | メモ
+@type 値                 | メモ
 --------------------        | -----
 シンボル Packagepublish/4.9.0-  | 最初のリリース
 
-## <a name="base-url"></a>[基本 URL]
+## <a name="base-url"></a>ベース URL
 
-次の api のベース URL は、パッケージソースの`@id` [サービスインデックス](service-index.md)に含ま`SymbolPackagePublish/4.9.0`れるリソースのプロパティの値です。 次のドキュメントでは、nuget の URL が使用されます。 サービス`https://www.nuget.org/api/v2/symbolpackage`インデックスで見つかった`@id`値のプレースホルダーとして考慮します。
+次の Api のベース URL は、 `@id` `SymbolPackagePublish/4.9.0` パッケージソースの [サービスインデックス](service-index.md)に含まれるリソースのプロパティの値です。 次のドキュメントでは、nuget の URL が使用されます。 `https://www.nuget.org/api/v2/symbolpackage` `@id` サービスインデックスで見つかった値のプレースホルダーとして考慮します。
 
 ## <a name="http-methods"></a>HTTP メソッド
 
-この`PUT`リソースでは、HTTP メソッドがサポートされています。 
+`PUT`このリソースでは、HTTP メソッドがサポートされています。 
 
 ## <a name="push-a-symbol-package"></a>シンボルパッケージをプッシュする
 
@@ -49,21 +47,21 @@ nuget.org では、次の API を使用した新しいシンボルパッケー�
 同じ ID とバージョンのシンボルパッケージは、複数回送信できます。 シンボルパッケージは、次の場合には拒否されます。
 - 同じ ID とバージョンのパッケージが存在しません。
 - 同じ ID とバージョンのシンボルパッケージがプッシュされましたが、まだ発行されていません。
-- シンボルパッケージ ([snupkg](../create-packages/Symbol-Packages-snupkg.md)) が無効です (「[シンボルパッケージの制約](../create-packages/Symbol-Packages-snupkg.md)」を参照してください)。
+- シンボルパッケージ ([snupkg](../create-packages/Symbol-Packages-snupkg.md)) が無効です (「 [シンボルパッケージの制約](../create-packages/Symbol-Packages-snupkg.md)」を参照してください)。
 
 ### <a name="request-parameters"></a>要求パラメーター
 
-名前           | イン     | 型   | 必須 | メモ
+Name           | /     | 型   | 必須 | メモ
 -------------- | ------ | ------ | -------- | -----
-X-NuGet-ApiKey | Header | string | 可      | 例、`X-NuGet-ApiKey: {USER_API_KEY}`
+X-NuGet-ApiKey | ヘッダー | string | はい      | たとえば、`X-NuGet-ApiKey: {USER_API_KEY}` のように指定します。
 
 API キーは、ユーザーによってパッケージソースから得られた非透過文字列であり、クライアントに構成されています。 特定の文字列形式は必須ではありませんが、API キーの長さは HTTP ヘッダー値に対して妥当なサイズを超えることはできません。
 
 ### <a name="request-body"></a>要求本文
 
-シンボルプッシュの要求本文は、パッケージプッシュ要求の要求本文と同じです (「[パッケージプッシュと削除](package-publish-resource.md)」を参照してください)。 
+シンボルプッシュの要求本文は、パッケージプッシュ要求の要求本文と同じです (「 [パッケージプッシュと削除](package-publish-resource.md)」を参照してください)。 
 
-### <a name="response"></a>応答
+### <a name="response"></a>Response
 
 状態コード | 説明
 ----------- | -------

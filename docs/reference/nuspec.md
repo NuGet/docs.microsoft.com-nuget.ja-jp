@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: f91d47bdf9b957b512d3d83434693ee93de07afb
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 6e5107ac05046ea46cc819ebe2a504ba6b030634
+ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623137"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96738943"
 ---
 # <a name="nuspec-reference"></a>.nuspec リファレンス
 
@@ -96,6 +96,9 @@ Nuget.org のプロファイル名と一致するパッケージ作成者のコ�
 ### <a name="optional-metadata-elements"></a>メタデータの省略可能な要素
 
 #### <a name="owners"></a>owners
+> [!Important]
+> 所有者は非推奨とされます。 代わりに、作成者を使用してください。
+
 Nuget.org のプロファイル名を使用して、パッケージ作成者のコンマ区切りのリスト。多くの場合、このリストはと同じです `authors` 。パッケージを nuget.org にアップロードするときには無視されます。「 [Nuget.org でのパッケージ所有者の管理」を](../nuget-org/publish-a-package.md#managing-package-owners-on-nugetorg)参照してください。 
 
 #### <a name="projecturl"></a>projectUrl
@@ -171,9 +174,9 @@ UI 表示でパッケージのアイコンとして使用される透明な背�
    
 パッケージを nuget.org にアップロードする場合、 `iconUrl` フィールドの文字数は4000文字に制限されます。
 
-#### <a name="icon"></a>アイコン
+#### <a name="icon"></a>icon
 
-***NuGet 5.3.0**以降でサポートされています*
+***NuGet 5.3.0** 以降でサポートされています*
 
 これはパッケージ内のイメージファイルへのパスであり、多くの場合、パッケージアイコンとして nuget.org のような Ui に表示されます。 イメージファイルのサイズは 1 MB に制限されています。 サポートされているファイル形式は、JPEG および PNG です。 128x128 のイメージの解像度をお勧めします。
 
@@ -209,7 +212,7 @@ UI 表示でパッケージのアイコンとして使用される透明な背�
 
 #### <a name="summary"></a>まとめ
 > [!Important]
-> `summary` は非推奨とされます。 代わりに `description` を使用してください
+> `summary` は非推奨とされます。 代わりに、`description` を使用してください。
 
 UI 画面用のパッケージの短い説明。 省略すると、`description` を切り詰めたバージョンが使われます。
 
@@ -360,7 +363,7 @@ nuget pack MyProject.csproj
 
 | 包含/除外タグ | ターゲットの影響を受けるフォルダー |
 | --- | --- |
-| contentFiles | コンテンツ |
+| contentFiles | Content |
 | ランタイム | Runtime、Resources、FrameworkAssemblies |
 | compile | lib |
 | build | build (MSBuild のプロパティとターゲット) |
@@ -387,7 +390,7 @@ nuget pack MyProject.csproj
 ```
 
 > [!Important]
-> `.nuspec`を使用してプロジェクトからを作成する場合 `nuget spec` 、そのプロジェクトに存在する依存関係は、結果のファイルに自動的に含まれません `.nuspec` 。 代わりに `nuget pack myproject.csproj` 、を使用し、生成された*nupkg*ファイル内から*nuspec*ファイルを取得します。 この *nuspec* には、依存関係が含まれています。
+> `.nuspec`を使用してプロジェクトからを作成する場合 `nuget spec` 、そのプロジェクトに存在する依存関係は、結果のファイルに自動的に含まれません `.nuspec` 。 代わりに `nuget pack myproject.csproj` 、を使用し、生成された *nupkg* ファイル内から *nuspec* ファイルを取得します。 この *nuspec* には、依存関係が含まれています。
 
 ### <a name="dependency-groups"></a>依存関係グループ
 

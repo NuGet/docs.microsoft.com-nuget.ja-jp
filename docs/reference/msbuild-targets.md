@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 16fd7b9103ef5ac335f0b2e5493dd2983b182f50
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 4a04c6dd7993fc47bcf7a6fe46236ed700a0d105
+ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623176"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96738930"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>MSBuild ターゲットとしての NuGet の pack と restore
 
@@ -49,11 +49,11 @@ PackageReference 形式を使用する .NET Standard プロジェクトでは、
 | 属性/NuSpec の値 | MSBuild のプロパティ | Default | メモ |
 |--------|--------|--------|--------|
 | Id | PackageId | AssemblyName | MSBuild の $(AssemblyName) |
-| Version | PackageVersion | Version | これは semver と互換性があります (たとえば、"1.0.0"、"1.0.0-beta"、または "1.0.0-beta-00345") |
+| バージョン | PackageVersion | バージョン | これは semver と互換性があります (たとえば、"1.0.0"、"1.0.0-beta"、または "1.0.0-beta-00345") |
 | VersionPrefix | PackageVersionPrefix | empty | PackageVersion を設定すると、PackageVersionPrefix は上書きされます |
 | VersionSuffix | PackageVersionSuffix | empty | MSBuild の $(VersionSuffix) PackageVersion を設定すると、PackageVersionSuffix は上書きされます |
 | Authors | Authors | 現在のユーザーのユーザー名 | |
-| 所有者 | 該当なし | NuSpec にはありません | |
+| 所有者 | N/A | NuSpec にはありません | |
 | タイトル | タイトル | PackageId| |
 | 説明 | 説明 | "パッケージの説明" | |
 | Copyright | Copyright | empty | |
@@ -68,8 +68,8 @@ PackageReference 形式を使用する .NET Standard プロジェクトでは、
 | ReleaseNotes | PackageReleaseNotes | empty | |
 | リポジトリ/Url | RepositoryUrl | empty | ソースコードの複製または取得に使用されるリポジトリの URL。 よう *https://github.com/NuGet/NuGet.Client.git* |
 | リポジトリ/種類 | RepositoryType | empty | リポジトリの種類。 例: *git*、 *tfs*。 |
-| リポジトリ/ブランチ | RepositoryBranch | empty | リポジトリのブランチ情報 (オプション)。 このプロパティを含めるには、 *RepositoryUrl*も指定する必要があります。 例: *master* (NuGet 4.7.0 +) |
-| リポジトリ/コミット | RepositoryCommit | empty | 任意のリポジトリ コミットまたは変更セット。パッケージがどのソースに対してビルドされたかを示します。 このプロパティを含めるには、 *RepositoryUrl*も指定する必要があります。 例: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +) |
+| リポジトリ/ブランチ | RepositoryBranch | empty | リポジトリのブランチ情報 (オプション)。 このプロパティを含めるには、 *RepositoryUrl* も指定する必要があります。 例: *master* (NuGet 4.7.0 +) |
+| リポジトリ/コミット | RepositoryCommit | empty | 任意のリポジトリ コミットまたは変更セット。パッケージがどのソースに対してビルドされたかを示します。 このプロパティを含めるには、 *RepositoryUrl* も指定する必要があります。 例: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +) |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
 | まとめ | サポートされていません | | |
 
@@ -80,7 +80,7 @@ PackageReference 形式を使用する .NET Standard プロジェクトでは、
 - PackageVersion
 - PackageId
 - Authors
-- 説明
+- Description
 - Copyright
 - PackageRequireLicenseAcceptance
 - DevelopmentDependency
@@ -221,7 +221,7 @@ Nuspec に相当するものについては、「 [nuspec reference for icon」�
 
 ### <a name="includesymbols"></a>IncludeSymbols
 
-`MSBuild -t:pack -p:IncludeSymbols=true` を使用すると、対応する `.pdb` ファイルは他の出力ファイル (`.dll`、`.exe`、`.winmd`、`.xml`、`.json`、`.pri`) と共にコピーされます。 `IncludeSymbols=true` を設定すると、通常のパッケージ*と*シンボル パッケージが作成されます。
+`MSBuild -t:pack -p:IncludeSymbols=true` を使用すると、対応する `.pdb` ファイルは他の出力ファイル (`.dll`、`.exe`、`.winmd`、`.xml`、`.json`、`.pri`) と共にコピーされます。 `IncludeSymbols=true` を設定すると、通常のパッケージ *と* シンボル パッケージが作成されます。
 
 ### <a name="includesource"></a>IncludeSource
 
@@ -284,7 +284,7 @@ msbuild -t:pack <path to .csproj file> -p:NuspecFile=<path to nuspec file> -p:Nu
 
 dotnet.exe または msbuild を使用して nuspec をパッキングすると、既定でプロジェクトがビルドされることにも注意してください。 これは、プロパティを dotnet.exe に渡すことによって回避できます。これは、プロジェクトファイルの ```--no-build``` 設定 ```<NoBuild>true</NoBuild> ``` と共に、プロジェクトファイル内の設定に相当し ```<IncludeBuildOutput>false</IncludeBuildOutput> ``` ます。
 
-Nuspec ファイルをパックする .csproj ファイルの例を次に示し*ます。*
+Nuspec ファイルをパックする .csproj ファイルの例を次に示し *ます。*
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -365,13 +365,14 @@ Nuspec ファイルをパックする .csproj ファイルの例を次に示し*
 1. パッケージのダウンロード
 1. アセット ファイル、ターゲット、およびプロパティを出力します
 
-ターゲットは、 `restore` PackageReference 形式を使用するプロジェクトに対して **のみ** 機能します。 形式を使用するプロジェクトでは機能し **ません** 。 `packages.config` 代わりに [nuget restore](../reference/cli-reference/cli-ref-restore.md) を使用してください。
+ターゲットは、 `restore` PackageReference 形式を使用するプロジェクトに対して機能します。
+`MSBuild 16.5+` では、形式の [オプトインもサポート](#restoring-packagereference-and-packages.config-with-msbuild) されてい `packages.config` ます。
 
 ### <a name="restore-properties"></a>restore のプロパティ
 
 追加の restore 設定を、プロジェクト ファイルの MSBuild プロパティで指定することができます。 また、`-p:` スイッチを使用して、コマンド ラインから値を設定することもできます (次の例を参照してください)。
 
-| プロパティ | 説明 |
+| プロパティ | Description |
 |--------|--------|
 | RestoreSources | パッケージ ソースのセミコロン区切りの一覧。 |
 | RestorePackagesPath | ユーザー パッケージ フォルダーのパス。 |
@@ -391,7 +392,8 @@ Nuspec ファイルをパックする .csproj ファイルの例を次に示し*
 | RestorePackagesWithLockFile | ロック ファイルの使用をオプトインします。 |
 | RestoreLockedMode | ロックモードで復元を実行します。 これは、restore が依存関係を再評価しないことを意味します。 |
 | NuGetLockFilePath | ロックファイルのカスタムの場所。 既定の場所はプロジェクトの横にあり、という名前が付けられ `packages.lock.json` ます。 |
-| RestoreForceEvaluate | 復元によって依存関係が再計算され、警告なしでロックファイルが更新されます。 | 
+| RestoreForceEvaluate | 復元によって依存関係が再計算され、警告なしでロックファイルが更新されます。 |
+| Restoreパッケージ構成 | オプトインスイッチ。 packages.config でプロジェクトを復元します。でのみサポートさ `MSBuild -t:restore` れます。 |
 
 #### <a name="examples"></a>例
 
@@ -435,6 +437,17 @@ msbuild -t:build -restore
 ```
 
 と同様に、同じロジックが他のターゲットにも適用され `build` ます。
+
+### <a name="restoring-packagereference-and-packagesconfig-with-msbuild"></a>MSBuild を使用した PackageReference と packages.config の復元
+
+MSBuild 16.5 + では、packages.config もサポートされて `msbuild -t:restore` います。
+
+```cli
+msbuild -t:restore -p:RestorePackagesConfig=true
+```
+
+> [!NOTE]
+> `packages.config` restore は、ではなく、でのみ使用でき `MSBuild 16.5+` ます。 `dotnet.exe`
 
 ### <a name="packagetargetfallback"></a>PackageTargetFallback
 
