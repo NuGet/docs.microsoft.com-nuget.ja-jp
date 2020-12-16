@@ -1,4 +1,3 @@
-# [ドキュメントの概要](index.yml)
 # [NuGet とは何ですか?](what-is-nuget.md)
 # 作業開始
 ## [NuGet クライアント ツールのインストール](install-nuget-client-tools.md)
