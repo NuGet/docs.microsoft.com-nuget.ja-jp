@@ -5,12 +5,12 @@ author: dominofire
 ms.author: feaguila
 ms.date: 11/9/2020
 ms.topic: conceptual
-ms.openlocfilehash: 09fb98eec79ee4ed08d85a1c557a420d6b265f11
-ms.sourcegitcommit: f4b74b500e3db9e468f11142df48d87880382267
+ms.openlocfilehash: 329fdf6479d0799ae4b15cc3493848ba2d999853
+ms.sourcegitcommit: 650c08f8bc3d48dfd206a111e5e2aaca3001f569
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94572832"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97523442"
 ---
 # <a name="nuget-58-release-notes"></a>NuGet 5.8 リリースノート
 
@@ -84,7 +84,7 @@ NuGet 配布の種類:
 
 * XPlat にパブリック Api を含めることはできません- [#9821](https://github.com/NuGet/Home/issues/9821)
 
-* #9822 でスレッドプールのスレッドをブロックすることによって、ソリューションの読み込み時にリソースの競合を軽減します `BlockingCollection.Take()`  -  [#9822](https://github.com/NuGet/Home/issues/9822)
+* #9822 でスレッドプールのスレッドをブロックすることによって、ソリューションの読み込み時にリソースの競合を軽減します `BlockingCollection.Take()`  -  [](https://github.com/NuGet/Home/issues/9822)
 
 * 複数のターゲットが指定されたプロジェクトのコマンドライン復元では、NuGet は内部ビルドからターゲットフレームワーク関連情報を読み取る必要があり [#9869](https://github.com/NuGet/Home/issues/9869)
 
@@ -131,7 +131,7 @@ NuGet 配布の種類:
 
 この NuGet のリリースに役立ったすべての共同作成者に感謝します。
 
-|担当者|Pr|issue|
+|担当者|Pr|発行|
 |----|----|----|
 [omajid](https://github.com/omajid) | [3437](https://github.com/NuGet/NuGet.Client/pull/3437) | エラーメッセージに誤りがあります。 "administrator" ではなく "管理者"- [#9662](https://github.com/NuGet/Home/issues/9662)
 [odalet](https://github.com/odalet) | [3341](https://github.com/NuGet/NuGet.Client/pull/3341) | 無効な AssemblyInformationalVersion レポートの NuGet パックが必要です。 "- [#5548](https://github.com/NuGet/Home/issues/5548)
@@ -144,5 +144,5 @@ NuGet 配布の種類:
 
 ## <a name="feedback-welcome"></a>フィードバックの開始
 
-お客様のフィードバックは Microsoft にとって重要です。  このリリースに問題がある場合は、GitHub の [問題](https://github.com/NuGet/Home/issues) と [Visual Studio Developer Community](https://developercommunity.visualstudio.com/) で既存の問題を確認してください。  NuGet 内の新しい問題については、 [GitHub の問題](hhttps://github.com/NuGet/Home/issues/new)を報告してください。
-NuGet エクスペリエンスに関する一般的な問題については、[ **ヘルプ > [問題の報告** ] の下にあるお気に入りの IDE の [ [問題点の報告](https://docs.microsoft.com/visualstudio/ide/how-to-report-a-problem-with-visual-studio)] オプションを使用してお知らせください。
+お客様のフィードバックは Microsoft にとって重要です。  このリリースに問題がある場合は、GitHub の [問題](https://github.com/NuGet/Home/issues) と [Visual Studio Developer Community](https://developercommunity.visualstudio.com/) で既存の問題を確認してください。  NuGet 内の新しい問題については、 [GitHub の問題](https://github.com/NuGet/Home/issues/new)を報告してください。
+NuGet エクスペリエンスに関する一般的な問題については、[**ヘルプ > [問題の報告**] の下にあるお気に入りの IDE の [[問題点の報告](https://docs.microsoft.com/visualstudio/ide/how-to-report-a-problem-with-visual-studio)] オプションを使用してお知らせください。
