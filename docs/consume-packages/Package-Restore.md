@@ -1,16 +1,16 @@
 ---
 title: NuGet パッケージの復元
 description: プロジェクトが依存しているパッケージを NuGet が復元する方法について概要を説明します。復元を無効にする方法や、バージョンを制約する方法についても触れます。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: be68d3bd1c7dfcc5661276c0b62d46722af61a00
-ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
+ms.openlocfilehash: bac4d88c29539f9fbe7b33b44ce11d350920d365
+ms.sourcegitcommit: 650c08f8bc3d48dfd206a111e5e2aaca3001f569
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96738956"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97523523"
 ---
 # <a name="restore-packages-using-package-restore"></a>[パッケージの復元] を使用したパッケージの復元
 
@@ -147,7 +147,7 @@ NuGet には、プロジェクトでパッケージを使用できる、[`Packag
 
 ## <a name="restore-using-msbuild"></a>MSBuild を使用した復元
 
-[msbuild -t:restore](../reference/msbuild-targets.md#restore-target) コマンドを使用して、プロジェクト ファイルに一覧表示されているパッケージ (「[PackageReference](../../consume-packages/package-references-in-project-files.md)」を参照) と、MSBuild 16.5 以降では `packages.config` プロジェクトを復元します。
+[msbuild -t:restore](../reference/msbuild-targets.md#restore-target) コマンドを使用して、プロジェクト ファイルに一覧表示されているパッケージ (「[PackageReference](package-references-in-project-files.md)」を参照) と、MSBuild 16.5 以降では `packages.config` プロジェクトを復元します。
 
  このコマンドは、Visual Studio 2017 以降のバージョンに含まれる NuGet 4.x+ と MSBuild 15.1+ でのみ利用できます。
 MSBuild 16.5 以降では、このコマンドを `-p:RestorePackagesConfig=true` を指定して実行すると、`packages.config` ベースのプロジェクトを復元することもできます。

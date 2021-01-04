@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 11/02/2017
 ms.topic: tutorial
 ms.reviewer: kraigb
-ms.openlocfilehash: 0bd21c427b5b89ae9e5f1500d75e1bf63a96e828
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 749d9466976d51c7cb65332c8b149e3a30862e63
+ms.sourcegitcommit: 650c08f8bc3d48dfd206a111e5e2aaca3001f569
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64498234"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97523399"
 ---
 # <a name="query-for-all-packages-published-to-nugetorg"></a>nuget.org に発行されたすべてのパッケージに対するクエリの実行
 
@@ -32,7 +32,7 @@ ms.locfileid: "64498234"
 
 ## <a name="overview"></a>概要
 
-このガイドの中心となるのは、**カタログ**と呼ばれる [NuGet API](../../api/overview.md) のリソースです。 カタログは追加専用の API であり、これを使用することで、呼び出し元は nuget.org で追加、変更、および削除されたパッケージのすべての履歴を確認することができます。nuget.org に発行されたパッケージのすべて (あるいは一部でも) に関心がある場合、カタログは、時間が経過しても現在使用可能なパッケージ セットを常に把握することができる優れた方法です。
+このガイドの中心となるのは、**カタログ** と呼ばれる [NuGet API](../../api/overview.md) のリソースです。 カタログは追加専用の API であり、これを使用することで、呼び出し元は nuget.org で追加、変更、および削除されたパッケージのすべての履歴を確認することができます。nuget.org に発行されたパッケージのすべて (あるいは一部でも) に関心がある場合、カタログは、時間が経過しても現在使用可能なパッケージ セットを常に把握することができる優れた方法です。
 
 このガイドは簡単なチュートリアルであるため、カタログの詳細については、[API 参照に関するドキュメント](../../api/catalog-resource.md)を参照してください。
 
@@ -110,13 +110,13 @@ git clone https://github.com/NuGet/Samples.git
 
 ### <a name="catalog-sdk"></a>カタログ SDK
 
-カタログを使用する場合、プレリリース版の .NET カタログ SDK パッケージである [NuGet.Protocol.Catalog](https://dotnet.myget.org/feed/nuget-build/package/nuget/NuGet.Protocol.Catalog) を使用するのが最も簡単な方法です。 このパッケージは、`nuget-build` MyGet フィード (NuGet パッケージ ソース URL `https://dotnet.myget.org/F/nuget-build/api/v3/index.json` を使用する場合) で入手可能です。
+カタログを使用する最も簡単な方法は、プレリリースの .NET カタログ SDK パッケージ `NuGet.Protocol.Catalog` を使用することです。これは、次の NuGet パッケージ ソース URL を使用して、Azure Artifacts で利用できます: `https://pkgs.dev.azure.com/dnceng/public/_packaging/nuget-build/nuget/v3/index.json`。
 
 このパッケージを、`netstandard1.3` 以上 (.NET Framework 4.6 など) と互換性のあるプロジェクトにインストールすることができます。
 
 このパッケージを使用するサンプルは、GitHub の [NuGet.Protocol.Catalog.Sample プロジェクト](https://github.com/NuGet/Samples/tree/master/CatalogReaderExample/NuGet.Protocol.Catalog.Sample)で入手できます。
 
-#### <a name="sample-output"></a>出力例
+#### <a name="sample-output"></a>サンプル出力
 
 ```output
 2017-11-10T22:16:44.8689025+00:00: Found package details leaf for xSkrape.APIWrapper.REST 1.0.2.
@@ -156,7 +156,7 @@ warn: NuGet.Protocol.Catalog.CatalogProcessor[0]
 
 コードの主なロジックは [Program.cs ファイル](https://github.com/NuGet/Samples/blob/master/CatalogReaderExample/CatalogReaderExample/Program.cs)に表示されます。
 
-#### <a name="sample-output"></a>出力例
+#### <a name="sample-output"></a>サンプル出力
 
 ```output
 No cursor found. Defaulting to 11/2/2017 9:41:28 PM.
