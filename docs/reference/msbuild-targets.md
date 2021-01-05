@@ -1,16 +1,16 @@
 ---
 title: MSBuild ターゲットとしての NuGet の pack と restore
 description: NuGet の pack と restore は、NuGet 4.0 以降で MSBuild ターゲットとして直接使用できます。
-author: karann-msft
-ms.author: karann
+author: nkolev92
+ms.author: nikolev
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4a04c6dd7993fc47bcf7a6fe46236ed700a0d105
-ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
+ms.openlocfilehash: 66df4e0e4739300608fd5f9e44eea5bcd00079c8
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96738930"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699887"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>MSBuild ターゲットとしての NuGet の pack と restore
 
@@ -46,10 +46,10 @@ PackageReference 形式を使用する .NET Standard プロジェクトでは、
 
 `.nuspec` の `Owners` および `Summary` プロパティは、MSBuild ではサポートされていない点に注意してください。
 
-| 属性/NuSpec の値 | MSBuild のプロパティ | Default | メモ |
+| 属性/NuSpec の値 | MSBuild のプロパティ | Default | Notes |
 |--------|--------|--------|--------|
 | Id | PackageId | AssemblyName | MSBuild の $(AssemblyName) |
-| バージョン | PackageVersion | バージョン | これは semver と互換性があります (たとえば、"1.0.0"、"1.0.0-beta"、または "1.0.0-beta-00345") |
+| Version | PackageVersion | Version | これは semver と互換性があります (たとえば、"1.0.0"、"1.0.0-beta"、または "1.0.0-beta-00345") |
 | VersionPrefix | PackageVersionPrefix | empty | PackageVersion を設定すると、PackageVersionPrefix は上書きされます |
 | VersionSuffix | PackageVersionSuffix | empty | MSBuild の $(VersionSuffix) PackageVersion を設定すると、PackageVersionSuffix は上書きされます |
 | Authors | Authors | 現在のユーザーのユーザー名 | |
@@ -80,7 +80,7 @@ PackageReference 形式を使用する .NET Standard プロジェクトでは、
 - PackageVersion
 - PackageId
 - Authors
-- Description
+- 説明
 - Copyright
 - PackageRequireLicenseAcceptance
 - DevelopmentDependency
@@ -131,7 +131,7 @@ NuGet 5.3 & Visual Studio 2019 バージョン16.3 以降では、 `pack` パッ
 
 アイコンイメージファイルをパッキングする場合は、パッケージ `PackageIcon` のルートに対して相対的なパッケージパスを指定するために、プロパティを使用する必要があります。 また、ファイルがパッケージに含まれていることを確認する必要があります。 イメージファイルのサイズは 1 MB に制限されています。 サポートされているファイル形式は、JPEG および PNG です。 128x128 のイメージの解像度をお勧めします。
 
-次に例を示します。
+例:
 
 ```xml
 <PropertyGroup>
@@ -242,7 +242,7 @@ Nuspec に相当するものについては、「 [nuspec reference for icon」�
 
 [NuGet.org によって受け付けられるライセンス式とライセンスの詳細については、こちらを参照](nuspec.md#license)してください。
 
-ライセンスファイルをパッキングする場合は、パッケージのルートを基準としたパッケージパスを指定するために、"パッケージの作成" プロパティを使用する必要があります。 また、ファイルがパッケージに含まれていることを確認する必要があります。 次に例を示します。
+ライセンスファイルをパッキングする場合は、パッケージのルートを基準としたパッケージパスを指定するために、"パッケージの作成" プロパティを使用する必要があります。 また、ファイルがパッケージに含まれていることを確認する必要があります。 例:
 
 ```xml
 <PropertyGroup>
@@ -256,6 +256,23 @@ Nuspec に相当するものについては、「 [nuspec reference for icon」�
 
 [ライセンスファイルのサンプル](https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample)。
 
+### <a name="packing-a-file-without-an-extension"></a>拡張子のないファイルのパッキング
+
+ライセンスファイルをパッキングする場合など、一部のシナリオでは、拡張子のないファイルを含めることができます。
+履歴の理由により、NuGet & MSBuild では、パスをディレクトリとして拡張せずにパスを扱います。
+
+```xml
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="LICENSE" Pack="true" PackagePath=""/>
+  </ItemGroup>  
+```
+
+[拡張機能サンプルのないファイル](https://github.com/NuGet/Samples/blob/master/PackageLicenseFileExtensionlessExample/)。
 ### <a name="istool"></a>IsTool
 
 `MSBuild -t:pack -p:IsTool=true` を使用すると、すべての出力ファイル ([Output Assemblies](#output-assemblies) シナリオに指定されているファイル) は、`lib` フォルダーではなく `tools` フォルダーにコピーされます。 これは、`.csproj` ファイルに `PackageType` を設定して指定する `DotNetCliTool` とは異なります。
@@ -366,13 +383,16 @@ Nuspec ファイルをパックする .csproj ファイルの例を次に示し 
 1. アセット ファイル、ターゲット、およびプロパティを出力します
 
 ターゲットは、 `restore` PackageReference 形式を使用するプロジェクトに対して機能します。
-`MSBuild 16.5+` では、形式の [オプトインもサポート](#restoring-packagereference-and-packages.config-with-msbuild) されてい `packages.config` ます。
+`MSBuild 16.5+` では、形式の [オプトインもサポート](#restoring-packagereference-and-packagesconfig-with-msbuild) されてい `packages.config` ます。
+
+> [!NOTE]
+> ターゲットを `restore` ターゲットと組み合わせて [実行することはできません](#restoring-and-building-with-one-msbuild-command) `build` 。
 
 ### <a name="restore-properties"></a>restore のプロパティ
 
 追加の restore 設定を、プロジェクト ファイルの MSBuild プロパティで指定することができます。 また、`-p:` スイッチを使用して、コマンド ラインから値を設定することもできます (次の例を参照してください)。
 
-| プロパティ | Description |
+| プロパティ | 説明 |
 |--------|--------|
 | RestoreSources | パッケージ ソースのセミコロン区切りの一覧。 |
 | RestorePackagesPath | ユーザー パッケージ フォルダーのパス。 |

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: a6a4ee434c43ad4865dba12f039b5d545a90d3c4
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: d8e5c8574b44375e651f3ff1a4868681b3ce6d66
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238167"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699846"
 ---
 # <a name="list-command-nuget-cli"></a>list コマンド (NuGet CLI)
 
@@ -18,7 +18,7 @@ ms.locfileid: "93238167"
 
 指定されたソースからのパッケージの一覧を表示します。 ソースが指定されていない場合は、グローバル構成ファイル (Windows) またはで定義されているすべてのソース `%AppData%\NuGet\NuGet.Config` `~/.nuget/NuGet/NuGet.Config` が使用されます。 が `NuGet.Config` ソースを指定しない場合、は `list` 既定のフィード (nuget.org) を使用します。
 
-## <a name="usage"></a>使用
+## <a name="usage"></a>使用法
 
 ```cli
 nuget list [search terms] [options]
@@ -58,7 +58,7 @@ nuget list [search terms] [options]
 
 - **`-Source`**
 
-  検索するパッケージソースの一覧を指定します。
+  検索するパッケージソース。 オプションを複数回使用して、複数のソースを指定でき `-Source` ます。
 
 - **`-Verbosity [normal|quiet|detailed]`**
 
