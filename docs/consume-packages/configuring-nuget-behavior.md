@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: 89127203df0aa1eb24f36b8ec64c5bb4a4d59319
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: e81c380eab3f1a8635e50e62811c7ae463ec3653
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428541"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699771"
 ---
 # <a name="common-nuget-configurations"></a>一般的な NuGet 構成
 
@@ -21,12 +21,12 @@ NuGet の動作は、1 つ以上の `NuGet.Config` (XML) ファイルの設定�
 | スコープ | NuGet.Config ファイルの場所 | 説明 |
 | --- | --- | --- |
 | ソリューション | 現在のフォルダー (ソリューション フォルダーとも呼ばれる) またはドライブのルートまでの任意のフォルダー。| ソリューション フォルダーでは、設定はサブフォルダー内のすべてのプロジェクトに適用されます。 構成ファイルをプロジェクト フォルダーに置いた場合、そのプロジェクトには影響しないことに注意してください。 |
-| ユーザー | Windows: `%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.config/NuGet/NuGet.Config` または `~/.nuget/NuGet/NuGet.Config` (OS のディストリビューションによって異なります) | 設定はすべての操作に適用されますが、プロジェクト レベルの設定によってオーバーライドされます。 |
-| コンピューター | Windows: `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux: `$XDG_DATA_HOME`。 `$XDG_DATA_HOME` が null または空の場合は、`~/.local/share` または `/usr/local/share` が使用されます (OS 配布によって異なります)  | 設定はそのコンピューターでのすべての操作に適用されますが、ユーザー レベルまたはプロジェクト レベルの設定によってオーバーライドされます。 |
+| ユーザー | **Windows:** `%appdata%\NuGet\NuGet.Config`<br/>**Mac または Linux:** `~/.config/NuGet/NuGet.Config` または `~/.nuget/NuGet/NuGet.Config` (OS のディストリビューションによって異なります) <br/>すべてのプラットフォームで、追加の構成がサポートされています。 ツールでこれらの構成を編集することはできません。 </br> **Windows:** `%appdata%\NuGet\config\*.Config` <br/>**Mac または Linux:** `~/.config/NuGet/config/*.config` または `~/.nuget/config/*.config` | 設定はすべての操作に適用されますが、プロジェクト レベルの設定によってオーバーライドされます。 |
+| Computer | **Windows:** `%ProgramFiles(x86)%\NuGet\Config`<br/>**Mac または Linux:** `$XDG_DATA_HOME`。 `$XDG_DATA_HOME` が null または空の場合は、`~/.local/share` または `/usr/local/share` が使用されます (OS 配布によって異なります)  | 設定はそのコンピューターでのすべての操作に適用されますが、ユーザー レベルまたはプロジェクト レベルの設定によってオーバーライドされます。 |
 
 以前のバージョンの NuGet に関する注意事項:
 - NuGet 3.3 以前では、ソリューション全体の設定用に `.nuget` フォルダーが使われていました。 このフォルダーは、NuGet 3.4 以降では使用されません。
-- NuGet 2.6 から 3.x では、Windows でのコンピューター レベルの構成ファイルは %ProgramData%\NuGet\Config[\\{IDE}[\\{Version}[\\{SKU}]]]\NuGet.Config にありました。 *{IDE}* には *VisualStudio* を使用でき、 *{Version}* は Visual Studio のバージョン (*14.0* など)、 *{SKU}* は *Community*、*Pro*、または *Enterprise* です。 設定を NuGet 4.0 以降に移行するには、単に構成ファイルを %ProgramFiles(x86)%\NuGet\Config にコピーします。Linux の以前の場所は /etc/opt、Mac の以前の場所は /Library/Application Support でした。
+- NuGet 2.6 から 3.x では、Windows でのコンピューター レベルの構成ファイルは %ProgramData%\NuGet\Config[\\{IDE}[\\{Version}[\\{SKU}]]]\NuGet.Config にありました。*{IDE}* には *VisualStudio* を使用でき、*{Version}* は Visual Studio のバージョン (*14.0* など)、*{SKU}* は *Community*、*Pro*、または *Enterprise* です。 設定を NuGet 4.0 以降に移行するには、単に構成ファイルを %ProgramFiles(x86)%\NuGet\Config にコピーします。Linux の以前の場所は /etc/opt、Mac の以前の場所は /Library/Application Support でした。
 
 ## <a name="changing-config-settings"></a>構成設定の変更
 
@@ -129,7 +129,7 @@ NuGet はこれらのファイルで設定を探すので、適用は次のよ�
          Source
        tmp
 
-その場合、次の場所にそれぞれ指定された内容の `NuGet.Config` ファイルが 4 つ存在します (コンピューター レベルのファイルはこの例には含まれませんが、ユーザー レベルのファイルと同じように動作します)。
+その場合、次の場所にそれぞれ指定された内容の `NuGet.Config` ファイルが 4 つ存在します  (コンピューター レベルのファイルはこの例には含まれませんが、ユーザー レベルのファイルと同じように動作します)。
 
 ファイル A. ユーザーレベルのファイル (Windows では `%appdata%\NuGet\NuGet.Config`、Mac/Linux では `~/.config/NuGet/NuGet.Config`):
 
@@ -186,13 +186,25 @@ NuGet はこれらのファイルで設定を探すので、適用は次のよ�
 
 NuGet は、呼び出された場所に応じて、次のように設定を読み込んで適用します。
 
-- **disk_drive_1/users から呼び出した場合**:ユーザー レベルの構成ファイル (A) でリストされている既定のリポジトリのみが使われます。それが disk_drive_1 で見つかる唯一のファイルであるためです。
+- **disk_drive_1/users から呼び出された場合**: disk_drive_1 で検出されるのはユーザー レベルの構成ファイル (A) だけなので、(A) で指定されている既定のリポジトリのみが使われます。
 
-- **disk_drive_2/ または disk_drive_/tmp から呼び出した場合**:NuGet は、最初にユーザー レベルのファイル (A) を読み込んだ後、disk_drive_2 のルートに移動して、ファイル (B) を見つけます。 NuGet は /tmp でも構成ファイルを検索しますが、見つかりません。 その結果、nuget.org の既定のリポジトリが使われ、パッケージの復元が有効になり、パッケージが disk_drive_2/tmp に展開されます。
+- **disk_drive_2/ または disk_drive_/tmp から呼び出された場合**: NuGet は、最初にユーザー レベルのファイル (A) を読み込んだ後、disk_drive_2 のルートに移動して、ファイル (B) を検出します。 NuGet は /tmp でも構成ファイルを検索しますが、見つかりません。 その結果、nuget.org の既定のリポジトリが使われ、パッケージの復元が有効になり、パッケージが disk_drive_2/tmp に展開されます。
 
-- **disk_drive_2/Project1 または disk_drive_2/Project1/Source から呼び出した場合**:NuGet は、最初にユーザー レベルのファイル (A) を読み込み、次に disk_drive_2 のルートからファイル (B) を読み込み、最後にファイル (C) を読み込みます。 (C) の設定で (B) および (A) の設定がオーバーライドされるので、パッケージがインストールされる `repositoryPath` は、*disk_drive_2/tmp* ではなく disk_drive_2/Project1/External/Packages です。 また、(C) は `<packageSources>` をクリアするので、ソースは `https://MyPrivateRepo/ES/nuget` だけになり、nuget.org は使うことができなくなります。
+- **disk_drive_2/Project1 または disk_drive_2/Project1/Source から呼び出された場合**: NuGet は、最初にユーザー レベルのファイル (A) を読み込み、次に disk_drive_2 のルートからファイル (B) を読み込み、最後にファイル (C) を読み込みます。 (C) の設定で (B) および (A) の設定がオーバーライドされるので、パッケージがインストールされる `repositoryPath` は、*disk_drive_2/tmp* ではなく disk_drive_2/Project1/External/Packages です。 また、(C) は `<packageSources>` をクリアするので、ソースは `https://MyPrivateRepo/ES/nuget` だけになり、nuget.org は使うことができなくなります。
 
-- **disk_drive_2/Project2 または disk_drive_2/Project2/Source から呼び出した場合**:ユーザー レベルのファイル (A)、ファイル (B)、ファイル (D) の順に読み込まれます。 `packageSources` はクリアされないので、`nuget.org` と `https://MyPrivateRepo/DQ/nuget` の両方をソースとして使うことができます。 パッケージは、(B) で指定されている disk_drive_2/tmp に展開されます。
+- **disk_drive_2/Project2 または disk_drive_2/Project2/Source から呼び出された場合**: ユーザー レベルのファイル (A)、ファイル (B)、ファイル (D) の順に読み込まれます。 `packageSources` はクリアされないので、`nuget.org` と `https://MyPrivateRepo/DQ/nuget` の両方をソースとして使うことができます。 パッケージは、(B) で指定されている disk_drive_2/tmp に展開されます。
+
+## <a name="additional-user-wide-configuration"></a>追加のユーザー全体の構成
+
+5\.7 以降、NuGet には追加のユーザー全体の構成ファイルのサポートが追加されました。 これにより、サードパーティー ベンダーは昇格せずにユーザー構成ファイルを追加できます。
+これらの構成ファイルは、`config` サブフォルダー内の標準のユーザー全体の構成フォルダー内にあります。
+`.config` または `.Config` で終わるすべてのファイルが考慮されます。
+標準のツールでこれらのファイルを編集することはできません。
+
+| OS プラットフォーム  | 追加の構成 |
+| --- | --- |
+| Windows      | `%appdata%\NuGet\config\*.Config` |
+| Mac/Linux    | `~/.config/NuGet/config/*.config` または `~/.nuget/config/*.config` |
 
 ## <a name="nuget-defaults-file"></a>NuGet の既定のファイル
 

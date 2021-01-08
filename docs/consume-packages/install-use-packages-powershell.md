@@ -7,12 +7,12 @@ ms.date: 07/08/2019
 ms.topic: conceptual
 f1_keywords:
 - vs.nuget.packagemanager.console
-ms.openlocfilehash: 8b23b6cc22eff5413e317fbe619edd3d4f4716ee
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 31fa51bc017eaaf9306d5f267e5d4b0d7a15ec9c
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237401"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699831"
 ---
 # <a name="install-and-manage-packages-with-the-package-manager-console-in-visual-studio-powershell"></a>Visual Studio でパッケージ マネージャー コンソールを使用してパッケージをインストールおよび管理する (PowerShell)
 
@@ -20,11 +20,14 @@ Nuget パッケージ マネージャー コンソールでは、[NuGet PowerShe
 
 コンソールは、Windows の Visual Studio に組み込まれています。 Visual Studio for Mac や Visual Studio Code には含まれていません。
 
+> [!Important]
+> ここに記載トされているコマンドは、Visual Studio のパッケージ マネージャー コンソールに固有のものであり、一般的な PowerShell 環境で使用できる[Package Management モジュール コマンド](/powershell/module/packagemanagement/)とは異なります。 具体的には、各環境には他の環境では使用できないコマンドがあり、同じ名前のコマンドでも特定の引数が異なる場合があります。 Visual Studio で Package Management コンソールを使用する場合、このトピックに記載されているコマンドと引数が適用されます。
+
 ## <a name="find-and-install-a-package"></a>パッケージを検索してインストールする
 
 たとえば、パッケージの検索とインストールは、次の 3 つの簡単な手順で行われます。
 
-1. Visual Studio でプロジェクト/ソリューションを開き、 **[ツール] > [NuGet パッケージ マネージャー] > [パッケージ マネージャー コンソール]** コマンドを使用してコンソールを開きます。
+1. Visual Studio でプロジェクト/ソリューションを開き、**[ツール] > [NuGet パッケージ マネージャー] > [パッケージ マネージャー コンソール]** コマンドを使用してコンソールを開きます。
 
 1. インストールするパッケージを検索します。 既にわかっている場合は、手順 3 に進みます。
 
@@ -56,7 +59,7 @@ Nuget パッケージ マネージャー コンソールでは、[NuGet PowerShe
 
 1. 別のパッケージ ソースやプロジェクトを選択すると、後続のコマンドの既定値が変更されます。 既定値を変更せずにこれらの設定をオーバーライドするために、ほとんどのコマンドで `-Source` および `-ProjectName` オプションがサポートされています。
 
-1. パッケージ ソースを管理するには、歯車アイコンを選択します。 これは、 **[ツール] > [オプション] > [NuGet パッケージ マネージャー]** ダイアログ ボックスへのショートカットです ( [パッケージ マネージャー UI](install-use-packages-visual-studio.md#package-sources) に関するページで説明されています)。 また、プロジェクト セレクターの右側にあるコントロールを使用すると、コンソールの内容をクリアできます。
+1. パッケージ ソースを管理するには、歯車アイコンを選択します。 これは、**[ツール] > [オプション] > [NuGet パッケージ マネージャー]** ダイアログ ボックスへのショートカットです ([パッケージ マネージャー UI](install-use-packages-visual-studio.md#package-sources) に関するページで説明されています)。 また、プロジェクト セレクターの右側にあるコントロールを使用すると、コンソールの内容をクリアできます。
 
     ![パッケージ マネージャー コンソールの設定とクリアのためのコントロール](media/PackageManagerConsoleControls2.png)
 
@@ -79,7 +82,7 @@ Install-Package Elmah -ProjectName UtilitiesLib
 コンソールでパッケージをインストールすると、「[NuGet パッケージのインストールのしくみ](../concepts/package-installation-process.md)」で説明されているのと同じ手順が実行されるのに加えて、次の操作が実行されます。
 
 - コンソールのウィンドウに、適用されるライセンス条項と暗黙の契約が表示されます。 条項に同意しない場合は、パッケージをすぐにアンインストールする必要があります。
-- また、パッケージへの参照がプロジェクト ファイルに追加され、 **[参照]** ノードの下の **ソリューション エクスプローラー** に表示されます。プロジェクト ファイルの変更内容を直接確認するには、プロジェクトを保存する必要があります。
+- また、パッケージへの参照がプロジェクト ファイルに追加され、**[参照]** ノードの下の **ソリューション エクスプローラー** に表示されます。プロジェクト ファイルの変更内容を直接確認するには、プロジェクトを保存する必要があります。
 
 ## <a name="uninstall-a-package"></a>パッケージをアンインストールします
 
@@ -98,7 +101,7 @@ Uninstall-Package Elmah -Force
 
 パッケージをアンインストールすると、次の操作が実行されます。
 
-- パッケージへの参照をプロジェクトから削除します (使用中の管理形式にかかわらず)。 参照は **ソリューション エクスプローラー** に表示されなくなります。 ( **Bin** フォルダーから削除されたことを確認するには、プロジェクトのリビルドが必要になる場合があります。)
+- パッケージへの参照をプロジェクトから削除します (使用中の管理形式にかかわらず)。 参照は **ソリューション エクスプローラー** に表示されなくなります。 (**Bin** フォルダーから削除されたことを確認するには、プロジェクトのリビルドが必要になる場合があります。)
 - パッケージがインストールされたときに `app.config` または `web.config` に加えられた変更を元に戻します。
 - 以前にインストールされた依存関係を削除します (残りのパッケージがそれらの依存関係を使用していない場合)。
 
@@ -120,7 +123,7 @@ Update-Package
 
 「[Get-Package](../reference/ps-reference/ps-ref-get-package.md)」と「[Update-Package](../reference/ps-reference/ps-ref-update-package.md)」を参照してください
 
-## <a name="find-a-package"></a>パッケージを検索する
+## <a name="find-a-package"></a>パッケージを見つける
 
 ```ps
 # Find packages containing keywords
@@ -143,7 +146,7 @@ Find-Package jquery -AllVersions -ExactMatch
 
 Visual Studio 2017 以降では、.NET 関連のワークロードを選択すると、NuGet と NuGet パッケージ マネージャーが自動的にインストールされます。また、Visual Studio インストーラーで **[個別のコンポーネント]** > [コードツール] > [NuGet パッケージ マネージャー] を選択して、個別にインストールすることもできます。
 
-また、Visual Studio 2015 以前で NuGet パッケージ マネージャーが見当たらない場合は、 **[ツール] > [拡張機能と更新プログラム]** を選択して、NuGet パッケージ マネージャー拡張機能を検索してください。 Visual Studio 内で拡張機能のインストーラーを使用できない場合は、拡張機能を [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html) から直接ダウンロードできます。
+また、Visual Studio 2015 以前で NuGet パッケージ マネージャーが見当たらない場合は、**[ツール] > [拡張機能と更新プログラム]** を選択して、NuGet パッケージ マネージャー拡張機能を検索してください。 Visual Studio 内で拡張機能のインストーラーを使用できない場合は、拡張機能を [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html) から直接ダウンロードできます。
 
 パッケージ マネージャー コンソールは、現在、Visual Studio for Mac では使用できません。 ただし、これと同等のコマンドは、[NuGet CLI](../reference/nuget-exe-CLI-reference.md) を介して使用できます。 Visual Studio for Mac には、NuGet パッケージを管理するための UI が用意されています。 「[プロジェクトに NuGet パッケージを含める](/visualstudio/mac/nuget-walkthrough)」を参照してください。
 

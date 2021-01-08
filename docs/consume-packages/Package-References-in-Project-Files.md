@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: a5833df60c5f7905359f421141347b1237f45d86
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 1127e7aee27d57abd5f14dd3bea82dfff3ba6d93
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237641"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699788"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>プロジェクト ファイルのパッケージ参照 (PackageReference)
 
@@ -175,7 +175,7 @@ PackageReference プロジェクトでは、推移的な依存関係バージョ
 この機能を使用できるのは、NuGet **5.0** 以降で、かつ Visual Studio 2019 **16.0** 以降を使用している場合です。
 
 場合によっては、MSBuild ターゲットからパッケージ内のファイルを参照することが望ましい場合があります。
-`packages.config` ベースのプロジェクトでは、パッケージは、プロジェク トファイルに対して相対的なフォルダーにインストールされます。 ただし、PackageReference では、パッケージは " *グローバルパッケージ* " フォルダーから [使用](../concepts/package-installation-process.md)されます。このフォルダーは、マシンごとに異なる場合があります。
+`packages.config` ベースのプロジェクトでは、パッケージは、プロジェク トファイルに対して相対的なフォルダーにインストールされます。 ただし、PackageReference では、パッケージは "*グローバルパッケージ*" フォルダーから [使用](../concepts/package-installation-process.md)されます。このフォルダーは、マシンごとに異なる場合があります。
 
 このギャップを埋めるために、NuGet では、パッケージの使用元となる場所を指すプロパティが導入されました。
 
@@ -201,14 +201,46 @@ PackageReference プロジェクトでは、推移的な依存関係バージョ
   <Target Name="TakeAction" AfterTargets="Build">
     <Exec Command="$(PkgPackage_With_Tools)\tools\tool.exe" />
   </Target>
-````
+```
 
 MSBuild のプロパティとパッケージ ID には同じ制限がないため、パッケージ ID を MSBuild の表示名 (`Pkg` という語が接頭辞として付けられます) に変更する必要があります。
 生成されたプロパティの正確な名前を確認するには、生成された [nuget.g.props](../reference/msbuild-targets.md#restore-outputs) ファイルを調べます。
 
+## <a name="packagereference-aliases"></a>PackageReference の別名
+
+まれに、異なるパッケージに同じ名前空間のクラスが含まれている場合があります。 NuGet 5.7 および Visual Studio 2019 Update 7 以降、ProjectReference と同等の PackageReference は [`Aliases`](/dotnet/api/microsoft.codeanalysis.projectreference.aliases) をサポートしています。
+既定では、別名は用意されていません。 別名が指定されている場合、注釈付きパッケージに由来する "*すべての*" アセンブリは、別名で参照する必要があります。
+
+サンプルの使用方法については、[NuGet\Samples](https://github.com/NuGet/Samples/tree/master/PackageReferenceAliasesExample) を参照してください。
+
+プロジェクト ファイルで、次のように別名を指定します。
+
+```xml
+  <ItemGroup>
+    <PackageReference Include="NuGet.Versioning" Version="5.8.0" Aliases="ExampleAlias" />
+  </ItemGroup>
+```
+
+また、コードで次のように使用します。
+
+```cs
+extern alias ExampleAlias;
+
+namespace PackageReferenceAliasesExample
+{
+...
+        {
+            var version = ExampleAlias.NuGet.Versioning.NuGetVersion.Parse("5.0.0");
+            Console.WriteLine($"Version : {version}");
+        }
+...
+}
+
+```
+
 ## <a name="nuget-warnings-and-errors"></a>NuGet の警告とエラー
 
-" *この機能を使用できるのは、NuGet **4.3** 以降で、かつ Visual Studio 2017 **15.3** 以降を使用している場合です。* "
+"*この機能を使用できるのは、NuGet **4.3** 以降で、かつ Visual Studio 2017 **15.3** 以降を使用している場合です。* "
 
 多くのパックと復元シナリオでは、すべての NuGet の警告とエラーがコード化され、`NU****` から始まります。 すべての NuGet の警告とエラーは、[リファレンス](../reference/errors-and-warnings.md) ドキュメントに記載されています。
 
@@ -271,7 +303,7 @@ Visual Studio では、IDE から[警告を非表示にする](/visualstudio/ide
 
 ## <a name="locking-dependencies"></a>依存関係のロック
 
-" *この機能を使用できるのは、NuGet **4.9** 以降で、かつ Visual Studio 2017 **15.9** 以降を使用している場合です。* "
+"*この機能を使用できるのは、NuGet **4.9** 以降で、かつ Visual Studio 2017 **15.9** 以降を使用している場合です。* "
 
 NuGet の復元への入力は、プロジェクト ファイルのパッケージ参照のセット (最上位レベルまたは直接の依存関係) であり、出力は推移的依存関係を含むパッケージのすべての依存関係の完全なクロージャーです。 入力の PackageReference リストが変更されていない場合、NuGet では常に同じパッケージの依存関係の完全なクロージャーを生成しようとします。 ただし、このようにすることができないシナリオがいくつかあります。 次に例を示します。
 
@@ -335,7 +367,7 @@ msbuild.exe の場合は、次を実行します。
 ### <a name="make-lock-file-part-of-your-source-repository"></a>ロック ファイルをソース リポジトリの一部にする
 アプリケーションを作成する場合、目的の実行可能ファイルとプロジェクトは依存関係チェーンの最初に位置します。NuGet が復元中にこれを使用できるように、ロック ファイルをソース コード リポジトリにチェックインします。
 
-ただし、当該プロジェクトが出荷しないライブラリ プロジェクトである場合や、他のプロジェクトが依存する共通コード プロジェクトである場合は、ソース コードの一部としてロック ファイルをチェックイン **しないでください** 。 ロック ファイルを保持しても問題はありませんが、共通コード プロジェクトのロックされているパッケージの依存関係は、ロック ファイル内で記載されているように、この共通コード プロジェクトに依存するプロジェクトの復元/ビルド中に使用されない場合があります。
+ただし、当該プロジェクトが出荷しないライブラリ プロジェクトである場合や、他のプロジェクトが依存する共通コード プロジェクトである場合は、ソース コードの一部としてロック ファイルをチェックイン **しないでください**。 ロック ファイルを保持しても問題はありませんが、共通コード プロジェクトのロックされているパッケージの依存関係は、ロック ファイル内で記載されているように、この共通コード プロジェクトに依存するプロジェクトの復元/ビルド中に使用されない場合があります。
 
 例:
 
@@ -346,7 +378,7 @@ ProjectA
              |------>PackageX 1.0.0
 ```
 
-`ProjectA` が `PackageX` のバージョン `2.0.0` に依存し、`PackageX` のバージョン `1.0.0` に依存する `ProjectB` も参照している場合、`ProjectB` のロック ファイルでは `PackageX` のバージョン `1.0.0` に対する依存関係が記載されます。 ただし、`ProjectA` をビルドすると、そのロック ファイルには `PackageX` のバージョン **`2.0.0`** に対する依存関係が含まれます。 **のロック ファイルに記載されている** では`1.0.0`ありません`ProjectB`。 したがって、共通コード プロジェクトのロックファイルは、それが依存するプロジェクトのために解決されるパッケージに対して強い力を持っていません。
+`ProjectA` が `PackageX` のバージョン `2.0.0` に依存し、`PackageX` のバージョン `1.0.0` に依存する `ProjectB` も参照している場合、`ProjectB` のロック ファイルでは `PackageX` のバージョン `1.0.0` に対する依存関係が記載されます。 ただし、`ProjectA` をビルドすると、そのロック ファイルには `PackageX` のバージョン **`2.0.0`** に対する依存関係が含まれます。**のロック ファイルに記載されている** では`1.0.0`ありません`ProjectB`。 したがって、共通コード プロジェクトのロックファイルは、それが依存するプロジェクトのために解決されるパッケージに対して強い力を持っていません。
 
 ### <a name="lock-file-extensibility"></a>ロック ファイルの拡張機能
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1ae030c308b14b8884fb608c1683c8c46000b0bd
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 634c421499b06f6b62d88a95f8703614dec5ace8
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "77036904"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699752"
 ---
 # <a name="what-happens-when-a-nuget-package-is-installed"></a>NuGet パッケージのインストールのしくみ
 
@@ -25,7 +25,10 @@ ms.locfileid: "77036904"
 2. パッケージを取得します。
    - 「[グローバル パッケージとキャッシュ フォルダーの管理](../consume-packages/managing-the-global-packages-and-cache-folders.md)」で説明されているように、パッケージが "*グローバル パッケージ*" フォルダーにインストール済みかどうかを (正確な識別子とバージョン番号によって) チェックします。
 
-   - パッケージが*グローバル パッケージ* フォルダーにない場合、[構成ファイル](../consume-packages/Configuring-NuGet-Behavior.md)でリストされているソースからパッケージの取得を試みます。 オンライン ソースの場合は、`nuget.exe` コマンドで `-NoCache` を指定するか、`dotnet restore` で `--no-cache` を指定しない限り、最初に HTTP キャッシュからパッケージを取得しようと試みます。 (Visual Studio と `dotnet add package` では常にキャッシュが使用されます。)パッケージがキャッシュから使用された場合、出力に "CACHE" と表示されます。 キャッシュには 30 分の有効期限があります。
+   - パッケージが *グローバル パッケージ* フォルダーにない場合、[構成ファイル](../consume-packages/Configuring-NuGet-Behavior.md)でリストされているソースからパッケージの取得を試みます。 オンライン ソースの場合は、`nuget.exe` コマンドで `-NoCache` を指定するか、`dotnet restore` で `--no-cache` を指定しない限り、最初に HTTP キャッシュからパッケージを取得しようと試みます。 (Visual Studio と `dotnet add package` では常にキャッシュが使用されます。)パッケージがキャッシュから使用された場合、出力に "CACHE" と表示されます。 キャッシュには 30 分の有効期限があります。
+
+   - [最新バージョン](../consume-packages/Package-References-in-Project-Files.md#floating-versions)を使用して、または最小バージョンなしでパッケージが指定されている場合、NuGet によってすべてのソースに接続され、最適なものが特定 "*されます*"。
+   例: `1.*`、`(, 2.0.0]`。
 
    - パッケージが HTTP キャッシュにない場合、構成にリストされているソースからパッケージのダウンロードを試みます。 パッケージがダウンロードされると、出力に "GET" および "OK" と表示されます。 NuGet では、通常の詳細度で http トラフィックが記録されます。
 

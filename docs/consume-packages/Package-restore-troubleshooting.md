@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: b162990eae2160961f560b6c6ee73e47cb4121d6
-ms.sourcegitcommit: f29fa9b93fd59e679fab50d7413bbf67da3ea5b3
+ms.openlocfilehash: 9f680a714717d1bde0472f2e1266cacfd8bd4d5f
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86451152"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699721"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>パッケージの復元エラーのトラブルシューティング
 
@@ -46,7 +46,7 @@ Use NuGet Package Restore to download them. The missing file is {name}.
 
 このエラーは、ビルドしようとしているプロジェクトに、現在コンピューターまたはプロジェクトにインストールされていない NuGet パッケージへの参照が 1 つ以上含まれている場合に発生します。
 
-- [PackageReference](package-references-in-project-files.md) 管理形式を使用する場合、このエラーは、[グローバル パッケージとキャッシュ フォルダーの管理](managing-the-global-packages-and-cache-folders.md)に関する記事で説明されているように、パッケージが "*グローバル パッケージ*" フォルダーにインストールされていないことを意味します。
+- [PackageReference](package-references-in-project-files.md) 管理形式を使用している場合、このエラーは packages.config から PackageReference へ移行するときに残ったものである可能性があり、プロジェクト ファイルから[手動で削除](../resources/NuGet-FAQ.md#working-with-packages)する必要があります。
 - [packages.config](../reference/packages-config.md) を使用する場合、このエラーは、パッケージがソリューション ルートにある `packages` フォルダーにインストールされていないことを意味します。
 
 このような状況は、ソース管理や別のダウンロードからプロジェクトのソース コードを取得する場合によく発生します。 パッケージは、nuget.org のようなパッケージ フィードから復元できるので、通常はソース管理やダウンロードから除外されます ([パッケージとソース管理](Packages-and-Source-Control.md)に関するページを参照してください)。 パッケージを含めると、リポジトリがいっぱいになったり、.zip ファイルが不必要に大きくなったりします。

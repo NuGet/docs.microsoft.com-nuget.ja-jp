@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: aae6f0474cc6e8e8aa5c269b79be6fd949d9184c
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: be24660d05f34242e45f223e2248b943ecc38616
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237998"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699652"
 ---
 # <a name="nuget-frequently-asked-questions"></a>NuGet に関してよく寄せられる質問
 
@@ -137,7 +137,7 @@ Visual Studio オートメーション オブジェクト モデルのトップ 
 
 **リモートの依存関係があるローカル パッケージをインストールするときに、"依存関係を解決できません" という内容のエラーが表示されるのはなぜですか?**
 
-プロジェクトにローカル パッケージをインストールする場合は、 **すべて** のソースを選択する必要があります。 これにより、フィードを 1 つだけ使用するのではなく、すべて集約することになります。 このエラーが表示されるのは、ローカル リポジトリのユーザーは、多くの場合、企業ポリシーにより、リモート パッケージが誤ってインストールされないようにする必要があるためです。
+プロジェクトにローカル パッケージをインストールする場合は、**すべて** のソースを選択する必要があります。 これにより、フィードを 1 つだけ使用するのではなく、すべて集約することになります。 このエラーが表示されるのは、ローカル リポジトリのユーザーは、多くの場合、企業ポリシーにより、リモート パッケージが誤ってインストールされないようにする必要があるためです。
 
 **同じフォルダーに複数のプロジェクトがあります。プロジェクトごとに別個の packages.config ファイルを使用するにはどうすればよいですか?**
 
@@ -149,3 +149,10 @@ Visual Studio オートメーション オブジェクト モデルのトップ 
 
 - 自分のソース リストに `https://api.nuget.org/v3/index.json` を追加します。または、
 - `%appdata%\.nuget\NuGet.Config` (Windows) または `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) を削除し、NuGet で自動的に再作成します。
+
+**PackageReference に移行しました。ビルドが失敗するのはなぜですか`This project references NuGet package(s) that are missing on this computer.`?**
+
+packages.config プロジェクトでは、`build` プロパティまたはターゲットを含むパッケージがインストールされると、NuGet によって `EnsureNuGetPackageBuildImports` ターゲットが追加され、ビルド前にパッケージの msbuild コンテンツがインポートされたことが確認されます。
+`target` が手動で変更された場合、移行時に削除する必要があることが NuGet によって検出できない場合があります。
+
+プロジェクトが `PackageReference` であり、プロジェクト ファイルにこのターゲットがまだある場合は、削除しても問題ありません。

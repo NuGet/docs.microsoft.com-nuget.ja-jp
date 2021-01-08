@@ -1,16 +1,16 @@
 ---
 title: nuget.exe CLI を使用して NuGet パッケージを作成する
-description: NuGet パッケージを設計し、作成する過程を詳しく説明します。ファイルやバージョン管理など、重要な決定ポイントが含まれます。
+description: ファイルやバージョン管理など、NuGet パッケージの設計と作成に関する詳細なガイド。
 author: karann-msft
-ms.author: karann
+ms.author: feaguila
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: b3e6f0efc9e2e12de186ffd4ce29d496d07d5fc4
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: ec06a8f721b7b67ddc5d72323305b9b22f292de6
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428571"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699796"
 ---
 # <a name="create-a-package-using-the-nugetexe-cli"></a>nuget.exe CLI を使用してパッケージを作成する
 
@@ -39,7 +39,7 @@ ms.locfileid: "79428571"
 
 - 同様に、`Utilities.dll` が `Utilities.resources.dll` に依存し、後者がそれ自体で有用ではない場合、両方を同じパッケージに入れます。
 
-リソースは、実際には特殊なケースです。 プロジェクトにパッケージをインストールするとき、NuGet はパッケージの DLL にアセンブリ参照を自動的に追加します。ただし、`.resources.dll` という名前のものは、ローカライズされたサテライト アセンブリであるため*除外*されます (「[ローカライズされたパッケージを作成する](creating-localized-packages.md)」を参照してください)。 そのため、避けなければ不可欠なパッケージ コードが含まれてしまうファイルには `.resources.dll` を使わないようにします。
+リソースは、実際には特殊なケースです。 プロジェクトにパッケージをインストールするとき、NuGet はパッケージの DLL にアセンブリ参照を自動的に追加します。ただし、`.resources.dll` という名前のものは、ローカライズされたサテライト アセンブリであるため *除外* されます (「[ローカライズされたパッケージを作成する](creating-localized-packages.md)」を参照してください)。 そのため、避けなければ不可欠なパッケージ コードが含まれてしまうファイルには `.resources.dll` を使わないようにします。
 
 ライブラリに COM 相互運用アセンブリが含まれる場合は、[COM 相互運用アセンブリを含むパッケージの作成](author-packages-with-com-interop-assemblies.md)に関するページに記載されている追加ガイドラインに従ってください。
 
@@ -56,7 +56,7 @@ ms.locfileid: "79428571"
 必須プロパティ:
 
 - パッケージの識別子。パッケージをホストするギャラリー全体で一意にする必要があります。
-- *Major.Minor.Patch[-Suffix]* という形式の特別なバージョン番号。 *-Suffix* で[プレリリース版](prerelease-packages.md)を識別します。
+- *Major.Minor.Patch[-Suffix]* という形式の特別なバージョン番号。 *-Suffix* で [プレリリース版](prerelease-packages.md)を識別します。
 - ホスト (nuget.org など) に表示されるパッケージ タイトル。
 - 作成者と所有者の情報。
 - パッケージの詳しい説明。
@@ -68,8 +68,8 @@ ms.locfileid: "79428571"
 - [Visual Studio のパッケージ マネージャー UI](../consume-packages/install-use-packages-visual-studio.md) の簡単な説明。
 - ロケール ID
 - [プロジェクトの URL]
-- 式またはファイルとしてライセンス (非推奨とされている `licenseUrl`、[`license` nuspec メタデータ要素を使用する](../reference/nuspec.md#license))
-- アイコン URL
+- 式またはファイルとしてライセンス (`licenseUrl` は非推奨なので、[`license` nuspec メタデータ要素](../reference/nuspec.md#license)を代わりに使用してください)
+- アイコン ファイル (`iconUrl` は非推奨なので、[`icon` nuspec メタデータ要素](../reference/nuspec.md#icon)を代わりに使用してください)
 - 依存関係と参照の一覧
 - ギャラリー検索で役立つタグ
 
@@ -79,11 +79,11 @@ ms.locfileid: "79428571"
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
-        <!-- The identifier that must be unique within the hosting gallery -->
+        <!-- Identifier that must be unique within the hosting gallery -->
         <id>Contoso.Utility.UsefulStuff</id>
 
-        <!-- The package version number that is used when resolving dependencies -->
-        <version>1.8.3-beta</version>
+        <!-- Package version number that is used when resolving dependencies -->
+        <version>1.8.3</version>
 
         <!-- Authors contain text that appears directly on the gallery -->
         <authors>Dejana Tesic, Rajeev Dey</authors>
@@ -101,8 +101,8 @@ ms.locfileid: "79428571"
         <license type="expression">Apache-2.0</license>
         
 
-        <!-- The icon is used in Visual Studio's package manager UI -->
-        <iconUrl>http://github.com/contoso/UsefulStuff/nuget_icon.png</iconUrl>
+        <!-- Icon is used in Visual Studio's package manager UI -->
+        <icon>icon.png</icon>
 
         <!-- 
             If true, this value prompts the user to accept the license when
@@ -134,6 +134,7 @@ ms.locfileid: "79428571"
     <!-- A readme.txt to display when the package is installed -->
     <files>
         <file src="readme.txt" target="" />
+        <file src="icon.png" target="" />
     </files>
 </package>
 ```
@@ -187,7 +188,7 @@ NuGet パッケージは `.nupkg` 拡張子で名前が変更されている ZIP
 | build | *(3.x+)* MSBuild の `.targets` ファイルと `.props` ファイル | プロジェクトに自動的に挿入されます。 |
 | buildMultiTargeting | *(4.0+)* MSBuild の `.targets` ファイルと `.props` ファイル (フレームワーク間でのターゲット設定用) | プロジェクトに自動的に挿入されます。 |
 | buildTransitive | *(5.0 以降)* 任意の使用するフォルダーに推移的にフローする MSBuild の `.targets` および `.props` ファイル。 [機能](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior)に関するページをご覧ください。 | プロジェクトに自動的に挿入されます。 |
-| tools | Powershell のスクリプトとプログラムにはパッケージ マネージャー コンソールからアクセスできます。 | `tools` フォルダーはパッケージ マネージャー コンソールだけの `PATH` 環境変数に追加されます (厳密に言うと、プロジェクトのビルド時に MSBuild に設定される `PATH` にでは*ありません*)。 |
+| tools | Powershell のスクリプトとプログラムにはパッケージ マネージャー コンソールからアクセスできます。 | `tools` フォルダーはパッケージ マネージャー コンソールだけの `PATH` 環境変数に追加されます (厳密に言うと、プロジェクトのビルド時に MSBuild に設定される `PATH` にでは *ありません*)。 |
 
 フォルダー構造には、任意の数のターゲット フレームワークに対して任意の数のアセンブリを含めることができるため、複数のフレームワークをサポートするパッケージの作成時、この方法は必須となります。
 
@@ -218,7 +219,7 @@ nuget spec <assembly-name>.dll
 nuget spec
 ```
 
-結果的に生成される `<project-name>.nuspec` ファイルには、パッケージ化のときにプロジェクトからの値で置換される*トークン*が含まれます。他のパッケージが既にインストールされている場合、その参照が含まれます。
+結果的に生成される `<project-name>.nuspec` ファイルには、パッケージ化のときにプロジェクトからの値で置換される *トークン* が含まれます。他のパッケージが既にインストールされている場合、その参照が含まれます。
 
 *.nuspec* にパッケージの依存関係を含める場合は、代わりに `nuget pack` を使い、生成された *.nupkg* ファイル内から *.nuspec* ファイルを取得します。 たとえば、次のコマンドを使用します。
 
@@ -255,7 +256,7 @@ NuGet は、プロジェクトの `packages.config` ファイルではなく、`
 nuget spec [<package-name>]
 ```
 
-\<package-name\> を省略した場合、結果的に生成されるファイルは `Package.nuspec` になります。 `Contoso.Utility.UsefulStuff` のような名前を指定すると、ファイルは `Contoso.Utility.UsefulStuff.nuspec` になります。
+\<package-name\> を省略すると、結果として得られるファイルは `Package.nuspec` になります。 `Contoso.Utility.UsefulStuff` のような名前を指定すると、ファイルは `Contoso.Utility.UsefulStuff.nuspec` になります。
 
 結果的に生成される `.nuspec` には、`projectUrl` のような値のプレースホルダーが含まれます。 必ずファイルを編集してからそれを利用し、最終的な `.nupkg` ファイルを作成してください。
 
@@ -282,7 +283,7 @@ nuget spec [<package-name>]
 
 ## <a name="add-a-readme-and-other-files"></a>ReadMe とその他のファイルの追加
 
-パッケージに含めるファイルを直接指定するには、`.nuspec` ファイルの `<files>` ノードを使用します。このノードは `<metadata>` タグの*後に入ります*。
+パッケージに含めるファイルを直接指定するには、`.nuspec` ファイルの `<files>` ノードを使用します。このノードは `<metadata>` タグの *後に入ります*。
 
 ```xml
 <?xml version="1.0"?>
@@ -316,6 +317,7 @@ nuget spec [<package-name>]
 
 ルート `\build` フォルダーのファイルは、すべてのターゲット フレームワークで適切であると見なされます。 ファイルをフレームワーク固有にするには、次のように、まず、適切なサブフォルダーにそのファイルを配置します。
 
+```
     \build
         \netstandard1.4
             \Contoso.Utility.UsefulStuff.props
@@ -323,6 +325,7 @@ nuget spec [<package-name>]
         \net462
             \Contoso.Utility.UsefulStuff.props
             \Contoso.Utility.UsefulStuff.targets
+```
 
 次に `.nuspec` ファイルで、`<files>` ノードのそれらのファイルを参照するようにします。
 
@@ -392,7 +395,7 @@ Visual Studio プロジェクトの共通オプションには以下のような
 
     参照されるプロジェクトにそれ自体の `.nuspec` ファイルが含まれる場合、NuGet では、その参照されるプロジェクトが依存関係として追加されます。  そのプロジェクトを個別にパッケージ化し、公開する必要があります。
 
-- **ビルド構成**:既定では、NuGet では、プロジェクト ファイルに設定されている既定のビルド構成が使用されます。一般的には、"*デバッグ*" です。 *リリース*など、別のビルド構成からファイルをパッケージ化するには、構成と共に `-properties` オプションを使用します。
+- **ビルド構成**:既定では、NuGet では、プロジェクト ファイルに設定されている既定のビルド構成が使用されます。一般的には、"*デバッグ*" です。 *リリース* など、別のビルド構成からファイルをパッケージ化するには、構成と共に `-properties` オプションを使用します。
 
     ```cli
     nuget pack MyProject.csproj -properties Configuration=Release
