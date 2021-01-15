@@ -5,38 +5,33 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 39a4de4071eec70c88a2add158f2a3a734f7d7b7
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 0eca8478b4d6509dbc1407560d2c86069c7575dd
+ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622929"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98235738"
 ---
 # <a name="nuget-client-sdk"></a>NuGet クライアント SDK
 
-*Nuget クライアント SDK*は、nuget パッケージのグループを参照します。
+*Nuget クライアント SDK* は、nuget パッケージのグループを参照します。
 
 * [`NuGet.Protocol`](https://www.nuget.org/packages/NuGet.Protocol) -HTTP およびファイルベースの NuGet フィードとの対話に使用されます。
 * [`NuGet.Packaging`](https://www.nuget.org/packages/NuGet.Packaging) -NuGet パッケージとの対話に使用されます。 `NuGet.Protocol` このパッケージに依存
 
 これらのパッケージのソースコードは、 [nuget/nuget. Client](https://github.com/NuGet/NuGet.Client) GitHub リポジトリで確認できます。
+これらの例のソースコードについては、GitHub の [サンプル](https://github.com/NuGet/Samples/tree/master/NuGetProtocolSamples) プロジェクトを参照してください。
 
 > [!Note]
 > NuGet サーバープロトコルに関するドキュメントについては、 [Nuget サーバー API](~/api/overview.md)に関するドキュメントを参照してください。
 
-## <a name="getting-started"></a>作業の開始
+## <a name="nugetprotocol"></a>NuGet. プロトコル
 
-### <a name="install-the-packages"></a>パッケージのインストール
+パッケージをインストールして、 `NuGet.Protocol` HTTP およびフォルダーベースの NuGet パッケージフィードと対話します。
 
 ```ps1
-dotnet add package NuGet.Protocol  # interact with HTTP and folder-based NuGet package feeds, includes NuGet.Packaging
-
-dotnet add package NuGet.Packaging # interact with .nupkg and .nuspec files from a stream
+dotnet add package NuGet.Protocol
 ```
-
-## <a name="examples"></a>例
-
-これらの例については、GitHub の [サンプル](https://github.com/NuGet/Samples/tree/master/NuGetProtocolSamples) プロジェクトを参照してください。
 
 ### <a name="list-package-versions"></a>パッケージのバージョンを一覧表示する
 
@@ -61,6 +56,36 @@ dotnet add package NuGet.Packaging # interact with .nupkg and .nuspec files from
 [NuGet V3 SEARCH API](../api/search-query-service-resource.md)を使用して、"json" パッケージを検索します。
 
 [!code-csharp[SearchPackages](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=SearchPackages)]
+
+### <a name="push-a-package"></a>パッケージをプッシュする
+
+[NuGet V3 プッシュおよび削除 API](../api/package-publish-resource.md)を使用してパッケージをプッシュします。
+
+[!code-csharp[PushPackage](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=PushPackage)]
+
+### <a name="delete-a-package"></a>パッケージを削除する
+
+[NuGet V3 プッシュおよび削除 API](../api/package-publish-resource.md)を使用してパッケージを削除します。
+
+> [!Note]
+> NuGet サーバーは、パッケージ削除要求を "ハード削除"、"論理的な削除"、"一覧から削除" として解釈することができます。
+> たとえば、nuget.org は package delete 要求を "一覧から削除" と解釈します。 このプラクティスの詳細については、「 [パッケージの削除](../nuget-org/policies/deleting-packages.md) 」ポリシーを参照してください。
+
+[!code-csharp[DeletePackage](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=DeletePackage)]
+
+### <a name="work-with-authenticated-feeds"></a>認証済みフィードの使用
+
+[`NuGet.Protocol`](https://www.nuget.org/packages/NuGet.Protocol)認証されたフィードを操作するには、を使用します。
+
+[!code-csharp[AuthenticatedFeed](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=AuthenticatedFeed)]
+
+## <a name="nugetpackaging"></a>NuGet. パッケージング
+
+`NuGet.Packaging`ストリームからとのファイルを操作するパッケージをインストールし `.nupkg` `.nuspec` ます。
+
+```ps1
+dotnet add package NuGet.Packaging
+```
 
 ### <a name="create-a-package"></a>パッケージを作成する
 

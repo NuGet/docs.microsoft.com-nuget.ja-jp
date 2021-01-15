@@ -5,12 +5,12 @@ author: dominofire
 ms.author: feaguila
 ms.date: 11/9/2020
 ms.topic: conceptual
-ms.openlocfilehash: 329fdf6479d0799ae4b15cc3493848ba2d999853
-ms.sourcegitcommit: 650c08f8bc3d48dfd206a111e5e2aaca3001f569
+ms.openlocfilehash: 7f641c669cdb0cc979d698f6b219cbb4f2692a2e
+ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97523442"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98235751"
 ---
 # <a name="nuget-58-release-notes"></a>NuGet 5.8 リリースノート
 
@@ -19,6 +19,7 @@ NuGet 配布の種類:
 | NuGet のバージョン | 利用可能な Visual Studio バージョン | 利用可能な .NET SDK |
 |:---|:---|:---|
 | [**5.8**](https://nuget.org/downloads) | [Visual Studio 2019 バージョン 16.8](https://visualstudio.microsoft.com/downloads/) | [5.0](https://dotnet.microsoft.com/download/dotnet-core/5.0)<sup>1</sup> |
+| [**5.8.1**](https://nuget.org/downloads) | [Visual Studio 2019 バージョン16.8.4](https://visualstudio.microsoft.com/downloads/) | |
 
 <sup>1</sup> Visual Studio 2019 と .net Core ワークロードと共にインストールされる
   
@@ -125,13 +126,13 @@ NuGet 配布の種類:
 
 **[このリリースで修正されるすべての問題の一覧-5.8](https://app.zenhub.com/workspaces/nuget-client-team-55aec9a240305cf007585881/reports/release?release=5f03519b777e78b4ffb2edeb)**
 
-**[このリリースで修正される問題/コミットの一覧-5.8](https://github.com/NuGet/NuGet.Client/compare/5.7.0.6726...5.8.0.6930)**
+**[このリリースの問題の一覧-5.8](https://github.com/NuGet/NuGet.Client/compare/5.7.0.6726...5.8.0.6930)**
 
 ### <a name="community-contributions"></a>コミュニティからの投稿
 
 この NuGet のリリースに役立ったすべての共同作成者に感謝します。
 
-|担当者|Pr|発行|
+|担当者|Pr|issue|
 |----|----|----|
 [omajid](https://github.com/omajid) | [3437](https://github.com/NuGet/NuGet.Client/pull/3437) | エラーメッセージに誤りがあります。 "administrator" ではなく "管理者"- [#9662](https://github.com/NuGet/Home/issues/9662)
 [odalet](https://github.com/odalet) | [3341](https://github.com/NuGet/NuGet.Client/pull/3341) | 無効な AssemblyInformationalVersion レポートの NuGet パックが必要です。 "- [#5548](https://github.com/NuGet/Home/issues/5548)
@@ -141,6 +142,15 @@ NuGet 配布の種類:
 [[& Zok]](https://github.com/Therzok) | [3636](https://github.com/NuGet/NuGet.Client/pull/3636) | `RuntimeEnvironmentHelper.IsRunningOnVisualStudio`Mono [#9989](https://github.com/NuGet/Home/issues/9989)のパフォーマンスの問題
 [thomaslevesque](https://github.com/thomaslevesque) | [3442](https://github.com/NuGet/NuGet.Client/pull/3442) | SemanticVersion クラスの TypeConverter を追加する- [#9125](https://github.com/NuGet/Home/issues/9125)
 
+## <a name="summary-whats-new-in-581"></a>概要: 5.8.1 の新機能
+
+* packages.config package.lock.json では、5.8- [#10257](https://github.com/NuGet/Home/issues/10257)で正しくないターゲットフレームワークを使用しています
+
+* 5.8 + 16.8 は、PackageReference と packages.config- [#10326](https://github.com/NuGet/Home/issues/10326)の混合時に推移的なプロジェクト依存関係を解決できません
+
+**[このリリースで修正されるすべての問題の一覧-5.8.1](https://app.zenhub.com/workspaces/nuget-client-team-55aec9a240305cf007585881/reports/release?release=5ff7aeae16150e3b19910391)**
+
+**[このリリースのコミットの一覧-5.8.1](https://github.com/NuGet/NuGet.Client/compare/5.8.0.6930...5.8.1.7021)**
 
 ## <a name="feedback-welcome"></a>フィードバックの開始
 

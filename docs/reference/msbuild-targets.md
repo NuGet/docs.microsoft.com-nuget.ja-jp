@@ -5,12 +5,12 @@ author: nkolev92
 ms.author: nikolev
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 66df4e0e4739300608fd5f9e44eea5bcd00079c8
-ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
+ms.openlocfilehash: 7de3f0f1133a89848e9268d489751293fb3cbf25
+ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97699887"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98235699"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>MSBuild ターゲットとしての NuGet の pack と restore
 
@@ -53,8 +53,8 @@ PackageReference 形式を使用する .NET Standard プロジェクトでは、
 | VersionPrefix | PackageVersionPrefix | empty | PackageVersion を設定すると、PackageVersionPrefix は上書きされます |
 | VersionSuffix | PackageVersionSuffix | empty | MSBuild の $(VersionSuffix) PackageVersion を設定すると、PackageVersionSuffix は上書きされます |
 | Authors | Authors | 現在のユーザーのユーザー名 | |
-| 所有者 | N/A | NuSpec にはありません | |
-| タイトル | タイトル | PackageId| |
+| 所有者 | 該当なし | NuSpec にはありません | |
+| Title | Title | PackageId| |
 | 説明 | 説明 | "パッケージの説明" | |
 | Copyright | Copyright | empty | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
@@ -71,7 +71,7 @@ PackageReference 形式を使用する .NET Standard プロジェクトでは、
 | リポジトリ/ブランチ | RepositoryBranch | empty | リポジトリのブランチ情報 (オプション)。 このプロパティを含めるには、 *RepositoryUrl* も指定する必要があります。 例: *master* (NuGet 4.7.0 +) |
 | リポジトリ/コミット | RepositoryCommit | empty | 任意のリポジトリ コミットまたは変更セット。パッケージがどのソースに対してビルドされたかを示します。 このプロパティを含めるには、 *RepositoryUrl* も指定する必要があります。 例: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +) |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
-| まとめ | サポートされていません | | |
+| まとめ | サポートなし | | |
 
 ### <a name="pack-target-inputs"></a>pack ターゲットの入力
 
@@ -413,7 +413,8 @@ Nuspec ファイルをパックする .csproj ファイルの例を次に示し 
 | RestoreLockedMode | ロックモードで復元を実行します。 これは、restore が依存関係を再評価しないことを意味します。 |
 | NuGetLockFilePath | ロックファイルのカスタムの場所。 既定の場所はプロジェクトの横にあり、という名前が付けられ `packages.lock.json` ます。 |
 | RestoreForceEvaluate | 復元によって依存関係が再計算され、警告なしでロックファイルが更新されます。 |
-| Restoreパッケージ構成 | オプトインスイッチ。 packages.config でプロジェクトを復元します。でのみサポートさ `MSBuild -t:restore` れます。 |
+| Restoreパッケージ構成 | packages.config のプロジェクトを復元するオプトインスイッチ。でのみサポートさ `MSBuild -t:restore` れます。 |
+| RestoreUseStaticGraphEvaluation | 標準評価ではなく、静的なグラフの MSBuild 評価を使用するオプトインスイッチ。 静的グラフの評価は、大規模なリポジトリとソリューションで非常に高速な試験的な機能です。 |
 
 #### <a name="examples"></a>例
 
@@ -469,25 +470,40 @@ msbuild -t:restore -p:RestorePackagesConfig=true
 > [!NOTE]
 > `packages.config` restore は、ではなく、でのみ使用でき `MSBuild 16.5+` ます。 `dotnet.exe`
 
-### <a name="packagetargetfallback"></a>PackageTargetFallback
+### <a name="restoring-with-msbuild-static-graph-evaluation"></a>MSBuild の静的グラフの評価を使用した復元
 
-`PackageTargetFallback` 要素では、パッケージの復元時に使用する、互換性のある一連のターゲットを指定できます。 dotnet [TxM](../reference/target-frameworks.md) を使用するパッケージが、dotnet TxM を宣言していない互換性のあるパッケージと連携できるように設計されています。 つまり、プロジェクトで dotnet TxM を使用せず、依存するすべてのパッケージに dotnet TxM を与える必要がある場合、非 dotnet プラットフォームを dotnet 対応にするためにプロジェクトに `<PackageTargetFallback>` を追加します。
+> [!NOTE]
+> MSBuild 16.6 + を使用すると、コマンドラインから静的グラフ評価を使用する実験的な機能が追加されました。これにより、大規模なリポジトリの復元時間が大幅に短縮されます。
 
-たとえば、プロジェクトが `netstandard1.6` TxM を使用し、依存しているパッケージに `lib/net45/a.dll` と `lib/portable-net45+win81/a.dll` のみが含まれている場合、そのプロジェクトはビルドできません。 後者の DLL を構築する予定の場合は、`portable-net45+win81` DLL に互換性を持たせるために、次のように `PackageTargetFallback` を追加します。
-
-```xml
-<PackageTargetFallback Condition="'$(TargetFramework)'=='netstandard1.6'">
-    portable-net45+win81
-</PackageTargetFallback>
+```cli
+msbuild -t:restore -p:RestoreUseStaticGraphEvaluation=true
 ```
 
-プロジェクト内のすべてのターゲットについてフォールバックを宣言するには、`Condition` 属性を省略します。 また、次のように `$(PackageTargetFallback)` を含めて、既存の `PackageTargetFallback` を拡張することもできます。
+または、ディレクトリのプロパティを設定して有効にすることもできます。
 
 ```xml
-<PackageTargetFallback>
-    $(PackageTargetFallback);portable-net45+win81
-</PackageTargetFallback >
+<Project>
+  <PropertyGroup>
+    <RestoreUseStaticGraphEvaluation>true</RestoreUseStaticGraphEvaluation>
+  </PropertyGroup>
+</Project>
 ```
+
+> [!NOTE]
+> Visual Studio 2019. x および NuGet 5.x の場合、この機能は試験的でオプトインと見なされます。 この機能が既定で有効になるタイミングの詳細については、 [NuGet/Home # 9803](https://github.com/NuGet/Home/issues/9803) に従ってください。
+
+静的なグラフの復元では、復元の msbuild 部分が変更されますが、プロジェクトの読み取りと評価は復元アルゴリズムではありません。 復元アルゴリズムは、すべての NuGet ツール (NuGet.exe、MSBuild.exe、dotnet.exe、および Visual Studio) で同じです。
+
+ほとんどのシナリオでは、静的なグラフ復元は、現在の復元とは動作が異なる場合があります。また、宣言された特定の PackageReferences または ProjectReferences が見つからない可能性があります。
+
+静的なグラフの復元に移行するときは、次の実行を検討してください。
+
+```cli
+msbuild.exe -t:restore -p:RestoreUseStaticGraphEvaluation
+msbuild.exe -t:restore
+```
+
+NuGet は変更を報告し *ません* 。 不一致が発生した場合は、 [NuGet/Home](https://github.com/nuget/home/issues/new)で問題を報告してください。
 
 ### <a name="replacing-one-library-from-a-restore-graph"></a>復元グラフの 1 つのライブラリを置き換える
 
