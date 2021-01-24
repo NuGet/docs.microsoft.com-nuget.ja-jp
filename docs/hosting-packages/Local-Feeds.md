@@ -37,7 +37,7 @@ ms.locfileid: "68317592"
 nuget add new_package.1.0.0.nupkg -source \\myserver\packages
 ```
 
-`nuget add` コマンドは、一度に 1 つのパッケージを使用して動作します。これは、複数のパッケージを含むフィードを設定するときに、不便な場合があります。
+`nuget add` コマンドは、一度に 1 つのパッケージを扱います。これは、複数のパッケージを含むフィードを設定するときに、不便な場合があります。
 
 このような場合、[`nuget init`](../reference/cli-reference/cli-ref-init.md) コマンドを使用して、それぞれ個別に `nuget add` を実行するように、フォルダーのすべてのパッケージをフィードにコピーします。 たとえば、次のコマンドでは、すべてのパッケージを `c:\packages` から `\\myserver\packages` の階層ツリーにコピーします。
 
