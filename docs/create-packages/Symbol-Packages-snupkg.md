@@ -12,12 +12,12 @@ keywords: NuGet シンボル パッケージ, NuGet パッケージ デバッグ
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: c42032f1869f4be0af44ffa8fbd5ad522f73c459
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: fbcc035a6b800617f995d3bcebd7e1764aa467b0
+ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80380419"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98235725"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>シンボル パッケージ (.snupkg) の作成
 
@@ -63,7 +63,7 @@ nuget pack MyPackage.csproj -Symbols -SymbolPackageFormat snupkg
 [`SymbolPackageFormat`](/dotnet/core/tools/csproj#symbolpackageformat) プロパティには、`symbols.nupkg` (既定値) または `snupkg` の 2 つの値のいずれかを指定できます。 このプロパティが指定されていない場合は、レガシ シンボル パッケージが作成されます。
 
 > [!Note]
-> 従来の形式 `.symbols.nupkg` は引き続きサポートされますが、これは互換性のみを目的としています ([レガシ シンボル パッケージ](Symbol-Packages.md)に関する記事を参照)。 NuGet.org のシンボル サーバーは、新しいシンボル パッケージ形式 `.snupkg` のみを受け入れます。
+> 従来の形式 `.symbols.nupkg` は引き続きサポートされますが、これはネイティブ パッケージなどの互換性のみを目的としています ([レガシ シンボル パッケージ](Symbol-Packages.md)に関する記事を参照)。 NuGet.org のシンボル サーバーは、新しいシンボル パッケージ形式 `.snupkg` のみを受け入れます。
 
 ## <a name="publishing-a-symbol-package"></a>シンボル パッケージを公開する
 
@@ -104,6 +104,9 @@ NuGet.org には、シンボル パッケージに対して次の制約があり
 
 これらの制約が満たされない場合、NuGet.org に発行されたシンボル パッケージは検証に失敗します。 
 
+> [!NOTE]
+> C++ プロジェクトなどのネイティブ プロジェクトでは、ポータブル PDB ではなく Windows PDB が生成されます。 これらは、NuGet.org のシンボル サーバーではサポートされていません。 代わりに [レガシ シンボル パッケージ](Symbol-Packages.md)を使用してください。
+
 ### <a name="symbol-package-validation-and-indexing"></a>シンボル パッケージの検証とインデックスの作成
 
 [NuGet.org](https://www.nuget.org/) に発行されたシンボル パッケージは、マルウェアのスキャンなど、いくつかの検証を受けます。 パッケージが検証チェックに失敗した場合、そのパッケージの詳細ページにエラー メッセージが表示されます。 さらに、パッケージの所有者は、特定された問題の修正方法を示す電子メールを受信します。
@@ -130,7 +133,7 @@ NuGet.org には、シンボル パッケージに対して次の制約があり
 5) 次のフィールドは snupkg の nuspec から除外されます: ```authors```、```owners```、```requireLicenseAcceptance```、```license type```、```licenseUrl```、```icon```。
 6) ```<license>``` 要素は使用しないでください。 .snupkg には、対応する .nupkg と同じライセンスが適用されます。
 
-## <a name="see-also"></a>参照
+## <a name="see-also"></a>こちらもご覧ください
 
 ソース リンクを使用して、.NET アセンブリのソース コードのデバッグを有効にすることを検討してください。 詳細については、「[ソース リンクのガイダンス](/dotnet/standard/library-guidance/sourcelink)」を参照してください。
 

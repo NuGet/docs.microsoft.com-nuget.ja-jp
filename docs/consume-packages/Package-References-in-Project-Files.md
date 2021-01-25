@@ -1,16 +1,16 @@
 ---
 title: NuGet PackageReference 形式 (プロジェクト ファイルのパッケージ参照)
 description: NuGet 4.0 以降と VS2017 および .NET Core 2.0 でサポートされているプロジェクト ファイルの NuGet PackageReference に関する詳細
-author: karann-msft
-ms.author: karann
+author: nkolev92
+ms.author: nikolev
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 1127e7aee27d57abd5f14dd3bea82dfff3ba6d93
-ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
+ms.openlocfilehash: dcaed83ca54e3234702e963ffc2ebbde4cd75b28
+ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97699788"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98235764"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>プロジェクト ファイルのパッケージ参照 (PackageReference)
 
@@ -390,3 +390,34 @@ ProjectA
 | `-LockedMode` | `--locked-mode` | RestoreLockedMode | 復元のロック モードを有効にします。 これは、繰り返し可能なビルドを必要とする CI/CD のシナリオで役立ちます。|   
 | `-ForceEvaluate` | `--force-evaluate` | RestoreForceEvaluate | このオプションは、プロジェクトで定義する浮動バージョンを使用するパッケージで役立ちます。 既定では、NuGet の復元では、このオプションを指定して復元を実行しない限り、復元ごとのパッケージ バージョンの自動更新は行われません。 |
 | `-LockFilePath` | `--lock-file-path` | NuGetLockFilePath | プロジェクトのカスタム ロック ファイルの場所を定義します。 既定では、NuGet はルート ディレクトリでの `packages.lock.json` をサポートします。 同じディレクトリ内に複数のプロジェクトがある場合、NuGet はプロジェクト固有のロック ファイル `packages.<project_name>.lock.json` をサポートします。 |
+
+## <a name="assettargetfallback"></a>AssetTargetFallback
+
+`AssetTargetFallback` プロパティを使用すると、プロジェクトから参照されるプロジェクトの互換性のある追加のフレームワーク バージョンと、プロジェクトに使用する NuGet パッケージを指定できます。
+
+`PackageReference` を使用してパッケージの依存関係を指定し、そのパッケージにプロジェクトのターゲット フレームワークと互換性のある資産が含まれない場合は、`AssetTargetFallback` プロパティが機能します。 参照されたパッケージの互換性は、`AssetTargetFallback` で指定された各ターゲット フレームワークを使用して再確認されます。
+`project` または `package` が `AssetTargetFallback` によって参照されている場合、[NU1701](../reference/errors-and-warnings/NU1701.md) 警告が表示されます。
+
+`AssetTargetFallback` が互換性に与える影響の例については、次の表を参照してください。
+
+| プロジェクト フレームワーク | AssetTargetFallback | パッケージ フレームワーク | 結果 |
+|-------------------|---------------------|--------------------|--------|
+| .NET Framework 4.7.2 | | .NET Standard 2.0 | .NET Standard 2.0 |
+| .NET Core App 3.1 | | .NET Standard 2.0、.NET Framework 4.7.2 | .NET Standard 2.0 |
+| .NET Core App 3.1 | | .NET Framework 4.7.2 | 互換性がありません。[`NU1202`](../reference/errors-and-warnings/NU1202.md) で失敗します |
+| .NET Core App 3.1 | net472;net471 | .NET Framework 4.7.2 | .NET Framework 4.7.2。[`NU1701`](../reference/errors-and-warnings/NU1701.md) が表示されます |
+
+`;` を区切り記号として使用して、複数のフレームワークを指定できます。 フォールバック フレームワークを追加するには、次の操作を行います。
+
+```xml
+<AssetTargetFallback Condition=" '$(TargetFramework)'=='netcoreapp3.1' ">
+    $(AssetTargetFallback);net472;net471
+</AssetTargetFallback>
+```
+
+既存の `AssetTargetFallback` 値に追加するのではなく、上書きする場合は、`$(AssetTargetFallback)` は省略できます。
+
+> [!NOTE]
+> [.NET SDK ベースのプロジェクト](/dotnet/core/sdk)を使用している場合は、適切な `$(AssetTargetFallback)` 値が構成されるため、手動で設定する必要はありません。
+>
+> `$(PackageTargetFallback)` は、この課題に対処しようとした初期の機能でしたが、根本的には破損しているため、使用 "*しないでください*"。 `$(PackageTargetFallback)` から `$(AssetTargetFallback)` に移行するには、プロパティ名を変更するだけです。
