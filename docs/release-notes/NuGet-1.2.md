@@ -1,16 +1,16 @@
 ---
 title: NuGet 1.2 リリースノート
 description: 既知の問題、バグ修正、追加された機能、および DCRs を含む NuGet 1.2 のリリースノート。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 5d10d6bf27614980a144c30c3af6f9892a109061
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: af2248a41800f7641be9b77d7bb72e2a94d4ce47
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237188"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777203"
 ---
 # <a name="nuget-12-release-notes"></a>NuGet 1.2 リリースノート
 
@@ -43,7 +43,7 @@ NuGet 1.2 は、2011年3月30日にリリースされました。
 |属性 |説明|
 |----------------|-----------|
 |**assemblyName**|*[必須]* 。 などのアセンブリの名前 `System.Net` 。|
-|**targetFramework**|*オプション* 。 このフレームワークアセンブリが適用されるフレームワークとプロファイル名 (またはエイリアス) を指定できます ("net40"、"sl4" など)。 では、「複数の [ターゲットフレームワークのサポート](../create-packages/supporting-multiple-target-frameworks.md)」で説明したのと同じ形式が使用されます。|
+|**targetFramework**|*オプション*。 このフレームワークアセンブリが適用されるフレームワークとプロファイル名 (またはエイリアス) を指定できます ("net40"、"sl4" など)。 では、「複数の [ターゲットフレームワークのサポート](../create-packages/supporting-multiple-target-frameworks.md)」で説明したのと同じ形式が使用されます。|
 
 ```xml
   <frameworkAssemblies>
@@ -65,6 +65,6 @@ NuGet 1.2 をサポートするように、パッケージエクスプローラ�
 
 ## <a name="known-issues"></a>既知の問題
 
-* **1.2 パッケージの非互換性** : 最新バージョンのコマンドライン nuget.exe ツールでビルドされたパッケージ (> 1.2) は、以前のバージョンの NuGet VS アドイン (1.1 など) では動作しません。 互換性のないスキーマに関する情報を示すエラーメッセージが表示された場合は、このエラーが発生しています。 NuGet を最新バージョンに更新してください。
-* **Nuget. サーバーの非互換性** : Nuget. server プロジェクトを使用して内部の nuget フィードをホストしている場合は、最新バージョンの Nuget. server を使用してそのプロジェクトを更新する必要があります。
-* **署名の不一致エラー** : 署名の不一致に関するメッセージを含むアップグレード中にエラーが発生した場合は、まず NuGet をアンインストールしてからインストールする必要があります。 詳細については、 [既知の問題に関するページ](../release-notes/known-issues.md) を参照してください。 この問題は、Visual Studio 2010 SP1 を実行していて、正しく署名されていないバージョンの NuGet 1.0 がインストールされている場合にのみ影響します。 このバージョンは、CodePlex の web サイトから短時間のみ利用できるようになったため、この問題は多くの人間に影響を与えないようにしてください。
+* **1.2 パッケージの非互換性**: 最新バージョンのコマンドライン nuget.exe ツールでビルドされたパッケージ (> 1.2) は、以前のバージョンの NuGet VS アドイン (1.1 など) では動作しません。 互換性のないスキーマに関する情報を示すエラーメッセージが表示された場合は、このエラーが発生しています。 NuGet を最新バージョンに更新してください。
+* **Nuget. サーバーの非互換性**: Nuget. server プロジェクトを使用して内部の nuget フィードをホストしている場合は、最新バージョンの Nuget. server を使用してそのプロジェクトを更新する必要があります。
+* **署名の不一致エラー**: 署名の不一致に関するメッセージを含むアップグレード中にエラーが発生した場合は、まず NuGet をアンインストールしてからインストールする必要があります。 詳細については、 [既知の問題に関するページ](../release-notes/known-issues.md) を参照してください。 この問題は、Visual Studio 2010 SP1 を実行していて、正しく署名されていないバージョンの NuGet 1.0 がインストールされている場合にのみ影響します。 このバージョンは、CodePlex の web サイトから短時間のみ利用できるようになったため、この問題は多くの人間に影響を与えないようにしてください。

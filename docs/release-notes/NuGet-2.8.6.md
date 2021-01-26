@@ -1,28 +1,28 @@
 ---
-title: NuGet 2.8.6 リリース ノート
-description: NuGet 2.8.6 などのリリース ノートには、問題、バグの修正、追加機能、および Dcr が知られています。
-author: karann-msft
-ms.author: karann
+title: NuGet 2.8.6 のリリースノート
+description: 既知の問題、バグ修正、追加された機能、および DCRs を含む NuGet 2.8.6 のリリースノート。
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: d57c658999ed3c79b962de84fd973276833ef3fd
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: ea291bdf7a5b6cc3ac3bde526030e517db4632d7
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546492"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776703"
 ---
-# <a name="nuget-286-release-notes"></a>NuGet 2.8.6 リリース ノート
+# <a name="nuget-286-release-notes"></a>NuGet 2.8.6 のリリースノート
 
-[NuGet 2.8.5 リリース ノート](../release-notes/nuget-2.8.5.md) | [NuGet 2.8.7 リリース ノート](../release-notes/nuget-2.8.7.md)
+[NuGet 2.8.5 のリリースノート](../release-notes/nuget-2.8.5.md)  | [NuGet 2.8.7 のリリースノート](../release-notes/nuget-2.8.7.md)
 
-NuGet 2.8.6 がリリースされた修正プログラムと機能強化、Windows 10 UWP 開発モデル対応の配信可能性がありますパッケージをサポートするために、2.8.5 のマイナー アップデートとして、2015 年 7 月 20日一部の VSIX を対象とします。
+NuGet 2.8.6 は、2015年7月20日にリリースされました。また、Windows 10 UWP 開発モデルのサポートと共に提供される可能性のあるパッケージのサポートを対象とした修正プログラムと機能強化が含まれています。
 
-このバージョンの NuGet パッケージ マネージャー拡張機能は、Visual Studio 2013 のサポートのみを提供します。
+このバージョンの NuGet パッケージマネージャー拡張機能では Visual Studio 2013 のみがサポートされます。
 
-このリリースでは、NuGet パッケージ マネージャー ダイアログのサポートが追加必要があります。
+このリリースでは、NuGet パッケージマネージャーダイアログで次の機能が追加されました。
 
-* Windows 10 のアプリケーションの開発をサポートするために UAP ターゲット フレームワーク モニカーが導入されました。
-* NuGet プロトコル バージョン 3 のエンドポイント
-* サポート[Nuget.Config](../consume-packages/configuring-nuget-behavior.md)リポジトリ ソース protocolVersion 属性。 既定値は「2」
-* ローカル キャッシュ内で必要なパッケージ バージョンが使用できない場合、リモート リポジトリにフォールバック
+* Windows 10 アプリケーション開発をサポートする UAP ターゲットフレームワークモニカーが導入されました。
+* NuGet プロトコルバージョン3エンドポイント
+* リポジトリソースでの [Nuget.Config](../consume-packages/configuring-nuget-behavior.md) protocolVersion 属性のサポート。 既定値は "2" です。
+* 必要なパッケージバージョンがローカルキャッシュで利用できない場合に、リモートリポジトリにフォールバックする

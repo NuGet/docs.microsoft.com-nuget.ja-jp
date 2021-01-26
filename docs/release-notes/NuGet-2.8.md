@@ -1,16 +1,16 @@
 ---
 title: NuGet 2.8 リリースノート
 description: 既知の問題、バグ修正、追加された機能、および DCRs を含む NuGet 2.8 のリリースノート。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 98b8b7334738306e6d40ba7c455409a87c4bb822
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: cb77cf0f049b5b3cfe1039d83ab58e33457674bf
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237026"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776715"
 ---
 # <a name="nuget-28-release-notes"></a>NuGet 2.8 リリースノート
 
@@ -44,13 +44,15 @@ NuGet 2.8 は、2014年1月29日にリリースされました。
 
 パッケージの依存関係を解決するとき、NuGet では、パッケージの依存関係を満たす最低メジャーおよびマイナーパッケージバージョンを選択するための戦略が実装されていました。 ただし、メジャーバージョンとマイナーバージョンとは異なり、修正プログラムのバージョンは常に最も高いバージョンに解決されていました。 動作は攻撃者でしたが、依存関係を含むパッケージをインストールするための決定性が欠如しています。 次の例を確認してください。
 
-    PackageA@1.0.0 -[ >=1.0.0 ]-> PackageB@1.0.0
+```
+PackageA@1.0.0 -[ >=1.0.0 ]-> PackageB@1.0.0
 
-    Developer1 installs PackageA@1.0.0: installed PackageA@1.0.0 and PackageB@1.0.0
+Developer1 installs PackageA@1.0.0: installed PackageA@1.0.0 and PackageB@1.0.0
 
-    PackageB@1.0.1 is published
+PackageB@1.0.1 is published
 
-    Developer2 installs PackageA@1.0.0: installed PackageA@1.0.0 and PackageB@1.0.1
+Developer2 installs PackageA@1.0.0: installed PackageA@1.0.0 and PackageB@1.0.1
+```
 
 この例では、Developer1 と Developer2 がインストールされていても PackageA@1.0.0 、それぞれ異なるバージョンの PackageB で終了しています。 NuGet 2.8 では、修正プログラムのバージョンの依存関係の解決動作がメジャーバージョンとマイナーバージョンの動作に一致するように、この既定の動作が変更されています。 上の例では、 PackageB@1.0.0 PackageA@1.0.0 新しい修正プログラムのバージョンに関係なく、をインストールした結果としてがインストールされます。
 
@@ -64,24 +66,28 @@ NuGet 2.8 では、依存関係を解決するための _既定_ の動作が変
 
 前に説明した-DependencyVersion スイッチに加えて、NuGet では、-DependencyVersion スイッチがインストールパッケージの呼び出しで指定されていない場合に、既定値を定義する Nuget.Config ファイルに新しい属性を設定することもできます。 この値は、すべてのインストールパッケージ操作の [NuGet パッケージマネージャー] ダイアログでも尊重されます。 この値を設定するには、次の属性を Nuget.Config ファイルに追加します。
 
-    <config>
-        <add key="dependencyversion" value="Highest" />
-    </config>
+```xml
+<config>
+    <add key="dependencyversion" value="Highest" />
+</config>
+```
 
 ## <a name="preview-nuget-operations-with--whatif"></a>-Whatif を使用した NuGet 操作のプレビュー
 
 一部の NuGet パッケージには、深い依存関係グラフを含めることができます。そのため、インストール、アンインストール、または更新の操作中に、何が発生するかを最初に確認するのに役立ちます。 NuGet 2.8 では、コマンドが適用されるパッケージのクロージャ全体を視覚化できるように、パッケージのインストール、アンインストール、および更新パッケージの各コマンドに標準の PowerShell-whatif スイッチが追加されています。 たとえば、空の `install-package Microsoft.AspNet.WebApi -whatif` ASP.NET Web アプリケーションでを実行すると、次のようになります。
 
-    PM> install-package Microsoft.AspNet.WebApi -whatif
-    Attempting to resolve dependency 'Microsoft.AspNet.WebApi.WebHost (≥ 5.0.0)'.
-    Attempting to resolve dependency 'Microsoft.AspNet.WebApi.Core (≥ 5.0.0)'.
-    Attempting to resolve dependency 'Microsoft.AspNet.WebApi.Client (≥ 5.0.0)'.
-    Attempting to resolve dependency 'Newtonsoft.Json (≥ 4.5.11)'.
-    Install Newtonsoft.Json 4.5.11
-    Install Microsoft.AspNet.WebApi.Client 5.0.0
-    Install Microsoft.AspNet.WebApi.Core 5.0.0
-    Install Microsoft.AspNet.WebApi.WebHost 5.0.0
-    Install Microsoft.AspNet.WebApi 5.0.0
+```
+PM> install-package Microsoft.AspNet.WebApi -whatif
+Attempting to resolve dependency 'Microsoft.AspNet.WebApi.WebHost (≥ 5.0.0)'.
+Attempting to resolve dependency 'Microsoft.AspNet.WebApi.Core (≥ 5.0.0)'.
+Attempting to resolve dependency 'Microsoft.AspNet.WebApi.Client (≥ 5.0.0)'.
+Attempting to resolve dependency 'Newtonsoft.Json (≥ 4.5.11)'.
+Install Newtonsoft.Json 4.5.11
+Install Microsoft.AspNet.WebApi.Client 5.0.0
+Install Microsoft.AspNet.WebApi.Core 5.0.0
+Install Microsoft.AspNet.WebApi.WebHost 5.0.0
+Install Microsoft.AspNet.WebApi 5.0.0
+```
 
 ## <a name="downgrade-package"></a>パッケージのダウングレード
 
@@ -101,12 +107,14 @@ NuGet 2.8 では、依存関係を解決するための _既定_ の動作が変
 
 通常、NuGet パッケージは、ネットワーク接続を使用する [nuget ギャラリー](http://www.nuget.org/) などのリモートギャラリーから使用されますが、クライアントが接続されていないシナリオは多数あります。 ネットワーク接続がないと、NuGet クライアントは、パッケージがローカルの NuGet キャッシュ内のクライアントコンピューターに既に存在する場合でも、パッケージを正常にインストールできませんでした。 NuGet 2.8 では、自動キャッシュフォールバックがパッケージマネージャーコンソールに追加されます。 たとえば、ネットワークアダプターを切断して jQuery をインストールする場合、コンソールには次のように表示されます。
 
-    PM> Install-Package jquery
-    The source at nuget.org [https://www.nuget.org/api/v2/] is unreachable. Falling back to NuGet Local Cache at C:\Users\me\AppData\Local\NuGet\Cache
-    Installing 'jQuery 2.0.3'.
-    Successfully installed 'jQuery 2.0.3'.
-    Adding 'jQuery 2.0.3' to WebApplication18.
-    Successfully added 'jQuery 2.0.3' to WebApplication18.
+```
+PM> Install-Package jquery
+The source at nuget.org [https://www.nuget.org/api/v2/] is unreachable. Falling back to NuGet Local Cache at C:\Users\me\AppData\Local\NuGet\Cache
+Installing 'jQuery 2.0.3'.
+Successfully installed 'jQuery 2.0.3'.
+Adding 'jQuery 2.0.3' to WebApplication18.
+Successfully added 'jQuery 2.0.3' to WebApplication18.
+```
 
 キャッシュフォールバック機能では、特定のコマンド引数は必要ありません。 さらに、現在、キャッシュフォールバックはパッケージマネージャーコンソールでのみ機能します。現在、[パッケージマネージャー] ダイアログボックスで動作は機能しません。
 
@@ -124,7 +132,7 @@ WebMatrix 3 で NuGet パッケージマネージャー拡張機能を更新す�
 
 これは、WebMatrix の nuget パッケージマネージャー拡張機能の最初のリリースです。  このコードは、Microsoft がオープンソースの NuGet プロジェクトに最近貢献しました。 以前は、NuGet 統合は WebMatrix に組み込まれており、WebMatrix から帯域外で更新することはできませんでした。  NuGet のクライアントツールの残りの部分と共に、さらに更新する機能が追加されました。
 
-## <a name="bug-fixes"></a>バグ修正
+## <a name="bug-fixes"></a>バグの修正
 
 バグを修正した主な問題の1つは、更新プログラムパッケージの再インストールコマンドでパフォーマンスを向上させることでした。
 

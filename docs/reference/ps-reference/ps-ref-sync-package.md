@@ -1,16 +1,16 @@
 ---
 title: NuGet Sync-Package PowerShell リファレンス
 description: Visual Studio の NuGet パッケージマネージャーコンソールで Sync-Package PowerShell コマンドのリファレンスです。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: fc4c875b5dcb0b90e4d048daf5984ed265370090
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 4261b0a20a4fd4183f7b08096c3477e6f9d0a02d
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238050"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777411"
 ---
 # <a name="sync-package-package-manager-console-in-visual-studio"></a>Sync-Package (Visual Studio のパッケージマネージャーコンソール)
 
@@ -36,8 +36,8 @@ Sync-Package [-Id] <string> [-IgnoreDependencies] [-ProjectName <string>] [[-Ver
 | Version | 同期するパッケージのバージョンです。既定では、現在インストールされているバージョンが対象となります。 |
 | source | 検索するパッケージソースの URL またはフォルダーパス。 ローカルフォルダーのパスは、絶対パスでも、現在のフォルダーを基準とした相対パスでもかまいません。 省略した場合、 `Sync-Package` 現在選択されているパッケージソースを検索します。 |
 | IncludePrerelease リリース | には、同期のプレリリースパッケージが含まれています。 |
-| FileConflictAction | プロジェクトによって参照される既存のファイルを上書きまたは無視するように要求されたときに実行するアクション。 指定できる値は *、Overwrite、Ignore、None、OverwriteAll* 、 *(3.0 +)* *ignoreall* です。 |
-| DependencyVersion | 使用する依存関係パッケージのバージョン。次のいずれかになります。<br/><ul><li>*最低* (既定): 最も低いバージョンです。</li><li>*HighestPatch* : 最も低いメジャー、最低のマイナー、最高のパッチを持つバージョン</li><li>*HighestMinor* : 最上位のメジャー、最高のマイナー、最高の修正プログラムが適用されたバージョン</li><li>*最高* (パラメーターのない Update-Package の既定値): 最高バージョン</li></ul>ファイルの設定を使用して、既定値を設定でき [`dependencyVersion`](../nuget-config-file.md#config-section) `Nuget.Config` ます。 |
+| FileConflictAction | プロジェクトによって参照される既存のファイルを上書きまたは無視するように要求されたときに実行するアクション。 指定できる値は *、Overwrite、Ignore、None、OverwriteAll*、 *(3.0 +)* *ignoreall* です。 |
+| DependencyVersion | 使用する依存関係パッケージのバージョン。次のいずれかになります。<br/><ul><li>*最低* (既定): 最も低いバージョンです。</li><li>*HighestPatch*: 最も低いメジャー、最低のマイナー、最高のパッチを持つバージョン</li><li>*HighestMinor*: 最上位のメジャー、最高のマイナー、最高の修正プログラムが適用されたバージョン</li><li>*最高* (パラメーターのない Update-Package の既定値): 最高バージョン</li></ul>ファイルの設定を使用して、既定値を設定でき [`dependencyVersion`](../nuget-config-file.md#config-section) `Nuget.Config` ます。 |
 | WhatIf | 実際に同期を実行せずにコマンドを実行した場合の動作を示します。 |
 
 これらのパラメーターでは、パイプラインの入力やワイルドカード文字を受け入れません。

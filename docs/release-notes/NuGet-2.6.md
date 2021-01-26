@@ -1,16 +1,16 @@
 ---
 title: NuGet 2.6 リリースノート
 description: 既知の問題、バグ修正、追加された機能、および DCRs を含む、NuGet 2.6.1 向けのリリースノート。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 5f6504d180879f2e9140552e0d2e07e34a85a083
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 812a0e806e29c5a2141db4f2fbab4bf91b0983f9
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93236979"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776832"
 ---
 # <a name="nuget-26-release-notes"></a>NuGet 2.6 リリースノート
 
@@ -102,6 +102,6 @@ NuGet 2.6 以降、このデータはインストール操作のために送信�
 
 異なる操作名に加えて、依存パッケージ id もインストール用に記録されます。  NuGet ギャラリーの今後の更新では、レポート内でそのデータが公開されるため、パッケージの作成者はパッケージのインストール方法を完全に理解できます。
 
-## <a name="bug-fixes"></a>バグ修正
+## <a name="bug-fixes"></a>バグの修正
 
 NuGet 2.6 には、いくつかのバグ修正も含まれています。 NuGet 2.6 で修正された作業項目の完全な一覧については、 [このリリースの Nuget Issue Tracker](https://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%202.6&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0&reasonClosed=All)を参照してください。

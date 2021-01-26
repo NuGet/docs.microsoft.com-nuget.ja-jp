@@ -1,16 +1,16 @@
 ---
 title: NuGet Uninstall-Package PowerShell リファレンス
 description: Visual Studio の NuGet パッケージマネージャーコンソールで Uninstall-Package PowerShell コマンドのリファレンスです。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 06/01/2017
 ms.topic: reference
-ms.openlocfilehash: d164176355e32e5bbe0a017fc2b291cbc9ef326a
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 961a9d68e5cba09030401fc871a93bf1145b23a3
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237128"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777386"
 ---
 # <a name="uninstall-package-package-manager-console-in-visual-studio"></a>Uninstall-Package (Visual Studio のパッケージマネージャーコンソール)
 

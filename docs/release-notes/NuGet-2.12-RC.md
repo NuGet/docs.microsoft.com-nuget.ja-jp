@@ -1,30 +1,30 @@
 ---
-title: NuGet 2.12 RC リリース ノート
-description: 既知の問題、バグの修正、追加機能、および Dcr を含む NuGet 2.12 RC のリリース ノート。
-author: karann-msft
-ms.author: karann
+title: NuGet 2.12-RC リリースノート
+description: 既知の問題、バグ修正、追加された機能、および DCRs を含む NuGet 2.12 RC のリリースノート。
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 5321d5cfbb1565daa0dab54904287475cc721c4f
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 049a38e9ddd1f33b6d0c87aed5ccb64c0e0d9740
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549760"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776946"
 ---
-# <a name="nuget-212-rc-release-notes"></a>NuGet 2.12 RC リリース ノート
+# <a name="nuget-212-rc-release-notes"></a>NuGet 2.12-RC リリースノート
 
-NuGet の 2.12 RC は、Visual Studio 2013 の 2.12.0-rc VSIX への更新、2016 年 6 月 22 日リリースされました。
+Visual Studio 2013 用の 2.12.0 VSIX の更新プログラムとして、NuGet 2.12-RC が2016年6月22日にリリースされました。
 
-### <a name="updates-in-this-release"></a>このリリースで更新プログラム
+### <a name="updates-in-this-release"></a>このリリースの更新プログラム
 
-* 完全 NetStandard および NetCoreApp VS2013 をサポートします。
-* 含める/除外の追加`.nuspec`依存関係のエントリ。
-* プロキシの例外を指定するには、"no_proxy"のサポートを追加します。
+* VS2013 の完全な NetStandard と NetCoreApp のサポート。
+* インクルード/除外を `.nuspec` 依存関係エントリに追加しています。
+* プロキシ例外を指定するには、"no_proxy" のサポートを追加します。
 * TFS 関連の修正。
 
-Github のこのリリースで修正プログラムの一覧があります、 [2.12 マイルス トーン](https://github.com/NuGet/Home/issues?q=milestone%3A2.12+is%3Aclosed)
+このリリースの修正プログラムの一覧は、 [2.12 マイルストーン](https://github.com/NuGet/Home/issues?q=milestone%3A2.12+is%3Aclosed)で GitHub に記載されています。
 
-拡張機能をダウンロードするには。
+次の拡張機能をダウンロードします。
 
 * [Visual Studio 2013](https://dist.nuget.org/visualstudio-2013-vsix/v2.12.0-rc/NuGet.Tools.vsix)

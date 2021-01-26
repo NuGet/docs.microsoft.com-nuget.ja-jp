@@ -1,16 +1,16 @@
 ---
 title: NuGet Install-Package PowerShell リファレンス
 description: Visual Studio の NuGet パッケージマネージャーコンソールで Install-Package PowerShell コマンドのリファレンスです。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 06/01/2017
 ms.topic: reference
-ms.openlocfilehash: 5bda888e0fb526faca79e88da93b0ceb9aff5348
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 110b41e830636d60741b14292c17840aa5a63dfd
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237206"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777439"
 ---
 # <a name="install-package-package-manager-console-in-visual-studio"></a>Install-Package (Visual Studio のパッケージマネージャーコンソール)
 
@@ -36,14 +36,14 @@ Install-Package Microsoft.AspNet.MVC -Version 5.0.0.
 
 | パラメーター | 説明 |
 | --- | --- |
-| Id | 必要インストールするパッケージの識別子。 ( *3.0 以降* )識別子には、ファイルまたはファイルのパスまたは URL を指定でき `packages.config` `.nupkg` ます。 -Id スイッチ自体は省略可能です。 |
+| Id | 必要インストールするパッケージの識別子。 (*3.0 以降*)識別子には、ファイルまたはファイルのパスまたは URL を指定でき `packages.config` `.nupkg` ます。 -Id スイッチ自体は省略可能です。 |
 | IgnoreDependencies | 依存関係ではなく、このパッケージのみをインストールします。 |
 | ProjectName | パッケージのインストール先となるプロジェクト。既定のプロジェクトが既定のプロジェクトになります。 |
 | source | 検索するパッケージソースの URL またはフォルダーパス。 ローカルフォルダーのパスは、絶対パスでも、現在のフォルダーを基準とした相対パスでもかまいません。 省略した場合、 `Install-Package` 現在選択されているパッケージソースを検索します。 |
 | Version | インストールするパッケージのバージョン。既定では、最新バージョンが対象となります。 |
 | IncludePrerelease リリース | インストールのプレリリースパッケージを検討します。 省略した場合、安定版パッケージのみが考慮されます。 |
-| FileConflictAction | プロジェクトによって参照される既存のファイルを上書きまたは無視するように要求されたときに実行するアクション。 指定できる値は *、Overwrite、Ignore、None、OverwriteAll* 、 *(3.0 +)* *ignoreall* です。 |
-| DependencyVersion | 使用する依存関係パッケージのバージョン。次のいずれかになります。<br/><ul><li>*最低* (既定): 最も低いバージョンです。</li><li>*HighestPatch* : 最も低いメジャー、最低のマイナー、最高のパッチを持つバージョン</li><li>*HighestMinor* : 最上位のメジャー、最高のマイナー、最高の修正プログラムが適用されたバージョン</li><li>*最高* (パラメーターのない Update-Package の既定値): 最高バージョン</li></ul>ファイルの設定を使用して、既定値を設定でき [`dependencyVersion`](../nuget-config-file.md#config-section) `Nuget.Config` ます。 |
+| FileConflictAction | プロジェクトによって参照される既存のファイルを上書きまたは無視するように要求されたときに実行するアクション。 指定できる値は *、Overwrite、Ignore、None、OverwriteAll*、 *(3.0 +)* *ignoreall* です。 |
+| DependencyVersion | 使用する依存関係パッケージのバージョン。次のいずれかになります。<br/><ul><li>*最低* (既定): 最も低いバージョンです。</li><li>*HighestPatch*: 最も低いメジャー、最低のマイナー、最高のパッチを持つバージョン</li><li>*HighestMinor*: 最上位のメジャー、最高のマイナー、最高の修正プログラムが適用されたバージョン</li><li>*最高* (パラメーターのない Update-Package の既定値): 最高バージョン</li></ul>ファイルの設定を使用して、既定値を設定でき [`dependencyVersion`](../nuget-config-file.md#config-section) `Nuget.Config` ます。 |
 | WhatIf | 実際にインストールを実行せずにコマンドを実行した場合の動作を示します。 |
 
 これらのパラメーターでは、パイプラインの入力やワイルドカード文字を受け入れません。

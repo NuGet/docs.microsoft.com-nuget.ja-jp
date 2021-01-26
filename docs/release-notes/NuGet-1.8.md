@@ -1,16 +1,16 @@
 ---
 title: NuGet 1.8 リリースノート
 description: 既知の問題、バグ修正、追加された機能、および DCRs を含む NuGet 1.8 のリリースノート。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 9d55534ffe765137731b7fbf4be4bbaa618c769c
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 8dd0fff88424c516d8b894412d07dcc53af19265
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93236844"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777107"
 ---
 # <a name="nuget-18-release-notes"></a>NuGet 1.8 リリースノート
 
@@ -72,6 +72,6 @@ NuGet 1.8 では、ユーザーのプライバシーを保護するために、�
 ### <a name="nugetexe-performance-improvements"></a>nuget.exe のパフォーマンスの向上
 パッケージを並列でダウンロードしてインストールするように install コマンドを変更することにより、NuGet 1.8 は nuget.exe と拡張機能パッケージの復元によって大幅なパフォーマンスの向上をもたらします。  高レベルのテストでは、6つのパッケージをプロジェクトにインストールする場合のパフォーマンスが NuGet 1.8 で約35% 向上しています。  パッケージの数を25に増やすと、約60% のパフォーマンスが向上します。
 
-## <a name="bug-fixes"></a>バグ修正
+## <a name="bug-fixes"></a>バグの修正
 NuGet 1.8 では、パッケージマネージャーコンソールとパッケージ復元ワークフローに重点を置いて、いくつかのバグ修正が行われています。特に、パッケージ復元の同意と Windows 8 Express の統合に関連しています。
 NuGet 1.8 で修正された作業項目の完全な一覧については、 [このリリースの Nuget Issue Tracker](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%201.8&assignedTo=All&component=All&sortField=Votes&sortDirection=Descending&page=0)を参照してください。

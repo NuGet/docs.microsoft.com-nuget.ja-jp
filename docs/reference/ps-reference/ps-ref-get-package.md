@@ -1,16 +1,16 @@
 ---
 title: NuGet Get-Package PowerShell リファレンス
 description: Visual Studio の NuGet パッケージマネージャーコンソールで Get-Package PowerShell コマンドのリファレンスです。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 1576e3f20eba1ecdd099b1e7c23aef6b1a1a0a4f
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 8394f888ec3d5e57eacd351a4867173da1070ead
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237232"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777495"
 ---
 # <a name="get-package-package-manager-console-in-visual-studio"></a>Get-Package (Visual Studio のパッケージマネージャーコンソール)
 

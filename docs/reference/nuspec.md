@@ -1,17 +1,17 @@
 ---
 title: NuGet の nuspec ファイルリファレンス
 description: .nuspec ファイルには、パッケージを作成するとき、およびパッケージのコンシューマーに情報を提供するために使われる、パッケージのメタデータが含まれています。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 6e5107ac05046ea46cc819ebe2a504ba6b030634
-ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
+ms.openlocfilehash: 6a68b07c42e6abf4ad57d0129fa76d7dd620145f
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96738943"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777680"
 ---
 # <a name="nuspec-reference"></a>.nuspec リファレンス
 
@@ -36,7 +36,7 @@ ms.locfileid: "96738943"
 
    またはを使用してパッケージを作成する場合は、 `dotnet.exe pack` `msbuild pack target` 通常、ファイル内の [すべてのプロパティ](../reference/msbuild-targets.md#pack-target) をプロジェクトファイルに含めることをお勧め `.nuspec` します。 ただし、代わりに[ `.nuspec` `dotnet.exe` また `msbuild pack target` はを使用して、パックするファイルを使用](../reference/msbuild-targets.md#packing-using-a-nuspec)することもできます。
 
-- から PackageReference に移行されたプロジェクトでは、 `packages.config` パッケージを[PackageReference](../consume-packages/package-references-in-project-files.md) `.nuspec` 作成するためにファイルは必要ありません。 代わりに、 [msbuild-{0}](../consume-packages/migrate-packages-config-to-package-reference.md#create-a-package-after-migration)を使用します。
+- から PackageReference に移行されたプロジェクトでは、 `packages.config` パッケージを[](../consume-packages/package-references-in-project-files.md) `.nuspec` 作成するためにファイルは必要ありません。 代わりに、 [msbuild-{0}](../consume-packages/migrate-packages-config-to-package-reference.md#create-a-package-after-migration)を使用します。
 
 ## <a name="general-form-and-schema"></a>一般的な形式とスキーマ
 
@@ -149,6 +149,7 @@ SPDX ライセンス式またはパッケージ内のライセンスファイル
 同等の MSBuild については、 [ライセンス式またはライセンスファイルのパッキング](msbuild-targets.md#packing-a-license-expression-or-a-license-file)に関する説明を参照してください。
 
 NuGet のライセンス式の正確な構文については、 [Abnf](https://tools.ietf.org/html/rfc5234)で説明します。
+
 ```cli
 license-id            = <short form license identifier from https://spdx.org/spdx-specification-21-web-version#h.luq9dgcle9mo>
 
@@ -171,7 +172,7 @@ license-expression =  1*1(simple-expression / compound-expression / UNLICENSED)
 > iconUrl は非推奨とされます。 代わりにアイコンを使用してください。
 
 UI 表示でパッケージのアイコンとして使用される透明な背景を持つ128x128 イメージの URL。 この要素の値は、"*画像を直接示す URL*" であり、画像を含む Web ページの URL ではないことに注意してください。 たとえば、GitHub のイメージを使用するには、" <em> https://github.com/ \<username\> / \<repository\> /raw/ \<branch\> / \<logo.png\> </em>" のような raw ファイル URL を使用します。 
-   
+
 パッケージを nuget.org にアップロードする場合、 `iconUrl` フィールドの文字数は4000文字に制限されます。
 
 #### <a name="icon"></a>icon
@@ -212,7 +213,7 @@ UI 表示でパッケージのアイコンとして使用される透明な背�
 
 #### <a name="summary"></a>まとめ
 > [!Important]
-> `summary` は非推奨とされます。 代わりに、`description` を使用してください。
+> `summary` は非推奨とされます。 代わりに `description` を使用してください
 
 UI 画面用のパッケージの短い説明。 省略すると、`description` を切り詰めたバージョンが使われます。
 
@@ -265,15 +266,20 @@ UI 表示で使用できる、パッケージのわかりやすいタイトル�
 
 #### <a name="packagetypes"></a>packageTypes
 *(3.5 以降)* 従来の依存関係パッケージ以外の場合に、パッケージの種類を指定する 0 個以上の `<packageType>` 要素のコレクション。 各 packageType は、*name* 属性と *version* 属性を持っています。 「[Setting a package type](../create-packages/set-package-type.md)」(パッケージの種類の設定) をご覧ください。
+
 #### <a name="dependencies"></a>依存関係
 パッケージの依存関係を指定する 0 個以上の `<dependency>` 要素のコレクション。 各 dependency は、*id*、*version*、*include* (3.x 以降)、*exclude* (3.x 以降) の各属性を持っています。 後の「[依存関係](#dependencies-element)」をご覧ください。
+
 #### <a name="frameworkassemblies"></a>frameworkAssemblies
 *(1.2 以降)* このパッケージで必要な .NET Framework アセンブリ参照を示す 0 個以上の `<frameworkAssembly>` 要素のコレクション。パッケージを使うプロジェクトに参照が確実に追加されるようにします。 各 frameworkAssembly は、*assemblyName* 属性と *targetFramework* 属性を持っています。 [フレームワーク アセンブリ参照 GAC の指定](#specifying-framework-assembly-references-gac)に関する後の説明をご覧ください。
+
 #### <a name="references"></a>references
 *(1.5 以降)* パッケージの `lib` フォルダー内のアセンブリのうちプロジェクト参照として追加するものを指定する、0 個以上の `<reference>` 要素のコレクション。 各参照は、*file* 属性を持っています。 `<references>` は `<group>` 要素を含むこともでき、その *targetFramework* 属性に `<reference>` 要素を含めることができます。 省略すると、`lib` のすべての参照が含まれます。 [明示的なアセンブリ参照の指定](#specifying-explicit-assembly-references)に関する後の説明をご覧ください。
+
 #### <a name="contentfiles"></a>contentFiles
 *(3.3 以降)* 使用する側のプロジェクトに含めるコンテンツ ファイルを示す `<files>` 要素のコレクション。 これらのファイルは、プロジェクト システム内でのファイルの使用方法が記述されている属性のセットで指定されます。 [パッケージに含めるファイルの指定](#specifying-files-to-include-in-the-package)に関する後の説明をご覧ください。
-#### <a name="files"></a>files 
+
+#### <a name="files"></a>ファイル 
 ノードには `<package>` `<files>` `<metadata>` 、 `<contentFiles>` パッケージに `<metadata>` 含めるアセンブリおよびコンテンツファイルを指定するためのノードが、の兄弟として、およびの子として含まれている場合があります。 詳しくは、このトピックで後述する「[アセンブリ ファイルを含める](#including-assembly-files)」と「[コンテンツ ファイルを含める](#including-content-files)」をご覧ください。
 
 ### <a name="metadata-attributes"></a>メタデータ属性
@@ -364,12 +370,12 @@ nuget pack MyProject.csproj
 | 包含/除外タグ | ターゲットの影響を受けるフォルダー |
 | --- | --- |
 | contentFiles | Content |
-| ランタイム | Runtime、Resources、FrameworkAssemblies |
+| runtime | Runtime、Resources、FrameworkAssemblies |
 | compile | lib |
 | build | build (MSBuild のプロパティとターゲット) |
 | native | native |
 | なし | フォルダーなし |
-| all | すべてのフォルダー |
+| すべて | すべてのフォルダー |
 
 たとえば、次の行は `PackageA` バージョン 1.1.0 以降および `PackageB` バージョン 1.x での依存関係を示します。
 
@@ -522,72 +528,82 @@ NuGet 2.x 以前および `packages.config` を使っているプロジェクト
 | --- | --- |
 | **src** | 含める 1 つまたは複数のファイルの場所。`exclude` 属性によって指定される除外の対象になります。 絶対パスを指定しない限り、パスは `.nuspec` ファイルが基準になります。 ワイルドカード文字 `*` を使うことができ、2 個のワイルドカード `**` は再帰的なフォルダー検索を意味します。 |
 | **target** | ソース ファイルが格納されるパッケージ内のフォルダーへの相対パス。`lib`、`content`、`build`、または `tools` で始まっている必要があります。 [規則に基づく作業ディレクトリからの .nuspec の作成](../create-packages/creating-a-package.md#from-a-convention-based-working-directory)に関するページをご覧ください。 |
-| **もの** | `src` の場所から除外するファイルまたはファイル パターンをセミコロンで区切ったリスト。 ワイルドカード文字 `*` を使うことができ、2 個のワイルドカード `**` は再帰的なフォルダー検索を意味します。 |
+| **除外** | `src` の場所から除外するファイルまたはファイル パターンをセミコロンで区切ったリスト。 ワイルドカード文字 `*` を使うことができ、2 個のワイルドカード `**` は再帰的なフォルダー検索を意味します。 |
 
 ### <a name="examples"></a>例
 
 **1 つのアセンブリ**
 
-    Source file:
-        library.dll
+```
+Source file:
+    library.dll
 
-    .nuspec entry:
-        <file src="library.dll" target="lib" />
+.nuspec entry:
+    <file src="library.dll" target="lib" />
 
-    Packaged result:
-        lib\library.dll
+Packaged result:
+    lib\library.dll
+```
 
 **ターゲット フレームワークに固有の 1 つのアセンブリ**
 
-    Source file:
-        library.dll
+```
+Source file:
+    library.dll
 
-    .nuspec entry:
-        <file src="assemblies\net40\library.dll" target="lib\net40" />
+.nuspec entry:
+    <file src="assemblies\net40\library.dll" target="lib\net40" />
 
-    Packaged result:
-        lib\net40\library.dll
+Packaged result:
+    lib\net40\library.dll
+```
 
 **ワイルドカードを使った DLL のセット**
 
-    Source files:
-        bin\release\libraryA.dll
-        bin\release\libraryB.dll
+```
+Source files:
+    bin\release\libraryA.dll
+    bin\release\libraryB.dll
 
-    .nuspec entry:
-        <file src="bin\release\*.dll" target="lib" />
+.nuspec entry:
+    <file src="bin\release\*.dll" target="lib" />
 
-    Packaged result:
-        lib\libraryA.dll
-        lib\libraryB.dll
+Packaged result:
+    lib\libraryA.dll
+    lib\libraryB.dll
+```
 
 **異なるフレームワークの DLL**
 
-    Source files:
-        lib\net40\library.dll
-        lib\net20\library.dll
+```
+Source files:
+    lib\net40\library.dll
+    lib\net20\library.dll
 
-    .nuspec entry (using ** recursive search):
-        <file src="lib\**" target="lib" />
+.nuspec entry (using ** recursive search):
+    <file src="lib\**" target="lib" />
 
-    Packaged result:
-        lib\net40\library.dll
-        lib\net20\library.dll
+Packaged result:
+    lib\net40\library.dll
+    lib\net20\library.dll
+```
 
 **ファイルの除外**
 
-    Source files:
-        \tools\fileA.bak
-        \tools\fileB.bak
-        \tools\fileA.log
-        \tools\build\fileB.log
+```
+Source files:
+    \tools\fileA.bak
+    \tools\fileB.bak
+    \tools\fileA.log
+    \tools\build\fileB.log
 
-    .nuspec entries:
-        <file src="tools\*.*" target="tools" exclude="tools\*.bak" />
-        <file src="tools\**\*.*" target="tools" exclude="**\*.log" />
+.nuspec entries:
+    <file src="tools\*.*" target="tools" exclude="tools\*.bak" />
+    <file src="tools\**\*.*" target="tools" exclude="**\*.log" />
 
-    Package result:
-        (no files)
+Package result:
+    (no files)
+```
 
 ## <a name="including-content-files"></a>コンテンツ ファイルを含める
 
@@ -608,108 +624,124 @@ NuGet 2.x 以前および `packages.config` を使っているプロジェクト
 
 **基本的なコンテンツ ファイル**
 
-    Source files:
-        css\mobile\style1.css
-        css\mobile\style2.css
+```
+Source files:
+    css\mobile\style1.css
+    css\mobile\style2.css
 
-    .nuspec entry:
-        <file src="css\mobile\*.css" target="content\css\mobile" />
+.nuspec entry:
+    <file src="css\mobile\*.css" target="content\css\mobile" />
 
-    Packaged result:
-        content\css\mobile\style1.css
-        content\css\mobile\style2.css
+Packaged result:
+    content\css\mobile\style1.css
+    content\css\mobile\style2.css
+```
 
 **ディレクトリ構造を持つコンテンツ ファイル**
 
-    Source files:
-        css\mobile\style.css
-        css\mobile\wp7\style.css
-        css\browser\style.css
+```
+Source files:
+    css\mobile\style.css
+    css\mobile\wp7\style.css
+    css\browser\style.css
 
-    .nuspec entry:
-        <file src="css\**\*.css" target="content\css" />
+.nuspec entry:
+    <file src="css\**\*.css" target="content\css" />
 
-    Packaged result:
-        content\css\mobile\style.css
-        content\css\mobile\wp7\style.css
-        content\css\browser\style.css
+Packaged result:
+    content\css\mobile\style.css
+    content\css\mobile\wp7\style.css
+    content\css\browser\style.css
+```
 
 **ターゲット フレームワークに固有のコンテンツ ファイル**
 
-    Source file:
-        css\cool\style.css
+```
+Source file:
+    css\cool\style.css
 
-    .nuspec entry
-        <file src="css\cool\style.css" target="Content" />
+.nuspec entry
+    <file src="css\cool\style.css" target="Content" />
 
-    Packaged result:
-        content\style.css
+Packaged result:
+    content\style.css
+```
 
 **名前のドットでフォルダーにコピーされるコンテンツ ファイル**
 
 この場合、NuGet は `target` の拡張子が `src` の拡張子と一致しないものと判断し、`target` での名前のその部分をフォルダーとして扱います。
 
-    Source file:
-        images\picture.png
+```
+Source file:
+    images\picture.png
 
-    .nuspec entry:
-        <file src="images\picture.png" target="Content\images\package.icons" />
+.nuspec entry:
+    <file src="images\picture.png" target="Content\images\package.icons" />
 
-    Packaged result:
-        content\images\package.icons\picture.png
+Packaged result:
+    content\images\package.icons\picture.png
+```
 
 **拡張子のないコンテンツ ファイル**
 
 拡張子のないファイルを含めるには、ワイルドカード `*` または `**` を使います。
 
-    Source file:
-        flags\installed
+```
+Source file:
+    flags\installed
 
-    .nuspec entry:
-        <file src="flags\**" target="flags" />
+.nuspec entry:
+    <file src="flags\**" target="flags" />
 
-    Packaged result:
-        flags\installed
+Packaged result:
+    flags\installed
+```
 
 **深いパスと深いターゲットのコンテンツ ファイル**
 
 この場合、ソースとターゲットのファイル拡張子が一致するので、NuGet はターゲットがフォルダーではなくファイル名であると想定します。
 
-    Source file:
-        css\cool\style.css
+```
+Source file:
+    css\cool\style.css
 
-    .nuspec entry:
-        <file src="css\cool\style.css" target="Content\css\cool" />
-        or:
-        <file src="css\cool\style.css" target="Content\css\cool\style.css" />
+.nuspec entry:
+    <file src="css\cool\style.css" target="Content\css\cool" />
+    or:
+    <file src="css\cool\style.css" target="Content\css\cool\style.css" />
 
-    Packaged result:
-        content\css\cool\style.css
+Packaged result:
+    content\css\cool\style.css
+```
 
 **パッケージ内のコンテンツ ファイルの名前の変更**
 
-    Source file:
-        ie\css\style.css
+```
+Source file:
+    ie\css\style.css
 
-    .nuspec entry:
-        <file src="ie\css\style.css" target="Content\css\ie.css" />
+.nuspec entry:
+    <file src="ie\css\style.css" target="Content\css\ie.css" />
 
-    Packaged result:
-        content\css\ie.css
+Packaged result:
+    content\css\ie.css
+```
 
 **ファイルの除外**
 
-    Source file:
-        docs\*.txt (multiple files)
+```
+Source file:
+    docs\*.txt (multiple files)
 
-    .nuspec entry:
-        <file src="docs\*.txt" target="content\docs" exclude="docs\admin.txt" />
-        or
-        <file src="*.txt" target="content\docs" exclude="admin.txt;log.txt" />
+.nuspec entry:
+    <file src="docs\*.txt" target="content\docs" exclude="docs\admin.txt" />
+    or
+    <file src="*.txt" target="content\docs" exclude="admin.txt;log.txt" />
 
-    Packaged result:
-        All .txt files from docs except admin.txt (first example)
-        All .txt files from docs except admin.txt and log.txt (second example)
+Packaged result:
+    All .txt files from docs except admin.txt (first example)
+    All .txt files from docs except admin.txt and log.txt (second example)
+```
 
 <a name="using-contentfiles-element-for-content-files"></a>
 
@@ -726,7 +758,7 @@ NuGet 2.x 以前および `packages.config` を使っているプロジェクト
 | 属性 | 説明 |
 | --- | --- |
 | **用意** | (必須) 含める 1 つまたは複数のファイルの場所。`exclude` 属性によって指定される除外の対象になります。 `contentFiles`絶対パスが指定されていない場合は、フォルダーに対する相対パスになります。 ワイルドカード文字 `*` を使うことができ、2 個のワイルドカード `**` は再帰的なフォルダー検索を意味します。 |
-| **もの** | `src` の場所から除外するファイルまたはファイル パターンをセミコロンで区切ったリスト。 ワイルドカード文字 `*` を使うことができ、2 個のワイルドカード `**` は再帰的なフォルダー検索を意味します。 |
+| **除外** | `src` の場所から除外するファイルまたはファイル パターンをセミコロンで区切ったリスト。 ワイルドカード文字 `*` を使うことができ、2 個のワイルドカード `**` は再帰的なフォルダー検索を意味します。 |
 | **buildAction** | MSBuild のコンテンツ項目に割り当てるビルドアクション (、、、など) `Content` `None` `Embedded Resource` `Compile` 。既定値は `Compile` です。 |
 | **copyToOutput** | コンテンツ項目をビルド (または発行) 出力フォルダーにコピーするかどうかを示すブール値。 既定値は false です。 |
 | **flatten** | コンテンツ項目をビルド出力の単一フォルダーにコピーするか (true)、それともパッケージのフォルダー構造を保持するか (false) を示すブール値。 このフラグは、copyToOutput が true に設定されている場合のみ機能します。 既定値は false です。 |
@@ -737,7 +769,9 @@ NuGet 2.x 以前および `packages.config` を使っているプロジェクト
 
 パッケージ プロジェクトでは、次のパターンを使ってコンテンツを構成する必要があります。
 
-    /contentFiles/{codeLanguage}/{TxM}/{any?}
+```
+/contentFiles/{codeLanguage}/{TxM}/{any?}
+```
 
 - `codeLanguages` には、`cs`、`vb`、`fs`、`any`、または指定された `$(ProjectLanguage)` に相当する小文字表現を指定できます。
 - `TxM` は、NuGet がサポートする任意の有効なターゲット フレームワーク モニカーです (「[ターゲット フレームワーク](../reference/target-frameworks.md)」を参照)。
@@ -745,19 +779,23 @@ NuGet 2.x 以前および `packages.config` を使っているプロジェクト
 
 次に例を示します。
 
-    Language- and framework-agnostic:
-        /contentFiles/any/any/config.xml
+```
+Language- and framework-agnostic:
+    /contentFiles/any/any/config.xml
 
-    net45 content for all languages
-        /contentFiles/any/net45/config.xml
+net45 content for all languages
+    /contentFiles/any/net45/config.xml
 
-    C#-specific content for net45 and up
-        /contentFiles/cs/net45/sample.cs
+C#-specific content for net45 and up
+    /contentFiles/cs/net45/sample.cs
+```
 
 空のフォルダーでは、`.` を使って、言語と TxM の特定の組み合わせにコンテンツを提供しないようにすることができます。次はその例です。
 
-    /contentFiles/vb/any/code.vb
-    /contentFiles/cs/any/.
+```
+/contentFiles/vb/any/code.vb
+/contentFiles/cs/any/.
+```
 
 #### <a name="example-contentfiles-section"></a>contentFiles セクションの例
 

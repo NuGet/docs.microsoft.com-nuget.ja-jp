@@ -5,12 +5,12 @@ author: nkolev92
 ms.author: nikolev
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7de3f0f1133a89848e9268d489751293fb3cbf25
-ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
+ms.openlocfilehash: 0c32978baf6146f10c262ba7af94f61fee22272d
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98235699"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777717"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>MSBuild ターゲットとしての NuGet の pack と restore
 
@@ -40,9 +40,9 @@ MSBuild 15.1 以降では、NuGet は以下のように `pack` および `restor
 
 ## <a name="pack-target"></a>pack ターゲット
 
-PackageReference 形式を使用する .NET Standard プロジェクトでは、を使用して、 `msbuild -t:pack` NuGet パッケージの作成で使用する入力をプロジェクトファイルから描画します。
+形式を使用する .NET プロジェクトでは `PackageReference` 、を使用して、 `msbuild -t:pack` NuGet パッケージの作成に使用するプロジェクトファイルからの入力を描画します。
 
-以下の表では、最初の `<PropertyGroup>` ノード内のプロジェクト ファイルに追加できる MSBuild のプロパティについて説明します。 Visual Studio 2017 以降では、プロジェクトを右クリックし、コンテキスト メニューで **[{project_name} の編集]** を選択して、この編集を簡単に行うことができます。 便宜上、テーブルは[ `.nuspec` ファイル](../reference/nuspec.md)内の同等のプロパティによって整理されています。
+次の表では、最初のノード内のプロジェクトファイルに追加できる MSBuild のプロパティについて説明し `<PropertyGroup>` ます。 Visual Studio 2017 以降では、プロジェクトを右クリックし、コンテキスト メニューで **[{project_name} の編集]** を選択して、この編集を簡単に行うことができます。 便宜上、テーブルは[ `.nuspec` ファイル](../reference/nuspec.md)内の同等のプロパティによって整理されています。
 
 `.nuspec` の `Owners` および `Summary` プロパティは、MSBuild ではサポートされていない点に注意してください。
 
@@ -52,63 +52,67 @@ PackageReference 形式を使用する .NET Standard プロジェクトでは、
 | Version | PackageVersion | Version | これは semver と互換性があります (たとえば、"1.0.0"、"1.0.0-beta"、または "1.0.0-beta-00345") |
 | VersionPrefix | PackageVersionPrefix | empty | PackageVersion を設定すると、PackageVersionPrefix は上書きされます |
 | VersionSuffix | PackageVersionSuffix | empty | MSBuild の $(VersionSuffix) PackageVersion を設定すると、PackageVersionSuffix は上書きされます |
-| Authors | Authors | 現在のユーザーのユーザー名 | |
+| Authors | Authors | 現在のユーザーのユーザー名 | nuget.org のプロファイル名と一致するパッケージ作成者をセミコロンで区切った一覧。これらは nuget.org の NuGet ギャラリーに表示され、同じ作成者によるパッケージの相互参照に使用されます。 |
 | 所有者 | 該当なし | NuSpec にはありません | |
-| Title | Title | PackageId| |
-| 説明 | 説明 | "パッケージの説明" | |
-| Copyright | Copyright | empty | |
-| RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
-| license | PackageLicenseExpression | empty | `<license type="expression">` に対応します |
-| license | PackageLicenseFile | empty | `<license type="file">` に相当します。 参照されているライセンスファイルを明示的にパックする必要があります。 |
-| LicenseUrl | PackageLicenseUrl | empty | `PackageLicenseUrl` 非推奨です。パッケージのパッケージを使用して、パッケージのプロパティを |
+| タイトル | タイトル | PackageId| 人が読みやすいパッケージのタイトル。通常、nuget.org と、Visual Studio のパッケージ マネージャーの UI 画面で使用されます。 |
+| 説明 | 説明 | "パッケージの説明" | アセンブリの長い説明。 `PackageDescription` が指定されていない場合、このプロパティはパッケージの説明としても使用されます。 |
+| Copyright | Copyright | empty | パッケージの著作権の詳細。 |
+| RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | クライアントがユーザーに対して、パッケージのインストール前にパッケージ ライセンスに同意することを必須にするかどうかを示すブール値。 |
+| license | PackageLicenseExpression | empty | `<license type="expression">` に相当します。 「 [ライセンス式またはライセンスファイルのパッキング](#packing-a-license-expression-or-a-license-file)」を参照してください。 |
+| license | PackageLicenseFile | empty | カスタムライセンスまたは SPDX 識別子が割り当てられていないライセンスを使用している場合の、パッケージ内のライセンスファイルへのパス。 参照されているライセンスファイルを明示的にパックする必要があります。 `<license type="file">` に相当します。 「 [ライセンス式またはライセンスファイルのパッキング](#packing-a-license-expression-or-a-license-file)」を参照してください。 |
+| LicenseUrl | PackageLicenseUrl | empty | `PackageLicenseUrl` は非推奨とされます。 代わりに、`PackageLicenseExpression` タグまたは `PackageLicenseFile` タグを使用してください。 |
 | ProjectUrl | PackageProjectUrl | empty | |
-| アイコン | PackageIcon | empty | 参照されているアイコンイメージファイルを明示的にパックする必要があります。|
-| IconUrl | PackageIconUrl | empty | ベストダウンレベルのエクスペリエンスを向上させるには、 `PackageIconUrl` に加えてを指定する必要があり `PackageIcon` ます。 長期的には `PackageIconUrl` 非推奨となります。 |
-| タグ | PackageTags | empty | 複数のタグはセミコロン (;) で区切られます。 |
-| ReleaseNotes | PackageReleaseNotes | empty | |
-| リポジトリ/Url | RepositoryUrl | empty | ソースコードの複製または取得に使用されるリポジトリの URL。 よう *https://github.com/NuGet/NuGet.Client.git* |
-| リポジトリ/種類 | RepositoryType | empty | リポジトリの種類。 例: *git*、 *tfs*。 |
-| リポジトリ/ブランチ | RepositoryBranch | empty | リポジトリのブランチ情報 (オプション)。 このプロパティを含めるには、 *RepositoryUrl* も指定する必要があります。 例: *master* (NuGet 4.7.0 +) |
-| リポジトリ/コミット | RepositoryCommit | empty | 任意のリポジトリ コミットまたは変更セット。パッケージがどのソースに対してビルドされたかを示します。 このプロパティを含めるには、 *RepositoryUrl* も指定する必要があります。 例: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +) |
+| アイコン | PackageIcon | empty | パッケージ アイコンとして使用するパッケージ内の画像へのパス。 参照されているアイコンイメージファイルを明示的にパックする必要があります。 詳細については、「[アイコンイメージファイル](#packing-an-icon-image-file)と[ `icon` メタデータ](/nuget/reference/nuspec#icon)のパッキング」を参照してください。 |
+| IconUrl | PackageIconUrl | empty | `PackageIconUrl` は、を優先するために非推奨とされ `PackageIcon` ます。 ただし、最も高いダウンレベルエクスペリエンスを実現するには、に加えてを指定する必要があり `PackageIconUrl` `PackageIcon` ます。 |
+| Tags | PackageTags | empty | パッケージを指定するタグのセミコロン区切りの一覧。 |
+| ReleaseNotes | PackageReleaseNotes | empty | パッケージのリリース ノート。 |
+| リポジトリ/Url | RepositoryUrl | empty | ソースコードの複製または取得に使用されるリポジトリの URL。 例: *https://github.com/NuGet/NuGet.Client.git* 。 |
+| リポジトリ/種類 | RepositoryType | empty | リポジトリの種類。 例: `git` (既定値)、 `tfs` 。 |
+| リポジトリ/ブランチ | RepositoryBranch | empty | リポジトリのブランチ情報 (オプション)。 このプロパティを含めるには、`RepositoryUrl` も指定する必要があります。 例: *master* (NuGet 4.7.0 +)。 |
+| リポジトリ/コミット | RepositoryCommit | empty | 任意のリポジトリ コミットまたは変更セット。パッケージがどのソースに対してビルドされたかを示します。 このプロパティを含めるには、`RepositoryUrl` も指定する必要があります。 例: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +)。 |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
-| まとめ | サポートなし | | |
+| まとめ | サポートされていません | | |
 
 ### <a name="pack-target-inputs"></a>pack ターゲットの入力
 
-- IsPackable
-- SuppressDependenciesWhenPacking
-- PackageVersion
-- PackageId
-- Authors
-- 説明
-- Copyright
-- PackageRequireLicenseAcceptance
-- DevelopmentDependency
-- PackageLicenseExpression
-- PackageLicenseFile
-- PackageLicenseUrl
-- PackageProjectUrl
-- PackageIconUrl
-- PackageReleaseNotes
-- PackageTags
-- PackageOutputPath
-- IncludeSymbols
-- IncludeSource
-- PackageTypes
-- IsTool
-- RepositoryUrl
-- RepositoryType
-- RepositoryBranch
-- RepositoryCommit
-- NoPackageAnalysis
-- MinClientVersion
-- IncludeBuildOutput
-- IncludeContentInPack
-- BuildOutputTargetFolder
-- ContentTargetFolders
-- NuspecFile
-- NuspecBasePath
-- NuspecProperties
+| プロパティ | 説明 |
+| - | - |
+| IsPackable | プロジェクトをパックできるかどうかを示すブール値。 既定値は `true` です。 |
+| SuppressDependenciesWhenPacking | `true`生成された NuGet パッケージからのパッケージの依存関係を抑制するには、に設定します。 |
+| PackageVersion | 結果のパッケージのバージョンを指定します。 すべてのフォームの NuGet バージョン文字列を受け入れます。 既定値は `$(Version)` です。つまり、プロジェクトのプロパティ `Version` の値です。 |
+| PackageId | 結果のパッケージの名前を指定します。 指定しない場合、`pack` 操作の既定では、`AssemblyName` またはディレクトリ名をパッケージ名として使用します。 |
+| PackageDescription | UI 画面用のパッケージの長い説明。 |
+| Authors | nuget.org のプロファイル名と一致するパッケージ作成者をセミコロンで区切った一覧。これらは nuget.org の NuGet ギャラリーに表示され、同じ作成者によるパッケージの相互参照に使用されます。 |
+| 説明 | アセンブリの長い説明。 `PackageDescription` が指定されていない場合、このプロパティはパッケージの説明としても使用されます。 |
+| Copyright | パッケージの著作権の詳細。 |
+| PackageRequireLicenseAcceptance | クライアントがユーザーに対して、パッケージのインストール前にパッケージ ライセンスに同意することを必須にするかどうかを示すブール値。 既定値は、`false` です。 |
+| DevelopmentDependency | 開発専用の依存関係としてパッケージをマークするかどうかを指定するブール値。指定すると、そのパッケージは他のパッケージに依存関係として含まれなくなります。 `PackageReference`(NuGet 4.8 以降) では、このフラグはコンパイル時のアセットがコンパイルから除外されることも意味します。 詳しくは、「[DevelopmentDependency support for PackageReference (PackageReference に対する DevelopmentDependency のサポート)](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference)」をご覧ください。 |
+| PackageLicenseExpression | [Spdx ライセンス識別子](https://spdx.org/licenses/)または式 (など) `Apache-2.0` 。 詳細については、「 [ライセンス式またはライセンスファイルのパッキング](#packing-a-license-expression-or-a-license-file)」を参照してください。 |
+| PackageLicenseFile | カスタムライセンスまたは SPDX 識別子が割り当てられていないライセンスを使用している場合の、パッケージ内のライセンスファイルへのパス。 |
+| PackageLicenseUrl | `PackageLicenseUrl` は非推奨とされます。 代わりに、`PackageLicenseExpression` タグまたは `PackageLicenseFile` タグを使用してください。 |
+| PackageProjectUrl | |
+| PackageIcon | パッケージのルートに対して相対的なパッケージアイコンパスを指定します。 詳細については、「 [アイコンイメージファイルのパッキング](#packing-an-icon-image-file)」を参照してください。 |
+| PackageReleaseNotes| パッケージのリリース ノート。 |
+| PackageTags | パッケージを指定するタグのセミコロン区切りの一覧。 |
+| PackageOutputPath | パックされたパッケージをドロップする出力パスを指定します。 既定値は `$(OutputPath)` です。 |
+| IncludeSymbols | このブール値は、プロジェクトをパックするときに、パッケージが追加のシンボル パッケージを作成するかどうかを指定します。 シンボル パッケージの形式は、`SymbolPackageFormat` プロパティで制御します。 詳細については、「 [IncludeSymbols](#includesymbols)」を参照してください。 |
+| IncludeSource | このブール値は、パック プロセスでソース パッケージを作成するかどうかを示します。 ソース パッケージには、ライブラリのソース コードと PDB ファイルが含まれます。 ソース ファイルは、結果のパッケージ ファイルの `src/ProjectName` ディレクトリに置かれます。 詳細については、「データの追加」を[参照してください。](#includesource) |
+| PackageTypes
+| IsTool | すべての出力ファイルを *lib* フォルダーではなく *tools* フォルダーにコピーするかどうかを指定します。 詳細については、「 [IsTool](#istool)」を参照してください。 |
+| RepositoryUrl | ソースコードの複製または取得に使用されるリポジトリの URL。 例: *https://github.com/NuGet/NuGet.Client.git* 。 |
+| RepositoryType | リポジトリの種類。 例: `git` (既定値)、 `tfs` 。 |
+| RepositoryBranch | リポジトリのブランチ情報 (オプション)。 このプロパティを含めるには、`RepositoryUrl` も指定する必要があります。 例: *master* (NuGet 4.7.0 +)。 |
+| RepositoryCommit | 任意のリポジトリ コミットまたは変更セット。パッケージがどのソースに対してビルドされたかを示します。 このプロパティを含めるには、`RepositoryUrl` も指定する必要があります。 例: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +)。 |
+| SymbolPackageFormat | シンボル パッケージの形式を指定します。 "Symbols. nupkg" の場合、従来のシンボルパッケージは、Pdb、Dll、およびその他の出力ファイルを含む、 *シンボル* が含まれた拡張子が付いて作成されます。 "Snupkg" の場合、ポータブル Pdb を含む snupkg シンボルパッケージが作成されます。 既定値は "symbols. nupkg" です。 |
+| NoPackageAnalysis | `pack`パッケージのビルド後にパッケージ分析を実行しないことを指定します。 |
+| MinClientVersion | nuget.exe および Visual Studio パッケージ マネージャーで強制する、このパッケージをインストールできる NuGet クライアントの最小バージョンを指定します。 |
+| IncludeBuildOutput | このブール値は、ビルド出力アセンブリを *.nupkg* ファイルにパッケージ化するかどうかを指定します。 |
+| IncludeContentInPack | このブール値は、の型を持つ項目 `Content` が、結果のパッケージに自動的に含まれるかどうかを指定します。 既定値は、`true` です。 |
+| BuildOutputTargetFolder | 出力アセンブリを配置するフォルダーを指定します。 出力アセンブリ (および他の出力ファイル) は、各フレームワーク フォルダーにコピーされます。 詳細については、「 [出力アセンブリ](#output-assemblies)」を参照してください。 |
+| ContentTargetFolders | が指定されていない場合に、すべてのコンテンツファイルの移動先となる既定の場所を指定し `PackagePath` ます。 既定値は "content;contentFiles" です。 詳細については、「[Including content in a package](#including-content-in-a-package)」 (パッケージにコンテンツを追加する) を参照してください。 |
+| NuspecFile | パックに使用する *.nuspec* ファイルの相対パスまたは絶対パス。 指定した場合、パッケージ化情報 **専用** に使用され、プロジェクト内の情報は使用されません。 詳細については、「 [nuspec を使用したパッキング](#packing-using-a-nuspec)」を参照してください。 |
+| NuspecBasePath | *.nuspec* ファイルのベース パス。 詳細については、「 [nuspec を使用したパッキング](#packing-using-a-nuspec)」を参照してください。 |
+| NuspecProperties | キー=値ペアのセミコロン区切りの一覧。 詳細については、「 [nuspec を使用したパッキング](#packing-using-a-nuspec)」を参照してください。 |
 
 ## <a name="pack-scenarios"></a>pack のシナリオ
 
@@ -118,20 +122,18 @@ PackageReference 形式を使用する .NET Standard プロジェクトでは、
 
 ### <a name="packageiconurl"></a>PackageIconUrl
 
-`PackageIconUrl` は、新しいプロパティを優先するように非推奨とされ [`PackageIcon`](#packageicon) ます。
-
-NuGet 5.3 & Visual Studio 2019 バージョン16.3 以降では、 `pack` パッケージメタデータでのみが指定されている場合、 [NU5048](./errors-and-warnings/nu5048.md) warning が発生し `PackageIconUrl` ます。
+`PackageIconUrl` は、プロパティを優先するために非推奨とされ [`PackageIcon`](#packageicon) ます。 NuGet 5.3 および Visual Studio 2019 バージョン16.3 以降では、 `pack` パッケージメタデータでのみが指定されている場合、は [NU5048](./errors-and-warnings/nu5048.md) warning を発生させ `PackageIconUrl` ます。
 
 ### <a name="packageicon"></a>PackageIcon
 
 > [!Tip]
-> を `PackageIcon` `PackageIconUrl` まだサポートしていないクライアントとソースとの下位互換性を維持するには、との両方を指定する必要があり `PackageIcon` ます。 Visual Studio では `PackageIcon` 、将来のリリースでフォルダーベースのソースからのパッケージがサポートされるようになります。
+> まだサポートされていないクライアントおよびソースとの下位互換性を維持するに `PackageIcon` は、との両方を指定し `PackageIcon` `PackageIconUrl` ます。 Visual Studio で `PackageIcon` は、フォルダーベースのソースからのパッケージがサポートされています。
 
 #### <a name="packing-an-icon-image-file"></a>アイコンイメージファイルのパッキング
 
-アイコンイメージファイルをパッキングする場合は、パッケージ `PackageIcon` のルートに対して相対的なパッケージパスを指定するために、プロパティを使用する必要があります。 また、ファイルがパッケージに含まれていることを確認する必要があります。 イメージファイルのサイズは 1 MB に制限されています。 サポートされているファイル形式は、JPEG および PNG です。 128x128 のイメージの解像度をお勧めします。
+アイコンイメージファイルをパッキングする場合は、プロパティを使用して、 `PackageIcon` パッケージのルートを基準としたアイコンファイルのパスを指定します。 また、ファイルがパッケージに含まれていることを確認します。 イメージファイルのサイズは 1 MB に制限されています。 サポートされているファイル形式は、JPEG および PNG です。 128x128 のイメージの解像度をお勧めします。
 
-例:
+次に例を示します。
 
 ```xml
 <PropertyGroup>
@@ -231,8 +233,7 @@ Nuspec に相当するものについては、「 [nuspec reference for icon」�
 
 ### <a name="packing-a-license-expression-or-a-license-file"></a>ライセンス式またはライセンスファイルのパッキング
 
-ライセンス式を使用する場合は、"パッケージの表示" プロパティを使用する必要があります。 
-[ライセンス式のサンプル](https://github.com/NuGet/Samples/tree/master/PackageLicenseExpressionExample)。
+ライセンス式を使用する場合は、プロパティを使用し `PackageLicenseExpression` ます。 サンプルについては、「 [ライセンス式のサンプル](https://github.com/NuGet/Samples/tree/master/PackageLicenseExpressionExample)」を参照してください。
 
 ```xml
 <PropertyGroup>
@@ -240,9 +241,9 @@ Nuspec に相当するものについては、「 [nuspec reference for icon」�
 </PropertyGroup>
 ```
 
-[NuGet.org によって受け付けられるライセンス式とライセンスの詳細については、こちらを参照](nuspec.md#license)してください。
+NuGet.org で受け入れられるライセンス式とライセンスの詳細については、「 [ライセンスメタデータ](nuspec.md#license)」を参照してください。
 
-ライセンスファイルをパッキングする場合は、パッケージのルートを基準としたパッケージパスを指定するために、"パッケージの作成" プロパティを使用する必要があります。 また、ファイルがパッケージに含まれていることを確認する必要があります。 例:
+ライセンスファイルをパッキングする場合は、パッケージ `PackageLicenseFile` のルートに対して相対的なパッケージパスをプロパティを使用して指定します。 また、ファイルがパッケージに含まれていることを確認します。 次に例を示します。
 
 ```xml
 <PropertyGroup>
@@ -254,7 +255,10 @@ Nuspec に相当するものについては、「 [nuspec reference for icon」�
 </ItemGroup>
 ```
 
-[ライセンスファイルのサンプル](https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample)。
+サンプルについては、「 [ライセンスファイルのサンプル](https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample)」を参照してください。
+
+> [!NOTE]
+> 、、およびのいずれか1つだけを `PackageLicenseExpression` `PackageLicenseFile` `PackageLicenseUrl` 同時に指定できます。
 
 ### <a name="packing-a-file-without-an-extension"></a>拡張子のないファイルのパッキング
 

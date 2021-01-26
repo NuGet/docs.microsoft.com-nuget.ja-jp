@@ -1,16 +1,16 @@
 ---
 title: NuGet Register-TabExpansion PowerShell リファレンス
 description: Visual Studio の NuGet パッケージマネージャーコンソールで Register-TabExpansion PowerShell コマンドのリファレンスです。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 9d5bae2878cb6bf0848bca9a5ed9af0fee61bb85
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 6ad0da0e84fc2e31499c06bde013d2a256987d9a
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237154"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777451"
 ---
 # <a name="register-tabexpansion-package-manager-console-in-visual-studio"></a>Register-TabExpansion (Visual Studio のパッケージマネージャーコンソール)
 
@@ -28,7 +28,7 @@ Register-TabExpansion [-Name] <String> [-Definition] <Object> [<CommonParameters
 
 | パラメーター | 説明 |
 | --- | --- |
-| Name | 必要拡張を登録するコマンド。 -Name スイッチ自体は省略可能です。 |
+| 名前 | 必要拡張を登録するコマンド。 -Name スイッチ自体は省略可能です。 |
 | 定義 | 必要構文の引数を記述するオブジェクト。 `@{'<parameter>' = {'<value1>', '<value2>', ...}}` ここで、 `<parameter>` は変更するパラメーターの名前であり、それぞれに `<value>` 特定の展開が用意されています。 単一引用符と二重引用符の両方が受け入れられます。 |
 
 これらのパラメーターでは、パイプラインの入力やワイルドカード文字を受け入れません。

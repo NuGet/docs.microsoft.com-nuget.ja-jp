@@ -1,16 +1,16 @@
 ---
 title: nuget.exe 資格情報プロバイダー
 description: nuget.exe 資格情報プロバイダーはフィードで認証され、特定の規則に従うコマンドライン実行可能ファイルとして実装されます。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: 41e3e63138351bafd5e3a56080268faef10d85a3
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 285504508fa88c96f5c7a23f15ef14d81ebc21e1
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238115"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777766"
 ---
 # <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>nuget.exe 資格情報プロバイダーを使用したフィードの認証
 
@@ -22,9 +22,9 @@ ms.locfileid: "93238115"
 
 nuget.exe 資格情報プロバイダーは、次の3つの方法で使用できます。
 
-- **グローバル** : `nuget.exe` 現在のユーザーのプロファイルで実行されるのすべてのインスタンスで資格情報プロバイダーを使用できるようにするには、資格情報プロバイダーをに追加し `%LocalAppData%\NuGet\CredentialProviders` ます。 フォルダーの作成が必要になる場合があり `CredentialProviders` ます。 資格情報プロバイダーは、フォルダーのルート `CredentialProviders`  またはサブフォルダー内にインストールできます。 資格情報プロバイダーに複数のファイル/アセンブリがある場合は、サブフォルダーを使用して、プロバイダーを整理したままにすることができます。
+- **グローバル**: `nuget.exe` 現在のユーザーのプロファイルで実行されるのすべてのインスタンスで資格情報プロバイダーを使用できるようにするには、資格情報プロバイダーをに追加し `%LocalAppData%\NuGet\CredentialProviders` ます。 フォルダーの作成が必要になる場合があり `CredentialProviders` ます。 資格情報プロバイダーは、フォルダーのルート `CredentialProviders`  またはサブフォルダー内にインストールできます。 資格情報プロバイダーに複数のファイル/アセンブリがある場合は、サブフォルダーを使用して、プロバイダーを整理したままにすることができます。
 
-- **環境変数から** : 資格情報プロバイダーを任意の場所に格納し、にアクセスできるようにするには、 `nuget.exe` `%NUGET_CREDENTIALPROVIDERS_PATH%` 環境変数をプロバイダーの場所に設定します。 複数の場所がある場合は、この変数をセミコロンで区切ったリスト (たとえば、) にすることができ `path1;path2` ます。
+- **環境変数から**: 資格情報プロバイダーを任意の場所に格納し、にアクセスできるようにするには、 `nuget.exe` `%NUGET_CREDENTIALPROVIDERS_PATH%` 環境変数をプロバイダーの場所に設定します。 複数の場所がある場合は、この変数をセミコロンで区切ったリスト (たとえば、) にすることができ `path1;path2` ます。
 
 - **nuget.exeと共** に: nuget.exe 資格情報プロバイダーをと同じフォルダーに配置でき `nuget.exe` ます。
 
@@ -70,9 +70,11 @@ nuget.exe 資格情報プロバイダーは、次の3つの方法で使用でき
 
 Stdout の例:
 
-    { "Username" : "freddy@example.com",
-      "Password" : "bwm3bcx6txhprzmxhl2x63mdsul6grctazoomtdb6kfbof7m3a3z",
-      "Message"  : "" }
+```
+{ "Username" : "freddy@example.com",
+    "Password" : "bwm3bcx6txhprzmxhl2x63mdsul6grctazoomtdb6kfbof7m3a3z",
+    "Message"  : "" }
+```
 
 ## <a name="troubleshooting-a-credential-provider"></a>資格情報プロバイダーのトラブルシューティング
 

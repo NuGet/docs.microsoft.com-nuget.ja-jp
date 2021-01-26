@@ -1,16 +1,16 @@
 ---
 title: nuget.config ファイル参照
 description: config、bindingRedirects、packageRestore、solution、packageSource の各セクションを含む NuGet.Config ファイル参照。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: 371f0d934fcd3c1f111d277131553c1eed0200be
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 9b15550d0e6e8aec4d526391d77c654a756f343e
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238102"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777664"
 ---
 # <a name="nugetconfig-reference"></a>nuget.config リファレンス
 
@@ -29,7 +29,7 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「 [一般的な nuget 構
 
 `dependencyVersion` および `repositoryPath` は、を使用するプロジェクトにのみ適用さ `packages.config` れます。 `globalPackagesFolder` PackageReference 形式を使用するプロジェクトにのみ適用されます。
 
-| キー | 値 |
+| Key | 値 |
 | --- | --- |
 | dependencyVersion (`packages.config` のみ) | `-DependencyVersion` スイッチが直接指定されない場合の、パッケージのインストール、復元、および更新における既定の `DependencyVersion` 値です。 この値は、NuGet パッケージ マネージャー UI でも使用されます。 値は `Lowest`、`HighestPatch`、`HighestMinor`、`Highest` となります。 |
 | Globalパッケージフォルダー (PackageReference のみを使用するプロジェクト) | 既定のグローバル パッケージ フォルダーの場所です。 既定値は、`%userprofile%\.nuget\packages` (Windows) または `~/.nuget/packages` (Mac/Linux) です。 相対パスは、プロジェクト固有の `nuget.config` ファイルで使用できます。 この設定は、NUGET_PACKAGES 環境変数によってオーバーライドされます。これは、優先されます。 |
@@ -38,7 +38,7 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「 [一般的な nuget 構
 | http_proxy http_proxy.user http_proxy.password no_proxy | パッケージ ソースに接続するときに使用するプロキシ設定です。`http_proxy` の形式は `http://<username>:<password>@<domain>` とする必要があります。 パスワードは暗号化され、手動で追加することはできません。 `no_proxy` の場合、値はドメイン、バイパス、プロキシ サーバーのコンマ区切りのリストとなります。 これらの値に対して http_proxy および no_proxy の環境変数を使用することもできます。 詳細については、「[NuGet proxy settings](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html)」 (NuGet プロキシ設定) (skolima.blogspot.com) を参照してください。 |
 | signatureValidationMode | パッケージのインストールおよび復元用のパッケージ署名の検証に使用する検証モードを指定します。 値は `accept` 、、 `require` です。 既定値は `accept` です。
 
-**例** :
+**例**:
 
 ```xml
 <config>
@@ -54,11 +54,11 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「 [一般的な nuget 構
 
 パッケージのインストール時に、NuGet で自動バインド リダイレクトを実行するかどうかを構成します。
 
-| キー | 値 |
+| Key | 値 |
 | --- | --- |
 | skip | 自動バインド リダイレクトを省略するかどうかを示すブール値です。 既定値は false です。 |
 
-**例** :
+**例**:
 
 ```xml
 <bindingRedirects>
@@ -70,12 +70,12 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「 [一般的な nuget 構
 
 ビルド時のパッケージの復元を制御します。
 
-| キー | 値 |
+| Key | 値 |
 | --- | --- |
 | enabled | NuGet で自動復元を実行できるかどうかを示すブール値です。 構成ファイル内にこのキーを設定するのでなく、`True` の値で `EnableNuGetPackageRestore` 環境変数を設定することもできます。 |
 | automatic | ビルド中に欠落しているパッケージの確認を NuGet で行う必要があるかどうかを示すブール値です。 |
 
-**例** :
+**例**:
 
 ```xml
 <packageRestore>
@@ -88,11 +88,11 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「 [一般的な nuget 構
 
 ソリューションの `packages` フォルダーをソース管理に含めるかどうかを制御します。 このセクションは、ソリューション フォルダー内の `nuget.config` ファイルでのみ機能します。
 
-| キー | 値 |
+| Key | 値 |
 | --- | --- |
 | disableSourceControlIntegration | ソース管理を使用する場合に、パッケージ フォルダーを無視するかどうかを示すブール値です。 既定値は false です。 |
 
-**例** :
+**例**:
 
 ```xml
 <solution>
@@ -112,11 +112,11 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「 [一般的な nuget 構
 
 すべての既知のパッケージ ソースの一覧を表示します。 この順序は、復元操作中には無視され、PackageReference 形式を使用するプロジェクトでは無視されます。 NuGet は、を使用して、プロジェクトでのインストールおよび更新操作のソースの順序を尊重し `packages.config` ます。
 
-| キー | 値 |
+| Key | 値 |
 | --- | --- |
 | (パッケージ ソースに割り当てる名前) | パッケージ ソースのパスまたは URL です。 |
 
-**例** :
+**例**:
 
 ```xml
 <packageSources>
@@ -134,7 +134,7 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「 [一般的な nuget 構
 通常、`-username` スイッチおよび `-password` スイッチと `nuget sources` によって指定される、ソースのユーザー名とパスワードを格納します。 `-storepasswordincleartext` オプションが使用されていない場合、既定ではパスワードが暗号化されます。
 必要に応じて、有効な認証の種類をスイッチで指定でき `-validauthenticationtypes` ます。
 
-| キー | 値 |
+| Key | 値 |
 | --- | --- |
 | username | プレーン テキストで表されるソースのユーザー名です。 |
 | password | ソースの暗号されたパスワードです。 暗号化されたパスワードは Windows でのみサポートされ、同じコンピューターで、元の暗号化と同じユーザーが使用する場合にのみ、暗号化を解除できます。 |
@@ -209,11 +209,11 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「 [一般的な nuget 構
 
 [ `nuget setapikey` コマンド](../reference/cli-reference/cli-ref-setapikey.md)で設定された、API キー認証を使用するソースのキーを格納します。
 
-| キー | 値 |
+| Key | 値 |
 | --- | --- |
 | (ソース URL) | 暗号化された API キー。 |
 
-**例** :
+**例**:
 
 ```xml
 <apikeys>
@@ -225,7 +225,7 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「 [一般的な nuget 構
 
 現在無効になっているソースを識別します。 空の場合もあります。
 
-| キー | 値 |
+| Key | 値 |
 | --- | --- |
 | (ソースの名前) | ソースが無効になっているかどうかを示すブール値です。 |
 
@@ -246,11 +246,11 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「 [一般的な nuget 構
 
 現在アクティブなソースを識別し、すべてのソースの集計を示します。
 
-| キー | 値 |
+| Key | 値 |
 | --- | --- |
 | (ソースの名前) または `All` | キーがソースの名前である場合は、ソースのパスまたは URL が値となります。 `All` の場合は、値を `(Aggregate source)` にして、無効になっていないすべてのパッケージ ソースを結合する必要があります。 |
 
-**例** :
+**例**:
 
 ```xml
 <activePackageSource>
@@ -268,7 +268,7 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「 [一般的な nuget 構
 
 このセクションは、 [ `nuget trusted-signers` コマンド](../reference/cli-reference/cli-ref-trusted-signers.md)を使用して更新できます。
 
-**[スキーマ]** :
+**[スキーマ]**:
 
 信頼できる署名者には、 `certificate` 特定の署名者を識別するすべての証明書を登録する項目のコレクションがあります。 信頼できる署名者は、またはのいずれか `Author` `Repository` です。
 
@@ -278,7 +278,7 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「 [一般的な nuget 構
 
 がを指定した場合、 `certificate` `allowUntrustedRoot` 指定された `true` 証明書は、署名の検証の一部として証明書チェーンを構築するときに、信頼されていないルートにチェーンできます。
 
-**例** :
+**例**:
 
 ```xml
 <trustedSigners>
@@ -307,11 +307,11 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「 [一般的な nuget 構
 
 一致するものが見つからない場合、NuGet はファイルソースを確認し、次に http ソースを確認してから、パッケージをダウンロードします。
 
-| キー | 値 |
+| Key | 値 |
 | --- | --- |
 | (フォールバックフォルダーの名前) | フォールバックフォルダーへのパス。 |
 
-**例** :
+**例**:
 
 ```xml
 <fallbackPackageFolders>
@@ -323,12 +323,12 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「 [一般的な nuget 構
 
 *packages.config* または PackageReference の既定のパッケージ管理形式を設定します。 SDK スタイルのプロジェクトは常に PackageReference を使用します。
 
-| キー | 値 |
+| Key | 値 |
 | --- | --- |
 | format | 既定のパッケージ管理形式を示すブール値。 `1`の場合、format は PackageReference です。 `0`の場合、format は *packages.config* です。 |
 | disabled | 最初のパッケージのインストール時に既定のパッケージ形式を選択するようにプロンプトを表示するかどうかを示すブール値。 `False` プロンプトを非表示にします。 |
 
-**例** :
+**例**:
 
 ```xml
 <packageManagement>

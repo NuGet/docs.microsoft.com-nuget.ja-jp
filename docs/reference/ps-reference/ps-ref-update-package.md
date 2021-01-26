@@ -1,16 +1,16 @@
 ---
 title: NuGet Update-Package PowerShell リファレンス
 description: Visual Studio の NuGet パッケージマネージャーコンソールで Update-Package PowerShell コマンドのリファレンスです。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: af918d11e8f976be962d52084c5eda4d53e382c6
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 159817e56d978d6432e989d2027907c0d2445222
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238037"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777376"
 ---
 # <a name="update-package-package-manager-console-in-visual-studio"></a>Update-Package (Visual Studio のパッケージマネージャーコンソール)
 
@@ -39,13 +39,13 @@ Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
 | Id | 更新するパッケージの識別子。 省略すると、すべてのパッケージが更新されます。 -Id スイッチ自体は省略可能です。 |
 | IgnoreDependencies | パッケージの依存関係の更新をスキップします。 |
 | ProjectName | 更新するパッケージが含まれているプロジェクトの名前。既定ではすべてのプロジェクトになります。 |
-| Version | アップグレードに使用するバージョン。既定では、最新バージョンが使用されます。 NuGet 3.0 以降では、バージョンの値は、 *最低、最高、HighestMinor* 、または *HighestPatch* のいずれかである必要があります (これはセーフに相当します)。 |
+| Version | アップグレードに使用するバージョン。既定では、最新バージョンが使用されます。 NuGet 3.0 以降では、バージョンの値は、 *最低、最高、HighestMinor*、または *HighestPatch* のいずれかである必要があります (これはセーフに相当します)。 |
 | Safe | は、現在インストールされているパッケージと同じメジャーバージョンとマイナーバージョンを持つバージョンにのみアップグレードを制限します。 |
 | source | 検索するパッケージソースの URL またはフォルダーパス。 ローカルフォルダーのパスは、絶対パスでも、現在のフォルダーを基準とした相対パスでもかまいません。 省略した場合、 `Update-Package` 現在選択されているパッケージソースを検索します。 |
 | IncludePrerelease リリース | 更新プログラムのプレリリースパッケージが含まれます。 |
 | 再インストール | 現在インストールされているバージョンを使用してパッケージを Resintalls します。 「 [パッケージの再インストールと更新」を](../../consume-packages/reinstalling-and-updating-packages.md)参照してください。 |
-| FileConflictAction | プロジェクトによって参照される既存のファイルを上書きまたは無視するように要求されたときに実行するアクション。 指定できる値は *、Overwrite、Ignore、None、OverwriteAll* 、および *ignoreall* (3.0 +) です。 |
-| DependencyVersion | 使用する依存関係パッケージのバージョン。次のいずれかになります。<br/><ul><li>*最低* (既定): 最も低いバージョンです。</li><li>*HighestPatch* : 最も低いメジャー、最低のマイナー、最高のパッチを持つバージョン</li><li>*HighestMinor* : 最上位のメジャー、最高のマイナー、最高の修正プログラムが適用されたバージョン</li><li>*最高* (パラメーターのない Update-Package の既定値): 最高バージョン</li></ul>ファイルの設定を使用して、既定値を設定でき [`dependencyVersion`](../nuget-config-file.md#config-section) `Nuget.Config` ます。 |
+| FileConflictAction | プロジェクトによって参照される既存のファイルを上書きまたは無視するように要求されたときに実行するアクション。 指定できる値は *、Overwrite、Ignore、None、OverwriteAll*、および *ignoreall* (3.0 +) です。 |
+| DependencyVersion | 使用する依存関係パッケージのバージョン。次のいずれかになります。<br/><ul><li>*最低* (既定): 最も低いバージョンです。</li><li>*HighestPatch*: 最も低いメジャー、最低のマイナー、最高のパッチを持つバージョン</li><li>*HighestMinor*: 最上位のメジャー、最高のマイナー、最高の修正プログラムが適用されたバージョン</li><li>*最高* (パラメーターのない Update-Package の既定値): 最高バージョン</li></ul>ファイルの設定を使用して、既定値を設定でき [`dependencyVersion`](../nuget-config-file.md#config-section) `Nuget.Config` ます。 |
 | ToHighestPatch | -Safe と同等です。 |
 | ToHighestMinor | は、現在インストールされているパッケージと同じメジャーバージョンのバージョンにのみアップグレードを制限します。 |
 | WhatIf | 実際に更新を実行せずにコマンドを実行した場合の動作を示します。 |

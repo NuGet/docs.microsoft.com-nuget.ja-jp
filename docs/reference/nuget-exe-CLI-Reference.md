@@ -1,16 +1,16 @@
 ---
-title: NuGet コマンドラインインターフェイス (CLI) リファレンス
+title: NuGet Command-Line Interface (CLI) リファレンス
 description: nuget.exe CLI のコマンドラインリファレンスインデックス
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/23/2018
 ms.topic: reference
-ms.openlocfilehash: e9343f1fdddcf839322849925372587e685aef4a
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: a9a5fc4d3b1e0f19fa3ea249ca7759c8ebc2d12e
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623150"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777709"
 ---
 # <a name="nuget-cli-reference"></a>NuGet CLI リファレンス
 
@@ -45,16 +45,16 @@ NuGet コマンドラインインターフェイス (CLI) は、 `nuget.exe` プ
 | --- | --- | --- | --- |
 | [pack](cli-reference/cli-ref-pack.md) | 作成 | 2.7 以降 | またはプロジェクトファイルから NuGet パッケージを作成し `.nuspec` ます。 Mono で実行する場合、プロジェクトファイルからパッケージを作成することはサポートされていません。 |
 | [push](cli-reference/cli-ref-push.md) | 発行 | すべて | パッケージをパッケージソースに発行します。 |
-| [config](cli-reference/cli-ref-config.md) | All | All | NuGet 構成値を取得または設定します。 |
-| [help or ?](cli-reference/cli-ref-help.md) | All | All | コマンドのヘルプ情報またはヘルプを表示します。 |
-| [locals](cli-reference/cli-ref-locals.md) | 従量課金 | 3.3 + | *グローバルパッケージ*、 *http キャッシュ*、および*一時*フォルダーの場所を一覧表示し、それらのフォルダーの内容をクリアします。 |
+| [config](cli-reference/cli-ref-config.md) | すべて | すべて | NuGet 構成値を取得または設定します。 |
+| [help or ?](cli-reference/cli-ref-help.md) | すべて | すべて | コマンドのヘルプ情報またはヘルプを表示します。 |
+| [locals](cli-reference/cli-ref-locals.md) | 従量課金 | 3.3 + | *グローバルパッケージ*、 *http キャッシュ*、および *一時* フォルダーの場所を一覧表示し、それらのフォルダーの内容をクリアします。 |
 | [restore](cli-reference/cli-ref-restore.md) | 従量課金 | 2.7 以降 | 使用中のパッケージ管理形式で参照されているすべてのパッケージを復元します。 Mono で実行する場合、PackageReference 形式を使用したパッケージの復元はサポートされていません。 |
 | [setapikey](cli-reference/cli-ref-setapikey.md) | 発行、消費 | すべて | パッケージソースがアクセスのためにキーを必要とする場合に、指定されたパッケージソースの API キーを保存します。 |
 | [spec](cli-reference/cli-ref-spec.md) | 作成 | すべて | `.nuspec`Visual Studio プロジェクトからファイルを生成する場合、トークンを使用してファイルを生成します。 |
 
 | セカンダリコマンド | 適用可能な役割 | NuGet のバージョン | 説明 |
 | --- | --- | --- | --- |
-| [add](cli-reference/cli-ref-add.md) | 発行 | 3.3 + | 階層レイアウトを使用して、非 HTTP パッケージソースにパッケージを追加します。 HTTP ソースの場合は、 *push*を使用します。 |
+| [add](cli-reference/cli-ref-add.md) | 発行 | 3.3 + | 階層レイアウトを使用して、非 HTTP パッケージソースにパッケージを追加します。 HTTP ソースの場合は、 *push* を使用します。 |
 | [delete](cli-reference/cli-ref-delete.md) | 発行 | すべて | パッケージソースからパッケージを削除または一覧から削除します。 |
 | [init](cli-reference/cli-ref-init.md) | 作成 | 3.3 + | 階層レイアウトを使用して、フォルダーからパッケージソースにパッケージを追加します。 |
 | [install](cli-reference/cli-ref-install.md) | 従量課金 | すべて | 現在のプロジェクトにパッケージをインストールしますが、プロジェクトや参照ファイルは変更しません。 |
