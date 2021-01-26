@@ -1,20 +1,20 @@
 ---
-title: NuGet 2.8.7 リリース ノート
-description: NuGet 2.8.7 などのリリース ノートには、問題、バグの修正、追加機能、および Dcr が知られています。
-author: karann-msft
-ms.author: karann
+title: NuGet 2.8.7 のリリースノート
+description: 既知の問題、バグ修正、追加された機能、および DCRs を含む NuGet 2.8.7 のリリースノート。
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 0b3a9520bb2e1b898e51644169d55d3c2fb8220d
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 6f7098346c92ca67048938faf70d512e36c434a9
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549989"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780338"
 ---
-# <a name="nuget-287-release-notes"></a>NuGet 2.8.7 リリース ノート
+# <a name="nuget-287-release-notes"></a>NuGet 2.8.7 のリリースノート
 
-[NuGet 2.8.6 リリース ノート](../release-notes/nuget-2.8.6.md) | [NuGet 2.9 RC リリース ノート](../release-notes/nuget-2.9-RC.md)
+[NuGet 2.8.6 のリリースノート](../release-notes/nuget-2.8.6.md)  | [NuGet 2.9-RC リリースノート](../release-notes/nuget-2.9-RC.md)
 
-NuGet 2.8.7 がリリースされた、2.8.6、修正プログラムとして、2015 年 7 月 27 日に更新 VSIX Powershell ポリシーの実装に影響を受けるバグの修正。
+NuGet 2.8.7 は、2015年7月27日にリリースされ、Powershell ポリシーの実装に影響を及ぼしたバグに固有の修正プログラムが 2.8.6 VSIX に適用されるようになりました。
 [https://github.com/NuGet/Home/issues/974](https://github.com/NuGet/Home/issues/974)

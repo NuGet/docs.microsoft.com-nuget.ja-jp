@@ -1,59 +1,59 @@
 ---
-title: NuGet 2.6.1 for WebMatrix のリリース ノート
-description: NuGet 2.6.1 の既知の問題、バグの修正、追加機能、および Dcr を含む WebMatrix のリリース ノート。
-author: karann-msft
-ms.author: karann
+title: WebMatrix の NuGet 2.6.1 のリリースノート
+description: 既知の問題、バグ修正、追加された機能、および DCRs を含む、NuGet 2.6.1 向けのリリースノート。
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 10d80a921cbc34b537f91644da97efc44530fa75
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: de568829efd5060f3b02c3129ccfee2b27782821
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43550318"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780418"
 ---
-# <a name="nuget-261-for-webmatrix-release-notes"></a>NuGet 2.6.1 for WebMatrix のリリース ノート
+# <a name="nuget-261-for-webmatrix-release-notes"></a>WebMatrix の NuGet 2.6.1 のリリースノート
 
-[NuGet 2.6 リリース ノート](../release-notes/nuget-2.6.md) | [NuGet 2.7 リリース ノート](../release-notes/nuget-2.7.md)
+[NuGet 2.6 リリースノート](../release-notes/nuget-2.6.md)  | [NuGet 2.7 リリースノート](../release-notes/nuget-2.7.md)
 
-NuGet チームでは、2014 年 3 月 26日に WebMatrix の最新の NuGet パッケージ マネージャー拡張機能をリリースします。  この更新プログラムをインストールすることができます、 [WebMatrix 拡張機能ギャラリー](https://blogs.iis.net/webmatrix/retiring-the-webmatrix-extensions-gallery)次の手順を使用します。
+NuGet チームは、2014年3月26日に WebMatrix 用に更新された NuGet パッケージマネージャー拡張機能をリリースしました。  この更新プログラムは、次の手順を使用して [WebMatrix 拡張機能ギャラリー](https://blogs.iis.net/webmatrix/retiring-the-webmatrix-extensions-gallery) からインストールできます。
 
 1. WebMatrix 3 を開く
-1. [ホーム] リボンの拡張機能アイコンをクリックします
+1. [ホーム] リボンの [拡張機能] アイコンをクリックします。
 1. [更新] タブを選択します。
-1. 2.6.1 に NuGet パッケージ マネージャーを更新する をクリックします。
-1. 閉じて再起動 WebMatrix 3
+1. クリックして NuGet パッケージマネージャーを2.6.1 に更新します
+1. WebMatrix 3 を閉じて再起動する
 
-## <a name="notable-changes"></a>主な変更点
+## <a name="notable-changes"></a>注目すべき変更点
 
-この拡張機能の更新プログラムにより 2 つの問題を最も多く使用には、WebMatrix 内で NuGet パッケージの使用が直面しています。  最初は、NuGet のスキーマ バージョンのエラーと、もう 1 つは、先頭のゼロ バイトの Dll にバグは、`bin`フォルダー。
+この拡張機能の更新では、ユーザーが WebMatrix で NuGet パッケージを使用することに直面した最大の問題の2つに対処します。  1つ目は NuGet スキーマバージョンエラーで、2番目はフォルダー内のゼロバイト Dll に先行するバグでした `bin` 。
 
-### <a name="nuget-schema-version-error"></a>NuGet のスキーマ バージョン エラー
+### <a name="nuget-schema-version-error"></a>NuGet スキーマバージョンエラー
 
-WebMatrix 3 がリリースされてから新機能は NuGet パッケージを新しいスキーマ バージョンを必要とする NuGet に導入されています。  Web サイトの NuGet パッケージを管理するときに、これらの新しいパッケージは WebMatrix に表示されるエラーにつながります。
+WebMatrix 3 がリリースされたため、nuget パッケージの新しいスキーマバージョンを必要とする新しい機能が NuGet に導入されました。  Web サイトで NuGet パッケージを管理しようとすると、これらの新しいパッケージによって、WebMatrix に表示されるエラーが発生する可能性があります。
 
 ![エラーが発生しました。 スキーマのバージョンに互換性がありません。 NuGet を最新バージョンにアップグレードしてください。](./media/NuGet-2.8/webmatrix-schema-version.png)
 
-この最新リリースでは、最新の NuGet パッケージは、このエラーが発生していることを防止との互換性を提供します。 Microsoft.AspNet.WebPages を含むパッケージの新しいバージョンは、WebMatrix で今すぐインストールできます。  などに、NuGet の機能を使用してこれらのパッケージの一部が[XDT 構成変換の](../release-notes/nuget-2.6.md#xdt)、これまで WebMatrix でサポートされていませんでした。
+この最新リリースでは、最新の NuGet パッケージとの互換性が確保されているため、このエラーの発生を回避できます。 WebMatrix を含む新しいバージョンのパッケージを WebMatrix にインストールできるようになりました。  これらのパッケージの一部では、現在 WebMatrix ではサポートされていない [Xdt 構成変換](../release-notes/nuget-2.6.md#xdt)などの NuGet 機能を使用していました。
 
-### <a name="zero-byte-dlls-in-bin-folder"></a>Bin フォルダーで 0 バイトの Dll
+### <a name="zero-byte-dlls-in-bin-folder"></a>Bin フォルダー内の Dll の Zero-Byte
 
-一部のユーザーが報告する NuGet のインストールをパッケージ化を含む Dll を bin にコピーを WebMatrix で Dll の表示にした後、 `bin` 0 バイトのファイルとフォルダー。  これにより、アプリケーションは、実行時に中断します。
+Bin にコピーされる Dll を含む、WebMatrix で NuGet パッケージをインストールした後、Dll が `bin` 0 バイトファイルとしてフォルダーに表示されることが、一部のユーザーに報告されています。  これにより、実行時にアプリケーションが中断されます。
 
-[この問題](https://nuget.codeplex.com/workitem/4060)が修正されました。
+[この問題](https://nuget.codeplex.com/workitem/4060) は修正されました。
 
 ## <a name="other-recent-improvements"></a>その他の最新の機能強化
 
-Visual Studio の NuGet パッケージ マネージャー 2.8 のリリース時もリリースされました。 NuGet パッケージ マネージャー 2.5.0 WebMatrix の。  説明したこの中に、 [NuGet 2.8 リリース ノート](../release-notes/nuget-2.8.md#webmatrix-nuget-client-updates)特定の更新プログラムが導入された新機能をお伝えします。
+Visual Studio の NuGet パッケージマネージャー2.8 がリリースされたときに、WebMatrix の NuGet パッケージマネージャー2.5.0 もリリースしました。  これは [NuGet 2.8 リリースノート](../release-notes/nuget-2.8.md#webmatrix-nuget-client-updates)に記載されていますが、更新された特定の新機能については触れませんでした。
 
-### <a name="update-all"></a>すべてを更新します。
+### <a name="update-all"></a>すべて更新
 
-すべての 1 つの手順で web サイトのパッケージを更新できます。  NuGet 拡張機能を開くには、WebMatrix で、ギャラリー、インストールされている、および、使用可能な更新プログラムのあるものすべてのパッケージの一覧を表示します。  以前は、すべてのパッケージが個別に更新する必要がありますが、[更新] タブに表示される便利な [すべて更新] ボタンがあるようになりました。
+これで、すべての web サイトのパッケージを1回の手順で更新できるようになりました。  WebMatrix で NuGet 拡張機能を開くと、ギャラリーのすべてのパッケージ、インストールされているパッケージ、および更新プログラムが利用可能なすべてのパッケージの一覧が表示されます。  以前は、すべてのパッケージを個別に更新する必要がありましたが、[更新] タブに表示される [すべて更新] ボタンがあります。
 
-![利用可能な更新ですべてのパッケージを更新するには、[すべて更新] をクリックします。](./media/NuGet-2.8/webmatrix-update-all.png)
+![[すべて更新] をクリックして、利用可能な更新プログラムを含むすべてのパッケージを更新します](./media/NuGet-2.8/webmatrix-update-all.png)
 
-### <a name="overwrite-existing-files"></a>既存のファイルを上書きします。
+### <a name="overwrite-existing-files"></a>既存のファイルを上書きする
 
-Web サイトに既に存在するファイルが含まれているパッケージをインストールするときに、NuGet には常にサイレント モードでそれらのファイル (単独で、既存のファイルを離れること) が無視されました。  これは、パッケージがインストールされているか、ときに実際にはありませんでしたが正しく更新という印象につながりますでした。  ファイルを上書きするには、NuGet は求められますようになりました。
+Web サイトに既に存在するファイルを含むパッケージをインストールする場合、NuGet は常にそのファイルを自動的に無視しただけです (既存のファイルはそのままです)。  これにより、パッケージが正しくインストールまたは更新されたという印象が生じる可能性があります。  ファイルの上書きを確認するメッセージが表示されるようになりました。
 
 ![ファイルの競合の解決](./media/NuGet-2.8/webmatrix-overwrite-file.png)

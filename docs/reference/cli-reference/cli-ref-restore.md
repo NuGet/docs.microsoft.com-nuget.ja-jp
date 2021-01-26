@@ -1,16 +1,16 @@
 ---
 title: NuGet CLI の復元コマンド
 description: nuget.exe restore コマンドのリファレンス
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 108317aba2107948180ab0149c0c5ba5150cf9b8
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 49fabbd0ef0c1c0c16f13bdf741296575fa72359
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622831"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780035"
 ---
 # <a name="restore-command-nuget-cli"></a>restore コマンド (NuGet CLI)
 
@@ -20,7 +20,7 @@ ms.locfileid: "88622831"
 
 Mono で CLI を使用している Mac OSX と Linux では、パッケージの復元は PackageReference ではサポートされていません。
 
-## <a name="usage"></a>使用法
+## <a name="usage"></a>使用方法
 
 ```cli
 nuget restore <projectPath> [options]
@@ -128,7 +128,7 @@ nuget restore <projectPath> [options]
 
 「[環境変数](cli-ref-environment-variables.md)」も参照してください。
 
-## <a name="remarks"></a>注釈
+## <a name="remarks"></a>解説
 
 Restore コマンドは、次の手順を実行します。
 

@@ -1,16 +1,16 @@
 ---
 title: NuGet CLI リストコマンド
 description: nuget.exe list コマンドのリファレンス
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: d8e5c8574b44375e651f3ff1a4868681b3ce6d66
-ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
+ms.openlocfilehash: 55ccf0d86ad6df8001e7401d430ec29cd7a154c3
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97699846"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780052"
 ---
 # <a name="list-command-nuget-cli"></a>list コマンド (NuGet CLI)
 
@@ -18,7 +18,7 @@ ms.locfileid: "97699846"
 
 指定されたソースからのパッケージの一覧を表示します。 ソースが指定されていない場合は、グローバル構成ファイル (Windows) またはで定義されているすべてのソース `%AppData%\NuGet\NuGet.Config` `~/.nuget/NuGet/NuGet.Config` が使用されます。 が `NuGet.Config` ソースを指定しない場合、は `list` 既定のフィード (nuget.org) を使用します。
 
-## <a name="usage"></a>使用法
+## <a name="usage"></a>使用方法
 
 ```cli
 nuget list [search terms] [options]
@@ -26,7 +26,7 @@ nuget list [search terms] [options]
 
 オプションの検索語句を使用すると、表示される一覧がフィルター処理されます。 Nuget.org で使用する場合と同様に、パッケージ、タグ、およびパッケージの説明の名前には[検索語句](../../consume-packages/finding-and-choosing-packages.md#search-syntax)が適用されます。 
 
-## <a name="options"></a>オプション
+## <a name="options"></a>Options
 
 - **`-AllVersions`**
 

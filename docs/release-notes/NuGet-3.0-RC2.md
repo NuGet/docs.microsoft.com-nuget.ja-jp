@@ -1,39 +1,39 @@
 ---
-title: NuGet 3.0 RC2 リリース ノートします。
-description: リリース ノート NuGet 3.0 RC2 の既知の問題、バグの修正、追加機能、および Dcr を含むです。
-author: karann-msft
-ms.author: karann
+title: NuGet 3.0 RC2 リリースノート
+description: 既知の問題、バグ修正、追加された機能、および DCRs を含む NuGet 3.0 RC2 のリリースノート。
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 863e48e632387b768a43530b987683605baf6db7
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 355c200481f4acba9931dc3bcd85e99c5ffbf224
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545822"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780282"
 ---
-# <a name="nuget-30-rc2-release-notes"></a>NuGet 3.0 RC2 リリース ノートします。
+# <a name="nuget-30-rc2-release-notes"></a>NuGet 3.0 RC2 リリースノート
 
-[NuGet 3.0 RC リリース ノート](../release-notes/nuget-3.0-RC.md) | [NuGet 3.0 リリース ノート](../release-notes/nuget-3.0.0.md)
+[NuGet 3.0 RC リリースノート](../release-notes/nuget-3.0-RC.md)  | [NuGet 3.0 リリースノート](../release-notes/nuget-3.0.0.md)
 
-Visual Studio 2015 の拡張機能ギャラリーから使用可能な中間リリースとして、2015 年 6 月 3日 NuGet 3.0 RC2 がリリースされましたと[Codeplex](https://nuget.codeplex.com/releases/view/615507)します。 このリリースではさまざまな重要なバグの修正とパフォーマンスの向上が完成した Visual Studio 2015 のリリースの前にリリースする重要な. この NuGet 拡張機能のバージョンは、Visual Studio 2015 のできるだけです。
+NuGet 3.0 RC2 は、Visual Studio 2015 拡張機能ギャラリーおよび [Codeplex](https://nuget.codeplex.com/releases/view/615507)から提供される中間リリースとして、2015年6月3日にリリースされました。 このリリースには、Visual Studio 2015 のリリースが完了する前にリリースすることが重要だった、いくつかの重要なバグ修正とパフォーマンスの向上があります。 この NuGet 拡張機能のバージョンは、Visual Studio 2015 でのみ使用できます。
 
-私たちの合計、閉じられた、このリリースでは 158 の問題と、確認することができます、 [GitHub 上の問題の完全な一覧](https://github.com/NuGet/Home/issues?utf8=%E2%9C%93&q=is%3Aclosed+milestone%3A3.0.0-RTM+sort%3Aupdated-asc+updated%3A%3C%3D2015-06-01)します。
+合計では、このリリースで158の問題を解決し、 [GitHub の問題の完全な一覧](https://github.com/NuGet/Home/issues?utf8=%E2%9C%93&q=is%3Aclosed+milestone%3A3.0.0-RTM+sort%3Aupdated-asc+updated%3A%3C%3D2015-06-01)を確認することができます。
 
-## <a name="summary-of-top-issues-resolved"></a>主な問題解決の概要
+## <a name="summary-of-top-issues-resolved"></a>解決された上位の問題の概要
 
-* [頻繁にネットワークの更新プログラムを呼び出すパッケージ マネージャー ウィンドウが更新されます。](https://github.com/NuGet/Home/issues/515)
-* [変更する、パッケージ マネージャーでビューがインストールされている場合は、スクロールを遅延](https://github.com/NuGet/Home/issues/519)
-* [ネットワーク呼び出しをバック グラウンド スレッドで実行する必要があります。](https://github.com/NuGet/Home/issues/516)
-* ['プレビュー ウィンドウを表示しない チェック ボックスを追加](https://github.com/NuGet/Home/issues/566)
-* [追加のプロセスがプロセッサ使用率を低減調整](https://github.com/NuGet/Home/issues/356)
-* ポータブル クラス ライブラリ参照の処理を改善
+* [パッケージマネージャーウィンドウが更新したときに頻繁に発生するネットワーク更新呼び出し](https://github.com/NuGet/Home/issues/515)
+* [パッケージマネージャーのインストール済みビューに変更するときの遅延スクロール](https://github.com/NuGet/Home/issues/519)
+* [ネットワーク呼び出しはバックグラウンドスレッドで実行する必要があります](https://github.com/NuGet/Home/issues/516)
+* [[プレビューウィンドウを表示しない] チェックボックスが追加されました](https://github.com/NuGet/Home/issues/566)
+* [プロセッサ使用率を減らすためのプロセス調整を追加しました](https://github.com/NuGet/Home/issues/356)
+* ポータブルクラスライブラリの参照処理の向上
     * [https://github.com/NuGet/Home/issues/562](https://github.com/NuGet/Home/issues/562)
     * [https://github.com/NuGet/Home/issues/454](https://github.com/NuGet/Home/issues/454)
     * [https://github.com/NuGet/Home/issues/440](https://github.com/NuGet/Home/issues/440)
-* [オートコンプリートのサービスが大文字小文字を区別](https://github.com/NuGet/Home/issues/198)
-* [基本認証資格情報を再導入する更新プログラム](https://github.com/NuGet/Home/issues/456)
-* [強化されたエラーのログ記録](https://github.com/NuGet/Home/issues/407)
-* [更新プログラム パッケージを呼び出すときに、powershell が強化されたエラー メッセージ](https://github.com/NuGet/Home/issues/5)
+* [オートコンプリートサービスでは大文字と小文字が区別される](https://github.com/NuGet/Home/issues/198)
+* [基本認証資格情報を再度導入するように更新](https://github.com/NuGet/Home/issues/456)
+* [エラー ログ記録の改善](https://github.com/NuGet/Home/issues/407)
+* [更新プログラムパッケージを呼び出すときの powershell エラーメッセージの改善](https://github.com/NuGet/Home/issues/5)
 
-これをダウンロード[NuGet 拡張機能を更新](https://nuget.codeplex.com/releases/view/615507)Codeplex からくださいに注意して[ブログ](http://blog.nuget.org)の詳細の進行状況と NuGet 3.0 のお知らせです。
+Codeplex から [nuget 拡張機能にこの更新プログラムを](https://nuget.codeplex.com/releases/view/615507) ダウンロードしてください。 nuget 3.0 の詳細と発表については、 [こちらのブログ](http://blog.nuget.org) をご覧ください。

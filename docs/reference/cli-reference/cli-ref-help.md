@@ -1,24 +1,24 @@
 ---
 title: NuGet CLI のヘルプコマンド
 description: nuget.exe ヘルプコマンドのリファレンス
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 12776b7c16aeef223a0b682ee2468edec8ea3295
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 5d91638c4a6f167ea8a04e5dfa2905cb55084ddd
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623111"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98779353"
 ---
 # <a name="help-or--command-nuget-cli"></a>help または ? コマンド (NuGet CLI)
 
-**適用対象:** &bullet; **サポートされている**すべてのバージョン: すべて
+**適用対象:** &bullet; **サポートされている** すべてのバージョン: すべて
 
 特定のコマンドに関する一般的なヘルプ情報とヘルプ情報を表示します。
 
-## <a name="usage"></a>使用法
+## <a name="usage"></a>使用方法
 
 ```cli
 nuget help [command] [options]
@@ -28,7 +28,7 @@ nuget ? [command] [options]
 ここで [command] は、ヘルプを表示する特定のコマンドを識別します。
 
 > [!Warning]
-> 一部のコマンドでは、 *help* `nuget help install` nuget.org に "help" という名前のパッケージが存在するので、最初にヘルプを指定することに注意してください。コマンドを指定した場合 `nuget install help` 、install コマンドのヘルプは表示されませんが、help という名前のパッケージがインストールされます。
+> 一部のコマンドでは、  `nuget help install` nuget.org に "help" という名前のパッケージが存在するので、最初にヘルプを指定することに注意してください。コマンドを指定した場合 `nuget install help` 、install コマンドのヘルプは表示されませんが、help という名前のパッケージがインストールされます。
 
 ## <a name="options"></a>Options
 

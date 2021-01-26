@@ -1,16 +1,16 @@
 ---
 title: NuGet CLI のインストールコマンド
 description: nuget.exe install コマンドのリファレンス
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 23856728d07d07183b5aedcd6218a56a444c410b
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 34b79bfa7a0dddf5da6b5c465293caec49129f6c
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623098"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98779258"
 ---
 # <a name="install-command-nuget-cli"></a>install コマンド (NuGet CLI)
 
@@ -29,7 +29,7 @@ ms.locfileid: "88623098"
 
 依存関係を追加するには、Visual Studio のパッケージマネージャー UI またはコンソールを使用してパッケージを追加するか、 `packages.config` またはを変更して実行し `install` `restore` ます。
 
-## <a name="usage"></a>使用法
+## <a name="usage"></a>使用方法
 
 ```cli
 nuget install <packageID | configFilePath> [options]
@@ -93,7 +93,7 @@ nuget install <packageID | configFilePath> [options]
 
 - **`-PreRelease`**
 
-  プレリリースパッケージのインストールを許可します。 このフラグは、を使用してパッケージを復元する場合には必要ありません `packages.config` 。
+  プレリリース パッケージのインストールを許可します。 このフラグは、を使用してパッケージを復元する場合には必要ありません `packages.config` 。
 
 - **`-RequireConsent`**
 

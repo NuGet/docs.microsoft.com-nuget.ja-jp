@@ -1,30 +1,30 @@
 ---
-title: NuGet 2.8.5 リリース ノート
-description: NuGet 2.8.5 などのリリース ノートには、問題、バグの修正、追加機能、および Dcr が知られています。
-author: karann-msft
-ms.author: karann
+title: NuGet 2.8.5 のリリースノート
+description: 既知の問題、バグ修正、追加された機能、および DCRs を含む NuGet 2.8.5 のリリースノート。
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: aa03b00a0043a4805f33900124c13b0777c2b7a3
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: f729092bc964b286a007564bd3bbd8c79bc895c9
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548626"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780355"
 ---
-# <a name="nuget-285-release-notes"></a>NuGet 2.8.5 リリース ノート
+# <a name="nuget-285-release-notes"></a>NuGet 2.8.5 のリリースノート
 
-[NuGet 2.8.3 リリース ノート](../release-notes/nuget-2.8.3.md) | [NuGet 2.8.6 リリース ノート](../release-notes/nuget-2.8.6.md)
+[NuGet 2.8.3 のリリースノート](../release-notes/nuget-2.8.3.md)  | [NuGet 2.8.6 のリリースノート](../release-notes/nuget-2.8.6.md)
 
-NuGet 2.8.5 は、2015 年 3 月 30 日にリリースされました。 マイナー更新は、2.8.3 に一部の VSIX に修正プログラムが対象とします。
+NuGet 2.8.5 は2015年3月30日にリリースされました。 これは、一部の修正プログラムが適用された 2.8.3 VSIX のマイナー更新です。
 
-このリリースで NuGet パッケージ マネージャー ダイアログのサポートが追加された[DNX ターゲット フレームワーク モニカー](https://github.com/aspnet/dnx)します。  サポートされているこれらの新しいフレームワーク モニカーは次のとおりです。
+このリリースでは、 [Dnx ターゲットフレームワークモニカー](https://github.com/aspnet/dnx)の [NuGet パッケージマネージャーのサポート] ダイアログが追加されました。  次のような新しいフレームワークモニカーがサポートされています。
 
-* **core50** - 'base' のターゲット フレームワーク モニカー (TFM)、Core CLR と互換性があります。
-* **dnx452** - 完全 4.5.2 を使用して A TFM を DNX ベース特定のアプリ、フレームワークのバージョン
-* **dnx46** - 4.6 を完全なバージョンの framework を使用して A TFM を DNX ベース特定のアプリ
-* **dnxcore50** - Core 5.0 のバージョンの framework を使用して、TFM を DNX ベース特定のアプリ
+* **core50** -コア CLR と互換性のある ' base ' ターゲットフレームワークモニカー (tfm) です。
+* **dnx452** -完全な4.5.2 バージョンのフレームワークを使用する dnx ベースのアプリに固有の A tfm
+* **dnx46** -完全な4.6 バージョンのフレームワークを使用する dnx ベースのアプリに固有の A tfm
+* **dnxcore50** -Core 5.0 バージョンのフレームワークを使用する dnx ベースのアプリに固有の A tfm
 
-1 つのバグには、FSharp プロジェクトに正しくインストールされませんでした、パッケージが修正済み。
+1つのバグが修正されました。これにより、パッケージを Fsharp.core プロジェクトに適切にインストールできませんでした。
 
 https://nuget.codeplex.com/workitem/4400

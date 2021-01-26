@@ -1,117 +1,117 @@
 ---
-title: NuGet 3.2 リリース ノート
-description: 既知の問題、バグの修正、追加機能、および Dcr を含む NuGet 3.2 のリリース ノート。
-author: karann-msft
-ms.author: karann
+title: NuGet 3.2 リリースノート
+description: 既知の問題、バグ修正、追加された機能、および DCRs を含む NuGet 3.2 のリリースノート。
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 5bdd2aa5621eead9ce79794052663cc2f8a63d45
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: HT
+ms.openlocfilehash: 38a56b1572770b02ff09135a3b0290742ca80f41
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549523"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780307"
 ---
-# <a name="nuget-32-release-notes"></a>NuGet 3.2 リリース ノート
+# <a name="nuget-32-release-notes"></a>NuGet 3.2 リリースノート
 
-[NuGet 3.2 RC リリース ノート](../release-notes/nuget-3.2-RC.md) | [NuGet 3.2.1 のリリース ノート](../release-notes/nuget-3.2.1.md)
+[NuGet 3.2-RC リリースノート](../release-notes/nuget-3.2-RC.md)  | [NuGet 3.2.1 のリリースノート](../release-notes/nuget-3.2.1.md)
 
-NuGet 3.2 がリリースされた、2015 年 9 月 16日の機能強化と修正、3.1.1 のコレクションとしてリリースされ、両方からは[dist.nuget.org](http://dist.nuget.org/index.html)と[Visual Studio ギャラリー](https://marketplace.visualstudio.com/items?itemName=NuGetTeam.NuGetPackageManagerforVisualStudio2015)します。
+NuGet 3.2 は、3.1.1 リリースの改善と修正のコレクションとして2015年9月16日にリリースされ、 [dist.nuget.org](http://dist.nuget.org/index.html) と [Visual Studio ギャラリー](https://marketplace.visualstudio.com/items?itemName=NuGetTeam.NuGetPackageManagerforVisualStudio2015)の両方から入手できます。
 
 ## <a name="new-features"></a>新機能
 
-* 同じフォルダーに置かれているプロジェクトを異なるようになりましたが`project.json`各プロジェクトに固有フォルダー内のファイル。  プロジェクトごとに、名前、`project.json`ファイル`{ProjectName}.project.json`と NuGet では、プロジェクトごとにその構成に優先順位を適切に指定されます。  これは Windows 10 のツール v1.1 がインストールされているのではサポートされてのみ[1102](https://github.com/NuGet/Home/issues/1102)
-* NuGet クライアントをサポートで使用される共有のグローバル パッケージ フォルダーの場所を指定するグローバル NUGET_PACKAGES 環境変数を指定する`project.json`ツール v1.1 の Windows 10 を使用したプロジェクトを管理します。
+* 同じフォルダーに存在するプロジェクトは `project.json` 、各プロジェクトに固有のフォルダー内に異なるファイルを持つことができるようになりました。  各プロジェクトについて、ファイルに名前を `project.json` `{ProjectName}.project.json` 付けます。 NuGet によって、各プロジェクトの構成が適切に設定されます。  これは、Windows 10 Tools v1.1 がインストールされている場合にのみサポートされます-  [1102](https://github.com/NuGet/Home/issues/1102)
+* NuGet クライアントは、グローバル NUGET_PACKAGES 環境変数の指定をサポートしており、 `project.json` Windows 10 tools v1.1 でマネージプロジェクトで使用される共有グローバルパッケージフォルダーの場所を指定します。
 
-## <a name="command-line-updates"></a>更新プログラムのコマンドライン
+## <a name="command-line-updates"></a>コマンドラインの更新
 
-これは、NuGet v3 のサーバーをサポートする nuget.exe のクライアントの最初のバージョンで管理されているプロジェクトのパッケージを復元する`project.json`ファイル。
+これは、NuGet v3 サーバーをサポートし、ファイルで管理されているプロジェクトのパッケージを復元する、nuget.exe クライアントの最初のバージョンです `project.json` 。
 
-さまざまなクライアントとのやり取りを向上させるためには、このリリースで対処された認証済みフィードの問題が発生しました。
+このリリースでは、クライアントとのやり取りを向上させるために、いくつかの認証済みフィードの問題が解決されました。
 
-* インストール/復元の相互作用 - 認証済みフィードには、最初の要求の資格情報の送信だけ[1300](https://github.com/NuGet/Home/issues/1300)、 [456](https://github.com/NuGet/Home/issues/456)
-* プッシュ コマンドで資格情報の構成 - からが解決しない[1248](https://github.com/NuGet/Home/issues/1248)
-* ユーザー エージェントとヘッダーが統計情報の追跡のための NuGet リポジトリに送信されるようになりました[929](https://github.com/NuGet/Home/issues/929)
+* インストール/復元の相互作用は、最初の要求の資格情報のみを認証されたフィードに送信する- [1300](https://github.com/NuGet/Home/issues/1300)、 [456](https://github.com/NuGet/Home/issues/456)
+* プッシュコマンドでは、構成からの資格情報は解決されません- [1248](https://github.com/NuGet/Home/issues/1248)
+* ユーザーエージェントとヘッダーが、統計の追跡に役立つように NuGet リポジトリに送信されるようになりました- [929](https://github.com/NuGet/Home/issues/929)
 
-さまざまな NuGet リポジトリをリモートで作業しようとしています。 ネットワーク障害を処理しやすくする機能強化を行いました。
+リモート NuGet リポジトリを操作しているときに、ネットワークエラーの処理を改善するために、いくつかの機能強化が行われています。
 
-* -リモートのフィードに接続できない場合に、エラー メッセージが改善[1238](https://github.com/NuGet/Home/issues/1238)
-* NuGet の復元コマンドを正しく - エラーが発生したときに、1 を返すを修正[1186](https://github.com/NuGet/Home/issues/1186)
-* ネットワーク接続を今すぐ再試行すべての 200 の HTTP 5xx エラーの場合は 5 回の試行の最大[1120](https://github.com/NuGet/Home/issues/1120)
-* プッシュ コマンドの中にサーバーのリダイレクト応答の処理を改善[1051](https://github.com/NuGet/Home/issues/1051)
-* `nuget install -source` 引数として Nuget.Config から URL またはリポジトリのいずれかの名前になりました[1046](https://github.com/NuGet/Home/issues/1046)
-* 復元中に、リポジトリに配置されていない不足しているパッケージが警告ではなくエラーとしてレポートされるようになりました[1038](https://github.com/NuGet/Home/issues/1038)
-* Unix または Linux のシナリオに \r\n の multipartwebrequest 処理を修正[776](https://github.com/NuGet/Home/issues/776)
+* リモートフィードに接続できない場合のエラーメッセージの改善- [1238](https://github.com/NuGet/Home/issues/1238)
+* エラー状態が発生したときに正常に1を返すように NuGet restore コマンドを修正しました- [1186](https://github.com/NuGet/Home/issues/1186)
+* 200ミリ秒ごとにネットワーク接続を再試行しています。 HTTP 5xx エラーが発生した場合、最大5回試行します。 [1120](https://github.com/NuGet/Home/issues/1120)
+* プッシュコマンド中のサーバーリダイレクト応答の処理の改善- [1051](https://github.com/NuGet/Home/issues/1051)
+* `nuget install -source` では、引数として Nuget.Config の URL またはリポジトリ名がサポートされるようになりました- [1046](https://github.com/NuGet/Home/issues/1046)
+* 復元中にリポジトリに見つからなかったパッケージは、警告[1038](https://github.com/NuGet/Home/issues/1038)ではなくエラーとして報告されるようになりました。
+* Unix/Linux シナリオ用に \r\n の multipartwebrequest の処理を修正しました- [776](https://github.com/NuGet/Home/issues/776)
 
-さまざまなコマンドを使用して問題の修正を数多くあります。
+さまざまなコマンドに関して、いくつかの修正があります。
 
-* プッシュ コマンドは、パッケージのソース - に対して put コマンドの前に GET を不要になったは[1237](https://github.com/NuGet/Home/issues/1237)
-* 一覧のコマンドは、バージョン番号を不要になった繰り返されます[1185](https://github.com/NuGet/Home/issues/1185)
-* パック-ビルド引数を持つようになりました正しく C# 6.0 のサポート[1107](https://github.com/NuGet/Home/issues/1107)
-* F# プロジェクトをパックしようとしています修正された問題は、Visual Studio 2015 - で構築された[1048。](https://github.com/NuGet/Home/issues/1048)
-* パッケージが既に存在 - ときに、ここでは機能を復元する[1040](https://github.com/NuGet/Home/issues/1040)
-* 強化されたエラー メッセージ`packages.config`ファイル形式が正しくありません - [1034](https://github.com/NuGet/Home/issues/1034)
-* -の相対パスを使用する - SolutionDirectory スイッチを使用して、復元コマンドを修正[992](https://github.com/NuGet/Home/issues/992)
-* -ソリューション全体の更新をサポートする更新コマンドを改善[924](https://github.com/NuGet/Home/issues/924)
+* プッシュコマンドでは、パッケージソースに対して PUT を実行する前に GET が実行されなくなりました- [1237](https://github.com/NuGet/Home/issues/1237)
+* List コマンドはバージョン番号を繰り返しません- [1185](https://github.com/NuGet/Home/issues/1185)
+* -Build 引数を使用したパックは、C# 6.0- [1107](https://github.com/NuGet/Home/issues/1107)を正しくサポートするようになりました
+* Visual Studio 2015- [1048](https://github.com/NuGet/Home/issues/1048)でビルドされた F # プロジェクトをパックしようとした問題を修正しました
+* パッケージが既に存在する場合は、今すぐ復元する- [1040](https://github.com/NuGet/Home/issues/1040)
+* `packages.config`ファイルの形式が正しくない場合のエラーメッセージの改善- [1034](https://github.com/NuGet/Home/issues/1034)
+* -SolutionDirectory スイッチで相対パスを使用して復元コマンドを修正しました- [992](https://github.com/NuGet/Home/issues/992)
+* ソリューション全体の更新プログラムをサポートするための更新されたコマンドの改善- [924](https://github.com/NuGet/Home/issues/924)
 
-このリリースで対処された問題の完全な一覧は NuGet GitHub で見つかる[コマンド ライン マイルス トーン](https://github.com/nuget/home/issues?utf8=%E2%9C%93&q=is%3Aissue+milestone%3A3.2.0-commandline+is%3Aclosed+-label%3AClosedAs%3ADuplicate)します。
+このリリースで解決される問題の完全な一覧については、NuGet GitHub の [コマンドラインマイルストーン](https://github.com/nuget/home/issues?utf8=%E2%9C%93&q=is%3Aissue+milestone%3A3.2.0-commandline+is%3Aclosed+-label%3AClosedAs%3ADuplicate)を参照してください。
 
 ## <a name="visual-studio-extension-updates"></a>Visual Studio 拡張機能の更新
 
 ### <a name="new-features-in-visual-studio"></a>Visual Studio の新機能
 
-* ソリューションを構築することがなく復元するパッケージは、ソリューション ノードをソリューション エクスプ ローラーに追加された新しいコンテキスト メニュー項目 ([1274](https://github.com/NuGet/Home/issues/1274))。
+* ソリューションをビルドしないでパッケージを復元できるようにする、ソリューションノードのソリューションエクスプローラーに新しいコンテキストメニュー項目が追加されました ([1274](https://github.com/NuGet/Home/issues/1274))。
 
-![新しいパッケージを復元する' コンテキスト メニュー項目](./media/NuGet-3.2/newContextMenu.png)
+![新しい [パッケージの復元] コンテキストメニュー項目](./media/NuGet-3.2/newContextMenu.png)
 
-### <a name="updates-and-fixes-in-visual-studio"></a>更新し、Visual Studio での修正
+### <a name="updates-and-fixes-in-visual-studio"></a>Visual Studio の更新プログラムと修正プログラム
 
-認証されたフィードの修正プログラム ロール アップされも、拡張機能で対処します。  拡張機能では、以下の認証がアドレス指定も。
+認証されたフィードの修正は、拡張機能でもロールアップおよびアドレス指定されました。  拡張機能では、次の認証項目もアドレス指定されています。
 
-* これで、認証済みフィードを適切に正しく NuGet v3 を扱う方法の代わりに v2 に認証済みフィード - と[1216](https://github.com/NuGet/Home/issues/1216)
-* 認証の資格情報を使用してプロジェクトの修正要求`project.json`v2 フィード - との通信と[1082](https://github.com/NuGet/Home/issues/1082)
+* V2 で認証されたフィードではなく、NuGet v3 で認証されたフィードを正しく正しく処理するようになりました- [1216](https://github.com/NuGet/Home/issues/1216)
+* を使用 `project.json` し、v2 フィードと通信するプロジェクトの認証資格情報の要求を修正しました- [1082](https://github.com/NuGet/Home/issues/1082)
 
-ネットワーク接続には、Visual Studio で、ユーザー インターフェイスが影響を受ける必要があるし、これを次の修正に対処しました。
+ネットワーク接続が Visual Studio のユーザーインターフェイスに影響を与え、次の修正によって解決されました。
 
-* パッケージのバージョンのローカル キャッシュの保守性の向上[1096](https://github.com/NuGet/Home/issues/1096)
-* V2 フィード - として扱うことを示す試行できなくにフィード v3 への接続時にエラーの動作を変更[1253](https://github.com/NuGet/Home/issues/1253)
-* 複数のパッケージ ソースのパッケージをインストールするときに、インストールの失敗を防ぐようになりました[1183](https://github.com/NuGet/Home/issues/1183)
+* パッケージバージョンのローカルキャッシュのメンテナンスの向上- [1096](https://github.com/NuGet/Home/issues/1096)
+* V3 フィードに接続するときのエラー動作が変更され、v2 フィードとして扱わないようになりました- [1253](https://github.com/NuGet/Home/issues/1253)
+* 複数のパッケージソースを含むパッケージをインストールするときにインストールエラーが発生しないようにする- [1183](https://github.com/NuGet/Home/issues/1183)
 
-ビルド操作との対話の処理を改善しました。
+ビルド操作との対話処理を改善しました。
 
-* 1 つのプロジェクトが失敗する - のパッケージを復元する場合は、プロジェクトをビルドし続けるようになりました[1169](https://github.com/NuGet/Home/issues/1169)
-* ソリューションの再構築 - を強制的にソリューション内の別のプロジェクトでの依存関係がプロジェクトにパッケージをインストールする[981](https://github.com/NuGet/Home/issues/981)
-* -プロジェクトへの変更を正しくロールバックに失敗したパッケージのインストールを修正[1265](https://github.com/NuGet/Home/issues/1265)
-* 不注意で削除の修正、`developmentDependency`属性でパッケージを`packages.config`  -  [1263](https://github.com/NuGet/Home/issues/1263)
-* 呼び出す`install.ps1`ある適切な`$package.AssemblyReferences`オブジェクトの成功 - [1245](https://github.com/NuGet/Home/issues/1245)
-* プロジェクトが正常な状態で、UWP プロジェクトでパッケージのアンインストール妨げなく[1128](https://github.com/NuGet/Home/issues/1128)
-* ソリューションの組み合わせを含む`packages.config`と`project.json`プロジェクトが正しく秒を必要とせずに組み込まれましたビルド操作 - [1122](https://github.com/NuGet/Home/issues/1122)
-* リンクまたは別のフォルダーに配置された場合、app.config ファイルを正しく検索[1111](https://github.com/NuGet/Home/issues/1111)、 [894](https://github.com/NuGet/Home/issues/894)
-* UWP プロジェクトが一覧にないパッケージをインストールできます[1109](https://github.com/NuGet/Home/issues/1109)
-* ソリューションは、保存された状態ではありません、パッケージの復元が許可されるようになりました[1081](https://github.com/NuGet/Home/issues/1081)
+* 1つのプロジェクトのパッケージの復元に失敗した場合にプロジェクトのビルドを続行する- [1169](https://github.com/NuGet/Home/issues/1169)
+* ソリューション内の別のプロジェクトに依存しているプロジェクトにパッケージをインストールすると、ソリューションが強制的に再構築されます。 [981](https://github.com/NuGet/Home/issues/981)
+* 失敗したパッケージのインストールを修正して、プロジェクトへの変更を適切にロールバックする- [1265](https://github.com/NuGet/Home/issues/1265)
+* `developmentDependency`1263 でパッケージの属性の誤った削除を修正しました `packages.config`  -  [](https://github.com/NuGet/Home/issues/1263)
+* への呼び出しで、 `install.ps1` 適切なオブジェクトが渡されました `$package.AssemblyReferences` - [1245](https://github.com/NuGet/Home/issues/1245)
+* プロジェクトが正しくない状態にあるときに UWP プロジェクトのパッケージのアンインストールを妨げなくなりました- [1128](https://github.com/NuGet/Home/issues/1128)
+* とプロジェクトの組み合わせを含むソリューション `packages.config` `project.json` が正しくビルドされるようになりました。2つ目のビルド操作は必要ありません- [1122](https://github.com/NuGet/Home/issues/1122)
+* app.config ファイルがリンクされているか、別のフォルダーに配置されている場合に適切に検索する- [1111](https://github.com/NuGet/Home/issues/1111)、 [894](https://github.com/NuGet/Home/issues/894)
+* UWP プロジェクトで、一覧にないパッケージをインストールできるようになりました- [1109](https://github.com/NuGet/Home/issues/1109)
+* ソリューションが保存された状態ではないときに、パッケージの復元が許可されるようになりました- [1081](https://github.com/NuGet/Home/issues/1081)
 
-ファイルが修正された構成の更新を処理するには。
+構成ファイルの更新の処理が修正されました。
 
-* 以降のビルドのパッケージから配信される、ターゲット ファイルを削除できなく、`project.json`マネージ プロジェクト - [1288](https://github.com/NuGet/Home/issues/1288)
-* ASP.NET 5 ソリューションのビルドの中に Nuget.Config ファイルを変更できなく[1201](https://github.com/NuGet/Home/issues/1201)
-* パッケージの更新プログラムの中にバージョン制約を許可される変更できなく[1130](https://github.com/NuGet/Home/issues/1130)
-* ロック ファイル今すぐロックされたままのビルド中に[1127](https://github.com/NuGet/Home/issues/1127)
-* 今すぐ変更`packages.config`しない更新プログラムの中に書き直すことと[585](https://github.com/NuGet/Home/issues/585)
+* マネージプロジェクトの後続のビルドでパッケージから配信されたターゲットファイルを削除しないよう `project.json` にする- [1288](https://github.com/NuGet/Home/issues/1288)
+* ASP.NET 5 ソリューションビルド中に Nuget.Config ファイルを変更できなくなりました- [1201](https://github.com/NuGet/Home/issues/1201)
+* パッケージの更新中に許可されているバージョンの制約を変更しなくなりました- [1130](https://github.com/NuGet/Home/issues/1130)
+* ロックファイルは、ビルド中にロックされたままになります。 [1127](https://github.com/NuGet/Home/issues/1127)
+* `packages.config`更新中に変更し、書き換えないようにする- [585](https://github.com/NuGet/Home/issues/585)
 
-TFS ソース管理との相互作用が向上します。
+TFS ソース管理との相互作用が改善されました。
 
-* -TFS にバインドされているパッケージのインストールを不要になった失敗[番号 1164](https://github.com/NuGet/Home/issues/1164)、 [980](https://github.com/NuGet/Home/issues/980)
-* 修正済みの NuGet ユーザー インターフェイスを TFS 2013 の統合 - [1071](https://github.com/NuGet/Home/issues/1071)
-* パッケージ フォルダーから来るよう適切に復元されたパッケージへの参照を修正[1004](https://github.com/NuGet/Home/issues/1004)
+* TFS- [1164](https://github.com/NuGet/Home/issues/1164)、 [980](https://github.com/NuGet/Home/issues/980)にバインドされているパッケージのインストールに失敗しなくなりました
+* TFS 2013 統合を許可するように NuGet ユーザーインターフェイスを修正しました- [1071](https://github.com/NuGet/Home/issues/1071)
+* 正常に復元されたパッケージへの参照を、パッケージフォルダーから正しく取得しました- [1004](https://github.com/NuGet/Home/issues/1004)
 
 最後に、これらの項目も改善されました。
 
-* ログ メッセージの詳細度が小さくなります`project.json`マネージ プロジェクト - [1163。](https://github.com/NuGet/Home/issues/1163)
-* ユーザー インターフェイス - に正しくインストールされているバージョンのパッケージを表示するようになりました[1061](https://github.com/NuGet/Home/issues/1061)
-* 今すぐその nuspec で指定された依存関係の範囲を使用してパッケージの安定したパッケージのバージョンでは、インストールされているこれらの依存関係のプレリリース版がある[1304](https://github.com/NuGet/Home/issues/1304)
+* マネージプロジェクトのログメッセージの詳細度の詳細 `project.json` - [1163](https://github.com/NuGet/Home/issues/1163)
+* インストールされているパッケージのバージョンがユーザーインターフェイスに正しく表示されるようになりました- [1061](https://github.com/NuGet/Home/issues/1061)
+* Nuspec で指定された依存関係の範囲を持つパッケージは、安定したパッケージバージョンに対してインストール済みの依存関係のプレリリースバージョンを持つようになりました- [1304](https://github.com/NuGet/Home/issues/1304)
 
-Visual Studio 拡張機能は、NuGet GitHub で見つかるの対処された問題の完全な一覧[3.2 マイルス トーン](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+-label%3AClosedAs%3ADuplicate+milestone%3A3.2)
+Visual Studio 拡張機能で解決される問題の完全な一覧については、「NuGet GitHub [3.2 マイルストーン](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+-label%3AClosedAs%3ADuplicate+milestone%3A3.2)」を参照してください。
 
 ## <a name="known-issues"></a>既知の問題
 
-GitHub の問題一覧上の問題を追跡するために引き続き。 [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)
+GitHub の問題の一覧に関する問題は、引き続き次の場所にあります。 [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)

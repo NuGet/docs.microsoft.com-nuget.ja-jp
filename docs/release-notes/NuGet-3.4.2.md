@@ -1,48 +1,48 @@
 ---
-title: NuGet 3.4.2 リリース ノート
-description: NuGet 3.4.2 などのリリース ノートには、問題、バグの修正、追加機能、および Dcr が知られています。
-author: karann-msft
-ms.author: karann
+title: NuGet 3.4.2 のリリースノート
+description: 既知の問題、バグ修正、追加された機能、および DCRs を含む NuGet 3.4.2 のリリースノート。
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 4c8aa75df822ca5b2f1c4bd274272218f16ad917
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 6e6aa174582d059faa5bef9469cd83b19da51cf3
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549152"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780248"
 ---
-# <a name="nuget-342-release-notes"></a>NuGet 3.4.2 リリース ノート
+# <a name="nuget-342-release-notes"></a>NuGet 3.4.2 のリリースノート
 
-[NuGet 3.4.1 リリース ノート](../release-notes/nuget-3.4.1.md) | [NuGet 3.4.3 リリース ノート](../release-notes/nuget-3.4.3.md)
+[NuGet 3.4.1 のリリースノート](../release-notes/nuget-3.4.1.md)  | [NuGet 3.4.3 のリリースノート](../release-notes/nuget-3.4.3.md)
 
-2016 年 4 月 8 日、3.4 および 3.4.1 で識別されたいくつかの問題に対処するにリリースされた NuGet 3.4.2 を解放します。
+2016年4月8日にリリースされた NuGet 3.4.2 は、3.4 および3.4.1 リリースで特定されたいくつかの問題に対処しています。
 
-## <a name="nugetexe-342-rc-is-now-available"></a>nuget.exe 3.4.2 RC が利用できるようになりました
+## <a name="nugetexe-342-rc-is-now-available"></a>nuget.exe 3.4.2 RC を使用できるようになりました
 
-Nuget.exe 3.4.2 の release candidate をダウンロードする[ここ](https://dist.nuget.org/index.html)します。
+nuget.exe 3.4.2 のリリース候補は [こちら](https://dist.nuget.org/index.html)からダウンロードできます。
 
 ## <a name="updates-and-improvements"></a>更新プログラムと機能強化
 
-* 厳密な依存関係グラフを使用してパッケージの更新プログラムが非常に長い時間がかかったし、Visual Studio がハングしている特定のシナリオでの更新プログラムのパフォーマンスが大幅に向上しました。
-* nuget 復元せずにネットワーク トラフィックは、2.5 x – Visual Studio 内で 3 倍です。
-* この変更だけでなくが問題を修正しましたできるほか、VS UI 内の数、更新プログラムをフェッチするときに 2 回に、ネットワークに達するされています。 これで 3.4/3.4.1 経験豊富なタイムアウトの問題ユーザーによって部分的に担当していました。
-* No_proxy 設定のサポートが追加されました
+* 特定のシナリオにおける更新のパフォーマンスが大幅に改善されました。深い依存関係グラフを含むパッケージの更新には、非常に長い時間がかかり、Visual Studio がハングしました。
+* ネットワークトラフィックのない nuget の復元は、Visual Studio 内で 2.5 x ~ 3 倍高速になります。
+* この変更に加えて、VS UI で更新数をフェッチするときに2回ネットワークに到達したという問題を修正しました。 これは、3.4/3.4.1 で発生したいくつかのタイムアウト問題を部分的に担当していました。
+* No_proxy 設定のサポートを追加しました
 
-## <a name="fixes"></a>修正プログラム
+## <a name="fixes"></a>修正
 
-* Nuget.org のソースが NuGet の設定または config で不足している 3.4.1 に更新した後、問題を修正しました。
-* FindPackagesById 3.4.1 で大文字と小文字の変更が Artifactory を中断する問題を修正しました。
-* Fips nuget.exe の NuGet 復元でエラーの原因となった問題を修正しました。
-* 無効なアイコンの URL を使用してソースを参照するときに、クラッシュを修正しました。
-* バージョンと 'すべてのソース' からのエントリを結合すると問題が修正されました。
+* 3.4.1 に更新した後、nuget.org source が NuGet の設定または config にない問題を修正しました。
+* 3.4.1 で FindPackagesById の大文字と小文字の変更が発生した場合の問題を修正します。
+* nuget.exe による NuGet の復元でエラーが発生した FIPS の問題を修正しました。
+* 無効なアイコンの URL を使用してソースを参照するときのクラッシュを修正します。
+* ' すべてのソース ' からのバージョンとエントリのマージに関する問題を修正しています。
 
-## <a name="known-issues-in-342-windows-x86-commandline-rc"></a>既知の問題が 3.4.2 で Windows x86 Commandline (RC)
+## <a name="known-issues-in-342-windows-x86-commandline-rc"></a>3.4.2 Windows x86 コマンドライン (RC) の既知の問題
 
-RTM に到達する前に早期の次の週に、これらの問題が修正されます。
+これらの問題は、RTM に達する前に、次の週の前に修正されます。
 
-*  ソリューション ファイルがプロジェクト ファイルよりも下のフォルダー階層内に配置されている場合、ソリューションを実行している nuget の復元は失敗します。
-*  V2 フィードを使用してパッケージで nuget delete コマンドを実行は失敗します。 V3 フィードを使用してください。
+*  ソリューションファイルがプロジェクトファイルよりも下位のフォルダー階層に配置されている場合、ソリューションで nuget の復元を実行することはできません。
+*  V2 フィードを使用してパッケージで nuget delete コマンドを実行すると、失敗します。 代わりに V3 フィードを使用します。
 
 
-修正し、このリリースの機能強化の完全な一覧で、問題の一覧をご覧ください[ここ](https://github.com/NuGet/Home/issues?utf8=%E2%9C%93&q=is%3Aissue+milestone%3A3.4.2++is%3Aclosed+)します。
+このリリースの修正プログラムと機能強化の完全な一覧については、 [ここ](https://github.com/NuGet/Home/issues?utf8=%E2%9C%93&q=is%3Aissue+milestone%3A3.4.2++is%3Aclosed+)で問題の一覧を確認してください。

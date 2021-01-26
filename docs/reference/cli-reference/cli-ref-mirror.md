@@ -1,16 +1,16 @@
 ---
 title: NuGet CLI ミラーコマンド
 description: nuget.exe mirror コマンドのリファレンス
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: a7247aeb21418e78dbfe9be15c2e7cd152aa3f4a
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 6ecd5c11383f78fdaeb01090366a8ffe294b4f8b
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622968"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98779179"
 ---
 # <a name="mirror-command-nuget-cli"></a>mirror コマンド (NuGet CLI)
 
@@ -21,7 +21,7 @@ ms.locfileid: "88622968"
 > [!NOTE]
 > 以前に NuGet 2.x でこのコマンドをサポートしていた NuGet.ServerExtensions.dll と NuGet-Signed.exe (NuGet-Signed.exe 名前を nuget.exe に変更) は、ダウンロードできなくなりました。 このようなコマンドを使用するには、 [NuGetMirror](https://www.nuget.org/packages/NuGetMirror/)を試してください。
 
-## <a name="usage"></a>使用法
+## <a name="usage"></a>使用方法
 
 ```cli
 nuget mirror <packageID | configFilePath> <listUrlTarget> <publishUrlTarget> [options]
@@ -31,7 +31,7 @@ nuget mirror <packageID | configFilePath> <listUrlTarget> <publishUrlTarget> [op
 
 は `<listUrlTarget>` ソースリポジトリを指定し、は `<publishUrlTarget>` ターゲットリポジトリを指定します。
 
-ターゲットリポジトリが、NuGet を実行しているである場合 `https://machine/repo` 、リストとプッシュ url は[NuGet.Server](../../hosting-packages/nuget-server.md) `https://machine/repo/nuget` それぞれと `https://machine/repo/api/v2/package` になります。
+ターゲットリポジトリが、NuGet を実行しているである場合 `https://machine/repo` 、リストとプッシュ url は[](../../hosting-packages/nuget-server.md) `https://machine/repo/nuget` それぞれと `https://machine/repo/api/v2/package` になります。
 
 ## <a name="options"></a>Options
 

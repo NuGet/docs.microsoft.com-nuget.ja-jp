@@ -1,16 +1,16 @@
 ---
 title: NuGet CLI setapikey コマンド
 description: nuget.exe setapikey コマンドのリファレンス
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: b84d4257c580f6e734c26ebfc589be27bea10c82
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 3e0c2f84e336e0a642b1b5e815e74a1fb0878467
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622812"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780024"
 ---
 # <a name="setapikey-command-nuget-cli"></a>setapikey コマンド (NuGet CLI)
 
@@ -18,7 +18,7 @@ ms.locfileid: "88622812"
 
 指定されたサーバー URL の API キーをに保存して、 `NuGet.Config` 後続のコマンドに入力する必要がないようにします。
 
-## <a name="usage"></a>使用法
+## <a name="usage"></a>使用方法
 
 ```cli
 nuget setapikey <key> -Source <url> [options]
@@ -27,7 +27,7 @@ nuget setapikey <key> -Source <url> [options]
 `<source>`はサーバーを識別し、 `<key>` は保存するキーです。 を省略した場合 `<source>` 、nuget.org が想定されます。 
 
 > [!NOTE]
-> API キーは、プライベートフィードでの認証には使用されません。 ソースで認証するための資格情報を管理するには、 [ `nuget sources` コマンド](../cli-reference/cli-ref-sources.md)を参照してください。
+> API キーは、プライベート フィードでの認証には使用されません。 ソースで認証するための資格情報を管理するには、[`nuget sources` コマンド](../cli-reference/cli-ref-sources.md)を参照してください。
 > API キーは、個々の NuGet サーバーから取得できます。 Nuget.org の APIKeys を作成して管理するには、 [api キーを取得](../../nuget-org/scoped-api-keys.md#acquire-an-api-key)する
 
 ## <a name="options"></a>Options

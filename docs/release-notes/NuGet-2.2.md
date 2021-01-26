@@ -1,46 +1,46 @@
 ---
-title: NuGet 2.2 リリース ノート
-description: 既知の問題、バグの修正、追加機能、および Dcr を含む NuGet 2.2 のリリース ノート。
-author: karann-msft
-ms.author: karann
+title: NuGet 2.2 リリースノート
+description: 既知の問題、バグ修正、追加された機能、および DCRs を含む NuGet 2.2 のリリースノート。
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: a968ced3c58b7187a8bd9a8b14baa92f61f0140f
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: cc81d0ff53a5e8ac8b632a08c3cfe0b8b59c9bd7
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545993"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780434"
 ---
-# <a name="nuget-22-release-notes"></a>NuGet 2.2 リリース ノート
+# <a name="nuget-22-release-notes"></a>NuGet 2.2 リリースノート
 
-[NuGet 2.1 リリース ノート](../release-notes/nuget-2.1.md) | [NuGet 2.2.1 リリース ノート](../release-notes/nuget-2.2.1.md)
+[NuGet 2.1 リリースノート](../release-notes/nuget-2.1.md)  | [NuGet 2.2.1 リリースノート](../release-notes/nuget-2.2.1.md)
 
-NuGet 2.2 は、2012 年 12 月 12 日にリリースされました。
+NuGet 2.2 は、2012年12月12日にリリースされました。
 
 ## <a name="visual-studio-quick-launch"></a>Visual Studio のクイック起動
-Visual Studio 2012 で追加された新機能の 1 つが、[クイック起動ダイアログ](/visualstudio/ide/reference/quick-launch-environment-options-dialog-box)します。 NuGet 2.2 では、クイック起動で入力した検索語句でパッケージ マネージャー ダイアログを初期化することができます、このダイアログ ボックスを拡張します。 クイック起動で"jquery"を入力すると、今すぐなどには、"jquery"に一致する NuGet パッケージの検索結果でオプションを含まれます。
+Visual Studio 2012 で追加された新機能の1つに、[ [クイック起動] ダイアログ](/visualstudio/ide/reference/quick-launch-environment-options-dialog-box)がありました。 NuGet 2.2 では、このダイアログボックスが拡張され、クイック起動に入力された検索語句を使用してパッケージマネージャーダイアログを初期化できるようになりました。 たとえば、クイック起動で「jquery」と入力すると、' jquery ' に一致する NuGet パッケージを検索するためのオプションが結果に含まれるようになります。
 
-![Visual Studio のクイック起動の NuGet](./media/quick-launch.png)
+![Visual Studio の NuGet のクイック起動](./media/quick-launch.png)
 
-このオプションを選択すると、"jquery"という用語の標準的な NuGet パッケージ マネージャー検索エクスペリエンスが起動します。
+このオプションを選択すると、"jquery" という用語に対して標準の NuGet パッケージマネージャーの検索エクスペリエンスが起動します。
 
-![あらかじめ設定されている NuGet パッケージ マネージャー ダイアログ ボックス](./media/pkg-mgr-search-from-quick-launch.png)
+![事前設定された NuGet パッケージマネージャーダイアログ](./media/pkg-mgr-search-from-quick-launch.png)
 
-## <a name="specify-entire-folder-for-package-contents"></a>パッケージのコンテンツのフォルダー全体を指定します。
-NuGet 2.2 のフォルダー全体を指定できるようになりました、`<file>`の要素、`.nuspec`ファイルをそのフォルダーの内容のすべてが含まれます。 たとえば、次によりすべてのスクリプト パッケージのスクリプト フォルダーをプロジェクトにパッケージがインストールされている場合、contents\scripts フォルダーに追加します。
+## <a name="specify-entire-folder-for-package-contents"></a>パッケージコンテンツのフォルダー全体を指定する
+NuGet 2.2 では、ファイルの要素にフォルダー全体を指定し `<file>` `.nuspec` て、そのフォルダーのすべての内容を含めることができるようになりました。 たとえば、次のようにすると、パッケージがプロジェクトにインストールされるときに、パッケージの scripts フォルダー内のすべてのスクリプトが content\ scripts フォルダーに追加されます。
 
 ```xml
 <file src="scripts\" target="content\scripts"/>
 ```
 
-**6/24/16 の更新: パッケージをインストールするときに、"content"フォルダー内の空のフォルダーは無視されます。**
+**更新プログラム 6/24/16: パッケージのインストール時に、"content" フォルダー内の空のフォルダーは無視されます。**
 
 ## <a name="known-issues"></a>既知の問題
 
-### <a name="package-installation-fails-for-f-projects-when-using-the-package-manager-console"></a>パッケージ マネージャー コンソールを使用する場合、f# プロジェクトのパッケージのインストールが失敗しました。
-パッケージ マネージャー コンソールを使用して、f# プロジェクトに NuGet パッケージをインストールしようとすると、InvalidOperationException がスローされます。 問題を解決するには、f# チームと協力して積極的にいますが、それまでは、回避は、コンソールではなく、NuGet のパッケージ マネージャー ダイアログ ボックスを使用して、f# のプロジェクトに NuGet パッケージをインストールするには。 [詳細については、codeplex から入手できる](http://nuget.codeplex.com/workitem/2873)します。
+### <a name="package-installation-fails-for-f-projects-when-using-the-package-manager-console"></a>パッケージマネージャーコンソールを使用すると、F # プロジェクトのパッケージのインストールが失敗する
+パッケージマネージャーコンソールを使用して NuGet パッケージを F # プロジェクトにインストールしようとすると、InvalidOperationException がスローされます。 私たちは問題を解決するために F # チームと積極的に連携していますが、その間は、コンソールではなく NuGet の [パッケージマネージャー] ダイアログを使用して、NuGet パッケージを F # プロジェクトにインストールすることをお勧めします。 [詳細については、CodePlex を](http://nuget.codeplex.com/workitem/2873)参照してください。
 
 
-## <a name="bug-fixes"></a>バグ修正
-NuGet 2.2 には、多くのバグ修正が含まれています。 作業の完全な一覧の項目で修正された NuGet 2.2、くださいビュー、[このリリースの NuGet Issue Tracker](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%202.2&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0)します。
+## <a name="bug-fixes"></a>バグの修正
+NuGet 2.2 には、多くのバグ修正が含まれています。 NuGet 2.2 で修正された作業項目の完全な一覧については、 [このリリースの Nuget Issue Tracker](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%202.2&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0)を参照してください。

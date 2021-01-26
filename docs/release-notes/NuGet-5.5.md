@@ -1,16 +1,16 @@
 ---
 title: NuGet 5.5 リリースノート
 description: 新機能、バグ修正、および DCRs を含む NuGet 5.5 のリリースノート。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 03/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0e8ab66c937058e84420bc3e3a5031cbc133aad7
-ms.sourcegitcommit: 1a63a84da2719c8141823ac89a20bf507fd22b00
+ms.openlocfilehash: 0fde67dd03c31e986ed89f2f8627608e279ef908
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80148283"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780114"
 ---
 # <a name="nuget-55-release-notes"></a>NuGet 5.5 リリースノート
 
@@ -18,7 +18,7 @@ NuGet 配布の種類:
 
 | NuGet のバージョン | 利用可能な Visual Studio バージョン| 利用可能な .NET SDK|
 |:---|:---|:---|
-| [**5.5.0**](https://nuget.org/downloads) | [Visual Studio 2019 バージョン16.5](https://visualstudio.microsoft.com/downloads/) | [3.1.200](https://dotnet.microsoft.com/download/dotnet-core/3.1)<sup>1</sup> |
+| [**5.5.0**](https://nuget.org/downloads) | [Visual Studio 2019 バージョン 16.5](https://visualstudio.microsoft.com/downloads/) | [3.1.200](https://dotnet.microsoft.com/download/dotnet-core/3.1)<sup>1</sup> |
 
 <sup>1</sup>.NET Core ワークロードを含む Visual Studio 2019 と共にインストールされます。
 
@@ -28,27 +28,27 @@ NuGet 配布の種類:
     * スクリーンリーダーエクスペリエンスでのアクセシビリティの問題、ショートカットテキストがない、インストールされたテキストボックスのアクセス可能な名前などが含まれている、- [#9059](https://github.com/NuGet/Home/issues/9059)
     * パッケージ一覧のスクリーンリーダーエクスペリエンスに関するアクセシビリティの問題- [#9077](https://github.com/NuGet/Home/issues/9077)
     * "参照"、"インストール"、"更新" タブに関連するスクリーンリーダーエクスペリエンスのアクセシビリティに関する問題- [#9078](https://github.com/NuGet/Home/issues/9078)
-    * ナレーターは、"Blank"、"No Dependencies" "、" nuget.exe "、" MIT "のリンクラベルを発表しません[#9157](https://github.com/NuGet/Home/issues/9157)
+    * ナレーターは、"Blank"、"No Dependencies" "、" nuget.exe "、" MIT "のリンクラベルを発表しません [#9157](https://github.com/NuGet/Home/issues/9157)
 
 * ローカルフィードでホストされているパッケージのための、Visual Studio パッケージマネージャー UI での自己完結型アイコンの表示のサポート- [#8189](https://github.com/NuGet/Home/issues/8189)
 
-* MSBuild スタティック Graph Api を呼び出すことによって評価を高速化する `RestoreUseStaticGraphEvaluation` を使用した非 op 復元のパフォーマンスが大幅に向上しました- [8791](https://github.com/NuGet/Home/issues/8791)
+* `RestoreUseStaticGraphEvaluation`MSBuild スタティック Graph api を呼び出して評価を高速化する、を使用した非 op 復元パフォーマンスの大幅な向上- [8791](https://github.com/NuGet/Home/issues/8791)
 
-* クロスプラットフォーム認証プラグインによる dotnet の信頼性の向上
+* クロスプラットフォーム認証プラグインでの dotnet.exe の信頼性の向上
     * [#7842](https://github.com/NuGet/Home/issues/7842) TaskCanceledException で失敗 dotnet restore
     * プラグイン: "タスクが取り消されました"-これにより、ADO 認証に問題があります。 - [#8528](https://github.com/NuGet/Home/issues/8528)
 
-* `dotnet nuget <add|remove|update|disable|enable|list> source` コマンド[#4126](https://github.com/NuGet/Home/issues/4126)の追加
+* `dotnet nuget <add|remove|update|disable|enable|list> source`コマンド[#4126](https://github.com/NuGet/Home/issues/4126)の追加
 
-* Dotnet nuget プッシュ[#8778](https://github.com/NuGet/Home/issues/8778)を使用した `--skip-duplicate` のサポート
+* `--skip-duplicate`Dotnet nuget プッシュ[#8778](https://github.com/NuGet/Home/issues/8778)の使用に関するサポート
 
-* Msbuild/restore を使用した `packages.config` のサポート- [#8506](https://github.com/NuGet/Home/issues/8506)
+* `packages.config`Msbuild/restore を使用したサポート- [#8506](https://github.com/NuGet/Home/issues/8506)
 
 ### <a name="issues-fixed-in-this-release"></a>このリリースで修正された問題
 
 **バグ**
 
-* V3 Api を使用して自己アップデーターを再作業する- [#4197](https://github.com/NuGet/Home/issues/4197)
+* V3 Api を使用した Self-Updater の再作業- [#4197](https://github.com/NuGet/Home/issues/4197)
 
 * パッケージの依存関係のバージョンが ' * ' に設定されている場合、パッケージの依存関係のバージョンが正しくありません- [#6697](https://github.com/NuGet/Home/issues/6697)
 
@@ -56,7 +56,7 @@ NuGet 配布の種類:
 
 * "*" シナリオでは、ロックファイルは受け入れられません- [#8073](https://github.com/NuGet/Home/issues/8073)
 
-* PackageReference を使用している場合、Nuget.exe はパッケージの最新バージョンに解決されません (MSBuild/Dotnet/VS restore do)- [#8432](https://github.com/NuGet/Home/issues/8432)
+* PackageReference (MSBuild/Dotnet/VS restore do) を使用している場合、NuGet.exe はパッケージの最新バージョンに解決されません。- [#8432](https://github.com/NuGet/Home/issues/8432)
 
 * dotnet list パッケージとマルチターゲット化 WPF プロジェクト- [#8463](https://github.com/NuGet/Home/issues/8463)
 
@@ -72,17 +72,17 @@ NuGet 配布の種類:
 
 * VS: ソリューションの復元永続的が競合状態によって失敗する- [#8881](https://github.com/NuGet/Home/issues/8881)
 
-* [インストール済み] タブおよび [検索] の定数 "読み込み中" <term>[更新] タブの [#8890](https://github.com/NuGet/Home/issues/8890)
+* [インストール済み] タブおよび [検索] の定数 "読み込み中" <term>[更新] タブの [ [#8890](https://github.com/NuGet/Home/issues/8890)
 
 * キャッシュの有効期限が切れた後、VS PM UI に埋め込みアイコンがない- [#9069](https://github.com/NuGet/Home/issues/9069)
 
-* アドイン UI の起動[#9112](https://github.com/NuGet/Home/issues/9112)
+* アドイン UI の起動 [#9112](https://github.com/NuGet/Home/issues/9112)
 
 * Restore: IncludeExcludeFiles. Equals (...) の実装が正しくありません- [#9167](https://github.com/NuGet/Home/issues/9167)
 
-* 復元: PackageSpec () は、等しくない複製を作成し[#9211](https://github.com/NuGet/Home/issues/9211)
+* 復元: PackageSpec () は、等しくない複製を作成し [#9211](https://github.com/NuGet/Home/issues/9211)
 
-* [ビルドがエラーで終了した場合は常にエラー一覧を表示する] がオンになっていない場合に表示されるエラー一覧[#8190](https://github.com/NuGet/Home/issues/8190)
+* [ビルドがエラーで終了した場合は常にエラー一覧を表示する] がオンになっていない場合に表示されるエラー一覧 [#8190](https://github.com/NuGet/Home/issues/8190)
 
 * 静的なグラフの復元では、空の SolutionPath を渡すことはできません- [#9061](https://github.com/NuGet/Home/issues/9061)
 
@@ -92,11 +92,11 @@ NuGet 配布の種類:
 
 * 復元: 大きなオブジェクトヒープ (LOH) で作成された大きな文字列- [#9031](https://github.com/NuGet/Home/issues/9031)
 
-* 新しい mono のカスタム nuget.exe は、MSBuild SDK リゾルバー- [8848](https://github.com/NuGet/Home/issues/8848)が原因で壊れている可能性があります。
+* 新しい mono のカスタム nuget.exe が MSBuild SDK リゾルバー- [8848](https://github.com/NuGet/Home/issues/8848)のために壊れている可能性があります
 
-* dgspec が "別のプロセスで使用されています"- [8692](https://github.com/NuGet/Home/issues/8692)の場合に復元が失敗する
+* で nuget.dgspec.jsが "別のプロセスで使用されています"- [8692](https://github.com/NuGet/Home/issues/8692)の場合に復元が失敗する
 
-**Dcr**
+**DCR**
 
 * _GetRestoreProjectStyle のロジックはタスクの[#8804](https://github.com/NuGet/Home/issues/8804)である必要があります。
 

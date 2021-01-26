@@ -1,16 +1,16 @@
 ---
 title: NuGet 5.3 リリースノート
 description: 新機能、バグ修正、および DCRs を含む NuGet 5.3 のリリースノート。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 09/06/2019
 ms.topic: conceptual
-ms.openlocfilehash: ca71c5b9ef546f3ea92e55763d5059466ac3a930
-ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
+ms.openlocfilehash: 009a219139a767ee6453305be68ccce478b0ec75
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76813755"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780125"
 ---
 # <a name="nuget-53-release-notes"></a>NuGet 5.3 リリースノート
 
@@ -18,7 +18,7 @@ NuGet 配布の種類:
 
 | NuGet のバージョン | 利用可能な Visual Studio バージョン| 利用可能な .NET SDK|
 |:---|:---|:---|
-| [**以降**](https://nuget.org/downloads) | [Visual Studio 2019 バージョン16.3](https://visualstudio.microsoft.com/downloads/) | [3.0.100](https://dotnet.microsoft.com/download/dotnet-core/3.0)<sup>1</sup> |
+| [**以降**](https://nuget.org/downloads) | [Visual Studio 2019 バージョン 16.3](https://visualstudio.microsoft.com/downloads/) | [3.0.100](https://dotnet.microsoft.com/download/dotnet-core/3.0)<sup>1</sup> |
 | [**5.3.1**](https://nuget.org/downloads) | [Visual Studio 2019 バージョン16.3.6](https://visualstudio.microsoft.com/downloads/) | [将来のバージョン: 3.0.101](https://dotnet.microsoft.com/download/dotnet-core/3.0) |
 
 <sup>1</sup>.NET Core ワークロードを含む Visual Studio 2019 と共にインストールされます。
@@ -27,17 +27,17 @@ NuGet 配布の種類:
 
 * パッケージアイコンは、外部 URL を必要とするのではなく、[パッケージに埋め込むことができ](../reference/msbuild-targets.md#packing-an-icon-image-file)ます。 - [#352](https://github.com/NuGet/Home/issues/352)
 
-* パッケージの SHA の追跡と強制によるセキュリティ強化- [#7281](https://github.com/NuGet/Home/issues/7281)
+* Packages.Config [#7281](https://github.com/NuGet/Home/issues/7281)に対する SHA の追跡と強制によるセキュリティ強化
 
-* 使用されていない/従来の NuGet パッケージの廃止を有効にする[#2867](https://github.com/NuGet/Home/issues/2867) | の[ブログ投稿](https://devblogs.microsoft.com/nuget/deprecating-packages-on-nuget-org/) | [ドキュメント](../nuget-org/deprecate-packages.md)
+* 廃止された、または従来の NuGet パッケージの廃止を有効にする[#2867](https://github.com/NuGet/Home/issues/2867)  |  [ブログの投稿](https://devblogs.microsoft.com/nuget/deprecating-packages-on-nuget-org/)  |  [ドキュメント](../nuget-org/deprecate-packages.md)
 
 ### <a name="issues-fixed-in-this-release"></a>このリリースで修正された問題
 
 **バグ**
 
-* 3\.0.100 preview9 SDK で生成された NuGet パッケージは、2.2 SDK ユーザーが使用することはできません...タイムゾーンに応じて[#8603](https://github.com/NuGet/Home/issues/8603)
+* 3.0.100 preview9 SDK で生成された NuGet パッケージは、2.2 SDK ユーザーが使用することはできません...タイムゾーンに応じて [#8603](https://github.com/NuGet/Home/issues/8603)
 
-* 引用符 "パス内の文字が原因で、`nuget restore` のパスに無効な文字があります" エラー [#8168](https://github.com/NuGet/Home/issues/8168)
+* 引用符 "パス内の文字が原因で、パスに無効な文字が含まれる" というエラーが発生する `nuget restore` [#8168](https://github.com/NuGet/Home/issues/8168)
 
 * VS: アセンブリが完全に ngen されていません。 [#8513](https://github.com/NuGet/Home/issues/8513)
 
@@ -47,7 +47,7 @@ NuGet 配布の種類:
 
 * NU1403 の改善-すべてのパッケージを検証し、予期される/実際の sha 値を含めます- [#8424](https://github.com/NuGet/Home/issues/8424)
 
-* `NuGetPackageManager.PreviewUpdatePackagesAsync` - の複数の列挙型[#8401](https://github.com/NuGet/Home/issues/8401)
+* #8401 内の複数の列挙型 `NuGetPackageManager.PreviewUpdatePackagesAsync`  -  [](https://github.com/NuGet/Home/issues/8401)
 
 * PluginProcess の "パブリック > 内部" の変更を元に戻す- [#8390](https://github.com/NuGet/Home/issues/8390)
 
@@ -63,7 +63,7 @@ NuGet 配布の種類:
 
 * パッケージマネージャー UI の [参照] タブで UI の更新を減らす #6570- [#8339](https://github.com/NuGet/Home/issues/8339)
 
-* [テストの失敗]"構成ファイルを解析できません" というメッセージが2回表示され[#8320](https://github.com/NuGet/Home/issues/8320)
+* [テストの失敗]"構成ファイルを解析できません" というメッセージが2回表示され [#8320](https://github.com/NuGet/Home/issues/8320)
 
 * お客様の修正プログラムについて説明する適切なドキュメントページで、NU5037 エラーを発生させます (パッケージに必要な nuspec ファイルがありません)- [#8291](https://github.com/NuGet/Home/issues/8291)
 
@@ -71,15 +71,15 @@ NuGet 配布の種類:
 
 * VS レイジー [#8156](https://github.com/NuGet/Home/issues/8156)で設定を読み取ります。
 
-* `Nuget sources add` の回帰により、"the ': ' 文字、16進数値 0x3A" は名前に含めることができません "エラー- [#7948](https://github.com/NuGet/Home/issues/7948)
+* の回帰では、 `Nuget sources add` "the ': ' 文字、16進数値 0x3A, を名前に含めることはできません" エラー- [#7948](https://github.com/NuGet/Home/issues/7948)
 
 * NuGet プラグイン資格情報プロバイダー-プロセスウィンドウを非表示にする- [#7511](https://github.com/NuGet/Home/issues/7511)
 
-* 強制 PackagePathResolver は絶対パス[#7349](https://github.com/NuGet/Home/issues/7349)
+* 強制 PackagePathResolver は絶対パス [#7349](https://github.com/NuGet/Home/issues/7349)
 
 * パッケージマネージャー UI の [インストール] タブと [更新] タブで UI の更新を減らす- [#6570](https://github.com/NuGet/Home/issues/6570)
 
-**DCR:**
+**DCR**
 
 * NetStandard 2.1- [#8368](https://github.com/NuGet/Home/issues/8368)にマップするように Xamarin フレームワークを更新する
 
@@ -87,11 +87,11 @@ NuGet 配布の種類:
 
 * [Proj ファイルの復元を有効にする]- [#8212](https://github.com/NuGet/Home/issues/8212)
 
-* 同時に`NUGET_NETCORE_PLUGIN_PATHS`両方の構成をサポートすると共`NUGET_NETFX_PLUGIN_PATHS`に - [#8151](https://github.com/NuGet/Home/issues/8151)
+* 同時 `NUGET_NETFX_PLUGIN_PATHS` `NUGET_NETCORE_PLUGIN_PATHS` に両方の構成をサポートすると共に [#8151](https://github.com/NuGet/Home/issues/8151)
 
 * バージョン属性を使用して PackageDownload の複数のバージョンを有効にする- [#8074](https://github.com/NuGet/Home/issues/8074)
 
-* -SolutionDirectory オプションと-PackageDirectory オプションを nuget.exe pack- [#7163](https://github.com/NuGet/Home/issues/7163)に追加します。
+* -SolutionDirectory オプションと-PackageDirectory オプションを nuget.exe pack- [#7163](https://github.com/NuGet/Home/issues/7163)に追加する
 
 **[このリリースで修正されるすべての問題の一覧-5.3](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%225.3")**
 

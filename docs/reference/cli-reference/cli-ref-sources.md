@@ -1,16 +1,16 @@
 ---
 title: NuGet CLI ソースコマンド
 description: nuget.exe sources コマンドのリファレンス
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 73c9cea8200a1ab1937d25a9a611ae7f2a943dba
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 0e9cbdd089c5c0f66d25e7588ece504feae63f2f
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622591"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780008"
 ---
 # <a name="sources-command-nuget-cli"></a>sources コマンド (NuGet CLI)
 
@@ -20,13 +20,13 @@ ms.locfileid: "88622591"
 
 ここで、nuget.org のソース URL は `https://api.nuget.org/v3/index.json` となります。
 
-## <a name="usage"></a>使用法
+## <a name="usage"></a>使用方法
 
 ```cli
 nuget sources <operation> -Name <name> -Source <source>
 ```
 
-ここで `<operation>` 、は *List、Add、Remove、Enable、Disable、* または *Update*のいずれかで、は `<name>` ソースの名前、 `<source>` はソースの URL です。 操作できるソースは一度に1つだけです。
+ここで `<operation>` 、は *List、Add、Remove、Enable、Disable、* または *Update* のいずれかで、は `<name>` ソースの名前、 `<source>` はソースの URL です。 操作できるソースは一度に1つだけです。
 
 ## <a name="options"></a>Options
 

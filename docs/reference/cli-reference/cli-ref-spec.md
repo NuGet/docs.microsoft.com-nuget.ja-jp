@@ -1,16 +1,16 @@
 ---
 title: NuGet CLI spec コマンド
 description: nuget.exe spec コマンドのリファレンス
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 17603fa30a75c7906f867c96c5d77f31732eaa59
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: b7780ee5d2e722da5e1623f44709059dd9aa3d45
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622565"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98779144"
 ---
 # <a name="spec-command-nuget-cli"></a>spec コマンド (NuGet CLI)
 
@@ -18,7 +18,7 @@ ms.locfileid: "88622565"
 
 `.nuspec`新しいパッケージのファイルを生成します。 プロジェクトファイルと同じフォルダー (、、) で実行すると `.csproj` `.vbproj` 、はトークン化 `.fsproj` `spec` されたファイルを作成し `.nuspec` ます。 詳細については、「 [パッケージの作成](../../create-packages/creating-a-package.md)」を参照してください。
 
-## <a name="usage"></a>使用法
+## <a name="usage"></a>使用方法
 
 ```cli
 nuget spec [<packageID>] [options]

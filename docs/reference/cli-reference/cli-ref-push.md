@@ -1,16 +1,16 @@
 ---
 title: NuGet CLI プッシュコマンド
 description: nuget.exe push コマンドのリファレンス
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: d53a2e7f41219e68e59b195d1d5a9d1f62ad7c63
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 54a09361173ae10040433b05fcfae7304e39452e
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622847"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98779187"
 ---
 # <a name="push-command-nuget-cli"></a>push コマンド (NuGet CLI)
 
@@ -23,7 +23,7 @@ ms.locfileid: "88622847"
 
 NuGet の既定の構成を取得するには `%AppData%\NuGet\NuGet.Config` 、(Windows) または `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) を読み込み、 `Nuget.Config` `.nuget\Nuget.Config` ドライブのルートから開始し、現在のディレクトリで終了します ( [一般的な nuget 構成](../../consume-packages/configuring-nuget-behavior.md)を参照してください)。
 
-## <a name="usage"></a>使用法
+## <a name="usage"></a>使用方法
 
 ```cli
 nuget push <packagePath> [options]
@@ -67,7 +67,7 @@ nuget push <packagePath> [options]
 
 - **`-src|-Source`**
 
-  サーバー URL を指定します。 NuGet は UNC またはローカルフォルダーソースを識別し、HTTP を使用してプッシュするのではなく、そこにファイルをコピーするだけです。  また、NuGet 3.4.2 以降では、ファイルで Defaultpushsource 値が指定されていない限り、これは必須パラメーターです `NuGet.Config` (「 [NuGet の動作の構成](../../consume-packages/configuring-nuget-behavior.md)」を参照してください)。 *DefaultPushSource*
+  サーバー URL を指定します。 NuGet によって UNC またはローカル フォルダー ソースが識別され、HTTP を使用してファイルがプッシュされるのではなく、単にそこにファイルがコピーされます。  また、NuGet 3.4.2 以降では、ファイルで Defaultpushsource 値が指定されていない限り、これは必須パラメーターです `NuGet.Config` (「 [NuGet の動作の構成](../../consume-packages/configuring-nuget-behavior.md)」を参照してください)。 
 
 - **`-SkipDuplicate`**
 
