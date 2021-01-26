@@ -1,45 +1,45 @@
 ---
-title: NuGet 3.0 RC リリース ノートします。
-description: 既知の問題、バグの修正、追加機能、および Dcr を含む NuGet 3.0 RC のリリース ノート。
-author: karann-msft
-ms.author: karann
+title: NuGet 3.0 RC リリースノート
+description: 既知の問題、バグ修正、追加された機能、および DCRs を含む NuGet 3.0 RC のリリースノート。
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 0575cb1598f259a1cf1597f67123b644d67c31b5
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 19bc51a278425295811db253ca3f4ba4366ccf49
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551720"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776567"
 ---
-# <a name="nuget-30-rc-release-notes"></a>NuGet 3.0 RC リリース ノートします。
+# <a name="nuget-30-rc-release-notes"></a>NuGet 3.0 RC リリースノート
 
-[NuGet 3.0 ベータ版のリリース ノート](../release-notes/nuget-3.0-beta.md) | [NuGet 3.0 RC2 リリース ノート](../release-notes/nuget-3.0-RC2.md)
+[NuGet 3.0 ベータリリースノート](../release-notes/nuget-3.0-beta.md)  | [NuGet 3.0 RC2 リリースノート](../release-notes/nuget-3.0-RC2.md)
 
-NuGet 3.0 RC は、Visual Studio 2015 RC リリースでは、2015 年 4 月 29 日にリリースされました。 このリリースではさまざまな重要なバグの修正、パフォーマンスの向上と新しいフレームワークをサポートするために更新します。  Visual Studio 2015 の使用可能なは。
+NuGet 3.0 RC は、Visual Studio 2015 RC リリースで2015年4月29日にリリースされました。 このリリースには、新しいフレームワークをサポートするために、いくつかの重要なバグ修正、パフォーマンスの向上、および更新が含まれています。  これは、Visual Studio 2015 でのみ使用できます。
 
-### <a name="continued-focus-on-performance"></a>パフォーマンスで継続的なフォーカス
+### <a name="continued-focus-on-performance"></a>パフォーマンスについての継続的な取り組み
 
-安定性と NuGet のクエリのパフォーマンスに注目していますが、ホットなトピックを続行します。  このリリースでは、NuGet UI と web サイトで非常に高速検索操作を参照してくださいを開始する必要があります。  サービスおよびこれらの操作を調整することを続行するために、サービスを使用する方法を監視しています。
+NuGet クエリの安定性とパフォーマンスは、注目している最新のトピックとして引き続き利用できます。  このリリースでは、NuGet UI と web サイトで非常に簡単な検索操作を確認できます。  サービスを監視し、サービスの使用方法を監視して、引き続きこれらの操作を調整できるようにします。
 
-## <a name="significant-issues-resolved"></a>重要な問題の解決
+## <a name="significant-issues-resolved"></a>重大な問題の解決
 
-NuGet クライアントを安定化するためには、このリリースの一環として多くの問題を解決しました。  さらに重要な問題を解決のいくつかの簡単な一覧だけを次に示します。
+NuGet クライアントを安定化するために、このリリースの一部として多くの問題を解決しました。  次に、いくつかの重要な問題の解決方法を簡単に示します。
 
-* Dnx と dnxcore を処理する ASP.NET 5 の K フレームワークの名前の変更の一環として、フレームワークのモニカーが更新されました[リンク](https://github.com/NuGet/Home/issues/215)
-* Visual Studio UI 内のリンクからヘルプ ドキュメントが追加されました[リンク](https://github.com/NuGet/Home/issues/232)
-* 複雑な参照の処理の改善`.nuspec`フレームワークのコンマ区切りの参照を含む[リンク](https://github.com/NuGet/Home/issues/276)
-* 日本語のカルチャのサポートを修正しました[リンク。](https://github.com/NuGet/Home/issues/253)
-* ASP.NET 5 プロジェクトで新しい v3 エンドポイントの使用を許可する更新されたクライアント[リンク](https://github.com/NuGet/Home/issues/219)
-* ソース コントロールにハンドルを適切に更新されたパッケージ フォルダー[リンク](https://github.com/NuGet/Home/issues/56)
-* サテライト パッケージのサポートを修正しました[リンク。](https://github.com/NuGet/Home/issues/17)
-* フレームワークに固有のコンテンツ ファイルのサポートを修正[リンク](https://github.com/NuGet/Home/issues/18)
+* ASP.NET 5 用の K フレームワークの名前変更の一部として、dnx および dnxcore[リンク](https://github.com/NuGet/Home/issues/215)を処理するようにフレームワークモニカーが更新されました。
+* Visual Studio UI[リンク](https://github.com/NuGet/Home/issues/232)のリンクからヘルプドキュメントを追加しました
+* `.nuspec`コンマ区切りフレームワーク参照[リンク](https://github.com/NuGet/Home/issues/276)を使用したでの複雑な参照の処理の向上
+* 日本語のカルチャ[リンク](https://github.com/NuGet/Home/issues/253)のサポートを修正した
+* ASP.NET 5 プロジェクトが新しい v3 エンドポイント[リンク](https://github.com/NuGet/Home/issues/219)を使用できるように更新されたクライアント
+* ソース管理[リンク](https://github.com/NuGet/Home/issues/56)を使用してパッケージフォルダーをより適切に処理するよう更新されました
+* サテライトパッケージ[リンク](https://github.com/NuGet/Home/issues/17)のサポートを修正した
+* フレームワーク固有のコンテンツファイル[リンク](https://github.com/NuGet/Home/issues/18)のサポートを修正しました
 
-## <a name="github-presence-overhaul"></a>GitHub のプレゼンスの改訂
+## <a name="github-presence-overhaul"></a>GitHub のプレゼンスの見直し
 
-いくつかの変更を行いました、[ソース コード リポジトリの GitHub](http://github.com/nuget/home)します。  Visual Studio の NuGet クライアント、Powershell コマンド、または、コマンド ラインで問題がある場合実行可能ファイルこれらの問題を記録してで進行状況を監視、[ホームの GitHub リポジトリの issue 一覧](http://github.com/nuget/home/issues)します。  ギャラリーでの問題を追跡します、[リポジトリの GitHub NuGetGallery](http://github.com/nuget/NuGetGallery/issues)します。
+[GitHub のソースコードリポジトリ](http://github.com/nuget/home)にいくつかの変更を加えました。  NuGet Visual Studio クライアント、Powershell コマンド、またはコマンドライン実行可能ファイルに問題がある場合は、それらの問題をログに記録し、 [GitHub ホームリポジトリの問題リスト](http://github.com/nuget/home/issues)で進行状況を監視することができます。  [GitHub NuGetGallery リポジトリ](http://github.com/nuget/NuGetGallery/issues)でギャラリーの問題を追跡しています。
 
 
-## <a name="stay-tuned"></a>お見逃しなく
+## <a name="stay-tuned"></a>引き続きご期待ください
 
-監視してください[ブログ](http://blog.nuget.org)の詳細の進行状況と NuGet 3.0 のお知らせください。
+NuGet 3.0 の進行状況と発表の詳細については、 [ブログをご覧](http://blog.nuget.org) ください。

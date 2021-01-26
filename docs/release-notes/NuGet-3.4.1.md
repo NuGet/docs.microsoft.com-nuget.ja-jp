@@ -1,27 +1,27 @@
 ---
-title: NuGet 3.4.1 リリース ノート
-description: NuGet 3.4.1 などのリリース ノートには、問題、バグの修正、追加機能、および Dcr が知られています。
-author: karann-msft
-ms.author: karann
+title: NuGet 3.4.1 のリリースノート
+description: 既知の問題、バグ修正、追加された機能、および DCRs を含む NuGet 3.4.1 のリリースノート。
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: e3f90646149b6a1a0e6a2639979110fb779d973c
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 1e234becd2c92ae64fa0f1ac95b358e9a2fb3207
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547558"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776478"
 ---
-# <a name="nuget-341-release-notes"></a>NuGet 3.4.1 リリース ノート
+# <a name="nuget-341-release-notes"></a>NuGet 3.4.1 のリリースノート
 
-[NuGet 3.4 のリリース ノート](../release-notes/nuget-3.4.md) | [NuGet 3.4.2 リリース ノート](../release-notes/nuget-3.4.2.md)
+[NuGet 3.4 リリースノート](../release-notes/nuget-3.4.md)  | [NuGet 3.4.2 のリリースノート](../release-notes/nuget-3.4.2.md)
 
-NuGet 3.4.1 は、2016 年 3 月 30日年、Visual Studio 2015 Update 2 と Visual Studio 15 Preview リリース 3.4 のリリースで識別されたいくつかの問題に対処すると同時にリリースされました。
+NuGet 3.4.1 は、2016年3月30日にリリースされ、Visual Studio 2015 Update 2 および Visual Studio 15 Preview リリースと同時にリリースされ、3.4 リリースで特定されたいくつかの問題に対処しています。
 
 ## <a name="updates-and-improvements"></a>更新プログラムと機能強化
 
-* 最小インストールによって Visual Studio、Visual Studio UI からパッケージの参照がある問題を修正
-* Visual Studio の検索で問題を修正しました `lucene.net.dll`
-* NuGet 拡張機能のインストールまたは更新した後、すべてのソースは、既定のリポジトリ ソースをしないでください。  オプトインできるこの機能を構成設定から。
+* Visual Studio の最小限のインストールで Visual Studio UI からパッケージを参照できない問題を修正しました
+* Visual Studio の検索に関する問題を修正しました `lucene.net.dll`
+* NuGet 拡張機能をインストールまたは更新した後は、すべてのソースを既定のリポジトリソースにすることはできません。  この機能は、構成設定からオプトインできます。
 
-GitHub の問題一覧上の問題を追跡するために引き続き。 [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)
+GitHub の問題の一覧に関する問題は、引き続き次の場所にあります。 [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)

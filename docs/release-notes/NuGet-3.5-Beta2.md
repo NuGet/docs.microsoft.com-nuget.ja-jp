@@ -1,93 +1,93 @@
 ---
-title: 3.5 beta 2 リリース ノート
-description: 既知の問題、バグの修正、追加機能、および Dcr を含む NuGet 3.5 Beta 2 のリリース ノート。
-author: karann-msft
-ms.author: karann
+title: 3.5 Beta2 のリリースノート
+description: 既知の問題、バグ修正、追加された機能、および DCRs を含む NuGet 3.5 Beta 2 のリリースノート。
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 4b47939e2fafc11823c41a849b3c58bbf0800ada
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 2aa92d4ef97acb2b4b70388cd4d580e7094aea45
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551992"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776387"
 ---
-# <a name="nuget-35-beta2-release-notes"></a>NuGet 3.5 beta 2 リリース ノートします。
+# <a name="nuget-35-beta2-release-notes"></a>NuGet 3.5 Beta2 のリリースノート
 
-[NuGet 3.5 のベータ リリース ノート](../release-notes/nuget-3.5-Beta.md) | [NuGet 3.5 RC リリース ノート](../release-notes/nuget-3.5-RC.md)
+[NuGet 3.5-ベータリリースノート](../release-notes/nuget-3.5-Beta.md)  | [NuGet 3.5-RC リリースノート](../release-notes/nuget-3.5-RC.md)
 
-用と nuget.exe の Visual Studio 2013、2016 年 6 月 27 日にリリースされた NuGet 3.5 Beta 2 の RTM
+NuGet 3.5 Beta 2 RTM は、Visual Studio 2013 と nuget.exe に2016年6月27日にリリースされました
 
-[完全な変更ログ](https://github.com/NuGet/NuGet.Client/compare/release-3.5.0-beta...release-3.5.0-beta2)
+[完全な Changelog](https://github.com/NuGet/NuGet.Client/compare/release-3.5.0-beta...release-3.5.0-beta2)
 
 [懸案事項リスト](https://github.com/Nuget/Home/issues?q=is%3Aissue+milestone%3A%223.5+Beta2%22+is%3Aclosed)
 
-## <a name="bug-fixes"></a>バグ修正
+## <a name="bug-fixes"></a>バグの修正
 
-* 更新されたエラー メッセージの認証されたフィード - .NET Core でのパスワード decrpytion のサポートの不足を[#2942](https://github.com/NuGet/Home/issues/2942)
+* 認証されたフィード用の .NET Core でのパスワード decrpytion のサポート不足に関するエラーメッセージを更新しました- [#2942](https://github.com/NuGet/Home/issues/2942)
 
-* パッケージ マネージャー コンソール Get-パッケージが失敗する場合は、.NET Core プロジェクトを開く - [#2932](https://github.com/NuGet/Home/issues/2932)
+* .NET Core プロジェクトが開いている場合、パッケージマネージャーコンソール Get-Package が失敗する [#2932](https://github.com/NuGet/Home/issues/2932)
 
-* NuGet push コマンドで 403 が不適切に処理を修正[#2910](https://github.com/NuGet/Home/issues/2910)
+* NuGet push コマンドでの403の不適切な処理を修正し [#2910](https://github.com/NuGet/Home/issues/2910)
 
-* DisableSourceControlIntegration が設定されている場合は、TFS ソース管理にバインドされているソリューション内のパッケージのアンインストールで問題を修正する true - [#2739](https://github.com/NuGet/Home/issues/2739)
+* DisableSourceControlIntegration が true に設定されている場合に TFS ソース管理にバインドされているソリューションでのパッケージのアンインストールに関する問題を修正しました- [#2739](https://github.com/NuGet/Home/issues/2739)
 
-* アカウントのターゲット以外パッケージ - を考慮するパッケージの更新の修正[#2724](https://github.com/NuGet/Home/issues/2724)
+* 対象外のパッケージを考慮するようにパッケージの更新を修正する- [#2724](https://github.com/NuGet/Home/issues/2724)
 
-* MSBuild の詳細レベルを使用して UI アクションの Nuget パッケージ マネージャーのログ レベルを設定する[#2705](https://github.com/NuGet/Home/issues/2705)
+* MSBuild の詳細レベルを使用して Nuget パッケージマネージャーの UI 操作のロガーレベルを設定する- [#2705](https://github.com/NuGet/Home/issues/2705)
 
-* NuGet の構成の修正プログラムは、web サイト プロジェクトの VS 2015 VSIX (v3.4.3) - で無効なエラー [#2667](https://github.com/NuGet/Home/issues/2667)
+* Web サイトプロジェクトの NuGet 構成が無効であることを修正するエラー-VS 2015 VSIX (v 3.4.3)- [#2667](https://github.com/NuGet/Home/issues/2667)
 
-* パックに関する問題を修正`.csproj`コンテンツ ファイルが含まれています - とき[#2658](https://github.com/NuGet/Home/issues/2658)
+* コンテンツファイルが含まれている場合のパックの問題を修正 `.csproj` する- [#2658](https://github.com/NuGet/Home/issues/2658)
 
-* DefaultPushSource `NuGetDefaults.Config` (`ProgramData\NuGet`) が動作しない - [#2653](https://github.com/NuGet/Home/issues/2653)
+* () の DefaultPushSource `NuGetDefaults.Config` `ProgramData\NuGet` が動作しません [#2653](https://github.com/NuGet/Home/issues/2653)
 
-* 値をパッケージの作成時に null にすることはできません - Nuget 3.4.3 リリースで問題を解決[#2648](https://github.com/NuGet/Home/issues/2648)
+* Nuget 3.4.3 のリリースで問題を修正する-パッケージの作成時に値を null にすることはできません- [#2648](https://github.com/NuGet/Home/issues/2648)
 
-* 復元は Nuget.Config から保存された資格情報を使用して VSTS フィード - [#2647](https://github.com/NuGet/Home/issues/2647)
+* 復元では、VSTS フィードの Nuget.Config から格納された資格情報を使用します。 [#2647](https://github.com/NuGet/Home/issues/2647)
 
-* パフォーマンス - 内のバージョンの比較コード修正の過剰な割り当て - [#2632](https://github.com/NuGet/Home/issues/2632)
+* パフォーマンス-バージョン comparsion で過剰な割り当てを修正するコード- [#2632](https://github.com/NuGet/Home/issues/2632)
 
-* Nuget.exe の複数のインスタンスが、並列 - 同じパッケージをインストールしようとしています問題を修正[#2628。](https://github.com/NuGet/Home/issues/2628)
+* nuget.exe の複数のインスタンスが並列[#2628](https://github.com/NuGet/Home/issues/2628)で同じパッケージをインストールしようとしたときに発生する問題を修正します。
 
-* パフォーマンスのマルチ プロジェクトの操作の依存関係情報をキャッシュ - [#2619](https://github.com/NuGet/Home/issues/2619)
+* パフォーマンス-複数プロジェクトの操作の依存関係情報をキャッシュする- [#2619](https://github.com/NuGet/Home/issues/2619)
 
-* 問題を修正するソースのリストが空の場合に、パッケージ ソースというが設定から追加する場所[#2617](https://github.com/NuGet/Home/issues/2617)
+* ソースリストが空のときにパッケージソースを設定から追加できない問題を修正しました- [#2617](https://github.com/NuGet/Home/issues/2617)
 
-* デザイン時のファサードに依存するパッケージをインストールするときに、誤解を招きやすいエラーを修正する[#2594](https://github.com/NuGet/Home/issues/2594)
+* デザイン時のファサードに依存するパッケージをインストールしようとすると[#2594](https://github.com/NuGet/Home/issues/2594) 、誤解を招くエラーを修正する
 
-* のみ最初のソース -"All"の設定で PackageManager コンソールからパッケージをインストールしようと[#2557](https://github.com/NuGet/Home/issues/2557)
+* "All" に設定して、パッケージを "All" に設定してパッケージをインストールすると、最初のソース[#2557](https://github.com/NuGet/Home/issues/2557)のみが試行される
 
-* 書き込み時間が、将来の (Mono) - ファイルのパッケージに関する問題を解決[#2518](https://github.com/NuGet/Home/issues/2518)
+* 将来 (Mono) で書き込み時間があるファイルを含むパッケージに関する問題を修正しました- [#2518](https://github.com/NuGet/Home/issues/2518)
 
-* 障害が発生した検索のプロジェクトで update コマンドの場合に表示される例外[#2418](https://github.com/NuGet/Home/issues/2418)
+* Update コマンドでプロジェクトの検索エラーが発生したときに例外を表示する- [#2418](https://github.com/NuGet/Home/issues/2418)
 
-* 引数でフィードから nuget v3.3 以降、パッケージをインストールするときにパッケージのコンテンツは正しく復元されません、パッケージが含まれている場合 - NoCache`.nupkg`ファイル - [#2354](https://github.com/NuGet/Home/issues/2354)
+* パッケージに `.nupkg` [#2354](https://github.com/NuGet/Home/issues/2354)ファイルが含まれている場合、NoCache という引数を使用して nuget v 3.3 + フィードからパッケージをインストールすると、パッケージコンテンツが正しく復元されない
 
-* パッケージに問題を修正プログラムが - 1 つのソースからパッケージが見つからない場合に、(すべてのソース) をインストール[#2322](https://github.com/NuGet/Home/issues/2322)
+* 1つのソースからパッケージが欠落している場合に、パッケージのインストール (すべてのソース) の問題を修正しました。 [#2322](https://github.com/NuGet/Home/issues/2322)
 
-* 1 つのソース - 承認に失敗した場合は、ブロックをインストール[#2034](https://github.com/NuGet/Home/issues/2034)
+* 1つのソースが承認に失敗した場合のインストールブロック- [#2034](https://github.com/NuGet/Home/issues/2034)
 
-* `.nuspec` バージョン範囲は-IncludeReferencedProjects バージョン - をオーバーライドする必要があります[#1983](https://github.com/NuGet/Home/issues/1983)
+* `.nuspec`バージョン範囲は IncludeReferencedProjects バージョン- [#1983](https://github.com/NuGet/Home/issues/1983)をオーバーライドする必要があります
 
-* NuGet 3.3.0 更新が失敗 '... 制約で定義されている packages.config には、この動作ができなくなります '。 - [#1816](https://github.com/NuGet/Home/issues/1816)
+* NuGet 3.3.0 の更新が ' 追加の制約で失敗しました...packages.config で定義されているため、この操作を実行できません。 ' - [#1816](https://github.com/NuGet/Home/issues/1816)
 
-* nuget.exe の更新プログラムは、アセンブリの厳密な名前とプライベートの属性を削除します。 - [#1778](https://github.com/NuGet/Home/issues/1778)
+* nuget.exe の更新では、アセンブリの厳密な名前とプライベート属性が削除されます。 - [#1778](https://github.com/NuGet/Home/issues/1778)
 
-* "DefaultPushSource"- の相対ファイル パスの問題が修正[#1746](https://github.com/NuGet/Home/issues/1746)
+* "DefaultPushSource" の相対ファイルパスの問題を修正します- [#1746](https://github.com/NuGet/Home/issues/1746)
 
-* 更新競合回避モジュールのエラー メッセージの改善[#1373](https://github.com/NuGet/Home/issues/1373)
+* 更新リゾルバーのエラーメッセージの改善- [#1373](https://github.com/NuGet/Home/issues/1373)
 
-## <a name="features-and-behavior-changes"></a>機能および動作変更
+## <a name="features-and-behavior-changes"></a>機能と動作の変更
 
-* nuget.exe プッシュのタイムアウト パラメーターは機能しません - [#2785](https://github.com/NuGet/Home/issues/2785)
+* nuget.exe のプッシュタイムアウトパラメーターが機能しません- [#2785](https://github.com/NuGet/Home/issues/2785)
 
-* nuget.exe の復元を生成しない`.props`と`.targets`ファイル`.nuproj`プロジェクト (v3.4.3.855 の回帰) - [#2711](https://github.com/NuGet/Home/issues/2711)
+* nuget.exe の復元で `.props` は、プロジェクトのファイルとファイルが生成されません `.targets` `.nuproj` (3.4.3.855 での回帰)- [#2711](https://github.com/NuGet/Home/issues/2711)
 
-* 機能拡張 API フレームワークの imports とを比較する必要がある[#2633](https://github.com/NuGet/Home/issues/2633)
+* フレームワークとインポート[#2633](https://github.com/NuGet/Home/issues/2633)を比較するには、機能拡張 API が必要です
 
-* 使用する場合は、依存関係のオプションを非表示に`project.json`  -  [#2486](https://github.com/NuGet/Home/issues/2486)
+* #2486 の使用時に依存関係オプションを非表示にする `project.json`  -  [](https://github.com/NuGet/Home/issues/2486)
 
-* 詳細な出力 - で nuget.exe のバージョン ヘッダーを印刷[#1887](https://github.com/NuGet/Home/issues/1887)
+* 詳細な出力[#1887](https://github.com/NuGet/Home/issues/1887)に nuget.exe バージョンヘッダーを出力する
 
-* NuGet は、{rid}/runtimes//nativeassets/{txm} のサポートを追加する必要があります、- [#2782](https://github.com/NuGet/Home/issues/2782)
+* NuGet は/runtimes/{rid}/nativeassets/{txm}/のサポートを追加する必要があり [#2782](https://github.com/NuGet/Home/issues/2782)

@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 852dca8c70b09d941e844b1f7cd03b38e2192481
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 403686de42bf4dc1fa94b9dd92ca6d33f3be2183
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237524"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775299"
 ---
 # <a name="package-metadata"></a>パッケージ メタデータ
 
@@ -23,7 +23,7 @@ NuGet V3 API を使用して、パッケージソースで利用可能なパッ�
 
 次の `@type` 値が使用されます。
 
-@type 値                     | メモ
+@type 値                     | Notes
 ------------------------------- | -----
 RegistrationsBaseUrl            | 最初のリリース
 RegistrationsBaseUrl/3.0.0-ベータ | エイリアス `RegistrationsBaseUrl`
@@ -58,9 +58,9 @@ SemVer 2.0.0 の詳細については、「 [semver 2.0.0 support for nuget.org]
 
 登録リソースはパッケージ ID でパッケージメタデータをグループ化します。 一度に複数のパッケージ ID に関するデータを取得することはできません。 このリソースは、パッケージ Id を検出する方法を提供しません。 代わりに、クライアントは必要なパッケージ ID を既に把握していると見なされます。 各パッケージバージョンに関する利用可能なメタデータは、サーバーの実装によって異なります。 パッケージ登録 blob の階層構造は次のとおりです。
 
-- **インデックス** : パッケージメタデータのエントリポイント。同じパッケージ ID を持つソースのすべてのパッケージによって共有されます。
-- **Page** : パッケージのバージョンをグループ化します。 ページ内のパッケージバージョンの数は、サーバー実装によって定義されます。
-- **リーフ** : 1 つのパッケージバージョンに固有のドキュメント。
+- **インデックス**: パッケージメタデータのエントリポイント。同じパッケージ ID を持つソースのすべてのパッケージによって共有されます。
+- **Page**: パッケージのバージョンをグループ化します。 ページ内のパッケージバージョンの数は、サーバー実装によって定義されます。
+- **リーフ**: 1 つのパッケージバージョンに固有のドキュメント。
 
 登録インデックスの URL は予測可能であり、クライアントがサービスインデックスからパッケージ ID と登録リソースの値を指定して特定でき `@id` ます。 登録ページとリーフの Url は、登録インデックスを調べることによって検出されます。
 
@@ -72,24 +72,26 @@ SemVer 2.0.0 の詳細については、「 [semver 2.0.0 support for nuget.org]
 
 Nuget.org が使用するヒューリスティックは次のとおりです。128以上のバージョンのパッケージがある場合は、そのリーフをサイズ64のページに分割します。 バージョンが128未満の場合、インラインのすべてが登録インデックスに残ります。 つまり、65から127バージョンのパッケージでは、インデックスに2つのページがありますが、両方のページがインライン展開されることに注意してください。
 
-    GET {@id}/{LOWER_ID}/index.json
+```
+GET {@id}/{LOWER_ID}/index.json
+```
 
 ### <a name="request-parameters"></a>要求パラメーター
 
-Name     | /     | Type    | 必須 | メモ
+名前     | /     | Type    | 必須 | Notes
 -------- | ------ | ------- | -------- | -----
-LOWER_ID | URL    | string  | yes      | パッケージ ID、小文字
+LOWER_ID | URL    | string  | はい      | パッケージ ID、小文字
 
-この `LOWER_ID` 値は、によって実装されたルールを使用して、必要なパッケージ ID を小文字にしたものです。NET の [`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) メソッド。
+この `LOWER_ID` 値は、によって実装されたルールを使用して、必要なパッケージ ID を小文字にしたものです。NET の [`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant&preserve-view=true) メソッド。
 
-### <a name="response"></a>Response
+### <a name="response"></a>応答
 
 応答は、次のプロパティを持つルートオブジェクトを含む JSON ドキュメントです。
 
-Name  | Type             | 必須 | メモ
+名前  | Type             | 必須 | Notes
 ----- | ---------------- | -------- | -----
-count | 整数 (integer)          | yes      | インデックス内の登録ページ数
-items | オブジェクトの配列 | yes      | 登録ページの配列
+count | 整数 (integer)          | はい      | インデックス内の登録ページ数
+items | オブジェクトの配列 | はい      | 登録ページの配列
 
 インデックスオブジェクトの配列内の各項目 `items` は、登録ページを表す JSON オブジェクトです。
 
@@ -97,14 +99,14 @@ items | オブジェクトの配列 | yes      | 登録ページの配列
 
 登録インデックスで見つかった登録ページオブジェクトには、次のプロパティがあります。
 
-Name   | Type             | 必須 | メモ
+名前   | Type             | 必須 | Notes
 ------ | ---------------- | -------- | -----
-@id    | string           | yes      | 登録ページの URL
-count  | 整数 (integer)          | yes      | ページ内の登録リーフの数
-items  | オブジェクトの配列 | no       | 登録リーフの配列とそれらのメタデータの関連付け
-lower  | string           | yes      | ページ内の最小の SemVer 2.0.0 バージョン (包括的)
+@id    | string           | はい      | 登録ページの URL
+count  | 整数 (integer)          | はい      | ページ内の登録リーフの数
+items  | オブジェクトの配列 | いいえ       | 登録リーフの配列とそれらのメタデータの関連付け
+lower  | string           | はい      | ページ内の最小の SemVer 2.0.0 バージョン (包括的)
 parent | string           | no       | 登録インデックスの URL
-upper  | string           | yes      | ページ内の最大 SemVer 2.0.0 バージョン (包括)
+upper  | string           | はい      | ページ内の最大 SemVer 2.0.0 バージョン (包括)
 
 `lower` `upper` ページオブジェクトのおよびの境界は、特定のページバージョンのメタデータが必要な場合に便利です。
 これらの境界を使用して、必要な登録ページのみを取得できます。 バージョン文字列は、 [NuGet のバージョン規則](../concepts/package-versioning.md)に準拠しています。 バージョン文字列は正規化され、ビルドメタデータは含まれません。 NuGet エコシステムのすべてのバージョンと同様に、バージョン文字列の比較は、 [Semver 2.0.0 のバージョン優先順位ルール](https://semver.org/spec/v2.0.0.html#spec-item-11)を使用して実装されます。
@@ -121,11 +123,11 @@ upper  | string           | yes      | ページ内の最大 SemVer 2.0.0 バー
 
 登録ページで見つかった登録リーフオブジェクトには、次のプロパティがあります。
 
-Name           | Type   | 必須 | メモ
+名前           | Type   | 必須 | Notes
 -------------- | ------ | -------- | -----
-@id            | string | yes      | 登録リーフの URL
-catalogEntry   | object | yes      | パッケージメタデータを含むカタログエントリ
-パッケージのパッケージ | string | yes      | パッケージコンテンツへの URL (. nupkg)
+@id            | string | はい      | 登録リーフの URL
+catalogEntry   | object | はい      | パッケージメタデータを含むカタログエントリ
+パッケージのパッケージ | string | はい      | パッケージコンテンツへの URL (. nupkg)
 
 各登録リーフオブジェクトは、1つのパッケージバージョンに関連付けられたデータを表します。
 
@@ -133,26 +135,26 @@ catalogEntry   | object | yes      | パッケージメタデータを含むカ�
 
 `catalogEntry`登録リーフオブジェクトのプロパティには、次のプロパティがあります。
 
-Name                     | Type                       | 必須 | メモ
+名前                     | Type                       | 必須 | Notes
 ------------------------ | -------------------------- | -------- | -----
-@id                      | string                     | yes      | このオブジェクトを生成するために使用されるドキュメントの URL
-作成者                  | 文字列または文字列の配列 | no       | 
-dependencyGroups         | オブジェクトの配列           | no       | ターゲットフレームワーク別にグループ化されたパッケージの依存関係
-今後              | object                     | no       | パッケージに関連付けられている非推奨
+@id                      | string                     | はい      | このオブジェクトを生成するために使用されるドキュメントの URL
+作成者                  | 文字列または文字列の配列 | いいえ       | 
+dependencyGroups         | オブジェクトの配列           | いいえ       | ターゲットフレームワーク別にグループ化されたパッケージの依存関係
+今後              | object                     | いいえ       | パッケージに関連付けられている非推奨
 description              | string                     | no       | 
 iconUrl                  | string                     | no       | 
-id                       | string                     | yes      | パッケージの ID
+id                       | string                     | はい      | パッケージの ID
 licenseUrl               | string                     | no       |
 licenseExpression        | string                     | no       | 
-一覧                   | boolean                    | no       | 存在しない場合は、一覧として考慮する必要があります
+一覧                   | boolean                    | いいえ       | 存在しない場合は、一覧として考慮する必要があります
 minClientVersion         | string                     | no       | 
 projectUrl               | string                     | no       | 
 published                | string                     | no       | パッケージが発行されたときの ISO 8601 タイムスタンプを含む文字列
-requireLicenseAcceptance | boolean                    | no       | 
+requireLicenseAcceptance | boolean                    | いいえ       | 
 まとめ                  | string                     | no       | 
-tags                     | 文字列または文字列の配列  | no       | 
+tags                     | 文字列または文字列の配列  | いいえ       | 
 title                    | string                     | no       | 
-version                  | string                     | yes      | 正規化後の完全なバージョン文字列
+version                  | string                     | はい      | 正規化後の完全なバージョン文字列
 
 パッケージ `version` プロパティは、正規化後の完全なバージョン文字列です。 これは、ここに SemVer 2.0.0 build データを含めることができることを意味します。
 
@@ -167,10 +169,10 @@ version                  | string                     | yes      | 正規化後�
 
 各依存関係グループオブジェクトには、次のプロパティがあります。
 
-Name            | Type             | 必須 | メモ
+名前            | Type             | 必須 | Notes
 --------------- | ---------------- | -------- | -----
 targetFramework | string           | no       | これらの依存関係が適用されるターゲットフレームワーク
-依存関係    | オブジェクトの配列 | no       |
+依存関係    | オブジェクトの配列 | いいえ       |
 
 この `targetFramework` 文字列は、nuget の .net ライブラリの [nuget フレームワーク](https://www.nuget.org/packages/NuGet.Frameworks/)によって実装された形式を使用します。 `targetFramework`が指定されていない場合、依存関係グループはすべてのターゲットフレームワークに適用されます。
 
@@ -180,10 +182,10 @@ targetFramework | string           | no       | これらの依存関係が適�
 
 各パッケージの依存関係には、次のプロパティがあります。
 
-Name         | Type   | 必須 | Notes
+名前         | Type   | 必須 | Notes
 ------------ | ------ | -------- | -----
-id           | string | yes      | パッケージの依存関係の ID
-range        | object | no       | 依存関係の許可されている[バージョン範囲](../concepts/package-versioning.md#version-ranges)
+id           | string | はい      | パッケージの依存関係の ID
+range        | object | いいえ       | 依存関係の許可されている[バージョン範囲](../concepts/package-versioning.md#version-ranges)
 登録 | string | no       | この依存関係の登録インデックスの URL
 
 `range`プロパティが除外されている場合、または空の文字列の場合、クライアントは既定のバージョン範囲を指定する必要があり `(, )` ます。 つまり、依存関係のすべてのバージョンが許可されます。 の値は、プロパティでは許可されて `*` いません `range` 。
@@ -192,11 +194,11 @@ range        | object | no       | 依存関係の許可されている[バー�
 
 廃止された各パッケージには、次のプロパティがあります。
 
-Name             | Type             | 必須 | メモ
+名前             | Type             | 必須 | Notes
 ---------------- | ---------------- | -------- | -----
-理由          | 文字列の配列 | yes      | パッケージが非推奨とされた理由
+理由          | 文字列の配列 | はい      | パッケージが非推奨とされた理由
 message          | string           | no       | この廃止に関する追加の詳細情報
-alternatePackage | object           | no       | 代わりに使用する代替パッケージ
+alternatePackage | object           | いいえ       | 代わりに使用する代替パッケージ
 
 プロパティには、 `reasons` 少なくとも1つの文字列が含まれている必要があり、次の表の文字列のみが含まれている必要があります。
 
@@ -212,14 +214,16 @@ CriticalBugs | パッケージにバグがあるため、使用に適さない
 
 代替パッケージオブジェクトには、次のプロパティがあります。
 
-Name         | Type   | 必須 | Notes
+名前         | Type   | 必須 | Notes
 ------------ | ------ | -------- | -----
-id           | string | yes      | 代替パッケージの ID
-range        | object | no       | 許可されている [バージョン範囲](../concepts/package-versioning.md#version-ranges)。いずれかの `*` バージョンが許可される場合は。
+id           | string | はい      | 代替パッケージの ID
+range        | object | いいえ       | 許可されている [バージョン範囲](../concepts/package-versioning.md#version-ranges)。いずれかの `*` バージョンが許可される場合は。
 
 ### <a name="sample-request"></a>要求のサンプル
 
-    GET https://api.nuget.org/v3/registration3/nuget.server.core/index.json
+```
+GET https://api.nuget.org/v3/registration3/nuget.server.core/index.json
+```
 
 ### <a name="sample-response"></a>応答のサンプル
 
@@ -236,20 +240,22 @@ range        | object | no       | 許可されている [バージョン範囲]
 
 `items`配列が登録インデックスに指定されていない場合、その値の HTTP GET 要求 `@id` は、ルートとしてオブジェクトを含む JSON ドキュメントを返します。 このオブジェクトには、以下のプロパティがあります。
 
-Name   | Type             | 必須 | メモ
+名前   | Type             | 必須 | Notes
 ------ | ---------------- | -------- | -----
-@id    | string           | yes      | 登録ページの URL
-count  | 整数 (integer)          | yes      | ページ内の登録リーフの数
-items  | オブジェクトの配列 | yes      | 登録リーフの配列とそれらのメタデータの関連付け
-lower  | string           | yes      | ページ内の最小の SemVer 2.0.0 バージョン (包括的)
-parent | string           | yes      | 登録インデックスの URL
-upper  | string           | yes      | ページ内の最大 SemVer 2.0.0 バージョン (包括)
+@id    | string           | はい      | 登録ページの URL
+count  | 整数 (integer)          | はい      | ページ内の登録リーフの数
+items  | オブジェクトの配列 | はい      | 登録リーフの配列とそれらのメタデータの関連付け
+lower  | string           | はい      | ページ内の最小の SemVer 2.0.0 バージョン (包括的)
+parent | string           | はい      | 登録インデックスの URL
+upper  | string           | はい      | ページ内の最大 SemVer 2.0.0 バージョン (包括)
 
 登録リーフオブジェクトの形状は、 [上記](#registration-leaf-object-in-a-page)の登録インデックスと同じです。
 
 ## <a name="sample-request"></a>要求のサンプル
 
-    GET https://api.nuget.org/v3/registration3/ravendb.client/page/1.0.531/1.0.729-unstable.json
+```
+GET https://api.nuget.org/v3/registration3/ravendb.client/page/1.0.531/1.0.729-unstable.json
+```
 
 ## <a name="sample-response"></a>応答のサンプル
 
@@ -266,11 +272,11 @@ upper  | string           | yes      | ページ内の最大 SemVer 2.0.0 バー
 
 登録リーフは、次のプロパティを持つルートオブジェクトを含む JSON ドキュメントです。
 
-Name           | Type    | 必須 | メモ
+名前           | Type    | 必須 | Notes
 -------------- | ------- | -------- | -----
-@id            | string  | yes      | 登録リーフの URL
+@id            | string  | はい      | 登録リーフの URL
 catalogEntry   | string  | no       | これらのリーフを生成したカタログエントリの URL
-一覧         | boolean | no       | 存在しない場合は、一覧として考慮する必要があります
+一覧         | boolean | いいえ       | 存在しない場合は、一覧として考慮する必要があります
 パッケージのパッケージ | string  | no       | パッケージコンテンツへの URL (. nupkg)
 published      | string  | no       | パッケージが発行されたときの ISO 8601 タイムスタンプを含む文字列
 登録   | string  | no       | 登録インデックスの URL
@@ -280,7 +286,9 @@ published      | string  | no       | パッケージが発行されたときの
 
 ### <a name="sample-request"></a>要求のサンプル
 
-    GET https://api.nuget.org/v3/registration3/nuget.versioning/4.3.0.json
+```
+GET https://api.nuget.org/v3/registration3/nuget.versioning/4.3.0.json
+```
 
 ### <a name="sample-response"></a>応答のサンプル
 

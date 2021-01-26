@@ -1,16 +1,16 @@
 ---
 title: NuGet 5.4 リリースノート
 description: 新機能、バグ修正、および DCRs を含む NuGet 5.4 のリリースノート。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 09/06/2019
 ms.topic: conceptual
-ms.openlocfilehash: c7fb9c1e587b6603abe63581c662571abfd4506b
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: dd4c10672db3a65b68f18636105ee55ab09da7ef
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75384112"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776186"
 ---
 # <a name="nuget-54-release-notes"></a>NuGet 5.4 リリースノート
 
@@ -28,7 +28,7 @@ NuGet 配布の種類:
 
 * 新しいヘルパー関数-パッケージ id とバージョンの一覧が表示されたら、最上位レベルのパッケージを取得します。 - [#8316](https://github.com/NuGet/Home/issues/8316)
 
-* [GitHub アクション](https://github.com/features/actions)で nuget.exe をインストールおよび構成するための新しい[`nuget/setup-nuget`](https://github.com/marketplace/actions/setup-nuget-exe-for-use-with-actions)アクション。 - [#8818](https://github.com/NuGet/Home/issues/8818)
+* [`nuget/setup-nuget`](https://github.com/marketplace/actions/setup-nuget-exe-for-use-with-actions) [GitHub アクション](https://github.com/features/actions)で NuGet.exe をインストールおよび構成するための新しいアクション。 - [#8818](https://github.com/NuGet/Home/issues/8818)
 
 ### <a name="issues-fixed-in-this-release"></a>このリリースで修正された問題
 
@@ -42,14 +42,14 @@ NuGet 配布の種類:
 
 * ロックファイルが正しく生成されませんでした。フレームワークの順序付けは、 [#8645](https://github.com/NuGet/Home/issues/8645) lockedmode による復元に影響しないようにしてください。
 
-* SDK 3.0.100 で <RuntimeIdentifiers> が設定されるプロジェクトの LockFile 検証が失敗する- [#8639](https://github.com/NuGet/Home/issues/8639)
+* <RuntimeIdentifiers>SDK [#8639](https://github.com/NuGet/Home/issues/8639) 3.0.100 で set が設定されるプロジェクトの LockFile 検証が失敗する
 
 * 署名の検証では、同じ OID の下に2つの値を持つタイムスタンプの署名が適切に拒否されるようになりました- [#8629](https://github.com/NuGet/Home/issues/8629)
 
 * ライセンスリストを更新する- [#8544](https://github.com/NuGet/Home/issues/8544)
 
-**Dcr**
+**DCR**
 
-* 診断ファイルを IFeedbackDiagnosticFileProvider にオンボードする[#8535](https://github.com/NuGet/Home/issues/8535)
+* 診断ファイルを IFeedbackDiagnosticFileProvider にオンボードする [#8535](https://github.com/NuGet/Home/issues/8535)
 
 **[このリリースで修正されるすべての問題の一覧-5.4](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%225.4")**

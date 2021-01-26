@@ -1,16 +1,16 @@
 ---
 title: NuGet クライアント SDK
 description: API は進化していますが、まだ文書化されていませんが、例については Dave Glick のブログを参照してください。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0eca8478b4d6509dbc1407560d2c86069c7575dd
-ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
+ms.openlocfilehash: e89b50601deb204892536406b4ddabf7005e0642
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98235738"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776136"
 ---
 # <a name="nuget-client-sdk"></a>NuGet クライアント SDK
 

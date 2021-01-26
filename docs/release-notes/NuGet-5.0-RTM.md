@@ -1,16 +1,16 @@
 ---
 title: NuGet 5.0 RTM リリースノート
 description: 既知の問題、バグ修正、新機能、および DCRs を含む NuGet 5.0 のリリースノート。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 04/02/2019
 ms.topic: conceptual
-ms.openlocfilehash: e4a6be7fb26e3cc4bd297eaf02999f6ac1389b77
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 637db1ae128ce020c33e54e56148c848a5f905a5
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93236803"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776219"
 ---
 # <a name="nuget-50-release-notes"></a>NuGet 5.0 リリースノート
 

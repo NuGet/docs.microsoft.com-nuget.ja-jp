@@ -1,16 +1,16 @@
 ---
 title: NuGet CLI の削除コマンド
 description: nuget.exe delete コマンドのリファレンス
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: bec1a778d4986a4cb7ee87e1ef8a98550c96ed57
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 96c75366ae69b34f5cd1f55feb53087b5d0ea324
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622864"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775954"
 ---
 # <a name="delete-command-nuget-cli"></a>delete コマンド (NuGet CLI)
 
@@ -18,7 +18,7 @@ ms.locfileid: "88622864"
 
 パッケージソースからパッケージを削除または一覧から削除します。 Nuget.org の場合、delete コマンドを実行すると、 [パッケージの一覧](../../nuget-org/policies/deleting-packages.md)が解除されます。
 
-## <a name="usage"></a>使用法
+## <a name="usage"></a>使用方法
 
 ```cli
 nuget delete <packageID> <packageVersion> [options]

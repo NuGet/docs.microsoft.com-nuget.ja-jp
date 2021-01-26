@@ -1,16 +1,16 @@
 ---
 title: NuGet CLI の追加コマンド
 description: nuget.exe add コマンドのリファレンス
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 89d268946243e8eae07e482db48e809a15260c38
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 096d2f7a61a3c861ce2084368500ab8e8b21f212
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622903"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776092"
 ---
 # <a name="add-command-nuget-cli"></a>コマンドの追加 (NuGet CLI)
 
@@ -31,7 +31,7 @@ ms.locfileid: "88622903"
 
 パッケージ内のすべてのファイルを目的のパッケージソースに展開するには、スイッチを使用し `-Expand` ます。 通常、これにより、やなどの追加のサブフォルダーが変換先に表示され `tools` `lib` ます。
 
-## <a name="usage"></a>使用法
+## <a name="usage"></a>使用方法
 
 ```cli
 nuget add <packagePath> -Source <sourcePath> [options]

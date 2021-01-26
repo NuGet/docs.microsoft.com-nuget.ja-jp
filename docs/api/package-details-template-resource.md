@@ -6,34 +6,34 @@ ms.author: jver
 ms.date: 3/1/2019
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 1b84c6e88a56216e5747d5bc602219af6695c305
-ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
+ms.openlocfilehash: aaeedea9750c11099b34e927bd8442656839d784
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76812936"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98773946"
 ---
 # <a name="package-details-url-template"></a>パッケージの詳細の URL テンプレート
 
 クライアントは、web ブラウザーでより多くのパッケージの詳細を表示するためにユーザーが使用できる URL を作成することができます。 これは、パッケージソースが、NuGet クライアントアプリケーションで表示される内容の範囲内に含まれない可能性があるパッケージに関する追加情報を表示する場合に便利です。
 
-この URL の作成に使用されるリソースは、[サービスインデックス](service-index.md)で見つかった `PackageDetailsUriTemplate` リソースです。
+この URL の作成に使用されるリソースは、 `PackageDetailsUriTemplate` [サービスインデックス](service-index.md)で検出されたリソースです。
 
 ## <a name="versioning"></a>バージョン管理
 
 次の `@type` 値が使用されます。
 
-@type 値                     | メモ
+@type 値                     | Notes
 ------------------------------- | -----
 PackageDetailsUriTemplate/5.1.0 | 最初のリリース
 
 ## <a name="url-template"></a>URL テンプレート
 
-次の API の URL は、前述のリソース `@type` の値のいずれかに関連付けられている `@id` プロパティの値です。
+次の API の URL は、 `@id` 前述のいずれかのリソース値に関連付けられているプロパティの値です `@type` 。
 
 ## <a name="http-methods"></a>HTTP メソッド
 
-クライアントは、ユーザーの代わりにパッケージの詳細 URL に要求を送信することを意図していませんが、web ページは、web ブラウザーでクリックした URL を簡単に開くことができるように、`GET` メソッドをサポートする必要があります。
+クライアントは、ユーザーの代わりにパッケージの詳細 URL に要求を送信することを意図していませんが、web ページでは、クリックした `GET` url を web ブラウザーで簡単に開くことができるように、メソッドをサポートする必要があります。
 
 ## <a name="construct-the-url"></a>URL を作成する
 
@@ -41,21 +41,25 @@ PackageDetailsUriTemplate/5.1.0 | 最初のリリース
 
 URL は絶対 URL にする必要があり、スキーム (プロトコル) は HTTPS である必要があります。
 
-サービスインデックス内の `@id` の値は、次のプレースホルダートークンのいずれかを含む URL 文字列です。
+サービスインデックスのの値 `@id` は、次のプレースホルダートークンのいずれかを含む URL 文字列です。
 
 ### <a name="url-placeholders"></a>URL プレースホルダー
 
-[名前]        | の型    | 必須 | メモ
+名前        | Type    | 必須 | Notes
 ----------- | ------- | -------- | -----
-`{id}`      | string  | Ｘ       | 詳細を取得するパッケージ ID
-`{version}` | string  | Ｘ       | 詳細を取得するパッケージのバージョン
+`{id}`      | string  | no       | 詳細を取得するパッケージ ID
+`{version}` | string  | no       | 詳細を取得するパッケージのバージョン
 
-サーバーは `{id}` と `{version}` の値を大文字と小文字を区別して受け取る必要があります。 また、バージョンが[正規化](../concepts/package-versioning.md#normalized-version-numbers)されているかどうかはサーバーに依存しないようにしてください。 つまり、サーバーは、正規化されていないバージョンも受け入れる必要があります。
+サーバーは、 `{id}` との `{version}` 大文字と小文字を区別して値を受け入れます。 また、バージョンが [正規化](../concepts/package-versioning.md#normalized-version-numbers)されているかどうかはサーバーに依存しないようにしてください。 つまり、サーバーは、正規化されていないバージョンも受け入れる必要があります。
 
 たとえば、nuget の [パッケージの詳細] テンプレートは次のようになります。
 
-    https://www.nuget.org/packages/{id}/{version}
+```http
+https://www.nuget.org/packages/{id}/{version}
+```
 
 クライアント実装で NuGet のパッケージ詳細へのリンクを表示する必要がある場合、バージョン4.3.0 では次の URL が生成され、ユーザーに提供されます。
 
-    https://www.nuget.org/packages/NuGet.Versioning/4.3.0
+```http
+https://www.nuget.org/packages/NuGet.Versioning/4.3.0
+```

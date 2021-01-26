@@ -5,12 +5,12 @@ author: dominofire
 ms.author: feaguila
 ms.date: 11/9/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7f641c669cdb0cc979d698f6b219cbb4f2692a2e
-ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
+ms.openlocfilehash: 550971d77ed4b15129fdc58fef95e0cceda8d8d1
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98235751"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776176"
 ---
 # <a name="nuget-58-release-notes"></a>NuGet 5.8 リリースノート
 
@@ -34,13 +34,13 @@ NuGet 配布の種類:
 
 * パッケージマネージャー UI パッケージの詳細ペインでパッケージの脆弱性の詳細を表示する- [#9850](https://github.com/NuGet/Home/issues/9850)
 
-* 新しい [`dotnet nuget verify`](https://docs.microsoft.com/dotnet/core/tools/dotnet-nuget-verify) コマンド[#8051](https://github.com/NuGet/Home/issues/8051)で署名済みの NuGet パッケージを確認する
+* 新しい [`dotnet nuget verify`](/dotnet/core/tools/dotnet-nuget-verify) コマンド[#8051](https://github.com/NuGet/Home/issues/8051)で署名済みの NuGet パッケージを確認する
 
-* [`dotnet add package`](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package#:~:text=dotnet%20add%20package%201%20Name%202%20Synopsis%203,when%20targeting%20a%20specific%20framework.%20...%206%20Examples)`--prerelease`プレリリースバージョンを含むパッケージの最新バージョンを追加するオプションをサポートしてい[#4699](https://github.com/NuGet/Home/issues/4699)
+* [`dotnet add package`](/dotnet/core/tools/dotnet-add-package#:~:text=dotnet%20add%20package%201%20Name%202%20Synopsis%203,when%20targeting%20a%20specific%20framework.%20...%206%20Examples)`--prerelease`プレリリースバージョンを含むパッケージの最新バージョンを追加するオプションをサポートしてい[#4699](https://github.com/NuGet/Home/issues/4699)
 
-* [`nuget.exe search`](https://docs.microsoft.com/nuget/reference/cli-reference/cli-ref-search)コマンド[#9704](https://github.com/NuGet/Home/issues/9704)を使用して CLI でパッケージを検索する
+* [`nuget.exe search`](../reference/cli-reference/cli-ref-search.md)コマンド[#9704](https://github.com/NuGet/Home/issues/9704)を使用して CLI でパッケージを検索する
 
-* [`dotnet list package`](https://docs.microsoft.com/dotnet/core/tools/dotnet-list-package) コマンドはオプションをサポートしてい `--verbosity` [#9600](https://github.com/NuGet/Home/issues/9600)
+* [`dotnet list package`](/dotnet/core/tools/dotnet-list-package) コマンドはオプションをサポートしてい `--verbosity` [#9600](https://github.com/NuGet/Home/issues/9600)
 
 * Visual Studio での、PackageReference ベースの .csproj スタイルのプロジェクトの高速 No-Op 復元の最適化を有効にする- [#9565](https://github.com/NuGet/Home/issues/9565)
 
@@ -155,4 +155,4 @@ NuGet 配布の種類:
 ## <a name="feedback-welcome"></a>フィードバックの開始
 
 お客様のフィードバックは Microsoft にとって重要です。  このリリースに問題がある場合は、GitHub の [問題](https://github.com/NuGet/Home/issues) と [Visual Studio Developer Community](https://developercommunity.visualstudio.com/) で既存の問題を確認してください。  NuGet 内の新しい問題については、 [GitHub の問題](https://github.com/NuGet/Home/issues/new)を報告してください。
-NuGet エクスペリエンスに関する一般的な問題については、[**ヘルプ > [問題の報告**] の下にあるお気に入りの IDE の [[問題点の報告](https://docs.microsoft.com/visualstudio/ide/how-to-report-a-problem-with-visual-studio)] オプションを使用してお知らせください。
+NuGet エクスペリエンスに関する一般的な問題については、[**ヘルプ > [問題の報告**] の下にあるお気に入りの IDE の [[問題点の報告](/visualstudio/ide/how-to-report-a-problem-with-visual-studio)] オプションを使用してお知らせください。

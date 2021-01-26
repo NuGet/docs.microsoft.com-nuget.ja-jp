@@ -1,24 +1,24 @@
 ---
 title: NuGet CLI 構成コマンド
 description: nuget.exe config コマンドのリファレンス
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 7d0c1c51f40cba9a5b69f209ffbd995451bfeb9f
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 3d50c12e34f71d7a62fe177da1dbb33eb702347a
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622877"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775956"
 ---
 # <a name="config-command-nuget-cli"></a>config コマンド (NuGet CLI)
 
-**適用対象:** &bullet; **サポートされている**すべてのバージョン: すべて
+**適用対象:** &bullet; **サポートされている** すべてのバージョン: すべて
 
 NuGet 構成値を取得または設定します。 その他の使用方法については、「 [Common NuGet の構成](../../consume-packages/configuring-nuget-behavior.md)」を参照してください。 使用可能なキー名の詳細については、 [NuGet 構成ファイルのリファレンス](../nuget-config-file.md)を参照してください。
 
-## <a name="usage"></a>使用法
+## <a name="usage"></a>使用方法
 
 ```cli
 nuget config -Set <name>=[<value>] [<name>=<value> ...] [options]

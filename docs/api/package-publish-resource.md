@@ -1,115 +1,121 @@
 ---
 title: プッシュと削除、NuGet API
-description: Publish サービスは、クライアントが新しいパッケージを公開し、一覧から削除または既存のパッケージを削除できます。
+description: 発行サービスを使用すると、クライアントは新しいパッケージを公開したり、既存のパッケージを一覧から削除または削除したりできます。
 author: joelverhagen
 ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 6e81055796e20186c5769d2ec39849e6c551ff87
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 0a79266011433d5adc1341a8e250838988c84d13
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426722"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98773916"
 ---
 # <a name="push-and-delete"></a>プッシュと削除
 
-プッシュ、削除 (またはサーバーの実装によって、一覧から削除) することは、NuGet V3 API を使用してパッケージを一覧に再記載するとします。 これらの操作は無効の基づいて、`PackagePublish`リソースで見つかった、[サービス インデックス](service-index.md)します。
+サーバーの実装に応じてプッシュ、削除 (または一覧から削除) を実行し、NuGet V3 API を使用してパッケージの一覧を再設定することができます。 これらの操作は、 `PackagePublish` [サービスインデックス](service-index.md)で検出されたリソースに基づいています。
 
 ## <a name="versioning"></a>バージョン管理
 
-次`@type`値が使用されます。
+次の `@type` 値が使用されます。
 
-@type の値          | メモ
+@type 値          | Notes
 -------------------- | -----
 PackagePublish/2.0.0 | 最初のリリース
 
-## <a name="base-url"></a>[基本 URL]
+## <a name="base-url"></a>ベース URL
 
-次の Api のベース URL の値は、`@id`のプロパティ、`PackagePublish/2.0.0`パッケージ ソースのリソース[サービス インデックス](service-index.md)します。 次のドキュメントでは、nuget.org の URL を使用します。 検討`https://www.nuget.org/api/v2/package`のプレース ホルダーとして、`@id`サービス インデックスにある値。
+次の Api のベース URL は、 `@id` `PackagePublish/2.0.0` パッケージソースの [サービスインデックス](service-index.md)に含まれるリソースのプロパティの値です。 次のドキュメントでは、nuget の URL が使用されます。 `https://www.nuget.org/api/v2/package` `@id` サービスインデックスで見つかった値のプレースホルダーとして考慮します。
 
-プロトコルは同じであるために、この URL が、レガシ V2 プッシュ エンドポイントと同じ場所を指しているに注意してください。
+この URL は、プロトコルが同じであるため、従来の V2 プッシュエンドポイントと同じ場所を指していることに注意してください。
 
 ## <a name="http-methods"></a>HTTP メソッド
 
-`PUT`、`POST`と`DELETE`HTTP メソッドがこのリソースでサポートされています。 各エンドポイントでは、どのメソッドがサポートされている、次を参照してください。
+`PUT`、、 `POST` および `DELETE` HTTP メソッドは、このリソースでサポートされています。 各エンドポイントでサポートされるメソッドについては、以下を参照してください。
 
-## <a name="push-a-package"></a>パッケージをプッシュします。
+## <a name="push-a-package"></a>パッケージをプッシュする
 
 > [!Note]
-> nuget.org が[追加要件](NuGet-Protocols.md)プッシュ エンドポイントと対話するためです。
+> nuget.org には、プッシュエンドポイントと対話するための [追加の要件](NuGet-Protocols.md) があります。
 
-nuget.org には、次の API を使用して新しいパッケージをプッシュがサポートされています。 指定された ID とバージョンでパッケージが既に存在する場合、nuget.org は、プッシュを拒否します。 その他のパッケージ ソースでは、既存のパッケージの置き換えをサポート可能性があります。
+nuget.org では、次の API を使用した新しいパッケージのプッシュがサポートされています。 指定された ID とバージョンのパッケージが既に存在する場合、nuget.org はプッシュを拒否します。 他のパッケージソースでは、既存のパッケージの置換がサポートされている場合があります。
 
-    PUT https://www.nuget.org/api/v2/package
+```
+PUT https://www.nuget.org/api/v2/package
+```
 
 ### <a name="request-parameters"></a>要求パラメーター
 
-名前           | イン     | 型   | 必須 | メモ
+名前           | /     | Type   | 必須 | Notes
 -------------- | ------ | ------ | -------- | -----
-X-NuGet-ApiKey | Header | string | 可      | 例、`X-NuGet-ApiKey: {USER_API_KEY}`
+X-NuGet-ApiKey | ヘッダー | string | はい      | たとえば、`X-NuGet-ApiKey: {USER_API_KEY}` のように指定します。
 
-API キーは、ユーザーがパッケージ ソースから取得し、クライアントに構成されている不透明な文字列です。 特定の文字列形式が必須でありませんが、API キーの長さは、適切な HTTP ヘッダーの値のサイズを超えない必要があります。
+API キーは、ユーザーによってパッケージソースから得られた非透過文字列であり、クライアントに構成されています。 特定の文字列形式は必須ではありませんが、API キーの長さは HTTP ヘッダー値に対して妥当なサイズを超えることはできません。
 
 ### <a name="request-body"></a>要求本文
 
-次の形式で要求本文があります。
+要求本文は次の形式にする必要があります。
 
 #### <a name="multipart-form-data"></a>マルチパート フォーム データ
 
-要求ヘッダー`Content-Type`は`multipart/form-data`要求本文の最初の項目がプッシュされる .nupkg の生バイトとします。 マルチパート ボディ内の後続の項目は無視されます。 ファイルの名前またはマルチパートの項目の他のヘッダーは無視されます。
+要求ヘッダーはで、 `Content-Type` `multipart/form-data` 要求本文の最初の項目は、の未加工のバイトです。 nupkg プッシュされます。 マルチパート本体の後続の項目は無視されます。 ファイル名またはマルチパート項目のその他のヘッダーは無視されます。
 
 ### <a name="response"></a>応答
 
-状態コード | 説明
+状態コード | 意味
 ----------- | -------
-201, 202    | パッケージが正常にプッシュされました
-400         | 指定されたパッケージが無効です。
-409         | 指定された ID とバージョンを使用してパッケージが既に存在します
+201、202    | パッケージが正常にプッシュされました
+400         | 指定されたパッケージは無効です
+409         | 指定された ID とバージョンのパッケージは既に存在します
 
-サーバーの実装は、パッケージが正常にプッシュされたときに返される成功ステータス コードによって異なります。
+サーバーの実装は、パッケージが正常にプッシュされたときに返される成功状態コードによって異なります。
 
-## <a name="delete-a-package"></a>パッケージを削除します。
+## <a name="delete-a-package"></a>パッケージを削除する
 
-nuget.org にパッケージの削除要求の解釈を「非公開」。 つまり、パッケージは、パッケージの既存のコンシューマーを引き続き使用できますが、パッケージで検索結果で、または web インターフェイスが表示されなくなります。 この方法の詳細については、次を参照してください。、[パッケージの削除](../nuget-org/policies/deleting-packages.md)ポリシー。 その他のサーバーの実装のハード削除としてこのシグナルの解釈、論理的な削除、または一覧から削除することができます。 たとえば、 [NuGet.Server](https://www.nuget.org/packages/NuGet.Server) (古い V2 API のみをサポートしているサーバー実装) は、一覧からの削除、または構成オプションに基づくハード delete のいずれかとしてこの要求の処理をサポートしています。
+nuget.org は、"一覧から削除" としてパッケージの削除要求を解釈します。 つまり、パッケージの既存のコンシューマーはパッケージを引き続き使用できますが、パッケージは検索結果または web インターフェイスに表示されなくなります。 このプラクティスの詳細については、「 [削除されたパッケージ](../nuget-org/policies/deleting-packages.md) ポリシー」を参照してください。 その他のサーバー実装では、この信号をハード削除、論理的な削除、または一覧から削除として解釈できます。 たとえば、Nuget.exe (以前の V2 API のみをサポートするサーバー実装) は、この要求を構成オプションに基づいて一覧から削除またはハード削除として処理することをサポートしています[。](https://www.nuget.org/packages/NuGet.Server)
 
-    DELETE https://www.nuget.org/api/v2/package/{ID}/{VERSION}
+```
+DELETE https://www.nuget.org/api/v2/package/{ID}/{VERSION}
+```
 
 ### <a name="request-parameters"></a>要求パラメーター
 
-名前           | イン     | 型   | 必須 | メモ
+名前           | /     | Type   | 必須 | Notes
 -------------- | ------ | ------ | -------- | -----
-ID             | URL    | string | 可      | 削除するパッケージの ID
-VERSION        | URL    | string | 可      | 削除するパッケージのバージョン
-X-NuGet-ApiKey | Header | string | 可      | たとえば、`X-NuGet-ApiKey: {USER_API_KEY}`
+ID             | URL    | string | はい      | 削除するパッケージの ID
+VERSION        | URL    | string | はい      | 削除するパッケージのバージョン
+X-NuGet-ApiKey | ヘッダー | string | はい      | たとえば、`X-NuGet-ApiKey: {USER_API_KEY}` のように指定します。
 
 ### <a name="response"></a>応答
 
-状態コード | 説明
+状態コード | 意味
 ----------- | -------
 204         | パッケージが削除されました
-404         | 指定したパッケージに含まれない`ID`と`VERSION`が存在します。
+404         | 指定された `ID` と `VERSION` 存在するパッケージはありません
 
-## <a name="relist-a-package"></a>パッケージ一覧に再記載します。
+## <a name="relist-a-package"></a>パッケージを一覧に再記載する
 
-パッケージが一覧表示されている場合、そのパッケージを「一覧に再記載」エンドポイントを使用して検索結果にもう一度表示されるようにすることです。 このエンドポイントと同じ形には、[削除 (非公開) エンドポイント](#delete-a-package)が使用して、 `POST` HTTP メソッドの代わりに、`DELETE`メソッド。
+パッケージが一覧から削除されている場合は、"relist" エンドポイントを使用して、そのパッケージが検索結果に再び表示されるようにすることができます。 このエンドポイントには、 [delete (一覧から削除) エンドポイント](#delete-a-package) と同じ図形がありますが、 `POST` メソッドの代わりに HTTP メソッドが使用され `DELETE` ます。
 
 パッケージが既に表示されている場合でも、要求は成功します。
 
-    POST https://www.nuget.org/api/v2/package/{ID}/{VERSION}
+```
+POST https://www.nuget.org/api/v2/package/{ID}/{VERSION}
+```
 
 ### <a name="request-parameters"></a>要求パラメーター
 
-名前           | イン     | 型   | 必須 | メモ
+名前           | /     | Type   | 必須 | Notes
 -------------- | ------ | ------ | -------- | -----
-ID             | URL    | string | 可      | 一覧に再記載するパッケージの ID
-VERSION        | URL    | string | 可      | 一覧に再記載するパッケージのバージョン
-X-NuGet-ApiKey | Header | string | 可      | たとえば、`X-NuGet-ApiKey: {USER_API_KEY}`
+ID             | URL    | string | はい      | 再一覧表示するパッケージの ID
+VERSION        | URL    | string | はい      | 再一覧表示するパッケージのバージョン
+X-NuGet-ApiKey | ヘッダー | string | はい      | たとえば、`X-NuGet-ApiKey: {USER_API_KEY}` のように指定します。
 
 ### <a name="response"></a>応答
 
-状態コード | 説明
+状態コード | 意味
 ----------- | -------
-200         | パッケージが表示されます。
-404         | 指定したパッケージに含まれない`ID`と`VERSION`が存在します。
+200         | パッケージが表示されるようになりました。
+404         | 指定された `ID` と `VERSION` 存在するパッケージはありません
