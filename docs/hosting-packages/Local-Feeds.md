@@ -1,16 +1,16 @@
 ---
 title: ローカル NuGet フィードを設定する
 description: ローカル ネットワーク上のフォルダーを使用して、NuGet パッケージのローカル フィードを作成する方法
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/06/2017
 ms.topic: conceptual
-ms.openlocfilehash: 42a5c30c058a9efb35338c1b484235b6ad111bd0
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 1eb194c9ddaee05281749c7a0420cbaf77044fe3
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "68317592"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774038"
 ---
 # <a name="local-feeds"></a>ローカル フィード
 
@@ -25,11 +25,13 @@ ms.locfileid: "68317592"
 
 階層でバージョン管理されたフォルダー ツリーは、次の一般的な構造になります。
 
-    \\myserver\packages
-      └─<packageID>
-        └─<version>
-          ├─<packageID>.<version>.nupkg
-          └─<other files>
+```
+\\myserver\packages
+  └─<packageID>
+    └─<version>
+      ├─<packageID>.<version>.nupkg
+      └─<other files>
+```
 
 [`nuget add`](../reference/cli-reference/cli-ref-add.md) コマンドを使用してパッケージをフィードにコピーすると、NuGet ではこの構造が自動的に作成されます。
 
