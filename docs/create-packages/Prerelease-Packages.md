@@ -1,16 +1,16 @@
 ---
 title: NuGet パッケージのプレリリース版
 description: プレリリース パッケージのビルド ガイド
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 5dda56ccd4c959bcbcbd12b7a4771ddff1fe7530
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: ae6628efa6d97ff5ba2c4c359b9565a3214cb346
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623007"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774660"
 ---
 # <a name="building-pre-release-packages"></a>プレリリース パッケージのビルド
 
@@ -64,7 +64,7 @@ ms.locfileid: "88623007"
 - `Minor`: 新機能、ただし下位互換性あり
 - `Patch`: 下位互換性のバグ修正のみ
 
-プレリリース版には、パッチ番号の後にハイフンと文字列が付きます。 技術的に言えば、ハイフンの後には*あらゆる*文字列を使用できます。それで NuGet はパッケージをプレリリースとして扱います。 NuGet は該当 UI に完全なバージョン番号を表示します。利用者はその意味を自分で解釈します。
+プレリリース版には、パッチ番号の後にハイフンと文字列が付きます。 技術的に言えば、ハイフンの後には *あらゆる* 文字列を使用できます。それで NuGet はパッケージをプレリリースとして扱います。 NuGet は該当 UI に完全なバージョン番号を表示します。利用者はその意味を自分で解釈します。
 
 それを踏まえた上で、次のような認められている命名規則に従うことが一般的に推奨されます。
 
@@ -77,15 +77,17 @@ ms.locfileid: "88623007"
 
 ただし、どのようなサフィックスを使用する場合でも、NuGet はアルファベットの逆順で優先順序を与えます。
 
-    1.0.1
-    1.0.1-zzz
-    1.0.1-rc
-    1.0.1-open
-    1.0.1-beta.12
-    1.0.1-beta.5
-    1.0.1-beta
-    1.0.1-alpha.2
-    1.0.1-alpha
+```
+1.0.1
+1.0.1-zzz
+1.0.1-rc
+1.0.1-open
+1.0.1-beta.12
+1.0.1-beta.5
+1.0.1-beta
+1.0.1-alpha.2
+1.0.1-alpha
+```
 
 このように、サフィックスのないバージョンは常にプレリリース版に優先します。
 

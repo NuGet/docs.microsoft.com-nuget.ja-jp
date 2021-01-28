@@ -1,16 +1,16 @@
 ---
 title: .NET Standard NuGet パッケージの作成と公開 - Windows 上の Visual Studio
 description: Windows の Visual Studio を使用した、.NET Standard NuGet パッケージの作成と公開に関するチュートリアルです。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 08/16/2019
 ms.topic: quickstart
-ms.openlocfilehash: 32dcc1d233154463e2950b1ce46554b1cb89956e
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 53f54f6723ad10fca2ed6f75290ba3829dfb9a5e
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237498"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775679"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>クイック スタート: Visual Studio を使用した NuGet パッケージの作成と公開 (.NET Standard、Windows のみ)
 
@@ -62,14 +62,14 @@ namespace AppLogger
 
 1. ソリューション エクスプローラーでプロジェクトを右クリックし、 **[プロパティ]** メニュー コマンドを選択してから、 **[パッケージ]** タブを選択します。
 
-   **[パッケージ]** タブは、Visual Studio の SDK スタイルのプロジェクト (通常は .NET Standard または .NET Core クラス ライブラリ プロジェクト) に対してのみ表示されます。非 SDK スタイルのプロジェクト (通常は .NET Framework) をターゲットとしている場合は、 [プロジェクトを移行](../consume-packages/migrate-packages-config-to-package-reference.md)するか、 [.NET Framework パッケージの作成と公開](create-and-publish-a-package-using-visual-studio-net-framework.md)に関するページの詳細な手順をご覧ください。
+   **[パッケージ]** タブは、Visual Studio の SDK スタイルのプロジェクト (通常は .NET Standard または .NET Core クラス ライブラリ プロジェクト) に対してのみ表示されます。非 SDK スタイルのプロジェクト (通常は .NET Framework) をターゲットとしている場合は、[プロジェクトを移行](../consume-packages/migrate-packages-config-to-package-reference.md)するか、[.NET Framework パッケージの作成と公開](create-and-publish-a-package-using-visual-studio-net-framework.md)に関するページの詳細な手順をご覧ください。
 
     ![Visual Studio プロジェクト内の NuGet パッケージのプロパティ](media/qs_create-vs-01-package-properties.png)
 
     > [!Note]
-    > 公開用にビルドされたパッケージの場合は、 **Tags** プロパティに特に注意してください。これらのタグは他のユーザーがパッケージを検索して、パッケージの動作を理解するのに役立ちます。
+    > 公開用にビルドされたパッケージの場合は、**Tags** プロパティに特に注意してください。これらのタグは他のユーザーがパッケージを検索して、パッケージの動作を理解するのに役立ちます。
 
-1. パッケージに一意の識別子を付けて、他の必要なプロパティを指定します。 MSBuild プロパティ (SDK スタイルのプロジェクト) から *.nuspec* 内のプロパティへのマッピングについては、「 [pack ターゲット](../reference/msbuild-targets.md#pack-target)」ご覧ください。 プロパティの説明については、[.nuspec ファイル リファレンス](../reference/nuspec.md)に関するページをご覧ください。 これらのプロパティはすべて、Visual Studio でプロジェクト用に作成された `.nuspec`マニフェストに保存されます。
+1. パッケージに一意の識別子を付けて、他の必要なプロパティを指定します。 MSBuild プロパティ (SDK スタイルのプロジェクト) から *.nuspec* 内のプロパティへのマッピングについては、「[pack ターゲット](../reference/msbuild-targets.md#pack-target)」ご覧ください。 プロパティの説明については、[.nuspec ファイル リファレンス](../reference/nuspec.md)に関するページをご覧ください。 これらのプロパティはすべて、Visual Studio でプロジェクト用に作成された `.nuspec`マニフェストに保存されます。
 
     > [!Important]
     > パッケージには、nuget.org または使用しているホスト全体で一意の識別子を付ける必要があります。 このチュートリアルでは、以降の公開手順でパッケージを一般公開するので (ただし、誰かが実際に使用する可能性はありません)、名前に "Sample" または "Test" を含めることをお勧めします。
@@ -114,7 +114,7 @@ namespace AppLogger
 
 ### <a name="optional-pack-with-msbuild"></a>(オプション) MSBuild を使用したパック
 
-NuGet 4.x 以降と MSBuild 15.1 以降では、 **Pack** メニュー コマンドを使用する代わりに、プロジェクトに必要なパッケージ データが含まれている場合に `pack` ターゲットをサポートしています。 コマンド プロンプトを開き、プロジェクト フォルダーに移動し、次のコマンドを実行します (MSBuild に必要なすべてのパスが構成されるため、通常は [スタート] メニューの [Developer Command Prompt for Visual Studio]\(Visual Studio 用開発者コマンド プロンプト\) を使用します)。
+NuGet 4.x 以降と MSBuild 15.1 以降では、**Pack** メニュー コマンドを使用する代わりに、プロジェクトに必要なパッケージ データが含まれている場合に `pack` ターゲットをサポートしています。 コマンド プロンプトを開き、プロジェクト フォルダーに移動し、次のコマンドを実行します (MSBuild に必要なすべてのパスが構成されるため、通常は [スタート] メニューの [Developer Command Prompt for Visual Studio]\(Visual Studio 用開発者コマンド プロンプト\) を使用します)。
 
 詳細については、「[Create a package using MSBuild](../create-packages/creating-a-package-msbuild.md)」 (MSBuild を使用してパッケージを作成する) を参照してください。
 

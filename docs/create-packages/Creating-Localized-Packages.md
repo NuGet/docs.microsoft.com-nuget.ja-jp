@@ -1,16 +1,16 @@
 ---
 title: ローカライズされた NuGet パッケージの作成方法
 description: すべてのアセンブリを 1 つのパッケージに含めるか個別のアセンブリを公開することによって、ローカライズされた NuGet パッケージを作成する 2 つの方法の詳細について説明します。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 83414a824676844f9e44eab874e5eac788d50583
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: cb3f8a9df66f259b130996822f102c27636d5d2c
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "73610936"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774756"
 ---
 # <a name="creating-localized-nuget-packages"></a>ローカライズされた NuGet パッケージを作成する
 
@@ -27,34 +27,36 @@ ms.locfileid: "73610936"
 
 たとえば、次のフォルダー構造は、ドイツ語 (de)、イタリア語 (it)、日本語 (ja)、ロシア語 (ru)、簡体中国語 (zh-Hans)、および繁体中国語 (zh-Hant) をサポートします。
 
-    lib
-    └───net40
-        │   Contoso.Utilities.dll
-        │   Contoso.Utilities.xml
-        │
-        ├───de
-        │       Contoso.Utilities.resources.dll
-        │       Contoso.Utilities.xml
-        │
-        ├───it
-        │       Contoso.Utilities.resources.dll
-        │       Contoso.Utilities.xml
-        │
-        ├───ja
-        │       Contoso.Utilities.resources.dll
-        │       Contoso.Utilities.xml
-        │
-        ├───ru
-        │       Contoso.Utilities.resources.dll
-        │       Contoso.Utilities.xml
-        │
-        ├───zh-Hans
-        │       Contoso.Utilities.resources.dll
-        │       Contoso.Utilities.xml
-        │
-        └───zh-Hant
-                Contoso.Utilities.resources.dll
-                Contoso.Utilities.xml
+```
+lib
+└───net40
+    │   Contoso.Utilities.dll
+    │   Contoso.Utilities.xml
+    │
+    ├───de
+    │       Contoso.Utilities.resources.dll
+    │       Contoso.Utilities.xml
+    │
+    ├───it
+    │       Contoso.Utilities.resources.dll
+    │       Contoso.Utilities.xml
+    │
+    ├───ja
+    │       Contoso.Utilities.resources.dll
+    │       Contoso.Utilities.xml
+    │
+    ├───ru
+    │       Contoso.Utilities.resources.dll
+    │       Contoso.Utilities.xml
+    │
+    ├───zh-Hans
+    │       Contoso.Utilities.resources.dll
+    │       Contoso.Utilities.xml
+    │
+    └───zh-Hant
+            Contoso.Utilities.resources.dll
+            Contoso.Utilities.xml
+```
 
 すべての言語は `net40` ターゲット フレームワーク フォルダーの下に一覧表示されます。 [複数のフレームワークをサポートする](../create-packages/supporting-multiple-target-frameworks.md)場合、`lib` の下に各バリアントのフォルダーがあります。
 
@@ -92,28 +94,32 @@ ms.locfileid: "73610936"
 
 これを行うには、プライマリ パッケージで、名前付け規則 `{identifier}.{version}.nupkg` を使用し、既定の言語 (en-US など) などのアセンブリを含めます。 たとえば、`ContosoUtilities.1.0.0.nupkg` には、次の構造が含まれます。
 
-    lib
-    └───net40
-            ContosoUtilities.dll
-            ContosoUtilities.xml
+```
+lib
+└───net40
+        ContosoUtilities.dll
+        ContosoUtilities.xml
+```
 
-サテライト アセンブリは、`ContosoUtilities.de.1.0.0.nupkg` などのように名前付け規則 `{identifier}.{language}.{version}.nupkg`を使用します。 識別子は、プライマリ パッケージと完全に一致している**必要があります**。
+サテライト アセンブリは、`ContosoUtilities.de.1.0.0.nupkg` などのように名前付け規則 `{identifier}.{language}.{version}.nupkg`を使用します。 識別子は、プライマリ パッケージと完全に一致している **必要があります**。
 
-これは、個別のパッケージに独自の `.nuspec` ファイルがあり、それがローカライズされたメタデータを含んでいるためです。 `.nuspec` の言語は、ファイル名で使用されるものと一致している**必要があります**。
+これは、個別のパッケージに独自の `.nuspec` ファイルがあり、それがローカライズされたメタデータを含んでいるためです。 `.nuspec` の言語は、ファイル名で使用されるものと一致している **必要があります**。
 
-サテライト アセンブリは、[] バージョン表記を使用して (「[Package versioning](../concepts/package-versioning.md)」(パッケージのバージョン管理) を参照してください)、プライマリ パッケージの正確なバージョンを宣言する**必要もあります**。 たとえば、`ContosoUtilities.de.1.0.0.nupkg` は、`[1.0.0]` 表記を使用して `ContosoUtilities.1.0.0.nupkg` で依存関係を宣言する必要があります。 サテライト パッケージでは、当然ながら、プライマリ パッケージと別のバージョン番号を付けることができます。
+サテライト アセンブリは、[] バージョン表記を使用して (「[Package versioning](../concepts/package-versioning.md)」(パッケージのバージョン管理) を参照してください)、プライマリ パッケージの正確なバージョンを宣言する **必要もあります**。 たとえば、`ContosoUtilities.de.1.0.0.nupkg` は、`[1.0.0]` 表記を使用して `ContosoUtilities.1.0.0.nupkg` で依存関係を宣言する必要があります。 サテライト パッケージでは、当然ながら、プライマリ パッケージと別のバージョン番号を付けることができます。
 
 サテライト パッケージの構造で、パッケージ ファイル名の `{language}` と一致するサブフォルダーにリソース アセンブリと XML IntelliSense ファイルを含める必要があります。
 
-    lib
-    └───net40
-        └───de
-                ContosoUtilities.resources.dll
-                ContosoUtilities.xml
+```
+lib
+└───net40
+    └───de
+            ContosoUtilities.resources.dll
+            ContosoUtilities.xml
+```
 
 **注**: `ja-JP` などの特定のサブカルチャが必要な場合を除いて、`ja` のような高レベルの言語識別子を常に使用してください。
 
-サテライト アセンブリで、NuGet は、ファイル名の `{language}` と一致するフォルダー内のファイル**のみ**を認識します。 他の属性はすべて無視されます。
+サテライト アセンブリで、NuGet は、ファイル名の `{language}` と一致するフォルダー内のファイル **のみ** を認識します。 他の属性はすべて無視されます。
 
 これらのすべての規則が満たされたら、NuGet は、サテライト パッケージとしてパッケージを認識し、プライマリ パッケージの `lib` フォルダーにローカライズされたファイルをインストールします。それらがもともとバンドルされている場合と同様です。 サテライト パッケージをアンインストールすると、その同じフォルダーからそのファイルが削除されます。
 

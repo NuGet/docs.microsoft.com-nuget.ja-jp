@@ -1,16 +1,16 @@
 ---
 title: 輸出管理ポリシー
 description: 輸出管理法に準拠するポリシー
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 06/27/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4ea2d2f23a02088b54982b825a5be3c872e27c37
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 9d8ba7043d3b855f43bee9b45d7316d1aaaa7985
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "73611308"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775635"
 ---
 # <a name="export-control-policy"></a>輸出管理ポリシー
 
@@ -26,6 +26,6 @@ EAR (Part 742.15(b) および 734.3(b)(3)) で指定されているように、�
 
 ## <a name="commerical-software"></a>市販のソフトウェア
 
-輸出管理管轄からの上記の通知プロセスを介した一般公開ソース コードのリリースは、かかる品目を組み込んだ、またはかかる品目から派生した市販ソフトウェアには*適用されません*。  お客様は、NuGet.org を介してホストされているソース コードまたはオブジェクト コードを組み込んだ、またはそれらから派生した任意の市販のソフトウェアに適用されるような輸出法の遵守に全責任を負います。
+輸出管理管轄からの上記の通知プロセスを介した一般公開ソース コードのリリースは、かかる品目を組み込んだ、またはかかる品目から派生した市販ソフトウェアには *適用されません*。  お客様は、NuGet.org を介してホストされているソース コードまたはオブジェクト コードを組み込んだ、またはそれらから派生した任意の市販のソフトウェアに適用されるような輸出法の遵守に全責任を負います。
 
 輸出規制および地理的輸出規制の詳細については、[Microsoft の輸出管理](https://www.microsoft.com/exporting)に関するページをご覧ください。

@@ -1,17 +1,17 @@
 ---
 title: NuGet パッケージの公開方法
 description: NuGet パッケージを nuget.org やプライベート フィードに公開する方法と nuget.org でパッケージ所有権を管理する方法に関する詳細。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: fe5625247dca51c10d82fffe82022c40a4716069
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 5be7a4d4c31df9f2f4bda7bdb1ff9f4887108578
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237933"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775983"
 ---
 # <a name="publishing-packages"></a>パッケージを公開する
 

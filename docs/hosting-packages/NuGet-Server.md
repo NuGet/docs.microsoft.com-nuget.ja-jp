@@ -1,16 +1,16 @@
 ---
 title: NuGet.Server を使用して NuGet フィードをホストする
 description: HTTP および OData 経由でパッケージを利用できるようにして、NuGet.Server を使用し、IIS を実行している任意のサーバー上に NuGet パッケージ フィードを作成およびホストする方法です。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 03/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7a806e6b586c63c701642c9e43865cb077d7999c
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 3a9fb843f071eda72b9469292a7276ad81f8c24d
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623046"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774078"
 ---
 # <a name="nugetserver"></a>NuGet.Server
 
@@ -34,7 +34,7 @@ NuGet.Server についてさらに質問がある場合は、[https://github.com
 
     ![新しいプロジェクトのターゲット フレームワークを設定する](media/Hosting_01-NuGet.Server-Set4.6.png)
 
-1. アプリケーションに NuGet.Server *以外*の適切な名前を付けて [OK] を選択し、次のダイアログで**空**のテンプレートを選択して **[OK]** を選択します。
+1. アプリケーションに NuGet.Server *以外* の適切な名前を付けて [OK] を選択し、次のダイアログで **空** のテンプレートを選択して **[OK]** を選択します。
 
     ![空の Web プロジェクトを選択する](media/Hosting_02-NuGet.Server-Empty.png)
 

@@ -1,17 +1,17 @@
 ---
 title: NuGet パッケージのソースと config ファイルの変換
 description: インストール時にソース コードと構成 (XML) ファイルを変換する NuGet パッケージの機能について説明します。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 04/24/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 8e3eade14c70782563ba82894f072f9b3a611923
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 5bd0e409f527fb668008204fb16ad002f4784c46
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237985"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774589"
 ---
 # <a name="transforming-source-code-and-configuration-files"></a>ソース コードと構成ファイルの変換
 

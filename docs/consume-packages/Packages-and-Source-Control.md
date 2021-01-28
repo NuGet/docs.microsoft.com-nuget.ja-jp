@@ -1,16 +1,16 @@
 ---
 title: NuGet パッケージとソース管理
 description: バージョン管理システムとソース管理システム内で NuGet パッケージを処理する方法、git と TFVC でパッケージを省略する方法に関する考慮事項です。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9d9ea10ccd32bb65ad0d62b591f5e2cb58ea3427
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 9bae65573ca49c68d07250228c1923890e0f14ac
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "69019989"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775020"
 ---
 # <a name="omitting-nuget-packages-in-source-control-systems"></a>ソース管理システムで NuGet パッケージを省略する
 
@@ -58,12 +58,12 @@ project.assets.json
 ## <a name="omitting-packages-with-team-foundation-version-control"></a>Team Foundation バージョン管理でパッケージを省略する
 
 > [!Note]
-> ソース管理にプロジェクトを追加する*前に*、可能であればこれらの手順を実行します。 それ以外の場合は、自分のリポジトリから `packages` フォルダーを手動で削除して、続行する前にその変更をチェックインします。
+> ソース管理にプロジェクトを追加する *前に*、可能であればこれらの手順を実行します。 それ以外の場合は、自分のリポジトリから `packages` フォルダーを手動で削除して、続行する前にその変更をチェックインします。
 
 選択したファイルの TFVC とのソース管理の統合を無効にするには
 
 1. ソリューション フォルダー (`.sln` ファイルがある場所) で `.nuget` という名前のフォルダーを作成します。
-    - ヒント: Windows 上のエクスプローラーでこのフォルダーを作成するには、末尾のドットを*含む* `.nuget.` という名前を使用します。
+    - ヒント: Windows 上のエクスプローラーでこのフォルダーを作成するには、末尾のドットを *含む* `.nuget.` という名前を使用します。
 
 1. そのフォルダーで、`NuGet.Config` という名前のファイルを作成し、編集するために開きます。
 

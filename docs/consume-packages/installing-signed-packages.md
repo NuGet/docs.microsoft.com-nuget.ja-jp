@@ -1,16 +1,16 @@
 ---
 title: パッケージ信頼境界を管理する
 description: 署名付き NuGet パッケージをインストールする手順およびパッケージの署名の信頼設定を構成する方法を説明します。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 034b9dd9699af529e4d82d6ee5b1c42214673341
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 596ce330e434253e6fb200aa59ae4e14d47779ed
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237628"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774810"
 ---
 # <a name="manage-package-trust-boundaries"></a>パッケージ信頼境界を管理する
 

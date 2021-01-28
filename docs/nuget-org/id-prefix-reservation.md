@@ -1,17 +1,17 @@
 ---
 title: ID プレフィックスの予約
 description: パッケージ ID プレフィックスの予約機能の説明と作成者ガイド。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 09/07/2019
 ms.topic: reference
 ms.reviewer: karann
-ms.openlocfilehash: da464cc44d8c874e13c0cdfab871f31e643b577f
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: af9969df33c6bf7a62709e6e3535b8b886376e3e
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "73610491"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775917"
 ---
 # <a name="package-id-prefix-reservation"></a>パッケージ ID プレフィックスの予約
 
@@ -49,7 +49,7 @@ ms.locfileid: "73610491"
 
 - プレフィックスの予約の間に、所有者は、プレフィックスのサブセット (またはプレフィックス) を他の所有者に委任することを要求できます。 たとえば、"[aspnet](https://www.nuget.org/profiles/aspnet)" が "Microsoft.AspNet.\*" の予約を望んでいるのに、"[Microsoft](https://www.nuget.org/profiles/microsoft)" が "Microsoft.\*" を所有している場合、"[Microsoft](https://www.nuget.org/profiles/microsoft)" は "Microsoft.AspNet.\*" を [aspnet](https://www.nuget.org/profiles/aspnet) アカウントに委任できます。
 
-- プレフィックスの予約の間に、所有者は、プレフィックスをパブリックにすることができます。 このようにしてもまだ、パッケージが予約済みプレフィックスからのものであることを示す視覚的インジケーターは表示されていますが、将来任意の所有者がそのプレフィックスでパッケージを送信してもブロック**されません**。 これは、多くの共同作成者がいるオープンソース プロジェクトで役に立ちます。上位または中核の共同作成者がプレフィックスを予約しても、すべての共同作成者に対してオープンにしておくことができます。 
+- プレフィックスの予約の間に、所有者は、プレフィックスをパブリックにすることができます。 このようにしてもまだ、パッケージが予約済みプレフィックスからのものであることを示す視覚的インジケーターは表示されていますが、将来任意の所有者がそのプレフィックスでパッケージを送信してもブロック **されません**。 これは、多くの共同作成者がいるオープンソース プロジェクトで役に立ちます。上位または中核の共同作成者がプレフィックスを予約しても、すべての共同作成者に対してオープンにしておくことができます。 
 
 ### <a name="prefix-reservation-visual-indicator"></a>プレフィックスの予約の視覚的インジケーター
 

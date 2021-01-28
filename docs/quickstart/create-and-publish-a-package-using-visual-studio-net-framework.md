@@ -1,16 +1,16 @@
 ---
 title: Windows の Visual Studio を使用した .NET Framework NuGet パッケージの作成と公開
 description: Windows の Visual Studio を使用した、.NET Framework NuGet パッケージの作成と公開に関するチュートリアルです。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: e00aac83a710e2f745d5e4bb9aec741ee686e595
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 7c030db769973e3b3c41da6523d57ab2cd769a9d
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "72380646"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775747"
 ---
 # <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>クイック スタート: Visual Studio を使用したパッケージの作成と公開 (.NET Framework、Windows)
 
@@ -76,7 +76,7 @@ NuGet パッケージには、パッケージ識別子、バージョン番号�
 
 1. 省略可能: プロパティを直接表示および編集するには、プロジェクトの `Properties/AssemblyInfo.cs` ファイルを開きます。
 
-1. プロパティが設定されたら、プロジェクトの構成を**リリース**に設定し、プロジェクトをリビルドして、更新された DLL を生成します。
+1. プロパティが設定されたら、プロジェクトの構成を **リリース** に設定し、プロジェクトをリビルドして、更新された DLL を生成します。
 
 ## <a name="generate-the-initial-manifest"></a>初期マニフェストを生成する
 

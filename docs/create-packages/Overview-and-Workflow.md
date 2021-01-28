@@ -1,16 +1,16 @@
 ---
 title: NuGet パッケージの作成の概要とワークフロー
 description: NuGet パッケージの作成と発行プロセスの概要と、プロセスの他の特定の部分へのリンク。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 07/26/2017
 ms.topic: conceptual
-ms.openlocfilehash: e4b9f6dae3a4be69e523888cc9bd2f212b45829c
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: d34f8e73dce64a58393433637067651fced08173
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "69488845"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774676"
 ---
 # <a name="package-creation-workflow"></a>パッケージ作成ワークフロー
 

@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 11/02/2017
 ms.topic: tutorial
 ms.reviewer: kraigb
-ms.openlocfilehash: 749d9466976d51c7cb65332c8b149e3a30862e63
-ms.sourcegitcommit: 650c08f8bc3d48dfd206a111e5e2aaca3001f569
+ms.openlocfilehash: 7e611b568538e0acfcbad2e5d986a0f9382ac8fd
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97523399"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774123"
 ---
 # <a name="query-for-all-packages-published-to-nugetorg"></a>nuget.org に発行されたすべてのパッケージに対するクエリの実行
 
@@ -54,7 +54,9 @@ DateTime cursor = DateTime.UtcNow.AddHours(-1);
 
 NuGet API のすべてのリソース (エンドポイント) の場所は、[サービス インデックス](../../api/service-index.md)を使用して検出する必要があります。 このガイドでは nuget.org に焦点を当てているため、nuget.org のサービス インデックスを使用します。
 
-    GET https://api.nuget.org/v3/index.json
+```
+GET https://api.nuget.org/v3/index.json
+```
 
 サービス ドキュメントは、nuget.org のすべてのリソースを含む JSON ドキュメントです。`@type` プロパティの値が `Catalog/3.0.0` のリソースを見つけてください。 関連付けられている `@id`プロパティの値は、カタログ インデックス自体の URL です。 
 
@@ -62,13 +64,17 @@ NuGet API のすべてのリソース (エンドポイント) の場所は、[�
 
 前の手順で見つけた `@id` プロパティの値を使用して、カタログ インデックスをダウンロードします。
 
-    GET https://api.nuget.org/v3/catalog0/index.json
+```
+GET https://api.nuget.org/v3/catalog0/index.json
+```
 
 [カタログ インデックス](../../api/catalog-resource.md#catalog-index)を逆シリアル化します。 すべての[カタログ ページ オブジェクト](../../api/catalog-resource.md#catalog-page-object-in-the-index)を、現在のカーソル値以下の `commitTimeStamp` でフィルタリングします。
 
 残りのカタログ ページごとに、`@id` プロパティを使用して完全なドキュメントをダウンロードします。
 
-    GET https://api.nuget.org/v3/catalog0/page2926.json
+```
+GET https://api.nuget.org/v3/catalog0/page2926.json
+```
 
 [カタログ ページ](../../api/catalog-resource.md#catalog-page)を逆シリアル化します。 すべての[カタログ リーフ オブジェクト](../../api/catalog-resource.md#catalog-item-object-in-a-page)を、現在のカーソル値以下の `commitTimeStamp` でフィルタリングします。
 
@@ -80,7 +86,9 @@ NuGet API のすべてのリソース (エンドポイント) の場所は、[�
 
 パッケージに関するメタデータ (説明、依存関係、.nupkg のサイズなど) に関心がある場合は、`@id` プロパティを使用して[カタログ リーフ ドキュメント](../../api/catalog-resource.md#catalog-leaf)をフェッチできます。
 
-    GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
+```
+GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
+```
 
 このドキュメントには、[パッケージ メタデータ リソース](../../api/registration-base-url-resource.md)などに含まれるすべてのメタデータが示されます。
 

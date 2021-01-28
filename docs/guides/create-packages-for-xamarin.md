@@ -1,16 +1,16 @@
 ---
 title: Visual Studio 2017 または 2019 での Xamarin 用 NuGet パッケージ (iOS、Android、および Windows 用) の作成
 description: iOS、Android、および Windows でネイティブ API を使用する、Xamarin の NuGet パッケージを作成するためのエンド ツー エンド チュートリアル。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/05/2019
 ms.topic: tutorial
-ms.openlocfilehash: 0cb653bad9e853d908039b3f7a94e1dd7eefdde5
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: fdabeeac57ca12716f6ed2614d036f1623407b20
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "78230903"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774221"
 ---
 # <a name="create-packages-for-xamarin-with-visual-studio-2017-or-2019"></a>Visual Studio 2017 または 2019 での Xamarin 用パッケージの作成
 

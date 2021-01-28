@@ -1,16 +1,16 @@
 ---
 title: dotnet CLI を使用して NuGet パッケージを作成する
 description: NuGet パッケージを設計し、作成する過程を詳しく説明します。ファイルやバージョン管理など、重要な決定ポイントが含まれます。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 02/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 87b38d7a707d6175eb3347280784d9dfefd9c17d
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 4771a30ee2ff73e68154d05f1c84efd90b584162
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "89359651"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774476"
 ---
 # <a name="create-a-nuget-package-using-the-dotnet-cli"></a>dotnet CLI を使用して NuGet パッケージを作成する
 
@@ -28,7 +28,7 @@ ms.locfileid: "89359651"
 次のプロパティは、パッケージを作成するために必要です。
 
 - `PackageId`、パッケージの識別子。パッケージをホストするギャラリー全体で一意にする必要があります。 指定しない場合は、既定値の `AssemblyName` が使用されます。
-- `Version`、*Major.Minor.Patch[-Suffix]* という形式の特別なバージョン番号。 *-Suffix* によって[プレリリース版](prerelease-packages.md)を識別します。 指定しない場合は、既定値は 1.0.0 です。
+- `Version`、*Major.Minor.Patch[-Suffix]* という形式の特別なバージョン番号。 *-Suffix* によって [プレリリース版](prerelease-packages.md)を識別します。 指定しない場合は、既定値は 1.0.0 です。
 - ホスト (nuget.org など) に表示されるパッケージ タイトル。
 - `Authors`、作成者と所有者の情報。 指定しない場合は、既定値の `AssemblyName` が使用されます。
 - `Company`、会社名。 指定しない場合は、既定値の `AssemblyName` が使用されます。
@@ -64,7 +64,7 @@ Visual Studio では、プロジェクトのプロパティにこれらの値を
 また、[MSBuild pack ターゲット](../reference/msbuild-targets.md#pack-target)に関するセクション、「[依存関係アセットを制御する](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)」、「[NuGet メタデータ プロパティ](/dotnet/core/tools/csproj#nuget-metadata-properties)」に説明されているように、`Title`、`PackageDescription`、`PackageTags` などのオプションのプロパティを設定することもできます。
 
 > [!NOTE]
-> 公開用にビルドされたパッケージの場合は、**PackageTags**プロパティに特に注意してください。これらのタグは他のユーザーがパッケージを検索して、パッケージの動作を理解するのに役立ちます。
+> 公開用にビルドされたパッケージの場合は、**PackageTags** プロパティに特に注意してください。これらのタグは他のユーザーがパッケージを検索して、パッケージの動作を理解するのに役立ちます。
 
 依存関係の宣言とバージョン番号の指定の詳細については、「[プロジェクト ファイルのパッケージ参照 (PackageReference)](../consume-packages/package-references-in-project-files.md)」と「[パッケージのバージョン管理](../concepts/package-versioning.md)」を参照してください。 `<IncludeAssets>` および `<ExcludeAssets>` 属性を使用して、パッケージ内で直接、依存関係からアセットを表面化させることもできます。 詳しくは、「[依存関係アセットを制御する](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets)」をご覧ください。
 

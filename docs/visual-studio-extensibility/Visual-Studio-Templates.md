@@ -1,16 +1,16 @@
 ---
 title: Visual Studio テンプレートの NuGet パッケージ
 description: NuGet パッケージを Visual Studio プロジェクトと項目テンプレートの一部として含める方法について説明します。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/03/2018
 ms.topic: conceptual
-ms.openlocfilehash: 2dfbd793eee05169f051d9c8943bc065945b92da
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 82a0121bb3144b7f28f677185039c0fe15cc2bf3
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622643"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780084"
 ---
 # <a name="packages-in-visual-studio-templates"></a>Visual Studio テンプレートのパッケージ
 

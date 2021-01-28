@@ -1,8 +1,8 @@
 ---
 title: Visual Studio に NuGet パッケージをインストールして管理する
 description: Visual Studio 内で NuGet パッケージ マネージャー UI を使用して、NuGet パッケージを操作する方法について説明します。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 07/08/2019
 ms.topic: conceptual
 f1_keywords:
@@ -10,12 +10,12 @@ f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-ms.openlocfilehash: 3adceac8c725d9ea1610aea090753c9c1d8bc818
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 87024dc6bd8e17a39fa7952deb39aa5bd48f6af4
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428421"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775004"
 ---
 # <a name="install-and-manage-packages-in-visual-studio-using-the-nuget-package-manager"></a>NuGet パッケージ マネージャーを使用して Visual Studio にパッケージをインストールして管理する
 
@@ -28,7 +28,7 @@ Windows 上の Visual Studio 内で NuGet パッケージ マネージャー UI 
 
 ## <a name="find-and-install-a-package"></a>パッケージを検索してインストールする
 
-1. **ソリューション エクスプローラー**上で、 **[参照]** またはプロジェクトのどちらかを右クリックし、 **[NuGet パッケージの管理]** を選択します。
+1. **ソリューション エクスプローラー** 上で、 **[参照]** またはプロジェクトのどちらかを右クリックし、 **[NuGet パッケージの管理]** を選択します。
 
     ![[NuGet パッケージの管理] メニュー オプション](media/ManagePackagesUICommand.png)
 
@@ -48,7 +48,7 @@ Windows 上の Visual Studio 内で NuGet パッケージ マネージャー UI 
 
 ## <a name="uninstall-a-package"></a>パッケージをアンインストールします
 
-1. **ソリューション エクスプローラー**上で、 **[参照]** または目的のプロジェクトのどちらかを右クリックし、 **[NuGet パッケージの管理]** を選択します。
+1. **ソリューション エクスプローラー** 上で、 **[参照]** または目的のプロジェクトのどちらかを右クリックし、 **[NuGet パッケージの管理]** を選択します。
 1. **[インストール済み]** タブを選択します。
 1. アンインストールするパッケージを選択し (必要に応じて、検索を使用して一覧をフィルター処理します)、 **[アンインストール]** を選択します。
 
@@ -58,7 +58,7 @@ Windows 上の Visual Studio 内で NuGet パッケージ マネージャー UI 
 
 ## <a name="update-a-package"></a>パッケージを更新する
 
-1. **ソリューション エクスプローラー**上で、 **[参照]** または目的のプロジェクトのどちらかを右クリックし、 **[NuGet パッケージの管理]** を選択します。(Web サイトのプロジェクトでは、**Bin** フォルダーを右クリックします)。
+1. **ソリューション エクスプローラー** 上で、 **[参照]** または目的のプロジェクトのどちらかを右クリックし、 **[NuGet パッケージの管理]** を選択します。(Web サイトのプロジェクトでは、**Bin** フォルダーを右クリックします)。
 1. **[更新]** タブを選択して、選択されたパッケージ ソースからの使用可能な更新プログラムがあるパッケージを確認します。 **[プレリリースを含める]** を選択して、更新リストにあるプレリリース パッケージを含めます。
 1. 更新するパッケージを選択し、右側にあるドロップダウンから目的のバージョンを選択して、 **[更新]** を選択します。
 
@@ -109,7 +109,7 @@ Visual Studio がパッケージを取得するソースを変更するには、
 
 パッケージ ソースを管理するには:
 
-1. 以下に示したパッケージ マネージャー UI にある**設定**のアイコンを選択するか、 **[ツール] > [オプション]** コマンドを使用して **[NuGet パッケージ マネージャー]** までスクロールします。
+1. 以下に示したパッケージ マネージャー UI にある **設定** のアイコンを選択するか、 **[ツール] > [オプション]** コマンドを使用して **[NuGet パッケージ マネージャー]** までスクロールします。
 
     ![パッケージ マネージャー UI の設定のアイコン](media/PackageSourceSettings.png)
 

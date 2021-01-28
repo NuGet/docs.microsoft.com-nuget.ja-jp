@@ -1,16 +1,16 @@
 ---
 title: dotnet CLI を使用した NuGet パッケージの作成と公開
 description: .NET Core CLI (dotnet) を使用した NuGet パッケージの作成と公開に関するチュートリアル。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: a67c8cd92304c6c4abcffbb79ddbe964664d08fb
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: cb63257c874fc4752f3b3d59db4be5996d5ab81d
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237485"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775761"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>クイック スタート: パッケージの作成と公開 (dotnet CLI)
 
@@ -53,7 +53,7 @@ ms.locfileid: "93237485"
 1. 「[NuGet メタデータ プロパティ](/dotnet/core/tools/csproj#nuget-metadata-properties)」で説明する省略可能なプロパティを追加します。
 
     > [!Note]
-    > 公開用にビルドされたパッケージの場合は、 **PackageTags** プロパティに特に注意してください。これらのタグは他のユーザーがパッケージを検索して、パッケージの動作を理解するのに役立ちます。
+    > 公開用にビルドされたパッケージの場合は、**PackageTags** プロパティに特に注意してください。これらのタグは他のユーザーがパッケージを検索して、パッケージの動作を理解するのに役立ちます。
 
 ## <a name="run-the-pack-command"></a>pack コマンドを実行する
 
@@ -124,7 +124,7 @@ NuGet による提供についてさらに詳しく調べるには、下のリ�
 - [プレリリース パッケージ](../create-packages/Prerelease-Packages.md)
 - [複数のターゲット フレームワークのサポート](../create-packages/multiple-target-frameworks-project-file.md)
 - [パッケージのバージョン管理](../concepts/package-versioning.md)
-- [ライセンス式またはファイルの追加](../reference/msbuild-targets#packing-a-license-expression-or-a-license-file)
+- [ライセンス式またはファイルの追加](../reference/msbuild-targets.md#packing-a-license-expression-or-a-license-file)
 - [ローカライズされたパッケージを作成する](../create-packages/creating-localized-packages.md)
 - [シンボル パッケージを作成する](../create-packages/symbol-packages-snupkg.md)
 - [パッケージの署名](../create-packages/Sign-a-package.md)

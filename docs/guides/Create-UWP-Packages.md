@@ -1,16 +1,16 @@
 ---
 title: ユニバーサル Windows プラットフォーム用の NuGet パッケージの作成
 description: ユニバーサル Windows プラットフォーム用の Windows ランタイム コンポーネントを使用して NuGet パッケージを作成するためのエンド ツー エンド チュートリアル。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 03/21/2017
 ms.topic: tutorial
-ms.openlocfilehash: 77aa186291122a8d05018ecacd1329da459badad
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: c077645508cb10e86b3ed1e1f2bf61adcd2013d9
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "72380762"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774228"
 ---
 # <a name="create-uwp-packages"></a>UWP パッケージを作成する
 
@@ -38,7 +38,7 @@ ms.locfileid: "72380762"
 
     ![[XML ドキュメント ファイルの生成] を [はい] に設定する](media/UWP-GenerateXMLDocFiles.png)
 
-1. ここで*ソリューション*を右クリックし、 **[バッチ ビルド]** を選択して、以下に示すようにダイアログの 3 つのデバッグ ボックスをオンにします。 これで、ビルドの実行時に、Windows でサポートされるターゲット システムごとに完全な成果物セットが生成されるようになります。
+1. ここで *ソリューション* を右クリックし、 **[バッチ ビルド]** を選択して、以下に示すようにダイアログの 3 つのデバッグ ボックスをオンにします。 これで、ビルドの実行時に、Windows でサポートされるターゲット システムごとに完全な成果物セットが生成されるようになります。
 
     ![[バッチ ビルド]](media/UWP-BatchBuild.png)
 

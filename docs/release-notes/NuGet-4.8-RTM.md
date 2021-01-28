@@ -1,16 +1,16 @@
 ---
 title: NuGet 4.8 RTM リリース ノート
 description: NuGet 4.8.1 のリリース ノートです。既知の問題、バグ修正、追加機能、および DCR について示します。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 5/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: e6f6d9f703dd4761236d166f3772618c100aca09
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: e61ec740735c5a03491bd0dcdf508d4954b8a6c1
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "76813768"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776233"
 ---
 # <a name="nuget-48-release-notes"></a>NuGet 4.8 リリース ノート
 

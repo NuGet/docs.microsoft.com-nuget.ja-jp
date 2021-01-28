@@ -1,16 +1,16 @@
 ---
 title: パッケージ インストールのしくみ
 description: パッケージ インストール プロセスに関する詳細
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 06/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 634c421499b06f6b62d88a95f8703614dec5ace8
-ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
+ms.openlocfilehash: 2a16c1cfe1ada0d1a78cefcdb2bdc69b9c6e84cf
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97699752"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775092"
 ---
 # <a name="what-happens-when-a-nuget-package-is-installed"></a>NuGet パッケージのインストールのしくみ
 

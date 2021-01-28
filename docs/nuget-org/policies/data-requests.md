@@ -1,16 +1,16 @@
 ---
 title: ユーザー データ要求
 description: ユーザー データのエクスポートと削除を要求することに関する方針
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 05/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: ef054f741755bccf56eedfd462915b8e9fd6931a
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: e0ec429469a992c9558d1635890fd568398206a1
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "67426987"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775721"
 ---
 # <a name="user-data-requests"></a>ユーザー データ要求
 
@@ -46,7 +46,7 @@ nuget.org からユーザー データを削除することを要求するには
 * 予約されていたすべての名前空間が解放される
 * あらゆるパッケージ所有権が削除される
 
-所有しているパッケージは削除*されません*。 所有しているパッケージは検索結果の一覧からは外れますが、それに依存しているプロジェクトでは、パッケージの復元で引き続き利用できます。
+所有しているパッケージは削除 *されません*。 所有しているパッケージは検索結果の一覧からは外れますが、それに依存しているプロジェクトでは、パッケージの復元で引き続き利用できます。
 
 ## <a name="exporting-customer-data"></a>顧客データをエクスポートする
 

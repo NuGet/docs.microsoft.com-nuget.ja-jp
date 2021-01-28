@@ -1,16 +1,16 @@
 ---
 title: NuGet でグローバル パッケージ、キャッシュ、一時フォルダーを管理する方法
 description: パッケージをインストール、復元、および更新するときに使用される、コンピューター上に存在するグローバル パッケージ インストール フォルダー、パッケージ キャッシュ、および一時フォルダーを管理する方法
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 03/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: e2672aa0bf57242526364639f0df74f9d1adb934
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: e5585267d4ce2563d77ff30ec5c31e196d98686a
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237323"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774794"
 ---
 # <a name="managing-the-global-packages-cache-and-temp-folders"></a>グローバル パッケージ、キャッシュ、および一時フォルダーを管理する
 
@@ -18,17 +18,17 @@ NuGet では、パッケージのインストール、更新、または復元�
 
 | 名前 | 説明および場所 (ユーザーごと)|
 | --- | --- |
-| global&#8209;packages | " *グローバル パッケージ* " フォルダーは、ダウンロードされた任意のパッケージが NuGet でインストールされる場所です。 各パッケージは、パッケージ ID とバージョン番号と一致するサブフォルダーに完全に展開されます。 [PackageReference](package-references-in-project-files.md) 形式を使用するプロジェクトでは常に、このフォルダーから直接パッケージを使用します。 [packages.config](../reference/packages-config.md) を使用する場合、パッケージは " *グローバル パッケージ* " フォルダーにインストールされ、プロジェクトの `packages` フォルダーにコピーされます。<br/><ul><li>Windows: `%userprofile%\.nuget\packages`</li><li>Mac/Linux: `~/.nuget/packages`</li><li>NUGET_PACKAGES 環境変数、`globalPackagesFolder`または `repositoryPath` [構成設定](../reference/nuget-config-file.md#config-section) (それぞれ、PackageReference および `packages.config` を使用している場合)、あるいは `RestorePackagesPath` MSBuild プロパティ (MSBuild のみ) を使用して、オーバーライドします。 環境変数は、構成設定よりも優先されます。</li></ul> |
+| global&#8209;packages | "*グローバル パッケージ*" フォルダーは、ダウンロードされた任意のパッケージが NuGet でインストールされる場所です。 各パッケージは、パッケージ ID とバージョン番号と一致するサブフォルダーに完全に展開されます。 [PackageReference](package-references-in-project-files.md) 形式を使用するプロジェクトでは常に、このフォルダーから直接パッケージを使用します。 [packages.config](../reference/packages-config.md) を使用する場合、パッケージは "*グローバル パッケージ*" フォルダーにインストールされ、プロジェクトの `packages` フォルダーにコピーされます。<br/><ul><li>Windows: `%userprofile%\.nuget\packages`</li><li>Mac/Linux: `~/.nuget/packages`</li><li>NUGET_PACKAGES 環境変数、`globalPackagesFolder`または `repositoryPath` [構成設定](../reference/nuget-config-file.md#config-section) (それぞれ、PackageReference および `packages.config` を使用している場合)、あるいは `RestorePackagesPath` MSBuild プロパティ (MSBuild のみ) を使用して、オーバーライドします。 環境変数は、構成設定よりも優先されます。</li></ul> |
 | http&#8209;cache | Visual Studio パッケージ マネージャー (NuGet 3.x 以降) および `dotnet` ツールでは、ダウンロードしたパッケージのコピーをこのキャッシュに格納し (`.dat` ファイルとして保存)、各パッケージ ソースのサブフォルダーに整理します。 パッケージは展開されず、キャッシュには 30 分の有効期限があります。<br/><ul><li>Windows: `%localappdata%\NuGet\v3-cache`</li><li>Mac/Linux: `~/.local/share/NuGet/v3-cache`</li><li>NUGET_HTTP_CACHE_PATH 環境変数を使用してオーバーライドします。</li></ul> |
 | temp | NuGet が、さまざまな操作中に一時ファイルを格納するフォルダーです。<br/><li>Windows: `%temp%\NuGetScratch`</li><li>Mac/Linux: `/tmp/NuGetScratch`</li></ul> |
 | plugins-cache **4.8+** | NuGet が、操作要求の結果を格納するフォルダーです。<br/><ul><li>Windows: `%localappdata%\NuGet\plugins-cache`</li><li>Mac/Linux: `~/.local/share/NuGet/plugins-cache`</li><li>NUGET_PLUGINS_CACHE_PATH 環境変数を使用してオーバーライドします。</li></ul> |
 
 > [!Note]
-> NuGet 3.5 以前では、" *HTTP キャッシュ* " ではなく、`%localappdata%\NuGet\Cache` にある " *パッケージ キャッシュ* " を使用していました。
+> NuGet 3.5 以前では、"*HTTP キャッシュ*" ではなく、`%localappdata%\NuGet\Cache` にある "*パッケージ キャッシュ*" を使用していました。
 
-キャッシュと " *グローバル パッケージ* " フォルダーを使用することで、NuGet は多くの場合、コンピューター上に既に存在するパッケージのダウンロードを回避して、インストール、更新、および復元処理のパフォーマンスを改善しました。 また、PackageReference を使用する場合、" *グローバル パッケージ* " フォルダーによって、プロジェクト フォルダー内にダウンロードされたパッケージを保持することを回避できます。プロジェクト フォルダーでは、パッケージがソース コントロールに誤って追加される可能性があります。グローバル パッケージ フォルダーによって、コンピューター ストレージでの NuGet の全体の影響が緩和されます。
+キャッシュと "*グローバル パッケージ*" フォルダーを使用することで、NuGet は多くの場合、コンピューター上に既に存在するパッケージのダウンロードを回避して、インストール、更新、および復元処理のパフォーマンスを改善しました。 また、PackageReference を使用する場合、"*グローバル パッケージ*" フォルダーによって、プロジェクト フォルダー内にダウンロードされたパッケージを保持することを回避できます。プロジェクト フォルダーでは、パッケージがソース コントロールに誤って追加される可能性があります。グローバル パッケージ フォルダーによって、コンピューター ストレージでの NuGet の全体の影響が緩和されます。
 
-パッケージの取得を求められたら、NuGet は最初に " *グローバル パッケージ* " フォルダー内を調べます。 パッケージの正確なバージョンがここになかった場合、NuGet は HTTP 以外のすべてのパッケージ ソースを確認します。 それでもパッケージが見つからない場合、`--no-cache` を付加した `dotnet.exe` コマンドまたは `-NoCache` を付加した `nuget.exe` コマンドを指定していないかぎり、NuGet は " *HTTP キャッシュ* " でパッケージを探します。 パッケージがキャッシュになかった場合、またはキャッシュが使用されていない場合、NuGet は HTTP 経由でパッケージを取得します。
+パッケージの取得を求められたら、NuGet は最初に "*グローバル パッケージ*" フォルダー内を調べます。 パッケージの正確なバージョンがここになかった場合、NuGet は HTTP 以外のすべてのパッケージ ソースを確認します。 それでもパッケージが見つからない場合、`--no-cache` を付加した `dotnet.exe` コマンドまたは `-NoCache` を付加した `nuget.exe` コマンドを指定していないかぎり、NuGet は "*HTTP キャッシュ*" でパッケージを探します。 パッケージがキャッシュになかった場合、またはキャッシュが使用されていない場合、NuGet は HTTP 経由でパッケージを取得します。
 
 詳細については、「[パッケージ インストールのしくみ](../concepts/package-installation-process.md)」を参照してください。
 
@@ -98,7 +98,7 @@ dotnet nuget locals all --clear
 nuget locals all -clear
 ```
 
-現在 Visual Studio で開いているプロジェクトで使用されているパッケージはすべて、" *グローバル パッケージ* " フォルダーからクリアされません。
+現在 Visual Studio で開いているプロジェクトで使用されているパッケージはすべて、"*グローバル パッケージ*" フォルダーからクリアされません。
 
 Visual Studio 2017 以降、 **[ツール]、[NuGet パッケージ マネージャー]、[パッケージ マネージャー設定]** メニュー コマンドを使用して、 **[すべての NuGet キャッシュをクリア]** を選択します。 キャッシュの管理は現在、パッケージ マネージャー コンソール経由では利用できません。 Visual Studio 2015 では、代わりに CLI コマンドを使用します。
 
@@ -110,7 +110,7 @@ Visual Studio 2017 以降、 **[ツール]、[NuGet パッケージ マネージ
 
 - *エラー: 別のプロセスで使用されているため、<package>プロセスはファイルにアクセスできません* または *ローカル リソースをクリアできませんでした。1 つ以上のファイルを削除できません*
 
-    フォルダーにある 1 つまたは複数のファイルが、別のプロセスで使用中です。たとえば、" *グローバル パッケージ* " フォルダー内のパッケージを参照する Visual Studio プロジェクトが開いています。 それらのプロセスを閉じて、もう一度やり直してください。
+    フォルダーにある 1 つまたは複数のファイルが、別のプロセスで使用中です。たとえば、"*グローバル パッケージ*" フォルダー内のパッケージを参照する Visual Studio プロジェクトが開いています。 それらのプロセスを閉じて、もう一度やり直してください。
 
 - *エラー: パスへのアクセスが<path>拒否されます* または *ディレクトリが空ではありません*
 
