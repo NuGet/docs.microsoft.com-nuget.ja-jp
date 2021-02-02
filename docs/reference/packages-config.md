@@ -5,16 +5,16 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 05/21/2018
 ms.topic: reference
-ms.openlocfilehash: 3e5db779f735cd42aa331f9f8a93496d32c8df54
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: da682197d4a156f9dff8ce169aab449a5392ef41
+ms.sourcegitcommit: c19d398cecee3cad2d79a8b22650fc1988d41a3f
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777620"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99260304"
 ---
 # <a name="packagesconfig-reference"></a>packages.config 参照
 
-`packages.config` ファイルは、プロジェクトで参照されるパッケージの一覧を保守管理するために、一部のプロジェクト タイプで使用されます。 それにより、NuGet は、ビルド サーバーなど、別のコンピューターにプロジェクトを転送するとき、一部のパッケージだけでプロジェクトの依存関係を簡単に復元できます。
+`packages.config` ファイルは、プロジェクトで参照されるパッケージの一覧を保守管理するために、一部のプロジェクト タイプで使用されます。 これにより、NuGet は、プロジェクトがビルドサーバーなどの別のコンピューターに転送されるときに、プロジェクトの依存関係を簡単に復元できます。これらのパッケージはすべて含まれません。
 
 使用する場合、 `packages.config` は通常、プロジェクトのルートにあります。 これは、最初の NuGet 操作の実行時に自動的に作成されますが、などのコマンドを実行する前に手動で作成することもでき `nuget restore` ます。
 
