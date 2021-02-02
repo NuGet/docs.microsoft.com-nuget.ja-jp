@@ -1,16 +1,16 @@
 ---
 title: プロジェクト ファイル内での NuGet パッケージの複数バージョン対応
-description: 1 つの NuGet パッケージ内から複数の .NET Framework バージョンに対応するためのさまざま方法の説明。
-author: karann-msft
-ms.author: karann
+description: プロジェクト ファイルで 1 つの NuGet パッケージ内から複数の .NET Framework バージョンに対応するためのさまざま方法の説明。
+author: JonDouglas
+ms.author: jodou
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1d23759433efb405fa5f0035049befced2c43d6b
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: a05d053340bb2fe795991dfa5a2b95d8625dfd44
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "72380685"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774374"
 ---
 # <a name="support-multiple-net-framework-versions-in-your-project-file"></a>プロジェクト ファイル内で複数の .NET Framework バージョンをサポートする
 

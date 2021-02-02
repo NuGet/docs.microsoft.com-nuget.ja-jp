@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7076378b53c439eef51a243fa6efcfb01b8cfa73
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: aa845464dbe939260d5fca3e4b89bd846df471a7
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237907"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775935"
 ---
 # <a name="nugetorg-frequently-asked-questions"></a>NuGet.org に関してよく寄せられる質問
 
@@ -92,7 +92,7 @@ NuGet では HTTP を使用してパッケージをダウンロードするた�
 
 - 最新バージョンの [Fiddler](https://www.telerik.com/download/fiddler) をインストールします。
 - Fiddler を起動し、 **[ファイル]、[Capture Traffic]\(トラフィックのキャプチャ\)** メニューを使用してトラフィックのキャプチャを無効にします。
-- すべてのセッションを削除します (リストのすべての項目を選択して、 **Delete** キーを押します)。
+- すべてのセッションを削除します (リストのすべての項目を選択して、**Delete** キーを押します)。
 - **[ツール]、[Fiddler Options...]\(Fiddler オプション...\)** メニューの **[HTTPS]** タブにある **[Decrypt HTTPS traffic]\(HTTPS トラフィックの暗号化解除\)** をオフにして、HTTPS トラフィックをキャプチャするように Fiddler を構成します。
 - Visual Studio を閉じます。
 - **[ファイル]、[Capture Traffic]\(トラフィックのキャプチャ\)** メニューを有効にします。
@@ -114,7 +114,7 @@ NuGet では HTTP を使用してパッケージをダウンロードするた�
 - **[Send]** ボタンをクリックします。
 - 指定したメール アドレス アカウントに、パスワードをリセットするためのリンクが含まれた電子メールが送信されます。 このリンクをクリックして、新しいパスワードを設定します。 メールが見つからない場合は、迷惑メール フォルダーを確認してください。
 - 完了すると、ユーザー名/パスワードを使って NuGet でログインできるようになります。
-- ユーザー名/パスワードでログインするには、 [NuGet.org ログイン ページ](https://www.nuget.org/users/account/LogOn)の **[Sign in using Nuget.org account]\(Nuget.org アカウントを使用してサインインする\)** のリンクを使用します。
+- ユーザー名/パスワードでログインするには、[NuGet.org ログイン ページ](https://www.nuget.org/users/account/LogOn)の **[Sign in using Nuget.org account]\(Nuget.org アカウントを使用してサインインする\)** のリンクを使用します。
 
 ### <a name="which-microsoft-account-is-linked-to-my-nugetorg-account"></a>どの Microsoft アカウントが自分の NuGet.org アカウントにリンクされていますか?
 
@@ -124,10 +124,10 @@ NuGet では HTTP を使用してパッケージをダウンロードするた�
 
 ### <a name="how-to-change-the-microsoft-account-i-use-for-nugetorg-login"></a>NuGet.org のログインに使用している Microsoft アカウントを変更するにはどうすればよいですか?
 NuGet.org ユーザーの Microsoft アカウントを変更する場合は、次の手順に従います。 メール アドレス `account1@outlook.com` を持つ Microsoft アカウントが、ユーザー名 `MyNuGetAccount` を持つ NuGet.org アカウントに関連付けられているとします。 ログインをメール アドレス `account2@outlook.com` を持つ別の Microsoft アカウントに変更するとします。
-1. **[Sign in with Microsoft]\(Microsoft アカウントでサインイン\)** をクリックしてから、 [ログイン ページ](https://www.nuget.org/users/account/LogOn)で **現在関連付けられている Microsoft アカウント** (`account1@outlook.com`) を使用してサインインしてください。
+1. **[Sign in with Microsoft]\(Microsoft アカウントでサインイン\)** をクリックしてから、[ログイン ページ](https://www.nuget.org/users/account/LogOn)で **現在関連付けられている Microsoft アカウント** (`account1@outlook.com`) を使用してサインインしてください。
 1. ログインしたら、[アカウント設定](https://www.nuget.org/account)ページに移動します。
 1. **[ログイン アカウント]** セクションを展開します。 **[アカウントの変更]** ボタンをクリックします。
-1. Microsoft のログイン ページにリダイレクトされます。 関連付けを `account2@outlook.com` などに変更するアカウントでサインインしてください。 **注** : 別の Microsoft アカウントでログインできるようにするには、サインイン フロー中に **[Sign out and sign in with different account]\(サインアウトして別のアカウントでサインインする\)** をクリックする必要がある場合があります。
+1. Microsoft のログイン ページにリダイレクトされます。 関連付けを `account2@outlook.com` などに変更するアカウントでサインインしてください。**注**: 別の Microsoft アカウントでログインできるようにするには、サインイン フロー中に **[Sign out and sign in with different account]\(サインアウトして別のアカウントでサインインする\)** をクリックする必要がある場合があります。
 1. 次のようなエラーが表示された場合は、「[別の NuGet.org アカウントにリンクされている Microsoft アカウント](#microsoft-account-is-linked-with-another-nugetorg-account)」で詳細をご覧ください。
     >_'account2 <account2@outlook.com>' で Microsoft アカウントの更新に失敗しました。これは、このアカウントが別の NuGet アカウントに既にリンクされている場合に発生する場合があります。詳細についてはサポートにお問い合わせください。_
 
@@ -188,11 +188,11 @@ NuGet.org でアカウントが作成されると、そのアカウントに関�
 ### <a name="unable-to-use-microsoft-login-how-do-i-recover-my-nugetorg-account"></a>Microsoft ログインを使用できません。NuGet.org アカウントを復旧するにはどうすればよいですか?
 
 [サインイン アシスタンス](#which-microsoft-account-is-linked-to-my-nugetorg-account)を使用しようとして、NuGet.org アカウントに関連付けられている Microsoft アカウントへのアクセス権がなかった場合は、次の手順に従って、新しい Microsoft アカウントをご利用の NuGet.org アカウントにリンクしてください。
-1. **必要条件** :既存のどの NuGet.org アカウントにも関連付けられていない Microsoft アカウントへのアクセス権が必要です。 nuget.org アカウントをお持ちでない場合は、[作成](https://signup.live.com)できます。
+1. **必要条件**:既存のどの NuGet.org アカウントにも関連付けられていない Microsoft アカウントへのアクセス権が必要です。 nuget.org アカウントをお持ちでない場合は、[作成](https://signup.live.com)できます。
 2. NuGet.org アカウントのユーザー名とパスワードを忘れてしまった場合は、[パスワード ログインを復旧する手順](#how-to-recover-nugetorg-password-login)に従います。
 3. ユーザー名/パスワード ログインを使用して、[NuGet.org にログイン](https://www.nuget.org/users/account/LogOnNuGetAccount)します。
 4. ログインすると、次のようなポップアップ ダイアログが表示されます。 これは、パスワードの終了ダイアログ ボックスです。
-5. **注** : 指定された Microsoft アカウントでログインするという指示は無視してください。 これで NuGet.org アカウントを他の任意の Microsoft のログインにリンクできます。
+5. **注**: 指定された Microsoft アカウントでログインするという指示は無視してください。 これで NuGet.org アカウントを他の任意の Microsoft のログインにリンクできます。
 6. **[Sign in with Microsoft]\(Microsoft アカウントでサインイン\)** ボタンをクリックして、手順 1 で説明したように、アクセス権がある Microsoft アカウントでログインします。
 7. これでご利用のアカウントが新しい Microsoft アカウントにリンクされます。今後は、このアカウントを使用して NuGet.org にログインできます。
 
@@ -203,12 +203,12 @@ NuGet.org でアカウントが作成されると、そのアカウントに関�
 ご自分のアカウントが既に Microsoft アカウント ログインに関連付けられていて、このアカウントを組織に変換する場合は、「[Organizations on nuget org](organizations-on-nuget-org.md)」 (nuget org での組織) のドキュメントに記載されている手順に従ってください。
 
 ただし、ご利用の NuGet.org アカウントが Microsoft アカウントに関連付けられていない、またはリンクされていない場合、次の手順に従ってこのアカウントを組織に変換することができます。
-1. **必要条件** :組織アカウントで管理者として使用される NuGet.org で最初に作成された個人アカウントがある必要あります。 ない場合は、[新しい NuGet.org アカウントを作成](individual-accounts.md)してください。
+1. **必要条件**:組織アカウントで管理者として使用される NuGet.org で最初に作成された個人アカウントがある必要あります。 ない場合は、[新しい NuGet.org アカウントを作成](individual-accounts.md)してください。
 2. NuGet.org アカウント用のパスワード ログインがない場合は、[パスワード ログインを復旧する手順](#how-to-recover-nugetorg-password-login)に従います。ある場合は、この手順をスキップします。
 3. ユーザー名/パスワード ログインを使用して、[NuGet.org にログイン](https://www.nuget.org/users/account/LogOnNuGetAccount)します。
 4. ログインすると、次のようなポップアップ ダイアログが表示されます。 これは、パスワードの終了ダイアログ ボックスです。 
     > [!Important]
-    > このダイアログ ボックスは無視してください。 **[Microsoft アカウントでサインイン]** ボタンをクリック **しないでください** 。
+    > このダイアログ ボックスは無視してください。 **[Microsoft アカウントでサインイン]** ボタンをクリック **しないでください**。
 
 5. [https://www.nuget.org/account/transform](https://www.nuget.org/account/transform) に移動します。 これで Microsoft アカウントにリンクしなくても、NuGet.org アカウントを組織に変換できます。
 6. 個人の NuGet.org アカウントまたは手順 1 で作成したアカウントの管理者ユーザー名を指定します。
@@ -220,9 +220,7 @@ NuGet.org でアカウントが作成されると、そのアカウントに関�
 
 ご自分のメール アカウント ドメイン (@yourdomain.com) を使用したログイン フロー中に次のようなエラーが表示された場合は、NuGet.org アカウントを復旧する次の手順を参照してください。
 
-<p align="center">
-    <img src="media/unmanaged-aad-tenant.png" />
-</p>
+![AAD アカウントのログイン中のエラー](media/unmanaged-aad-tenant.png)
 
 **ログイン時のこの管理対象外の状態は何ですか?なぜ今、これが発生するのでしょうか?** 
 
@@ -244,7 +242,7 @@ NuGet.org でアカウントが作成されると、そのアカウントに関�
 
 変更できません。 ポリシーの問題として、ユーザー名の変更は許可していません。 また、[パッケージ信頼ポリシーをパッケージ所有者に基づいて](../consume-packages/installing-signed-packages.md#trust-package-owners)定義している可能性のあるユーザーにとって、これは非常に重大な変更になります。 ユーザー名を変更する唯一の方法は、目的のユーザー名を使用して新しいアカウントを作成することです。 新しいアカウントを作成する前に、既存アカウントを削除することをお勧めします。削除しないと、登録済みの Microsoft アカウントを再利用できなくなります。
 > [!Important]
-> ユーザーを削除しても、その `username` は **予約** されたままです。 同じユーザー名をもう一度再利用することはできません。 **これには大文字/小文字の変更も含まれます** 。 例として、ユーザー名 `mycoolname` を持つユーザーを作成し、これを `MyCoolName` (大文字と小文字の変更) に変更する場合、ユーザーを削除すると変更できなくなります。
+> ユーザーを削除しても、その `username` は **予約** されたままです。 同じユーザー名をもう一度再利用することはできません。**これには大文字/小文字の変更も含まれます**。 例として、ユーザー名 `mycoolname` を持つユーザーを作成し、これを `MyCoolName` (大文字と小文字の変更) に変更する場合、ユーザーを削除すると変更できなくなります。
 
 [NuGet.org アカウントの削除](#how-to-delete-my-nugetorg-account)に関するセクションに記載されている手順に従って、正しいユーザー名を使用して[新しいアカウントを登録](individual-accounts.md)します。
 

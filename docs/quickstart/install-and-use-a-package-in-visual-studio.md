@@ -1,20 +1,20 @@
 ---
 title: Visual Studio に NuGet パッケージをインストールして使用する
 description: Visual Studio プロジェクトで NuGet パッケージをインストールし、使用するプロセスを説明したチュートリアル。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 07/24/2018
 ms.topic: quickstart
-ms.openlocfilehash: 10bc34653d294cf70b5c91ce79a79cf6532fba1b
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 55f6a64d90ce8ca628d1ac5c68f8133872a214e0
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80147488"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775523"
 ---
 # <a name="quickstart-install-and-use-a-package-in-visual-studio-windows-only"></a>クイック スタート: Visual Studio にパッケージをインストールして使用する (Windows のみ)
 
-NuGet パッケージには、他の開発者がお客様のプロジェクトで使用できるようにした、再利用可能なコードが含まれます。 背景については、[NuGet の紹介](../What-is-NuGet.md)に関するページを参照してください。 パッケージは NuGet パッケージ マネージャー、[パッケージ マネージャー コンソール](../consume-packages/install-use-packages-powershell)、または [dotnet CLI](install-and-use-a-package-using-the-dotnet-cli.md) を使用して、Visual Studio プロジェクトにインストールされます。 この記事では、よく使用されている [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) パッケージと Windows Presentation Foundation (WPF) プロジェクトを使用したプロセスを示します。 同じプロセスは、他の任意の .NET または .NET Core プロジェクトにも適用されます。
+NuGet パッケージには、他の開発者がお客様のプロジェクトで使用できるようにした、再利用可能なコードが含まれます。 背景については、[NuGet の紹介](../What-is-NuGet.md)に関するページを参照してください。 パッケージは NuGet パッケージ マネージャー、[パッケージ マネージャー コンソール](../consume-packages/install-use-packages-powershell.md)、または [dotnet CLI](install-and-use-a-package-using-the-dotnet-cli.md) を使用して、Visual Studio プロジェクトにインストールされます。 この記事では、よく使用されている [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) パッケージと Windows Presentation Foundation (WPF) プロジェクトを使用したプロセスを示します。 同じプロセスは、他の任意の .NET または .NET Core プロジェクトにも適用されます。
 
 インストール後、`using <namespace>` でコード内のパッケージを参照します。\<namespace\> は、使用しているパッケージに固有です。 参照が行われたら、その API からパッケージを呼び出すことができます。
 
@@ -67,7 +67,7 @@ Visual Studio によってプロジェクトが作成され、ソリューショ
 
 1. コンソールが開いたら、 **[既定のプロジェクト]** ドロップダウン リストに、パッケージをインストールするプロジェクトが表示されていることを確認します。 ソリューション内に単一のプロジェクトがあれば、それは既に選択されています。
 
-    ![Newtonsoft.Json パッケージを見つけます](media/QS_Use-08-Console1.png)
+    ![パッケージ用のプロジェクトを選択します](media/QS_Use-08-Console1.png)
 
 1. コマンド `Install-Package Newtonsoft.Json` を入力します (「[Install-Package](../reference/ps-reference/ps-ref-install-package.md)」を参照してください)。 コンソール ウィンドウに、このコマンドの出力が表示されます。 通常、エラーは、パッケージがプロジェクトのターゲット フレームワークと互換性がないことを示します。
 

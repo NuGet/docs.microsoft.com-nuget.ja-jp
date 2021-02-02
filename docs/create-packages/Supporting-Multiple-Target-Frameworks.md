@@ -1,16 +1,16 @@
 ---
 title: NuGet パッケージの複数バージョン対応
 description: 1 つの NuGet パッケージ内から複数の .NET Framework バージョンに対応するためのさまざま方法の説明。
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7c0da38ab4059b89c9693ecbece2bc8ed1a775ec
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: e919b11670589900d9e588db33fd68b8df592ac2
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237946"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774554"
 ---
 # <a name="support-multiple-net-versions"></a>複数の .NET バージョンをサポートする
 
@@ -24,7 +24,9 @@ ms.locfileid: "93237946"
 
 1 つだけのバージョンのライブラリを含むパッケージまたは複数のフレームワークを対象とするパッケージをビルドするときは常に、小文字と大文字を区別するフレームワーク名を利用し、`lib` の下にサブフォルダーを作ります。次の規則を利用します。
 
-    lib\{framework name}[{version}]
+```
+lib\{framework name}[{version}]
+```
 
 サポートされている名前の完全一覧については、[ターゲット フレームワーク参照](../reference/target-frameworks.md#supported-frameworks)を参照してください。
 
@@ -32,15 +34,17 @@ ms.locfileid: "93237946"
 
 たとえば、次のフォルダー構造では、フレームワーク固有の 4 つのバージョンのアセンブリがサポートされています。
 
-    \lib
-        \net46
-            \MyAssembly.dll
-        \net461
-            \MyAssembly.dll
-        \uap
-            \MyAssembly.dll
-        \netcore
-            \MyAssembly.dll
+```
+\lib
+    \net46
+        \MyAssembly.dll
+    \net461
+        \MyAssembly.dll
+    \uap
+        \MyAssembly.dll
+    \netcore
+        \MyAssembly.dll
+```
 
 パッケージのビルド時、これらすべてのファイルを簡単に含めるには、`.nuspec` の `<files>` セクションに再帰的 `**` ワイルドカードを使用します。
 
@@ -54,16 +58,18 @@ ms.locfileid: "93237946"
 
 アーキテクチャ固有のアセンブリがあるとき、つまり、個々のアセンブリが ARM、x86、x64 を対象とするとき、`runtimes` という名前のフォルダーの `{platform}-{architecture}\lib\{framework}` または `{platform}-{architecture}\native` という名前のサブフォルダー内にそれを置く必要があります。 たとえば、次のフォルダー構造は、Windows 10 と `uap10.0` フレームワークを対象とするネイティブ DLL とマネージド DLL の両方に対応します。
 
-    \runtimes
-        \win10-arm
-            \native
-            \lib\uap10.0
-        \win10-x86
-            \native
-            \lib\uap10.0
-        \win10-x64
-            \native
-            \lib\uap10.0
+```
+\runtimes
+    \win10-arm
+        \native
+        \lib\uap10.0
+    \win10-x86
+        \native
+        \lib\uap10.0
+    \win10-x64
+        \native
+        \lib\uap10.0
+```
 
 これらのアセンブリはランタイムでのみ使用できます。そのため、対応するコンパイル時のアセンブリも指定する必要がある場合は、`AnyCPU` アセンブリを `/ref/{tfm}` フォルダー内に置きます。 
 
@@ -81,11 +87,13 @@ NuGet では、コンパイル時またはランタイムのアセットを常�
 
 たとえば、パッケージに次のフォルダー構造があるとします。
 
-    \lib
-        \net45
-            \MyAssembly.dll
-        \net461
-            \MyAssembly.dll
+```
+\lib
+    \net45
+        \MyAssembly.dll
+    \net461
+        \MyAssembly.dll
+```
 
 .NET Framework 4.6 を対象とするプロジェクトにこのパッケージをインストールすると、NuGet は `net45` フォルダーにアセンブリをインストールします。4.6 以下で利用できる最も上のバージョンであるためです。
 
@@ -97,12 +105,14 @@ NuGet では、コンパイル時またはランタイムのアセットを常�
 
 NuGet は、パッケージ内の 1 つだけのライブラリ フォルダーからアセンブリをコピーします。 たとえば、パッケージに次のフォルダー構造があるとします。
 
-    \lib
-        \net40
-            \MyAssembly.dll (v1.0)
-            \MyAssembly.Core.dll (v1.0)
-        \net45
-            \MyAssembly.dll (v2.0)
+```
+\lib
+    \net40
+        \MyAssembly.dll (v1.0)
+        \MyAssembly.Core.dll (v1.0)
+    \net45
+        \MyAssembly.dll (v2.0)
+```
 
 .NET Framework 4.5 を対象とするプロジェクトにパッケージがインストールされるとき、インストールされる唯一のアセンブリは `MyAssembly.dll` (v2.0) です。 `MyAssembly.Core.dll` (v1.0) はインストールされません。`net45` フォルダーの一覧にないためです。 `MyAssembly.Core.dll` が `MyAssembly.dll` のバージョン 2.0 に結合されている可能性があるため、NuGet はこのように動作します。
 
@@ -112,7 +122,7 @@ NuGet は、パッケージ内の 1 つだけのライブラリ フォルダー�
 
 NuGet ではまた、ダッシュとプロファイル名をフォルダーの最後に付けることで特定のフレームワーク プロファイルを対象にすることができます。
 
-    lib\{framework name}-{profile}
+lib\{framework name}-{profile}
 
 サポートされているプロファイルは次のとおりです。
 
@@ -123,9 +133,9 @@ NuGet ではまた、ダッシュとプロファイル名をフォルダーの�
 
 ## <a name="declaring-dependencies-advanced"></a>依存関係の宣言 (高度)
 
-プロジェクト ファイルをパックするとき、NuGet はそのプロジェクトから依存関係を自動的に生成しようとします。 このセクションに記載されている、 *.nuspec* ファイルを使用した依存関係の宣言に関する情報が必要になるのは、通常は、高度なシナリオだけです。
+プロジェクト ファイルをパックするとき、NuGet はそのプロジェクトから依存関係を自動的に生成しようとします。 このセクションに記載されている、*.nuspec* ファイルを使用した依存関係の宣言に関する情報が必要になるのは、通常は、高度なシナリオだけです。
 
-" *(バージョン 2.0 以降)* " `<dependencies>` 要素内の `<group>` 要素を使って、ターゲット プロジェクトのターゲット フレームワークに対応する *.nuspec* でパッケージの依存関係を宣言できます。 詳しくは、[dependencies 要素](../reference/nuspec.md#dependencies-element)に関する記事をご覧ください。
+"*(バージョン 2.0 以降)*" `<dependencies>` 要素内の `<group>` 要素を使って、ターゲット プロジェクトのターゲット フレームワークに対応する *.nuspec* でパッケージの依存関係を宣言できます。 詳しくは、[dependencies 要素](../reference/nuspec.md#dependencies-element)に関する記事をご覧ください。
 
 各グループには、`targetFramework` という名前の属性があり、0 個以上の `<dependency>` 要素が含まれます。 ターゲット フレームワークにプロジェクトのフレームワーク プロファイルとの互換性がある場合、これらの依存関係が一緒にインストールされます。 正確なフレームワーク識別子については、「[ターゲット フレームワーク](../reference/target-frameworks.md)」をご覧ください。
 
@@ -162,22 +172,24 @@ NuGet ではまた、ダッシュとプロファイル名をフォルダーの�
 
 `packages.config` では、コンテンツ ファイルと PowerShell スクリプトを、`content` フォルダーと `tools` フォルダー内で同じフォルダー規則を使用し、ターゲット フレームワーク別にグループ化できます。 次に例を示します。
 
-    \content
-        \net46
-            \MyContent.txt
-        \net461
-            \MyContent461.txt
-        \uap
-            \MyUWPContent.html
-        \netcore
-    \tools
-        init.ps1
-        \net46
-            install.ps1
-            uninstall.ps1
-        \uap
-            install.ps1
-            uninstall.ps1
+```
+\content
+    \net46
+        \MyContent.txt
+    \net461
+        \MyContent461.txt
+    \uap
+        \MyUWPContent.html
+    \netcore
+\tools
+    init.ps1
+    \net46
+        install.ps1
+        uninstall.ps1
+    \uap
+        install.ps1
+        uninstall.ps1
+```
 
 フレームワーク フォルダーを空のまま残す場合、NuGet はアセンブリ参照やコンテンツ ファイルを追加せず、そのフレームワークの PowerShell スクリプトを実行しません。
 

@@ -1,16 +1,16 @@
 ---
-title: ユニバーサル Windows プラットフォーム用の NuGet パッケージの作成
+title: UWP プラットフォーム用の NuGet パッケージの作成 (C#)
 description: C# でユニバーサル Windows プラットフォーム用の Windows ランタイム コンポーネントを使用して NuGet パッケージを作成するためのエンド ツー エンド チュートリアル。
 author: rrelyea
 ms.author: rrelyea
 ms.date: 02/28/2020
 ms.topic: tutorial
-ms.openlocfilehash: 6f8037f439d627af158b6d5b7746a633b053e514
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 22df2cd6dc374ba265c79a019747191e797b774c
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238011"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774281"
 ---
 # <a name="create-uwp-packages-c"></a>UWP パッケージの作成 (C#)
 

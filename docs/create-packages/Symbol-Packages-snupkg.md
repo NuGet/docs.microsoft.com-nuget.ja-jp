@@ -1,7 +1,7 @@
 ---
 title: 新しいシンボル パッケージ形式 '.snupkg' を使用して NuGet シンボル パッケージを公開する方法 | Microsoft Docs
-author: cristinamanu
-ms.author: cristinamanu
+author: JonDouglas
+ms.author: jodou
 manager: skofman
 ms.date: 10/30/2018
 ms.topic: reference
@@ -12,16 +12,18 @@ keywords: NuGet シンボル パッケージ, NuGet パッケージ デバッグ
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: fbcc035a6b800617f995d3bcebd7e1764aa467b0
-ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
+ms.openlocfilehash: 001637348fdd435e4ffd3a5a55e8128d1eab453c
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98235725"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774574"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>シンボル パッケージ (.snupkg) の作成
 
 きちんとデバッグできるには、コンパイルされたコードとソースコードの間の関連付け、ローカル変数の名前、スタック トレースなどの重要な情報を提供するデバッグ シンボルが必要です。 シンボル パッケージ (snupkg) を使用すると、これらのシンボルを配布して、お使いの NuGet パッケージのデバッグ エクスペリエンスを向上させることができます。
+
+> シンボル パッケージは、ライブラリの利用者がデバッグ シンボルを使用できるようにするための唯一の方法ではないことに注意してください。 プロジェクト プロパティ `<DebugType>embedded</DebugType>` を使用して、`dll` または `exe` にそれらを [`embed` することも可能](https://docs.microsoft.com/dotnet/core/deploying/single-file#include-pdb-files-inside-the-bundle)です。
 
 ## <a name="prerequisites"></a>前提条件
 
