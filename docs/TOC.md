@@ -35,9 +35,10 @@
 ## [パッケージの作成 (dotnet CLI)](create-packages/creating-a-package-dotnet-cli.md)
 ## [パッケージの作成 (nuget.exe CLI)](create-packages/creating-a-package.md)
 ## [パッケージの作成 (MSBuild)](create-packages/creating-a-package-msbuild.md)
-## [プロジェクト ファイルで複数のターゲット フレームワークをサポートする](create-packages/multiple-target-frameworks-project-file.md)
+## [パッケージ作成のベスト プラクティス](create-packages/Package-authoring-best-practices.md)
 ## [プレリリース パッケージをビルドする](create-packages/prerelease-packages.md)
 ## [シンボル パッケージを作成する](create-packages/symbol-packages-snupkg.md)
+## [プロジェクト ファイルで複数のターゲット フレームワークをサポートする](create-packages/multiple-target-frameworks-project-file.md)
 ## 高度なタスク
 ### [複数のターゲット フレームワークのサポート](create-packages/supporting-multiple-target-frameworks.md)
 ### [ソース コードと config ファイルを変更する](create-packages/source-and-config-file-transformations.md)
