@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 403686de42bf4dc1fa94b9dd92ca6d33f3be2183
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 8d1ab4d1f3d75d93c30d94958fd9d1abf0742730
+ms.sourcegitcommit: af059dc776cfdcbad20baab2919b5d6dc1e9022d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775299"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99990131"
 ---
 # <a name="package-metadata"></a>パッケージ メタデータ
 
@@ -84,7 +84,7 @@ LOWER_ID | URL    | string  | はい      | パッケージ ID、小文字
 
 この `LOWER_ID` 値は、によって実装されたルールを使用して、必要なパッケージ ID を小文字にしたものです。NET の [`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant&preserve-view=true) メソッド。
 
-### <a name="response"></a>応答
+### <a name="response"></a>Response
 
 応答は、次のプロパティを持つルートオブジェクトを含む JSON ドキュメントです。
 
@@ -103,7 +103,7 @@ items | オブジェクトの配列 | はい      | 登録ページの配列
 ------ | ---------------- | -------- | -----
 @id    | string           | はい      | 登録ページの URL
 count  | 整数 (integer)          | はい      | ページ内の登録リーフの数
-items  | オブジェクトの配列 | いいえ       | 登録リーフの配列とそれらのメタデータの関連付け
+items  | オブジェクトの配列 | no       | 登録リーフの配列とそれらのメタデータの関連付け
 lower  | string           | はい      | ページ内の最小の SemVer 2.0.0 バージョン (包括的)
 parent | string           | no       | 登録インデックスの URL
 upper  | string           | はい      | ページ内の最大 SemVer 2.0.0 バージョン (包括)
@@ -138,23 +138,24 @@ catalogEntry   | object | はい      | パッケージメタデータを含む�
 名前                     | Type                       | 必須 | Notes
 ------------------------ | -------------------------- | -------- | -----
 @id                      | string                     | はい      | このオブジェクトを生成するために使用されるドキュメントの URL
-作成者                  | 文字列または文字列の配列 | いいえ       | 
-dependencyGroups         | オブジェクトの配列           | いいえ       | ターゲットフレームワーク別にグループ化されたパッケージの依存関係
-今後              | object                     | いいえ       | パッケージに関連付けられている非推奨
+作成者                  | 文字列または文字列の配列 | no       | 
+dependencyGroups         | オブジェクトの配列           | no       | ターゲットフレームワーク別にグループ化されたパッケージの依存関係
+今後              | object                     | no       | パッケージに関連付けられている非推奨
 description              | string                     | no       | 
 iconUrl                  | string                     | no       | 
 id                       | string                     | はい      | パッケージの ID
 licenseUrl               | string                     | no       |
 licenseExpression        | string                     | no       | 
-一覧                   | boolean                    | いいえ       | 存在しない場合は、一覧として考慮する必要があります
+一覧                   | boolean                    | no       | 存在しない場合は、一覧として考慮する必要があります
 minClientVersion         | string                     | no       | 
 projectUrl               | string                     | no       | 
 published                | string                     | no       | パッケージが発行されたときの ISO 8601 タイムスタンプを含む文字列
-requireLicenseAcceptance | boolean                    | いいえ       | 
+requireLicenseAcceptance | boolean                    | no       | 
 まとめ                  | string                     | no       | 
-tags                     | 文字列または文字列の配列  | いいえ       | 
+tags                     | 文字列または文字列の配列  | no       | 
 title                    | string                     | no       | 
 version                  | string                     | はい      | 正規化後の完全なバージョン文字列
+脆弱性          | オブジェクトの配列           | no       | パッケージのセキュリティの脆弱性
 
 パッケージ `version` プロパティは、正規化後の完全なバージョン文字列です。 これは、ここに SemVer 2.0.0 build データを含めることができることを意味します。
 
@@ -172,7 +173,7 @@ version                  | string                     | はい      | 正規化�
 名前            | Type             | 必須 | Notes
 --------------- | ---------------- | -------- | -----
 targetFramework | string           | no       | これらの依存関係が適用されるターゲットフレームワーク
-依存関係    | オブジェクトの配列 | いいえ       |
+依存関係    | オブジェクトの配列 | no       |
 
 この `targetFramework` 文字列は、nuget の .net ライブラリの [nuget フレームワーク](https://www.nuget.org/packages/NuGet.Frameworks/)によって実装された形式を使用します。 `targetFramework`が指定されていない場合、依存関係グループはすべてのターゲットフレームワークに適用されます。
 
@@ -185,7 +186,7 @@ targetFramework | string           | no       | これらの依存関係が適�
 名前         | Type   | 必須 | Notes
 ------------ | ------ | -------- | -----
 id           | string | はい      | パッケージの依存関係の ID
-range        | object | いいえ       | 依存関係の許可されている[バージョン範囲](../concepts/package-versioning.md#version-ranges)
+range        | object | no       | 依存関係の許可されている[バージョン範囲](../concepts/package-versioning.md#version-ranges)
 登録 | string | no       | この依存関係の登録インデックスの URL
 
 `range`プロパティが除外されている場合、または空の文字列の場合、クライアントは既定のバージョン範囲を指定する必要があり `(, )` ます。 つまり、依存関係のすべてのバージョンが許可されます。 の値は、プロパティでは許可されて `*` いません `range` 。
@@ -198,7 +199,7 @@ range        | object | いいえ       | 依存関係の許可されている[�
 ---------------- | ---------------- | -------- | -----
 理由          | 文字列の配列 | はい      | パッケージが非推奨とされた理由
 message          | string           | no       | この廃止に関する追加の詳細情報
-alternatePackage | object           | いいえ       | 代わりに使用する代替パッケージ
+alternatePackage | object           | no       | 代わりに使用する代替パッケージ
 
 プロパティには、 `reasons` 少なくとも1つの文字列が含まれている必要があり、次の表の文字列のみが含まれている必要があります。
 
@@ -217,7 +218,16 @@ CriticalBugs | パッケージにバグがあるため、使用に適さない
 名前         | Type   | 必須 | Notes
 ------------ | ------ | -------- | -----
 id           | string | はい      | 代替パッケージの ID
-range        | object | いいえ       | 許可されている [バージョン範囲](../concepts/package-versioning.md#version-ranges)。いずれかの `*` バージョンが許可される場合は。
+range        | object | no       | 許可されている [バージョン範囲](../concepts/package-versioning.md#version-ranges)。いずれかの `*` バージョンが許可される場合は。
+
+#### <a name="vulnerabilities"></a>脆弱性
+
+`vulnerability` オブジェクトの配列。 各脆弱性には、次のプロパティがあります。
+
+名前         | Type   | 必須 | Notes
+------------ | ------ | -------- | -----
+advisoryUrl  | string | はい      | パッケージのセキュリティアドバイザリの場所
+severity     | string | はい      | アドバイザリの重大度: "0" = 低、"1" = 中程度、"2" = 高、"3" = 重大
 
 ### <a name="sample-request"></a>要求のサンプル
 
@@ -276,7 +286,7 @@ GET https://api.nuget.org/v3/registration3/ravendb.client/page/1.0.531/1.0.729-u
 -------------- | ------- | -------- | -----
 @id            | string  | はい      | 登録リーフの URL
 catalogEntry   | string  | no       | これらのリーフを生成したカタログエントリの URL
-一覧         | boolean | いいえ       | 存在しない場合は、一覧として考慮する必要があります
+一覧         | boolean | no       | 存在しない場合は、一覧として考慮する必要があります
 パッケージのパッケージ | string  | no       | パッケージコンテンツへの URL (. nupkg)
 published      | string  | no       | パッケージが発行されたときの ISO 8601 タイムスタンプを含む文字列
 登録   | string  | no       | 登録インデックスの URL
