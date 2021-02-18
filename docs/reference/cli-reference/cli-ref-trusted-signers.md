@@ -6,12 +6,12 @@ ms.author: patbel
 ms.date: 11/12/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: 9e25f439617a76d30880bea3c10a5d063e681a41
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 4b6a1c3b6eb0fefd9a78c78233f974eb0db19e93
+ms.sourcegitcommit: aeb9072f2fcaca73dc9de05b7fd643f1aa7c5821
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238154"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101101369"
 ---
 # <a name="trusted-signers-command-nuget-cli"></a>trusted-署名者コマンド (NuGet CLI)
 
@@ -19,7 +19,7 @@ ms.locfileid: "93238154"
 
 NuGet 構成に対する信頼された署名者を取得または設定します。 その他の使用方法については、「 [Common NuGet の構成](../../consume-packages/configuring-nuget-behavior.md)」を参照してください。 nuget.config スキーマの外観の詳細については、 [NuGet 構成ファイルのリファレンス](../nuget-config-file.md)を参照してください。
 
-## <a name="usage"></a>使用
+## <a name="usage"></a>使用法
 
 ```cli
 nuget trusted-signers <list|add|remove|sync> [options]
@@ -90,7 +90,7 @@ nuget trusted-signers add <package(s)> -Name <name> [options]
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_注_ : このオプションでは、信頼されたリポジトリのみが追加されます。 
+_注_: このオプションでは、信頼されたリポジトリのみが追加されます。 
 
 - **`-AllowUntrustedRoot`**
 
@@ -110,7 +110,7 @@ _注_ : このオプションでは、信頼されたリポジトリのみが追
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_注_ : 指定した名前の信頼された署名者が既に存在する場合、その署名者に証明書項目が追加されます。 それ以外の場合、信頼できる作成者は、指定された証明書情報から証明書項目を使用して作成されます。
+_注_: 指定した名前の信頼された署名者が既に存在する場合、その署名者に証明書項目が追加されます。 それ以外の場合、信頼できる作成者は、指定された証明書情報から証明書項目を使用して作成されます。
 
 
 - **`-AllowUntrustedRoot`**
@@ -133,9 +133,9 @@ _注_ : 指定した名前の信頼された署名者が既に存在する場合
 
 現在信頼されているリポジトリで使用されている最新の証明書の一覧を要求して、信頼された署名者の既存の証明書の一覧を更新します。
 
-_注_ : このジェスチャは、現在の証明書の一覧を削除し、リポジトリの最新の一覧に置き換えます。
+_注_: このジェスチャは、現在の証明書の一覧を削除し、リポジトリの最新の一覧に置き換えます。
 
-## <a name="options"></a>オプション
+## <a name="options"></a>Options
 
 - **`-ConfigFile`**
 
@@ -175,7 +175,7 @@ nuget trusted-signers Add -Name author1 -CertificateFingerprint CE40881FF5F0AD3E
 
 nuget trusted-signers Add -Repository .\..\MyRepositorySignedPackage.nupkg -Name TrustedRepo
 
-nuget-trusted-signers Remove -Name TrustedRepo
+nuget trusted-signers Remove -Name TrustedRepo
 
-nuget-trusted-signers Sync -Name TrustedRepo
+nuget trusted-signers Sync -Name TrustedRepo
 ```
