@@ -5,19 +5,19 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: f324f1e27e0d718571525152fcf16b55b900dbaa
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: ab3bde0d320375f854a8f0a98fb90acfecf54aa3
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777759"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859097"
 ---
 # <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>NuGet 資格情報プロバイダーを使用した Visual Studio でのフィードの認証
 
 NuGet Visual Studio 拡張機能3.6 以降では、認証済みのフィードを NuGet で使用できるようにする資格情報プロバイダーがサポートされています。
 Visual Studio の NuGet 資格情報プロバイダーをインストールすると、NuGet Visual Studio 拡張機能は、認証されたフィードの資格情報を必要に応じて自動的に取得して更新します。
 
-サンプルの実装については [、VsCredentialProvider サンプル](https://github.com/NuGet/Samples/tree/master/VsCredentialProvider)を参照してください。
+サンプルの実装については [、VsCredentialProvider サンプル](https://github.com/NuGet/Samples/tree/main/VsCredentialProvider)を参照してください。
 
 Visual Studio では、NuGet は内部 `VsCredentialProviderImporter` のを使用します。これはプラグイン資格情報プロバイダーもスキャンします。 これらのプラグイン資格情報プロバイダーは、型の MEF エクスポートとして検出可能である必要があり `IVsCredentialProvider` ます。
 
@@ -58,7 +58,7 @@ public interface IVsCredentialProvider
 }
 ```
 
-サンプルの実装については [、VsCredentialProvider サンプル](https://github.com/NuGet/Samples/tree/master/VsCredentialProvider)を参照してください。
+サンプルの実装については [、VsCredentialProvider サンプル](https://github.com/NuGet/Samples/tree/main/VsCredentialProvider)を参照してください。
 
 Visual Studio の各 NuGet 資格情報プロバイダーは、次のことを行う必要があります。
 
@@ -69,7 +69,7 @@ Visual Studio のカスタム NuGet 資格情報プロバイダーは、 `IVsCre
 
 #### <a name="getcredentialasync"></a>GetCredentialAsync
 
-| 入力パラメーター |説明|
+| 入力パラメーター |Description|
 | ----------------|-----------|
 | Uri uri | 資格情報が要求されているパッケージソース Uri。|
 | IWebProxy プロキシ | ネットワーク上で通信するときに使用する Web プロキシ。 プロキシ認証が構成されていない場合は Null です。 |
@@ -78,4 +78,4 @@ Visual Studio のカスタム NuGet 資格情報プロバイダーは、 `IVsCre
 | bool 非対話型 | True の場合、資格情報プロバイダーはすべてのユーザープロンプトを非表示にし、代わりに既定値を使用する必要があります。 |
 | CancellationToken cancellationToken | 資格情報を要求している操作が取り消されたかどうかを確認するには、このキャンセルトークンを確認する必要があります。 |
 
-**戻り値**: [ `System.Net.ICredentials` インターフェイス](/dotnet/api/system.net.icredentials?view=netstandard-2.0)を実装する資格情報オブジェクト。
+**戻り値**: [ `System.Net.ICredentials` インターフェイス](/dotnet/api/system.net.icredentials)を実装する資格情報オブジェクト。

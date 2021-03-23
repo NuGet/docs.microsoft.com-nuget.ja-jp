@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 7671b50b84bf1447fe94e02896786d1f309425dd
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 9172aefb48ab3e542498f5a144f1d4f381ad55bd
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777310"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859487"
 ---
 # <a name="target-frameworks"></a>ターゲット フレームワーク
 
@@ -23,13 +23,17 @@ NuGet は、多様な場所にあるターゲット フレームワーク参照�
 - [packages.config](../reference/packages-config.md): 依存関係の `targetframework` 属性で、インストールするパッケージのバリエーションを指定します。
 
 > [!Note]
-> 以下の表を計算する NuGet クライアントのソース コードは、次の場所にあります。
-> - サポートされているフレームワーク名: [FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
-> - フレームワークの優先順位とマッピング: [DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
+> NuGet は、最新の .NET ターゲットフレームワークをすべてサポートしています。
+> - 最新のターゲットフレームワークの一覧については、 [SDK スタイルのプロジェクトのターゲットフレームワーク](/dotnet/standard/frameworks) に関するドキュメントを参照してください。
 
 ## <a name="supported-frameworks"></a>サポートされるフレームワーク
 
 通常、フレームワークは、短いターゲット フレームワーク モニカー (TFM) で参照されます。 .NET Standard は、複数のフレームワークへの単一の参照を許可するために、 *Txm* にも一般化されています。
+
+> [!Note]
+> 以下の表を計算する NuGet クライアントのソース コードは、次の場所にあります。
+> - サポートされているフレームワーク名: [FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
+> - フレームワークの優先順位とマッピング: [DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
 
 NuGet クライアントは以下の表のフレームワークをサポートしています。 同等のものがかっこ [] 内に示されています。 `dotnet` などの一部のツールは、一部のファイルで正規の TFM のバリエーションを使用することがあります。 たとえば、`dotnet pack` は `.nuspec` ファイルで `netcoreapp2.0` ではなく `.NETCoreApp2.0` を使用します。 さまざまな NuGet クライアント ツールがこれらのバリエーションを適切に処理しますが、ファイルを直接編集するときは常に正規の TFM を使用することをお勧めします。
 
@@ -286,7 +290,7 @@ NuGet 3.3 以前には `dotnet` シリーズのモニカーを使用し、v3.4 �
 
 さらに、Xamarin をターゲットとする NuGet パッケージでは、Xamarin で定義された他のフレームワークも使用することができます。 [Xamarin 用の NuGet パッケージの作成](https://developer.xamarin.com/guides/cross-platform/advanced/nuget/)に関するページを参照してください。
 
-| 名前 | 説明 | .NET Standard |
+| 名前 | Description | .NET Standard |
 | --- | --- | ---
 | monoandroid | Android OS の Mono サポート | netstandard1.4 |
 | monotouch | iOS の Mono サポート | netstandard1.4 |
