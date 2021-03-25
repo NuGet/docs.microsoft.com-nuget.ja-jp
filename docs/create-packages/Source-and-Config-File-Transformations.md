@@ -6,16 +6,16 @@ ms.author: jodou
 ms.date: 04/24/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 5bd0e409f527fb668008204fb16ad002f4784c46
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 76c589b5ad034127675fb2bbf79ea97992883ebe
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774589"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859110"
 ---
 # <a name="transforming-source-code-and-configuration-files"></a>ソース コードと構成ファイルの変換
 
-**ソース コード変換** は、パッケージがインストールされるときに、パッケージの `content` または `contentFiles` フォルダー (`packages.config` を使用している場合は `content`、`PackageReference` を使用している場合は `contentFiles`) のファイルに一方向トークンの置き換えを適用します。この場合、トークンは、Visual Studio [プロジェクトのプロパティ](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7)を参照します。 これにより、プロジェクトの名前空間にファイルを挿入したり、ASP.NET プロジェクトで通常は `global.asax` に置かれるコードをカスタマイズしたりすることができます。
+**ソース コード変換** は、パッケージがインストールされるときに、パッケージの `content` または `contentFiles` フォルダー (`packages.config` を使用している場合は `content`、`PackageReference` を使用している場合は `contentFiles`) のファイルに一方向トークンの置き換えを適用します。この場合、トークンは、Visual Studio [プロジェクトのプロパティ](/dotnet/api/vslangproj.projectproperties)を参照します。 これにより、プロジェクトの名前空間にファイルを挿入したり、ASP.NET プロジェクトで通常は `global.asax` に置かれるコードをカスタマイズしたりすることができます。
 
 **構成ファイルの変換** を使用して、`web.config` や `app.config` などのターゲット プロジェクトに既に存在するファイルを変更することができます。 たとえば、場合によっては、パッケージで構成ファイルの `modules` セクションに項目を追加する必要があります。 この変換は、構成ファイルに追加するセクションを記述するパッケージ内の特別なファイルを含めることで行われます。 パッケージがアンインストールされるときには、同じ変更が、逆に行われ、これを双方向の変換にします。
 
@@ -43,9 +43,9 @@ ms.locfileid: "98774589"
     }
     ```
 
-    インストール時に、NuGet が、ターゲット プロジェクトのルート名前空間が `$rootnamespace$` であると仮定して、`Fabrikam` を `Fabrikam` に置き換えます。
+    インストール時に、NuGet が、ターゲット プロジェクトのルート名前空間が `Fabrikam` であると仮定して、`$rootnamespace$` を `Fabrikam` に置き換えます。
 
-`$rootnamespace$` トークンは、最もよく使用されるプロジェクト プロパティです。他のすべてのトークンは、[プロジェクト プロパティ](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7)に関するページに一覧表示されています。 当然ながら、一部のプロパティはプロジェクトの種類に固有である可能性があります。
+`$rootnamespace$` トークンは、最もよく使用されるプロジェクト プロパティです。他のすべてのトークンは、[プロジェクト プロパティ](/dotnet/api/vslangproj.projectproperties)に関するページに一覧表示されています。 当然ながら、一部のプロパティはプロジェクトの種類に固有である可能性があります。
 
 ## <a name="specifying-config-file-transformations"></a>構成ファイルの変換を指定する
 
@@ -108,14 +108,14 @@ NuGet が `modules` セクションを置き換えずに、新しい要素と特
 
 その `web.config.transform` ファイルを調べるには、ELMAH パッケージを上記のリンクからダウンロードし、パッケージの拡張子を `.nupkg` から `.zip` に変更して、`content\web.config.transform` をその ZIP ファイル内から開きます。
 
-パッケージのインストールおよびアンインストールの影響を確認するには、新しい ASP.NET プロジェクトを Visual Studio で作成し (テンプレートは、[新しいプロジェクト] ダイアログ ボックスの **[Visual C#] > [Web]** にあります)、空の ASP.NET アプリケーションを選択します。 `web.config` を開いて初期状態を確認します。 プロジェクトを右クリックし、 **[NuGet パッケージの管理]** を選択し、nuget.org で ELMAH を見つけて、最新バージョンをインストールします。 `web.config` のすべての変更に注意してください。 次に、パッケージをアンインストールすると、`web.config` が前の状態に戻ります。
+パッケージのインストールおよびアンインストールの影響を確認するには、新しい ASP.NET プロジェクトを Visual Studio で作成し (テンプレートは、[新しいプロジェクト] ダイアログ ボックスの **[Visual C#] > [Web]** にあります)、空の ASP.NET アプリケーションを選択します。 `web.config` を開いて初期状態を確認します。 プロジェクトを右クリックし、**[NuGet パッケージの管理]** を選択し、nuget.org で ELMAH を見つけて、最新バージョンをインストールします。 `web.config` のすべての変更に注意してください。 次に、パッケージをアンインストールすると、`web.config` が前の状態に戻ります。
 
 ### <a name="xdt-transforms"></a>XDT 変換
 
 > [!Note]
-> [`packages.config` から `PackageReference` への移行に関するドキュメントのパッケージの互換性の問題に関するセクション](../consume-packages/migrate-packages-config-to-package-reference.md#package-compatibility-issues)で説明したように、XDT 変換は、以下で説明するように、`packages.config` でのみサポートされています。 次のファイルをパッケージに追加すると、`PackageReference` でパッケージを使用しているコンシューマーには変換が適用されません (XDT 変換を `PackageReference` で動作するようにするには、[このサンプル](https://github.com/NuGet/Samples/tree/master/XDTransformExample)を参照してください)。
+> [`packages.config` から `PackageReference` への移行に関するドキュメントのパッケージの互換性の問題に関するセクション](../consume-packages/migrate-packages-config-to-package-reference.md#package-compatibility-issues)で説明したように、XDT 変換は、以下で説明するように、`packages.config` でのみサポートされています。 次のファイルをパッケージに追加すると、`PackageReference` でパッケージを使用しているコンシューマーには変換が適用されません (XDT 変換を `PackageReference` で動作するようにするには、[このサンプル](https://github.com/NuGet/Samples/tree/main/XDTransformExample)を参照してください)。
 
-[XDT 構文](/previous-versions/aspnet/dd465326(v=vs.110))を使用して構成ファイルを変更することができます。 `$` 区切り文字 (大文字と小文字は区別されません) 内にプロパティ名を含めることにより、NuGet でトークンを[プロジェクト プロパティ](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7)に置き換えることもできます。
+[XDT 構文](/previous-versions/aspnet/dd465326(v=vs.110))を使用して構成ファイルを変更することができます。 `$` 区切り文字 (大文字と小文字は区別されません) 内にプロパティ名を含めることにより、NuGet でトークンを[プロジェクト プロパティ](/dotnet/api/vslangproj.projectproperties)に置き換えることもできます。
 
 たとえば、次の `app.config.install.xdt` ファイルは、プロジェクトの `FullPath`、`FileName`、`ActiveConfigurationSettings` 値を含む `app.config` に `appSettings` 要素を挿入します。
 

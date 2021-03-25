@@ -5,12 +5,12 @@ author: zivkan
 ms.author: zivkan
 ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: b32075c3f2c06c15c07d36602bdabdaee8b9405a
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: b2202946d0060e09828250d240f931044d1bf485
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "67427477"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859032"
 ---
 # <a name="select-assemblies-referenced-by-projects"></a>プロジェクトによって参照されるアセンブリを選択する
 
@@ -21,7 +21,7 @@ ms.locfileid: "67427477"
 
 ## <a name="packagereference-support"></a>`PackageReference` サポート
 
-あるプロジェクトで `PackageReference` を含むパッケージが使用されるとき、そのパッケージに `ref\<tfm>\` ディレクトリが含まれている場合、NuGet では、それらのアセンブリがコンパイル時アセットとして分類され、`lib\<tfm>\` アセンブリは実行時アセットとして分類されます。 `ref\<tfm>\` のアセンブリは実行時に使用されません。 つまり、`ref\<tfm>\` のあらゆるアセンブリには、`lib\<tfm>\` または関連する `runtime\` ディレクトリに一致するアセンブリがあることが求められます。ない場合、実行時エラーがおそらく発生します。 `ref\<tfm>\` のアセンブリは実行時に使用されないため、パッケージ サイズを減らす[メタデータのみのアセンブリ](https://github.com/dotnet/roslyn/blob/master/docs/features/refout.md)になることがあります。
+あるプロジェクトで `PackageReference` を含むパッケージが使用されるとき、そのパッケージに `ref\<tfm>\` ディレクトリが含まれている場合、NuGet では、それらのアセンブリがコンパイル時アセットとして分類され、`lib\<tfm>\` アセンブリは実行時アセットとして分類されます。 `ref\<tfm>\` のアセンブリは実行時に使用されません。 つまり、`ref\<tfm>\` のあらゆるアセンブリには、`lib\<tfm>\` または関連する `runtime\` ディレクトリに一致するアセンブリがあることが求められます。ない場合、実行時エラーがおそらく発生します。 `ref\<tfm>\` のアセンブリは実行時に使用されないため、パッケージ サイズを減らす[メタデータのみのアセンブリ](https://github.com/dotnet/roslyn/blob/main/docs/features/refout.md)になることがあります。
 
 > [!Important]
 > あるパッケージに nuspec `<references>` 要素 (`packages.config` で使用、下記) が含まれるが、`ref\<tfm>\` のアセンブリが含まれない場合、NuGet では、コンパイル アセットとランタイム アセットの両方として、nuspec `<references>` 要素に一覧表示されるアセンブリがアドバタイズされます。 つまり、参照されるアセンブリで `lib\<tfm>\` ディレクトリに他のアセンブリを読み込む必要があるとき、ランタイム例外が発生します。
@@ -42,7 +42,7 @@ ms.locfileid: "67427477"
 ```
 
 > [!Note]
-> `packages.config` プロジェクトでは、[ResolveAssemblyReference](https://github.com/Microsoft/msbuild/blob/master/documentation/wiki/ResolveAssemblyReference.md) というプロセスを使用し、`bin\<configuration>\` 出力ディレクトリにアセンブリをコピーします。 プロジェクトのアセンブリがコピーされると、ビルド システムがアセンブリ マニフェストで参照アセンブリを探し、そのアセンブリをコピーし、すべてのアセンブリに再帰的に繰り返します。 つまり、`lib\<tfm>\` ディレクトリのいずれかのアセンブリが他のアセンブリのマニフェストに依存関係として一覧表示されない場合 (`Assembly.Load`、MEF、またはその他の依存関係挿入フレームワークを利用し、実行時にアセンブリが読み込まれる場合)、`bin\<tfm>\` にあるとしても、プロジェクトの `bin\<configuration>\` 出力ディレクトリにコピーされないことがあります。
+> `packages.config` プロジェクトでは、[ResolveAssemblyReference](https://github.com/Microsoft/msbuild/blob/main/documentation/wiki/ResolveAssemblyReference.md) というプロセスを使用し、`bin\<configuration>\` 出力ディレクトリにアセンブリをコピーします。 プロジェクトのアセンブリがコピーされると、ビルド システムがアセンブリ マニフェストで参照アセンブリを探し、そのアセンブリをコピーし、すべてのアセンブリに再帰的に繰り返します。 つまり、`lib\<tfm>\` ディレクトリのいずれかのアセンブリが他のアセンブリのマニフェストに依存関係として一覧表示されない場合 (`Assembly.Load`、MEF、またはその他の依存関係挿入フレームワークを利用し、実行時にアセンブリが読み込まれる場合)、`bin\<tfm>\` にあるとしても、プロジェクトの `bin\<configuration>\` 出力ディレクトリにコピーされないことがあります。
 
 ## <a name="example"></a>例
 

@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 11/02/2017
 ms.topic: tutorial
 ms.reviewer: kraigb
-ms.openlocfilehash: 7e611b568538e0acfcbad2e5d986a0f9382ac8fd
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 8f21aad93eb952035683314c10cd964f265ec4fd
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774123"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859344"
 ---
 # <a name="query-for-all-packages-published-to-nugetorg"></a>nuget.org に発行されたすべてのパッケージに対するクエリの実行
 
@@ -110,7 +110,7 @@ GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.stor
 
 カタログは HTTP 経由で使用可能な一連の JSON ドキュメントであるため、HTTP クライアントと JSON デシリアライザーを持つ任意のプログラミング言語を使用して対話することができます。
 
-C# のサンプルは、[NuGet/Sample リポジトリ](https://github.com/NuGet/Samples/tree/master/CatalogReaderExample)で入手可能です。
+C# のサンプルは、[NuGet/Sample リポジトリ](https://github.com/NuGet/Samples/tree/main/CatalogReaderExample)で入手可能です。
 
 ```cli
 git clone https://github.com/NuGet/Samples.git
@@ -122,7 +122,7 @@ git clone https://github.com/NuGet/Samples.git
 
 このパッケージを、`netstandard1.3` 以上 (.NET Framework 4.6 など) と互換性のあるプロジェクトにインストールすることができます。
 
-このパッケージを使用するサンプルは、GitHub の [NuGet.Protocol.Catalog.Sample プロジェクト](https://github.com/NuGet/Samples/tree/master/CatalogReaderExample/NuGet.Protocol.Catalog.Sample)で入手できます。
+このパッケージを使用するサンプルは、GitHub の [NuGet.Protocol.Catalog.Sample プロジェクト](https://github.com/NuGet/Samples/tree/main/CatalogReaderExample/NuGet.Protocol.Catalog.Sample)で入手できます。
 
 #### <a name="sample-output"></a>サンプル出力
 
@@ -160,9 +160,9 @@ warn: NuGet.Protocol.Catalog.CatalogProcessor[0]
 
 ### <a name="minimal-sample"></a>最小サンプル
 
-カタログとの対話を詳細に示す、いくつかの依存関係を含む例については、[CatalogReaderExample サンプル プロジェクト](https://github.com/NuGet/Samples/tree/master/CatalogReaderExample/CatalogReaderExample)を参照してください。 プロジェクトは `netcoreapp2.0` をターゲットとし、[NuGet.Protocol 4.4.0](https://www.nuget.org/packages/NuGet.Protocol/4.4.0) (サービス インデックスを解決する場合) および [Newtonsoft.Json 9.0.1](https://www.nuget.org/packages/Newtonsoft.Json/9.0.1) (JSON シリアル化解除の場合) に依存します。
+カタログとの対話を詳細に示す、いくつかの依存関係を含む例については、[CatalogReaderExample サンプル プロジェクト](https://github.com/NuGet/Samples/tree/main/CatalogReaderExample/CatalogReaderExample)を参照してください。 プロジェクトは `netcoreapp2.0` をターゲットとし、[NuGet.Protocol 4.4.0](https://www.nuget.org/packages/NuGet.Protocol/4.4.0) (サービス インデックスを解決する場合) および [Newtonsoft.Json 9.0.1](https://www.nuget.org/packages/Newtonsoft.Json/9.0.1) (JSON シリアル化解除の場合) に依存します。
 
-コードの主なロジックは [Program.cs ファイル](https://github.com/NuGet/Samples/blob/master/CatalogReaderExample/CatalogReaderExample/Program.cs)に表示されます。
+コードの主なロジックは [Program.cs ファイル](https://github.com/NuGet/Samples/blob/main/CatalogReaderExample/CatalogReaderExample/Program.cs)に表示されます。
 
 #### <a name="sample-output"></a>サンプル出力
 

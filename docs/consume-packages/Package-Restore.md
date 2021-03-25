@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: bac4d88c29539f9fbe7b33b44ce11d350920d365
-ms.sourcegitcommit: 650c08f8bc3d48dfd206a111e5e2aaca3001f569
+ms.openlocfilehash: e5dfd9f8dd0439751ddd3863cad03f3b463e1487
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97523523"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859240"
 ---
 # <a name="restore-packages-using-package-restore"></a>[パッケージの復元] を使用したパッケージの復元
 
@@ -244,4 +244,4 @@ MSBuild に統合されたパッケージの復元が使用されるプロジェ
 
 ## <a name="troubleshooting"></a>トラブルシューティング
 
-[パッケージの復元のトラブルシューティング](package-restore-troubleshooting.md)に関するページを参照してください。
+[パッケージの復元のトラブルシューティング](Package-restore-troubleshooting.md)に関するページを参照してください。

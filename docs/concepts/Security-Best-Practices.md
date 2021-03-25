@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 02/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 125579832db2ac32217d24f6fc6fc1b555f54350
-ms.sourcegitcommit: aeb9072f2fcaca73dc9de05b7fd643f1aa7c5821
+ms.openlocfilehash: e0f235d99e41e23a4551fbf7577f6c42e3381f5b
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101101400"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859227"
 ---
 # <a name="best-practices-for-a-secure-software-supply-chain"></a>セキュリティで保護されたソフトウェア サプライ チェーンのベスト プラクティス
 
@@ -75,7 +75,7 @@ ms.locfileid: "101101400"
 -   [`packages.config`](../reference/packages-config.md) – プロジェクトのルートにあります。
 -   [`<PackageReference>`](../consume-packages/package-references-in-project-files.md) – プロジェクト ファイルにあります。 
 
-NuGet の依存関係の管理に使用する方法に応じて、Visual Studio の[ソリューション エクスプローラー](/visualstudio/ide/solutions-and-projects-in-visual-studio?view=vs-2019#solution-explorer)または [NuGet パッケージ マネージャー](../consume-packages/install-use-packages-visual-studio.md)を使用して依存関係を直接見ることもできます。
+NuGet の依存関係の管理に使用する方法に応じて、Visual Studio の[ソリューション エクスプローラー](/visualstudio/ide/solutions-and-projects-in-visual-studio#solution-explorer)または [NuGet パッケージ マネージャー](../consume-packages/install-use-packages-visual-studio.md)を使用して依存関係を直接見ることもできます。
 
 CLI 環境の場合は、[`dotnet list package`](/dotnet/core/tools/dotnet-list-package) コマンドを使用して、プロジェクトまたはソリューションの依存関係の一覧を表示できます。 
 
@@ -140,7 +140,7 @@ Dependabot のアラートとセキュリティ更新プログラムの詳細に
 
 ロック ファイルには、パッケージのコンテンツ ハッシュが格納されます。 インストールしようとするパッケージのコンテンツ ハッシュがロック ファイルと一致する場合は、パッケージの再現性が保証されます。
 
-ロック ファイルを有効にするには、[こちらのドキュメントを参照してください](../consume-packages/package-references-in-project-files#locking-dependencies)。
+ロック ファイルを有効にするには、[こちらのドキュメントを参照してください](../consume-packages/package-references-in-project-files.md#locking-dependencies)。
 
 ## <a name="monitor-your-supply-chain"></a>サプライ チェーンを監視する
 
