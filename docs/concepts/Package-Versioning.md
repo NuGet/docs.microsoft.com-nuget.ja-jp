@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 5ba7860fae1037c0c0eb4c55d2df12d98b1d77cf
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 77b96e83f8fc7afd391537d16120d037585dd379
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775115"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859201"
 ---
 # <a name="package-versioning"></a>パッケージのバージョン管理
 
@@ -108,7 +108,7 @@ SemVer v2.0.0 固有のパッケージを nuget.org にアップロードした�
 
 | Notation | 適用されるルール | 説明 |
 |----------|--------------|-------------|
-| 1 | x ≥ 1.0 | 最小バージョン (示されている値を含む) |
+| 1.0 | x ≥ 1.0 | 最小バージョン (示されている値を含む) |
 | (1.0,) | x > 1.0 | 最小バージョン (示されている値を含まない) |
 | [1.0] | x == 1.0 | 正確なバージョンの一致 |
 | (,1.0] | x ≤ 1.0 | 最大バージョン (示されている値を含む) |
@@ -116,7 +116,7 @@ SemVer v2.0.0 固有のパッケージを nuget.org にアップロードした�
 | [1.0,2.0] | 1.0 ≤ x ≤ 2.0 | 正確な範囲 (示されている値を含む) |
 | (1.0,2.0) | 1.0 < x < 2.0 | 正確な範囲 (示されている値を含まない) |
 | [1.0,2.0) | 1.0 ≤ x < 2.0 | 示されている値を含む最小バージョンと示されている値を含まない最大バージョンの組み合わせ |
-| (1.0)    | 無効な | 無効な |
+| (1.0)    | 無効 | 無効な |
 
 PackageReference 形式を使用する場合、NuGet では、番号の Major、Minor、Patch、およびプレリリース サフィックス部分に浮動小数点表記 \* を使用できます。 `packages.config` 形式では、浮動小数点バージョンはサポートされていません。 浮動バージョンを指定した場合、バージョンの説明に一致する既存の最高バージョンに解決されるというルールになります。 次に、浮動バージョンと解決の例を示します。
 
@@ -245,3 +245,13 @@ PackageReference 形式を使用する場合、NuGet では、番号の Major、
 `pack` 操作と `restore` 操作では、可能な限りバージョンが正規化されます。 既にビルドされているパッケージの場合、この正規化はパッケージ自体のバージョン番号には影響しません。依存関係を解決するときに NuGet によってバージョンが照合される方法にのみ影響します。
 
 ただし、NuGet パッケージ リポジトリでは、これらの値を NuGet と同じように処理して、パッケージのバージョンが重複しないようにする必要があります。 したがって、パッケージのバージョン *1.0* を含むリポジトリでは、バージョン *1.0.0* を別の異なるパッケージとしてホストすることはできません。
+
+## <a name="where-nugetversion-diverges-from-semantic-versioning"></a>NuGetVersion とセマンティック バージョニングが異なる点
+
+NuGet パッケージのバージョンをプログラムで使用する場合は、[パッケージの NuGet.Versioning](https://www.nuget.org/packages/NuGet.Versioning) を使用することを強くお勧めします。 静的メソッド `NuGetVersion.Parse(string)` はバージョン文字列を解析するために使用でき、`VersionComparer` は `NuGetVersion` インスタンスの並べ替えに使用できます。
+
+.NET で実行されない言語で NuGet の機能を実装する場合、既知の `NuGetVersion` とセマンティック バージョニングの相違点と、既存のセマンティック バージョニング ライブラリが nuget.org で既に公開されているパッケージに対して機能しない可能性がある理由のリストを次に示します。
+
+1. `NuGetVersion` は、4 番目のバージョン セグメント (`Revision`) をサポートします。これは、[`System.Version`](/dotnet/api/system.version) と互換性があるか、この上位集合になります。 そのため、プレリリースとメタデータのラベルを除外すると、バージョン文字列は `Major.Minor.Patch.Revision` になります。 上記のバージョンの正規化に従って、`Revision` が 0 の場合は、正規化されたバージョン文字列から除外されます。
+2. `NuGetVersion` には、メジャー セグメントのみを定義する必要があります。 その他すべては任意であり、0 に相当します。 これは、`1`、`1.0`、`1.0.0`、`1.0.0.0` はすべて受け入れられ、等しいということを意味します。
+3. `NuGetVersion` は、プレリリース コンポーネントに対して、大文字と小文字を区別しない文字列比較を使用します。 つまり、`1.0.0-alpha` と `1.0.0-Alpha` は等しいということです。

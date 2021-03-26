@@ -5,14 +5,14 @@ author: nkolev92
 ms.author: nikolev
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: dcaed83ca54e3234702e963ffc2ebbde4cd75b28
-ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
+ms.openlocfilehash: df7c793d115622f04a148cbbc3ebf396a3e4ab69
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98235764"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859188"
 ---
-# <a name="package-references-packagereference-in-project-files"></a>プロジェクト ファイルのパッケージ参照 (PackageReference)
+# <a name="package-references-packagereference-in-project-files"></a>プロジェクト ファイルのパッケージ参照 (`PackageReference`)
 
 `PackageReference` ノードを使用するパッケージ参照では、(個別の `packages.config` ファイルとは異なり) NuGet の依存関係をプロジェクト ファイル内で直接管理します。 PackageReference を使用する場合、呼び出されても、NuGet の他の側面には影響を与えません。たとえば、(パッケージ ソースを含む) `NuGet.config` ファイルの設定が、「[NuGet の動作を構成する](configuring-nuget-behavior.md)」で説明されているように引き続き適用されます。
 
@@ -211,7 +211,7 @@ MSBuild のプロパティとパッケージ ID には同じ制限がないた�
 まれに、異なるパッケージに同じ名前空間のクラスが含まれている場合があります。 NuGet 5.7 および Visual Studio 2019 Update 7 以降、ProjectReference と同等の PackageReference は [`Aliases`](/dotnet/api/microsoft.codeanalysis.projectreference.aliases) をサポートしています。
 既定では、別名は用意されていません。 別名が指定されている場合、注釈付きパッケージに由来する "*すべての*" アセンブリは、別名で参照する必要があります。
 
-サンプルの使用方法については、[NuGet\Samples](https://github.com/NuGet/Samples/tree/master/PackageReferenceAliasesExample) を参照してください。
+サンプルの使用方法については、[NuGet\Samples](https://github.com/NuGet/Samples/tree/main/PackageReferenceAliasesExample) を参照してください。
 
 プロジェクト ファイルで、次のように別名を指定します。
 

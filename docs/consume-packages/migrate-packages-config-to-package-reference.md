@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8161f4a39d4adfdb9efb25bcb840b20b85a58e07
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: fabfd76a46a38ff26acbc6439406d99eb3f85bf4
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774775"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859162"
 ---
 # <a name="migrate-from-packagesconfig-to-packagereference"></a>packages.config から PackageReference への移行
 
@@ -100,31 +100,27 @@ packages.config でサポートされていたいくつかの機能は、Package
 
 ### <a name="installps1-scripts-are-ignored-when-the-package-is-installed-after-the-migration"></a>移行後にパッケージをインストールするときに、"install. ps1" スクリプトが無視される
 
-| | |
-| --- | --- |
-| **説明** | PackageReference では、パッケージをインストールまたはアンインストールするときに、install.ps1 および uninstall.ps1 PowerShell スクリプトは実行されません。 |
-| **潜在的な影響** | これらのスクリプトに依存して移行先プロジェクト内の一部の動作を構成するパッケージは、期待どおりに動作しないことがあります。 |
+* **説明**: PackageReference を使用すると、パッケージをインストールまたはアンインストールするときに、install.ps1 および uninstall.ps1 の PowerShell スクリプトは実行されません。
+
+* **潜在的な影響**: これらのスクリプトに依存して移行先プロジェクト内の一部の動作を構成するパッケージは、正しく動作しないことがあります。
 
 ### <a name="content-assets-are-not-available-when-the-package-is-installed-after-the-migration"></a>移行後にパッケージをインストールするときに、"コンテンツ" アセットを使用できない
 
-| | |
-| --- | --- |
-| **説明** | パッケージの `content` フォルダー内のアセットは、PackageReference ではサポートされず、無視されます。 PackageReference では、推移的なサポートと共有コンテンツを向上させるために `contentFiles` のサポートが追加されています。  |
-| **潜在的な影響** | `content` 内のアセットはプロジェクトにコピーされず、これらのアセットの存在に依存するプロジェクト コードにはリファクタリングが必要です。  |
+* **説明**: パッケージの `content` フォルダー内のアセットは、PackageReference ではサポートされず、無視されます。 PackageReference では、推移的なサポートと共有コンテンツを向上させるために `contentFiles` のサポートが追加されています。
+
+* **潜在的な影響**: `content` 内のアセットはプロジェクトにコピーされず、これらのアセットの存在に依存するプロジェクト コードにはリファクタリングが必要です。
 
 ### <a name="xdt-transforms-are-not-applied-when-the-package-is-installed-after-the-upgrade"></a>アップグレード後にパッケージをインストールするときに XDT 変換が適用されない
 
-| | |
-| --- | --- |
-| **説明** | XDT 変換は PackageReference ではサポートされず、パッケージをインストールまたはアンインストールするときに `.xdt` ファイルは無視されます。   |
-| **潜在的な影響** | XDT 変換は、プロジェクトの XML ファイル (通常は `web.config.install.xdt` と `web.config.uninstall.xdt`) には適用されません。つまり、パッケージをインストールまたはアンインストールしても、プロジェクトの ` web.config` ファイルは更新されません。 |
+* **説明**: XDT 変換は PackageReference ではサポートされず、パッケージをインストールまたはアンインストールするときに `.xdt` ファイルは無視されます。
+
+* **潜在的な影響**: XDT 変換は、プロジェクトの XML ファイル (通常は `web.config.install.xdt` と `web.config.uninstall.xdt`) には適用されません。つまり、パッケージをインストールまたはアンインストールしても、プロジェクトの ` web.config` ファイルは更新されないということです。
 
 ### <a name="assemblies-in-the-lib-root-are-ignored-when-the-package-is-installed-after-the-migration"></a>移行後にパッケージをインストールするときに、lib ルート内のアセンブリが無視される
 
-| | |
-| --- | --- |
-| **説明** | PackageReference では、ターゲット フレームワーク固有のサブフォルダーがない `lib` フォルダーのルートにあるアセンブリは無視されます。 NuGet では、プロジェクトのターゲット フレームワークに対応するターゲット フレームワーク モニカー (TFM) に一致するサブフォルダーが検索され、一致するアセンブリがプロジェクトにインストールされます。 |
-| **潜在的な影響** | プロジェクトのターゲット フレームワークに対応するターゲット フレームワーク モニカー (TFM) と一致するサブフォルダーがないパッケージは、移行後に期待どおりに動作しない場合や、移行中にインストールが失敗する場合があります |
+* **説明**: PackageReference を使用すると、ターゲット フレームワーク固有のサブフォルダーがない `lib` フォルダーのルートにあるアセンブリは無視されます。 NuGet では、プロジェクトのターゲット フレームワークに対応するターゲット フレームワーク モニカー (TFM) に一致するサブフォルダーが検索され、一致するアセンブリがプロジェクトにインストールされます。
+
+* **潜在的な影響**: プロジェクトのターゲット フレームワークに対応するターゲット フレームワーク モニカー (TFM) と一致するサブフォルダーがないパッケージは、切り替え後に正しく動作しない場合や、移行中にインストールが失敗する場合があります。
 
 ## <a name="found-an-issue-report-it"></a>見つかった問題の 報告
 
