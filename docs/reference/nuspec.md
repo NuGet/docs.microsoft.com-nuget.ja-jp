@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 4028657862cfd56d0653b370e8344cab8392d69d
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: a8a8058032b0b6c6ddcd5eed1cf22e75f0e3af72
+ms.sourcegitcommit: c8bf16420f235fc3e42c08cd0d56359e91d490e5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859500"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107387414"
 ---
 # <a name="nuspec-reference"></a>.nuspec リファレンス
 
@@ -205,6 +205,29 @@ UI 表示でパッケージのアイコンとして使用される透明な背�
 > [!Tip]
 > を `icon` `iconUrl` サポートしていないソースとの下位互換性を維持するために、との両方を指定でき `icon` ます。 Visual Studio では `icon` 、将来のリリースでフォルダーベースのソースからのパッケージがサポートされるようになります。
 
+#### <a name="readme"></a>readme
+
+Readme ファイルをパッキングする場合は、パッケージ `readme` のルートに対して相対的なパッケージパスを指定するために要素を使用する必要があります。 これに加えて、ファイルがパッケージに含まれていることを確認する必要があります。 サポートされるファイル形式には、Markdown (*md*) のみが含まれます。
+
+たとえば、プロジェクトで readme ファイルをパックするために、次のコードを nuspec に追加します。
+
+```xml
+<package>
+  <metadata>
+    ...
+    <readme>docs\readme.md</readme>
+    ...
+  </metadata>
+  <files>
+    ...
+    <file src="..\readme.md" target="docs\" />
+    ...
+  </files>
+</package>
+```
+
+同等の MSBuild については、「 [readme ファイルのパッキング](msbuild-targets.md#packagereadmefile)」を参照してください。
+
 #### <a name="requirelicenseacceptance"></a>requireLicenseAcceptance
 パッケージをインストールする前にクライアントがユーザーに対してパッケージのライセンスへの同意を求めるプロンプトを表示する必要があるかどうかを示すブール値。
 
@@ -328,7 +351,7 @@ nuget pack MyProject.csproj
 
 例外である `$configuration$` を除き、コマンド ラインの同じトークンに割り当てられている値より、プロジェクトの値の方が優先的に使われます。
 
-| トークン | 値のソース | 値
+| トークン | 値のソース | [値]
 | --- | --- | ---
 | **$id $** | プロジェクト ファイル | プロジェクトファイルからの AssemblyName (title) |
 | **$version $** | AssemblyInfo | ある場合は AssemblyInformationalVersion、ない場合は AssemblyVersion |
@@ -369,8 +392,8 @@ nuget pack MyProject.csproj
 
 | 包含/除外タグ | ターゲットの影響を受けるフォルダー |
 | --- | --- |
-| contentFiles | コンテンツ |
-| ランタイム | Runtime、Resources、FrameworkAssemblies |
+| contentFiles | Content |
+| runtime | Runtime、Resources、FrameworkAssemblies |
 | compile | lib |
 | build | build (MSBuild のプロパティとターゲット) |
 | native | native |
@@ -530,7 +553,7 @@ NuGet 2.x 以前および `packages.config` を使っているプロジェクト
 | **target** | ソース ファイルが格納されるパッケージ内のフォルダーへの相対パス。`lib`、`content`、`build`、または `tools` で始まっている必要があります。 [規則に基づく作業ディレクトリからの .nuspec の作成](../create-packages/creating-a-package.md#from-a-convention-based-working-directory)に関するページをご覧ください。 |
 | **もの** | `src` の場所から除外するファイルまたはファイル パターンをセミコロンで区切ったリスト。 ワイルドカード文字 `*` を使うことができ、2 個のワイルドカード `**` は再帰的なフォルダー検索を意味します。 |
 
-### <a name="examples"></a>例
+### <a name="examples"></a>使用例
 
 **1 つのアセンブリ**
 

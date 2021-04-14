@@ -10,12 +10,12 @@ no-loc:
 - MSBuild
 - .nuspec
 - nuspec
-ms.openlocfilehash: 9d40d43d972537ee1cb11d54194ed6450ccd0b6e
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: 47411641db47884f79f2bc9a4aa00035fc79993b
+ms.sourcegitcommit: c8bf16420f235fc3e42c08cd0d56359e91d490e5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104858967"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107387375"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGetターゲットとしてのパックと復元 MSBuild
 
@@ -68,8 +68,9 @@ MSBuild15.1 + で NuGet は、次に示すように、とのターゲットを�
 | `license` | `PackageLicenseFile` | 空 | カスタムライセンスまたは SPDX 識別子が割り当てられていないライセンスを使用している場合の、パッケージ内のライセンスファイルへのパス。 参照されているライセンスファイルを明示的にパックする必要があります。 `<license type="file">` に相当します。 「 [ライセンス式またはライセンスファイルのパッキング](#packing-a-license-expression-or-a-license-file)」を参照してください。 |
 | `LicenseUrl` | `PackageLicenseUrl` | 空 | `PackageLicenseUrl` は非推奨とされます。 代わりに、`PackageLicenseExpression` タグまたは `PackageLicenseFile` タグを使用してください。 |
 | `ProjectUrl` | `PackageProjectUrl` | 空 | |
-| `Icon` | `PackageIcon` | 空 | パッケージ アイコンとして使用するパッケージ内の画像へのパス。 参照されているアイコンイメージファイルを明示的にパックする必要があります。 詳細については、「[アイコンイメージファイル](#packing-an-icon-image-file)と[ `icon` メタデータ](/nuget/reference/nuspec#icon)のパッキング」を参照してください。 |
+| `Icon` | `PackageIcon` | 空 | パッケージ アイコンとして使用するパッケージ内の画像へのパス。 参照されているアイコンイメージファイルを明示的にパックする必要があります。 詳細については、「[アイコンイメージファイル](#packing-an-icon-image-file)と[ `icon` メタデータ](./nuspec.md#icon)のパッキング」を参照してください。 |
 | `IconUrl` | `PackageIconUrl` | 空 | `PackageIconUrl` は、を優先するために非推奨とされ `PackageIcon` ます。 ただし、最も高いダウンレベルエクスペリエンスを実現するには、に加えてを指定する必要があり `PackageIconUrl` `PackageIcon` ます。 |
+| `Readme` | `PackageReadmeFile` | 空 | 参照されている readme ファイルを明示的にパックする必要があります。|
 | `Tags` | `PackageTags` | 空 | パッケージを指定するタグのセミコロン区切りの一覧。 |
 | `ReleaseNotes` | `PackageReleaseNotes` | 空 | パッケージのリリース ノート。 |
 | `Repository/Url` | `RepositoryUrl` | 空 | ソースコードの複製または取得に使用されるリポジトリの URL。 例: *https://github.com/ NuGet / NuGet 。クライアント. git*。 |
@@ -81,7 +82,7 @@ MSBuild15.1 + で NuGet は、次に示すように、とのターゲットを�
 
 ### <a name="pack-target-inputs"></a>pack ターゲットの入力
 
-| プロパティ | Description |
+| プロパティ | 説明 |
 | - | - |
 | `IsPackable` | プロジェクトをパックできるかどうかを示すブール値。 既定値は `true` です。 |
 | `SuppressDependenciesWhenPacking` | `true`生成されたパッケージからのパッケージの依存関係を抑制するには、に設定し NuGet ます。 |
@@ -99,6 +100,7 @@ MSBuild15.1 + で NuGet は、次に示すように、とのターゲットを�
 | `PackageProjectUrl` | |
 | `PackageIcon` | パッケージのルートに対して相対的なパッケージアイコンパスを指定します。 詳細については、「 [アイコンイメージファイルのパッキング](#packing-an-icon-image-file)」を参照してください。 |
 | `PackageReleaseNotes` | パッケージのリリース ノート。 |
+| `PackageReadmeFile` | パッケージの Readme。 |
 | `PackageTags` | パッケージを指定するタグのセミコロン区切りの一覧。 |
 | `PackageOutputPath` | パックされたパッケージをドロップする出力パスを指定します。 既定値は `$(OutputPath)` です。 |
 | `IncludeSymbols` | このブール値は、プロジェクトをパックするときに、パッケージが追加のシンボル パッケージを作成するかどうかを指定します。 シンボル パッケージの形式は、`SymbolPackageFormat` プロパティで制御します。 詳細については、「 [IncludeSymbols](#includesymbols)」を参照してください。 |
@@ -113,7 +115,7 @@ MSBuild15.1 + で NuGet は、次に示すように、とのターゲットを�
 | `NoPackageAnalysis` | `pack`パッケージのビルド後にパッケージ分析を実行しないことを指定します。 |
 | `MinClientVersion` | NuGetnuget.exe と Visual Studio パッケージマネージャーによって適用される、このパッケージをインストールできるクライアントの最小バージョンを指定します。 |
 | `IncludeBuildOutput` | このブール値は、ビルド出力アセンブリを *.nupkg* ファイルにパッケージ化するかどうかを指定します。 |
-| `IncludeContentInPack` | このブール値は、の型を持つ項目 `Content` が、結果のパッケージに自動的に含まれるかどうかを指定します。 既定では、 `true`です。 |
+| `IncludeContentInPack` | このブール値は、の型を持つ項目 `Content` が、結果のパッケージに自動的に含まれるかどうかを指定します。 既定値は、`true` です。 |
 | `BuildOutputTargetFolder` | 出力アセンブリを配置するフォルダーを指定します。 出力アセンブリ (および他の出力ファイル) は、各フレームワーク フォルダーにコピーされます。 詳細については、「 [出力アセンブリ](#output-assemblies)」を参照してください。 |
 | `ContentTargetFolders` | が指定されていない場合に、すべてのコンテンツファイルの移動先となる既定の場所を指定し `PackagePath` ます。 既定値は "content;contentFiles" です。 詳細については、「[Including content in a package](#including-content-in-a-package)」 (パッケージにコンテンツを追加する) を参照してください。 |
 | `NuspecFile` | *.nuspec* パッキングに使用されるファイルへの相対パスまたは絶対パス。 指定した場合、パッケージ化情報 **専用** に使用され、プロジェクト内の情報は使用されません。 詳細については、「を[使用した .nuspec パッキング](#packing-using-a-nuspec-file)」を参照してください。 |
@@ -158,6 +160,28 @@ MSBuild15.1 + で NuGet は、次に示すように、とのターゲットを�
 [パッケージアイコンのサンプル](https://github.com/NuGet/Samples/tree/main/PackageIconExample)です。
 
 同等のものについては、 nuspec [ nuspec アイコンの参照](nuspec.md#icon)を確認してください。
+
+### <a name="packagereadmefile"></a>パッケージファイル
+
+Readme ファイルをパッキングする場合は、パッケージ `PackageReadmeFile` のルートに対して相対的なパッケージパスを指定するために、プロパティを使用する必要があります。 これに加えて、ファイルがパッケージに含まれていることを確認する必要があります。 サポートされるファイル形式には、Markdown (*md*) のみが含まれます。
+
+次に例を示します。
+
+```xml
+<PropertyGroup>
+    ...
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
+    ...
+</PropertyGroup>
+
+<ItemGroup>
+    ...
+    <None Include="docs\readme.md" Pack="true" PackagePath="\"/>
+    ...
+</ItemGroup>
+```
+
+同等のものについては nuspec 、 [ nuspec readme のリファレンス](nuspec.md#readme)をご覧ください。
 
 ### <a name="output-assemblies"></a>出力アセンブリ
 
@@ -403,7 +427,7 @@ nuspecdotnet.exe または msbuild を使用してをパッキングすると、
 
 その他の復元設定は MSBuild 、プロジェクトファイルのプロパティから取得できます。 また、`-p:` スイッチを使用して、コマンド ラインから値を設定することもできます (次の例を参照してください)。
 
-| プロパティ | Description |
+| プロパティ | 説明 |
 |--------|--------|
 | `RestoreSources` | パッケージ ソースのセミコロン区切りの一覧。 |
 | `RestorePackagesPath` | ユーザー パッケージ フォルダーのパス。 |
@@ -427,7 +451,7 @@ nuspecdotnet.exe または msbuild を使用してをパッキングすると、
 | `RestorePackagesConfig` | packages.config のプロジェクトを復元するオプトインスイッチ。でのみサポートさ `MSBuild -t:restore` れます。 |
 | `RestoreUseStaticGraphEvaluation` | 標準評価ではなく、静的なグラフの評価を使用するオプトインスイッチ MSBuild 。 静的グラフの評価は、大規模なリポジトリとソリューションで非常に高速な試験的な機能です。 |
 
-#### <a name="examples"></a>例
+#### <a name="examples"></a>使用例
 
 コマンド ライン:
 

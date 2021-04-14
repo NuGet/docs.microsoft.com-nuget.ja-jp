@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 01/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: f9e08d37b30dfea83fd9b61f168c1e20f530ff9f
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: 6417c971dc13cf9ed05dcec4e4156af94c0ea058
+ms.sourcegitcommit: c8bf16420f235fc3e42c08cd0d56359e91d490e5
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859409"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107387388"
 ---
 # <a name="nuget-client-sdk"></a>NuGet クライアント SDK
 
@@ -32,6 +32,9 @@ ms.locfileid: "104859409"
 ```ps1
 dotnet add package NuGet.Protocol
 ```
+
+> [!Tip]
+> `Repository.Factory` は名前空間で定義され、 `NuGet.Protocol.Core.Types` `GetCoreV3` メソッドは名前空間で定義された拡張メソッドです `NuGet.Protocol` 。 したがって、 `using` 両方の名前空間にステートメントを追加する必要があります。
 
 ### <a name="list-package-versions"></a>パッケージのバージョンを一覧表示する
 
