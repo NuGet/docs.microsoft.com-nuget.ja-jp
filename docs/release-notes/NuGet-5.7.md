@@ -5,12 +5,12 @@ author: chgill-msft
 ms.author: chgill
 ms.date: 8/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6c821091983ab0b5d59b759e1ee9930cf449fd9d
-ms.sourcegitcommit: 6cda91f135e58cf57a2471b0c7c4a2f748f40024
+ms.openlocfilehash: 58ab481f0c6a6cb5549c269788170b8c3ff6002f
+ms.sourcegitcommit: 1462f9f42ae36b3c990762ad4f02e38ab799ad09
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89364152"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107508788"
 ---
 # <a name="nuget-57-release-notes"></a>NuGet 5.7 リリースノート
 
@@ -19,6 +19,7 @@ NuGet 配布の種類:
 | NuGet のバージョン | 利用可能な Visual Studio バージョン | 利用可能な .NET SDK |
 |:---|:---|:---|
 | [**5.7.0**](https://nuget.org/downloads) | [Visual Studio 2019 バージョン 16.7](https://visualstudio.microsoft.com/downloads/) | [3.1.401](https://dotnet.microsoft.com/download/dotnet-core/3.1)<sup>1</sup> |
+| [**5.7.1**](https://nuget.org/downloads) | [Visual Studio 2019 バージョン 16.7](https://visualstudio.microsoft.com/downloads/) | [3.1.408](https://dotnet.microsoft.com/download/dotnet-core/3.1)<sup>1</sup> |
 
 <sup>1</sup> Visual Studio 2019 と .net Core ワークロードと共にインストールされる
 
@@ -48,7 +49,7 @@ NuGet 配布の種類:
 
 * ソリューションまたはプロジェクトを必要とせずに、フォールバックフォルダーを列挙する相互運用 API を追加しました。 [#9395](https://github.com/NuGet/Home/issues/9395)
 
-* `latest`#8808 のオプション `-MSBuildVersion`  -  [#8808](https://github.com/NuGet/Home/issues/8808)を追加しました
+* `latest`#8808 のオプション `-MSBuildVersion`  -  [](https://github.com/NuGet/Home/issues/8808)を追加しました
 
 ### <a name="issues-fixed-in-this-release"></a>このリリースで修正された問題
 
@@ -98,7 +99,7 @@ NuGet 配布の種類:
 
 この NuGet のリリースに役立ったすべての共同作成者に感謝します。
 
-|担当者|Pr|issue|
+|担当者|Pr|発行|
 |----|----|----|
 |[campersau](https://github.com/campersau)|[3433](https://github.com/NuGet/NuGet.Client/pull/3433)、 [3120](https://github.com/NuGet/NuGet.Client/pull/3120)|NuGet. プロトコルは、検索からバージョンのダウンロード数を取得することをサポートしていません [#9086](https://github.com/NuGet/Home/issues/9086) </br>HttpRequestMessage は、 [#8661](https://github.com/NuGet/Home/issues/8661) SocketHttpHandler でサポートされていない複数回再利用を行うことができます。|
 |[ジョセフ・マス・ Ser (jnm2)](https://github.com/jnm2)|[3241](https://github.com/NuGet/NuGet.Client/pull/3241)|`<owners>`冗長である場合に要素を抑制した[#5134](https://github.com/NuGet/Home/issues/5134)|
@@ -106,4 +107,16 @@ NuGet 配布の種類:
 |[Marius Ungureanu (ole Zok)](https://github.com/Therzok)|[3357](https://github.com/NuGet/NuGet.Client/pull/3357)|HttpSourceAuthenticationHandler SemaphoreSlim 未来の校正- [#9463](https://github.com/NuGet/Home/issues/9463)|
 |[Sunner ()](https://github.com/SuNNjek)|[3088](https://github.com/NuGet/NuGet.Client/pull/3088)|nuget.exe spec は、ハードコーディングされたテキストを使用して著作権タグを生成し、その代わりに著作権情報 YYYY を入力 `$copyright$`  -  [#8696](https://github.com/NuGet/Home/issues/8696)|
 |[Olivier Spinelli (olivier-spinelli)](https://github.com/olivier-spinelli)|[3335](https://github.com/NuGet/NuGet.Client/pull/3335)|Dotnet CLI の復元で、資格情報プラグインを起動するときに、 `DOTNET_HOST_PATH`  環境変数が定義されていない場合は、システムパスで DOTNET CLI を試してみてください。 - [#7438](https://github.com/NuGet/Home/issues/7438)|
-|[goyzhang](https://github.com/goyzhang)|[3370](https://github.com/NuGet/NuGet.Client/pull/3370)|`latest`#8808 のオプション `-MSBuildVersion`  -  [#8808](https://github.com/NuGet/Home/issues/8808)を追加しました|
+|[goyzhang](https://github.com/goyzhang)|[3370](https://github.com/NuGet/NuGet.Client/pull/3370)|`latest`#8808 のオプション `-MSBuildVersion`  -  [](https://github.com/NuGet/Home/issues/8808)を追加しました|
+
+## <a name="summary-whats-new-in-571"></a>概要: 5.7.1 の新機能
+
+* . Nupkg メタデータファイルを拡張して、インストールソースを含め [#10354](https://github.com/NuGet/Home/issues/10354)
+
+* 復元ログ中にパッケージ contenthash をログに記録する (抽出中)- [#10384](https://github.com/NuGet/Home/issues/10384)
+
+* 通常の詳細度で復元する場合は、パッケージの復元元のソースをログに記録し [#10461](https://github.com/NuGet/Home/issues/10461)
+
+**[このリリースで修正されるすべての問題の一覧-5.7.1](https://app.zenhub.com/workspaces/nuget-client-team-55aec9a240305cf007585881/reports/release?release=6075f5724f84579cc29a79ee)**
+
+**[このリリースのコミットの一覧-5.7.1](https://github.com/NuGet/NuGet.Client/compare/80512866a2c127e52ce3e86fd803fff77e9b9b52...5.7.1.4)**

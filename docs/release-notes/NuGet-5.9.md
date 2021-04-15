@@ -5,12 +5,12 @@ author: erdembayar
 ms.author: eryondon
 ms.date: 3/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 24933ebb51851da2583b03e7fd3e55fade5e8a18
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: 50fd277a4f1f39b4a68a89cd07af4e21f0d3d831
+ms.sourcegitcommit: 1462f9f42ae36b3c990762ad4f02e38ab799ad09
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859529"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107508814"
 ---
 # <a name="nuget-59-release-notes"></a>NuGet 5.9 リリースノート
 
@@ -18,12 +18,13 @@ NuGet 配布の種類:
 
 | NuGet のバージョン | 利用可能な Visual Studio バージョン | 利用可能な .NET SDK |
 |:---|:---|:---|
-| [**5.9**](https://nuget.org/downloads) | [Visual Studio 2019 バージョン16.9](https://visualstudio.microsoft.com/downloads/) | [5.0](https://dotnet.microsoft.com/download/dotnet-core/5.0)<sup>1</sup> |
+| [**5.9.0**](https://nuget.org/downloads) | [Visual Studio 2019 バージョン16.9](https://visualstudio.microsoft.com/downloads/) | [5.0.200](https://dotnet.microsoft.com/download/dotnet-core/5.0)<sup>1</sup> |
+| [**5.9.1**](https://nuget.org/downloads) | [Visual Studio 2019 バージョン16.9](https://visualstudio.microsoft.com/downloads/) | [5.0.202](https://dotnet.microsoft.com/download/dotnet-core/5.0)<sup>1</sup> |
 
 <sup>1</sup> Visual Studio 2019 と .net Core ワークロードと共にインストールされる
   
 > [!NOTE]
-> Visual Studio 16.9、MSBuild 16.9、および .NET 5.0.3 + には NuGet.exe 5.9 以降が必要です。
+> Visual Studio 16.9、MSBuild 16.9、および .NET 5.0.200 + には NuGet.exe 5.9 以降が必要です。
 
 ## <a name="summary-whats-new-in-59"></a>概要: 5.9 の新機能
 
@@ -187,7 +188,6 @@ NuGet 配布の種類:
 
 * NuGetPackageFileService fix-を使用して破棄可能な memorystream を使用する- [#10503](https://github.com/NuGet/Home/issues/10503)
 
-
 **[このリリースで修正されるすべての問題の一覧-5.9.0](https://app.zenhub.com/workspaces/nuget-client-team-55aec9a240305cf007585881/reports/release?release=5f6be8c10485c0236b7ef889)**
 
 **[このリリースのコミットの一覧-5.9.0](https://github.com/NuGet/NuGet.Client/compare/5.8.1.7021...5.9.0.7134)**
@@ -211,6 +211,15 @@ NuGet 配布の種類:
 [rolfbjarne](https://github.com/rolfbjarne) | [3743](https://github.com/NuGet/NuGet.Client/pull/3743) | リダイレクトされると、出力は macOS で80文字でラップされ [#10198](https://github.com/NuGet/Home/issues/10198)
 [xen2](https://github.com/xen2) | [2861](https://github.com/NuGet/NuGet.Client/pull/2861) | Nuget.exe を .NET Standard パッケージとして使用できるようにする- [#6150](https://github.com/NuGet/Home/issues/6150)
 [Anipik](https://github.com/Anipik) | [3810](https://github.com/NuGet/NuGet.Client/pull/3810) | パックタスクの実行中に特定の tfm のビルド出力を除外する新しい msbuild プロパティを導入する- [#10396](https://github.com/NuGet/Home/issues/10396)
+
+## <a name="summary-whats-new-in-591"></a>概要: 5.9.1 の新機能
+
+* "dotnet nuget remove source nuget.org" は初回[#10745](https://github.com/NuGet/Home/issues/10745)は機能しません
+* Linux では既定の検証を無効にしますが、Windows では既定で有効に [#10713](https://github.com/NuGet/Home/issues/10713)
+
+**[このリリースで修正されるすべての問題の一覧-5.9.1](https://app.zenhub.com/workspaces/nuget-client-team-55aec9a240305cf007585881/reports/release?release=6075f42efd068017639b4036)**
+
+**[このリリースのコミットの一覧-5.9.1](https://github.com/NuGet/NuGet.Client/compare/5.9.0.7134...5.9.1.8)**
 
 ## <a name="feedback-welcome"></a>フィードバックの開始
 
