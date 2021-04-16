@@ -70,6 +70,7 @@
 ## [パッケージのバージョン管理](concepts/package-versioning.md)
 ## [依存関係の解決](concepts/dependency-resolution.md)
 ## [セキュリティで保護されたソフトウェア サプライ チェーンのベスト プラクティス](concepts/Security-Best-Practices.md)
+## [インストールされているパッケージのトラブルシューティング](concepts/troubleshooting-installed-packages.md)
 # 関連項目
 ## [.nuspec](reference/nuspec.md)
 ## [nuget.config ファイル](reference/nuget-config-file.md)
