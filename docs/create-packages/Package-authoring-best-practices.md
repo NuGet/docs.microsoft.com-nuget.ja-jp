@@ -5,16 +5,16 @@ author: chgill-MSFT
 ms.author: chgill
 ms.date: 09/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7475cf655876f2c127e79a16ccf67c0c723d164f
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: aae05b63921f3494376b430186d3605eeff174c1
+ms.sourcegitcommit: c8bf16420f235fc3e42c08cd0d56359e91d490e5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859071"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107387362"
 ---
 # <a name="package-authoring-best-practices"></a>パッケージ作成のベスト プラクティス
 
-このガイダンスの目的は、NuGet パッケージの作成者に対して、高品質なパッケージを作成および発行するための簡易なリファレンスを提供することです。 ここでは主に、メタデータやパックなどのパッケージ固有のベスト プラクティスに焦点を当てます。 高品質なライブラリを構築するためのより詳細な提案については、.NET の「[オープン ソース ライブラリのガイダンス](https://docs.microsoft.com/dotnet/standard/library-guidance/)」を参照してください。
+このガイダンスの目的は、NuGet パッケージの作成者に対して、高品質なパッケージを作成および発行するための簡易なリファレンスを提供することです。 ここでは主に、メタデータやパックなどのパッケージ固有のベスト プラクティスに焦点を当てます。 高品質なライブラリを構築するためのより詳細な提案については、.NET の「[オープン ソース ライブラリのガイダンス](/dotnet/standard/library-guidance/)」を参照してください。
 
 ## <a name="types-of-recommendations"></a>推奨事項の種類
 
@@ -26,7 +26,7 @@ ms.locfileid: "104859071"
 
 その一方で、**検討** の推奨事項には一般に従うべきですが、その規則には正当な例外があります。
 
-✔️ NuGet のプレフィックスの予約[条件](https://docs.microsoft.com/nuget/reference/id-prefix-reservation)を満たしているプレフィックスを持つ NuGet パッケージ名を選択することを検討してください。
+✔️ NuGet のプレフィックスの予約[条件](../nuget-org/id-prefix-reservation.md)を満たしているプレフィックスを持つ NuGet パッケージ名を選択することを検討してください。
 
 **回避** の推奨事項は一般には良いアイデアではありませんが、規則に違反することが効果的である場合があります。
 
@@ -38,15 +38,15 @@ ms.locfileid: "104859071"
 
 ## <a name="create-a-nuget-package"></a>NuGet パッケージの作成
 
-NuGet パッケージを作成するために推奨される最新の方法は、[SDK スタイルのプロジェクト](https://docs.microsoft.com/nuget/resources/check-project-format)から作成することです。 [ターゲット フレームワーク](https://docs.microsoft.com/dotnet/standard/frameworks)や[パッケージ メタデータ](#package-metadata)など、SDK スタイルのプロジェクトのプロパティは、[プロジェクト ファイル](https://docs.microsoft.com/visualstudio/ide/solutions-and-projects-in-visual-studio#project-file)に定義されています。
+NuGet パッケージを作成するために推奨される最新の方法は、[SDK スタイルのプロジェクト](../resources/check-project-format.md)から作成することです。 [ターゲット フレームワーク](/dotnet/standard/frameworks)や[パッケージ メタデータ](#package-metadata)など、SDK スタイルのプロジェクトのプロパティは、[プロジェクト ファイル](/visualstudio/ide/solutions-and-projects-in-visual-studio#project-file)に定義されています。
 
-SDK スタイルのプロジェクトからパッケージを作成するには、必要なプロパティを定義し、[Visual Studio](https://docs.microsoft.com/nuget/quickstart/create-and-publish-a-package-using-visual-studio?tabs=netcore-cli) または [dotnet CLI](https://docs.microsoft.com/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli) でパックします。
+SDK スタイルのプロジェクトからパッケージを作成するには、必要なプロパティを定義し、[Visual Studio](../quickstart/create-and-publish-a-package-using-visual-studio.md?tabs=netcore-cli) または [dotnet CLI](../quickstart/create-and-publish-a-package-using-the-dotnet-cli.md) でパックします。
 
 ✔️ SDK スタイルのプロジェクトを作成し、Visual Studio または dotnet CLI を使用してパッケージを作成 (パック) してください。
 
-必要なクライアント ツール、プロジェクト ファイルの例、コマンドなど、パッケージの作成に関するより詳細なガイダンスについては、「[dotnet CLI を使用して NuGet パッケージを作成する](https://docs.microsoft.com/nuget/create-packages/creating-a-package-dotnet-cli)」を参照してください。
+必要なクライアント ツール、プロジェクト ファイルの例、コマンドなど、パッケージの作成に関するより詳細なガイダンスについては、「[dotnet CLI を使用して NuGet パッケージを作成する](./creating-a-package-dotnet-cli.md)」を参照してください。
 
-どの .NET Framework をターゲットにするか決める際に、[クロス プラットフォーム ターゲットに関する最新のガイダンス](https://docs.microsoft.com/dotnet/standard/library-guidance/cross-platform-targeting)を参照してください。
+どの .NET Framework をターゲットにするか決める際に、[クロス プラットフォーム ターゲットに関する最新のガイダンス](/dotnet/standard/library-guidance/cross-platform-targeting)を参照してください。
 
 ## <a name="package-metadata"></a>パッケージ メタデータ
 
@@ -54,26 +54,25 @@ SDK スタイルのプロジェクトからパッケージを作成するには�
 
 Visual Studio の場合、パッケージ メタデータを指定するお勧めの方法は、プロジェクト > [プロジェクト名] プロパティ > パッケージにアクセスすることです。
 
-パッケージ メタデータ要素は、[プロジェクト ファイルで直接指定する](https://docs.microsoft.com/nuget/create-packages/creating-a-package-msbuild#set-properties)こともできます。
+パッケージ メタデータ要素は、[プロジェクト ファイルで直接指定する](./creating-a-package-msbuild.md#set-properties)こともできます。
 
 次の表に、使用可能なパッケージ メタデータ要素へのマッピングと説明を示します。
 
-| Visual Studio のプロパティ名                   | [プロジェクト ファイルまたは MSBuild のプロパティ名](https://docs.microsoft.com/dotnet/core/tools/csproj#packagereleasenotes)                          | [Nuspec のプロパティ名](https://docs.microsoft.com/nuget/reference/nuspec#general-form-and-schema) | 説明                                                                                                       |
-|-----------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
-| [`Package id`](#package-id)                   | [`PackageId`](https://docs.microsoft.com/dotnet/core/tools/csproj#packageid)                                                            | [`id`](https://docs.microsoft.com/nuget/reference/nuspec#id)                                      | パッケージの名前または識別子。                    |
-| [`Package version`](#package-version)         | [`PackageVersion`](https://docs.microsoft.com/dotnet/core/tools/csproj#packageversion)                                                  | [`version`](https://docs.microsoft.com/nuget/reference/nuspec#version)                            | NuGet パッケージ バージョン。                                           |
-| [`Authors`](#authors)                         | [`Authors`](https://docs.microsoft.com/dotnet/core/tools/csproj#authors)                                                                | [`authors`](https://docs.microsoft.com/nuget/reference/nuspec#authors)                            | パッケージ作成者のコンマ区切りのリスト。多くの場合、個人または組織の "わかりやすい名前" を使用します。                             |
-| [`Description`](#description)                 | [`Description`](https://docs.microsoft.com/dotnet/core/tools/csproj#description)                                                        | [`description`](https://docs.microsoft.com/nuget/reference/nuspec#description)                    | パッケージの説明。                                                                |
-| [`Copyright`](#copyright)                     | [`Copyright`](https://docs.microsoft.com/dotnet/core/tools/csproj#copyright)                                                            | [`copyright`](https://docs.microsoft.com/nuget/reference/nuspec#copyright)                        | パッケージの著作権の詳細。                                                                      |
-| [`Licensing - Expression`](#licensing)        | [`PackageLicenseExpression`](https://docs.microsoft.com/nuget/reference/msbuild-targets#packing-a-license-expression-or-a-license-file) | [`license type="expression"`](https://docs.microsoft.com/nuget/reference/nuspec#license)          | SPDX ライセンス式。       |
-| [`Licensing - File`](#licensing)              | [`PackageLicenseFile`](https://docs.microsoft.com/nuget/reference/msbuild-targets#packing-a-license-expression-or-a-license-file)       | [`license type="file"`](https://docs.microsoft.com/nuget/reference/nuspec#license)                | カスタム ライセンス ファイルへのパス。                                               |
-| [`Project URL`](#project-url)                 | `PackageProjectUrl`                                                                                                                     | [`projectUrl`](https://docs.microsoft.com/nuget/reference/nuspec#projecturl)                      | プロジェクトのホームページの URL。                                                                                   |
-| [`Icon File`](#icon)                          | [`PackageIcon`](https://docs.microsoft.com/nuget/reference/msbuild-targets#packing-an-icon-image-file)                                  | [`icon`](https://docs.microsoft.com/nuget/reference/nuspec#icon)                                  | パッケージのアイコン画像ファイルへのパス。                                                                      |
-| [`Repository URL`](#repository-type-and-url)  | [`RepositoryUrl`](https://docs.microsoft.com/dotnet/core/tools/csproj#repositoryurl)                                                    | [`repository url`](https://docs.microsoft.com/nuget/reference/nuspec#repository)               | パッケージのビルド元であるリポジトリの URL。                                                           |
-| [`Repository type`](#repository-type-and-url) | [`RepositoryType`](https://docs.microsoft.com/dotnet/core/tools/csproj#repositorytype)                                                 | [`repository type`](https://docs.microsoft.com/nuget/reference/nuspec#repository)              | リポジトリ URL が指しているリポジトリの種類 (つまり "git")。                                                   |
-| [`Tags`](#tags)                               | [`PackageTags`](https://docs.microsoft.com/dotnet/core/tools/csproj#packagetags)                                                        | [`tags`](https://docs.microsoft.com/nuget/reference/nuspec#tags)                                  | パッケージを説明するタグとキーワードのスペース区切りの一覧。 タグは、パッケージを検索するときに使用されます。 |
-| [`Release notes`](#release-notes)             | [`PackageReleaseNotes`](https://docs.microsoft.com/dotnet/core/tools/csproj#packagereleasenotes)                                          | [`releaseNotes`](https://docs.microsoft.com/nuget/reference/nuspec#releasenotes)                  | パッケージの今回のリリースで加えられた変更内容の説明。                                                 |
-
+| Visual Studio のプロパティ名                       | [プロジェクト ファイルまたは MSBuild のプロパティ名](https://docs.microsoft.com/dotnet/core/tools/csproj#packagereleasenotes)                            | [Nuspec のプロパティ名](https://docs.microsoft.com/nuget/reference/nuspec#general-form-and-schema)     | 説明                                                                                                           |
+|-----------------------------------------------    |-----------------------------------------------------------------------------------------------------------------------------------------  |---------------------------------------------------------------------------------------------------    |-------------------------------------------------------------------------------------------------------------------    |
+| [`Package id`](#package-id)                       | [`PackageId`](https://docs.microsoft.com/dotnet/core/tools/csproj#packageid)                                                              | [`id`](https://docs.microsoft.com/nuget/reference/nuspec#id)                                          | パッケージの名前または識別子。                                                                                       |
+| [`Package version`](#package-version)             | [`PackageVersion`](https://docs.microsoft.com/dotnet/core/tools/csproj#packageversion)                                                    | [`version`](https://docs.microsoft.com/nuget/reference/nuspec#version)                                | NuGet パッケージ バージョン。                                                                                                |
+| [`Authors`](#authors)                             | [`Authors`](https://docs.microsoft.com/dotnet/core/tools/csproj#authors)                                                                  | [`authors`](https://docs.microsoft.com/nuget/reference/nuspec#authors)                                | パッケージ作成者のコンマ区切りのリスト。多くの場合、個人または組織の "わかりやすい名前" を使用します。           |
+| [`Description`](#description)                     | [`Description`](https://docs.microsoft.com/dotnet/core/tools/csproj#description)                                                          | [`description`](https://docs.microsoft.com/nuget/reference/nuspec#description)                        | パッケージの説明。                                                                                         |
+| [`Copyright`](#copyright)                         | [`Copyright`](https://docs.microsoft.com/dotnet/core/tools/csproj#copyright)                                                              | [`copyright`](https://docs.microsoft.com/nuget/reference/nuspec#copyright)                            | パッケージの著作権の詳細。                                                                                    |
+| [`Licensing - Expression`](#licensing)            | [`PackageLicenseExpression`](https://docs.microsoft.com/nuget/reference/msbuild-targets#packing-a-license-expression-or-a-license-file)   | [`license type="expression"`](https://docs.microsoft.com/nuget/reference/nuspec#license)              | SPDX ライセンス式。                                                                                           |
+| [`Licensing - File`](#licensing)                  | [`PackageLicenseFile`](https://docs.microsoft.com/nuget/reference/msbuild-targets#packing-a-license-expression-or-a-license-file)         | [`license type="file"`](https://docs.microsoft.com/nuget/reference/nuspec#license)                    | カスタム ライセンス ファイルへのパス。                                                                                        |
+| [`Project URL`](#project-url)                     | `PackageProjectUrl`                                                                                                                       | [`projectUrl`](https://docs.microsoft.com/nuget/reference/nuspec#projecturl)                          | プロジェクトのホームページの URL。                                                                                       |
+| [`Icon File`](#icon)                              | [`PackageIcon`](https://docs.microsoft.com/nuget/reference/msbuild-targets#packing-an-icon-image-file)                                    | [`icon`](https://docs.microsoft.com/nuget/reference/nuspec#icon)                                      | パッケージのアイコン画像ファイルへのパス。                                                                                  |
+| [`Repository URL`](#repository-type-and-url)      | [`RepositoryUrl`](https://docs.microsoft.com/dotnet/core/tools/csproj#repositoryurl)                                                      | [`repository url`](https://docs.microsoft.com/nuget/reference/nuspec#repository)                      | パッケージのビルド元であるリポジトリの URL。                                                               |
+| [`Repository type`](#repository-type-and-url)     | [`RespositoryType`](https://docs.microsoft.com/dotnet/core/tools/csproj#repositorytype)                                                   | [`repository type`](https://docs.microsoft.com/nuget/reference/nuspec#repository)                     | リポジトリ URL が指しているリポジトリの種類 (つまり "git")。                                                    |
+| [`Tags`](#tags)                                   | [`PackageTags`](https://docs.microsoft.com/dotnet/core/tools/csproj#packagetags)                                                          | [`tags`](https://docs.microsoft.com/nuget/reference/nuspec#tags)                                      | パッケージを説明するタグとキーワードのスペース区切りの一覧。 タグは、パッケージを検索するときに使用されます。     |
+| [`Release notes`](#release-notes)                 | [`PackageReleaseNotes`](https://docs.microsoft.com/dotnet/core/tools/csproj#packagereleasenotes)                                          | [`releaseNotes`](https://docs.microsoft.com/nuget/reference/nuspec#releasenotes)                      | パッケージの今回のリリースで加えられた変更内容の説明。                                                     |
 ### <a name="package-id"></a>[パッケージ ID]
 
 まったく新しいパッケージを発行する場合:
@@ -81,19 +80,19 @@ Visual Studio の場合、パッケージ メタデータを指定するお勧�
 ✔️ NuGet.org において一意かつ既存のパッケージと明確に区別されるパッケージ ID を選択してください。
 > パッケージ ID が一意で区別可能かどうかを確認するには、NuGet.org でその ID を検索するか、次のリンクが存在するかどうかを確認します: https://www.nuget.org/packages/<package 名\> 。
 
-✔️ NuGet の[プレフィックスの予約条件](https://docs.microsoft.com/nuget/nuget-org/id-prefix-reservation#id-prefix-reservation-criteria)を満たしているプレフィックスを持つ NuGet パッケージ名を選択することを検討してください。
+✔️ NuGet の[プレフィックスの予約条件](../nuget-org/id-prefix-reservation.md#id-prefix-reservation-criteria)を満たしているプレフィックスを持つ NuGet パッケージ名を選択することを検討してください。
 > パッケージのプレフィックス ID を予約すると、検証済みのチェック マークを取得できるようになります: ![画像](media/Verified-check-mark.png)
 > 
-> 詳細については、[「パッケージ ID プレフィックスの予約」に関するドキュメント](https://docs.microsoft.com/nuget/nuget-org/id-prefix-reservation)を参照してください。
+> 詳細については、[「パッケージ ID プレフィックスの予約」に関するドキュメント](../nuget-org/id-prefix-reservation.md)を参照してください。
 
 ### <a name="package-version"></a>パッケージ バージョン
 
 ✔️ NuGet パッケージのバージョン管理に [SemVer](https://semver.org/) を使用することを検討してください。
 > 基本的に、これは Major.Minor.Patch[-prerelease] の形式を使用することを意味します。
 
-✔️ パッケージが非安定版またはプレビュー版の場合は、[プレリリース パッケージ](https://docs.microsoft.com/nuget/create-packages/prerelease-packages)として発行してください。
+✔️ パッケージが非安定版またはプレビュー版の場合は、[プレリリース パッケージ](./prerelease-packages.md)として発行してください。
 
-詳細なガイダンスについては、[.NET ライブラリのバージョン管理に関するガイド](https://docs.microsoft.com/dotnet/standard/library-guidance/versioning)を参照してください。
+詳細なガイダンスについては、[.NET ライブラリのバージョン管理に関するガイド](/dotnet/standard/library-guidance/versioning)を参照してください。
 
 ### <a name="authors"></a>Authors
 
@@ -113,7 +112,7 @@ Visual Studio の場合、パッケージ メタデータを指定するお勧�
 
 ### <a name="licensing"></a>ライセンス
 
-✔️ [ライセンス式またはライセンス ファイルをパッケージに含める](https://docs.microsoft.com/nuget/reference/msbuild-targets#packing-a-license-expression-or-a-license-file)ことを実施してください。
+✔️ [ライセンス式またはライセンス ファイルをパッケージに含める](../reference/msbuild-targets.md#packing-a-license-expression-or-a-license-file)ことを実施してください。
 > [!IMPORTANT]
 > ライセンスを持たないプロジェクトは、既定で[排他的な著作権](https://choosealicense.com/no-permission/)になります。これは、プロジェクトを使用する権限を誰にも付与していないことを意味します。
 
@@ -125,14 +124,14 @@ Visual Studio の場合、パッケージ メタデータを指定するお勧�
 ✔️ パッケージをオープンソースにするために、[オープンソース ライセンスを選択してください](https://choosealicense.com/)。
 > *"オープンソース ライセンスは、オープンソースの定義に準拠するライセンスです。簡単に言うと、ソフトウェアの自由な使用、変更、および共有を許可するということです。"* - オープンソース イニシアチブ。 オープンソース ソフトウェアとオープンソース イニシアチブの詳細については、 https://opensource.org/ を参照してください。
 
-✔️ [パッケージにライセンス式を含める](https://docs.microsoft.com/nuget/reference/msbuild-targets#packing-a-license-expression-or-a-license-file)ことを検討してください。
+✔️ [パッケージにライセンス式を含める](../reference/msbuild-targets.md#packing-a-license-expression-or-a-license-file)ことを検討してください。
 > ライセンス式は最も明確に表示され、コンシューマーに対して、パッケージを使用できるかどうか、またはライセンスが変更されたかどうかがより明確になります。 
 > [!Note]
 > NuGet.org で受け入れられるのは、オープンソース イニシアチブまたはフリー ソフトウェア財団によって承認されたライセンスのライセンス式のみです。
 
 #### <a name="if-your-package-is-not-open-source"></a>パッケージがオープンソースでない場合
 
-✔️ [ライセンス ファイルをパッケージに含める](https://docs.microsoft.com/nuget/reference/msbuild-targets#packing-a-license-expression-or-a-license-file)ことを実施してください。
+✔️ [ライセンス ファイルをパッケージに含める](../reference/msbuild-targets.md#packing-a-license-expression-or-a-license-file)ことを実施してください。
 > 標準以外のライセンスも含め、任意のライセンス ファイル (.txt または .md) をパッケージに追加できます。 
 
 ### <a name="project-url"></a>[プロジェクトの URL]
@@ -142,7 +141,7 @@ Visual Studio の場合、パッケージ メタデータを指定するお勧�
 
 ### <a name="icon"></a>アイコン
 
-✔️ 視覚的に区別しやすくなるように、[パッケージにアイコンを含める](https://docs.microsoft.com/nuget/reference/msbuild-targets#packing-an-icon-image-file)ことを検討してください。 これは、パッケージの品質に関する認識を向上させることができる、比較的小さな追加です。
+✔️ 視覚的に区別しやすくなるように、[パッケージにアイコンを含める](../reference/msbuild-targets.md#packing-an-icon-image-file)ことを検討してください。 これは、パッケージの品質に関する認識を向上させることができる、比較的小さな追加です。
 > アイコンは、個々のパッケージに固有であるか、またはブランドのロゴであることがあります。
 
 ✔️ 最良な表示結果になるように、128 x 128 で透明な背景を持つ画像 (PNG) を使用してください。
@@ -152,7 +151,7 @@ Visual Studio の場合、パッケージ メタデータを指定するお勧�
 
 ### <a name="repository-type-and-url"></a>リポジトリの種類と URL
 
-✔️ [ソース リンク](https://docs.microsoft.com/dotnet/standard/library-guidance/sourcelink)を設定して、ソース管理メタデータが NuGet パッケージに自動的に追加され、ライブラリのデバッグが容易になるようにすることを検討してください。
+✔️ [ソース リンク](/dotnet/standard/library-guidance/sourcelink)を設定して、ソース管理メタデータが NuGet パッケージに自動的に追加され、ライブラリのデバッグが容易になるようにすることを検討してください。
 > ソース リンクによって、`Repository URL` と `Repository Type` がパッケージ メタデータに自動的に追加されます。 また、パッケージのバージョンに関連付けられている特定のコミットも追加されます。
 
 ### <a name="tags"></a>タグ
@@ -175,5 +174,5 @@ Visual Studio の場合、パッケージ メタデータを指定するお勧�
 
 ## <a name="related-topics"></a>関連トピック
 
-- [パッケージの作成と公開 (dotnet CLI)](https://docs.microsoft.com/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)
-- [パッケージの作成と公開 (Visual Studio)](https://docs.microsoft.com/nuget/quickstart/create-and-publish-a-package-using-visual-studio?tabs=netcore-cli)
+- [パッケージの作成と公開 (dotnet CLI)](../quickstart/create-and-publish-a-package-using-the-dotnet-cli.md)
+- [パッケージの作成と公開 (Visual Studio)](../quickstart/create-and-publish-a-package-using-visual-studio.md?tabs=netcore-cli)
