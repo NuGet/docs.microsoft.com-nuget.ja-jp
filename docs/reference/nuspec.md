@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: a8a8058032b0b6c6ddcd5eed1cf22e75f0e3af72
-ms.sourcegitcommit: c8bf16420f235fc3e42c08cd0d56359e91d490e5
+ms.openlocfilehash: ed865aad6f72752adcf3e3921287a20b961c4a8a
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107387414"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901812"
 ---
 # <a name="nuspec-reference"></a>.nuspec リファレンス
 
@@ -207,6 +207,8 @@ UI 表示でパッケージのアイコンとして使用される透明な背�
 
 #### <a name="readme"></a>readme
 
+***NuGet 5.10.0 preview 2** 以降でサポートされています*
+
 Readme ファイルをパッキングする場合は、パッケージ `readme` のルートに対して相対的なパッケージパスを指定するために要素を使用する必要があります。 これに加えて、ファイルがパッケージに含まれていることを確認する必要があります。 サポートされるファイル形式には、Markdown (*md*) のみが含まれます。
 
 たとえば、プロジェクトで readme ファイルをパックするために、次のコードを nuspec に追加します。
@@ -226,7 +228,7 @@ Readme ファイルをパッキングする場合は、パッケージ `readme` 
 </package>
 ```
 
-同等の MSBuild については、「 [readme ファイルのパッキング](msbuild-targets.md#packagereadmefile)」を参照してください。
+同等の MSBuild については、「 [readme ファイルのパッキング](msbuild-targets.md#packagereadmefile)」を参照してください。 
 
 #### <a name="requirelicenseacceptance"></a>requireLicenseAcceptance
 パッケージをインストールする前にクライアントがユーザーに対してパッケージのライセンスへの同意を求めるプロンプトを表示する必要があるかどうかを示すブール値。
@@ -392,7 +394,7 @@ nuget pack MyProject.csproj
 
 | 包含/除外タグ | ターゲットの影響を受けるフォルダー |
 | --- | --- |
-| contentFiles | Content |
+| contentFiles | コンテンツ |
 | runtime | Runtime、Resources、FrameworkAssemblies |
 | compile | lib |
 | build | build (MSBuild のプロパティとターゲット) |
@@ -553,7 +555,7 @@ NuGet 2.x 以前および `packages.config` を使っているプロジェクト
 | **target** | ソース ファイルが格納されるパッケージ内のフォルダーへの相対パス。`lib`、`content`、`build`、または `tools` で始まっている必要があります。 [規則に基づく作業ディレクトリからの .nuspec の作成](../create-packages/creating-a-package.md#from-a-convention-based-working-directory)に関するページをご覧ください。 |
 | **もの** | `src` の場所から除外するファイルまたはファイル パターンをセミコロンで区切ったリスト。 ワイルドカード文字 `*` を使うことができ、2 個のワイルドカード `**` は再帰的なフォルダー検索を意味します。 |
 
-### <a name="examples"></a>使用例
+### <a name="examples"></a>例
 
 **1 つのアセンブリ**
 

@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 04/02/2019
 ms.topic: conceptual
-ms.openlocfilehash: 637db1ae128ce020c33e54e56148c848a5f905a5
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 19173d2be7cd66b65651655385466b40f5e08352
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98776219"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901747"
 ---
 # <a name="nuget-50-release-notes"></a>NuGet 5.0 リリースノート
 
@@ -27,7 +27,7 @@ NuGet 配布の種類:
 
 ## <a name="summary-whats-new-in-50"></a>概要: 5.0 の新機能
 
-* Visual Studio 2019 での [フィルター選択](/visualstudio/ide/filtered-solutions?view=vs-2019) されたソリューションの復元のサポート- [#5820](https://github.com/NuGet/Home/issues/5820)
+* Visual Studio 2019 での [フィルター選択](/visualstudio/ide/filtered-solutions) されたソリューションの復元のサポート- [#5820](https://github.com/NuGet/Home/issues/5820)
 * `BuildTransitive` フォルダーを使用すると、パッケージのターゲット/プロパティをホストプロジェクトに推移的に投稿でき [#6091](https://github.com/NuGet/Home/issues/6091)
 * NuGet Iv Api での PackageReference シナリオのサポートの向上- [#7005](https://github.com/NuGet/Home/issues/7005)、 [#7493](https://github.com/NuGet/Home/issues/7493)
 * `nuget.exe pack project.json` は非推奨とされました- [#7928](https://github.com/NuGet/Home/issues/7928)

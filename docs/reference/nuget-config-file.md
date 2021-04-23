@@ -5,14 +5,14 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: afc06c81bf0344f2086efd19111cc60d24d7f723
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: 38620058bccde876152328302a6049f011c149db
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859513"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901864"
 ---
-# <a name="nugetconfig-reference"></a>nuget.config リファレンス
+# <a name="nugetconfig-reference"></a>`nuget.config` 参照
 
 NuGet の動作は `NuGet.Config` 、 `nuget.config` 「 [一般的な nuget 構成](../consume-packages/configuring-nuget-behavior.md)」で説明されているように、異なるファイルまたはファイルの設定によって制御されます。
 
@@ -29,7 +29,7 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「 [一般的な nuget 構
 
 `dependencyVersion` および `repositoryPath` は、を使用するプロジェクトにのみ適用さ `packages.config` れます。 `globalPackagesFolder` PackageReference 形式を使用するプロジェクトにのみ適用されます。
 
-| Key | 値 |
+| キー | [値] |
 | --- | --- |
 | dependencyVersion (`packages.config` のみ) | `-DependencyVersion` スイッチが直接指定されない場合の、パッケージのインストール、復元、および更新における既定の `DependencyVersion` 値です。 この値は、NuGet パッケージ マネージャー UI でも使用されます。 値は `Lowest`、`HighestPatch`、`HighestMinor`、`Highest` となります。 |
 | Globalパッケージフォルダー (PackageReference のみを使用するプロジェクト) | 既定のグローバル パッケージ フォルダーの場所です。 既定値は、`%userprofile%\.nuget\packages` (Windows) または `~/.nuget/packages` (Mac/Linux) です。 相対パスは、プロジェクト固有の `nuget.config` ファイルで使用できます。 この設定は、優先される環境変数によってオーバーライドされ `NUGET_PACKAGES` ます。 |
@@ -54,7 +54,7 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「 [一般的な nuget 構
 
 パッケージのインストール時に、NuGet で自動バインド リダイレクトを実行するかどうかを構成します。
 
-| Key | 値 |
+| キー | [値] |
 | --- | --- |
 | skip | 自動バインド リダイレクトを省略するかどうかを示すブール値です。 既定値は false です。 |
 
@@ -70,7 +70,7 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「 [一般的な nuget 構
 
 ビルド時のパッケージの復元を制御します。
 
-| Key | 値 |
+| キー | [値] |
 | --- | --- |
 | enabled | NuGet で自動復元を実行できるかどうかを示すブール値です。 構成ファイル内にこのキーを設定するのでなく、`True` の値で `EnableNuGetPackageRestore` 環境変数を設定することもできます。 |
 | automatic | ビルド中に欠落しているパッケージの確認を NuGet で行う必要があるかどうかを示すブール値です。 |
@@ -88,7 +88,7 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「 [一般的な nuget 構
 
 ソリューションの `packages` フォルダーをソース管理に含めるかどうかを制御します。 このセクションは、ソリューション フォルダー内の `nuget.config` ファイルでのみ機能します。
 
-| Key | 値 |
+| キー | [値] |
 | --- | --- |
 | disableSourceControlIntegration | ソース管理を使用する場合に、パッケージ フォルダーを無視するかどうかを示すブール値です。 既定値は false です。 |
 
@@ -112,7 +112,7 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「 [一般的な nuget 構
 
 すべての既知のパッケージ ソースの一覧を表示します。 この順序は、復元操作中には無視され、PackageReference 形式を使用するプロジェクトでは無視されます。 NuGet は、を使用して、プロジェクトでのインストールおよび更新操作のソースの順序を尊重し `packages.config` ます。
 
-| Key | 値 |
+| キー | [値] |
 | --- | --- |
 | (パッケージ ソースに割り当てる名前) | パッケージ ソースのパスまたは URL です。 |
 
@@ -134,7 +134,7 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「 [一般的な nuget 構
 通常、`-username` スイッチおよび `-password` スイッチと `nuget sources` によって指定される、ソースのユーザー名とパスワードを格納します。 `-storepasswordincleartext` オプションが使用されていない場合、既定ではパスワードが暗号化されます。
 必要に応じて、有効な認証の種類をスイッチで指定でき `-validauthenticationtypes` ます。
 
-| Key | 値 |
+| キー | 値 |
 | --- | --- |
 | username | プレーン テキストで表されるソースのユーザー名です。 |
 | password | ソースの暗号されたパスワードです。 暗号化されたパスワードは Windows でのみサポートされ、同じコンピューターで、元の暗号化と同じユーザーが使用する場合にのみ、暗号化を解除できます。 |
@@ -209,7 +209,7 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「 [一般的な nuget 構
 
 [ `nuget setapikey` コマンド](../reference/cli-reference/cli-ref-setapikey.md)で設定された、API キー認証を使用するソースのキーを格納します。
 
-| Key | 値 |
+| キー | [値] |
 | --- | --- |
 | (ソース URL) | 暗号化された API キー。 |
 
@@ -225,7 +225,7 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「 [一般的な nuget 構
 
 現在無効になっているソースを識別します。 空の場合もあります。
 
-| Key | 値 |
+| キー | [値] |
 | --- | --- |
 | (ソースの名前) | ソースが無効になっているかどうかを示すブール値です。 |
 
@@ -246,7 +246,7 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「 [一般的な nuget 構
 
 現在アクティブなソースを識別し、すべてのソースの集計を示します。
 
-| Key | 値 |
+| キー | [値] |
 | --- | --- |
 | (ソースの名前) または `All` | キーがソースの名前である場合は、ソースのパスまたは URL が値となります。 `All` の場合は、値を `(Aggregate source)` にして、無効になっていないすべてのパッケージ ソースを結合する必要があります。 |
 
@@ -308,7 +308,7 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「 [一般的な nuget 構
 
 一致するものが見つからない場合、NuGet はファイルソースを確認し、次に http ソースを確認してから、パッケージをダウンロードします。
 
-| Key | 値 |
+| キー | [値] |
 | --- | --- |
 | (フォールバックフォルダーの名前) | フォールバックフォルダーへのパス。 |
 
@@ -324,7 +324,7 @@ NuGet の動作は `NuGet.Config` 、 `nuget.config` 「 [一般的な nuget 構
 
 *packages.config* または PackageReference の既定のパッケージ管理形式を設定します。 SDK スタイルのプロジェクトは常に PackageReference を使用します。
 
-| Key | 値 |
+| キー | [値] |
 | --- | --- |
 | format | 既定のパッケージ管理形式を示すブール値。 `1`の場合、format は PackageReference です。 `0`の場合、format は *packages.config* です。 |
 | disabled | 最初のパッケージのインストール時に既定のパッケージ形式を選択するようにプロンプトを表示するかどうかを示すブール値。 `False` プロンプトを非表示にします。 |
@@ -350,12 +350,12 @@ Windows スタイルの環境変数を使用する必要があることに注意
 
 次の表は、NuGet.Config ファイルの環境 variable 構文とパス区切り記号のサポートを示しています。
 
-### <a name="nugetconfig-environment-variable-support"></a>NuGet.Config 環境変数のサポート
+### <a name="nugetconfig-environment-variable-support"></a>`NuGet.Config` 環境変数のサポート
 
 | 構文 | Dir の区切り記号 | Windows nuget.exe | Windows dotnet.exe | Mac nuget.exe (Mono) | Mac dotnet.exe |
 |---|---|---|---|---|---|
-| `%MY_VAR%` | `/`  | Yes | Yes | Yes | Yes |
-| `%MY_VAR%` | `\`  | Yes | はい | いいえ | いいえ |
+| `%MY_VAR%` | `/`  | はい | はい | はい | はい |
+| `%MY_VAR%` | `\`  | はい | はい | いいえ | いいえ |
 | `$MY_VAR` | `/`  | いいえ | いいえ | いいえ | いいえ |
 | `$MY_VAR` | `\`  | いいえ | いいえ | いいえ | いいえ |
 

@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 9172aefb48ab3e542498f5a144f1d4f381ad55bd
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: d7f91880096b5cbdca7447f7838634ff099c3c4c
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859487"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901721"
 ---
 # <a name="target-frameworks"></a>ターゲット フレームワーク
 
@@ -83,13 +83,15 @@ Windows Phone (UWP) | | wpa81 |
 | | | netstandard1.6 |
 | | | netstandard2.0 |
 | | | netstandard2.1 |
-.NET Core アプリ | netcoreapp | netcoreapp1.0 |
+.NET 5+ (および .NET Core) | netcoreapp | netcoreapp1.0 |
 | | | netcoreapp1.1 |
 | | | netcoreapp2.0 |
 | | | netcoreapp2.1 |
 | | | netcoreapp2.2 |
 | | | netcoreapp3.0 |
 | | | netcoreapp3.1 |
+| | net | net5.0 |
+| | | net6.0 |
 Tizen | tizen | tizen3 |
 | | | tizen4 |
 
@@ -290,7 +292,7 @@ NuGet 3.3 以前には `dotnet` シリーズのモニカーを使用し、v3.4 �
 
 さらに、Xamarin をターゲットとする NuGet パッケージでは、Xamarin で定義された他のフレームワークも使用することができます。 [Xamarin 用の NuGet パッケージの作成](https://developer.xamarin.com/guides/cross-platform/advanced/nuget/)に関するページを参照してください。
 
-| 名前 | Description | .NET Standard |
+| 名前 | 説明 | .NET Standard |
 | --- | --- | ---
 | monoandroid | Android OS の Mono サポート | netstandard1.4 |
 | monotouch | iOS の Mono サポート | netstandard1.4 |
