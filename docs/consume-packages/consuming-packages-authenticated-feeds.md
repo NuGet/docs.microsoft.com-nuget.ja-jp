@@ -5,12 +5,12 @@ author: nkolev92
 ms.author: nikolev
 ms.date: 02/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: bb624ec6987dd5c6ee38d5bb7e01200487dd4bed
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: e76fefaf4d3c86aa15cf279090c0adb8ed779aab
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "78231741"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901513"
 ---
 # <a name="consuming-packages-from-authenticated-feeds"></a>認証済みフィードからのパッケージの使用
 
@@ -27,7 +27,7 @@ nuget.org [パブリック フィード](https://api.nuget.org/v3/index.json)に
 さまざまな NuGet クライアントでは、プライベート フィード プロバイダーそのものが認証を担当します。
 すべての NuGet クライアントには、これをサポートするための拡張メソッドがあります。 これらは、Visual Studio の拡張機能、または NuGet と通信して資格情報を取得できるプラグインのいずれかです。
 
-### <a name="visual-studio"></a>Visual Studio
+### <a name="visual-studio"></a>Visual Studio
 
 Visual Studio では、フィード プロバイダーが実装して顧客に提供できるインターフェイスが NuGet によって公開されます。 詳細については、[Visual Studio 資格情報プロバイダーの作成方法](../reference/extensibility/NuGet-Credential-Providers-for-Visual-Studio.md)に関するドキュメントを参照してください。
 
@@ -61,7 +61,7 @@ Azure DevOps をサポートするために、Visual Studio に組み込まれ�
 
 #### <a name="available-credential-providers-for-nugetexe"></a>nuget.exe の利用可能な資格情報プロバイダー
 
-* [Azure DevOps V2 資格情報プロバイダー](/azure/devops/artifacts/nuget/nuget-exe?view=azure-devops#add-a-feed-to-nuget-482-or-later) または [Azure Artifacts 資格情報プロバイダー](https://github.com/microsoft/artifacts-credprovider)
+* [Azure DevOps V2 資格情報プロバイダー](/azure/devops/artifacts/nuget/nuget-exe#add-a-feed-to-nuget-482-or-later) または [Azure Artifacts 資格情報プロバイダー](https://github.com/microsoft/artifacts-credprovider)
 
 Visual Studio 2017 バージョン 15.9 以降では、Azure DevOps 資格情報プロバイダーが Visual Studio にバンドルされています。
 `nuget.exe` がその特定の Visual Studio ツールセットから MSBuild を使用している場合、プラグインは自動的に検出されます。

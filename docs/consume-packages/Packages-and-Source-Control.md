@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9bae65573ca49c68d07250228c1923890e0f14ac
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: fa3ec6992002224c9fb56a53aee9096e6d2c6fbb
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775020"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901669"
 ---
 # <a name="omitting-nuget-packages-in-source-control-systems"></a>ソース管理システムで NuGet パッケージを省略する
 
@@ -63,7 +63,7 @@ project.assets.json
 選択したファイルの TFVC とのソース管理の統合を無効にするには
 
 1. ソリューション フォルダー (`.sln` ファイルがある場所) で `.nuget` という名前のフォルダーを作成します。
-    - ヒント: Windows 上のエクスプローラーでこのフォルダーを作成するには、末尾のドットを *含む* `.nuget.` という名前を使用します。
+    - ヒント: Windows 上のエクスプローラーでこのフォルダーを作成するには、末尾のドットを *含む*`.nuget.` という名前を使用します。
 
 1. そのフォルダーで、`NuGet.Config` という名前のファイルを作成し、編集するために開きます。
 
@@ -80,7 +80,7 @@ project.assets.json
 
 1. TFS 2010 以前を使用している場合は、自分のワークスペース マッピングで `packages` フォルダーをクロークします。
 
-1. TFS 2012 以降、または Visual Studio Team Services を使用して、「[サーバーへのファイルの追加](/vsts/tfvc/add-files-server?view=vsts#tfignore)」で説明されているように、`.tfignore` ファイルを作成します。 そのファイルには、リポジトリ レベルの `\packages` フォルダーおよび他のいくつかの中間ファイルに対する変更を明示的に無視するように、以下のコンテンツを含めます。 (末尾のドットを含む `.tfignore.` という名前を使用して、エクスプローラーでファイルを作成できますが、最初に "Hide known file extensions" (既知のファイル拡張子を非表示にする) オプションを無効にする必要がある場合があります。)
+1. TFS 2012 以降、または Visual Studio Team Services を使用して、「[サーバーへのファイルの追加](/vsts/tfvc/add-files-server?view=vsts#tfignore&preserve-view=true)」で説明されているように、`.tfignore` ファイルを作成します。 そのファイルには、リポジトリ レベルの `\packages` フォルダーおよび他のいくつかの中間ファイルに対する変更を明示的に無視するように、以下のコンテンツを含めます。 (末尾のドットを含む `.tfignore.` という名前を使用して、エクスプローラーでファイルを作成できますが、最初に "Hide known file extensions" (既知のファイル拡張子を非表示にする) オプションを無効にする必要がある場合があります。)
 
    ```cli
    # Ignore NuGet Packages
