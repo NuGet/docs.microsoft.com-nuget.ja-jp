@@ -1,41 +1,41 @@
 ---
 title: NuGet 4.4 RTM リリース ノート
-description: NuGet 4.3 RTM のリリース ノートであり、既知の問題、バグ修正、追加機能、および DCR が含まれています。
+description: NuGet 4.4 RTM のリリース ノートであり、既知の問題、バグ修正、追加機能、および DCR が含まれています。
 author: JonDouglas
 ms.author: jodou
 ms.date: 08/14/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 970a920a401b8a74c04d84cbad9933c54e3cd19e
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 980afffcd4202e019ffa87de5dccf947300a9c13
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98776283"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901708"
 ---
 # <a name="nuget-44-release-notes"></a>NuGet 4.4 リリース ノート
 
 [Visual Studio 2017 15.4 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) には、NuGet 4.4 RTM が付属しています。
 
-## <a name="summary-whats-new-in-440"></a>概要:4.4.0 の新機能
+## <a name="summary-whats-new-in-440"></a>概要: 4.4.0 の新機能
 
-## <a name="summary-whats-new-in-442"></a>概要:4.4.2 の新機能
+## <a name="summary-whats-new-in-442"></a>概要: 4.4.2 の新機能
 
-* セキュリティ修正プログラム: ~/.nuget 内で作成されたファイルに対するアクセス許可の範囲が広すぎる [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
+* セキュリティ修正: ~/.nuget 内で作成されたファイルに対するアクセス許可の範囲が広すぎる [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
 
-## <a name="summary-whats-new-in-443"></a>概要:4.4.3 の新機能
+## <a name="summary-whats-new-in-443"></a>概要: 4.4.3 の新機能
 
-* セキュリティ修正プログラム: NUPKG ディレクトリより上の NUPKG 内のファイルに相対パスが含まれる場合がある [#7906](https://github.com/NuGet/Home/issues/7906)
+* セキュリティ修正: NUPKG ディレクトリより上の NUPKG 内のファイルに相対パスが含まれる場合がある [#7906](https://github.com/NuGet/Home/issues/7906)
 
 ## <a name="known-issues"></a>既知の問題
 
 ### <a name="issues-with-net-standard-20-with-net-framework--nuget"></a>.NET Framework と NuGet での .NET Standard 2.0 の問題 
 
-.NET Standard とそのツールは、.NET Framework 4.6.1 をターゲットとするプロジェクトが、.NET Standard 2.0 以前をターゲットとする NuGet パッケージおよびプロジェクトを使用できるように設計されています。 [このドキュメント](https://github.com/dotnet/standard/issues/481)では、そのシナリオに関連する問題の概要、それらの問題を解決する計画、そのツールの今日の状態で展開できる解決策について説明します。
+.NET Standard とそのツールは、.NET Framework 4.6.1 をターゲットとするプロジェクトが、.NET Standard 2.0 以前をターゲットとする NuGet パッケージおよびプロジェクトを使用できるように設計されています。 [この文書](https://github.com/dotnet/standard/issues/481)では、そのシナリオに関連する問題の概要、それらを解決する計画、そのツールの今日の状態で使用できる解決策について説明します。
 
 ### <a name="while-using-package-manager-console-enter-key-may-not-work"></a>パッケージ マネージャー コンソールの使用中、'Enter' キーが機能しない
 
-#### <a name="issue"></a>懸案事項
+#### <a name="issue"></a>問題
 
 パッケージ マネージャー コンソールで、Enter キーが機能しないことがあります。 その場合、修正プログラムで進捗状況を確認してください。再現手順について役に立つ情報があれば提供してください。 [NuGet#4204](https://github.com/NuGet/Home/issues/4204) [NuGet#4570](https://github.com/NuGet/Home/issues/4570)
 
@@ -45,7 +45,7 @@ ms.locfileid: "98776283"
 
 ### <a name="you-are-unable-to-view-add-or-update-dotnetclitools-using-nuget-package-manager"></a>NuGet パッケージ マネージャーを使用した DotNetCLITools の表示、追加、更新ができない
 
-#### <a name="issue"></a>懸案事項
+#### <a name="issue"></a>問題
 
 NuGet パッケージ マネージャーが表示されず、DotNetCLITools を追加または更新できません。 [NuGet#4256](https://github.com/NuGet/Home/issues/4256)
 
@@ -55,7 +55,7 @@ DotNetCLIToolReferences はプロジェクト ファイルで手動編集する�
 
 ### <a name="retargeting-target-framework-version-may-lead-to-incomplete-intellisense"></a>ターゲット フレームワーク バージョンを再ターゲットすると、IntelliSense が不完全になる
 
-#### <a name="issue"></a>懸案事項
+#### <a name="issue"></a>問題
 
 Visual Studio では、ターゲット フレームワーク バージョンを再ターゲットすると、IntelliSense が不完全になることがあります。 これは、パッケージ マネージャー形式として PackageReferences を使用しているときに発生します。 [NuGet#4216](https://github.com/NuGet/Home/issues/4216)
 
@@ -65,7 +65,7 @@ Visual Studio では、ターゲット フレームワーク バージョンを�
 
 ### <a name="a-package-in-a-net-core-project-that-contains-an-assembly-with-an-invalid-signature-can-trigger-an-infinite-restore-loop"></a>署名が無効なアセンブリを含む .NET Core プロジェクトのパッケージは無限の復元ループを始動させることがある
 
-#### <a name="issue"></a>懸案事項
+#### <a name="issue"></a>問題
 
 無効な署名付きのアセンブリを含むパッケージを使用するとき、あるいはパッケージ バージョンに 'DateTime' ティッカーが設定されているとき、パッケージの復元が無限ループで実行されることがあります (dotnet/project-system#1457)。
 
@@ -77,13 +77,13 @@ Visual Studio では、ターゲット フレームワーク バージョンを�
 
 [NuGet 4.3 RTM のリリース ノート](../release-notes/nuget-4.3-RTM.md) - NuGet 4.3 RTM で修正されたすべての問題が掲載されています
 
-### <a name="features"></a>フィーチャー
+### <a name="features"></a>機能
 
 - PMC および NuGet PM UI のシナリオでのライトウェイト ソリューション ロードのサポート - [#5180](https://github.com/NuGet/Home/issues/5180)
 
 - MSBuild パック ターゲットには、それ自体の前にユーザー ターゲットを実行するためのパブリック フックを含める必要があります - [#5143](https://github.com/NuGet/Home/issues/5143)
 
-- 機能:nuget install に dependencyVersion スイッチを追加します - [#1806](https://github.com/NuGet/Home/issues/1806)
+- 機能: nuget install に dependencyVersion スイッチを追加します - [#1806](https://github.com/NuGet/Home/issues/1806)
 
 - uap10.0.TODO.0 は .NET Standard 2.0 for NuGet にマップする必要があります - [#5684](https://github.com/NuGet/Home/issues/5684)
 
@@ -175,7 +175,7 @@ Visual Studio では、ターゲット フレームワーク バージョンを�
 
 - [警告とエラー] NoWarn が P2P 参照を介して推移的にフローしません - [#5501](https://github.com/NuGet/Home/issues/5501)
 
-- ライトウェイト ソリューション ロード: PM UI、PMC、および IV 用の共通コア - - [#5057](https://github.com/NuGet/Home/issues/5057)
+- ライトウェイト ソリューション ロード: PM UI、PMC、および IV 用の Common Core - [#5057](https://github.com/NuGet/Home/issues/5057)
 
 - ライトウェイト ソリューション ロード: サポート - PMC - [#5053](https://github.com/NuGet/Home/issues/5053)
 
@@ -193,7 +193,7 @@ Visual Studio では、ターゲット フレームワーク バージョンを�
 
 - NuGet の警告およびエラーに関するドキュメントに対する更新 - [#5857](https://github.com/NuGet/Home/issues/5857)
 
-## <a name="links-to-github-issues-fixed-in-44-rtm"></a>4\.4 RTM で修正された GitHub の懸案事項へのリンク
+## <a name="links-to-github-issues-fixed-in-44-rtm"></a>4.4 RTM で修正された GitHub の懸案事項へのリンク
 
 [懸案事項リスト 1](https://github.com/NuGet/Home/issues?q=is:issue+is:closed+milestone:"4.4")
 

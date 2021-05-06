@@ -1,16 +1,16 @@
 ---
 title: MSBuild を使用して NuGet パッケージを作成する
-description: NuGet パッケージを設計し、作成する過程を詳しく説明します。ファイルやバージョン管理など、重要な決定ポイントが含まれます。
+description: ファイルやバージョン管理のような重要な決定ポイントなど、MSBuild を使用した NuGet パッケージの設計と作成のプロセスについて詳しく説明します。
 author: JonDouglas
 ms.author: jodou
 ms.date: 02/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 48741668af932a532240f2796a9bf5d490ee8e35
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 18e0da335f65fde99d035388b95f35160757ee84
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774448"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901461"
 ---
 # <a name="create-a-nuget-package-using-msbuild"></a>MSBuild を使用して NuGet パッケージを作成する
 
@@ -39,7 +39,7 @@ SDK スタイルのプロジェクトには、既定でパック機能を利用�
 
 - `PackageOutputPath`、パックの呼び出し時に生成されるパッケージの出力フォルダー。
 
-Visual Studio では、プロジェクトのプロパティにこれらの値を設定できます (ソリューション エクスプローラー内でプロジェクトを右クリックし、 **[プロパティ]** を選択して、 **[パッケージ]** タブを選択します)。 プロジェクト ファイル ( *.csproj*) 内でこれらのプロパティを直接設定することもできます。
+Visual Studio では、プロジェクトのプロパティにこれらの値を設定できます (ソリューション エクスプローラー内でプロジェクトを右クリックし、 **[プロパティ]** を選択して、 **[パッケージ]** タブを選択します)。 プロジェクト ファイル (*.csproj*) 内でこれらのプロパティを直接設定することもできます。
 
 ```xml
 <PropertyGroup>

@@ -5,18 +5,18 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 12d12d5294a474c4d3e4f5d3cad468bb515d21d5
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: a3d2504528249f3545e2eb5d9bce7713029638db
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "67426947"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901591"
 ---
 # <a name="scoped-api-keys"></a>スコープ設定された API キー
 
 NuGet をパッケージ配布用のより安全な環境にするために、スコープを追加して API キーを管理することができます。
 
-ご利用の API キーにスコープを指定する機能により、ご利用の API に対する制御性を高めることができます。 次のようにすることができます。
+ご利用の API キーにスコープを指定する機能により、ご利用の API に対する制御性を高めることができます。 次のことを実行できます。
 
 - 有効期間が異なるさまざまなパッケージに対して使用できる、スコープ設定された API キーを複数作成する。
 - API キーを安全に取得する。
@@ -49,27 +49,27 @@ Microsoft では、スコープ設定された API キーによって、既存�
 
 複数のパッケージで作業していて、管理すべきパッケージのリストが大きくなっている場合は、glob パターンを使用して複数のパッケージをまとめて選択する方法を選択できます。 たとえば、ID が `Fabrikam.Service` で始まるすべてのパッケージに対するキーに特定のスコープを付与したい場合は、**[Glob パターン]** テキスト ボックスに `fabrikam.service.*` と指定することでそれを行うことが可能です。
 
-![API キーの作成](media/scoped-api-keys-glob-pattern.png)
+![API キーの作成 - 2](media/scoped-api-keys-glob-pattern.png)
 
 glob パターンを使用して API キーのアクセス許可を決定する方法は、glob パターンに一致する新しいパッケージにも適用されます。 たとえば、`Fabrikam.Service.Framework` という名前の新しいパッケージをプッシュしようとしている場合、以前に作成したキーを使用してそれを行うことができます。これは、そのパッケージが glob パターン `fabrikam.service.*` に一致しているためです。
 
 ## <a name="obtain-api-keys-securely"></a>API キーを安全に取得
 
-セキュリティ保護のため、新しく作成されたキーは画面上には決して表示されず、 **[コピー]** ボタンを使用することでのみ利用できます。 同様に、ページが更新された後にキーにアクセスすることはできません。
+セキュリティ保護のため、新しく作成されたキーは画面上には決して表示されず、**[コピー]** ボタンを使用することでのみ利用できます。 同様に、ページが更新された後にキーにアクセスすることはできません。
 
-![API キーの作成](media/scoped-api-keys-obtain-keys.png)
+![API キーの作成 - 3](media/scoped-api-keys-obtain-keys.png)
 
 ## <a name="edit-existing-api-keys"></a>既存の API キーの編集
 
 キー自体は変更せずにキーのアクセス許可とスコープを更新したい場合もあります。 単一のパッケージに対して特定のスコープが設定されたキーがある場合、1 つまたは複数の他のパッケージに同じスコープを適用することを選択できます。
 
-![API キーの作成](media/scoped-api-keys-edit.png)
+![API キーの作成 - 4](media/scoped-api-keys-edit.png)
 
 ## <a name="refresh-or-delete-existing-api-keys"></a>既存の API キーの更新または削除
 
 アカウントの所有者はキーを更新することを選択できます。その場合、アクセス許可 (パッケージに対する)、スコープ、および有効期限は変わりありませんが、新しいキーが発行されて古いキーは使用できなくなります。 これは、古いキーを管理する場合や、API キーが漏洩する可能性がある場合に役立ちます。
 
-![API キーの作成](media/scoped-api-keys-refresh.png)
+![API キーの作成 - 5](media/scoped-api-keys-refresh.png)
 
 これらのキーが不要になった場合は、それらの削除を選択することもできます。 キーを削除すると、そのキーは削除されて使用できなくなります。
 
@@ -82,7 +82,7 @@ glob パターンを使用して API キーのアクセス許可を決定する�
 > [!NOTE]
 > このキーはすべてのパッケージに対するすべての権限を備え、期限切れになることはありません。 このキーを削除し、スコープ設定されたアクセス許可と明確な有効期限を備えた新しいキーを作成することを検討する必要があります。
 
-### <a name="how-many-api-keys-can-i-create"></a>API キーはいくつ作成できますか?
+### <a name="how-many-api-keys-can-i-create"></a>API キーはいくつ作成できますか? 
 
 作成できる API キーの数に制限はありません。 ただし、どこで誰が使用しているのかが把握されていない古いキーが多くなってしまわないように、管理可能な個数に抑えることをお勧めします。
 

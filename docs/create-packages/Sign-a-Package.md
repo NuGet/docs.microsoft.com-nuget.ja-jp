@@ -6,22 +6,22 @@ ms.author: rmpablos
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 64b28c29ae3b533bde7c8f41dd38a4ab0a5afef7
-ms.sourcegitcommit: 0cc6ac680c3202d0b036c0bed7910f6709215682
+ms.openlocfilehash: c0622520a325000d5fcb8fb884cb509ee4b641f4
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94550376"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901903"
 ---
 # <a name="signing-nuget-packages"></a>NuGet パッケージの署名
 
 署名付きのパッケージは、コンテンツの整合性を検証し、コンテンツを改ざんから保護します。 また、パッケージの署名は、パッケージの実際の発行元を示す唯一のソースであり、コンシューマー向けにパッケージの信頼性を強化します。 このガイドは、既に[パッケージが作成](creating-a-package.md)済みであること前提にしています。
 
-## <a name="get-a-code-signing-certificate"></a>コード署名証明書を取得する
+## <a name="get-a-code-signing-certificate"></a>コード署名証明書の取得
 
-有効な証明書は、[Symantec](https://trustcenter.websecurity.symantec.com/process/trust/productOptions?productType=SoftwareValidationClass3)、[DigiCert](https://www.digicert.com/code-signing/)、[Go Daddy](https://www.godaddy.com/web-security/code-signing-certificate)、[Global Sign](https://www.globalsign.com/en/code-signing-certificate/)、[Comodo](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php)、[Certum](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml) などの公的な証明機関から入手できます。Windows によって信頼される証明機関の全一覧は、[http://aka.ms/trustcertpartners](/security/trusted-root/participants-list) から入手できます。
+有効な証明書は、[DigiCert](https://www.digicert.com/code-signing/)、[Global Sign](https://www.globalsign.com/en/code-signing-certificate/)、[Comodo](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php)、[Certum](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml) などの公的な証明機関から入手できます。Windows によって信頼される証明機関の全一覧は、[http://aka.ms/trustcertpartners](/security/trusted-root/participants-list) から入手できます。
 
-テスト目的には、自己発行した証明書を使用できます。 ただし、NuGet.org では自己発行した証明書で署名されたパッケージは許可されていません。詳細については、[テスト証明書の作成](#create-a-test-certificate)に関するページを参照してください。
+テスト目的には、自己発行した証明書を使用できます。 ただし、NuGet.org では自己発行した証明書で署名されたパッケージは許可されていません。詳細については、[テスト証明書の作成](#create-a-test-certificate)に関するページを参照してください
 
 ## <a name="export-the-certificate-file"></a>証明書ファイルをエクスポートする
 
@@ -54,14 +54,14 @@ nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper 
 署名されたパッケージを発行するには、まず NuGet.org に証明書を登録する必要があります。この証明書は、DER 形式の `.cer` ファイルである必要があります。
 
 1. NuGet.org に[サインイン](https://www.nuget.org/users/account/LogOn?returnUrl=%2F)します。
-1. [`Account settings`] に移動します (または、証明書を組織アカウントで登録するには [`Manage Organization`] **>** [`Edit Organization`] に移動します)。
+1. [`Account settings`] に移動します (または、証明書を組織アカウントで登録するには [`Manage Organization` **] > [** `Edit Organization`] に移動します)。
 1. [`Certificates`] セクションを展開し、[`Register new`] を選択します。
 1. 前にエクスポートした証明書ファイルを参照し選択します。
   ![登録済みの証明書](../reference/media/registered-certs.png)
 
 **注:**
 * 1 人のユーザーが複数の証明書を送信でき、複数のユーザーが同じ証明書を登録できます。
-* ユーザーが証明書を登録した場合、以降送信されるすべてのパッケージはそのうちの 1 つの証明書で署名される **必要があります** 。 「[NuGet.org でパッケージの署名要件を管理する](#manage-signing-requirements-for-your-package-on-nugetorg)」を参照してください。
+* ユーザーが証明書を登録した場合、以降送信されるすべてのパッケージはそのうちの 1 つの証明書で署名される **必要があります**。 「[NuGet.org でパッケージの署名要件を管理する](#manage-signing-requirements-for-your-package-on-nugetorg)」を参照してください。
 * ユーザーはそのアカウントから登録済みの証明書を削除することもできます。 証明書を一度削除すると、その証明書を使用して署名された新しいパッケージの送信時に失敗します。 既存のパッケージには影響はありません。
 
 ## <a name="publish-the-package"></a>パッケージを公開する

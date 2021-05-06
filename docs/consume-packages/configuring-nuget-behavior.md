@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: 35339626b0a20ccfceafa89fef94fb3187013fd7
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 18e3af7145495b5753b5900915ffb4b07942b856
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774860"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901474"
 ---
 # <a name="common-nuget-configurations"></a>一般的な NuGet 構成
 
@@ -18,7 +18,7 @@ NuGet の動作は、1 つ以上の `NuGet.Config` (XML) ファイルの設定�
 
 ## <a name="config-file-locations-and-uses"></a>構成ファイルの場所と使用
 
-| スコープ | NuGet.Config ファイルの場所 | 説明 |
+| スコープ | `NuGet.Config` ファイルの場所 | 説明 |
 | --- | --- | --- |
 | ソリューション | 現在のフォルダー (ソリューション フォルダーとも呼ばれる) またはドライブのルートまでの任意のフォルダー。| ソリューション フォルダーでは、設定はサブフォルダー内のすべてのプロジェクトに適用されます。 構成ファイルをプロジェクト フォルダーに置いた場合、そのプロジェクトには影響しないことに注意してください。 |
 | ユーザー | **Windows:** `%appdata%\NuGet\NuGet.Config`<br/>**Mac または Linux:** `~/.config/NuGet/NuGet.Config` または `~/.nuget/NuGet/NuGet.Config` (OS のディストリビューションによって異なります) <br/>すべてのプラットフォームで、追加の構成がサポートされています。 ツールでこれらの構成を編集することはできません。 </br> **Windows:** `%appdata%\NuGet\config\*.Config` <br/>**Mac または Linux:** `~/.config/NuGet/config/*.config` または `~/.nuget/config/*.config` | 設定はすべての操作に適用されますが、プロジェクト レベルの設定によってオーバーライドされます。 |
@@ -26,7 +26,7 @@ NuGet の動作は、1 つ以上の `NuGet.Config` (XML) ファイルの設定�
 
 以前のバージョンの NuGet に関する注意事項:
 - NuGet 3.3 以前では、ソリューション全体の設定用に `.nuget` フォルダーが使われていました。 このフォルダーは、NuGet 3.4 以降では使用されません。
-- NuGet 2.6 から 3.x では、Windows でのコンピューター レベルの構成ファイルは %ProgramData%\NuGet\Config[\\{IDE}[\\{Version}[\\{SKU}]]]\NuGet.Config にありました。*{IDE}* には *VisualStudio* を使用でき、*{Version}* は Visual Studio のバージョン (*14.0* など)、*{SKU}* は *Community*、*Pro*、または *Enterprise* です。 設定を NuGet 4.0 以降に移行するには、単に構成ファイルを %ProgramFiles(x86)%\NuGet\Config にコピーします。Linux の以前の場所は /etc/opt、Mac の以前の場所は /Library/Application Support でした。
+- NuGet 2.6 から 3.x では、Windows でのコンピューター レベルの構成ファイルは `%ProgramData%\NuGet\Config[\{IDE}[\{Version}[\{SKU}]]]\NuGet.Config` にありました。`{IDE}` には `VisualStudio` を使用でき、`{Version}` は Visual Studio のバージョン (`14.0` など)、`{SKU}` は `Community`、`Pro`、または `Enterprise` です。 設定を NuGet 4.0 以降に移行するには、単に構成ファイルを `%ProgramFiles(x86)%\NuGet\Config` にコピーします。 Linux の以前の場所は `/etc/opt`、Mac の以前の場所は `/Library/Application Support` でした。
 
 ## <a name="changing-config-settings"></a>構成設定の変更
 
@@ -102,18 +102,16 @@ nuget config -set repositoryPath= -configfile /home/my.Config
 
 具体的には、NuGet は次の順序で異なる構成ファイルから設定を読み込みます。
 
-1. [NuGetDefaults.Config ファイル](#nuget-defaults-file)。パッケージ ソースのみに関連する設定が含まれます。
+1. [`NuGetDefaults.Config` ファイル](#nuget-defaults-file)。パッケージ ソースのみに関連する設定が含まれます。
 1. コンピューター レベルのファイル。
 1. ユーザー レベルのファイル。
 1. `-configFile` で指定されたファイル。
-1. ドライブ ルートから現在のフォルダー (nuget.exe が呼び出されたフォルダー、または Visual Studio プロジェクトを含むフォルダー) までの間のパスに存在するすべてのフォルダーで見つかったファイル。 たとえば、コマンドが c:\A\B\C で呼び出された場合、NuGet は c:\,、c:\A、c:\A\B、c:\A\B\C の順序で構成ファイルを探して読み込みます。
+1. ドライブ ルートから現在のフォルダー (`nuget.exe` が呼び出されたフォルダー、または Visual Studio プロジェクトを含むフォルダー) までの間のパスに存在するすべてのフォルダーで見つかったファイル。 たとえば、コマンドが `c:\A\B\C` で呼び出された場合、NuGet により `c:\`、`c:\A`、`c:\A\B`、`c:\A\B\C` の順序で構成ファイルが検索されて読み込まれます。
 
 NuGet はこれらのファイルで設定を探すので、適用は次のようになります。
 
 1. 単一項目の要素の場合は、前に検出された同じキーの値が置き換えられます。 つまり、現在のフォルダーまたはプロジェクトに "最も近い" 設定が、それより前に見つかった他の値をオーバーライドします。 たとえば、`NuGetDefaults.Config` の設定 `defaultPushSource` は、他の構成ファイルにも存在する場合はオーバーライドされます。
-
 1. コレクション要素の場合は (`<packageSources>` など)、すべての構成ファイルの値が 1 つのコレクションに結合されます。
-
 1. 指定されたノードに `<clear />` が存在すると、そのノードより前に定義された構成値は無視されます。
 
 ### <a name="settings-walkthrough"></a>設定のチュートリアル
@@ -144,7 +142,7 @@ disk_drive_2
 </configuration>
 ```
 
-ファイル B: disk_drive_2/NuGet.Config:
+ファイル B。`disk_drive_2/NuGet.Config`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -158,7 +156,7 @@ disk_drive_2
 </configuration>
 ```
 
-ファイル C: disk_drive_2/Project1/NuGet.Config:
+ファイル C。`disk_drive_2/Project1/NuGet.Config`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -174,7 +172,7 @@ disk_drive_2
 </configuration>
 ```
 
-ファイル D: disk_drive_2/Project2/NuGet.Config:
+ファイル D。`disk_drive_2/Project2/NuGet.Config`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -188,13 +186,13 @@ disk_drive_2
 
 NuGet は、呼び出された場所に応じて、次のように設定を読み込んで適用します。
 
-- **disk_drive_1/users から呼び出された場合**: disk_drive_1 で検出されるのはユーザー レベルの構成ファイル (A) だけなので、(A) で指定されている既定のリポジトリのみが使われます。
+- **`disk_drive_1/users` から呼び出した場合**: ユーザー レベルの構成ファイル (A) でリストされている既定のリポジトリのみが使われます。それが `disk_drive_1` で見つかる唯一のファイルであるためです。
 
-- **disk_drive_2/ または disk_drive_/tmp から呼び出された場合**: NuGet は、最初にユーザー レベルのファイル (A) を読み込んだ後、disk_drive_2 のルートに移動して、ファイル (B) を検出します。 NuGet は /tmp でも構成ファイルを検索しますが、見つかりません。 その結果、nuget.org の既定のリポジトリが使われ、パッケージの復元が有効になり、パッケージが disk_drive_2/tmp に展開されます。
+- **`disk_drive_2/` または `disk_drive_/tmp` から呼び出した場合**: NuGet は、最初にユーザー レベルのファイル (A) を読み込んだ後、`disk_drive_2` のルートに移動して、ファイル (B) を見つけます。 NuGet は `/tmp` でも構成ファイルを検索しますが、見つかりません。 その結果、`nuget.org` の既定のリポジトリが使われ、パッケージの復元が有効になり、パッケージが `disk_drive_2/tmp` に展開されます。
 
-- **disk_drive_2/Project1 または disk_drive_2/Project1/Source から呼び出された場合**: NuGet は、最初にユーザー レベルのファイル (A) を読み込み、次に disk_drive_2 のルートからファイル (B) を読み込み、最後にファイル (C) を読み込みます。 (C) の設定で (B) および (A) の設定がオーバーライドされるので、パッケージがインストールされる `repositoryPath` は、*disk_drive_2/tmp* ではなく disk_drive_2/Project1/External/Packages です。 また、(C) は `<packageSources>` をクリアするので、ソースは `https://MyPrivateRepo/ES/nuget` だけになり、nuget.org は使うことができなくなります。
+- **`disk_drive_2/Project1` または `disk_drive_2/Project1/Source` から呼び出した場合**: NuGet は、最初にユーザー レベルのファイル (A) を読み込み、次に `disk_drive_2` のルートからファイル (B) を読み込み、最後にファイル (C) を読み込みます。 (C) の設定で (B) および (A) の設定がオーバーライドされるので、パッケージがインストールされる `repositoryPath` は、`disk_drive_2/tmp` ではなく `disk_drive_2/Project1/External/Packages` です。 また、(C) は `<packageSources>` をクリアするので、ソースは `https://MyPrivateRepo/ES/nuget` だけになり、nuget.org は使うことができなくなります。
 
-- **disk_drive_2/Project2 または disk_drive_2/Project2/Source から呼び出された場合**: ユーザー レベルのファイル (A)、ファイル (B)、ファイル (D) の順に読み込まれます。 `packageSources` はクリアされないので、`nuget.org` と `https://MyPrivateRepo/DQ/nuget` の両方をソースとして使うことができます。 パッケージは、(B) で指定されている disk_drive_2/tmp に展開されます。
+- **`disk_drive_2/Project2` または `disk_drive_2/Project2/Source` から呼び出した場合**: ユーザー レベルのファイル (A)、ファイル (B)、ファイル (D) の順に読み込まれます。 `packageSources` はクリアされないので、`nuget.org` と `https://MyPrivateRepo/DQ/nuget` の両方をソースとして使うことができます。 パッケージは、(B) で指定されている `disk_drive_2/tmp` に展開されます。
 
 ## <a name="additional-user-wide-configuration"></a>追加のユーザー全体の構成
 
@@ -217,11 +215,11 @@ NuGet は、呼び出された場所に応じて、次のように設定を読�
 >
 > さらに、`NuGetDefaults.Config` または NuGet の他のメカニズムのどちらでも、nuget.org などのパッケージ ソースへのアクセスを禁止することはできません。組織でこのようなアクセスをブロックする場合は、ファイアウォールなどの他の手段を使って行う必要があります。
 
-### <a name="nugetdefaultsconfig-location"></a>NuGetDefaults.Config の場所
+### <a name="nugetdefaultsconfig-location"></a>`NuGetDefaults.Config` の場所
 
 次の表は、ターゲットの OS に応じた `NuGetDefaults.Config` ファイルの格納場所の一覧です。
 
-| OS プラットフォーム  | NuGetDefaults.Config の場所 |
+| OS プラットフォーム  | `NuGetDefaults.Config` 場所 |
 | --- | --- |
 | Windows      | **Visual Studio 2017 または NuGet 4.x+:** `%ProgramFiles(x86)%\NuGet\Config` <br />**Visual Studio 2015 以前または NuGet 3.x 以前:** `%PROGRAMDATA%\NuGet` |
 | Mac/Linux    | `$XDG_DATA_HOME` (通常は `~/.local/share` または `/usr/local/share`。OS のディストリビューションに依存します)|
@@ -230,9 +228,9 @@ NuGet は、呼び出された場所に応じて、次のように設定を読�
 
 - `packageSources`: このコレクションは標準の構成ファイルの `packageSources` と同じ意味であり、既定のソースを指定します。 NuGet は、`packages.config` 管理形式を使用してプロジェクトのパッケージをインストールまたは更新するときに、ソースを順番に使用します。 PackageReference 形式を使用するプロジェクトの場合、構成ファイルの順序に関係なく、NuGet はまずローカル ソースを使用し、次にネットワーク共有のソースを使用し、次に HTTP ソースを使用します。 復元操作の場合、NuGet はソースの順序を常に無視します。
 
-- `disabledPackageSources`: このコレクションも `NuGet.Config` ファイルと同じ意味であり、影響を受ける各ソースの名前と、ソースが無効かどうかを示す true/false の値を列記します。 これにより、ソースの名前と URL を、既定で有効にしなくても、`packageSources` に残しておくことができます。 個々の開発者は、正しい URL を改めて調べなくても、他の `NuGet.Config` ファイルでソースの値を false に設定することにより、ソースを再び有効にできます。 これは、組織の内部ソースの URL の完全なリストを開発者に提供しながら、既定で個別のチームのソースのみを有効にする場合にも便利です。
+- `disabledPackageSources`: このコレクションも `NuGet.Config` ファイルと同じ意味であり、影響を受ける各ソースの名前と、ソースが無効かどうかを示す `true`/`false` の値を列記します。 これにより、ソースの名前と URL を、既定で有効にしなくても、`packageSources` に残しておくことができます。 個々の開発者は、正しい URL を改めて調べなくても、他の `NuGet.Config` ファイルでソースの値を `false` に設定することにより、ソースを再び有効にできます。 これは、組織の内部ソースの URL の完全なリストを開発者に提供しながら、既定で個別のチームのソースのみを有効にする場合にも便利です。
 
-- `defaultPushSource`: `nuget push` 操作の既定のターゲットを指定し、nuget.org の組み込みの既定値をオーバーライドします。管理者がこの設定を展開すると、開発者は nuget.org に公開するには `nuget push -Source` を明示的に使う必要があるため、内部パッケージがパブリックの nuget.org に誤って公開されるのを防ぐことができます。
+- `defaultPushSource`: `nuget push` 操作の既定のターゲットを指定し、`nuget.org` の組み込みの既定値をオーバーライドします。 管理者がこの設定を展開すると、開発者は `nuget.org` に公開するには `nuget push -Source` を明示的に使う必要があるため、内部パッケージがパブリックの `nuget.org` に誤って公開されるのを防ぐことができます。
 
 ### <a name="example-nugetdefaultsconfig-and-application"></a>NuGetDefaults.Config とアプリケーションの例
 
