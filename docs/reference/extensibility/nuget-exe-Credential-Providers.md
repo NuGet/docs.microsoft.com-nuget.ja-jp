@@ -1,64 +1,64 @@
 ---
-title: nuget.exe 資格情報プロバイダー
-description: nuget.exe 資格情報プロバイダーはフィードで認証され、特定の規則に従うコマンドライン実行可能ファイルとして実装されます。
+title: nuget.exe資格情報プロバイダー
+description: nuget.exe資格情報プロバイダーはフィードで認証され、特定の規則に従うコマンド ライン実行可能ファイルとして実装されます。
 author: JonDouglas
 ms.author: jodou
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: 285504508fa88c96f5c7a23f15ef14d81ebc21e1
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 4f0a5a2355b34c39a435d24691a3f8ea10ee9c00
+ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777766"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323831"
 ---
-# <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>nuget.exe 資格情報プロバイダーを使用したフィードの認証
+# <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>資格情報プロバイダーを使用nuget.exeの認証
 
-では、 `3.3` `nuget.exe` 特定の資格情報プロバイダーに対してバージョンのサポートが追加されました。 その後、すべての `4.8` コマンドラインシナリオ (、、) で機能する [資格情報プロバイダーのバージョンサポート](NuGet-Cross-Platform-Authentication-Plugin.md) `nuget.exe` `dotnet.exe` `msbuild.exe` が追加されました。
+バージョンでは `3.3` 、特定の資格情報プロバイダーに `nuget.exe` 対するサポートが追加されました。 それ以降、バージョンでは、すべてのコマンド ライン シナリオ (、、) で動作する資格情報プロバイダー `4.8` [](NuGet-Cross-Platform-Authentication-Plugin.md) `nuget.exe` `dotnet.exe` `msbuild.exe` のサポートが追加されました。
 
-のすべての認証方法の詳細については、「認証された [フィードからのパッケージ](../../consume-packages/consuming-packages-authenticated-feeds.md#nugetexe) の使用」を参照してください。 `nuget.exe`
+すべての [認証方法の詳細については、「](../../consume-packages/consuming-packages-authenticated-feeds.md#nugetexe) 認証されたフィードからのパッケージの使用」を参照してください。 `nuget.exe`
 
-## <a name="nugetexe-credential-provider-discovery"></a>nuget.exe 資格情報プロバイダーの検出
+## <a name="nugetexe-credential-provider-discovery"></a>nuget.exeプロバイダーの検出
 
-nuget.exe 資格情報プロバイダーは、次の3つの方法で使用できます。
+nuget.exeプロバイダーは、次の 3 つの方法で使用できます。
 
-- **グローバル**: `nuget.exe` 現在のユーザーのプロファイルで実行されるのすべてのインスタンスで資格情報プロバイダーを使用できるようにするには、資格情報プロバイダーをに追加し `%LocalAppData%\NuGet\CredentialProviders` ます。 フォルダーの作成が必要になる場合があり `CredentialProviders` ます。 資格情報プロバイダーは、フォルダーのルート `CredentialProviders`  またはサブフォルダー内にインストールできます。 資格情報プロバイダーに複数のファイル/アセンブリがある場合は、サブフォルダーを使用して、プロバイダーを整理したままにすることができます。
+- **グローバル:** 資格情報プロバイダーを現在のユーザーのプロファイルで実行のすべてのインスタンスで使用するには、 に `nuget.exe` 追加します `%LocalAppData%\NuGet\CredentialProviders` 。 フォルダーの作成が必要な場合 `CredentialProviders` があります。 資格情報プロバイダーは、フォルダーのルートまたはサブフォルダー `CredentialProviders`  内にインストールできます。 資格情報プロバイダーに複数のファイル/アセンブリがある場合は、サブフォルダーを使用してプロバイダーを整理することができます。
 
-- **環境変数から**: 資格情報プロバイダーを任意の場所に格納し、にアクセスできるようにするには、 `nuget.exe` `%NUGET_CREDENTIALPROVIDERS_PATH%` 環境変数をプロバイダーの場所に設定します。 複数の場所がある場合は、この変数をセミコロンで区切ったリスト (たとえば、) にすることができ `path1;path2` ます。
+- **環境変数から:** 資格情報プロバイダーは、任意の場所に格納し、環境変数をプロバイダーの場所に設定することで `nuget.exe` `%NUGET_CREDENTIALPROVIDERS_PATH%` 、 にアクセスできます。 複数の場所がある場合、この変数はセミコロンで区切られたリスト (例 `path1;path2` : ) にできます。
 
-- **nuget.exeと共** に: nuget.exe 資格情報プロバイダーをと同じフォルダーに配置でき `nuget.exe` ます。
+- **と共nuget.exe:** nuget.exe資格情報プロバイダーは、 と同じフォルダーに配置できます `nuget.exe` 。
 
-資格情報プロバイダーを読み込むときに、は `nuget.exe` 上記の場所で、という名前のファイルを順に検索 `credentialprovider*.exe` し、見つかった順にそれらのファイルを読み込みます。 複数の資格情報プロバイダーが同じフォルダーに存在する場合は、アルファベット順に読み込まれます。
+資格情報プロバイダーを読み込むときに、上記の場所を順に検索し、 という名前のファイルを検索し、検出された順序でそれらのファイル `nuget.exe` `credentialprovider*.exe` を読み込めます。 同じフォルダーに複数の資格情報プロバイダーが存在する場合は、アルファベット順に読み込まれます。
 
-## <a name="creating-a-nugetexe-credential-provider"></a>nuget.exe 資格情報プロバイダーの作成
+## <a name="creating-a-nugetexe-credential-provider"></a>資格情報プロバイダーnuget.exe作成する
 
-資格情報プロバイダーは、という形式で指定されたコマンドライン実行可能ファイルで、 `CredentialProvider*.exe` 入力を収集し、必要に応じて資格情報を取得して、適切な終了ステータスコードと標準出力を返します。
+資格情報プロバイダーは、 という形式のコマンド ライン実行可能ファイルです。入力を収集し、必要に応じて資格情報を取得し、適切な終了状態コードと標準出力を返 `CredentialProvider*.exe` します。
 
 プロバイダーは次の操作を行う必要があります。
 
-- 資格情報の取得を開始する前に、対象の URI の資格情報を提供できるかどうかを判断します。 そうでない場合は、資格情報なしのステータスコード1が返されます。
-- 変更しません (ここで `Nuget.Config` 資格情報を設定するなど)。
-- NuGet がプラグインにプロキシ情報を提供しないため、HTTP プロキシの構成を独自に処理します。
-- `nuget.exe`Utf-8 エンコーディングを使用して、JSON 応答オブジェクト (下記参照) を stdout に書き込むことにより、資格情報またはエラーの詳細をに返します。
-- 必要に応じて、追加のトレースログを stderr に出力します。 詳細レベルの "標準" または "詳細" のトレースが NuGet によってコンソールにエコーされるため、stderr にシークレットを書き出す必要はありません。
-- 将来のバージョンの NuGet との上位互換性を提供するため、予期しないパラメーターは無視する必要があります。
+- 資格情報の取得を開始する前に、ターゲット URI の資格情報を提供できるかどうかを判断します。 ない場合は、資格情報を使用しない状態コード 1 を返す必要があります。
+- 変更しない `NuGet.Config` (資格情報の設定など)。
+- NuGet ではプラグインにプロキシ情報が提供されないので、HTTP プロキシ構成を独自に処理します。
+- UTF-8 エンコードを使用して、JSON 応答オブジェクト (下記参照) を stdout に書き込み、資格情報またはエラーの詳細 `nuget.exe` を に返します。
+- 必要に応じて、追加のトレース ログを stderr に出力します。 詳細レベルでは "通常" または "詳細" なトレースが NuGet によってコンソールにエコーされるので、シークレットを stderr に書き込む必要はありません。
+- 予期しないパラメーターは無視して、将来のバージョンの NuGet との前方互換性を提供する必要があります。
 
 ### <a name="input-parameters"></a>入力パラメーター
 
 | パラメーター/スイッチ |説明|
 |----------------|-----------|
-| Uri {value} | 資格情報を必要とするパッケージソース URI。|
-| NonInteractive | 存在する場合、プロバイダーは対話型プロンプトを発行しません。 |
-| IsRetry | 存在する場合は、この試行が前回失敗した試行の再試行であることを示します。 通常、プロバイダーはこのフラグを使用して、既存のキャッシュをバイパスし、可能であれば新しい資格情報の入力を求めます。|
-| 詳細度 {value} | 存在する場合は、"normal"、"quiet"、または "detailed" のいずれかの値を指定します。 値が指定されていない場合、は既定で "normal" になります。 プロバイダーはこれを、標準エラーストリームに出力するオプションのログ記録のレベルを示す値として使用する必要があります。 |
+| Uri {value} | 資格情報を必要とするパッケージ ソース URI。|
+| NonInteractive | 存在する場合、プロバイダーは対話型プロンプトを発行します。 |
+| IsRetry | 存在する場合は、この試行が以前に失敗した試行の再試行を示します。 プロバイダーは通常、このフラグを使用して、既存のキャッシュをバイパスし、可能であれば新しい資格情報を要求します。|
+| 詳細度 {value} | 存在する場合は、"normal"、"quiet"、または "detailed" のいずれかの値を指定します。 値が指定されていない場合、既定値は "normal" になります。 プロバイダーは、標準エラー ストリームに出力するオプションのログ記録のレベルを示す値として、これを使用する必要があります。 |
 
 ### <a name="exit-codes"></a>終了コード
 
 | コード |結果 | 説明 |
 |----------------|-----------|-----------|
-| 0 | 成功 | 資格情報が正常に取得され、stdout に書き込まれました。|
-| 1 | ProviderNotApplicable | 現在のプロバイダーは、指定された URI の資格情報を提供しません。|
-| 2 | 障害 | プロバイダーは、指定された URI の正しいプロバイダーですが、資格情報を提供することはできません。 この場合、nuget.exe は認証を再試行せず、失敗します。 一般的な例として、ユーザーが対話型ログインをキャンセルした場合があります。 |
+| 0 | 成功 | 資格情報が正常に取得され、stdout に書き込まれた。|
+| 1 | ProviderNotApplicable | 現在のプロバイダーは、指定された URI の資格情報を提供します。|
+| 2 | 障害 | プロバイダーは、指定された URI の正しいプロバイダーですが、資格情報を指定することはできません。 この場合、nuget.exe認証は再試行され、失敗します。 一般的な例は、ユーザーが対話型ログインを取り消す場合です。 |
 
 ### <a name="standard-output"></a>標準出力
 
@@ -66,9 +66,9 @@ nuget.exe 資格情報プロバイダーは、次の3つの方法で使用でき
 |----------------|-----------|
 | ユーザー名 | 認証された要求のユーザー名。|
 | Password | 認証された要求のパスワード。|
-| Message | 応答に関するオプションの詳細。失敗した場合に追加の詳細を表示するためにのみ使用されます。 |
+| Message | 応答に関する省略可能な詳細。エラーが発生した場合に追加の詳細を表示するためにのみ使用されます。 |
 
-Stdout の例:
+stdout の例:
 
 ```
 { "Username" : "freddy@example.com",
@@ -78,14 +78,14 @@ Stdout の例:
 
 ## <a name="troubleshooting-a-credential-provider"></a>資格情報プロバイダーのトラブルシューティング
 
-現時点では、NuGet はカスタム資格情報プロバイダーをデバッグするための直接的なサポートを提供していません。 [問題 4598](https://github.com/NuGet/Home/issues/4598) はこの作業を追跡しています。
+現時点では、NuGet では、カスタム資格情報プロバイダーのデバッグを直接サポートする機能はあまり提供されていません。 [問題 4598](https://github.com/NuGet/Home/issues/4598) は、この作業を追跡しています。
 
 次の操作を実行することもできます。
 
-- スイッチを使用して nuget.exe を実行し、 `-verbosity` 詳細な出力を検査します。
-- `stdout`適切な場所にデバッグメッセージを追加します。
-- nuget.exe 3.3 以降を使用していることを確認してください。
-- 起動時にデバッガーをアタッチするには、次のコードスニペットを使用します。
+- スイッチnuget.exeを実行 `-verbosity` して、詳細な出力を検査します。
+- 適切な場所にデバッグ `stdout` メッセージを追加します。
+- 3.3 以上のnuget.exeしてください。
+- 次のコード スニペットを使用して、起動時にデバッガーをアタッチします。
 
     ```cs
     while (!Debugger.IsAttached)

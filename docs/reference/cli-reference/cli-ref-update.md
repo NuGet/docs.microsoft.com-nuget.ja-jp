@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: cfa7fdcc6af46fd5f4030ba424754291f697bc43
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 5f244e4cf15ca7afa0e6318a8c20d464ff75bd8e
+ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98779128"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323649"
 ---
 # <a name="update-command-nuget-cli"></a>update コマンド (NuGet CLI)
 
@@ -32,7 +32,7 @@ nuget update <configPath> [options]
 
 ここ `<configPath>` `packages.config` では、プロジェクトの依存関係を一覧表示するまたはソリューションファイルを指定します。
 
-## <a name="options"></a>Options
+## <a name="options"></a>オプション
 
 - **`-ConfigFile`**
 
@@ -86,7 +86,7 @@ nuget update <configPath> [options]
 
 - **`-Self`**
 
-  最新バージョンに nuget.exe を更新します。その他のすべての引数は無視されます。
+  `nuget.exe`最新バージョンに更新します。 `-Source` 使用できますが、他のすべての引数は無視されます。 ソースが指定されていない場合、は `nuget.org` 設定に関係なく更新を確認し `NuGet.Config` ます。
 
 - **`-Source`**
 

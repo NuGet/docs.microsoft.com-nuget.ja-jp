@@ -5,12 +5,12 @@ author: erdembayar
 ms.author: eryondon
 ms.date: 3/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 50fd277a4f1f39b4a68a89cd07af4e21f0d3d831
-ms.sourcegitcommit: 1462f9f42ae36b3c990762ad4f02e38ab799ad09
+ms.openlocfilehash: 1152af99cf1421918a42d0d1faa33f1452f54a8f
+ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107508814"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323883"
 ---
 # <a name="nuget-59-release-notes"></a>NuGet 5.9 リリースノート
 
@@ -18,8 +18,8 @@ NuGet 配布の種類:
 
 | NuGet のバージョン | 利用可能な Visual Studio バージョン | 利用可能な .NET SDK |
 |:---|:---|:---|
-| [**5.9.0**](https://nuget.org/downloads) | [Visual Studio 2019 バージョン16.9](https://visualstudio.microsoft.com/downloads/) | [5.0.200](https://dotnet.microsoft.com/download/dotnet-core/5.0)<sup>1</sup> |
-| [**5.9.1**](https://nuget.org/downloads) | [Visual Studio 2019 バージョン16.9](https://visualstudio.microsoft.com/downloads/) | [5.0.202](https://dotnet.microsoft.com/download/dotnet-core/5.0)<sup>1</sup> |
+| [**5.9.0**](https://nuget.org/downloads) | [Visual Studio 2019 バージョン 16.9](https://visualstudio.microsoft.com/downloads/) | [5.0.200](https://dotnet.microsoft.com/download/dotnet-core/5.0)<sup>1</sup> |
+| [**5.9.1**](https://nuget.org/downloads) | [Visual Studio 2019 バージョン 16.9](https://visualstudio.microsoft.com/downloads/) | [5.0.202](https://dotnet.microsoft.com/download/dotnet-core/5.0)<sup>1</sup> |
 
 <sup>1</sup> Visual Studio 2019 と .net Core ワークロードと共にインストールされる
   
@@ -186,42 +186,52 @@ NuGet 配布の種類:
 
 * [#10480](https://github.com/NuGet/Home/issues/10480) V2FeedPackageInfo でのコピー/貼り付けエラー
 
-* NuGetPackageFileService fix-を使用して破棄可能な memorystream を使用する- [#10503](https://github.com/NuGet/Home/issues/10503)
+* NuGetPackageFileService の修正 - 使い捨て可能なメモリストリームに を使用 - [#10503](https://github.com/NuGet/Home/issues/10503)
 
-**[このリリースで修正されるすべての問題の一覧-5.9.0](https://app.zenhub.com/workspaces/nuget-client-team-55aec9a240305cf007585881/reports/release?release=5f6be8c10485c0236b7ef889)**
+**[このリリースで修正された問題の一覧 - 5.9.0](https://app.zenhub.com/workspaces/nuget-client-team-55aec9a240305cf007585881/reports/release?release=5f6be8c10485c0236b7ef889)**
 
-**[このリリースのコミットの一覧-5.9.0](https://github.com/NuGet/NuGet.Client/compare/5.8.1.7021...5.9.0.7134)**
+**[このリリースのコミットの一覧 - 5.9.0](https://github.com/NuGet/NuGet.Client/compare/5.8.1.7021...5.9.0.7134)**
 
 ### <a name="community-contributions"></a>コミュニティからの投稿
 
-この NuGet のリリースに役立ったすべての共同作成者に感謝します。
+この NuGet リリースをすばらしいものにするのに役立ったすべての共同作成者に感謝します。
 
-|担当者|Pr|発行|
+|担当者|Prs|発行|
 |----|----|----|
-[omajid](https://github.com/omajid) | [3865](https://github.com/NuGet/NuGet.Client/pull/3865) | [#10480](https://github.com/NuGet/Home/issues/10480) V2FeedPackageInfo でのコピー/貼り付けエラー
-[marcin-krystianc](https://github.com/marcin-krystianc) | [3812](https://github.com/NuGet/NuGet.Client/pull/3812) | PrivateAssets = "All" 属性でパッケージが参照されているケースのテストがありません- [#10397](https://github.com/NuGet/Home/issues/10397)
-[marcin-krystianc](https://github.com/marcin-krystianc) | [3739](https://github.com/NuGet/NuGet.Client/pull/3739) | 複数のパッケージをプッシュするためのサポートを追加する- [#4393](https://github.com/NuGet/Home/issues/4393)
-[marcin-krystianc](https://github.com/marcin-krystianc) | [3723](https://github.com/NuGet/NuGet.Client/pull/3723) | アセンブリの署名が無効になっていると、NuGet ライブラリのビルドが破損する- [#10173](https://github.com/NuGet/Home/issues/10173)
-[kant2002](https://github.com/kant2002) | [3807](https://github.com/NuGet/NuGet.Client/pull/3807) | 貢献するドキュメントをクリーンアップする- [#10399](https://github.com/NuGet/Home/issues/10399)
-[PathogenDavid](https://github.com/PathogenDavid) | [3754](https://github.com/NuGet/NuGet.Client/pull/3754) | ライセンスとアイコンファイルの存在チェックでは、常に大文字と小文字を区別する比較を使用する必要があり [#9817](https://github.com/NuGet/Home/issues/9817)
-[campersau](https://github.com/campersau) | [3677](https://github.com/NuGet/NuGet.Client/pull/3677) | DecodePixelWidth を使用するときに IgnoreColorProfile を使用して WPF の問題を回避するには[#10037](https://github.com/NuGet/Home/issues/10037) 、BitmapCreateOptions. を使用します。
-[bjorkstromm](https://github.com/bjorkstromm) | [3697](https://github.com/NuGet/NuGet.Client/pull/3697) | Windows SDK 10 リンクが NuGet で破損しています。クライアント貢献ガイド- [#10099](https://github.com/NuGet/Home/issues/10099)
-[bjorkstromm](https://github.com/bjorkstromm) | [3696](https://github.com/NuGet/NuGet.Client/pull/3696) | NuGet で相対リンクが破損しています。クライアントデバッグガイド- [#10100](https://github.com/NuGet/Home/issues/10100)
-[Nirmal4G](https://github.com/Nirmal4G) | [3637](https://github.com/NuGet/NuGet.Client/pull/3637) | テストフィクスチャと関連コードの向上- [#9996](https://github.com/NuGet/Home/issues/9996)
-[rolfbjarne](https://github.com/rolfbjarne) | [3743](https://github.com/NuGet/NuGet.Client/pull/3743) | リダイレクトされると、出力は macOS で80文字でラップされ [#10198](https://github.com/NuGet/Home/issues/10198)
-[xen2](https://github.com/xen2) | [2861](https://github.com/NuGet/NuGet.Client/pull/2861) | Nuget.exe を .NET Standard パッケージとして使用できるようにする- [#6150](https://github.com/NuGet/Home/issues/6150)
-[Anipik](https://github.com/Anipik) | [3810](https://github.com/NuGet/NuGet.Client/pull/3810) | パックタスクの実行中に特定の tfm のビルド出力を除外する新しい msbuild プロパティを導入する- [#10396](https://github.com/NuGet/Home/issues/10396)
+[omajid](https://github.com/omajid) | [3865](https://github.com/NuGet/NuGet.Client/pull/3865) | V2FeedPackageInfo のコピー/貼り付けエラー - [#10480](https://github.com/NuGet/Home/issues/10480)
+[marcin-krystianc](https://github.com/marcin-krystianc) | [3812](https://github.com/NuGet/NuGet.Client/pull/3812) | PrivateAssets="All" 属性でパッケージが参照されている場合のテスト[が見つからない](https://github.com/NuGet/Home/issues/10397)- #10397
+[marcin-krystianc](https://github.com/marcin-krystianc) | [3739](https://github.com/NuGet/NuGet.Client/pull/3739) | 複数のパッケージをプッシュするサポートの追加 - [#4393](https://github.com/NuGet/Home/issues/4393)
+[marcin-krystianc](https://github.com/marcin-krystianc) | [3723](https://github.com/NuGet/NuGet.Client/pull/3723) | アセンブリの署名が無効になっていると、NuGet ライブラリのビルドが破損する - [#10173](https://github.com/NuGet/Home/issues/10173)
+[kant2002](https://github.com/kant2002) | [3807](https://github.com/NuGet/NuGet.Client/pull/3807) | 貢献しているドキュメントをクリーンアップする - [#10399](https://github.com/NuGet/Home/issues/10399)
+[1000000000](https://github.com/PathogenDavid) | [3754](https://github.com/NuGet/NuGet.Client/pull/3754) | ライセンスとアイコン ファイルの存在チェックでは、常に大文字と小文字を区別する比較を使用する必要[があります](https://github.com/NuGet/Home/issues/9817)- #9817
+[campersau](https://github.com/campersau) | [3677](https://github.com/NuGet/NuGet.Client/pull/3677) | DecodePixelWidth を使用する場合の WPF の問題を回避するには、BitmapCreateOptions.IgnoreColorProfile を使用します - [#10037](https://github.com/NuGet/Home/issues/10037)
+[bjorkjorm](https://github.com/bjorkstromm) | [3697](https://github.com/NuGet/NuGet.Client/pull/3697) | Windows SDK 10 のリンクは、NuGet.Client Contribution ガイド[-](https://github.com/NuGet/Home/issues/10099) #10099
+[bjorkjorm](https://github.com/bjorkstromm) | [3696](https://github.com/NuGet/NuGet.Client/pull/3696) | NuGet.Client デバッグ ガイドで相対リンクが破損している[-](https://github.com/NuGet/Home/issues/10100) #10100
+[Malmal4G](https://github.com/Nirmal4G) | [3637](https://github.com/NuGet/NuGet.Client/pull/3637) | テスト フィクスチャと関連するコードを改善する - [#9996](https://github.com/NuGet/Home/issues/9996)
+[rolfbjarne](https://github.com/rolfbjarne) | [3743](https://github.com/NuGet/NuGet.Client/pull/3743) | 出力は、リダイレクト時に macOS で 80 文字でラップされます - [#10198](https://github.com/NuGet/Home/issues/10198)
+[xen2](https://github.com/xen2) | [2861](https://github.com/NuGet/NuGet.Client/pull/2861) | NuGet.PackageManagement を新しいパッケージとして使用[.NET Standardする](https://github.com/NuGet/Home/issues/6150)- #6150
+[Anipik](https://github.com/Anipik) | [3810](https://github.com/NuGet/NuGet.Client/pull/3810) | パック タスク中に特定の tfms のビルド出力を除外する新しい msbuild プロパティを[導入する](https://github.com/NuGet/Home/issues/10396)- #10396
 
 ## <a name="summary-whats-new-in-591"></a>概要: 5.9.1 の新機能
 
-* "dotnet nuget remove source nuget.org" は初回[#10745](https://github.com/NuGet/Home/issues/10745)は機能しません
-* Linux では既定の検証を無効にしますが、Windows では既定で有効に [#10713](https://github.com/NuGet/Home/issues/10713)
+* "dotnet nuget remove source nuget.org" が初めて動作しない[-](https://github.com/NuGet/Home/issues/10745) #10745
+* Linux では既定の検証を無効にし、Windows では既定[で有効にする](https://github.com/NuGet/Home/issues/10713)- #10713
 
-**[このリリースで修正されるすべての問題の一覧-5.9.1](https://app.zenhub.com/workspaces/nuget-client-team-55aec9a240305cf007585881/reports/release?release=6075f42efd068017639b4036)**
+**[このリリースで修正された問題の一覧 - 5.9.1](https://app.zenhub.com/workspaces/nuget-client-team-55aec9a240305cf007585881/reports/release?release=6075f42efd068017639b4036)**
 
-**[このリリースのコミットの一覧-5.9.1](https://github.com/NuGet/NuGet.Client/compare/5.9.0.7134...5.9.1.8)**
+**[このリリースのコミットの一覧 - 5.9.1](https://github.com/NuGet/NuGet.Client/compare/5.9.0.7134...5.9.1.8)**
 
-## <a name="feedback-welcome"></a>フィードバックの開始
+## <a name="known-issues"></a>既知の問題
 
-お客様のフィードバックは Microsoft にとって重要です。  このリリースに問題がある場合は、GitHub の [問題](https://github.com/NuGet/Home/issues) と [Visual Studio Developer Community](https://developercommunity.visualstudio.com/) で既存の問題を確認してください。  NuGet 内の新しい問題については、 [GitHub の問題](https://github.com/NuGet/Home/issues/new)を報告してください。
-NuGet エクスペリエンスに関する一般的な問題については、[**ヘルプ > [問題の報告**] の下にあるお気に入りの IDE の [[問題点の報告](/visualstudio/ide/how-to-report-a-problem-with-visual-studio)] オプションを使用してお知らせください。
+### <a name="nuget-59-pack-raises-null-reference-exception---10685"></a>nuget 5.9 パックでは例外が発生 `Null Reference` します。 - [#10685](https://github.com/NuGet/Home/issues/10685)
+
+#### <a name="issue"></a>問題
+ファイルを使用する場合、 を対象とするプロジェクトにを追加せずに明示的なアセンブリ参照が指定されている場合、バージョンによって `pack` `.nuspec` `NuGet 5.9` `null reference` [](../reference/nuspec.md#explicit-assembly-references) `reference groups` 例外が発生します `multiple frameworks` 。
+
+#### <a name="workaround"></a>回避策
+`nuget.exe` [5.8.1 または 以外の](https://dist.nuget.org/win-x86-commandline/v5.8.1/nuget.exe)最新バージョンを使用します `5.9.1` 。
+
+## <a name="feedback-welcome"></a>フィードバックへようこそ
+
+お客様のフィードバックは Microsoft にとって重要です。  このリリースで問題が発生した場合は [、GitHub](https://github.com/NuGet/Home/issues) の問題と既存の問題 [Visual Studio Developer Community確認してください](https://developercommunity.visualstudio.com/) 。  NuGet 内の新しい問題については [、GitHub の問題 を報告してください](https://github.com/NuGet/Home/issues/new)。
+NuGet エクスペリエンスに関する一般的な問題については、[](/visualstudio/ide/how-to-report-a-problem-with-visual-studio)お気に入りの IDE の [問題の報告] オプションの [ヘルプ] の [問題の報告] >**お知らせください**。
