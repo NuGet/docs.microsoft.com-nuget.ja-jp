@@ -10,139 +10,133 @@ metadata:
   author: JonDouglas
   ms.author: jodou
   ms.date: 01/13/2020
-  ms.openlocfilehash: 2a7d847f59f646b5a460f6233b721dcaf26e3fb5
-  ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
-  ms.translationtype: HT
-  ms.contentlocale: ja-JP
-  ms.lasthandoff: 01/26/2021
-  ms.locfileid: "98775890"
 highlightedContent:
   items:
-  - title: NuGet とは何ですか?
-    itemType: overview
-    url: ./what-is-nuget.md
-  - title: NuGet クライアント ツールのインストール
-    itemType: download
-    url: ./install-nuget-client-tools.md
-  - title: NuGet の学習
-    itemType: video
-    url: https://aka.ms/Nuget101
-  - title: NuGet.org
-    itemType: overview
-    url: ./nuget-org/overview-nuget-org.md
+    - title: NuGet とは何ですか?
+      itemType: overview
+      url: ./what-is-nuget.md
+    - title: NuGet クライアント ツールのインストール
+      itemType: download
+      url: ./install-nuget-client-tools.md
+    - title: NuGet の学習
+      itemType: video
+      url: 'https://aka.ms/Nuget101'
+    - title: NuGet.org
+      itemType: overview
+      url: ./nuget-org/overview-nuget-org.md
 conceptualContent:
   title: パッケージの使用、作成および公開
   items:
-  - title: はじめに
-    links:
-    - text: NuGet クライアント ツールのインストール
-      itemType: download
-      url: ./install-nuget-client-tools.md
-    - text: パッケージをインストールして使用する - dotnet CLI
-      itemType: quickstart
-      url: ./quickstart/install-and-use-a-package-using-the-dotnet-cli.md
-    - text: パッケージをインストールして使用する - Visual Studio
-      itemType: quickstart
-      url: ./quickstart/install-and-use-a-package-in-visual-studio.md
-    - text: パッケージの作成 - dotnet CLI
-      itemType: quickstart
-      url: ./quickstart/create-and-publish-a-package-using-the-dotnet-cli.md
-    - text: パッケージの作成 - Visual Studio
-      itemType: quickstart
-      url: ./quickstart/create-and-publish-a-package-using-visual-studio.md
-    - text: .NET Framework パッケージの作成 - Visual Studio
-      itemType: quickstart
-      url: ./quickstart/create-and-publish-a-package-using-visual-studio-net-framework.md
-  - title: パッケージの使用
-    links:
-    - text: ワークフロー (概要)
-      itemType: overview
-      url: ./consume-packages/overview-and-workflow.md
-    - text: パッケージの検索と選択
-      itemType: get-started
-      url: ./consume-packages/finding-and-choosing-packages.md
-    - text: Visual Studio を使用する
-      itemType: how-to-guide
-      url: ./consume-packages/install-use-packages-visual-studio.md
-    - text: dotnet CLI の使用
-      itemType: how-to-guide
-      url: ./consume-packages/install-use-packages-dotnet-cli.md
-    - text: nuget.exe CLI の使用
-      itemType: how-to-guide
-      url: ./consume-packages/install-use-packages-nuget-cli.md
-    - text: パッケージ マネージャー コンソールの使用
-      itemType: how-to-guide
-      url: ./consume-packages/install-use-packages-powershell.md
-  - title: パッケージの作成
-    links:
-    - text: ワークフロー (概要)
-      itemType: overview
-      url: ./create-packages/overview-and-workflow.md
-    - text: Visual Studio を使用する
-      itemType: how-to-guide
-      url: ./quickstart/create-and-publish-a-package-using-visual-studio.md
-    - text: dotnet CLI の使用
-      itemType: how-to-guide
-      url: ./create-packages/creating-a-package-dotnet-cli.md
-    - text: nuget.exe CLI の使用
-      itemType: how-to-guide
-      url: ./create-packages/creating-a-package.md
-    - text: MSBuild の使用
-      itemType: how-to-guide
-      url: ./create-packages/creating-a-package-msbuild.md
-    - text: 複数のターゲット フレームワークのサポート
-      itemType: reference
-      url: ./create-packages/multiple-target-frameworks-project-file.md
-  - title: パッケージの公開
-    links:
-    - text: NuGet.org に公開する
-      itemType: overview
-      url: ./nuget-org/publish-a-package.md
-    - text: プライベート フィードに公開する
-      itemType: overview
-      url: ./hosting-packages/overview.md
+    - title: はじめに
+      links:
+        - text: NuGet クライアント ツールのインストール
+          itemType: download
+          url: ./install-nuget-client-tools.md
+        - text: パッケージをインストールして使用する - dotnet CLI
+          itemType: quickstart
+          url: ./quickstart/install-and-use-a-package-using-the-dotnet-cli.md
+        - text: パッケージをインストールして使用する - Visual Studio
+          itemType: quickstart
+          url: ./quickstart/install-and-use-a-package-in-visual-studio.md
+        - text: パッケージの作成 - dotnet CLI
+          itemType: quickstart
+          url: ./quickstart/create-and-publish-a-package-using-the-dotnet-cli.md
+        - text: パッケージの作成 - Visual Studio
+          itemType: quickstart
+          url: ./quickstart/create-and-publish-a-package-using-visual-studio.md
+        - text: .NET Framework パッケージの作成 - Visual Studio
+          itemType: quickstart
+          url: ./quickstart/create-and-publish-a-package-using-visual-studio-net-framework.md
+    - title: パッケージの使用
+      links:
+        - text: ワークフロー (概要)
+          itemType: overview
+          url: ./consume-packages/overview-and-workflow.md
+        - text: パッケージの検索と選択
+          itemType: get-started
+          url: ./consume-packages/finding-and-choosing-packages.md
+        - text: Visual Studio を使用する
+          itemType: how-to-guide
+          url: ./consume-packages/install-use-packages-visual-studio.md
+        - text: dotnet CLI の使用
+          itemType: how-to-guide
+          url: ./consume-packages/install-use-packages-dotnet-cli.md
+        - text: nuget.exe CLI の使用
+          itemType: how-to-guide
+          url: ./consume-packages/install-use-packages-nuget-cli.md
+        - text: パッケージ マネージャー コンソールの使用
+          itemType: how-to-guide
+          url: ./consume-packages/install-use-packages-powershell.md
+    - title: パッケージの作成
+      links:
+        - text: ワークフロー (概要)
+          itemType: overview
+          url: ./create-packages/overview-and-workflow.md
+        - text: Visual Studio を使用する
+          itemType: how-to-guide
+          url: ./quickstart/create-and-publish-a-package-using-visual-studio.md
+        - text: dotnet CLI の使用
+          itemType: how-to-guide
+          url: ./create-packages/creating-a-package-dotnet-cli.md
+        - text: nuget.exe CLI の使用
+          itemType: how-to-guide
+          url: ./create-packages/creating-a-package.md
+        - text: MSBuild の使用
+          itemType: how-to-guide
+          url: ./create-packages/creating-a-package-msbuild.md
+        - text: 複数のターゲット フレームワークのサポート
+          itemType: reference
+          url: ./create-packages/multiple-target-frameworks-project-file.md
+    - title: パッケージの公開
+      links:
+        - text: NuGet.org に公開する
+          itemType: overview
+          url: ./nuget-org/publish-a-package.md
+        - text: プライベート フィードに公開する
+          itemType: overview
+          url: ./hosting-packages/overview.md
 additionalContent:
   sections:
-  - title: 参照とリソース
-    items:
-    - title: NuGet.org
-      links:
-      - text: 概要
-        url: ./nuget-org/overview-nuget-org.md
-      - text: 個人アカウント
-        url: ./nuget-org/individual-accounts.md
-      - text: 組織
-        url: ./nuget-org/organizations-on-nuget-org.md
-      - text: API キー
-        url: ./nuget-org/scoped-api-keys.md
-      - text: パッケージの公開
-        url: ./nuget-org/publish-a-package.md
-    - title: リファレンス
-      links:
-      - text: dotnet CLI
-        url: ./reference/dotnet-commands.md
-      - text: nuget.exe CLI
-        url: ./reference/nuget-exe-cli-reference.md
-      - text: パッケージ参照
-        url: ./consume-packages/package-references-in-project-files.md
-      - text: MSBuild ターゲットとしてのパックと復元
-        url: ./reference/msbuild-targets.md
-      - text: .nuspec
-        url: ./reference/nuspec.md
-      - text: nuget.config
-        url: ./reference/nuget-config-file.md
-      - text: NuGet API
-        url: ./api/overview.md
-    - title: リソース
-      links:
-      - text: ポリシー - NuGet
-        url: ./policies/governance.md
-      - text: ポリシー - NuGet.org
-        url: ./nuget-org/policies/data-requests.md
-      - text: リリース ノート
-        url: ./release-notes/known-issues.md
-      - text: FAQ - NuGet
-        url: ./resources/nuget-faq.md
-      - text: FAQ - NuGet.org
-        url: ./nuget-org/nuget-org-faq.md
-  footer: '[ブログ](https://devblogs.microsoft.com/nuget/) - [Twitter](https://twitter.com/nuget) - [Stack Overflow](https://stackoverflow.com/questions/tagged/nuget)'
+    - title: 参照とリソース
+      items:
+        - title: NuGet.org
+          links:
+            - text: 概要
+              url: ./nuget-org/overview-nuget-org.md
+            - text: 個人アカウント
+              url: ./nuget-org/individual-accounts.md
+            - text: 組織
+              url: ./nuget-org/organizations-on-nuget-org.md
+            - text: API キー
+              url: ./nuget-org/scoped-api-keys.md
+            - text: パッケージの公開
+              url: ./nuget-org/publish-a-package.md
+        - title: リファレンス
+          links:
+            - text: dotnet CLI
+              url: ./reference/dotnet-commands.md
+            - text: nuget.exe CLI
+              url: ./reference/nuget-exe-cli-reference.md
+            - text: パッケージ参照
+              url: ./consume-packages/package-references-in-project-files.md
+            - text: MSBuild ターゲットとしてのパックと復元
+              url: ./reference/msbuild-targets.md
+            - text: .nuspec
+              url: ./reference/nuspec.md
+            - text: nuget.config
+              url: ./reference/nuget-config-file.md
+            - text: NuGet API
+              url: ./api/overview.md
+        - title: リソース
+          links:
+            - text: ポリシー - NuGet
+              url: ./policies/governance.md
+            - text: ポリシー - NuGet.org
+              url: ./nuget-org/policies/data-requests.md
+            - text: リリース ノート
+              url: ./release-notes/known-issues.md
+            - text: FAQ - NuGet
+              url: ./resources/nuget-faq.yml
+            - text: FAQ - NuGet.org
+              url: ./nuget-org/nuget-org-faq.yml
+  footer: '[Blogs](https://devblogs.microsoft.com/nuget/) - [Twitter](https://twitter.com/nuget) - [Stack Overflow](https://stackoverflow.com/questions/tagged/nuget)'
