@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: f1c7c4ce2872e18b1ed35ccbf3355a6192ab4a9c
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 0bd14104695a15d2e4c65a13b271143809c4ba8a
+ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775031"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323623"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>パッケージの復元エラーのトラブルシューティング
 
@@ -31,7 +31,7 @@ Visual Studio を使用している場合は、まず次のようにパッケー
 
 ![[ツール]/[オプション] で NuGet パッケージの復元を有効にする](../consume-packages/media/restore-01-autorestoreoptions.png)
 
-これらの設定は `NuGet.config` ファイルで変更することもできます。[同意](#consent)に関するセクションを参照してください。 ご自身のプロジェクトが、MSBuild に統合されたパッケージの復元を使用する以前のプロジェクトであった場合は、パッケージの自動復元に[移行](package-restore.md#migrate-to-automatic-package-restore-visual-studio)することが必要になる場合があります。
+これらの設定は `NuGet.Config` ファイルで変更することもできます。[同意](#consent)に関するセクションを参照してください。 ご自身のプロジェクトが、MSBuild に統合されたパッケージの復元を使用する以前のプロジェクトであった場合は、パッケージの自動復元に[移行](package-restore.md#migrate-to-automatic-package-restore-visual-studio)することが必要になる場合があります。
 
 <a name="missing"></a>
 
@@ -46,7 +46,7 @@ Use NuGet Package Restore to download them. The missing file is {name}.
 
 このエラーは、ビルドしようとしているプロジェクトに、現在コンピューターまたはプロジェクトにインストールされていない NuGet パッケージへの参照が 1 つ以上含まれている場合に発生します。
 
-- [PackageReference](package-references-in-project-files.md) 管理形式を使用している場合、このエラーは packages.config から PackageReference へ移行するときに残ったものである可能性があり、プロジェクト ファイルから[手動で削除](../resources/NuGet-FAQ.md#working-with-packages)する必要があります。
+- [PackageReference](package-references-in-project-files.md) 管理形式を使用している場合、このエラーは packages.config から PackageReference へ移行するときに残ったものである可能性があり、プロジェクト ファイルから[手動で削除](/nuget/resources/nuget-faq#working-with-packages)する必要があります。
 - [packages.config](../reference/packages-config.md) を使用する場合、このエラーは、パッケージがソリューション ルートにある `packages` フォルダーにインストールされていないことを意味します。
 
 このような状況は、ソース管理や別のダウンロードからプロジェクトのソース コードを取得する場合によく発生します。 パッケージは、nuget.org のようなパッケージ フィードから復元できるので、通常はソース管理やダウンロードから除外されます ([パッケージとソース管理](Packages-and-Source-Control.md)に関するページを参照してください)。 パッケージを含めると、リポジトリがいっぱいになったり、.zip ファイルが不必要に大きくなったりします。

@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 0ef309d95c6ef5437765c02791da6dab13794678
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 69adbbad20debf2e53f247e85d638b3226c0491d
+ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775263"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323753"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>NuGet でのパッケージ依存関係の解決方法
 
@@ -55,7 +55,7 @@ PackageReference 形式を使用してパッケージをプロジェクトにイ
 
 #### <a name="floating-versions"></a>浮動小数点バージョン
 
-浮動小数点の依存関係バージョンは \* 文字で指定されます。 たとえば、「 `6.0.*` 」のように入力します。 このバージョン指定は、"最新の 6.0.x バージョンを使う" ことを意味し、`4.*` は、"最新の 4.x バージョンを使う" ことを意味します。 浮動小数点バージョンを使用すると、最新バージョンの依存関係で最新の状態を維持しながら、プロジェクト ファイルへの変更を減らすことができます。
+浮動小数点の依存関係バージョンは \* 文字で指定されます。 たとえば、「 `6.0.*` 」のように入力します。 このバージョン指定は、"最新の 6.0.x バージョンを使う" ことを意味し、`4.*` は、"最新の 4.x バージョンを使う" ことを意味します。 浮動バージョンを使用すると、最新バージョンの依存関係で最新の状態を維持しながら、プロジェクト ファイルへの変更を減らすことができます。
 
 浮動小数点バージョンを使用すると、NuGet はバージョン パターンと一致する最高バージョンのパッケージを解決します。たとえば、`6.0.*` は 6.0 で始まるパッケージの最高バージョンになります。
 
@@ -102,11 +102,11 @@ PackageReference 形式を使用してパッケージをプロジェクトにイ
 
 `packages.config` の場合、NuGet は個々のパッケージのインストール中に依存関係の競合の解決を試みます。 つまり、パッケージ B に依存するパッケージ A がインストールされていて、パッケージ B が別のものの依存関係として `packages.config` のリストに既に含まれる場合、NuGet は要求されているパッケージ B のバージョンを比較し、すべてのバージョン制約を満たすバージョンの発見を試みます。 具体的には、NuGet は依存関係を満たす低い方の *major.minor* バージョンを選びます。
 
-NuGet 2.8 は、既定により、最も低い "パッチ" バージョンを探します (「[NuGet 2.8 のリリース ノート](../release-notes/nuget-2.8.md#patch-resolution-for-dependencies)」を参照してください)。 この設定は、`Nuget.Config` の `DependencyVersion` 属性およびコマンド ラインの `-DependencyVersion` スイッチで制御できます。  
+NuGet 2.8 は、既定により、最も低い "パッチ" バージョンを探します (「[NuGet 2.8 のリリース ノート](../release-notes/nuget-2.8.md#patch-resolution-for-dependencies)」を参照してください)。 この設定は、`NuGet.Config` の `DependencyVersion` 属性およびコマンド ラインの `-DependencyVersion` スイッチで制御できます。  
 
 `packages.config` の依存関係解決プロセスは、大規模な依存関係グラフでは複雑になります。 パッケージの各新規インストールでは、グラフ全体を走査して、バージョン間の競合の可能性を明らかにする必要があります。 競合が発生するときは、インストールが停止されて、プロジェクトは不明な状態のままになります (特に、プロジェクト ファイル自体への変更の可能性がある場合)。 他のパッケージ管理形式を使うと、このような問題はありません。
 
-## <a name="managing-dependency-assets"></a>依存関係アセットの管理
+## <a name="managing-dependency-assets"></a>依存関係の資産の管理
 
 PackageReference 形式を使用すると、依存関係から最上位のプロジェクトへの資産のフローを制御できます。 詳細については、[PackageReference](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets) に関するページを参照してください。
 
@@ -134,7 +134,7 @@ PackageReference 形式を使用すると、依存関係から最上位のプロ
 
 パッケージの復元操作の間に、"1 つ以上のパッケージは <プロジェクトのターゲット フレームワーク> と互換性がありません" またはパッケージはプロジェクトのターゲット フレームワークと "互換性がありません" という内容のエラーが表示されることがあります。
 
-このエラーは、プロジェクトで参照されているパッケージの 1 つ以上が、プロジェクトのターゲット フレームワークをサポートしていることを示さない場合に発生します。つまり、パッケージの `lib` フォルダーには、プロジェクトと互換性のあるターゲット フレームワーク用の適切な DLL が含まれません (「[Target frameworks](../reference/target-frameworks.md)」(ターゲット フレームワーク) をご覧ください)。 
+このエラーは、プロジェクトで参照されているパッケージの 1 つ以上が、プロジェクトのターゲット フレームワークをサポートしていることを示さない場合に発生します。つまり、パッケージの `lib` フォルダーには、プロジェクトと互換性のあるターゲット フレームワーク用の適切な DLL が含まれません  (「[Target frameworks](../reference/target-frameworks.md)」(ターゲット フレームワーク) をご覧ください)。 
 
 たとえば、プロジェクトのターゲットが `netstandard1.6` で、`lib\net20` フォルダーと `\lib\net45` フォルダーのみに DLL が含まれるパッケージをインストールしようとすると、パッケージおよび場合によっては依存関係について、次のようなメッセージが表示されます。
 
