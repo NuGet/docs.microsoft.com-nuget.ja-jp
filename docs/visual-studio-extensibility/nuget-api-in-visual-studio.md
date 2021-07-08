@@ -763,7 +763,7 @@ public interface IVsPackageMetadata
     /// The version of the package.
     /// </summary>
     /// <remarks>
-    /// Use this property instead of the Version property becase with the type string,
+    /// Use this property instead of the Version property because with the type string,
     /// it doesn't require referencing NuGet.Core.dll assembly.
     /// </remarks>
     string VersionString { get; }
