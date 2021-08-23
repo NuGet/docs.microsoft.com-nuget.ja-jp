@@ -1,155 +1,153 @@
 ---
-title: NuGet 5.10 リリース ノート
-description: 新機能、バグ修正、DCRs など、NuGet 5.10 のリリース ノート。
+title: NuGet 5.10 リリースノート
+description: 新機能、バグ修正、および dcrs を含む NuGet 5.10 のリリースノート。
 author: zkat
 ms.author: kmarchan
 ms.date: 6/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 666eda5803b540dc18a9310f61c92dc74ff2089e
-ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
+ms.openlocfilehash: 80a372074604f5c0073f78927b84de00e78acc74
+ms.sourcegitcommit: 5f706c62c97b78bbe3d8c7e95659976535fe486f
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112356499"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122726952"
 ---
-# <a name="nuget-510-release-notes"></a>NuGet 5.10 リリース ノート
+# <a name="nuget-510-release-notes"></a>NuGet 5.10 リリースノート
 
 NuGet 配布の種類:
 
 | NuGet のバージョン | 利用可能な Visual Studio バージョン | 利用可能な .NET SDK |
 |:---|:---|:---|
-| [**5.10.0**](https://nuget.org/downloads) | [Visual Studio 2019 バージョン 16.10](https://visualstudio.microsoft.com/downloads/) | [5.0.300](https://dotnet.microsoft.com/download/dotnet-core/5.0)<sup>1</sup> |
+| [**5.10.0**](https://nuget.org/downloads) | [Visual Studio 2019 バージョン16.10](https://visualstudio.microsoft.com/downloads/) | [5.0.300](https://dotnet.microsoft.com/download/dotnet-core/5.0)<sup>1</sup> |
 
-<sup>1</sup> .NET Core ワークロードVisual Studio 2019 でインストール済み
+<sup>1</sup> Visual Studio 2019 と共に .net Core ワークロードと共にインストールされる
   
 > [!NOTE]
-> Visual Studio 16.10、MSBuild 16.10、および .NET 5.0.300 以降では、NuGet.exe 5.10 以降が必要です。
+> Visual Studio 16.10、MSBuild 16.10、および .net 5.0.300 + には NuGet.exe 5.10 以降が必要です。
 
 ## <a name="summary-whats-new-in-510"></a>概要: 5.10 の新機能
 
-* 署名: dotnet trusted-signers コマンドを実装する - [#8053](https://github.com/NuGet/Home/issues/8053)
+* 署名: dotnet 信頼署名者コマンド[#8053](https://github.com/NuGet/Home/issues/8053)を実装する
 
-* Linux では既定の検証を無効にし、Windows では既定[で有効にする](https://github.com/NuGet/Home/issues/10713)- #10713
+* Linux では既定の検証を無効にしますが、Windows- [#10713](https://github.com/NuGet/Home/issues/10713)では既定で有効になります。
 
-* .NET 5+ Linux/MAC でパッケージ署名検証用の ENV 変数を追加する - [#10742](https://github.com/NuGet/Home/issues/10742)
+* .NET 5 + Linux/MAC [#10742](https://github.com/NuGet/Home/issues/10742)でパッケージ署名検証用の ENV 変数を追加する
 
-* 大規模なソリューションの新しいパッケージのインストールパフォーマンスを向上させる - [#10166](https://github.com/NuGet/Home/issues/10166)
+* 大規模なソリューションのインストールの新しいパッケージのパフォーマンスを向上させる- [#10166](https://github.com/NuGet/Home/issues/10166)
 
-* `nfproj`Nuget CLI でサポートされているProjectExtensions の一覧にプロジェクトの種類を追加します。 - [#10562](https://github.com/NuGet/Home/issues/10562)
+* `nfproj`NUGET CLI の supportedProjectExtensions の一覧にプロジェクトの種類を追加します。 - [#10562](https://github.com/NuGet/Home/issues/10562)
 
 ### <a name="issues-fixed-in-this-release"></a>このリリースで修正された問題
 
-* プロジェクトを <requireLicenseAcceptance> パッキングするときに 要素を抑制[](https://github.com/NuGet/Home/issues/5133)する - #5133
+* `<requireLicenseAcceptance>`プロジェクトをパッキングするときに要素を非表示にする- [#5133](https://github.com/NuGet/Home/issues/5133)
 
-* [CPVM] dotnet cli にプレビューの警告が表示される必要があります - [#10226](https://github.com/NuGet/Home/issues/10226)
+* [CPVM] プレビューの警告を dotnet cli に表示する必要があり [#10226](https://github.com/NuGet/Home/issues/10226)
 
-* PMUI の背景色トークンと前景色トークンを CommonDocumentColors [-](https://github.com/NuGet/Home/issues/10608) #10608
+* PMUI の背景色と前景色のトークンを CommonDocumentColors に更新して [#10608](https://github.com/NuGet/Home/issues/10608)
 
-* [バグ Bash]PM UI でタブをすばやく切り替えるときにエラー "ユーザーによって取り消された操作" が [エラー一覧] ウィンドウに表示される - [#10671](https://github.com/NuGet/Home/issues/10671)
+* [バグ Bash]PM UI ですばやくタブを切り替えると、"ユーザーによって操作が取り消されました" というエラーがエラー一覧ウィンドウに表示される- [#10671](https://github.com/NuGet/Home/issues/10671)
 
-* PM UI: ソリューション レベルでのパッケージ インストールのパフォーマンスを向上させる - [#10210](https://github.com/NuGet/Home/issues/10210)
+* PM UI: ソリューションレベルでのパッケージインストールのパフォーマンスを向上させる- [#10210](https://github.com/NuGet/Home/issues/10210)
 
-* GetService を NuGet.Clients のすべての場所で GetServiceAsync に置き換える - [#3784](https://github.com/NuGet/Home/issues/3784)
+* NuGet 内のすべての場所で、GetService を GetServiceAsync に置き換えます。クライアント- [#3784](https://github.com/NuGet/Home/issues/3784)
 
-* NuGet.exeパスに関するパックパフォーマンス `..` の問題 - [#5016](https://github.com/NuGet/Home/issues/5016)
+* `..`相対パス[#5016](https://github.com/NuGet/Home/issues/5016)での NuGet.exe pack のパフォーマンスの問題
 
-* "nuget pack" のパフォーマンスは、ソース パスのレベルが上がって低下 [します。#5706](https://github.com/NuGet/Home/issues/5706)
+* ソースパスのレベルを上げると、"nuget pack" のパフォーマンスが低下します- [#5706](https://github.com/NuGet/Home/issues/5706)
 
-* 重複するファイルを含む nuspec をパッケージ化する場合、NuGet ではエラーが発生しない。 - [#6941](https://github.com/NuGet/Home/issues/6941)
+* 重複するファイルで nuspec をパッケージ化するときに NuGet がエラーになることはありません。 - [#6941](https://github.com/NuGet/Home/issues/6941)
 
-* NuGet パック "指定された DateTimeOffset を Zip ファイルのタイムスタンプに変換できません" [-](https://github.com/NuGet/Home/issues/7001) #7001
+* NuGet パック "指定された DateTimeOffset は Zip ファイルのタイムスタンプに変換できません"- [#7001](https://github.com/NuGet/Home/issues/7001)
 
-* パックされたパッケージのファイルのタイムスタンプは、タイムゾーンによってシフトされます[-](https://github.com/NuGet/Home/issues/7395) #7395
+* パックされたパッケージのファイルのタイムスタンプは、タイムゾーンの[#7395](https://github.com/NuGet/Home/issues/7395)によってシフトされます
 
-* NU1004 には、より多くのアクション可能な情報が含まれている必要[があります](https://github.com/NuGet/Home/issues/7696)- #7696
+* NU1004 には、より実用的な情報が含まれている必要があり [#7696](https://github.com/NuGet/Home/issues/7696)
 
-* [バグ Bash][テスト エラー]'dotnet restore --use-lock-file --locked-mode' - #8640 を実行するときに、空または形式のロック ファイル[を更新することはできません](https://github.com/NuGet/Home/issues/8640)。
+* [バグ Bash][テストの失敗]' Dotnet restore を実行しているときに、空または間違った形式のロックファイルを更新することはできません----lock-file--locked-- [#8640](https://github.com/NuGet/Home/issues/8640)
 
-* NuGetVersionRange を使用すると、論理的に正しくない範囲[](https://github.com/NuGet/Home/issues/9145)を解析#9145
+* NuGetVersionRange を使用すると、論理的に間違った範囲を解析することができ [#9145](https://github.com/NuGet/Home/issues/9145)
 
-* PM UI では、選択したパッケージ ソースとホバーされたパッケージ ソースの間で識別可能な背景色[を](https://github.com/NuGet/Home/issues/9538)表示できません - #9538
+* PM UI では、選択したパッケージソースとホバーしたパッケージソースの間に識別された背景色を表示できません- [#9538](https://github.com/NuGet/Home/issues/9538)
 
-* インストールするプロジェクトを選択する場合のチェック ボックスがスクリーン リーダーによって読[](https://github.com/NuGet/Home/issues/9578)み取#9578
+* インストールするプロジェクトを選択するためのチェックボックスがスクリーンリーダーによって読み込まれていません- [#9578](https://github.com/NuGet/Home/issues/9578)
 
-* 詳細ペインのバージョン ドロップダウンの既定の選択は、[インストール済み]/[更新] タブで [インストール済み]/[LatestStable] である必要があります - [#9887](https://github.com/NuGet/Home/issues/9887)
+* [詳細] ウィンドウのバージョンドロップダウンの既定の選択項目がインストールされているか、更新された[#9887](https://github.com/NuGet/Home/issues/9887)タブに LatestStable
 
-* 一部の .NET 5 SDK レポート TargetPlatformMoniker の回避策アカウントを削除 ` ,Version= `  -  [#9913](https://github.com/NuGet/Home/issues/9913)
+* 一部の .net 5 sdk レポート targetplatformmoniker レポートの回避策アカウントを削除 ` ,Version= `  -  [#9913](https://github.com/NuGet/Home/issues/9913)
 
-* dotnet nuget verify is too quiet - [#10316](https://github.com/NuGet/Home/issues/10316)
+* dotnet nuget 検証が小さすぎる- [#10316](https://github.com/NuGet/Home/issues/10316)
 
-* VersionRange で 1 桁の範囲を解析できない - [#10342](https://github.com/NuGet/Home/issues/10342)
+* VersionRange で1桁の範囲を解析できません- [#10342](https://github.com/NuGet/Home/issues/10342)
 
-* VS Solution Manager がデバッグ中に に null 例外を[スローする](https://github.com/NuGet/Home/issues/10352)- #10352
+* VS ソリューションマネージャーがデバッグ時に null 例外をスローする- [#10352](https://github.com/NuGet/Home/issues/10352)
 
-* CLI 例外メッセージを文字列リソース ファイルに移動する - [#10392](https://github.com/NuGet/Home/issues/10392)
+* CLI 例外メッセージを文字列リソースファイルに移動する- [#10392](https://github.com/NuGet/Home/issues/10392)
 
-* 使用されなコードを削除する (TabItemButtonAutomationPeer) - [#10435](https://github.com/NuGet/Home/issues/10435)
+* 停止しているコードの削除 (TabItemButtonAutomationPeer)- [#10435](https://github.com/NuGet/Home/issues/10435)
 
-* 更新コンテキスト メニューは、最初に選択した項目までスクロールする必要があります - [#10498](https://github.com/NuGet/Home/issues/10498)
+* コンテキストメニューを最初に選択した項目までスクロールする必要があります- [#10498](https://github.com/NuGet/Home/issues/10498)
 
-* ソリューション PMUI の詳細の横棒が重なっている - [#10533](https://github.com/NuGet/Home/issues/10533)
+* Solution PMUI の詳細に水平バーが重なっています- [#10533](https://github.com/NuGet/Home/issues/10533)
 
-* 署名: 証明書の有効期限が切れ、タイムスタンプが信頼されていない場合にプライマリ署名の詳細[が表示](https://github.com/NuGet/Home/issues/10535)されない - #10535
+* 署名: 証明書の有効期限が切れたときにプライマリ署名の詳細が表示されない- [#10535](https://github.com/NuGet/Home/issues/10535)
 
-* 有効なソースがない場合、PM UI が表示#10541 [](https://github.com/NuGet/Home/issues/10541)
+* 有効なソースがない場合、PM UI が- [#10541](https://github.com/NuGet/Home/issues/10541)表示されません
 
-* パッケージ メタデータ (詳細、非推奨) は、CodeSpaces の nuget.org からプルされない場合があります - [#10549](https://github.com/NuGet/Home/issues/10549)
+* パッケージメタデータ (詳細、廃止) は[#10549](https://github.com/NuGet/Home/issues/10549) 、CodeSpaces で nuget.org から引き出されないことがあります。
 
-* デバッグ セッション中に PMUI の初期化が例外で失敗する - [#10559](https://github.com/NuGet/Home/issues/10559)
+* デバッグセッション中に、PMUI の初期化が例外で失敗する- [#10559](https://github.com/NuGet/Home/issues/10559)
 
-* nuget の復元により、ビッグ エンディアン システムでパッケージの整合性チェックエラーが発生する - [#10567](https://github.com/NuGet/Home/issues/10567)
+* ビッグエンディアンシステムでパッケージの整合性チェックに失敗した場合、nuget の復元結果が [#10567](https://github.com/NuGet/Home/issues/10567)
 
-* PackagingException の代わりに FormatException が[スローされる](https://github.com/NuGet/Home/issues/10595)- #10595
+* FormatException は[#10595](https://github.com/NuGet/Home/issues/10595) 、の代わりにスローされます。
 
-* CPVM - グラフ の実行アルゴリズムでのコンカレンシーの問題 - [#10598](https://github.com/NuGet/Home/issues/10598)
+* CPVM-グラフウォークアルゴリズムでの同時実行の問題- [#10598](https://github.com/NuGet/Home/issues/10598)
 
-* PMC PowerShell バージョンのテレメトリを追加する - [#10609](https://github.com/NuGet/Home/issues/10609)
+* PMC powershell バージョンのテレメトリを追加する- [#10609](https://github.com/NuGet/Home/issues/10609)
 
-* NuGetVersion の並べ替えパフォーマンスの向上 - [#10611](https://github.com/NuGet/Home/issues/10611)
+* NuGetVersion 並べ替えのパフォーマンスを向上させる- [#10611](https://github.com/NuGet/Home/issues/10611)
 
-* 信頼できる署名者の追加に一貫性のない引数があります - [#10647](https://github.com/NuGet/Home/issues/10647)
+* 信頼された署名者の追加の引数が一致しません- [#10647](https://github.com/NuGet/Home/issues/10647)
 
-* Vs2019 v16.9.0: NuGet パッケージ マネージャー のタブを "更新プログラム" から "インストール済み" に切り替えても、フレームは更新されません。 - [#10654](https://github.com/NuGet/Home/issues/10654)
+* Vs2019 v 16.9.0: NuGet パッケージマネージャーのタブを [更新] から [インストール済み] に切り替えると、フレームが更新されません。 - [#10654](https://github.com/NuGet/Home/issues/10654)
 
-* PMUI のバージョン番号から "v" を[削除する](https://github.com/NuGet/Home/issues/10677)- #10677
+* PMUI- [#10677](https://github.com/NuGet/Home/issues/10677)のバージョン番号から "v" を削除します。
 
-* INuGetProjectService.GetInstalledPackagesAsync は、CPS プロジェクト システムの指定を受け取る前に を[スローします](https://github.com/NuGet/Home/issues/10681)- #10681
+* INuGetProjectService は、CPS プロジェクトシステムの申請を受け取る前に、 [#10681](https://github.com/NuGet/Home/issues/10681)をスローします。
 
-* [参照] タブの [埋め込みアイコンMicrosoft Visual Studioソースからアクセスが拒否される - [#10687](https://github.com/NuGet/Home/issues/10687)
+* 埋め込みアイコンを使用すると、[参照] タブの[#10687](https://github.com/NuGet/Home/issues/10687)で、ソース "Microsoft Visual Studio オフラインパッケージ" からアクセスが拒否される
 
-* MSBuildProjectExtensionsPath が設定されていない場合に INuGetProjectService.GetInstalledPackagesAsync が[スローされる](https://github.com/NuGet/Home/issues/10739)- #10739
+* MSBuildProjectExtensionsPath が設定されていない場合[#10739](https://github.com/NuGet/Home/issues/10739) 、INuGetProjectService がスローされます。
 
-* "dotnet nuget remove source nuget.org" が初めて動作しない[-](https://github.com/NuGet/Home/issues/10745) #10745
+* "dotnet nuget remove source nuget.org" は初回[#10745](https://github.com/NuGet/Home/issues/10745)は機能しません
 
-* Nuget は、UI スレッドへの同期呼び出しを行う非同期メソッドでスレッドプール スレッドをブロックします [#10775。](https://github.com/NuGet/Home/issues/10775)
+* Nuget は、非同期メソッドで threadpool スレッドをブロックし、UI スレッドへの同期呼び出しを行い [#10775](https://github.com/NuGet/Home/issues/10775)
 
-* ツール -> オプション -> NuGet パッケージ マネージャー文字列が切り捨てられる - [#10779](https://github.com/NuGet/Home/issues/10779)
+* `PackageLoadContext.GetInstalledAndTransitivePackagesAsync` 配信不能コードと低下パフォーマンス- [#10790](https://github.com/NuGet/Home/issues/10790)
 
-* `PackageLoadContext.GetInstalledAndTransitivePackagesAsync` が実行され、パフォーマンスが低下する - [#10790](https://github.com/NuGet/Home/issues/10790)
+* NuGet SDK パッケージで埋め込みアイコンを使用する- [#10795](https://github.com/NuGet/Home/issues/10795)
 
-* NuGet SDK パッケージで埋め込みアイコンを使用する - [#10795](https://github.com/NuGet/Home/issues/10795)
+* SPDX ライセンスリストを更新する- [#10806](https://github.com/NuGet/Home/issues/10806)
 
-* SPDX ライセンス の一覧を更新する - [#10806](https://github.com/NuGet/Home/issues/10806)
-
-**[このリリースで修正された問題の一覧 - 5.10](https://app.zenhub.com/workspaces/nuget-client-team-55aec9a240305cf007585881/reports/release?release=Z2lkOi8vcmFwdG9yL1JlbGVhc2UvNTY2MTQ)**
+**[このリリースで修正されるすべての問題の一覧-5.10](https://app.zenhub.com/workspaces/nuget-client-team-55aec9a240305cf007585881/reports/release?release=Z2lkOi8vcmFwdG9yL1JlbGVhc2UvNTY2MTQ)**
   
-**[このリリースのコミットの一覧 - 5.10.0](https://github.com/NuGet/NuGet.Client/compare/5.9.0.7134...5.10.0.7240)**
+**[このリリースのコミットの一覧-5.10.0](https://github.com/NuGet/NuGet.Client/compare/5.9.0.7134...5.10.0.7240)**
   
 ### <a name="community-contributions"></a>コミュニティからの投稿
 
-この NuGet リリースをすばらしいものにするのに役立ったすべての共同作成者に感謝します。
+この NuGet リリースに役立った共同作成者全員に感謝します。
 
-|担当者|Prs|発行|
+|担当者|Pr|発行|
 |----|----|----|
-[は、次の値を使用します。](https://github.com/louis-z) | [3991](https://github.com/NuGet/NuGet.Client/pull/3991) | VersionRange で 1 桁の範囲を解析できない - [#10342](https://github.com/NuGet/Home/issues/10342)
-[omajid](https://github.com/omajid) | [3860](https://github.com/NuGet/NuGet.Client/pull/3860) | NuGet.Client build.sh 破損しています - [#10139](https://github.com/NuGet/Home/issues/10139)
-[Malmal4G](https://github.com/Nirmal4G) | [3623](https://github.com/NuGet/NuGet.Client/pull/3623) | NuGet.Client build.sh 破損しています - [#10139](https://github.com/NuGet/Home/issues/10139)
-[BlackGad](https://github.com/BlackGad) | [3953](https://github.com/NuGet/NuGet.Client/pull/3953) | "nuget pack" のパフォーマンスは、ソース パスのレベルが上がって低下 [します。#5706](https://github.com/NuGet/Home/issues/5706)
-[BlackGad](https://github.com/BlackGad) | [3953](https://github.com/NuGet/NuGet.Client/pull/3953) | NuGet.exeのパフォーマンスの問題を修正しました。 相対パス - [#5016](https://github.com/NuGet/Home/issues/5016)
-[marcin-krystianc](https://github.com/marcin-krystianc) | [3940](https://github.com/NuGet/NuGet.Client/pull/3940) | CPVM - グラフ の実行アルゴリズムでのコンカレンシーの問題 - [#10598](https://github.com/NuGet/Home/issues/10598)
-[(1970 年 1 月 12 月](https://github.com/josesimoes) | [3943](https://github.com/NuGet/NuGet.Client/pull/3943) | プロジェクトの種類 nfproj を Nuget CLI でサポートされているProjectExtensions の一覧に追加します。 - [#10562](https://github.com/NuGet/Home/issues/10562)
+[ルイス-z](https://github.com/louis-z) | [3991](https://github.com/NuGet/NuGet.Client/pull/3991) | VersionRange で1桁の範囲を解析できません- [#10342](https://github.com/NuGet/Home/issues/10342)
+[omajid](https://github.com/omajid) | [3860](https://github.com/NuGet/NuGet.Client/pull/3860) | NuGet。クライアント build.sh が壊れています- [#10139](https://github.com/NuGet/Home/issues/10139)
+[Nirmal4G](https://github.com/Nirmal4G) | [3623](https://github.com/NuGet/NuGet.Client/pull/3623) | NuGet。クライアント build.sh が壊れています- [#10139](https://github.com/NuGet/Home/issues/10139)
+[BlackGad](https://github.com/BlackGad) | [3953](https://github.com/NuGet/NuGet.Client/pull/3953) | ソースパスのレベルを上げると、"nuget pack" のパフォーマンスが低下します- [#5706](https://github.com/NuGet/Home/issues/5706)
+[BlackGad](https://github.com/BlackGad) | [3953](https://github.com/NuGet/NuGet.Client/pull/3953) | NuGet.exe pack のパフォーマンスに問題があります... 相対パス- [#5016](https://github.com/NuGet/Home/issues/5016)
+[marcin-krystianc](https://github.com/marcin-krystianc) | [3940](https://github.com/NuGet/NuGet.Client/pull/3940) | CPVM-グラフウォークアルゴリズムでの同時実行の問題- [#10598](https://github.com/NuGet/Home/issues/10598)
+[このように](https://github.com/josesimoes) | [3943](https://github.com/NuGet/NuGet.Client/pull/3943) | Nuget CLI の supportedProjectExtensions の一覧に、プロジェクトの種類として「モジュール」を追加します。 - [#10562](https://github.com/NuGet/Home/issues/10562)
 
-## <a name="feedback-welcome"></a>フィードバックへようこそ
+## <a name="feedback-welcome"></a>フィードバックの開始
 
-お客様のフィードバックは Microsoft にとって重要です。  このリリースで問題が発生した場合は [、GitHub](https://github.com/NuGet/Home/issues) の問題と既存の問題 [Visual Studio Developer Community確認してください](https://developercommunity.visualstudio.com/) 。  NuGet 内の新しい問題については [、GitHub の問題 を報告してください](https://github.com/NuGet/Home/issues/new)。
-NuGet エクスペリエンスに関する一般的な問題については、[](/visualstudio/ide/how-to-report-a-problem-with-visual-studio)お気に入りの IDE の [問題の報告] オプションの [ヘルプ] の [問題の報告] >**お知らせください**。
+お客様のフィードバックは Microsoft にとって重要です。  このリリースに問題がある場合は、GitHub の[問題](https://github.com/NuGet/Home/issues)を確認し、既存の問題について[開発者 Community を Visual Studio](https://developercommunity.visualstudio.com/)してください。  NuGet 内の新しい問題については、 [GitHub の問題](https://github.com/NuGet/Home/issues/new)を報告してください。
+NuGet エクスペリエンスに関する一般的な問題については、[**ヘルプ] >**[問題の報告] の下にあるお気に入りの IDE にある [問題点の [報告](/visualstudio/ide/how-to-report-a-problem-with-visual-studio)] オプションを使用してお知らせください。
