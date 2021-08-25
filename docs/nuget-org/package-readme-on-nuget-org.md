@@ -6,16 +6,16 @@ ms.author: chgill
 ms.date: 02/23/2021
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: a5d68329128c9e9d047fe10e08ce41f1ae0895b4
-ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
+ms.openlocfilehash: ac0e89c1f5ef9eb19c29646bcc76bcb0b460c5cd
+ms.sourcegitcommit: adb261dd4b2a8cd75447f7b5ea6a9e5a1a54d61d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107902228"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122209944"
 ---
 # <a name="package-readme-on-nugetorg"></a>NuGet.org でのパッケージの readme
 
-[NuGet パッケージに readme ファイルを含める](https://docs.microsoft.com/nuget/reference/msbuild-targets#packagereadmefile)ことにより、パッケージの詳細を充実させ、ユーザーにとって有益なものにすることができます。
+[NuGet パッケージに readme ファイルを含める](/nuget/reference/msbuild-targets#packagereadmefile)ことにより、パッケージの詳細を充実させ、ユーザーにとって有益なものにすることができます。
 
 これは、おそらく、ユーザーが NuGet.org でパッケージの詳細ページを表示して最初の見る要素の 1 つであり、良い印象を与えるために不可欠です。
 
@@ -36,7 +36,7 @@ readme には次の項目を含めることを検討してください。
 
 ## <a name="preview-your-readme"></a>readme をプレビューする
 
-NuGet.org で公開される前に readme ファイルをプレビューするには、[NuGet.org のパッケージのアップロード Web ポータル](https://docs.microsoft.com/nuget/nuget-org/publish-a-package#web-portal-use-the-upload-package-tab-on-nugetorg)を使用してパッケージをアップロードし、メタデータ プレビューの [Readme File]\(readme ファイル\) セクションまで下にスクロールします。 次のように表示されます。
+NuGet.org で公開される前に readme ファイルをプレビューするには、[NuGet.org のパッケージのアップロード Web ポータル](/nuget/nuget-org/publish-a-package#web-portal-use-the-upload-package-tab-on-nugetorg)を使用してパッケージをアップロードし、メタデータ プレビューの [Readme File]\(readme ファイル\) セクションまで下にスクロールします。 次のように表示されます。
 
 ![readme ファイルのプレビュー](media\readme-upload-preview.PNG)
 
@@ -48,6 +48,7 @@ NuGet.org で公開される前に readme ファイルをプレビューする�
 NuGet.org によりレンダリングが許可されているのは、次の信頼されたドメインのバッジを含むすべての画像です。
 * api.bintray.com
 * api.codacy.com
+* app.codacy.com
 * api.codeclimate.com
 * api.dependabot.com
 * api.travis-ci.com
@@ -59,6 +60,7 @@ NuGet.org によりレンダリングが許可されているのは、次の信�
 * bettercodehub.com
 * buildstats.info
 * camo.githubusercontent.com
+* cdn.jsdelivr.net
 * ci.appveyor.com
 * circleci.com
 * codecov.io
@@ -68,6 +70,7 @@ NuGet.org によりレンダリングが許可されているのは、次の信�
 * github.com/.../workflows/.../badge.svg
 * gitlab.com
 * img.shields.io
+* i.imgur.com
 * isitmaintained.com
 * opencollective.com
 * raw.github.com
