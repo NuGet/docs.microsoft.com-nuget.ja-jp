@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 02/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: e0f235d99e41e23a4551fbf7577f6c42e3381f5b
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: 4575d4779ed90150cec667489c85875b7fb87a8d
+ms.sourcegitcommit: 5f706c62c97b78bbe3d8c7e95659976535fe486f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859227"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122726978"
 ---
 # <a name="best-practices-for-a-secure-software-supply-chain"></a>セキュリティで保護されたソフトウェア サプライ チェーンのベスト プラクティス
 
@@ -124,7 +124,7 @@ Dependabot のアラートとセキュリティ更新プログラムの詳細に
 
 パブリックとプライベートの複数の NuGet ソース フィードを使用している場合は、任意のフィードからパッケージをダウンロードできます。 [依存関係かく乱](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610)などの既知の攻撃をビルドで予測してセキュリティ保護できるようにするには、パッケージの取得元である特定のフィードを把握するのがベスト プラクティスです。 保護のためには上流の機能で単一のフィードまたはプライベート フィードを使用できます。
 
-パッケージ フィードのセキュリティ保護の詳細については、「[プライベート パッケージ フィードを使用するときにリスクを軽減する 3 つの方法](https://azure.microsoft.com/en-us/resources/3-ways-to-mitigate-risk-using-private-package-feeds/)」を参照してください。
+パッケージ フィードのセキュリティ保護の詳細については、「[プライベート パッケージ フィードを使用するときにリスクを軽減する 3 つの方法](https://azure.microsoft.com/resources/3-ways-to-mitigate-risk-using-private-package-feeds/)」を参照してください。
 
 ### <a name="client-trust-policies"></a>クライアント信頼ポリシー
 
